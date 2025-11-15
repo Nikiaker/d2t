@@ -1,8 +1,9 @@
 name: openevolve-env
+channels:
+  - conda-forge
+  - defaults
 dependencies:
   - vllm
-  - lmcache
-  - huggingface-hub
   - openai
   - pyyaml
   - numpy

@@ -1,0 +1,149 @@
+2025-11-15 16:02:29,944 - openevolve.controller - INFO - Logging to openevolve_output/logs/openevolve_20251115_160229.log
+2025-11-15 16:02:29,955 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2025-11-15 16:02:30,038 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-15 16:02:30,038 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8 (weight: 1.00)
+2025-11-15 16:02:30,048 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2025-11-15 16:02:30,049 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-11-15 16:02:30,049 - openevolve.database - INFO - Initialized program database with 0 programs
+2025-11-15 16:02:30,051 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-11-15 16:02:30,051 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-11-15 16:02:30,051 - openevolve.controller - INFO - Initialized OpenEvolve with initial_program.py
+2025-11-15 16:02:30,051 - openevolve.controller - INFO - Adding initial program to database
+2025-11-15 16:02:30,058 - openevolve.evaluator - INFO - Evaluated program 261194fd-1848-45a9-a523-e69a0b33408b in 0.01s: runs_successfully=1.0000, value_score=0.4480, distance_score=0.2391, combined_score=0.2915
+2025-11-15 16:02:30,058 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2025-11-15 16:02:30,060 - openevolve.process_parallel - INFO - Initialized process parallel controller with 3 workers
+2025-11-15 16:02:30,061 - openevolve.process_parallel - INFO - Started process pool with 3 processes
+2025-11-15 16:02:30,061 - openevolve.controller - INFO - Using island-based evolution with 3 islands
+2025-11-15 16:02:30,061 - openevolve.database - INFO - Island Status:
+2025-11-15 16:02:30,061 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.2915, avg=0.2915, diversity=0.00, gen=0 (best: 261194fd-1848-45a9-a523-e69a0b33408b)
+2025-11-15 16:02:30,061 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2025-11-15 16:02:30,061 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2025-11-15 16:02:30,061 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 10 iterations (total: 11)
+2025-11-15 16:02:30,071 - openevolve.process_parallel - INFO - Early stopping disabled
+2025-11-15 16:02:30,101 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-11-15 16:02:30,103 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-11-15 16:02:30,103 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-11-15 16:02:30,105 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-15 16:02:30,135 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-11-15 16:02:30,136 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-11-15 16:02:30,136 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-11-15 16:02:30,138 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-15 16:02:30,148 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-11-15 16:02:30,149 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-11-15 16:02:30,149 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-11-15 16:02:30,150 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-15 16:02:30,511 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:02:30,512 - openevolve.llm.openai - WARNING - Error on attempt 1/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:02:30,565 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:02:30,566 - openevolve.llm.openai - WARNING - Error on attempt 1/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:02:30,585 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:02:30,586 - openevolve.llm.openai - WARNING - Error on attempt 1/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:02:35,517 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:02:35,518 - openevolve.llm.openai - WARNING - Error on attempt 2/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:02:35,574 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:02:35,575 - openevolve.llm.openai - WARNING - Error on attempt 2/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:02:35,592 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:02:35,593 - openevolve.llm.openai - WARNING - Error on attempt 2/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:02:40,524 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:02:40,525 - openevolve.llm.openai - WARNING - Error on attempt 3/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:02:40,582 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:02:40,582 - openevolve.llm.openai - WARNING - Error on attempt 3/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:02:40,601 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:02:40,601 - openevolve.llm.openai - WARNING - Error on attempt 3/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:02:45,533 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:02:45,534 - openevolve.llm.openai - ERROR - All 4 attempts failed with error: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:02:45,534 - openevolve.process_parallel - ERROR - LLM generation failed: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:02:45,535 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-15 16:02:45,537 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:02:45,537 - openevolve.llm.openai - WARNING - Error on attempt 1/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:02:45,543 - openevolve.process_parallel - WARNING - Iteration 3 error: LLM generation failed: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:02:45,588 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:02:45,589 - openevolve.llm.openai - ERROR - All 4 attempts failed with error: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:02:45,590 - openevolve.process_parallel - ERROR - LLM generation failed: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:02:45,590 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-15 16:02:45,593 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:02:45,593 - openevolve.llm.openai - WARNING - Error on attempt 1/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:02:45,594 - openevolve.process_parallel - WARNING - Iteration 2 error: LLM generation failed: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:02:45,608 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:02:45,608 - openevolve.llm.openai - ERROR - All 4 attempts failed with error: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:02:45,609 - openevolve.process_parallel - ERROR - LLM generation failed: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:02:45,610 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-15 16:02:45,612 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:02:45,613 - openevolve.llm.openai - WARNING - Error on attempt 1/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:02:45,614 - openevolve.process_parallel - WARNING - Iteration 1 error: LLM generation failed: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:02:50,541 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:02:50,542 - openevolve.llm.openai - WARNING - Error on attempt 2/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:02:50,601 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:02:50,601 - openevolve.llm.openai - WARNING - Error on attempt 2/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:02:50,621 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:02:50,622 - openevolve.llm.openai - WARNING - Error on attempt 2/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:02:55,550 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:02:55,551 - openevolve.llm.openai - WARNING - Error on attempt 3/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:02:55,609 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:02:55,610 - openevolve.llm.openai - WARNING - Error on attempt 3/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:02:55,630 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:02:55,630 - openevolve.llm.openai - WARNING - Error on attempt 3/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:03:00,559 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:03:00,560 - openevolve.llm.openai - ERROR - All 4 attempts failed with error: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:03:00,560 - openevolve.process_parallel - ERROR - LLM generation failed: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:03:00,561 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-15 16:03:00,562 - openevolve.process_parallel - WARNING - Iteration 4 error: LLM generation failed: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:03:00,563 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:03:00,564 - openevolve.llm.openai - WARNING - Error on attempt 1/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:03:00,615 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:03:00,616 - openevolve.llm.openai - ERROR - All 4 attempts failed with error: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:03:00,616 - openevolve.process_parallel - ERROR - LLM generation failed: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:03:00,617 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-15 16:03:00,619 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:03:00,619 - openevolve.llm.openai - WARNING - Error on attempt 1/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:03:00,623 - openevolve.process_parallel - WARNING - Iteration 5 error: LLM generation failed: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:03:00,636 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:03:00,636 - openevolve.llm.openai - ERROR - All 4 attempts failed with error: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:03:00,637 - openevolve.process_parallel - ERROR - LLM generation failed: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:03:00,638 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-15 16:03:00,640 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:03:00,640 - openevolve.llm.openai - WARNING - Error on attempt 1/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:03:00,643 - openevolve.process_parallel - WARNING - Iteration 6 error: LLM generation failed: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:03:05,568 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:03:05,569 - openevolve.llm.openai - WARNING - Error on attempt 2/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:03:05,624 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:03:05,625 - openevolve.llm.openai - WARNING - Error on attempt 2/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:03:05,644 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:03:05,644 - openevolve.llm.openai - WARNING - Error on attempt 2/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:03:10,577 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:03:10,578 - openevolve.llm.openai - WARNING - Error on attempt 3/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:03:10,628 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:03:10,629 - openevolve.llm.openai - WARNING - Error on attempt 3/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:03:10,652 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:03:10,653 - openevolve.llm.openai - WARNING - Error on attempt 3/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:03:15,586 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:03:15,587 - openevolve.llm.openai - ERROR - All 4 attempts failed with error: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:03:15,588 - openevolve.process_parallel - ERROR - LLM generation failed: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:03:15,588 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-15 16:03:15,590 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:03:15,590 - openevolve.llm.openai - WARNING - Error on attempt 1/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:03:15,591 - openevolve.process_parallel - WARNING - Iteration 7 error: LLM generation failed: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:03:15,636 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:03:15,637 - openevolve.llm.openai - ERROR - All 4 attempts failed with error: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:03:15,637 - openevolve.process_parallel - ERROR - LLM generation failed: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:03:15,642 - openevolve.process_parallel - WARNING - Iteration 8 error: LLM generation failed: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:03:15,660 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:03:15,661 - openevolve.llm.openai - ERROR - All 4 attempts failed with error: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:03:15,661 - openevolve.process_parallel - ERROR - LLM generation failed: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:03:15,662 - openevolve.process_parallel - WARNING - Iteration 9 error: LLM generation failed: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:03:20,598 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:03:20,599 - openevolve.llm.openai - WARNING - Error on attempt 2/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:03:25,607 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:03:25,608 - openevolve.llm.openai - WARNING - Error on attempt 3/4: Error code: 401 - {'error': 'Unauthorized'}. Retrying...
+2025-11-15 16:03:30,612 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-11-15 16:03:30,613 - openevolve.llm.openai - ERROR - All 4 attempts failed with error: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:03:30,614 - openevolve.process_parallel - ERROR - LLM generation failed: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:03:30,619 - openevolve.process_parallel - WARNING - Iteration 10 error: LLM generation failed: Error code: 401 - {'error': 'Unauthorized'}
+2025-11-15 16:03:30,619 - openevolve.process_parallel - INFO - ✅ Evolution completed - Maximum iterations reached
+2025-11-15 16:03:30,626 - openevolve.database - INFO - Saved database with 1 programs to openevolve_output/checkpoints/checkpoint_10
+2025-11-15 16:03:30,637 - openevolve.controller - INFO - Saved best program at checkpoint 10 with metrics: runs_successfully=1.0000, value_score=0.4480, distance_score=0.2391, combined_score=0.2915
+2025-11-15 16:03:30,637 - openevolve.controller - INFO - Saved checkpoint at iteration 10 to openevolve_output/checkpoints/checkpoint_10
+2025-11-15 16:03:30,650 - openevolve.process_parallel - INFO - Stopped process pool
+2025-11-15 16:03:30,650 - openevolve.controller - INFO - Using tracked best program: 261194fd-1848-45a9-a523-e69a0b33408b
+2025-11-15 16:03:30,650 - openevolve.controller - INFO - Evolution complete. Best program has metrics: runs_successfully=1.0000, value_score=0.4480, distance_score=0.2391, combined_score=0.2915
+2025-11-15 16:03:30,656 - openevolve.controller - INFO - Saved best program to openevolve_output/best/best_program.py with program info to openevolve_output/best/best_program_info.json
