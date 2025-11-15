@@ -1,0 +1,6 @@
+apply_diff() - method that parser the current code with changes
+
+You can specify your own custom templates with config:
+prompt:
+  template_dir: "./templates/"
+The default templates are in openevolve/configs/default_config.yaml

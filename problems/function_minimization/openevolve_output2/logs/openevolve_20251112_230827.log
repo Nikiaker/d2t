@@ -1,0 +1,195 @@
+2025-11-12 23:08:27,518 - openevolve.controller - INFO - Logging to openevolve_output/logs/openevolve_20251112_230827.log
+2025-11-12 23:08:27,522 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2025-11-12 23:08:27,557 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-12 23:08:27,557 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8 (weight: 1.00)
+2025-11-12 23:08:27,573 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2025-11-12 23:08:27,574 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-11-12 23:08:27,574 - openevolve.database - INFO - Initialized program database with 0 programs
+2025-11-12 23:08:27,575 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-11-12 23:08:27,575 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-11-12 23:08:27,575 - openevolve.controller - INFO - Initialized OpenEvolve with initial_program.py
+2025-11-12 23:08:27,575 - openevolve.controller - INFO - Adding initial program to database
+2025-11-12 23:08:27,580 - openevolve.evaluator - INFO - Evaluated program 8f67f248-52e5-4976-b05d-3b85739dbf42 in 0.01s: runs_successfully=1.0000, value_score=0.4480, distance_score=0.2391, combined_score=0.2915
+2025-11-12 23:08:27,580 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2025-11-12 23:08:27,581 - openevolve.process_parallel - INFO - Initialized process parallel controller with 3 workers
+2025-11-12 23:08:27,582 - openevolve.process_parallel - INFO - Started process pool with 3 processes
+2025-11-12 23:08:27,582 - openevolve.controller - INFO - Using island-based evolution with 3 islands
+2025-11-12 23:08:27,582 - openevolve.database - INFO - Island Status:
+2025-11-12 23:08:27,582 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.2915, avg=0.2915, diversity=0.00, gen=0 (best: 8f67f248-52e5-4976-b05d-3b85739dbf42)
+2025-11-12 23:08:27,582 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2025-11-12 23:08:27,582 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2025-11-12 23:08:27,582 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 20 iterations (total: 21)
+2025-11-12 23:08:27,587 - openevolve.process_parallel - INFO - Early stopping disabled
+2025-11-12 23:08:27,625 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-11-12 23:08:27,625 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-11-12 23:08:27,625 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-11-12 23:08:27,625 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-11-12 23:08:27,625 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-11-12 23:08:27,625 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-11-12 23:08:27,625 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-11-12 23:08:27,626 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-11-12 23:08:27,626 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-11-12 23:08:27,626 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-12 23:08:27,626 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-12 23:08:27,627 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-12 23:08:45,069 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 23:08:45,079 - openevolve.evaluator - INFO - Evaluated program 668b822a-f9a6-44ae-8e34-360a7135ead2 in 0.01s: runs_successfully=1.0000, value_score=0.8497, distance_score=0.7449, combined_score=1.1309
+2025-11-12 23:08:45,080 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-12 23:08:45,085 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 5}
+2025-11-12 23:08:45,085 - openevolve.database - INFO - New best program 668b822a-f9a6-44ae-8e34-360a7135ead2 replaces 8f67f248-52e5-4976-b05d-3b85739dbf42 (combined_score: 0.2915 → 1.1309, +0.8393)
+2025-11-12 23:08:45,085 - openevolve.process_parallel - INFO - Iteration 1: Program 668b822a-f9a6-44ae-8e34-360a7135ead2 (parent: 8f67f248-52e5-4976-b05d-3b85739dbf42) completed in 17.45s
+2025-11-12 23:08:45,085 - openevolve.process_parallel - INFO - Metrics: runs_successfully=1.0000, value_score=0.8497, distance_score=0.7449, combined_score=1.1309
+2025-11-12 23:08:45,085 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 1: 668b822a-f9a6-44ae-8e34-360a7135ead2
+2025-11-12 23:08:46,844 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 23:08:46,844 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 23:08:46,853 - openevolve.evaluator - INFO - Evaluated program e53f8777-7702-45a7-86c2-5c270faacf93 in 0.00s: runs_successfully=1.0000, value_score=0.9645, distance_score=0.8672, combined_score=1.2958
+2025-11-12 23:08:46,854 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-12 23:08:46,857 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 9, 'diversity': 5} (fitness: 1.131 -> 1.296)
+2025-11-12 23:08:46,857 - openevolve.database - INFO - New best program e53f8777-7702-45a7-86c2-5c270faacf93 replaces 668b822a-f9a6-44ae-8e34-360a7135ead2 (combined_score: 1.1309 → 1.2958, +0.1649)
+2025-11-12 23:08:46,857 - openevolve.process_parallel - INFO - Iteration 2: Program e53f8777-7702-45a7-86c2-5c270faacf93 (parent: 8f67f248-52e5-4976-b05d-3b85739dbf42) completed in 19.23s
+2025-11-12 23:08:46,858 - openevolve.process_parallel - INFO - Metrics: runs_successfully=1.0000, value_score=0.9645, distance_score=0.8672, combined_score=1.2958
+2025-11-12 23:08:46,858 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 2: e53f8777-7702-45a7-86c2-5c270faacf93
+2025-11-12 23:08:46,887 - openevolve.evaluator - INFO - Evaluated program ccd24b5d-131a-458a-9082-da0c277f64e9 in 0.04s: runs_successfully=1.0000, value_score=0.9637, distance_score=0.8306, combined_score=1.3966, reliability_score=1.0000
+2025-11-12 23:08:46,888 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-12 23:08:46,888 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 9, 'diversity': 5} (fitness: 1.296 -> 1.397)
+2025-11-12 23:08:46,888 - openevolve.database - INFO - New best program ccd24b5d-131a-458a-9082-da0c277f64e9 replaces e53f8777-7702-45a7-86c2-5c270faacf93 (combined_score: 1.2958 → 1.3966, +0.1008)
+2025-11-12 23:08:46,889 - openevolve.process_parallel - INFO - Iteration 3: Program ccd24b5d-131a-458a-9082-da0c277f64e9 (parent: 8f67f248-52e5-4976-b05d-3b85739dbf42) completed in 19.26s
+2025-11-12 23:08:46,889 - openevolve.process_parallel - INFO - Metrics: runs_successfully=1.0000, value_score=0.9637, distance_score=0.8306, combined_score=1.3966, reliability_score=1.0000
+2025-11-12 23:08:46,889 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 3: ccd24b5d-131a-458a-9082-da0c277f64e9
+2025-11-12 23:09:01,538 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 23:09:01,580 - openevolve.evaluator - INFO - Evaluated program e711194e-b112-4680-8367-8f54e248654e in 0.04s: runs_successfully=1.0000, value_score=0.9618, distance_score=0.8369, combined_score=1.3979, reliability_score=1.0000
+2025-11-12 23:09:01,581 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-12 23:09:01,590 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 9, 'diversity': 5} (fitness: 1.397 -> 1.398)
+2025-11-12 23:09:01,591 - openevolve.database - INFO - New best program e711194e-b112-4680-8367-8f54e248654e replaces ccd24b5d-131a-458a-9082-da0c277f64e9 (combined_score: 1.3966 → 1.3979, +0.0014)
+2025-11-12 23:09:01,591 - openevolve.process_parallel - INFO - Iteration 4: Program e711194e-b112-4680-8367-8f54e248654e (parent: 8f67f248-52e5-4976-b05d-3b85739dbf42) completed in 16.50s
+2025-11-12 23:09:01,591 - openevolve.process_parallel - INFO - Metrics: runs_successfully=1.0000, value_score=0.9618, distance_score=0.8369, combined_score=1.3979, reliability_score=1.0000
+2025-11-12 23:09:01,591 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 4: e711194e-b112-4680-8367-8f54e248654e
+2025-11-12 23:09:04,350 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 23:09:04,389 - openevolve.evaluator - INFO - Evaluated program d2ce709d-3aad-4a6d-98fd-f2b3018e852b in 0.04s: runs_successfully=1.0000, value_score=0.9591, distance_score=0.8481, combined_score=1.4009, reliability_score=1.0000
+2025-11-12 23:09:04,391 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-12 23:09:04,395 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 9, 'diversity': 5} (fitness: 1.398 -> 1.401)
+2025-11-12 23:09:04,395 - openevolve.database - INFO - New best program d2ce709d-3aad-4a6d-98fd-f2b3018e852b replaces e711194e-b112-4680-8367-8f54e248654e (combined_score: 1.3979 → 1.4009, +0.0030)
+2025-11-12 23:09:04,395 - openevolve.process_parallel - INFO - Iteration 5: Program d2ce709d-3aad-4a6d-98fd-f2b3018e852b (parent: 8f67f248-52e5-4976-b05d-3b85739dbf42) completed in 17.54s
+2025-11-12 23:09:04,395 - openevolve.process_parallel - INFO - Metrics: runs_successfully=1.0000, value_score=0.9591, distance_score=0.8481, combined_score=1.4009, reliability_score=1.0000
+2025-11-12 23:09:04,395 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 5: d2ce709d-3aad-4a6d-98fd-f2b3018e852b
+2025-11-12 23:09:04,395 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 5
+2025-11-12 23:09:04,395 - openevolve.database - INFO - Island Status:
+2025-11-12 23:09:04,396 - openevolve.database - INFO -    Island 0: 2 programs, best=1.4009, avg=0.8462, diversity=20.40, gen=2 (best: d2ce709d-3aad-4a6d-98fd-f2b3018e852b)
+2025-11-12 23:09:04,396 - openevolve.database - INFO -  * Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=2
+2025-11-12 23:09:04,396 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=1
+2025-11-12 23:09:04,398 - openevolve.database - INFO - Saved database with 6 programs to openevolve_output/checkpoints/checkpoint_5
+2025-11-12 23:09:04,398 - openevolve.controller - INFO - Saved best program at checkpoint 5 with metrics: runs_successfully=1.0000, value_score=0.9591, distance_score=0.8481, combined_score=1.4009, reliability_score=1.0000
+2025-11-12 23:09:04,398 - openevolve.controller - INFO - Saved checkpoint at iteration 5 to openevolve_output/checkpoints/checkpoint_5
+2025-11-12 23:09:07,336 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 23:09:07,375 - openevolve.evaluator - INFO - Evaluated program f5353add-b356-4990-8889-555ca8971449 in 0.04s: runs_successfully=1.0000, value_score=0.9766, distance_score=0.8685, combined_score=1.4233, reliability_score=1.0000
+2025-11-12 23:09:07,376 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-12 23:09:07,385 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 9, 'diversity': 5} (fitness: 1.401 -> 1.423)
+2025-11-12 23:09:07,385 - openevolve.database - INFO - New best program f5353add-b356-4990-8889-555ca8971449 replaces d2ce709d-3aad-4a6d-98fd-f2b3018e852b (combined_score: 1.4009 → 1.4233, +0.0223)
+2025-11-12 23:09:07,385 - openevolve.process_parallel - INFO - Iteration 6: Program f5353add-b356-4990-8889-555ca8971449 (parent: 8f67f248-52e5-4976-b05d-3b85739dbf42) completed in 20.49s
+2025-11-12 23:09:07,385 - openevolve.process_parallel - INFO - Metrics: runs_successfully=1.0000, value_score=0.9766, distance_score=0.8685, combined_score=1.4233, reliability_score=1.0000
+2025-11-12 23:09:07,385 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 6: f5353add-b356-4990-8889-555ca8971449
+2025-11-12 23:09:22,439 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 23:09:22,477 - openevolve.evaluator - INFO - Evaluated program b9d0c4fc-a28b-42eb-bfa5-f2b0d01bb04e in 0.04s: runs_successfully=1.0000, value_score=0.9528, distance_score=0.6332, combined_score=1.0397, reliability_score=1.0000
+2025-11-12 23:09:22,479 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-12 23:09:22,480 - openevolve.process_parallel - INFO - Iteration 7: Program b9d0c4fc-a28b-42eb-bfa5-f2b0d01bb04e (parent: 8f67f248-52e5-4976-b05d-3b85739dbf42) completed in 20.90s
+2025-11-12 23:09:22,480 - openevolve.process_parallel - INFO - Metrics: runs_successfully=1.0000, value_score=0.9528, distance_score=0.6332, combined_score=1.0397, reliability_score=1.0000
+2025-11-12 23:09:30,198 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 23:09:30,204 - openevolve.evaluator - INFO - Evaluated program e59b2817-6ed5-4306-a32f-893b353cf450 in 0.00s: runs_successfully=1.0000, value_score=0.9483, distance_score=0.8404, combined_score=1.2672
+2025-11-12 23:09:30,205 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-12 23:09:30,207 - openevolve.process_parallel - INFO - Iteration 9: Program e59b2817-6ed5-4306-a32f-893b353cf450 (parent: 8f67f248-52e5-4976-b05d-3b85739dbf42) completed in 22.83s
+2025-11-12 23:09:30,207 - openevolve.process_parallel - INFO - Metrics: runs_successfully=1.0000, value_score=0.9483, distance_score=0.8404, combined_score=1.2672
+2025-11-12 23:09:40,479 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 23:09:40,482 - openevolve.evaluator - INFO - Evaluated program 30dfac9d-dd67-4951-b656-5b4165add511 in 0.00s: runs_successfully=0.0000, combined_score=0.0000, error=No module named 'scipy'
+2025-11-12 23:09:40,483 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-12 23:09:40,483 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 0, 'diversity': 9}
+2025-11-12 23:09:40,484 - openevolve.process_parallel - INFO - Iteration 10: Program 30dfac9d-dd67-4951-b656-5b4165add511 (parent: e711194e-b112-4680-8367-8f54e248654e) completed in 18.00s
+2025-11-12 23:09:40,484 - openevolve.process_parallel - INFO - Metrics: runs_successfully=0.0000, combined_score=0.0000, error=No module named 'scipy'
+2025-11-12 23:09:40,484 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 10
+2025-11-12 23:09:40,484 - openevolve.database - INFO - Island Status:
+2025-11-12 23:09:40,484 - openevolve.database - INFO -    Island 0: 5 programs, best=1.4233, avg=0.8043, diversity=101.30, gen=3 (best: f5353add-b356-4990-8889-555ca8971449)
+2025-11-12 23:09:40,484 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=3
+2025-11-12 23:09:40,484 - openevolve.database - INFO -  * Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=3
+2025-11-12 23:09:40,486 - openevolve.database - INFO - Saved database with 10 programs to openevolve_output/checkpoints/checkpoint_10
+2025-11-12 23:09:40,487 - openevolve.controller - INFO - Saved best program at checkpoint 10 with metrics: runs_successfully=1.0000, value_score=0.9766, distance_score=0.8685, combined_score=1.4233, reliability_score=1.0000
+2025-11-12 23:09:40,487 - openevolve.controller - INFO - Saved checkpoint at iteration 10 to openevolve_output/checkpoints/checkpoint_10
+2025-11-12 23:09:50,721 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 23:09:50,767 - openevolve.evaluator - INFO - Evaluated program fdaadb21-f772-4b88-b0a5-75de74a34c00 in 0.05s: runs_successfully=1.0000, value_score=0.9844, distance_score=0.8938, combined_score=1.4405, reliability_score=1.0000
+2025-11-12 23:09:50,769 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-12 23:09:50,769 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 0}
+2025-11-12 23:09:50,769 - openevolve.database - INFO - New best program fdaadb21-f772-4b88-b0a5-75de74a34c00 replaces f5353add-b356-4990-8889-555ca8971449 (combined_score: 1.4233 → 1.4405, +0.0173)
+2025-11-12 23:09:50,769 - openevolve.process_parallel - INFO - Iteration 8: Program fdaadb21-f772-4b88-b0a5-75de74a34c00 (parent: e53f8777-7702-45a7-86c2-5c270faacf93) completed in 46.38s
+2025-11-12 23:09:50,769 - openevolve.process_parallel - INFO - Metrics: runs_successfully=1.0000, value_score=0.9844, distance_score=0.8938, combined_score=1.4405, reliability_score=1.0000
+2025-11-12 23:09:50,769 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 8: fdaadb21-f772-4b88-b0a5-75de74a34c00
+2025-11-12 23:09:55,200 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 23:09:55,253 - openevolve.evaluator - INFO - Evaluated program d25ba5b2-fc77-421e-a756-de09aeef9092 in 0.05s: runs_successfully=1.0000, value_score=0.9662, distance_score=0.6488, combined_score=1.0533, reliability_score=1.0000
+2025-11-12 23:09:55,254 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-12 23:09:55,262 - openevolve.process_parallel - INFO - Iteration 11: Program d25ba5b2-fc77-421e-a756-de09aeef9092 (parent: 8f67f248-52e5-4976-b05d-3b85739dbf42) completed in 25.05s
+2025-11-12 23:09:55,262 - openevolve.process_parallel - INFO - Metrics: runs_successfully=1.0000, value_score=0.9662, distance_score=0.6488, combined_score=1.0533, reliability_score=1.0000
+2025-11-12 23:10:00,849 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 23:10:00,852 - openevolve.evaluator - INFO - Evaluated program bb289822-1f72-4dd9-993a-5d9ff337f277 in 0.00s: runs_successfully=0.0000, combined_score=0.0000, error=No module named 'scipy'
+2025-11-12 23:10:00,854 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-12 23:10:00,854 - openevolve.process_parallel - INFO - Iteration 12: Program bb289822-1f72-4dd9-993a-5d9ff337f277 (parent: f5353add-b356-4990-8889-555ca8971449) completed in 20.37s
+2025-11-12 23:10:00,855 - openevolve.process_parallel - INFO - Metrics: runs_successfully=0.0000, combined_score=0.0000, error=No module named 'scipy'
+2025-11-12 23:10:17,550 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 23:10:17,589 - openevolve.evaluator - INFO - Evaluated program 26b83e94-7df5-49c1-b648-128edd733c2a in 0.04s: runs_successfully=1.0000, value_score=0.9671, distance_score=0.8417, combined_score=1.4041, reliability_score=1.0000
+2025-11-12 23:10:17,590 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-12 23:10:17,596 - openevolve.process_parallel - INFO - Iteration 13: Program 26b83e94-7df5-49c1-b648-128edd733c2a (parent: 8f67f248-52e5-4976-b05d-3b85739dbf42) completed in 26.82s
+2025-11-12 23:10:17,596 - openevolve.process_parallel - INFO - Metrics: runs_successfully=1.0000, value_score=0.9671, distance_score=0.8417, combined_score=1.4041, reliability_score=1.0000
+2025-11-12 23:10:21,814 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 23:10:21,817 - openevolve.evaluator - INFO - Evaluated program 01a98aa0-4e5f-4348-99bf-91072094b456 in 0.00s: runs_successfully=0.0000, combined_score=0.0000, error=No module named 'scipy'
+2025-11-12 23:10:21,818 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-12 23:10:21,826 - openevolve.process_parallel - INFO - Iteration 15: Program 01a98aa0-4e5f-4348-99bf-91072094b456 (parent: f5353add-b356-4990-8889-555ca8971449) completed in 20.96s
+2025-11-12 23:10:21,826 - openevolve.process_parallel - INFO - Metrics: runs_successfully=0.0000, combined_score=0.0000, error=No module named 'scipy'
+2025-11-12 23:10:21,826 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 15
+2025-11-12 23:10:21,826 - openevolve.database - INFO - Island Status:
+2025-11-12 23:10:21,826 - openevolve.database - INFO -    Island 0: 10 programs, best=1.4405, avg=0.7920, diversity=97.90, gen=5 (best: fdaadb21-f772-4b88-b0a5-75de74a34c00)
+2025-11-12 23:10:21,826 - openevolve.database - INFO -  * Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=5
+2025-11-12 23:10:21,826 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=4
+2025-11-12 23:10:21,831 - openevolve.database - INFO - Saved database with 15 programs to openevolve_output/checkpoints/checkpoint_15
+2025-11-12 23:10:21,831 - openevolve.controller - INFO - Saved best program at checkpoint 15 with metrics: runs_successfully=1.0000, value_score=0.9844, distance_score=0.8938, combined_score=1.4405, reliability_score=1.0000
+2025-11-12 23:10:21,831 - openevolve.controller - INFO - Saved checkpoint at iteration 15 to openevolve_output/checkpoints/checkpoint_15
+2025-11-12 23:10:41,972 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 23:10:42,009 - openevolve.evaluator - INFO - Evaluated program b53feafe-1dfe-4229-b0c3-4f4af5c910bb in 0.04s: runs_successfully=1.0000, value_score=0.9811, distance_score=0.8748, combined_score=1.4295, reliability_score=1.0000
+2025-11-12 23:10:42,011 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-12 23:10:42,015 - openevolve.process_parallel - INFO - Iteration 14: Program b53feafe-1dfe-4229-b0c3-4f4af5c910bb (parent: d2ce709d-3aad-4a6d-98fd-f2b3018e852b) completed in 46.76s
+2025-11-12 23:10:42,016 - openevolve.process_parallel - INFO - Metrics: runs_successfully=1.0000, value_score=0.9811, distance_score=0.8748, combined_score=1.4295, reliability_score=1.0000
+2025-11-12 23:10:47,018 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 23:10:47,021 - openevolve.evaluator - INFO - Evaluated program 71fa2512-bc7d-4f9f-938a-d27df46102fd in 0.00s: runs_successfully=0.0000, combined_score=0.0000, error=No module named 'scipy'
+2025-11-12 23:10:47,023 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-12 23:10:47,032 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 1, 'diversity': 7}
+2025-11-12 23:10:47,032 - openevolve.process_parallel - INFO - Iteration 16: Program 71fa2512-bc7d-4f9f-938a-d27df46102fd (parent: 30dfac9d-dd67-4951-b656-5b4165add511) completed in 29.43s
+2025-11-12 23:10:47,032 - openevolve.process_parallel - INFO - Metrics: runs_successfully=0.0000, combined_score=0.0000, error=No module named 'scipy'
+2025-11-12 23:10:49,370 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 23:10:49,374 - openevolve.evaluator - INFO - Evaluated program a3c4a97f-a551-4302-8a0b-cd52ec17addc in 0.00s: runs_successfully=0.0000, combined_score=0.0000, error=No module named 'scipy'
+2025-11-12 23:10:49,375 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-11-12 23:10:49,379 - openevolve.process_parallel - INFO - Iteration 17: Program a3c4a97f-a551-4302-8a0b-cd52ec17addc (parent: 30dfac9d-dd67-4951-b656-5b4165add511) completed in 27.56s
+2025-11-12 23:10:49,379 - openevolve.process_parallel - INFO - Metrics: runs_successfully=0.0000, combined_score=0.0000, error=No module named 'scipy'
+2025-11-12 23:11:05,034 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 23:11:05,038 - openevolve.evaluator - INFO - Evaluated program a39b673f-0bac-4ebf-afb9-c3ad7b03ec00 in 0.00s: runs_successfully=0.0000, combined_score=0.0000, error=No module named 'scipy'
+2025-11-12 23:11:05,047 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 0, 'diversity': 6}
+2025-11-12 23:11:05,047 - openevolve.process_parallel - INFO - Iteration 18: Program a39b673f-0bac-4ebf-afb9-c3ad7b03ec00 (parent: bb289822-1f72-4dd9-993a-5d9ff337f277) completed in 23.03s
+2025-11-12 23:11:05,047 - openevolve.process_parallel - INFO - Metrics: runs_successfully=0.0000, combined_score=0.0000, error=No module named 'scipy'
+2025-11-12 23:11:11,033 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 23:11:11,036 - openevolve.evaluator - INFO - Evaluated program f1c6cfa3-d9e8-47bb-863e-98fa19d97497 in 0.00s: runs_successfully=0.0000, combined_score=0.0000, error=No module named 'scipy'
+2025-11-12 23:11:11,039 - openevolve.process_parallel - INFO - Iteration 19: Program f1c6cfa3-d9e8-47bb-863e-98fa19d97497 (parent: fdaadb21-f772-4b88-b0a5-75de74a34c00) completed in 24.01s
+2025-11-12 23:11:11,039 - openevolve.process_parallel - INFO - Metrics: runs_successfully=0.0000, combined_score=0.0000, error=No module named 'scipy'
+2025-11-12 23:11:21,499 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-12 23:11:21,502 - openevolve.evaluator - INFO - Evaluated program 9f01ffde-a9be-4ec4-912b-afab5899ba7c in 0.00s: runs_successfully=0.0000, combined_score=0.0000, error=No module named 'scipy'
+2025-11-12 23:11:21,507 - openevolve.process_parallel - INFO - Iteration 20: Program 9f01ffde-a9be-4ec4-912b-afab5899ba7c (parent: 30dfac9d-dd67-4951-b656-5b4165add511) completed in 32.13s
+2025-11-12 23:11:21,507 - openevolve.process_parallel - INFO - Metrics: runs_successfully=0.0000, combined_score=0.0000, error=No module named 'scipy'
+2025-11-12 23:11:21,507 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 20
+2025-11-12 23:11:21,507 - openevolve.database - INFO - Island Status:
+2025-11-12 23:11:21,507 - openevolve.database - INFO -    Island 0: 16 programs, best=1.4405, avg=0.5843, diversity=94.50, gen=7 (best: fdaadb21-f772-4b88-b0a5-75de74a34c00)
+2025-11-12 23:11:21,507 - openevolve.database - INFO -  * Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=7
+2025-11-12 23:11:21,507 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=6
+2025-11-12 23:11:21,512 - openevolve.database - INFO - Saved database with 21 programs to openevolve_output/checkpoints/checkpoint_20
+2025-11-12 23:11:21,512 - openevolve.controller - INFO - Saved best program at checkpoint 20 with metrics: runs_successfully=1.0000, value_score=0.9844, distance_score=0.8938, combined_score=1.4405, reliability_score=1.0000
+2025-11-12 23:11:21,512 - openevolve.controller - INFO - Saved checkpoint at iteration 20 to openevolve_output/checkpoints/checkpoint_20
+2025-11-12 23:11:21,512 - openevolve.process_parallel - INFO - ✅ Evolution completed - Maximum iterations reached
+2025-11-12 23:11:21,518 - openevolve.database - INFO - Saved database with 21 programs to openevolve_output/checkpoints/checkpoint_20
+2025-11-12 23:11:21,518 - openevolve.controller - INFO - Saved best program at checkpoint 20 with metrics: runs_successfully=1.0000, value_score=0.9844, distance_score=0.8938, combined_score=1.4405, reliability_score=1.0000
+2025-11-12 23:11:21,518 - openevolve.controller - INFO - Saved checkpoint at iteration 20 to openevolve_output/checkpoints/checkpoint_20
+2025-11-12 23:11:21,522 - openevolve.process_parallel - INFO - Stopped process pool
+2025-11-12 23:11:21,523 - openevolve.controller - INFO - Using tracked best program: fdaadb21-f772-4b88-b0a5-75de74a34c00
+2025-11-12 23:11:21,523 - openevolve.controller - INFO - Evolution complete. Best program has metrics: runs_successfully=1.0000, value_score=0.9844, distance_score=0.8938, combined_score=1.4405, reliability_score=1.0000
+2025-11-12 23:11:21,523 - openevolve.controller - INFO - Saved best program to openevolve_output/best/best_program.py with program info to openevolve_output/best/best_program_info.json

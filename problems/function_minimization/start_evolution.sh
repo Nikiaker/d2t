@@ -1,0 +1,1 @@
+python ../../openevolve/openevolve-run.py initial_program.py evaluator.py --config config.yaml

@@ -1,0 +1,16 @@
+run1:
+10 iterations. Change whole code.
+Finds best solution after 1 iteration. Goes from program that gives static output to random output - and somehow works
+
+run2:
+20 iterations. Change whole code.
+The best solution is still the random output, but now the programs try to import scipy, which fails because that library is not installed.
+In next run I'll try to install the library
+
+run3:
+Same as previous run, but now lib deap is missing.
+
+run4:
+100 iterations. Change whole code. With all necessary libraries
+The best program gets nearly perfect score! It uses differentials to evaluate best function value.
+However it changes the whole code...

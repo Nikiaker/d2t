@@ -11,6 +11,10 @@ pkgs.mkShell {
     python3Packages.numpy
     python3Packages.tqdm
     python3Packages.flask
+
+    # other dependencies
+    python3Packages.scipy
+    python3Packages.deap
   ];
 
   shellHook = ''
