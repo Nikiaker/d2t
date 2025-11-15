@@ -4,8 +4,8 @@ import urllib.request
 import urllib.error
 
 URL = "http://localhost:2993/"
-RETRY_DELAY_SECONDS = 5
-TIMEOUT_SECONDS = 5
+RETRY_DELAY_SECONDS = 60
+TIMEOUT_SECONDS = 30
 
 def main():
     while True:
