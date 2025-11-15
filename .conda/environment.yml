@@ -1,0 +1,12 @@
+name: openevolve-env
+dependencies:
+  - vllm
+  - lmcache
+  - huggingface-hub
+  - openai
+  - pyyaml
+  - numpy
+  - tqdm
+  - flask
+  - scipy
+  - deap
