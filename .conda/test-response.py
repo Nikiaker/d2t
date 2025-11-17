@@ -3,8 +3,8 @@ import time
 import urllib.request
 import urllib.error
 
-URL = "http://localhost:2993/"
-RETRY_DELAY_SECONDS = 60
+URL = "http://localhost:2993/v1/models"
+RETRY_DELAY_SECONDS = 10
 TIMEOUT_SECONDS = 30
 
 def main():

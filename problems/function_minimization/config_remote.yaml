@@ -1,13 +1,13 @@
 # Configuration for function minimization example
 max_iterations: 10
 checkpoint_interval: 5
-diff_based_evolution: true
+diff_based_evolution: false
 max_code_length: 20000
 
 # LLM configuration
 llm:
   models:
-    - name: "RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8"
+    - name: "RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic"
   api_key: "AiIsMyLife25"
   api_base: "http://localhost:2993/v1"
   temperature: 0.7

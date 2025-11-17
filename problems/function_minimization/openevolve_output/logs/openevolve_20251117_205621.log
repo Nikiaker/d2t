@@ -1,0 +1,69 @@
+2025-11-17 20:56:21,907 - openevolve.controller - INFO - Logging to openevolve_output/logs/openevolve_20251117_205621.log
+2025-11-17 20:56:21,951 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2025-11-17 20:56:22,087 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-11-17 20:56:22,087 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic (weight: 1.00)
+2025-11-17 20:56:22,117 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2025-11-17 20:56:22,122 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-11-17 20:56:22,122 - openevolve.database - INFO - Initialized program database with 0 programs
+2025-11-17 20:56:22,125 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-11-17 20:56:22,125 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-11-17 20:56:22,125 - openevolve.controller - INFO - Initialized OpenEvolve with initial_program.py
+2025-11-17 20:56:22,125 - openevolve.controller - INFO - Adding initial program to database
+2025-11-17 20:56:22,134 - openevolve.evaluator - INFO - Evaluated program c593e867-ec4f-4bc1-b0e3-230e2a18d54b in 0.01s: runs_successfully=1.0000, value_score=0.4480, distance_score=0.2391, combined_score=0.2915
+2025-11-17 20:56:22,134 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2025-11-17 20:56:22,135 - openevolve.process_parallel - INFO - Initialized process parallel controller with 3 workers
+2025-11-17 20:56:22,136 - openevolve.process_parallel - INFO - Started process pool with 3 processes
+2025-11-17 20:56:22,136 - openevolve.controller - INFO - Using island-based evolution with 3 islands
+2025-11-17 20:56:22,136 - openevolve.database - INFO - Island Status:
+2025-11-17 20:56:22,136 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.2915, avg=0.2915, diversity=0.00, gen=0 (best: c593e867-ec4f-4bc1-b0e3-230e2a18d54b)
+2025-11-17 20:56:22,136 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2025-11-17 20:56:22,136 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2025-11-17 20:56:22,136 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 10 iterations (total: 11)
+2025-11-17 20:56:22,143 - openevolve.process_parallel - INFO - Early stopping disabled
+2025-11-17 20:56:22,165 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-11-17 20:56:22,166 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-11-17 20:56:22,166 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-11-17 20:56:22,167 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-11-17 20:56:22,181 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-11-17 20:56:22,183 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-11-17 20:56:22,183 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-11-17 20:56:22,185 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-11-17 20:56:22,191 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-11-17 20:56:22,191 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-11-17 20:56:22,191 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-11-17 20:56:22,192 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-11-17 20:56:52,902 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 20:56:52,915 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-11-17 20:56:52,922 - openevolve.process_parallel - WARNING - Iteration 1 error: No valid diffs found in response
+2025-11-17 20:57:01,130 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 20:57:01,142 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 20:57:01,153 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-11-17 20:57:01,155 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-11-17 20:57:01,162 - openevolve.process_parallel - WARNING - Iteration 2 error: No valid diffs found in response
+2025-11-17 20:57:01,162 - openevolve.process_parallel - WARNING - Iteration 3 error: No valid diffs found in response
+2025-11-17 20:57:19,985 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 20:57:19,987 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-11-17 20:57:19,988 - openevolve.process_parallel - WARNING - Iteration 4 error: No valid diffs found in response
+2025-11-17 20:57:30,910 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 20:57:30,910 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 20:57:30,913 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-11-17 20:57:30,914 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-11-17 20:57:30,922 - openevolve.process_parallel - WARNING - Iteration 5 error: No valid diffs found in response
+2025-11-17 20:57:30,922 - openevolve.process_parallel - WARNING - Iteration 6 error: No valid diffs found in response
+2025-11-17 20:57:49,345 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 20:57:49,347 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-11-17 20:57:49,356 - openevolve.process_parallel - WARNING - Iteration 7 error: No valid diffs found in response
+2025-11-17 20:58:00,271 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 20:58:00,279 - openevolve.process_parallel - WARNING - Iteration 8 error: No valid diffs found in response
+2025-11-17 20:58:00,703 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 20:58:00,715 - openevolve.process_parallel - WARNING - Iteration 9 error: No valid diffs found in response
+2025-11-17 20:58:17,253 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-11-17 20:58:17,258 - openevolve.process_parallel - WARNING - Iteration 10 error: No valid diffs found in response
+2025-11-17 20:58:17,258 - openevolve.process_parallel - INFO - ✅ Evolution completed - Maximum iterations reached
+2025-11-17 20:58:17,265 - openevolve.database - INFO - Saved database with 1 programs to openevolve_output/checkpoints/checkpoint_10
+2025-11-17 20:58:17,270 - openevolve.controller - INFO - Saved best program at checkpoint 10 with metrics: runs_successfully=1.0000, value_score=0.4480, distance_score=0.2391, combined_score=0.2915
+2025-11-17 20:58:17,270 - openevolve.controller - INFO - Saved checkpoint at iteration 10 to openevolve_output/checkpoints/checkpoint_10
+2025-11-17 20:58:17,276 - openevolve.process_parallel - INFO - Stopped process pool
+2025-11-17 20:58:17,276 - openevolve.controller - INFO - Using tracked best program: c593e867-ec4f-4bc1-b0e3-230e2a18d54b
+2025-11-17 20:58:17,276 - openevolve.controller - INFO - Evolution complete. Best program has metrics: runs_successfully=1.0000, value_score=0.4480, distance_score=0.2391, combined_score=0.2915
+2025-11-17 20:58:17,281 - openevolve.controller - INFO - Saved best program to openevolve_output/best/best_program.py with program info to openevolve_output/best/best_program_info.json

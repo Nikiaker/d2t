@@ -1,11 +1,11 @@
 #!/bin/bash
-#SBATCH -w hgx2
+#SBATCH -w hgx1
 #SBATCH -p hgx
 #SBATCH --gres=gpu:1
 #SBATCH -n1
 SERVER_LOG="/home/inf151915/vllm-server.log"
 conda run -n vllm-env vllm serve \
-	RedHatAI/Meta-Llama-3.1-70B-Instruct-FP8 \
+	RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic \
     --port 2993 \
     --api-key AiIsMyLife25 \
     --gpu-memory-utilization 0.99 \
@@ -16,4 +16,5 @@ SERVER_PID=$!
 
 conda run -n openevolve-env python ~/d2t/.conda/test-response.py
 
-kill "$SERVER_PID" 2>/dev/null
+cd ~/d2t/problems/function_minimization
+conda run -n openevolve-env python ../../openevolve/openevolve-run.py initial_program.py evaluator.py --config config_remote.yaml
