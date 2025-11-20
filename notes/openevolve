@@ -1,6 +1,9 @@
-apply_diff() - method that parser the current code with changes
+apply_diff() - method that parses the current code with changes
 
 You can specify your own custom templates with config:
 prompt:
   template_dir: "./templates/"
 The default templates are in openevolve/configs/default_config.yaml
+
+w apply_diff problemem są entery, czasem są czasem nie ma
+niektóre entry mają puste spacje i to też przeszkadza

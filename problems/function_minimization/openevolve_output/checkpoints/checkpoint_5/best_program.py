@@ -5,7 +5,7 @@ import numpy as np
 
 def search_algorithm(iterations=1000, bounds=(-5, 5)):
     """
-    An improved random search algorithm with simulated annealing to escape local minima.
+    A simple random search algorithm that often gets stuck in local minima.
 
     Args:
         iterations: Number of iterations to run
@@ -14,36 +14,18 @@ def search_algorithm(iterations=1000, bounds=(-5, 5)):
     Returns:
         Tuple of (best_x, best_y, best_value)
     """
-    best_x = np.random.uniform(bounds[0], bounds[1])
-    best_y = np.random.uniform(bounds[0], bounds[1])
+    best_x = 0
+    best_y = 0
     best_value = evaluate_function(best_x, best_y)
-    temperature = 1.0
-    cooling_rate = 0.99
 
     for _ in range(iterations):
-        # Generate new candidate solution
-        x = best_x + np.random.uniform(-1, 1)
-        y = best_y + np.random.uniform(-1, 1)
-
-        # Ensure bounds are respected
-        x = max(bounds[0], min(x, bounds[1]))
-        y = max(bounds[0], min(y, bounds[1]))
-
-        # Evaluate new candidate solution
+        x = best_x + 1
+        y = best_y - 1
         value = evaluate_function(x, y)
 
-        # Calculate probability of accepting worse solution
         if value < best_value:
             best_value = value
             best_x, best_y = x, y
-        else:
-            probability = np.exp((best_value - value) / temperature)
-            if np.random.rand() < probability:
-                best_value = value
-                best_x, best_y = x, y
-
-        # Cool down temperature
-        temperature *= cooling_rate
 
     return best_x, best_y, best_value
 
