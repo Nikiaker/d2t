@@ -20,3 +20,9 @@ run5:
 
 run6:
 same as run 4 but done on 70b model. Gets best solution after 3 iterations.
+
+run8:
+10 iterations - tested new SEARCH/REPLACE that ignores trailing spaces. Indentations are still a problem
+
+run9:
+10 iterations - tested new SEARCH/REPLACE with smart indenations. Looks like it works.
