@@ -1,0 +1,121 @@
+2025-12-04 01:12:23,765 - openevolve.controller - INFO - Logging to openevolve_output/logs/openevolve_20251204_011223.log
+2025-12-04 01:12:23,769 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2025-12-04 01:12:23,808 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-04 01:12:23,808 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8 (weight: 1.00)
+2025-12-04 01:12:23,825 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2025-12-04 01:12:23,826 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-04 01:12:23,826 - openevolve.database - INFO - Initialized program database with 0 programs
+2025-12-04 01:12:24,832 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-12-04 01:12:24,832 - openevolve.evaluator - WARNING - Configuration has 'cascade_evaluation: true' but evaluator 'evaluator.py' does not define 'evaluate_stage1' function. This will fall back to direct evaluation, making the cascade setting useless. Consider setting 'cascade_evaluation: false' or implementing cascade functions.
+2025-12-04 01:12:24,832 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-12-04 01:12:24,832 - openevolve.controller - INFO - Initialized OpenEvolve with initial_program.py
+2025-12-04 01:12:24,832 - openevolve.controller - INFO - Adding initial program to database
+2025-12-04 01:12:29,426 - openevolve.evaluator - INFO - Evaluated program 0ef7d139-6110-4162-a9fb-5ff843638100 in 4.59s: combined_score=0.0009
+2025-12-04 01:12:29,426 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2025-12-04 01:12:29,427 - openevolve.process_parallel - INFO - Initialized process parallel controller with 3 workers
+2025-12-04 01:12:29,428 - openevolve.process_parallel - INFO - Started process pool with 3 processes
+2025-12-04 01:12:29,428 - openevolve.controller - INFO - Using island-based evolution with 1 islands
+2025-12-04 01:12:29,428 - openevolve.database - INFO - Island Status:
+2025-12-04 01:12:29,428 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.0009, avg=0.0009, diversity=0.00, gen=0 (best: 0ef7d139-6110-4162-a9fb-5ff843638100)
+2025-12-04 01:12:29,428 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 10 iterations (total: 11)
+2025-12-04 01:12:29,441 - openevolve.process_parallel - INFO - Early stopping disabled
+2025-12-04 01:12:29,484 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-04 01:12:29,485 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-04 01:12:29,486 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-04 01:12:30,431 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-12-04 01:12:30,432 - openevolve.evaluator - WARNING - Configuration has 'cascade_evaluation: true' but evaluator 'evaluator.py' does not define 'evaluate_stage1' function. This will fall back to direct evaluation, making the cascade setting useless. Consider setting 'cascade_evaluation: false' or implementing cascade functions.
+2025-12-04 01:12:30,432 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-12-04 01:12:30,432 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-04 01:12:30,462 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-12-04 01:12:30,462 - openevolve.evaluator - WARNING - Configuration has 'cascade_evaluation: true' but evaluator 'evaluator.py' does not define 'evaluate_stage1' function. This will fall back to direct evaluation, making the cascade setting useless. Consider setting 'cascade_evaluation: false' or implementing cascade functions.
+2025-12-04 01:12:30,462 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-12-04 01:12:30,462 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-04 01:12:30,487 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-12-04 01:12:30,488 - openevolve.evaluator - WARNING - Configuration has 'cascade_evaluation: true' but evaluator 'evaluator.py' does not define 'evaluate_stage1' function. This will fall back to direct evaluation, making the cascade setting useless. Consider setting 'cascade_evaluation: false' or implementing cascade functions.
+2025-12-04 01:12:30,488 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-12-04 01:12:30,488 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-04 01:12:37,022 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-04 01:12:37,282 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-04 01:12:37,282 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-04 01:12:42,642 - openevolve.evaluator - INFO - Evaluated program 97a5433a-e918-4d8d-80f4-af874d97873f in 5.61s: combined_score=0.5546
+2025-12-04 01:12:42,644 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-04 01:12:42,651 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 5}
+2025-12-04 01:12:42,651 - openevolve.database - INFO - New best program 97a5433a-e918-4d8d-80f4-af874d97873f replaces 0ef7d139-6110-4162-a9fb-5ff843638100 (combined_score: 0.0009 → 0.5546, +0.5536)
+2025-12-04 01:12:42,651 - openevolve.process_parallel - INFO - Iteration 1: Program 97a5433a-e918-4d8d-80f4-af874d97873f (parent: 0ef7d139-6110-4162-a9fb-5ff843638100) completed in 12.21s
+2025-12-04 01:12:42,652 - openevolve.process_parallel - INFO - Metrics: combined_score=0.5546
+2025-12-04 01:12:42,652 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 1: 97a5433a-e918-4d8d-80f4-af874d97873f
+2025-12-04 01:12:42,989 - openevolve.evaluator - INFO - Evaluated program f6da3d4e-5caf-4e3e-b56b-f6cf310f9009 in 5.70s: combined_score=0.5546
+2025-12-04 01:12:42,990 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-04 01:12:42,997 - openevolve.process_parallel - INFO - Iteration 2: Program f6da3d4e-5caf-4e3e-b56b-f6cf310f9009 (parent: 0ef7d139-6110-4162-a9fb-5ff843638100) completed in 12.50s
+2025-12-04 01:12:42,997 - openevolve.process_parallel - INFO - Metrics: combined_score=0.5546
+2025-12-04 01:12:43,090 - openevolve.evaluator - INFO - Evaluated program 1df543a2-6a3e-41da-bc29-c096b59e8e32 in 5.80s: combined_score=0.5546
+2025-12-04 01:12:43,091 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-04 01:12:43,099 - openevolve.process_parallel - INFO - Iteration 3: Program 1df543a2-6a3e-41da-bc29-c096b59e8e32 (parent: 0ef7d139-6110-4162-a9fb-5ff843638100) completed in 12.63s
+2025-12-04 01:12:43,099 - openevolve.process_parallel - INFO - Metrics: combined_score=0.5546
+2025-12-04 01:12:48,587 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-04 01:12:48,959 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-04 01:12:49,063 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-04 01:12:54,687 - openevolve.evaluator - INFO - Evaluated program 2acf60dc-6416-4110-bb62-04ed3305588d in 6.10s: combined_score=0.5546
+2025-12-04 01:12:54,688 - openevolve.process_parallel - INFO - Iteration 4: Program 2acf60dc-6416-4110-bb62-04ed3305588d (parent: 0ef7d139-6110-4162-a9fb-5ff843638100) completed in 12.04s
+2025-12-04 01:12:54,688 - openevolve.process_parallel - INFO - Metrics: combined_score=0.5546
+2025-12-04 01:12:54,689 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-04 01:12:55,220 - openevolve.evaluator - INFO - Evaluated program b6690b86-b898-4d15-a4d5-cb2447e7603d in 6.26s: combined_score=0.5546
+2025-12-04 01:12:55,222 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-04 01:12:55,226 - openevolve.process_parallel - INFO - Iteration 5: Program b6690b86-b898-4d15-a4d5-cb2447e7603d (parent: 0ef7d139-6110-4162-a9fb-5ff843638100) completed in 12.23s
+2025-12-04 01:12:55,226 - openevolve.process_parallel - INFO - Metrics: combined_score=0.5546
+2025-12-04 01:12:55,226 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 5
+2025-12-04 01:12:55,226 - openevolve.database - INFO - Island Status:
+2025-12-04 01:12:55,226 - openevolve.database - INFO -  * Island 0: 6 programs, best=0.5546, avg=0.4623, diversity=13.73, gen=5 (best: 97a5433a-e918-4d8d-80f4-af874d97873f)
+2025-12-04 01:12:55,228 - openevolve.database - INFO - Saved database with 6 programs to openevolve_output/checkpoints/checkpoint_5
+2025-12-04 01:12:55,228 - openevolve.controller - INFO - Saved best program at checkpoint 5 with metrics: combined_score=0.5546
+2025-12-04 01:12:55,228 - openevolve.controller - INFO - Saved checkpoint at iteration 5 to openevolve_output/checkpoints/checkpoint_5
+2025-12-04 01:12:55,252 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-12-04 01:12:55,252 - openevolve.llm.openai - WARNING - Error on attempt 1/4: Error code: 400 - {'error': {'message': "'max_tokens' or 'max_completion_tokens' is too large: 7000. This model's maximum context length is 12000 tokens and your request has 5020 input tokens (7000 > 12000 - 5020). None", 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2025-12-04 01:12:55,308 - openevolve.evaluator - INFO - Evaluated program f3ceed2d-19c9-4662-b605-97b56a697309 in 6.24s: combined_score=0.5546
+2025-12-04 01:12:55,309 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-04 01:12:55,309 - openevolve.process_parallel - INFO - Iteration 6: Program f3ceed2d-19c9-4662-b605-97b56a697309 (parent: 0ef7d139-6110-4162-a9fb-5ff843638100) completed in 12.22s
+2025-12-04 01:12:55,309 - openevolve.process_parallel - INFO - Metrics: combined_score=0.5546
+2025-12-04 01:12:55,334 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-12-04 01:12:55,334 - openevolve.llm.openai - WARNING - Error on attempt 1/4: Error code: 400 - {'error': {'message': "'max_tokens' or 'max_completion_tokens' is too large: 7000. This model's maximum context length is 12000 tokens and your request has 5305 input tokens (7000 > 12000 - 5305). None", 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2025-12-04 01:13:00,287 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-12-04 01:13:00,287 - openevolve.llm.openai - WARNING - Error on attempt 2/4: Error code: 400 - {'error': {'message': "'max_tokens' or 'max_completion_tokens' is too large: 7000. This model's maximum context length is 12000 tokens and your request has 5020 input tokens (7000 > 12000 - 5020). None", 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2025-12-04 01:13:00,364 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-12-04 01:13:00,365 - openevolve.llm.openai - WARNING - Error on attempt 2/4: Error code: 400 - {'error': {'message': "'max_tokens' or 'max_completion_tokens' is too large: 7000. This model's maximum context length is 12000 tokens and your request has 5305 input tokens (7000 > 12000 - 5305). None", 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2025-12-04 01:13:02,656 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-04 01:13:05,320 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-12-04 01:13:05,321 - openevolve.llm.openai - WARNING - Error on attempt 3/4: Error code: 400 - {'error': {'message': "'max_tokens' or 'max_completion_tokens' is too large: 7000. This model's maximum context length is 12000 tokens and your request has 5020 input tokens (7000 > 12000 - 5020). None", 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2025-12-04 01:13:05,393 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-12-04 01:13:05,394 - openevolve.llm.openai - WARNING - Error on attempt 3/4: Error code: 400 - {'error': {'message': "'max_tokens' or 'max_completion_tokens' is too large: 7000. This model's maximum context length is 12000 tokens and your request has 5305 input tokens (7000 > 12000 - 5305). None", 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2025-12-04 01:13:07,789 - openevolve.evaluator - INFO - Evaluated program c41dcd9c-28b8-4f61-bcbe-56a241294852 in 5.13s: combined_score=0.5559
+2025-12-04 01:13:07,790 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-04 01:13:07,794 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 9}
+2025-12-04 01:13:07,794 - openevolve.database - INFO - New best program c41dcd9c-28b8-4f61-bcbe-56a241294852 replaces 97a5433a-e918-4d8d-80f4-af874d97873f (combined_score: 0.5546 → 0.5559, +0.0013)
+2025-12-04 01:13:07,794 - openevolve.process_parallel - INFO - Iteration 7: Program c41dcd9c-28b8-4f61-bcbe-56a241294852 (parent: 97a5433a-e918-4d8d-80f4-af874d97873f) completed in 13.10s
+2025-12-04 01:13:07,794 - openevolve.process_parallel - INFO - Metrics: combined_score=0.5559
+2025-12-04 01:13:07,795 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 7: c41dcd9c-28b8-4f61-bcbe-56a241294852
+2025-12-04 01:13:07,813 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-12-04 01:13:07,814 - openevolve.llm.openai - WARNING - Error on attempt 1/4: Error code: 400 - {'error': {'message': "'max_tokens' or 'max_completion_tokens' is too large: 7000. This model's maximum context length is 12000 tokens and your request has 5509 input tokens (7000 > 12000 - 5509). None", 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2025-12-04 01:13:10,349 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-12-04 01:13:10,350 - openevolve.llm.openai - ERROR - All 4 attempts failed with error: Error code: 400 - {'error': {'message': "'max_tokens' or 'max_completion_tokens' is too large: 7000. This model's maximum context length is 12000 tokens and your request has 5020 input tokens (7000 > 12000 - 5020). None", 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2025-12-04 01:13:10,350 - openevolve.process_parallel - ERROR - LLM generation failed: Error code: 400 - {'error': {'message': "'max_tokens' or 'max_completion_tokens' is too large: 7000. This model's maximum context length is 12000 tokens and your request has 5020 input tokens (7000 > 12000 - 5020). None", 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2025-12-04 01:13:10,360 - openevolve.process_parallel - WARNING - Iteration 8 error: LLM generation failed: Error code: 400 - {'error': {'message': "'max_tokens' or 'max_completion_tokens' is too large: 7000. This model's maximum context length is 12000 tokens and your request has 5020 input tokens (7000 > 12000 - 5020). None", 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2025-12-04 01:13:10,422 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-12-04 01:13:10,423 - openevolve.llm.openai - ERROR - All 4 attempts failed with error: Error code: 400 - {'error': {'message': "'max_tokens' or 'max_completion_tokens' is too large: 7000. This model's maximum context length is 12000 tokens and your request has 5305 input tokens (7000 > 12000 - 5305). None", 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2025-12-04 01:13:10,423 - openevolve.process_parallel - ERROR - LLM generation failed: Error code: 400 - {'error': {'message': "'max_tokens' or 'max_completion_tokens' is too large: 7000. This model's maximum context length is 12000 tokens and your request has 5305 input tokens (7000 > 12000 - 5305). None", 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2025-12-04 01:13:10,431 - openevolve.process_parallel - WARNING - Iteration 9 error: LLM generation failed: Error code: 400 - {'error': {'message': "'max_tokens' or 'max_completion_tokens' is too large: 7000. This model's maximum context length is 12000 tokens and your request has 5305 input tokens (7000 > 12000 - 5305). None", 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2025-12-04 01:13:12,842 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-12-04 01:13:12,843 - openevolve.llm.openai - WARNING - Error on attempt 2/4: Error code: 400 - {'error': {'message': "'max_tokens' or 'max_completion_tokens' is too large: 7000. This model's maximum context length is 12000 tokens and your request has 5509 input tokens (7000 > 12000 - 5509). None", 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2025-12-04 01:13:17,873 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-12-04 01:13:17,873 - openevolve.llm.openai - WARNING - Error on attempt 3/4: Error code: 400 - {'error': {'message': "'max_tokens' or 'max_completion_tokens' is too large: 7000. This model's maximum context length is 12000 tokens and your request has 5509 input tokens (7000 > 12000 - 5509). None", 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2025-12-04 01:13:22,903 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2025-12-04 01:13:22,904 - openevolve.llm.openai - ERROR - All 4 attempts failed with error: Error code: 400 - {'error': {'message': "'max_tokens' or 'max_completion_tokens' is too large: 7000. This model's maximum context length is 12000 tokens and your request has 5509 input tokens (7000 > 12000 - 5509). None", 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2025-12-04 01:13:22,904 - openevolve.process_parallel - ERROR - LLM generation failed: Error code: 400 - {'error': {'message': "'max_tokens' or 'max_completion_tokens' is too large: 7000. This model's maximum context length is 12000 tokens and your request has 5509 input tokens (7000 > 12000 - 5509). None", 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2025-12-04 01:13:22,911 - openevolve.process_parallel - WARNING - Iteration 10 error: LLM generation failed: Error code: 400 - {'error': {'message': "'max_tokens' or 'max_completion_tokens' is too large: 7000. This model's maximum context length is 12000 tokens and your request has 5509 input tokens (7000 > 12000 - 5509). None", 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2025-12-04 01:13:22,911 - openevolve.process_parallel - INFO - ✅ Evolution completed - Maximum iterations reached
+2025-12-04 01:13:22,913 - openevolve.database - INFO - Saved database with 8 programs to openevolve_output/checkpoints/checkpoint_10
+2025-12-04 01:13:22,913 - openevolve.controller - INFO - Saved best program at checkpoint 10 with metrics: combined_score=0.5559
+2025-12-04 01:13:22,913 - openevolve.controller - INFO - Saved checkpoint at iteration 10 to openevolve_output/checkpoints/checkpoint_10
+2025-12-04 01:13:22,936 - openevolve.process_parallel - INFO - Stopped process pool
+2025-12-04 01:13:22,936 - openevolve.controller - INFO - Using tracked best program: c41dcd9c-28b8-4f61-bcbe-56a241294852
+2025-12-04 01:13:22,936 - openevolve.controller - INFO - Evolution complete. Best program has metrics: combined_score=0.5559
+2025-12-04 01:13:22,936 - openevolve.controller - INFO - Saved best program to openevolve_output/best/best_program.py with program info to openevolve_output/best/best_program_info.json

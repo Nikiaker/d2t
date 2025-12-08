@@ -1,0 +1,8 @@
+2025-12-04 00:44:06,154 - openevolve.controller - INFO - Logging to openevolve_output/logs/openevolve_20251204_004406.log
+2025-12-04 00:44:06,159 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2025-12-04 00:44:06,198 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-04 00:44:06,198 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8 (weight: 1.00)
+2025-12-04 00:44:06,215 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2025-12-04 00:44:06,216 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-04 00:44:06,216 - openevolve.database - INFO - Initialized program database with 0 programs
+2025-12-04 00:44:07,322 - openevolve.evaluator - ERROR - Error loading evaluation function: Triple.__init__() takes 4 positional arguments but 48 were given

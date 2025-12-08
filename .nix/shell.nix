@@ -11,6 +11,8 @@ pkgs.mkShell {
     python3Packages.numpy
     python3Packages.tqdm
     python3Packages.flask
+    python3Packages.nltk
+    python3Packages.datasets
 
     # other dependencies
     python3Packages.scipy

@@ -1,0 +1,12 @@
+2025-12-04 00:47:50,018 - openevolve.controller - INFO - Logging to openevolve_output/logs/openevolve_20251204_004750.log
+2025-12-04 00:47:50,026 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2025-12-04 00:47:50,080 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-04 00:47:50,080 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8 (weight: 1.00)
+2025-12-04 00:47:50,098 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2025-12-04 00:47:50,099 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-04 00:47:50,099 - openevolve.database - INFO - Initialized program database with 0 programs
+2025-12-04 00:47:51,565 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-12-04 00:47:51,565 - openevolve.evaluator - WARNING - Configuration has 'cascade_evaluation: true' but evaluator 'evaluator.py' does not define 'evaluate_stage1' function. This will fall back to direct evaluation, making the cascade setting useless. Consider setting 'cascade_evaluation: false' or implementing cascade functions.
+2025-12-04 00:47:51,565 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-12-04 00:47:51,565 - openevolve.controller - INFO - Initialized OpenEvolve with initial_program.py
+2025-12-04 00:47:51,565 - openevolve.controller - INFO - Adding initial program to database
