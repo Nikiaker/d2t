@@ -17,7 +17,7 @@ from nltk.translate.bleu_score import sentence_bleu
 b = Benchmark()
 files = select_files("/home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/train")
 b.fill_benchmark(files)
-validation_set = [(e.get_triples_tuple_list()[0], e.get_lexs_list()) for e in b.entries if e.category == "Airport" and e.shape == "(X (X))"]
+validation_set = [(e.get_triples_tuple_list()[0], e.get_lexs_list()[0]) for e in b.entries]
 validation_set = [(Triple(*t[0]), t[1]) for t in validation_set]
 
 def run_with_timeout(func, args=(), kwargs={}, timeout_seconds=5):
@@ -91,9 +91,9 @@ def evaluate(program_path):
         best_bleu = 0.0
         best_triple = Triple("", "", "")
         best_generated = ""
-        best_actual = ""
+        best_acctual = ""
 
-        for triple, test_texts in validation_set:
+        for triple, test_text in validation_set:
             try:
                 # Run with timeout
                 result = run_with_timeout(program.predict, args=(triple,), timeout_seconds=5)
@@ -111,7 +111,7 @@ def evaluate(program_path):
                 weights = (0.25, 0.25)  # Weights for uni-gram, bi-gram, tri-gram, and 4-gram
 
                 # Reference and predicted texts (same as before)
-                reference = [test_text.lower().split() for test_text in test_texts]
+                reference = test_text.lower().split()
                 predictions = generated_text.lower().split()
 
                 # Calculate BLEU score with weights
@@ -122,7 +122,7 @@ def evaluate(program_path):
                     best_bleu = score
                     best_triple = triple
                     best_generated = generated_text
-                    best_actual = test_texts
+                    best_acctual = test_text
 
                 success_count += 1
 
@@ -167,7 +167,7 @@ def evaluate(program_path):
             "best_score": f"Best BLEU score: {best_bleu:.4f}",
             "best_triple": f"({best_triple.subject}, {best_triple.predicate}, {best_triple.object})",
             "best_generated_text": f"{best_generated}",
-            "best_actual_text": f"{best_actual}",
+            "best_actual_text": f"{best_acctual}",
         }
 
         return EvaluationResult(

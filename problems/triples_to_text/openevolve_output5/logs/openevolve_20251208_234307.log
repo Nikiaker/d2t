@@ -1,0 +1,100 @@
+2025-12-08 23:43:07,630 - openevolve.controller - INFO - Logging to openevolve_output/logs/openevolve_20251208_234307.log
+2025-12-08 23:43:07,650 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2025-12-08 23:43:07,707 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-08 23:43:07,707 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8 (weight: 1.00)
+2025-12-08 23:43:07,727 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2025-12-08 23:43:07,728 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-08 23:43:07,728 - openevolve.database - INFO - Initialized program database with 0 programs
+2025-12-08 23:43:09,372 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-12-08 23:43:09,372 - openevolve.evaluator - WARNING - Configuration has 'cascade_evaluation: true' but evaluator 'evaluator.py' does not define 'evaluate_stage1' function. This will fall back to direct evaluation, making the cascade setting useless. Consider setting 'cascade_evaluation: false' or implementing cascade functions.
+2025-12-08 23:43:09,372 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-12-08 23:43:09,372 - openevolve.controller - INFO - Initialized OpenEvolve with initial_program.py
+2025-12-08 23:43:09,373 - openevolve.controller - INFO - Adding initial program to database
+2025-12-08 23:43:09,943 - openevolve.evaluator - INFO - Evaluated program f055a0eb-94b5-4c56-8d12-598e66c2e346 in 0.57s: combined_score=0.2457
+2025-12-08 23:43:09,943 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2025-12-08 23:43:09,944 - openevolve.process_parallel - INFO - Initialized process parallel controller with 3 workers
+2025-12-08 23:43:09,945 - openevolve.process_parallel - INFO - Started process pool with 3 processes
+2025-12-08 23:43:09,945 - openevolve.controller - INFO - Using island-based evolution with 1 islands
+2025-12-08 23:43:09,945 - openevolve.database - INFO - Island Status:
+2025-12-08 23:43:09,945 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.2457, avg=0.2457, diversity=0.00, gen=0 (best: f055a0eb-94b5-4c56-8d12-598e66c2e346)
+2025-12-08 23:43:09,945 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 10 iterations (total: 11)
+2025-12-08 23:43:09,959 - openevolve.process_parallel - INFO - Early stopping disabled
+2025-12-08 23:43:10,000 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-08 23:43:10,000 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-08 23:43:10,000 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-08 23:43:10,667 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-12-08 23:43:10,667 - openevolve.evaluator - WARNING - Configuration has 'cascade_evaluation: true' but evaluator 'evaluator.py' does not define 'evaluate_stage1' function. This will fall back to direct evaluation, making the cascade setting useless. Consider setting 'cascade_evaluation: false' or implementing cascade functions.
+2025-12-08 23:43:10,667 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-12-08 23:43:10,668 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-08 23:43:10,676 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-12-08 23:43:10,676 - openevolve.evaluator - WARNING - Configuration has 'cascade_evaluation: true' but evaluator 'evaluator.py' does not define 'evaluate_stage1' function. This will fall back to direct evaluation, making the cascade setting useless. Consider setting 'cascade_evaluation: false' or implementing cascade functions.
+2025-12-08 23:43:10,676 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-12-08 23:43:10,676 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-08 23:43:10,679 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-12-08 23:43:10,679 - openevolve.evaluator - WARNING - Configuration has 'cascade_evaluation: true' but evaluator 'evaluator.py' does not define 'evaluate_stage1' function. This will fall back to direct evaluation, making the cascade setting useless. Consider setting 'cascade_evaluation: false' or implementing cascade functions.
+2025-12-08 23:43:10,679 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-12-08 23:43:10,679 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-08 23:43:24,579 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-08 23:43:24,612 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-08 23:43:24,612 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-08 23:43:25,251 - openevolve.evaluator - INFO - Evaluated program d5069aae-04e1-405b-bfc2-2932a646ec32 in 0.66s: combined_score=0.2457
+2025-12-08 23:43:25,252 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-08 23:43:25,259 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 5}
+2025-12-08 23:43:25,259 - openevolve.process_parallel - INFO - Iteration 2: Program d5069aae-04e1-405b-bfc2-2932a646ec32 (parent: f055a0eb-94b5-4c56-8d12-598e66c2e346) completed in 14.58s
+2025-12-08 23:43:25,259 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2457
+2025-12-08 23:43:25,265 - openevolve.evaluator - INFO - Evaluated program 0b7b8e88-cd44-423c-997c-2d6e284c6b1c in 0.65s: combined_score=0.2457
+2025-12-08 23:43:25,267 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-08 23:43:25,269 - openevolve.process_parallel - INFO - Iteration 3: Program 0b7b8e88-cd44-423c-997c-2d6e284c6b1c (parent: f055a0eb-94b5-4c56-8d12-598e66c2e346) completed in 14.60s
+2025-12-08 23:43:25,270 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2457
+2025-12-08 23:43:25,285 - openevolve.evaluator - INFO - Evaluated program ba242095-13ae-4f66-a5df-93e9b4b95416 in 0.67s: combined_score=0.2457
+2025-12-08 23:43:25,286 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-08 23:43:25,290 - openevolve.process_parallel - INFO - Iteration 1: Program ba242095-13ae-4f66-a5df-93e9b4b95416 (parent: f055a0eb-94b5-4c56-8d12-598e66c2e346) completed in 14.61s
+2025-12-08 23:43:25,290 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2457
+2025-12-08 23:43:35,450 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-08 23:43:35,482 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-08 23:43:35,482 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-08 23:43:36,441 - openevolve.evaluator - INFO - Evaluated program f01d3c3c-4529-43ce-a5e1-114ec7cc1d65 in 0.99s: combined_score=0.2457
+2025-12-08 23:43:36,442 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-08 23:43:36,448 - openevolve.process_parallel - INFO - Iteration 4: Program f01d3c3c-4529-43ce-a5e1-114ec7cc1d65 (parent: f055a0eb-94b5-4c56-8d12-598e66c2e346) completed in 11.19s
+2025-12-08 23:43:36,448 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2457
+2025-12-08 23:43:36,490 - openevolve.evaluator - INFO - Evaluated program eb4eb69e-c435-49f0-9d9f-6297db2fbc61 in 1.01s: combined_score=0.2457
+2025-12-08 23:43:36,492 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-08 23:43:36,496 - openevolve.evaluator - INFO - Evaluated program 48f4813b-1cc7-45ff-8ebf-d8a50c61d9ae in 1.01s: combined_score=0.2457
+2025-12-08 23:43:36,498 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-08 23:43:36,499 - openevolve.process_parallel - INFO - Iteration 5: Program 48f4813b-1cc7-45ff-8ebf-d8a50c61d9ae (parent: f055a0eb-94b5-4c56-8d12-598e66c2e346) completed in 11.23s
+2025-12-08 23:43:36,499 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2457
+2025-12-08 23:43:36,499 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 5
+2025-12-08 23:43:36,499 - openevolve.database - INFO - Island Status:
+2025-12-08 23:43:36,499 - openevolve.database - INFO -  * Island 0: 6 programs, best=0.2457, avg=0.2457, diversity=0.00, gen=5 (best: f055a0eb-94b5-4c56-8d12-598e66c2e346)
+2025-12-08 23:43:36,500 - openevolve.database - INFO - Saved database with 6 programs to openevolve_output/checkpoints/checkpoint_5
+2025-12-08 23:43:36,500 - openevolve.controller - INFO - Saved best program at checkpoint 5 with metrics: combined_score=0.2457
+2025-12-08 23:43:36,501 - openevolve.controller - INFO - Saved checkpoint at iteration 5 to openevolve_output/checkpoints/checkpoint_5
+2025-12-08 23:43:36,501 - openevolve.process_parallel - INFO - Iteration 6: Program eb4eb69e-c435-49f0-9d9f-6297db2fbc61 (parent: f055a0eb-94b5-4c56-8d12-598e66c2e346) completed in 11.20s
+2025-12-08 23:43:36,501 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2457
+2025-12-08 23:43:46,306 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-08 23:43:47,001 - openevolve.evaluator - INFO - Evaluated program 82966942-cbaf-4ca4-a910-e63a01129bfb in 0.69s: combined_score=0.2922
+2025-12-08 23:43:47,002 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-08 23:43:47,007 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 9}
+2025-12-08 23:43:47,007 - openevolve.database - INFO - New best program 82966942-cbaf-4ca4-a910-e63a01129bfb replaces f055a0eb-94b5-4c56-8d12-598e66c2e346 (combined_score: 0.2457 → 0.2922, +0.0466)
+2025-12-08 23:43:47,007 - openevolve.process_parallel - INFO - Iteration 8: Program 82966942-cbaf-4ca4-a910-e63a01129bfb (parent: 0b7b8e88-cd44-423c-997c-2d6e284c6b1c) completed in 10.51s
+2025-12-08 23:43:47,007 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2922
+2025-12-08 23:43:47,007 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 8: 82966942-cbaf-4ca4-a910-e63a01129bfb
+2025-12-08 23:43:50,276 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-08 23:43:50,957 - openevolve.evaluator - INFO - Evaluated program d10a755a-a06c-4115-9eed-5dd3c9037a58 in 0.68s: combined_score=0.2457
+2025-12-08 23:43:50,966 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 0, 'diversity': 0}
+2025-12-08 23:43:50,966 - openevolve.process_parallel - INFO - Iteration 9: Program d10a755a-a06c-4115-9eed-5dd3c9037a58 (parent: ba242095-13ae-4f66-a5df-93e9b4b95416) completed in 14.46s
+2025-12-08 23:43:50,966 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2457
+2025-12-08 23:44:01,788 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-08 23:44:01,793 - openevolve.process_parallel - WARNING - Iteration 10 error: No valid diffs found in response
+2025-12-08 23:44:23,108 - httpx - INFO - HTTP Request: POST http://localhost:8000/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-08 23:44:23,789 - openevolve.evaluator - INFO - Evaluated program c0fe0bae-5391-4001-903f-825201f36180 in 0.68s: combined_score=0.2457
+2025-12-08 23:44:23,800 - openevolve.process_parallel - INFO - Iteration 7: Program c0fe0bae-5391-4001-903f-825201f36180 (parent: f055a0eb-94b5-4c56-8d12-598e66c2e346) completed in 47.35s
+2025-12-08 23:44:23,800 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2457
+2025-12-08 23:44:23,800 - openevolve.process_parallel - INFO - ✅ Evolution completed - Maximum iterations reached
+2025-12-08 23:44:23,802 - openevolve.database - INFO - Saved database with 10 programs to openevolve_output/checkpoints/checkpoint_10
+2025-12-08 23:44:23,802 - openevolve.controller - INFO - Saved best program at checkpoint 10 with metrics: combined_score=0.2922
+2025-12-08 23:44:23,802 - openevolve.controller - INFO - Saved checkpoint at iteration 10 to openevolve_output/checkpoints/checkpoint_10
+2025-12-08 23:44:23,824 - openevolve.process_parallel - INFO - Stopped process pool
+2025-12-08 23:44:23,824 - openevolve.controller - INFO - Using tracked best program: 82966942-cbaf-4ca4-a910-e63a01129bfb
+2025-12-08 23:44:23,824 - openevolve.controller - INFO - Evolution complete. Best program has metrics: combined_score=0.2922
+2025-12-08 23:44:23,824 - openevolve.controller - INFO - Saved best program to openevolve_output/best/best_program.py with program info to openevolve_output/best/best_program_info.json

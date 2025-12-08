@@ -1,5 +1,3 @@
-You are an expert data engineer specializing in converting data to text. Your task is to create a Python program that converts structured triples data into natural language text. The general topic is Airports. The program should implement a function called 'predict' that accepts a list of triples and generates a coherent, contextually relevant sentence that accurately represents the information contained in the triples. Ensure that the generated text is fluent, grammatically correct, and maintains the meaning of the original data. The function returns that sentence as a string. Below is the list of all possible predicates that can be given as an input. With the given predicates and examples implement the 'predict' function so it can process all the possible predicates:
-
 Predicate: cityServed
 Example text: The Aarhus is the airport of Aarhus, Denmark.
 Predicate: elevationAboveTheSeaLevel
