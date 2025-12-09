@@ -13,6 +13,7 @@ from initial_program import Triple
 from tests.benchmark_reader.benchmark_reader import Benchmark
 from tests.benchmark_reader.benchmark_reader import select_files
 from nltk.translate.bleu_score import sentence_bleu
+import inspect
 
 b = Benchmark()
 files = select_files("/home/inf151915/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/train")
@@ -82,6 +83,56 @@ def evaluate(program_path):
                 metrics={
                     "combined_score": 0.0,
                     "error": "Missing predict function",
+                },
+                artifacts=error_artifacts
+            )
+
+        # Check function signature and return type
+        predict_sig = inspect.signature(program.predict)
+        params = list(predict_sig.parameters.values())
+
+        # Check if it accepts exactly one parameter (the Triple)
+        if len(params) != 1:
+            error_artifacts = {
+                "error_type": "InvalidSignature",
+                "error_message": "predict function must accept exactly one argument (Triple)",
+                "suggestion": "Define predict as: def predict(triple: Triple) -> str:"
+            }
+            return EvaluationResult(
+                metrics={
+                    "combined_score": 0.0,
+                    "error": "Invalid function signature",
+                },
+                artifacts=error_artifacts
+            )
+
+        # Test with a sample triple to check return type
+        try:
+            test_triple = Triple("test_subject", "test_predicate", "test_object")
+            test_result = run_with_timeout(program.predict, args=(test_triple,), timeout_seconds=2)
+            if not isinstance(test_result, str):
+                error_artifacts = {
+                    "error_type": "InvalidReturnType",
+                    "error_message": f"predict function must return str, but returned {type(test_result).__name__}",
+                    "suggestion": "Make sure predict returns a string"
+                }
+                return EvaluationResult(
+                    metrics={
+                        "combined_score": 0.0,
+                        "error": "Invalid return type",
+                    },
+                    artifacts=error_artifacts
+                )
+        except Exception as e:
+            error_artifacts = {
+                "error_type": "FunctionTestFailed",
+                "error_message": f"Failed to test predict function: {str(e)}",
+                "suggestion": "Ensure predict can handle a Triple object as input"
+            }
+            return EvaluationResult(
+                metrics={
+                    "combined_score": 0.0,
+                    "error": "Function test failed",
                 },
                 artifacts=error_artifacts
             )
