@@ -1,0 +1,95 @@
+2025-12-09 13:16:59,181 - openevolve.controller - INFO - Logging to openevolve_output/logs/openevolve_20251209_131659.log
+2025-12-09 13:16:59,190 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2025-12-09 13:16:59,251 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-09 13:16:59,251 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic (weight: 1.00)
+2025-12-09 13:16:59,259 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2025-12-09 13:16:59,260 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-09 13:16:59,260 - openevolve.database - INFO - Initialized program database with 0 programs
+2025-12-09 13:17:02,485 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-12-09 13:17:02,485 - openevolve.evaluator - WARNING - Configuration has 'cascade_evaluation: true' but evaluator 'evaluator.py' does not define 'evaluate_stage1' function. This will fall back to direct evaluation, making the cascade setting useless. Consider setting 'cascade_evaluation: false' or implementing cascade functions.
+2025-12-09 13:17:02,485 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-12-09 13:17:02,485 - openevolve.controller - INFO - Initialized OpenEvolve with initial_program.py
+2025-12-09 13:17:02,485 - openevolve.controller - INFO - Adding initial program to database
+2025-12-09 13:17:03,280 - openevolve.evaluator - INFO - Evaluated program e4d46ea3-8cbb-47af-bc75-027a5b9acb9e in 0.79s: combined_score=0.2457
+2025-12-09 13:17:03,281 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2025-12-09 13:17:03,282 - openevolve.process_parallel - INFO - Initialized process parallel controller with 3 workers
+2025-12-09 13:17:03,283 - openevolve.process_parallel - INFO - Started process pool with 3 processes
+2025-12-09 13:17:03,283 - openevolve.controller - INFO - Using island-based evolution with 1 islands
+2025-12-09 13:17:03,283 - openevolve.database - INFO - Island Status:
+2025-12-09 13:17:03,283 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.2457, avg=0.2457, diversity=0.00, gen=0 (best: e4d46ea3-8cbb-47af-bc75-027a5b9acb9e)
+2025-12-09 13:17:03,283 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 10 iterations (total: 11)
+2025-12-09 13:17:03,296 - openevolve.process_parallel - INFO - Early stopping disabled
+2025-12-09 13:17:03,330 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-09 13:17:03,341 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-09 13:17:03,349 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-09 13:17:05,596 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-12-09 13:17:05,597 - openevolve.evaluator - WARNING - Configuration has 'cascade_evaluation: true' but evaluator 'evaluator.py' does not define 'evaluate_stage1' function. This will fall back to direct evaluation, making the cascade setting useless. Consider setting 'cascade_evaluation: false' or implementing cascade functions.
+2025-12-09 13:17:05,597 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-12-09 13:17:05,597 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-09 13:17:05,702 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-12-09 13:17:05,702 - openevolve.evaluator - WARNING - Configuration has 'cascade_evaluation: true' but evaluator 'evaluator.py' does not define 'evaluate_stage1' function. This will fall back to direct evaluation, making the cascade setting useless. Consider setting 'cascade_evaluation: false' or implementing cascade functions.
+2025-12-09 13:17:05,702 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-12-09 13:17:05,703 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-09 13:17:05,712 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-12-09 13:17:05,712 - openevolve.evaluator - WARNING - Configuration has 'cascade_evaluation: true' but evaluator 'evaluator.py' does not define 'evaluate_stage1' function. This will fall back to direct evaluation, making the cascade setting useless. Consider setting 'cascade_evaluation: false' or implementing cascade functions.
+2025-12-09 13:17:05,712 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-12-09 13:17:05,713 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-09 13:17:29,850 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-09 13:17:31,343 - openevolve.evaluator - INFO - Evaluated program 2d77a94d-e019-42f7-b1bb-ba0a5f711521 in 1.48s: combined_score=0.0000, error=All trials failed
+2025-12-09 13:17:31,345 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-09 13:17:31,352 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 5}
+2025-12-09 13:17:31,352 - openevolve.process_parallel - INFO - Iteration 2: Program 2d77a94d-e019-42f7-b1bb-ba0a5f711521 (parent: e4d46ea3-8cbb-47af-bc75-027a5b9acb9e) completed in 25.63s
+2025-12-09 13:17:31,352 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, error=All trials failed
+2025-12-09 13:17:52,970 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-09 13:17:55,022 - openevolve.evaluator - INFO - Evaluated program d76e61aa-9953-4b41-baa8-e81c268f7a12 in 2.05s: combined_score=0.0000, error=All trials failed
+2025-12-09 13:17:55,024 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-09 13:17:55,031 - openevolve.process_parallel - INFO - Iteration 4: Program d76e61aa-9953-4b41-baa8-e81c268f7a12 (parent: e4d46ea3-8cbb-47af-bc75-027a5b9acb9e) completed in 23.68s
+2025-12-09 13:17:55,031 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, error=All trials failed
+2025-12-09 13:18:32,017 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-09 13:18:32,028 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-09 13:18:34,141 - openevolve.evaluator - INFO - Evaluated program ce086bb2-a6ce-4389-9b26-fc70e9300005 in 2.11s: combined_score=0.0000, error=All trials failed
+2025-12-09 13:18:34,143 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-09 13:18:34,149 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 9}
+2025-12-09 13:18:34,149 - openevolve.process_parallel - INFO - Iteration 1: Program ce086bb2-a6ce-4389-9b26-fc70e9300005 (parent: e4d46ea3-8cbb-47af-bc75-027a5b9acb9e) completed in 88.44s
+2025-12-09 13:18:34,149 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, error=All trials failed
+2025-12-09 13:18:34,638 - openevolve.evaluator - INFO - Evaluated program 844cd326-3aa1-4266-bd27-2295375f18ce in 2.59s: combined_score=0.0000, error=All trials failed
+2025-12-09 13:18:34,640 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-09 13:18:34,641 - openevolve.process_parallel - INFO - Iteration 3: Program 844cd326-3aa1-4266-bd27-2295375f18ce (parent: e4d46ea3-8cbb-47af-bc75-027a5b9acb9e) completed in 89.04s
+2025-12-09 13:18:34,641 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, error=All trials failed
+2025-12-09 13:19:15,864 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-09 13:19:15,868 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-09 13:19:15,878 - openevolve.process_parallel - WARNING - Iteration 5 error: No valid diffs found in response
+2025-12-09 13:19:54,862 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-09 13:19:54,866 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-09 13:19:54,869 - openevolve.process_parallel - WARNING - Iteration 6 error: No valid diffs found in response
+2025-12-09 13:20:07,320 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-09 13:20:07,324 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-09 13:20:07,324 - openevolve.process_parallel - WARNING - Iteration 7 error: No valid diffs found in response
+2025-12-09 13:20:14,066 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-09 13:20:16,110 - openevolve.evaluator - INFO - Evaluated program 5ce2952e-9acb-4754-84a0-5569f2f9222d in 2.04s: combined_score=0.0000, error=All trials failed
+2025-12-09 13:20:16,118 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 4}
+2025-12-09 13:20:16,118 - openevolve.process_parallel - INFO - Iteration 9: Program 5ce2952e-9acb-4754-84a0-5569f2f9222d (parent: ce086bb2-a6ce-4389-9b26-fc70e9300005) completed in 21.25s
+2025-12-09 13:20:16,118 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, error=All trials failed
+2025-12-09 13:20:30,986 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-09 13:20:32,687 - openevolve.evaluator - INFO - Evaluated program 47257249-398e-45f5-bf25-cb9bb5c93d6d in 1.70s: combined_score=0.0000, error=All trials failed
+2025-12-09 13:20:32,697 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 1, 'diversity': 0}
+2025-12-09 13:20:32,697 - openevolve.process_parallel - INFO - Iteration 10: Program 47257249-398e-45f5-bf25-cb9bb5c93d6d (parent: d76e61aa-9953-4b41-baa8-e81c268f7a12) completed in 25.36s
+2025-12-09 13:20:32,697 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, error=All trials failed
+2025-12-09 13:20:32,697 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 10
+2025-12-09 13:20:32,698 - openevolve.database - INFO - Island Status:
+2025-12-09 13:20:32,698 - openevolve.database - INFO -  * Island 0: 7 programs, best=0.2457, avg=0.0351, diversity=765.50, gen=6 (best: e4d46ea3-8cbb-47af-bc75-027a5b9acb9e)
+2025-12-09 13:20:32,720 - openevolve.database - INFO - Saved database with 7 programs to openevolve_output/checkpoints/checkpoint_10
+2025-12-09 13:20:32,724 - openevolve.controller - INFO - Saved best program at checkpoint 10 with metrics: combined_score=0.2457
+2025-12-09 13:20:32,724 - openevolve.controller - INFO - Saved checkpoint at iteration 10 to openevolve_output/checkpoints/checkpoint_10
+2025-12-09 13:20:54,479 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-09 13:20:55,681 - openevolve.evaluator - INFO - Evaluated program d9c8ce94-69d3-4346-b7db-2e88c10c2b95 in 1.20s: combined_score=0.0000, error=All trials failed
+2025-12-09 13:20:55,685 - openevolve.process_parallel - INFO - Iteration 8: Program d9c8ce94-69d3-4346-b7db-2e88c10c2b95 (parent: 2d77a94d-e019-42f7-b1bb-ba0a5f711521) completed in 99.81s
+2025-12-09 13:20:55,685 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, error=All trials failed
+2025-12-09 13:20:55,685 - openevolve.process_parallel - INFO - ✅ Evolution completed - Maximum iterations reached
+2025-12-09 13:20:55,698 - openevolve.database - INFO - Saved database with 8 programs to openevolve_output/checkpoints/checkpoint_10
+2025-12-09 13:20:55,700 - openevolve.controller - INFO - Saved best program at checkpoint 10 with metrics: combined_score=0.2457
+2025-12-09 13:20:55,700 - openevolve.controller - INFO - Saved checkpoint at iteration 10 to openevolve_output/checkpoints/checkpoint_10
+2025-12-09 13:20:55,746 - openevolve.process_parallel - INFO - Stopped process pool
+2025-12-09 13:20:55,747 - openevolve.controller - INFO - Using tracked best program: e4d46ea3-8cbb-47af-bc75-027a5b9acb9e
+2025-12-09 13:20:55,747 - openevolve.controller - INFO - Evolution complete. Best program has metrics: combined_score=0.2457
+2025-12-09 13:20:55,751 - openevolve.controller - INFO - Saved best program to openevolve_output/best/best_program.py with program info to openevolve_output/best/best_program_info.json

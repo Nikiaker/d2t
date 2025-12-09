@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -w hgx1
+#SBATCH -w hgx2
 #SBATCH -p hgx
 #SBATCH --gres=gpu:1
 #SBATCH -n1
@@ -16,5 +16,5 @@ SERVER_PID=$!
 
 conda run -n openevolve-env python ~/d2t/.conda/test-response.py
 
-cd ~/d2t/problems/function_minimization
+cd ~/d2t/problems/triples_to_text
 conda run -n openevolve-env python ../../openevolve/openevolve-run.py initial_program.py evaluator.py --config config_remote.yaml

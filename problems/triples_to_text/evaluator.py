@@ -15,7 +15,7 @@ from tests.benchmark_reader.benchmark_reader import select_files
 from nltk.translate.bleu_score import sentence_bleu
 
 b = Benchmark()
-files = select_files("/home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/train")
+files = select_files("/home/inf151915/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/train")
 b.fill_benchmark(files)
 validation_set = [(e.get_triples_tuple_list()[0], e.get_lexs_list()) for e in b.entries if e.category == "Airport" and e.shape == "(X (X))"]
 validation_set = [(Triple(*t[0]), t[1]) for t in validation_set]

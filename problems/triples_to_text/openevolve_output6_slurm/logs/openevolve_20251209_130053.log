@@ -1,0 +1,8 @@
+2025-12-09 13:00:53,639 - openevolve.controller - INFO - Logging to openevolve_output/logs/openevolve_20251209_130053.log
+2025-12-09 13:00:53,689 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2025-12-09 13:00:53,829 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-09 13:00:53,830 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic (weight: 1.00)
+2025-12-09 13:00:53,862 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2025-12-09 13:00:53,867 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-09 13:00:53,867 - openevolve.database - INFO - Initialized program database with 0 programs
+2025-12-09 13:00:53,904 - openevolve.evaluator - ERROR - Error loading evaluation function: No module named 'nltk'
