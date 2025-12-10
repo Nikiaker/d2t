@@ -29,9 +29,9 @@ class PredicateData:
     triples: list[TestTriple]
 
 
-train_files = select_files("/home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/train")
-dev_files = select_files("/home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/dev")
-test_dir = "/home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/test"
+train_files = select_files("/home/inf151915/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/train")
+dev_files = select_files("/home/inf151915/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/dev")
+test_dir = "/home/inf151915/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/test"
 test_file = select_test_file(test_dir, "rdf-to-text-generation-test-data-with-refs-en.xml")
 
 train_benchmark = Benchmark()
