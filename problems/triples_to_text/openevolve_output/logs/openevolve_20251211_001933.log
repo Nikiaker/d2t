@@ -1,0 +1,8 @@
+2025-12-11 00:19:33,404 - openevolve.controller - INFO - Logging to openevolve_output/logs/openevolve_20251211_001933.log
+2025-12-11 00:19:33,426 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2025-12-11 00:19:33,508 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8
+2025-12-11 00:19:33,509 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8 (weight: 1.00)
+2025-12-11 00:19:33,537 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2025-12-11 00:19:33,538 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-11 00:19:33,538 - openevolve.database - INFO - Initialized program database with 0 programs
+2025-12-11 00:19:34,635 - openevolve.evaluator - ERROR - Error loading evaluation function: [Errno 2] No such file or directory: '/home/inf151915/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/train/1triples'
