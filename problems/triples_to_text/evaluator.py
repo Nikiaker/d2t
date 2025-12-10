@@ -10,16 +10,52 @@ import traceback
 import signal
 from openevolve.evaluation_result import EvaluationResult
 from initial_program import Triple
-from tests.benchmark_reader.benchmark_reader import Benchmark
-from tests.benchmark_reader.benchmark_reader import select_files
+from tests.benchmark_reader.benchmark_reader import Benchmark, Entry
+from tests.benchmark_reader.benchmark_reader import select_files, select_test_file
 from nltk.translate.bleu_score import sentence_bleu
 import inspect
+from dataclasses import dataclass
 
-b = Benchmark()
-files = select_files("/home/inf151915/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/train")
-b.fill_benchmark(files)
-validation_set = [(e.get_triples_tuple_list()[0], e.get_lexs_list()) for e in b.entries if e.category == "Airport" and e.shape == "(X (X))"]
-validation_set = [(Triple(*t[0]), t[1]) for t in validation_set]
+@dataclass
+class TestTriple:
+    subject: str
+    predicate: str
+    object: str
+    example_texts: list[str]
+
+@dataclass
+class PredicateData:
+    predicate: str
+    triples: list[TestTriple]
+
+
+train_files = select_files("/home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/train")
+dev_files = select_files("/home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/dev")
+test_dir = "/home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/test"
+test_file = select_test_file(test_dir, "rdf-to-text-generation-test-data-with-refs-en.xml")
+
+train_benchmark = Benchmark()
+dev_benchmark = Benchmark()
+test_benchmark = Benchmark()
+train_benchmark.fill_benchmark(train_files)
+dev_benchmark.fill_benchmark(dev_files)
+test_benchmark.fill_benchmark(test_file)
+
+entries: list[Entry] = []
+entries.extend(train_benchmark.entries)
+entries.extend(dev_benchmark.entries)
+entries.extend(test_benchmark.entries)
+
+airport_entries  = [e for e in entries if e.category == "Airport" and e.size == "1"]
+
+triples_dict: dict[str, PredicateData] = {}
+for entry in airport_entries:
+    for triple_tuple in entry.get_triples_tuple_list():
+        test_triple = TestTriple(*triple_tuple, example_texts=entry.get_lexs_list())
+        if test_triple.predicate not in triples_dict:
+            triples_dict[test_triple.predicate] = PredicateData(predicate=test_triple.predicate, triples=[test_triple])
+        else:
+            triples_dict[test_triple.predicate].triples.append(test_triple)
 
 def run_with_timeout(func, args=(), kwargs={}, timeout_seconds=5):
     """
@@ -139,41 +175,43 @@ def evaluate(program_path):
 
         scores = []
         success_count = 0
-        best_bleu = 0.0
-        best_triple = Triple("", "", "")
-        best_generated = ""
-        best_actual = ""
+        bad_artifacts: dict[str, str] = {}
 
-        for triple, test_texts in validation_set:
+        for predicate, predicate_data in triples_dict.items():
             try:
-                # Run with timeout
-                result = run_with_timeout(program.predict, args=(triple,), timeout_seconds=5)
+                is_bad = False
+                for test_triple in predicate_data.triples:
+                    triple = Triple(test_triple.subject, test_triple.predicate, test_triple.object)
+                    test_texts = test_triple.example_texts
 
-                # Handle different result formats
-                if isinstance(result, str):
-                    generated_text = result
-                else:
-                    print(
-                        f"Invalid result format, expected str but got {type(result)}"
-                    )
-                    continue
+                    # Run with timeout
+                    result = run_with_timeout(program.predict, args=(triple,), timeout_seconds=5)
 
-                # Define your desired weights (example: higher weight for bi-grams)
-                weights = (0.25, 0.25)  # Weights for uni-gram, bi-gram, tri-gram, and 4-gram
+                    # Handle different result formats
+                    if isinstance(result, str):
+                        generated_text = result
+                    else:
+                        print(
+                            f"Invalid result format, expected str but got {type(result)}"
+                        )
+                        continue
 
-                # Reference and predicted texts (same as before)
-                reference = [test_text.lower().split() for test_text in test_texts]
-                predictions = generated_text.lower().split()
+                    # Define your desired weights (example: higher weight for bi-grams)
+                    weights = (0.25, 0.25)  # Weights for uni-gram, bi-gram, tri-gram, and 4-gram
 
-                # Calculate BLEU score with weights
-                score = sentence_bleu(reference, predictions, weights=weights)
-                scores.append(score)
+                    # Reference and predicted texts (same as before)
+                    reference = [test_text.lower().split() for test_text in test_texts]
+                    predictions = generated_text.lower().split()
 
-                if score > best_bleu:
-                    best_bleu = score
-                    best_triple = triple
-                    best_generated = generated_text
-                    best_actual = test_texts
+                    # Calculate BLEU score with weights
+                    score = sentence_bleu(reference, predictions, weights=weights)
+                    scores.append(score)
+
+                    if score < 0.1:
+                        if not is_bad:
+                            bad_artifacts[f"LowScore_{predicate}"] = f"For the predicate: {predicate}, the below triples had BLEU scores below 0.1:\n"
+                        is_bad = True
+                        bad_artifacts[f"LowScore_{predicate}"] += f"Score: {score:.4f}, Triple: ({triple.subject}, {triple.predicate}, {triple.object}), Generated: {generated_text}, Actuals: {test_texts}\n"
 
                 success_count += 1
 
@@ -210,22 +248,13 @@ def evaluate(program_path):
 
         # Calculate metrics
         avg_value = float(np.mean(scores))
-
         combined_score = avg_value
-
-        # Add artifacts for successful runs
-        artifacts = {
-            "best_score": f"Best BLEU score: {best_bleu:.4f}",
-            "best_triple": f"({best_triple.subject}, {best_triple.predicate}, {best_triple.object})",
-            "best_generated_text": f"{best_generated}",
-            "best_actual_text": f"{best_actual}",
-        }
 
         return EvaluationResult(
             metrics={
                 "combined_score": combined_score,
             },
-            artifacts=artifacts
+            artifacts=bad_artifacts
         )
     except Exception as e:
         print(f"Evaluation failed completely: {str(e)}")

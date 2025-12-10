@@ -132,7 +132,7 @@ class Entry:
         Return a list of triples as tuples for an entry.
         :return: list of triples as tuples
         """
-        triples = []
+        triples: list[tuple[str, str, str]] = []
         for triple in self.modifiedtripleset.triples:
             triples.append((triple.s, triple.p, triple.o))
         return triples
@@ -420,3 +420,6 @@ def select_files(topdir, category='', size=(1, 8)):
     for item in finaldirs:
         finalfiles += [(item, filename) for filename in sorted(listdir(item)) if category in filename and '.xml' in filename]
     return finalfiles
+
+def select_test_file(topdir, filename):
+    return [(topdir, filename)]

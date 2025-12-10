@@ -10,7 +10,7 @@ llm:
     - name: "RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic"
   api_key: "AiIsMyLife25"
   api_base: "http://localhost:2993/v1"
-  max_tokens: 7000
+  max_tokens: 20000
   timeout: 120
 
 # Prompt configuration
