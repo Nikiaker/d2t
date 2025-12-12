@@ -55,4 +55,4 @@ for entry in airport_entries:
 
 print("Number of unique predicates: ", len(triples_dict))
 print("Done")
-write_triples(triples_dict)
+#write_triples(triples_dict)
