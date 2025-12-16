@@ -15,6 +15,7 @@ from tests.benchmark_reader.benchmark_reader import select_files, select_test_fi
 from nltk.translate.bleu_score import sentence_bleu
 import inspect
 from dataclasses import dataclass
+import os
 
 @dataclass
 class TestTriple:
@@ -35,10 +36,16 @@ class PredicateData:
     predicate: str
     sentences: list[TestSentence]
 
+WEBNLG_BASE_PATH = os.getenv(
+    "WEBNLG_BASE_PATH",
+    "./",
+)
+if not WEBNLG_BASE_PATH.endswith("/"):
+    WEBNLG_BASE_PATH += "/"
 
-train_files = select_files("/home/inf151915/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/train")
-dev_files = select_files("/home/inf151915/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/dev")
-test_dir = "/home/inf151915/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/test"
+train_files = select_files(WEBNLG_BASE_PATH + "train")
+dev_files = select_files(WEBNLG_BASE_PATH + "dev")
+test_dir = WEBNLG_BASE_PATH + "test"
 test_file = select_test_file(test_dir, "rdf-to-text-generation-test-data-with-refs-en.xml")
 
 train_benchmark = Benchmark()
@@ -130,8 +137,8 @@ def evaluate(program_path):
         if len(params) != 1:
             error_artifacts = {
                 "error_type": "InvalidSignature",
-                "error_message": "predict function must accept exactly one argument (Triple)",
-                "suggestion": "Define predict as: def predict(triple: Triple) -> str:"
+                "error_message": "predict function must accept exactly one argument (list[Triple])",
+                "suggestion": "Define predict as: def predict(triples: list[Triple]) -> str:"
             }
             return EvaluationResult(
                 metrics={
@@ -143,8 +150,8 @@ def evaluate(program_path):
 
         # Test with a sample triple to check return type
         try:
-            test_triple = Triple("test_subject", "test_predicate", "test_object")
-            test_result = run_with_timeout(program.predict, args=(test_triple,), timeout_seconds=2)
+            test_triples = [Triple("test_subject", "test_predicate", "test_object")]
+            test_result = run_with_timeout(program.predict, args=(test_triples,), timeout_seconds=2)
             if not isinstance(test_result, str):
                 error_artifacts = {
                     "error_type": "InvalidReturnType",
@@ -162,7 +169,7 @@ def evaluate(program_path):
             error_artifacts = {
                 "error_type": "FunctionTestFailed",
                 "error_message": f"Failed to test predict function: {str(e)}",
-                "suggestion": "Ensure predict can handle a Triple object as input"
+                "suggestion": "Ensure predict can handle a list[Triple] object as input"
             }
             return EvaluationResult(
                 metrics={

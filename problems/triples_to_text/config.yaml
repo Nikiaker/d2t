@@ -7,9 +7,9 @@ max_code_length: 20000
 # LLM configuration
 llm:
   models:
-    - name: "RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8"
+    - name: "gpt-4o"
   api_key: "DUMMY_LOCAL_KEY"
-  api_base: "https://openai-mock.mock.beeceptor.com/v1"
+  api_base: "https://openai-mock.mock.beeceptor.com"
   max_tokens: 2000
   timeout: 120
 

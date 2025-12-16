@@ -17,4 +17,5 @@ SERVER_PID=$!
 conda run -n openevolve-env python ~/d2t/.conda/test-response.py
 
 cd ~/d2t/problems/triples_to_text
+export WEBNLG_BASE_PATH="/home/inf151915/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/"
 conda run -n openevolve-env python ../../openevolve/openevolve-run.py initial_program.py evaluator.py --config config_remote.yaml
