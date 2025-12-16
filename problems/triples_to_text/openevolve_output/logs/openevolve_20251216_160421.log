@@ -1,0 +1,346 @@
+2025-12-16 16:04:21,282 - openevolve.controller - INFO - Logging to openevolve_output/logs/openevolve_20251216_160421.log
+2025-12-16 16:04:21,311 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2025-12-16 16:04:21,433 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:04:21,433 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic (weight: 1.00)
+2025-12-16 16:04:21,460 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2025-12-16 16:04:21,462 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-16 16:04:21,462 - openevolve.database - INFO - Initialized program database with 0 programs
+2025-12-16 16:04:23,858 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-12-16 16:04:23,858 - openevolve.evaluator - WARNING - Configuration has 'cascade_evaluation: true' but evaluator 'evaluator.py' does not define 'evaluate_stage1' function. This will fall back to direct evaluation, making the cascade setting useless. Consider setting 'cascade_evaluation: false' or implementing cascade functions.
+2025-12-16 16:04:23,858 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-12-16 16:04:23,858 - openevolve.controller - INFO - Initialized OpenEvolve with initial_program.py
+2025-12-16 16:04:23,859 - openevolve.controller - INFO - Adding initial program to database
+2025-12-16 16:04:25,011 - openevolve.evaluator - INFO - Evaluated program bb27fda1-aacb-41d7-bd3c-30f9dca01927 in 1.15s: combined_score=0.0784
+2025-12-16 16:04:25,012 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2025-12-16 16:04:25,013 - openevolve.process_parallel - INFO - Initialized process parallel controller with 3 workers
+2025-12-16 16:04:25,014 - openevolve.process_parallel - INFO - Started process pool with 3 processes
+2025-12-16 16:04:25,014 - openevolve.controller - INFO - Using island-based evolution with 1 islands
+2025-12-16 16:04:25,014 - openevolve.database - INFO - Island Status:
+2025-12-16 16:04:25,014 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.0784, avg=0.0784, diversity=0.00, gen=0 (best: bb27fda1-aacb-41d7-bd3c-30f9dca01927)
+2025-12-16 16:04:25,014 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 100 iterations (total: 101)
+2025-12-16 16:04:25,024 - openevolve.process_parallel - INFO - Early stopping disabled
+2025-12-16 16:04:25,048 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-16 16:04:25,066 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-16 16:04:25,083 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-16 16:04:27,481 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-12-16 16:04:27,481 - openevolve.evaluator - WARNING - Configuration has 'cascade_evaluation: true' but evaluator 'evaluator.py' does not define 'evaluate_stage1' function. This will fall back to direct evaluation, making the cascade setting useless. Consider setting 'cascade_evaluation: false' or implementing cascade functions.
+2025-12-16 16:04:27,482 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-12-16 16:04:27,482 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:04:27,619 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-12-16 16:04:27,619 - openevolve.evaluator - WARNING - Configuration has 'cascade_evaluation: true' but evaluator 'evaluator.py' does not define 'evaluate_stage1' function. This will fall back to direct evaluation, making the cascade setting useless. Consider setting 'cascade_evaluation: false' or implementing cascade functions.
+2025-12-16 16:04:27,619 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-12-16 16:04:27,620 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:04:27,697 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-12-16 16:04:27,698 - openevolve.evaluator - WARNING - Configuration has 'cascade_evaluation: true' but evaluator 'evaluator.py' does not define 'evaluate_stage1' function. This will fall back to direct evaluation, making the cascade setting useless. Consider setting 'cascade_evaluation: false' or implementing cascade functions.
+2025-12-16 16:04:27,698 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-12-16 16:04:27,698 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:04:51,275 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:04:51,275 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:04:51,283 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:04:51,284 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:04:51,292 - openevolve.process_parallel - WARNING - Iteration 3 error: No valid diffs found in response
+2025-12-16 16:04:51,294 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:04:51,301 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:04:51,303 - openevolve.process_parallel - WARNING - Iteration 1 error: No valid diffs found in response
+2025-12-16 16:04:51,303 - openevolve.process_parallel - WARNING - Iteration 2 error: No valid diffs found in response
+2025-12-16 16:05:03,273 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:05:03,274 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:05:06,006 - openevolve.evaluator - INFO - Evaluated program 317ac77a-28d0-49ce-9cb4-3b73caed7910 in 2.73s: combined_score=0.0784
+2025-12-16 16:05:06,007 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:05:06,018 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 5}
+2025-12-16 16:05:06,018 - openevolve.process_parallel - INFO - Iteration 5: Program 317ac77a-28d0-49ce-9cb4-3b73caed7910 (parent: bb27fda1-aacb-41d7-bd3c-30f9dca01927) completed in 14.71s
+2025-12-16 16:05:06,018 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0784
+2025-12-16 16:05:06,191 - openevolve.evaluator - INFO - Evaluated program 23a365ba-d411-4855-bb10-f1aa5c4df3d6 in 2.90s: combined_score=0.0784
+2025-12-16 16:05:06,192 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:05:06,194 - openevolve.process_parallel - INFO - Iteration 6: Program 23a365ba-d411-4855-bb10-f1aa5c4df3d6 (parent: bb27fda1-aacb-41d7-bd3c-30f9dca01927) completed in 14.89s
+2025-12-16 16:05:06,194 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0784
+2025-12-16 16:05:11,047 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:05:11,049 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:05:11,051 - openevolve.process_parallel - WARNING - Iteration 4 error: No valid diffs found in response
+2025-12-16 16:05:25,167 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:05:25,170 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:05:25,172 - openevolve.process_parallel - WARNING - Iteration 7 error: No valid diffs found in response
+2025-12-16 16:05:25,931 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:05:25,933 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:05:25,945 - openevolve.process_parallel - WARNING - Iteration 8 error: No valid diffs found in response
+2025-12-16 16:05:31,575 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:05:31,577 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:05:31,579 - openevolve.process_parallel - WARNING - Iteration 9 error: No valid diffs found in response
+2025-12-16 16:05:35,172 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:05:35,174 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:05:35,183 - openevolve.process_parallel - WARNING - Iteration 11 error: No valid diffs found in response
+2025-12-16 16:05:39,987 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:05:39,989 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:05:39,997 - openevolve.process_parallel - WARNING - Iteration 12 error: No valid diffs found in response
+2025-12-16 16:05:43,181 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:05:43,183 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:05:43,193 - openevolve.process_parallel - WARNING - Iteration 13 error: No valid diffs found in response
+2025-12-16 16:05:46,051 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:05:46,054 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:05:46,063 - openevolve.process_parallel - WARNING - Iteration 10 error: No valid diffs found in response
+2025-12-16 16:05:48,000 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:05:48,002 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:05:48,002 - openevolve.process_parallel - WARNING - Iteration 14 error: No valid diffs found in response
+2025-12-16 16:05:51,189 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:05:51,192 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:05:51,201 - openevolve.process_parallel - WARNING - Iteration 15 error: No valid diffs found in response
+2025-12-16 16:05:54,272 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:05:54,275 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:05:54,285 - openevolve.process_parallel - WARNING - Iteration 16 error: No valid diffs found in response
+2025-12-16 16:05:56,222 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:05:56,224 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:05:56,225 - openevolve.process_parallel - WARNING - Iteration 17 error: No valid diffs found in response
+2025-12-16 16:05:59,411 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:05:59,414 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:05:59,422 - openevolve.process_parallel - WARNING - Iteration 18 error: No valid diffs found in response
+2025-12-16 16:06:02,277 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:02,279 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:02,291 - openevolve.process_parallel - WARNING - Iteration 19 error: No valid diffs found in response
+2025-12-16 16:06:04,225 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:04,227 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:04,233 - openevolve.process_parallel - WARNING - Iteration 20 error: No valid diffs found in response
+2025-12-16 16:06:07,414 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:07,416 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:07,417 - openevolve.process_parallel - WARNING - Iteration 21 error: No valid diffs found in response
+2025-12-16 16:06:10,279 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:10,281 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:10,292 - openevolve.process_parallel - WARNING - Iteration 22 error: No valid diffs found in response
+2025-12-16 16:06:12,227 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:12,229 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:12,237 - openevolve.process_parallel - WARNING - Iteration 23 error: No valid diffs found in response
+2025-12-16 16:06:15,416 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:15,419 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:15,420 - openevolve.process_parallel - WARNING - Iteration 24 error: No valid diffs found in response
+2025-12-16 16:06:18,283 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:18,285 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:18,296 - openevolve.process_parallel - WARNING - Iteration 25 error: No valid diffs found in response
+2025-12-16 16:06:20,231 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:20,233 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:20,236 - openevolve.process_parallel - WARNING - Iteration 26 error: No valid diffs found in response
+2025-12-16 16:06:23,423 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:23,425 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:23,436 - openevolve.process_parallel - WARNING - Iteration 27 error: No valid diffs found in response
+2025-12-16 16:06:26,289 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:26,291 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:26,301 - openevolve.process_parallel - WARNING - Iteration 28 error: No valid diffs found in response
+2025-12-16 16:06:28,238 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:28,240 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:28,240 - openevolve.process_parallel - WARNING - Iteration 29 error: No valid diffs found in response
+2025-12-16 16:06:31,429 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:31,431 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:31,432 - openevolve.process_parallel - WARNING - Iteration 30 error: No valid diffs found in response
+2025-12-16 16:06:34,295 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:34,298 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:34,308 - openevolve.process_parallel - WARNING - Iteration 31 error: No valid diffs found in response
+2025-12-16 16:06:36,244 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:36,246 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:36,248 - openevolve.process_parallel - WARNING - Iteration 32 error: No valid diffs found in response
+2025-12-16 16:06:39,434 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:39,437 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:39,445 - openevolve.process_parallel - WARNING - Iteration 33 error: No valid diffs found in response
+2025-12-16 16:06:42,304 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:42,306 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:42,315 - openevolve.process_parallel - WARNING - Iteration 34 error: No valid diffs found in response
+2025-12-16 16:06:44,253 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:44,255 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:44,255 - openevolve.process_parallel - WARNING - Iteration 35 error: No valid diffs found in response
+2025-12-16 16:06:47,443 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:47,445 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:47,448 - openevolve.process_parallel - WARNING - Iteration 36 error: No valid diffs found in response
+2025-12-16 16:06:50,307 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:50,309 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:50,316 - openevolve.process_parallel - WARNING - Iteration 37 error: No valid diffs found in response
+2025-12-16 16:06:52,255 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:52,258 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:52,258 - openevolve.process_parallel - WARNING - Iteration 38 error: No valid diffs found in response
+2025-12-16 16:06:55,445 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:55,447 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:55,458 - openevolve.process_parallel - WARNING - Iteration 39 error: No valid diffs found in response
+2025-12-16 16:06:58,311 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:06:58,313 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:06:58,324 - openevolve.process_parallel - WARNING - Iteration 40 error: No valid diffs found in response
+2025-12-16 16:07:00,259 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:00,261 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:00,264 - openevolve.process_parallel - WARNING - Iteration 41 error: No valid diffs found in response
+2025-12-16 16:07:03,449 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:03,451 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:03,462 - openevolve.process_parallel - WARNING - Iteration 42 error: No valid diffs found in response
+2025-12-16 16:07:06,316 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:06,319 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:06,321 - openevolve.process_parallel - WARNING - Iteration 43 error: No valid diffs found in response
+2025-12-16 16:07:08,264 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:08,267 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:08,273 - openevolve.process_parallel - WARNING - Iteration 44 error: No valid diffs found in response
+2025-12-16 16:07:11,454 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:11,456 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:11,458 - openevolve.process_parallel - WARNING - Iteration 45 error: No valid diffs found in response
+2025-12-16 16:07:14,320 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:14,322 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:14,328 - openevolve.process_parallel - WARNING - Iteration 46 error: No valid diffs found in response
+2025-12-16 16:07:16,268 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:16,270 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:16,271 - openevolve.process_parallel - WARNING - Iteration 47 error: No valid diffs found in response
+2025-12-16 16:07:19,455 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:19,458 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:19,469 - openevolve.process_parallel - WARNING - Iteration 48 error: No valid diffs found in response
+2025-12-16 16:07:22,320 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:22,322 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:22,329 - openevolve.process_parallel - WARNING - Iteration 49 error: No valid diffs found in response
+2025-12-16 16:07:24,268 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:24,270 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:24,271 - openevolve.process_parallel - WARNING - Iteration 50 error: No valid diffs found in response
+2025-12-16 16:07:27,456 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:27,459 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:27,470 - openevolve.process_parallel - WARNING - Iteration 51 error: No valid diffs found in response
+2025-12-16 16:07:30,320 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:30,324 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:30,328 - openevolve.process_parallel - WARNING - Iteration 52 error: No valid diffs found in response
+2025-12-16 16:07:32,269 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:32,271 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:32,273 - openevolve.process_parallel - WARNING - Iteration 53 error: No valid diffs found in response
+2025-12-16 16:07:35,458 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:35,460 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:35,471 - openevolve.process_parallel - WARNING - Iteration 54 error: No valid diffs found in response
+2025-12-16 16:07:38,323 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:38,325 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:38,333 - openevolve.process_parallel - WARNING - Iteration 55 error: No valid diffs found in response
+2025-12-16 16:07:40,271 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:40,273 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:40,275 - openevolve.process_parallel - WARNING - Iteration 56 error: No valid diffs found in response
+2025-12-16 16:07:43,462 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:43,464 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:43,475 - openevolve.process_parallel - WARNING - Iteration 57 error: No valid diffs found in response
+2025-12-16 16:07:46,327 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:46,330 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:46,337 - openevolve.process_parallel - WARNING - Iteration 58 error: No valid diffs found in response
+2025-12-16 16:07:48,275 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:48,278 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:48,278 - openevolve.process_parallel - WARNING - Iteration 59 error: No valid diffs found in response
+2025-12-16 16:07:51,465 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:51,467 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:51,477 - openevolve.process_parallel - WARNING - Iteration 60 error: No valid diffs found in response
+2025-12-16 16:07:54,331 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:54,333 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:54,344 - openevolve.process_parallel - WARNING - Iteration 61 error: No valid diffs found in response
+2025-12-16 16:07:56,280 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:56,282 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:56,283 - openevolve.process_parallel - WARNING - Iteration 62 error: No valid diffs found in response
+2025-12-16 16:07:59,472 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:07:59,474 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:07:59,476 - openevolve.process_parallel - WARNING - Iteration 63 error: No valid diffs found in response
+2025-12-16 16:08:02,338 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:02,340 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:02,352 - openevolve.process_parallel - WARNING - Iteration 64 error: No valid diffs found in response
+2025-12-16 16:08:04,286 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:04,288 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:04,296 - openevolve.process_parallel - WARNING - Iteration 65 error: No valid diffs found in response
+2025-12-16 16:08:07,478 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:07,481 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:07,490 - openevolve.process_parallel - WARNING - Iteration 66 error: No valid diffs found in response
+2025-12-16 16:08:10,346 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:10,348 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:10,349 - openevolve.process_parallel - WARNING - Iteration 67 error: No valid diffs found in response
+2025-12-16 16:08:12,296 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:12,298 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:12,299 - openevolve.process_parallel - WARNING - Iteration 68 error: No valid diffs found in response
+2025-12-16 16:08:15,488 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:15,491 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:15,501 - openevolve.process_parallel - WARNING - Iteration 69 error: No valid diffs found in response
+2025-12-16 16:08:18,355 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:18,358 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:18,359 - openevolve.process_parallel - WARNING - Iteration 70 error: No valid diffs found in response
+2025-12-16 16:08:20,305 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:20,307 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:20,309 - openevolve.process_parallel - WARNING - Iteration 71 error: No valid diffs found in response
+2025-12-16 16:08:23,500 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:23,502 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:23,511 - openevolve.process_parallel - WARNING - Iteration 72 error: No valid diffs found in response
+2025-12-16 16:08:26,369 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:26,372 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:26,381 - openevolve.process_parallel - WARNING - Iteration 73 error: No valid diffs found in response
+2025-12-16 16:08:28,320 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:28,322 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:28,331 - openevolve.process_parallel - WARNING - Iteration 74 error: No valid diffs found in response
+2025-12-16 16:08:31,514 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:31,516 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:31,523 - openevolve.process_parallel - WARNING - Iteration 75 error: No valid diffs found in response
+2025-12-16 16:08:34,384 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:34,386 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:34,393 - openevolve.process_parallel - WARNING - Iteration 76 error: No valid diffs found in response
+2025-12-16 16:08:36,335 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:36,337 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:36,344 - openevolve.process_parallel - WARNING - Iteration 77 error: No valid diffs found in response
+2025-12-16 16:08:39,527 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:39,530 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:39,539 - openevolve.process_parallel - WARNING - Iteration 78 error: No valid diffs found in response
+2025-12-16 16:08:42,398 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:42,400 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:42,408 - openevolve.process_parallel - WARNING - Iteration 79 error: No valid diffs found in response
+2025-12-16 16:08:44,349 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:44,352 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:44,361 - openevolve.process_parallel - WARNING - Iteration 80 error: No valid diffs found in response
+2025-12-16 16:08:47,543 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:47,545 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:47,554 - openevolve.process_parallel - WARNING - Iteration 81 error: No valid diffs found in response
+2025-12-16 16:08:50,412 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:50,414 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:50,423 - openevolve.process_parallel - WARNING - Iteration 82 error: No valid diffs found in response
+2025-12-16 16:08:52,362 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:52,364 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:52,373 - openevolve.process_parallel - WARNING - Iteration 83 error: No valid diffs found in response
+2025-12-16 16:08:55,554 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:55,556 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:55,565 - openevolve.process_parallel - WARNING - Iteration 84 error: No valid diffs found in response
+2025-12-16 16:08:58,423 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:08:58,425 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:08:58,434 - openevolve.process_parallel - WARNING - Iteration 85 error: No valid diffs found in response
+2025-12-16 16:09:00,372 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:09:00,374 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:09:00,384 - openevolve.process_parallel - WARNING - Iteration 86 error: No valid diffs found in response
+2025-12-16 16:09:03,564 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:09:03,567 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:09:03,576 - openevolve.process_parallel - WARNING - Iteration 87 error: No valid diffs found in response
+2025-12-16 16:09:06,432 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:09:06,435 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:09:06,445 - openevolve.process_parallel - WARNING - Iteration 88 error: No valid diffs found in response
+2025-12-16 16:09:08,382 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:09:08,384 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:09:08,385 - openevolve.process_parallel - WARNING - Iteration 89 error: No valid diffs found in response
+2025-12-16 16:09:11,574 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:09:11,576 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:09:11,577 - openevolve.process_parallel - WARNING - Iteration 90 error: No valid diffs found in response
+2025-12-16 16:09:14,443 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:09:14,445 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:09:14,445 - openevolve.process_parallel - WARNING - Iteration 91 error: No valid diffs found in response
+2025-12-16 16:09:16,393 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:09:16,395 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:09:16,405 - openevolve.process_parallel - WARNING - Iteration 92 error: No valid diffs found in response
+2025-12-16 16:09:19,585 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:09:19,587 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:09:19,597 - openevolve.process_parallel - WARNING - Iteration 93 error: No valid diffs found in response
+2025-12-16 16:09:22,452 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:09:22,455 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:09:22,455 - openevolve.process_parallel - WARNING - Iteration 94 error: No valid diffs found in response
+2025-12-16 16:09:24,403 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:09:24,405 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:09:24,405 - openevolve.process_parallel - WARNING - Iteration 95 error: No valid diffs found in response
+2025-12-16 16:09:27,595 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:09:27,597 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:09:27,607 - openevolve.process_parallel - WARNING - Iteration 96 error: No valid diffs found in response
+2025-12-16 16:09:30,463 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:09:30,465 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 16:09:30,466 - openevolve.process_parallel - WARNING - Iteration 97 error: No valid diffs found in response
+2025-12-16 16:09:32,415 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:09:32,426 - openevolve.process_parallel - WARNING - Iteration 98 error: No valid diffs found in response
+2025-12-16 16:09:35,579 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:09:35,587 - openevolve.process_parallel - WARNING - Iteration 99 error: No valid diffs found in response
+2025-12-16 16:09:38,362 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 16:09:38,363 - openevolve.process_parallel - WARNING - Iteration 100 error: No valid diffs found in response
+2025-12-16 16:09:38,363 - openevolve.process_parallel - INFO - ✅ Evolution completed - Maximum iterations reached
+2025-12-16 16:09:38,373 - openevolve.database - INFO - Saved database with 3 programs to openevolve_output/checkpoints/checkpoint_100
+2025-12-16 16:09:38,376 - openevolve.controller - INFO - Saved best program at checkpoint 100 with metrics: combined_score=0.0784
+2025-12-16 16:09:38,376 - openevolve.controller - INFO - Saved checkpoint at iteration 100 to openevolve_output/checkpoints/checkpoint_100
+2025-12-16 16:09:38,398 - openevolve.process_parallel - INFO - Stopped process pool
+2025-12-16 16:09:38,398 - openevolve.controller - INFO - Using tracked best program: bb27fda1-aacb-41d7-bd3c-30f9dca01927
+2025-12-16 16:09:38,398 - openevolve.controller - INFO - Evolution complete. Best program has metrics: combined_score=0.0784
+2025-12-16 16:09:38,402 - openevolve.controller - INFO - Saved best program to openevolve_output/best/best_program.py with program info to openevolve_output/best/best_program_info.json
