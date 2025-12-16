@@ -1,0 +1,680 @@
+2025-12-16 14:07:40,746 - openevolve.controller - INFO - Logging to openevolve_output/logs/openevolve_20251216_140740.log
+2025-12-16 14:07:40,785 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2025-12-16 14:07:40,903 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:07:40,903 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic (weight: 1.00)
+2025-12-16 14:07:40,928 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2025-12-16 14:07:40,932 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-16 14:07:40,932 - openevolve.database - INFO - Initialized program database with 0 programs
+2025-12-16 14:07:43,627 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-12-16 14:07:43,627 - openevolve.evaluator - WARNING - Configuration has 'cascade_evaluation: true' but evaluator 'evaluator.py' does not define 'evaluate_stage1' function. This will fall back to direct evaluation, making the cascade setting useless. Consider setting 'cascade_evaluation: false' or implementing cascade functions.
+2025-12-16 14:07:43,627 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-12-16 14:07:43,627 - openevolve.controller - INFO - Initialized OpenEvolve with initial_program.py
+2025-12-16 14:07:43,628 - openevolve.controller - INFO - Adding initial program to database
+2025-12-16 14:07:44,859 - openevolve.evaluator - INFO - Evaluated program 1b3cca8d-810f-4c66-b554-4dfc1c3f9186 in 1.23s: combined_score=0.0784
+2025-12-16 14:07:44,859 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2025-12-16 14:07:44,861 - openevolve.process_parallel - INFO - Initialized process parallel controller with 3 workers
+2025-12-16 14:07:44,861 - openevolve.process_parallel - INFO - Started process pool with 3 processes
+2025-12-16 14:07:44,861 - openevolve.controller - INFO - Using island-based evolution with 1 islands
+2025-12-16 14:07:44,862 - openevolve.database - INFO - Island Status:
+2025-12-16 14:07:44,862 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.0784, avg=0.0784, diversity=0.00, gen=0 (best: 1b3cca8d-810f-4c66-b554-4dfc1c3f9186)
+2025-12-16 14:07:44,862 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 100 iterations (total: 101)
+2025-12-16 14:07:44,871 - openevolve.process_parallel - INFO - Early stopping disabled
+2025-12-16 14:07:44,899 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-16 14:07:44,910 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-16 14:07:44,910 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2025-12-16 14:07:47,506 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-12-16 14:07:47,506 - openevolve.evaluator - WARNING - Configuration has 'cascade_evaluation: true' but evaluator 'evaluator.py' does not define 'evaluate_stage1' function. This will fall back to direct evaluation, making the cascade setting useless. Consider setting 'cascade_evaluation: false' or implementing cascade functions.
+2025-12-16 14:07:47,506 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-12-16 14:07:47,507 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:07:47,567 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-12-16 14:07:47,567 - openevolve.evaluator - WARNING - Configuration has 'cascade_evaluation: true' but evaluator 'evaluator.py' does not define 'evaluate_stage1' function. This will fall back to direct evaluation, making the cascade setting useless. Consider setting 'cascade_evaluation: false' or implementing cascade functions.
+2025-12-16 14:07:47,567 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-12-16 14:07:47,568 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:07:47,590 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2025-12-16 14:07:47,590 - openevolve.evaluator - WARNING - Configuration has 'cascade_evaluation: true' but evaluator 'evaluator.py' does not define 'evaluate_stage1' function. This will fall back to direct evaluation, making the cascade setting useless. Consider setting 'cascade_evaluation: false' or implementing cascade functions.
+2025-12-16 14:07:47,590 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2025-12-16 14:07:47,591 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:09:35,070 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:09:35,070 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:09:35,184 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:09:37,951 - openevolve.evaluator - INFO - Evaluated program dc4ede06-86d8-445e-bae8-3eb9a8a1bf5d in 2.76s: combined_score=0.2162
+2025-12-16 14:09:37,952 - openevolve.evaluator - INFO - Evaluated program cb450305-a8d1-4dfd-8f29-793cbc483bf0 in 2.87s: combined_score=0.2161
+2025-12-16 14:09:37,953 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:09:37,954 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:09:37,955 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 5}
+2025-12-16 14:09:37,956 - openevolve.database - INFO - New best program dc4ede06-86d8-445e-bae8-3eb9a8a1bf5d replaces 1b3cca8d-810f-4c66-b554-4dfc1c3f9186 (combined_score: 0.0784 → 0.2162, +0.1378)
+2025-12-16 14:09:37,956 - openevolve.process_parallel - INFO - Iteration 2: Program dc4ede06-86d8-445e-bae8-3eb9a8a1bf5d (parent: 1b3cca8d-810f-4c66-b554-4dfc1c3f9186) completed in 110.45s
+2025-12-16 14:09:37,956 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2162
+2025-12-16 14:09:37,956 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 2: dc4ede06-86d8-445e-bae8-3eb9a8a1bf5d
+2025-12-16 14:09:37,956 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 0}
+2025-12-16 14:09:37,956 - openevolve.process_parallel - INFO - Iteration 3: Program cb450305-a8d1-4dfd-8f29-793cbc483bf0 (parent: 1b3cca8d-810f-4c66-b554-4dfc1c3f9186) completed in 110.36s
+2025-12-16 14:09:37,957 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 14:09:37,972 - openevolve.evaluator - INFO - Evaluated program 94a4634b-498d-4333-89d0-9d3c318ee6f7 in 2.88s: combined_score=0.2161
+2025-12-16 14:09:37,973 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:09:37,977 - openevolve.process_parallel - INFO - Iteration 1: Program 94a4634b-498d-4333-89d0-9d3c318ee6f7 (parent: 1b3cca8d-810f-4c66-b554-4dfc1c3f9186) completed in 110.41s
+2025-12-16 14:09:37,977 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 14:11:21,529 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:11:21,531 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:11:21,636 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:11:24,977 - openevolve.evaluator - INFO - Evaluated program bdb3426e-f8aa-499b-9688-0ef1b6dfa584 in 3.43s: combined_score=0.2161
+2025-12-16 14:11:24,979 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:11:24,983 - openevolve.process_parallel - INFO - Iteration 5: Program bdb3426e-f8aa-499b-9688-0ef1b6dfa584 (parent: 1b3cca8d-810f-4c66-b554-4dfc1c3f9186) completed in 107.02s
+2025-12-16 14:11:24,983 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 14:11:25,299 - openevolve.evaluator - INFO - Evaluated program 37b7d2ee-9ecf-4b80-b8af-c285b4e91bb7 in 3.65s: combined_score=0.2162
+2025-12-16 14:11:25,301 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:11:25,308 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 9}
+2025-12-16 14:11:25,308 - openevolve.process_parallel - INFO - Iteration 4: Program 37b7d2ee-9ecf-4b80-b8af-c285b4e91bb7 (parent: 1b3cca8d-810f-4c66-b554-4dfc1c3f9186) completed in 107.35s
+2025-12-16 14:11:25,308 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2162
+2025-12-16 14:11:25,362 - openevolve.evaluator - INFO - Evaluated program c74343fc-584f-4f1f-b4a6-8ff4943cbdbf in 3.83s: combined_score=0.2161
+2025-12-16 14:11:25,364 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:11:25,369 - openevolve.process_parallel - INFO - Iteration 6: Program c74343fc-584f-4f1f-b4a6-8ff4943cbdbf (parent: 1b3cca8d-810f-4c66-b554-4dfc1c3f9186) completed in 107.39s
+2025-12-16 14:11:25,369 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 14:11:57,900 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:11:57,903 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:11:57,906 - openevolve.process_parallel - WARNING - Iteration 9 error: No valid diffs found in response
+2025-12-16 14:12:10,973 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:12:13,091 - openevolve.evaluator - INFO - Evaluated program 63a6fa99-c350-4d22-9976-a62a5ac097bc in 2.12s: combined_score=0.2161
+2025-12-16 14:12:13,093 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:12:13,095 - openevolve.process_parallel - INFO - Iteration 8: Program 63a6fa99-c350-4d22-9976-a62a5ac097bc (parent: cb450305-a8d1-4dfd-8f29-793cbc483bf0) completed in 47.79s
+2025-12-16 14:12:13,095 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 14:12:28,898 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:12:28,900 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:12:28,919 - openevolve.process_parallel - WARNING - Iteration 7 error: No valid diffs found in response
+2025-12-16 14:12:46,920 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:12:46,923 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:12:46,934 - openevolve.process_parallel - WARNING - Iteration 11 error: No valid diffs found in response
+2025-12-16 14:13:58,005 - openevolve.llm.openai - WARNING - Timeout on attempt 1/4. Retrying...
+2025-12-16 14:13:58,021 - openai._base_client - INFO - Retrying request to /chat/completions in 0.435250 seconds
+2025-12-16 14:14:19,046 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:14:20,910 - openevolve.evaluator - INFO - Evaluated program 91f10951-6838-49f4-9c6a-1606d6f68e63 in 1.86s: combined_score=0.1239
+2025-12-16 14:14:20,912 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:14:20,913 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 0, 'diversity': 7}
+2025-12-16 14:14:20,913 - openevolve.process_parallel - INFO - Iteration 12: Program 91f10951-6838-49f4-9c6a-1606d6f68e63 (parent: 1b3cca8d-810f-4c66-b554-4dfc1c3f9186) completed in 112.01s
+2025-12-16 14:14:20,913 - openevolve.process_parallel - INFO - Metrics: combined_score=0.1239
+2025-12-16 14:14:46,245 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:14:46,248 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:14:46,257 - openevolve.process_parallel - WARNING - Iteration 13 error: No valid diffs found in response
+2025-12-16 14:15:58,557 - openai._base_client - INFO - Retrying request to /chat/completions in 0.834616 seconds
+2025-12-16 14:16:03,109 - openevolve.llm.openai - WARNING - Timeout on attempt 2/4. Retrying...
+2025-12-16 14:16:03,126 - openai._base_client - INFO - Retrying request to /chat/completions in 0.398951 seconds
+2025-12-16 14:16:21,013 - openevolve.llm.openai - WARNING - Timeout on attempt 1/4. Retrying...
+2025-12-16 14:16:21,030 - openai._base_client - INFO - Retrying request to /chat/completions in 0.484232 seconds
+2025-12-16 14:16:39,554 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:16:39,557 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:16:39,566 - openevolve.process_parallel - WARNING - Iteration 15 error: No valid diffs found in response
+2025-12-16 14:17:59,493 - openai._base_client - INFO - Retrying request to /chat/completions in 1.945393 seconds
+2025-12-16 14:18:03,626 - openai._base_client - INFO - Retrying request to /chat/completions in 0.956670 seconds
+2025-12-16 14:18:08,213 - openevolve.llm.openai - WARNING - Timeout on attempt 3/4. Retrying...
+2025-12-16 14:18:08,225 - openai._base_client - INFO - Retrying request to /chat/completions in 0.375171 seconds
+2025-12-16 14:18:21,616 - openai._base_client - INFO - Retrying request to /chat/completions in 0.889793 seconds
+2025-12-16 14:18:26,117 - openevolve.llm.openai - WARNING - Timeout on attempt 2/4. Retrying...
+2025-12-16 14:18:26,133 - openai._base_client - INFO - Retrying request to /chat/completions in 0.406390 seconds
+2025-12-16 14:18:36,985 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:18:39,330 - openevolve.evaluator - INFO - Evaluated program 8b6c5ee6-e9c5-4aa8-80e0-b403c097d00f in 2.34s: combined_score=0.2161
+2025-12-16 14:18:39,331 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:18:39,341 - openevolve.process_parallel - INFO - Iteration 16: Program 8b6c5ee6-e9c5-4aa8-80e0-b403c097d00f (parent: bdb3426e-f8aa-499b-9688-0ef1b6dfa584) completed in 119.77s
+2025-12-16 14:18:39,341 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 14:20:04,681 - openai._base_client - INFO - Retrying request to /chat/completions in 1.569618 seconds
+2025-12-16 14:20:08,701 - openai._base_client - INFO - Retrying request to /chat/completions in 0.837960 seconds
+2025-12-16 14:20:13,229 - openevolve.llm.openai - ERROR - All 4 attempts failed with timeout
+2025-12-16 14:20:13,333 - openai._base_client - INFO - Retrying request to /chat/completions in 0.376716 seconds
+2025-12-16 14:20:22,605 - openai._base_client - INFO - Retrying request to /chat/completions in 1.579224 seconds
+2025-12-16 14:20:26,641 - openai._base_client - INFO - Retrying request to /chat/completions in 0.789612 seconds
+2025-12-16 14:20:31,221 - openevolve.llm.openai - WARNING - Timeout on attempt 3/4. Retrying...
+2025-12-16 14:20:31,241 - openai._base_client - INFO - Retrying request to /chat/completions in 0.464389 seconds
+2025-12-16 14:20:39,432 - openevolve.llm.openai - WARNING - Timeout on attempt 1/4. Retrying...
+2025-12-16 14:20:39,449 - openai._base_client - INFO - Retrying request to /chat/completions in 0.473422 seconds
+2025-12-16 14:22:09,637 - openai._base_client - INFO - Retrying request to /chat/completions in 1.517316 seconds
+2025-12-16 14:22:13,809 - openai._base_client - INFO - Retrying request to /chat/completions in 0.986149 seconds
+2025-12-16 14:22:27,529 - openai._base_client - INFO - Retrying request to /chat/completions in 1.601128 seconds
+2025-12-16 14:22:31,805 - openai._base_client - INFO - Retrying request to /chat/completions in 0.954621 seconds
+2025-12-16 14:22:36,178 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:22:36,179 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:22:36,237 - openevolve.llm.openai - ERROR - All 4 attempts failed with timeout
+2025-12-16 14:22:36,341 - openai._base_client - INFO - Retrying request to /chat/completions in 0.482717 seconds
+2025-12-16 14:22:38,211 - openevolve.evaluator - INFO - Evaluated program bc9559e3-b405-46db-882c-34b1b5877f17 in 2.03s: combined_score=0.2161
+2025-12-16 14:22:38,213 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:22:38,221 - openevolve.process_parallel - INFO - Iteration 17: Program bc9559e3-b405-46db-882c-34b1b5877f17 (parent: cb450305-a8d1-4dfd-8f29-793cbc483bf0) completed in 238.88s
+2025-12-16 14:22:38,221 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 14:24:14,893 - openai._base_client - INFO - Retrying request to /chat/completions in 1.882230 seconds
+2025-12-16 14:24:32,861 - openai._base_client - INFO - Retrying request to /chat/completions in 1.623232 seconds
+2025-12-16 14:24:36,925 - openai._base_client - INFO - Retrying request to /chat/completions in 0.835666 seconds
+2025-12-16 14:24:38,313 - openevolve.llm.openai - WARNING - Timeout on attempt 1/4. Retrying...
+2025-12-16 14:24:38,329 - openai._base_client - INFO - Retrying request to /chat/completions in 0.492347 seconds
+2025-12-16 14:25:13,290 - openevolve.process_parallel - ERROR - LLM generation failed: 
+2025-12-16 14:25:13,291 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:25:13,292 - openevolve.process_parallel - WARNING - Iteration 10 error: LLM generation failed: 
+2025-12-16 14:26:37,861 - openai._base_client - INFO - Retrying request to /chat/completions in 1.940860 seconds
+2025-12-16 14:26:38,921 - openai._base_client - INFO - Retrying request to /chat/completions in 0.796405 seconds
+2025-12-16 14:26:43,417 - openevolve.llm.openai - WARNING - Timeout on attempt 2/4. Retrying...
+2025-12-16 14:26:43,433 - openai._base_client - INFO - Retrying request to /chat/completions in 0.456047 seconds
+2025-12-16 14:26:44,170 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:26:44,173 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:26:44,175 - openevolve.process_parallel - WARNING - Iteration 19 error: No valid diffs found in response
+2025-12-16 14:27:00,572 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:27:00,573 - openevolve.process_parallel - ERROR - LLM generation failed: 
+2025-12-16 14:27:00,574 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:27:00,575 - openevolve.process_parallel - WARNING - Iteration 14 error: LLM generation failed: 
+2025-12-16 14:27:07,916 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:27:07,919 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:27:07,928 - openevolve.process_parallel - WARNING - Iteration 20 error: No valid diffs found in response
+2025-12-16 14:27:15,319 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:27:22,893 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:27:24,597 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:27:26,580 - openevolve.evaluator - INFO - Evaluated program a51e744c-0d25-4f30-8f86-d129b4ed2f78 in 1.98s: combined_score=0.2161
+2025-12-16 14:27:26,581 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:27:26,584 - openevolve.process_parallel - INFO - Iteration 18: Program a51e744c-0d25-4f30-8f86-d129b4ed2f78 (parent: 63a6fa99-c350-4d22-9976-a62a5ac097bc) completed in 288.37s
+2025-12-16 14:27:26,584 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 14:27:42,096 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:27:44,447 - openevolve.evaluator - INFO - Evaluated program 19d4798d-7d3a-45d7-ab4e-62c16b309730 in 2.35s: combined_score=0.2161
+2025-12-16 14:27:44,449 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:27:44,457 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 1}
+2025-12-16 14:27:44,457 - openevolve.process_parallel - INFO - Iteration 21: Program 19d4798d-7d3a-45d7-ab4e-62c16b309730 (parent: 8b6c5ee6-e9c5-4aa8-80e0-b403c097d00f) completed in 43.87s
+2025-12-16 14:27:44,457 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 14:28:06,939 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:28:08,831 - openevolve.evaluator - INFO - Evaluated program 4bcbf322-6ea0-47fb-ac41-db84e5d5e932 in 1.89s: combined_score=0.1239
+2025-12-16 14:28:08,832 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:28:08,832 - openevolve.process_parallel - INFO - Iteration 22: Program 4bcbf322-6ea0-47fb-ac41-db84e5d5e932 (parent: 1b3cca8d-810f-4c66-b554-4dfc1c3f9186) completed in 60.91s
+2025-12-16 14:28:08,832 - openevolve.process_parallel - INFO - Metrics: combined_score=0.1239
+2025-12-16 14:28:34,432 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:28:34,435 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:28:34,444 - openevolve.process_parallel - WARNING - Iteration 23 error: No valid diffs found in response
+2025-12-16 14:28:53,161 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:28:55,159 - openevolve.evaluator - INFO - Evaluated program 1813caf9-aa00-427d-a762-e103b54d04c0 in 2.00s: combined_score=0.2161
+2025-12-16 14:28:55,161 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:28:55,165 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 2}
+2025-12-16 14:28:55,166 - openevolve.process_parallel - INFO - Iteration 24: Program 1813caf9-aa00-427d-a762-e103b54d04c0 (parent: bc9559e3-b405-46db-882c-34b1b5877f17) completed in 70.71s
+2025-12-16 14:28:55,166 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 14:30:08,933 - openevolve.llm.openai - WARNING - Timeout on attempt 1/4. Retrying...
+2025-12-16 14:30:08,933 - openai._base_client - INFO - Retrying request to /chat/completions in 0.401387 seconds
+2025-12-16 14:30:29,884 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:30:29,887 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:30:29,894 - openevolve.process_parallel - WARNING - Iteration 26 error: No valid diffs found in response
+2025-12-16 14:30:40,102 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:30:40,105 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:30:40,106 - openevolve.process_parallel - WARNING - Iteration 27 error: No valid diffs found in response
+2025-12-16 14:32:09,433 - openai._base_client - INFO - Retrying request to /chat/completions in 0.858260 seconds
+2025-12-16 14:32:14,037 - openevolve.llm.openai - WARNING - Timeout on attempt 2/4. Retrying...
+2025-12-16 14:32:14,053 - openai._base_client - INFO - Retrying request to /chat/completions in 0.411136 seconds
+2025-12-16 14:32:29,985 - openevolve.llm.openai - WARNING - Timeout on attempt 1/4. Retrying...
+2025-12-16 14:32:30,009 - openai._base_client - INFO - Retrying request to /chat/completions in 0.412131 seconds
+2025-12-16 14:32:40,205 - openevolve.llm.openai - WARNING - Timeout on attempt 1/4. Retrying...
+2025-12-16 14:32:40,221 - openai._base_client - INFO - Retrying request to /chat/completions in 0.469458 seconds
+2025-12-16 14:34:10,393 - openai._base_client - INFO - Retrying request to /chat/completions in 1.997139 seconds
+2025-12-16 14:34:14,565 - openai._base_client - INFO - Retrying request to /chat/completions in 0.765618 seconds
+2025-12-16 14:34:19,141 - openevolve.llm.openai - WARNING - Timeout on attempt 3/4. Retrying...
+2025-12-16 14:34:19,157 - openai._base_client - INFO - Retrying request to /chat/completions in 0.433063 seconds
+2025-12-16 14:34:30,521 - openai._base_client - INFO - Retrying request to /chat/completions in 0.754889 seconds
+2025-12-16 14:34:35,089 - openevolve.llm.openai - WARNING - Timeout on attempt 2/4. Retrying...
+2025-12-16 14:34:35,105 - openai._base_client - INFO - Retrying request to /chat/completions in 0.403266 seconds
+2025-12-16 14:34:40,791 - openai._base_client - INFO - Retrying request to /chat/completions in 0.917247 seconds
+2025-12-16 14:34:45,309 - openevolve.llm.openai - WARNING - Timeout on attempt 2/4. Retrying...
+2025-12-16 14:34:45,325 - openai._base_client - INFO - Retrying request to /chat/completions in 0.402679 seconds
+2025-12-16 14:36:15,429 - openai._base_client - INFO - Retrying request to /chat/completions in 1.625567 seconds
+2025-12-16 14:36:19,689 - openai._base_client - INFO - Retrying request to /chat/completions in 0.858602 seconds
+2025-12-16 14:36:24,157 - openevolve.llm.openai - ERROR - All 4 attempts failed with timeout
+2025-12-16 14:36:24,261 - openai._base_client - INFO - Retrying request to /chat/completions in 0.478772 seconds
+2025-12-16 14:36:31,375 - openai._base_client - INFO - Retrying request to /chat/completions in 1.868643 seconds
+2025-12-16 14:36:35,609 - openai._base_client - INFO - Retrying request to /chat/completions in 0.986583 seconds
+2025-12-16 14:36:40,193 - openevolve.llm.openai - WARNING - Timeout on attempt 3/4. Retrying...
+2025-12-16 14:36:40,209 - openai._base_client - INFO - Retrying request to /chat/completions in 0.400875 seconds
+2025-12-16 14:36:41,809 - openai._base_client - INFO - Retrying request to /chat/completions in 1.856600 seconds
+2025-12-16 14:36:45,829 - openai._base_client - INFO - Retrying request to /chat/completions in 0.985472 seconds
+2025-12-16 14:36:50,413 - openevolve.llm.openai - WARNING - Timeout on attempt 3/4. Retrying...
+2025-12-16 14:36:50,429 - openai._base_client - INFO - Retrying request to /chat/completions in 0.414112 seconds
+2025-12-16 14:38:20,649 - openai._base_client - INFO - Retrying request to /chat/completions in 1.953792 seconds
+2025-12-16 14:38:24,841 - openai._base_client - INFO - Retrying request to /chat/completions in 0.774536 seconds
+2025-12-16 14:38:36,697 - openai._base_client - INFO - Retrying request to /chat/completions in 1.689604 seconds
+2025-12-16 14:38:40,711 - openai._base_client - INFO - Retrying request to /chat/completions in 0.903335 seconds
+2025-12-16 14:38:45,210 - openevolve.llm.openai - ERROR - All 4 attempts failed with timeout
+2025-12-16 14:38:45,314 - openai._base_client - INFO - Retrying request to /chat/completions in 0.403857 seconds
+2025-12-16 14:38:46,915 - openai._base_client - INFO - Retrying request to /chat/completions in 1.686078 seconds
+2025-12-16 14:38:50,943 - openai._base_client - INFO - Retrying request to /chat/completions in 0.916345 seconds
+2025-12-16 14:38:55,429 - openevolve.llm.openai - ERROR - All 4 attempts failed with timeout
+2025-12-16 14:38:55,537 - openai._base_client - INFO - Retrying request to /chat/completions in 0.488320 seconds
+2025-12-16 14:40:25,717 - openai._base_client - INFO - Retrying request to /chat/completions in 1.575259 seconds
+2025-12-16 14:40:41,713 - openai._base_client - INFO - Retrying request to /chat/completions in 1.513330 seconds
+2025-12-16 14:40:45,817 - openai._base_client - INFO - Retrying request to /chat/completions in 0.895572 seconds
+2025-12-16 14:40:51,961 - openai._base_client - INFO - Retrying request to /chat/completions in 1.502747 seconds
+2025-12-16 14:40:56,125 - openai._base_client - INFO - Retrying request to /chat/completions in 0.777560 seconds
+2025-12-16 14:41:24,217 - openevolve.process_parallel - ERROR - LLM generation failed: 
+2025-12-16 14:41:24,219 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:41:24,229 - openevolve.process_parallel - WARNING - Iteration 25 error: LLM generation failed: 
+2025-12-16 14:42:46,813 - openai._base_client - INFO - Retrying request to /chat/completions in 1.535296 seconds
+2025-12-16 14:42:57,001 - openai._base_client - INFO - Retrying request to /chat/completions in 1.791831 seconds
+2025-12-16 14:43:24,317 - openevolve.llm.openai - WARNING - Timeout on attempt 1/4. Retrying...
+2025-12-16 14:43:24,337 - openai._base_client - INFO - Retrying request to /chat/completions in 0.407193 seconds
+2025-12-16 14:43:45,274 - openevolve.process_parallel - ERROR - LLM generation failed: 
+2025-12-16 14:43:45,275 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:43:45,275 - openevolve.process_parallel - WARNING - Iteration 28 error: LLM generation failed: 
+2025-12-16 14:43:52,280 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:43:55,489 - openevolve.process_parallel - ERROR - LLM generation failed: 
+2025-12-16 14:43:55,491 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:43:55,491 - openevolve.process_parallel - WARNING - Iteration 29 error: LLM generation failed: 
+2025-12-16 14:44:24,934 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:44:24,935 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:44:27,299 - openevolve.evaluator - INFO - Evaluated program f5ee81ad-8bb2-4913-b7a6-bef8540516f4 in 2.36s: combined_score=0.2161
+2025-12-16 14:44:27,301 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:44:27,309 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 8, 'diversity': 0}
+2025-12-16 14:44:27,309 - openevolve.process_parallel - INFO - Iteration 30: Program f5ee81ad-8bb2-4913-b7a6-bef8540516f4 (parent: bc9559e3-b405-46db-882c-34b1b5877f17) completed in 183.08s
+2025-12-16 14:44:27,309 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 14:44:27,309 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 30
+2025-12-16 14:44:27,310 - openevolve.database - INFO - Island Status:
+2025-12-16 14:44:27,310 - openevolve.database - INFO -  * Island 0: 16 programs, best=0.2162, avg=0.1960, diversity=731.60, gen=15 (best: dc4ede06-86d8-445e-bae8-3eb9a8a1bf5d)
+2025-12-16 14:44:27,349 - openevolve.database - INFO - Saved database with 16 programs to openevolve_output/checkpoints/checkpoint_30
+2025-12-16 14:44:27,351 - openevolve.controller - INFO - Saved best program at checkpoint 30 with metrics: combined_score=0.2162
+2025-12-16 14:44:27,352 - openevolve.controller - INFO - Saved checkpoint at iteration 30 to openevolve_output/checkpoints/checkpoint_30
+2025-12-16 14:44:36,507 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:45:01,573 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:45:03,936 - openevolve.evaluator - INFO - Evaluated program 712905af-1d81-485d-a40c-e2af51c67386 in 2.36s: combined_score=0.2161
+2025-12-16 14:45:03,938 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:45:03,946 - openevolve.process_parallel - INFO - Iteration 31: Program 712905af-1d81-485d-a40c-e2af51c67386 (parent: 1813caf9-aa00-427d-a762-e103b54d04c0) completed in 78.66s
+2025-12-16 14:45:03,946 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 14:45:55,593 - openevolve.llm.openai - WARNING - Timeout on attempt 1/4. Retrying...
+2025-12-16 14:45:55,610 - openai._base_client - INFO - Retrying request to /chat/completions in 0.487458 seconds
+2025-12-16 14:46:27,401 - openevolve.llm.openai - WARNING - Timeout on attempt 1/4. Retrying...
+2025-12-16 14:46:27,417 - openai._base_client - INFO - Retrying request to /chat/completions in 0.377126 seconds
+2025-12-16 14:47:02,969 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:47:04,925 - openevolve.evaluator - INFO - Evaluated program fd02bdaf-7963-47d7-8f65-e49294d3fecf in 1.95s: combined_score=0.2161
+2025-12-16 14:47:04,927 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:47:04,935 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 8, 'diversity': 3}
+2025-12-16 14:47:04,936 - openevolve.process_parallel - INFO - Iteration 34: Program fd02bdaf-7963-47d7-8f65-e49294d3fecf (parent: 94a4634b-498d-4333-89d0-9d3c318ee6f7) completed in 120.99s
+2025-12-16 14:47:04,936 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 14:47:56,197 - openai._base_client - INFO - Retrying request to /chat/completions in 0.879265 seconds
+2025-12-16 14:48:00,697 - openevolve.llm.openai - WARNING - Timeout on attempt 2/4. Retrying...
+2025-12-16 14:48:00,713 - openai._base_client - INFO - Retrying request to /chat/completions in 0.411432 seconds
+2025-12-16 14:48:27,893 - openai._base_client - INFO - Retrying request to /chat/completions in 0.937655 seconds
+2025-12-16 14:48:32,505 - openevolve.llm.openai - WARNING - Timeout on attempt 2/4. Retrying...
+2025-12-16 14:48:32,523 - openai._base_client - INFO - Retrying request to /chat/completions in 0.487914 seconds
+2025-12-16 14:49:05,025 - openevolve.llm.openai - WARNING - Timeout on attempt 1/4. Retrying...
+2025-12-16 14:49:05,029 - openai._base_client - INFO - Retrying request to /chat/completions in 0.408974 seconds
+2025-12-16 14:49:57,174 - openai._base_client - INFO - Retrying request to /chat/completions in 1.917197 seconds
+2025-12-16 14:50:01,225 - openai._base_client - INFO - Retrying request to /chat/completions in 0.997652 seconds
+2025-12-16 14:50:05,801 - openevolve.llm.openai - WARNING - Timeout on attempt 3/4. Retrying...
+2025-12-16 14:50:05,817 - openai._base_client - INFO - Retrying request to /chat/completions in 0.487213 seconds
+2025-12-16 14:50:28,931 - openai._base_client - INFO - Retrying request to /chat/completions in 1.580638 seconds
+2025-12-16 14:50:33,111 - openai._base_client - INFO - Retrying request to /chat/completions in 0.937217 seconds
+2025-12-16 14:50:37,609 - openevolve.llm.openai - WARNING - Timeout on attempt 3/4. Retrying...
+2025-12-16 14:50:37,625 - openai._base_client - INFO - Retrying request to /chat/completions in 0.487616 seconds
+2025-12-16 14:51:05,537 - openai._base_client - INFO - Retrying request to /chat/completions in 0.890872 seconds
+2025-12-16 14:51:10,129 - openevolve.llm.openai - WARNING - Timeout on attempt 2/4. Retrying...
+2025-12-16 14:51:10,145 - openai._base_client - INFO - Retrying request to /chat/completions in 0.464406 seconds
+2025-12-16 14:52:02,321 - openai._base_client - INFO - Retrying request to /chat/completions in 1.522347 seconds
+2025-12-16 14:52:06,405 - openai._base_client - INFO - Retrying request to /chat/completions in 0.951065 seconds
+2025-12-16 14:52:10,816 - openevolve.llm.openai - ERROR - All 4 attempts failed with timeout
+2025-12-16 14:52:10,921 - openai._base_client - INFO - Retrying request to /chat/completions in 0.427083 seconds
+2025-12-16 14:52:34,149 - openai._base_client - INFO - Retrying request to /chat/completions in 1.610269 seconds
+2025-12-16 14:52:38,214 - openai._base_client - INFO - Retrying request to /chat/completions in 0.866455 seconds
+2025-12-16 14:52:42,625 - openevolve.llm.openai - ERROR - All 4 attempts failed with timeout
+2025-12-16 14:52:42,729 - openai._base_client - INFO - Retrying request to /chat/completions in 0.404715 seconds
+2025-12-16 14:53:06,527 - openai._base_client - INFO - Retrying request to /chat/completions in 1.881579 seconds
+2025-12-16 14:53:10,711 - openai._base_client - INFO - Retrying request to /chat/completions in 0.905575 seconds
+2025-12-16 14:53:13,724 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 14:54:07,457 - openai._base_client - INFO - Retrying request to /chat/completions in 1.710164 seconds
+2025-12-16 14:54:11,449 - openai._base_client - INFO - Retrying request to /chat/completions in 0.962755 seconds
+2025-12-16 14:54:39,181 - openai._base_client - INFO - Retrying request to /chat/completions in 1.946177 seconds
+2025-12-16 14:54:43,233 - openai._base_client - INFO - Retrying request to /chat/completions in 0.857072 seconds
+2025-12-16 14:55:11,717 - openai._base_client - INFO - Retrying request to /chat/completions in 1.887674 seconds
+2025-12-16 14:56:12,513 - openai._base_client - INFO - Retrying request to /chat/completions in 1.681367 seconds
+2025-12-16 14:56:44,189 - openai._base_client - INFO - Retrying request to /chat/completions in 1.895391 seconds
+2025-12-16 14:57:10,877 - openevolve.process_parallel - ERROR - LLM generation failed: 
+2025-12-16 14:57:10,878 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:57:10,879 - openevolve.process_parallel - WARNING - Iteration 32 error: LLM generation failed: 
+2025-12-16 14:57:13,706 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:57:13,708 - openevolve.process_parallel - WARNING - Iteration 35 error: No valid diffs found in response
+2025-12-16 14:57:42,685 - openevolve.process_parallel - ERROR - LLM generation failed: 
+2025-12-16 14:57:42,687 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 14:57:42,697 - openevolve.process_parallel - WARNING - Iteration 33 error: LLM generation failed: 
+2025-12-16 14:59:10,976 - openevolve.llm.openai - WARNING - Timeout on attempt 1/4. Retrying...
+2025-12-16 14:59:10,993 - openai._base_client - INFO - Retrying request to /chat/completions in 0.471487 seconds
+2025-12-16 14:59:13,803 - openevolve.llm.openai - WARNING - Timeout on attempt 1/4. Retrying...
+2025-12-16 14:59:13,815 - openai._base_client - INFO - Retrying request to /chat/completions in 0.382562 seconds
+2025-12-16 14:59:42,787 - openevolve.llm.openai - WARNING - Timeout on attempt 1/4. Retrying...
+2025-12-16 14:59:42,807 - openai._base_client - INFO - Retrying request to /chat/completions in 0.462550 seconds
+2025-12-16 15:01:11,562 - openai._base_client - INFO - Retrying request to /chat/completions in 0.765959 seconds
+2025-12-16 15:01:14,297 - openai._base_client - INFO - Retrying request to /chat/completions in 0.850763 seconds
+2025-12-16 15:01:16,081 - openevolve.llm.openai - WARNING - Timeout on attempt 2/4. Retrying...
+2025-12-16 15:01:16,097 - openai._base_client - INFO - Retrying request to /chat/completions in 0.418003 seconds
+2025-12-16 15:01:18,905 - openevolve.llm.openai - WARNING - Timeout on attempt 2/4. Retrying...
+2025-12-16 15:01:18,921 - openai._base_client - INFO - Retrying request to /chat/completions in 0.392433 seconds
+2025-12-16 15:01:43,370 - openai._base_client - INFO - Retrying request to /chat/completions in 0.798716 seconds
+2025-12-16 15:01:47,893 - openevolve.llm.openai - WARNING - Timeout on attempt 2/4. Retrying...
+2025-12-16 15:01:47,909 - openai._base_client - INFO - Retrying request to /chat/completions in 0.458598 seconds
+2025-12-16 15:03:12,430 - openai._base_client - INFO - Retrying request to /chat/completions in 1.817042 seconds
+2025-12-16 15:03:15,249 - openai._base_client - INFO - Retrying request to /chat/completions in 1.922810 seconds
+2025-12-16 15:03:16,613 - openai._base_client - INFO - Retrying request to /chat/completions in 0.820555 seconds
+2025-12-16 15:03:19,413 - openai._base_client - INFO - Retrying request to /chat/completions in 0.961372 seconds
+2025-12-16 15:03:21,181 - openevolve.llm.openai - WARNING - Timeout on attempt 3/4. Retrying...
+2025-12-16 15:03:21,197 - openai._base_client - INFO - Retrying request to /chat/completions in 0.499893 seconds
+2025-12-16 15:03:24,009 - openevolve.llm.openai - WARNING - Timeout on attempt 3/4. Retrying...
+2025-12-16 15:03:24,025 - openai._base_client - INFO - Retrying request to /chat/completions in 0.445538 seconds
+2025-12-16 15:03:44,269 - openai._base_client - INFO - Retrying request to /chat/completions in 1.537964 seconds
+2025-12-16 15:03:48,469 - openai._base_client - INFO - Retrying request to /chat/completions in 0.759597 seconds
+2025-12-16 15:03:52,997 - openevolve.llm.openai - WARNING - Timeout on attempt 3/4. Retrying...
+2025-12-16 15:03:53,013 - openai._base_client - INFO - Retrying request to /chat/completions in 0.400465 seconds
+2025-12-16 15:05:17,533 - openai._base_client - INFO - Retrying request to /chat/completions in 1.834650 seconds
+2025-12-16 15:05:20,474 - openai._base_client - INFO - Retrying request to /chat/completions in 1.960531 seconds
+2025-12-16 15:05:21,796 - openai._base_client - INFO - Retrying request to /chat/completions in 0.845800 seconds
+2025-12-16 15:05:24,571 - openai._base_client - INFO - Retrying request to /chat/completions in 0.948121 seconds
+2025-12-16 15:05:26,193 - openevolve.llm.openai - ERROR - All 4 attempts failed with timeout
+2025-12-16 15:05:26,303 - openai._base_client - INFO - Retrying request to /chat/completions in 0.444992 seconds
+2025-12-16 15:05:29,025 - openevolve.llm.openai - ERROR - All 4 attempts failed with timeout
+2025-12-16 15:05:29,129 - openai._base_client - INFO - Retrying request to /chat/completions in 0.428449 seconds
+2025-12-16 15:05:49,329 - openai._base_client - INFO - Retrying request to /chat/completions in 1.782963 seconds
+2025-12-16 15:05:53,513 - openai._base_client - INFO - Retrying request to /chat/completions in 0.993228 seconds
+2025-12-16 15:05:58,013 - openevolve.llm.openai - ERROR - All 4 attempts failed with timeout
+2025-12-16 15:05:58,117 - openai._base_client - INFO - Retrying request to /chat/completions in 0.432261 seconds
+2025-12-16 15:07:22,743 - openai._base_client - INFO - Retrying request to /chat/completions in 1.731001 seconds
+2025-12-16 15:07:25,620 - openai._base_client - INFO - Retrying request to /chat/completions in 1.681583 seconds
+2025-12-16 15:07:26,850 - openai._base_client - INFO - Retrying request to /chat/completions in 0.775258 seconds
+2025-12-16 15:07:29,658 - openai._base_client - INFO - Retrying request to /chat/completions in 0.832138 seconds
+2025-12-16 15:07:54,605 - openai._base_client - INFO - Retrying request to /chat/completions in 1.947055 seconds
+2025-12-16 15:07:58,649 - openai._base_client - INFO - Retrying request to /chat/completions in 0.940913 seconds
+2025-12-16 15:09:27,725 - openai._base_client - INFO - Retrying request to /chat/completions in 1.770576 seconds
+2025-12-16 15:09:30,589 - openai._base_client - INFO - Retrying request to /chat/completions in 1.501132 seconds
+2025-12-16 15:09:59,689 - openai._base_client - INFO - Retrying request to /chat/completions in 1.985775 seconds
+2025-12-16 15:10:26,255 - openevolve.process_parallel - ERROR - LLM generation failed: 
+2025-12-16 15:10:26,256 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:10:26,265 - openevolve.process_parallel - WARNING - Iteration 36 error: LLM generation failed: 
+2025-12-16 15:10:29,084 - openevolve.process_parallel - ERROR - LLM generation failed: 
+2025-12-16 15:10:29,089 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:10:29,089 - openevolve.process_parallel - WARNING - Iteration 37 error: LLM generation failed: 
+2025-12-16 15:10:58,074 - openevolve.process_parallel - ERROR - LLM generation failed: 
+2025-12-16 15:10:58,076 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:10:58,084 - openevolve.process_parallel - WARNING - Iteration 38 error: LLM generation failed: 
+2025-12-16 15:12:12,247 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:12:12,251 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:12:12,259 - openevolve.process_parallel - WARNING - Iteration 39 error: No valid diffs found in response
+2025-12-16 15:12:29,189 - openevolve.llm.openai - WARNING - Timeout on attempt 1/4. Retrying...
+2025-12-16 15:12:29,205 - openai._base_client - INFO - Retrying request to /chat/completions in 0.467287 seconds
+2025-12-16 15:12:46,316 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:12:48,551 - openevolve.evaluator - INFO - Evaluated program bbdc8292-7b73-4402-a550-b70ccc7bec43 in 2.22s: combined_score=0.2161
+2025-12-16 15:12:48,559 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:12:48,568 - openevolve.process_parallel - INFO - Iteration 41: Program bbdc8292-7b73-4402-a550-b70ccc7bec43 (parent: f5ee81ad-8bb2-4913-b7a6-bef8540516f4) completed in 110.48s
+2025-12-16 15:12:48,568 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:12:55,944 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:12:55,947 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:12:55,956 - openevolve.process_parallel - WARNING - Iteration 42 error: No valid diffs found in response
+2025-12-16 15:13:16,038 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:13:20,024 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:13:20,027 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:13:20,028 - openevolve.process_parallel - WARNING - Iteration 40 error: No valid diffs found in response
+2025-12-16 15:13:40,059 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:13:42,482 - openevolve.evaluator - INFO - Evaluated program f15b8983-611d-42e2-8a88-4f20d4595438 in 2.42s: combined_score=0.2161
+2025-12-16 15:13:42,484 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:13:42,487 - openevolve.process_parallel - INFO - Iteration 43: Program f15b8983-611d-42e2-8a88-4f20d4595438 (parent: 712905af-1d81-485d-a40c-e2af51c67386) completed in 53.92s
+2025-12-16 15:13:42,487 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:14:09,388 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:14:11,349 - openevolve.evaluator - INFO - Evaluated program ef845f3f-b948-4376-bb28-ee9ca60ef072 in 1.96s: combined_score=0.2162
+2025-12-16 15:14:11,351 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:14:11,357 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 9, 'diversity': 1} (fitness: 0.216 -> 0.216)
+2025-12-16 15:14:11,357 - openevolve.process_parallel - INFO - Iteration 44: Program ef845f3f-b948-4376-bb28-ee9ca60ef072 (parent: 37b7d2ee-9ecf-4b80-b8af-c285b4e91bb7) completed in 75.40s
+2025-12-16 15:14:11,358 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2162
+2025-12-16 15:14:44,549 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:14:46,545 - openevolve.evaluator - INFO - Evaluated program 2630e342-76a4-49a6-9b75-bb832708b0fb in 1.99s: combined_score=0.2161
+2025-12-16 15:14:46,547 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:14:46,549 - openevolve.process_parallel - INFO - Iteration 45: Program 2630e342-76a4-49a6-9b75-bb832708b0fb (parent: c74343fc-584f-4f1f-b4a6-8ff4943cbdbf) completed in 86.52s
+2025-12-16 15:14:46,549 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:15:25,558 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:15:27,638 - openevolve.evaluator - INFO - Evaluated program 259d620a-7da1-483a-bd59-0626f2d629c2 in 2.08s: combined_score=0.2161
+2025-12-16 15:15:27,641 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:15:27,652 - openevolve.process_parallel - INFO - Iteration 46: Program 259d620a-7da1-483a-bd59-0626f2d629c2 (parent: 1813caf9-aa00-427d-a762-e103b54d04c0) completed in 105.16s
+2025-12-16 15:15:27,652 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:15:37,583 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:15:40,092 - openevolve.evaluator - INFO - Evaluated program a1455eb7-1e41-4d98-b276-42f4a36cc549 in 2.51s: combined_score=0.2161
+2025-12-16 15:15:40,094 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:15:40,103 - openevolve.process_parallel - INFO - Iteration 47: Program a1455eb7-1e41-4d98-b276-42f4a36cc549 (parent: 1813caf9-aa00-427d-a762-e103b54d04c0) completed in 88.74s
+2025-12-16 15:15:40,103 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:16:06,560 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:16:09,008 - openevolve.evaluator - INFO - Evaluated program 8ad4e26c-b691-455a-8aad-1b197b2a4679 in 2.45s: combined_score=0.2161
+2025-12-16 15:16:09,010 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:16:09,019 - openevolve.process_parallel - INFO - Iteration 48: Program 8ad4e26c-b691-455a-8aad-1b197b2a4679 (parent: f5ee81ad-8bb2-4913-b7a6-bef8540516f4) completed in 82.46s
+2025-12-16 15:16:09,019 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:16:16,338 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:16:18,293 - openevolve.evaluator - INFO - Evaluated program cc35954f-f2b6-4e19-b0ef-4c058e952d8c in 1.95s: combined_score=0.2161
+2025-12-16 15:16:18,295 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:16:18,296 - openevolve.process_parallel - INFO - Iteration 49: Program cc35954f-f2b6-4e19-b0ef-4c058e952d8c (parent: fd02bdaf-7963-47d7-8f65-e49294d3fecf) completed in 50.65s
+2025-12-16 15:16:18,296 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:16:55,408 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:16:55,412 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:16:55,412 - openevolve.process_parallel - WARNING - Iteration 50 error: No valid diffs found in response
+2025-12-16 15:17:34,493 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:17:36,437 - openevolve.evaluator - INFO - Evaluated program 9e601e8b-c1c9-47ae-98a1-41cac891130b in 1.94s: combined_score=0.0833
+2025-12-16 15:17:36,440 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:17:36,450 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 1, 'diversity': 6}
+2025-12-16 15:17:36,450 - openevolve.database - INFO - Island 0 MAP-Elites coverage reached 10.0% (10/100 cells)
+2025-12-16 15:17:36,450 - openevolve.process_parallel - INFO - Iteration 51: Program 9e601e8b-c1c9-47ae-98a1-41cac891130b (parent: 91f10951-6838-49f4-9c6a-1606d6f68e63) completed in 87.43s
+2025-12-16 15:17:36,450 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0833
+2025-12-16 15:18:13,643 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:18:16,055 - openevolve.evaluator - INFO - Evaluated program 119bbc46-ea8b-49af-b2dc-8422f5f1e2fc in 2.41s: combined_score=0.2161
+2025-12-16 15:18:16,057 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:18:16,062 - openevolve.process_parallel - INFO - Iteration 52: Program 119bbc46-ea8b-49af-b2dc-8422f5f1e2fc (parent: cb450305-a8d1-4dfd-8f29-793cbc483bf0) completed in 117.76s
+2025-12-16 15:18:16,062 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:18:21,700 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:18:21,704 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:18:21,706 - openevolve.process_parallel - WARNING - Iteration 53 error: No valid diffs found in response
+2025-12-16 15:18:59,217 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:18:59,221 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:18:59,224 - openevolve.process_parallel - WARNING - Iteration 54 error: No valid diffs found in response
+2025-12-16 15:19:37,169 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:19:39,198 - openevolve.evaluator - INFO - Evaluated program 996db328-0486-446d-8e02-79edb90cdb0f in 2.03s: combined_score=0.2162
+2025-12-16 15:19:39,200 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:19:39,203 - openevolve.process_parallel - INFO - Iteration 55: Program 996db328-0486-446d-8e02-79edb90cdb0f (parent: ef845f3f-b948-4376-bb28-ee9ca60ef072) completed in 83.14s
+2025-12-16 15:19:39,203 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2162
+2025-12-16 15:20:17,550 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:20:17,553 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:20:17,562 - openevolve.process_parallel - WARNING - Iteration 56 error: No valid diffs found in response
+2025-12-16 15:20:50,294 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:20:52,243 - openevolve.evaluator - INFO - Evaluated program 1b8cc358-2295-4093-8880-5b59ead8f392 in 1.95s: combined_score=0.0833
+2025-12-16 15:20:52,245 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:20:52,247 - openevolve.process_parallel - INFO - Iteration 57: Program 1b8cc358-2295-4093-8880-5b59ead8f392 (parent: 91f10951-6838-49f4-9c6a-1606d6f68e63) completed in 113.02s
+2025-12-16 15:20:52,247 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0833
+2025-12-16 15:21:35,506 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:21:37,504 - openevolve.evaluator - INFO - Evaluated program d90a9e47-f583-4ef8-a4e8-135f99bccfbd in 1.99s: combined_score=0.2162
+2025-12-16 15:21:37,506 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:21:37,516 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 9, 'diversity': 2} (fitness: 0.216 -> 0.216)
+2025-12-16 15:21:37,516 - openevolve.process_parallel - INFO - Iteration 58: Program d90a9e47-f583-4ef8-a4e8-135f99bccfbd (parent: ef845f3f-b948-4376-bb28-ee9ca60ef072) completed in 118.30s
+2025-12-16 15:21:37,516 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2162
+2025-12-16 15:22:14,809 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:22:16,871 - openevolve.evaluator - INFO - Evaluated program f7ca78fb-140e-4ece-8890-6bc5091bc04d in 2.06s: combined_score=0.2161
+2025-12-16 15:22:16,874 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:22:16,881 - openevolve.process_parallel - INFO - Iteration 59: Program f7ca78fb-140e-4ece-8890-6bc5091bc04d (parent: fd02bdaf-7963-47d7-8f65-e49294d3fecf) completed in 119.32s
+2025-12-16 15:22:16,881 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:22:36,439 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:22:36,443 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:22:36,447 - openevolve.process_parallel - WARNING - Iteration 60 error: No valid diffs found in response
+2025-12-16 15:22:54,734 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:22:56,946 - openevolve.evaluator - INFO - Evaluated program 1114d6d6-e562-4218-99e3-5c75ef802a1c in 2.21s: combined_score=0.2161
+2025-12-16 15:22:56,948 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:22:56,951 - openevolve.process_parallel - INFO - Iteration 61: Program 1114d6d6-e562-4218-99e3-5c75ef802a1c (parent: bbdc8292-7b73-4402-a550-b70ccc7bec43) completed in 79.44s
+2025-12-16 15:22:56,951 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:23:09,396 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:23:09,400 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:23:09,400 - openevolve.process_parallel - WARNING - Iteration 62 error: No valid diffs found in response
+2025-12-16 15:23:32,168 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:23:32,172 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:23:32,174 - openevolve.process_parallel - WARNING - Iteration 63 error: No valid diffs found in response
+2025-12-16 15:24:12,522 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:24:15,142 - openevolve.evaluator - INFO - Evaluated program 3fe50846-4b1f-439d-8140-6a8fc5700392 in 2.62s: combined_score=0.2161
+2025-12-16 15:24:15,144 - openevolve.process_parallel - INFO - Iteration 66: Program 3fe50846-4b1f-439d-8140-6a8fc5700392 (parent: 8b6c5ee6-e9c5-4aa8-80e0-b403c097d00f) completed in 42.97s
+2025-12-16 15:24:15,144 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:24:15,146 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:24:21,940 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:24:21,943 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:24:21,943 - openevolve.process_parallel - WARNING - Iteration 64 error: No valid diffs found in response
+2025-12-16 15:24:28,984 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:24:30,989 - openevolve.evaluator - INFO - Evaluated program e0af0128-c86e-4c79-9913-4b2c4ffe3d7c in 2.00s: combined_score=0.2161
+2025-12-16 15:24:30,991 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:24:30,991 - openevolve.process_parallel - INFO - Iteration 65: Program e0af0128-c86e-4c79-9913-4b2c4ffe3d7c (parent: c74343fc-584f-4f1f-b4a6-8ff4943cbdbf) completed in 81.59s
+2025-12-16 15:24:30,992 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:24:54,420 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:24:56,386 - openevolve.evaluator - INFO - Evaluated program 7e02c203-142d-4902-8c86-1e418ebc2e59 in 1.96s: combined_score=0.2161
+2025-12-16 15:24:56,388 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:24:56,396 - openevolve.process_parallel - INFO - Iteration 67: Program 7e02c203-142d-4902-8c86-1e418ebc2e59 (parent: 8b6c5ee6-e9c5-4aa8-80e0-b403c097d00f) completed in 41.24s
+2025-12-16 15:24:56,396 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:25:40,301 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:25:40,304 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:25:40,321 - openevolve.process_parallel - WARNING - Iteration 68 error: No valid diffs found in response
+2025-12-16 15:26:12,796 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:26:12,800 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:26:12,809 - openevolve.process_parallel - WARNING - Iteration 70 error: No valid diffs found in response
+2025-12-16 15:26:27,666 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:26:29,605 - openevolve.evaluator - INFO - Evaluated program 95456001-5fe1-4eb4-8450-f3c5fe14ddee in 1.94s: combined_score=0.2161
+2025-12-16 15:26:29,607 - openevolve.process_parallel - INFO - Iteration 69: Program 95456001-5fe1-4eb4-8450-f3c5fe14ddee (parent: 259d620a-7da1-483a-bd59-0626f2d629c2) completed in 118.61s
+2025-12-16 15:26:29,607 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:26:29,607 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:27:13,405 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:27:13,408 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:27:13,410 - openevolve.process_parallel - WARNING - Iteration 71 error: No valid diffs found in response
+2025-12-16 15:27:24,716 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:27:27,102 - openevolve.evaluator - INFO - Evaluated program 231a6381-94be-47fb-aa5f-c8f4e455da70 in 2.38s: combined_score=0.2162
+2025-12-16 15:27:27,104 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:27:27,107 - openevolve.process_parallel - INFO - Iteration 72: Program 231a6381-94be-47fb-aa5f-c8f4e455da70 (parent: d90a9e47-f583-4ef8-a4e8-135f99bccfbd) completed in 74.30s
+2025-12-16 15:27:27,107 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2162
+2025-12-16 15:27:56,310 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:27:58,990 - openevolve.evaluator - INFO - Evaluated program 7165a5b1-fec2-4f17-a8af-4cd846b9af87 in 2.68s: combined_score=0.2161
+2025-12-16 15:27:58,993 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:27:59,000 - openevolve.process_parallel - INFO - Iteration 74: Program 7165a5b1-fec2-4f17-a8af-4cd846b9af87 (parent: f5ee81ad-8bb2-4913-b7a6-bef8540516f4) completed in 45.58s
+2025-12-16 15:27:59,000 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:28:12,388 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:28:14,365 - openevolve.evaluator - INFO - Evaluated program 497ae9c3-faf3-42a3-87ff-0a192841c5e0 in 1.97s: combined_score=0.2161
+2025-12-16 15:28:14,367 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:28:14,374 - openevolve.process_parallel - INFO - Iteration 75: Program 497ae9c3-faf3-42a3-87ff-0a192841c5e0 (parent: 8b6c5ee6-e9c5-4aa8-80e0-b403c097d00f) completed in 47.26s
+2025-12-16 15:28:14,374 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:28:22,899 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:28:25,313 - openevolve.evaluator - INFO - Evaluated program 81e578e5-61bb-48e0-ac3d-f4df50a551d6 in 2.41s: combined_score=0.2161
+2025-12-16 15:28:25,315 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:28:25,320 - openevolve.process_parallel - INFO - Iteration 73: Program 81e578e5-61bb-48e0-ac3d-f4df50a551d6 (parent: 712905af-1d81-485d-a40c-e2af51c67386) completed in 115.71s
+2025-12-16 15:28:25,320 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:28:51,248 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:28:53,326 - openevolve.evaluator - INFO - Evaluated program 449cef3c-87cd-47dc-a4c4-71613e772b75 in 2.08s: combined_score=0.2162
+2025-12-16 15:28:53,328 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:28:53,337 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 8, 'diversity': 9}
+2025-12-16 15:28:53,337 - openevolve.process_parallel - INFO - Iteration 76: Program 449cef3c-87cd-47dc-a4c4-71613e772b75 (parent: dc4ede06-86d8-445e-bae8-3eb9a8a1bf5d) completed in 54.33s
+2025-12-16 15:28:53,337 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2162
+2025-12-16 15:29:17,226 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:29:17,230 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:29:17,231 - openevolve.process_parallel - WARNING - Iteration 77 error: No valid diffs found in response
+2025-12-16 15:29:57,103 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:29:59,188 - openevolve.evaluator - INFO - Evaluated program d44ba879-7952-49cf-8c78-f7e227705ece in 2.08s: combined_score=0.2161
+2025-12-16 15:29:59,190 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:29:59,192 - openevolve.process_parallel - INFO - Iteration 78: Program d44ba879-7952-49cf-8c78-f7e227705ece (parent: fd02bdaf-7963-47d7-8f65-e49294d3fecf) completed in 93.87s
+2025-12-16 15:29:59,192 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:30:07,820 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:30:07,824 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:30:07,825 - openevolve.process_parallel - WARNING - Iteration 79 error: No valid diffs found in response
+2025-12-16 15:30:37,227 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:30:37,231 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:30:37,232 - openevolve.process_parallel - WARNING - Iteration 80 error: No valid diffs found in response
+2025-12-16 15:31:11,471 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:31:13,516 - openevolve.evaluator - INFO - Evaluated program 608a2f3f-3bc2-465b-bfaf-3012f45715f1 in 2.04s: combined_score=0.2161
+2025-12-16 15:31:13,518 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:31:13,520 - openevolve.process_parallel - INFO - Iteration 81: Program 608a2f3f-3bc2-465b-bfaf-3012f45715f1 (parent: 8b6c5ee6-e9c5-4aa8-80e0-b403c097d00f) completed in 74.33s
+2025-12-16 15:31:13,521 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:31:56,288 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:31:58,381 - openevolve.evaluator - INFO - Evaluated program a87e8e31-d7eb-4138-8366-da3b9253ed3d in 2.09s: combined_score=0.2162
+2025-12-16 15:31:58,383 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:31:58,392 - openevolve.process_parallel - INFO - Iteration 82: Program a87e8e31-d7eb-4138-8366-da3b9253ed3d (parent: d90a9e47-f583-4ef8-a4e8-135f99bccfbd) completed in 110.56s
+2025-12-16 15:31:58,392 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2162
+2025-12-16 15:32:37,331 - openevolve.llm.openai - WARNING - Timeout on attempt 1/4. Retrying...
+2025-12-16 15:32:37,349 - openai._base_client - INFO - Retrying request to /chat/completions in 0.489274 seconds
+2025-12-16 15:32:39,458 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:32:39,462 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:32:39,470 - openevolve.process_parallel - WARNING - Iteration 84 error: No valid diffs found in response
+2025-12-16 15:33:05,067 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:33:05,071 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:33:05,071 - openevolve.process_parallel - WARNING - Iteration 85 error: No valid diffs found in response
+2025-12-16 15:33:16,298 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:33:34,615 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:33:34,619 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:33:34,629 - openevolve.process_parallel - WARNING - Iteration 86 error: No valid diffs found in response
+2025-12-16 15:33:51,994 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:33:51,998 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:33:52,008 - openevolve.process_parallel - WARNING - Iteration 83 error: No valid diffs found in response
+2025-12-16 15:34:01,880 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:34:03,890 - openevolve.evaluator - INFO - Evaluated program a96ab0bb-8f33-4c1a-b80f-6c68e293a54c in 2.01s: combined_score=0.2161
+2025-12-16 15:34:03,893 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:34:03,903 - openevolve.process_parallel - INFO - Iteration 87: Program a96ab0bb-8f33-4c1a-b80f-6c68e293a54c (parent: 8b6c5ee6-e9c5-4aa8-80e0-b403c097d00f) completed in 58.82s
+2025-12-16 15:34:03,904 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:34:41,432 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:34:43,388 - openevolve.evaluator - INFO - Evaluated program 6761d21e-fb46-416e-be7c-5163f82ac872 in 1.95s: combined_score=0.2161
+2025-12-16 15:34:43,390 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:34:43,398 - openevolve.process_parallel - INFO - Iteration 88: Program 6761d21e-fb46-416e-be7c-5163f82ac872 (parent: cb450305-a8d1-4dfd-8f29-793cbc483bf0) completed in 68.77s
+2025-12-16 15:34:43,398 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:35:16,153 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:35:18,094 - openevolve.evaluator - INFO - Evaluated program fd5fa684-447a-4803-b330-0f9903cd8630 in 1.94s: combined_score=0.2162
+2025-12-16 15:35:18,097 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:35:18,109 - openevolve.process_parallel - INFO - Iteration 89: Program fd5fa684-447a-4803-b330-0f9903cd8630 (parent: 996db328-0486-446d-8e02-79edb90cdb0f) completed in 86.10s
+2025-12-16 15:35:18,109 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2162
+2025-12-16 15:35:50,644 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:35:53,053 - openevolve.evaluator - INFO - Evaluated program ea418443-a984-4f34-a250-f92169866dbb in 2.41s: combined_score=0.2161
+2025-12-16 15:35:53,055 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:35:53,064 - openevolve.process_parallel - INFO - Iteration 90: Program ea418443-a984-4f34-a250-f92169866dbb (parent: cb450305-a8d1-4dfd-8f29-793cbc483bf0) completed in 109.16s
+2025-12-16 15:35:53,064 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:35:53,064 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 90
+2025-12-16 15:35:53,065 - openevolve.database - INFO - Island Status:
+2025-12-16 15:35:53,065 - openevolve.database - INFO -  * Island 0: 47 programs, best=0.2162, avg=0.2036, diversity=790.88, gen=48 (best: dc4ede06-86d8-445e-bae8-3eb9a8a1bf5d)
+2025-12-16 15:35:53,173 - openevolve.database - INFO - Saved database with 49 programs to openevolve_output/checkpoints/checkpoint_90
+2025-12-16 15:35:53,176 - openevolve.controller - INFO - Saved best program at checkpoint 90 with metrics: combined_score=0.2162
+2025-12-16 15:35:53,176 - openevolve.controller - INFO - Saved checkpoint at iteration 90 to openevolve_output/checkpoints/checkpoint_90
+2025-12-16 15:36:28,622 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:36:28,626 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:36:28,630 - openevolve.process_parallel - WARNING - Iteration 92 error: No valid diffs found in response
+2025-12-16 15:36:40,120 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:36:40,123 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:36:40,129 - openevolve.process_parallel - WARNING - Iteration 91 error: No valid diffs found in response
+2025-12-16 15:37:19,669 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:37:22,087 - openevolve.evaluator - INFO - Evaluated program ee3b5acc-f4aa-4f63-88de-c91ac80a5f84 in 2.42s: combined_score=0.2161
+2025-12-16 15:37:22,090 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:37:22,091 - openevolve.process_parallel - INFO - Iteration 94: Program ee3b5acc-f4aa-4f63-88de-c91ac80a5f84 (parent: cb450305-a8d1-4dfd-8f29-793cbc483bf0) completed in 53.46s
+2025-12-16 15:37:22,091 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:37:32,510 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:37:32,514 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:37:32,521 - openevolve.process_parallel - WARNING - Iteration 93 error: No valid diffs found in response
+2025-12-16 15:38:09,104 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:38:11,540 - openevolve.evaluator - INFO - Evaluated program ee60c6de-124f-4093-995b-a75c219aff54 in 2.43s: combined_score=0.2162
+2025-12-16 15:38:11,542 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:38:11,549 - openevolve.process_parallel - INFO - Performing migration at iteration 95
+2025-12-16 15:38:11,549 - openevolve.database - INFO - Island Status:
+2025-12-16 15:38:11,549 - openevolve.database - INFO -  * Island 0: 49 programs, best=0.2162, avg=0.2041, diversity=790.88, gen=50 (best: dc4ede06-86d8-445e-bae8-3eb9a8a1bf5d)
+2025-12-16 15:38:11,550 - openevolve.process_parallel - INFO - Iteration 95: Program ee60c6de-124f-4093-995b-a75c219aff54 (parent: fd5fa684-447a-4803-b330-0f9903cd8630) completed in 91.42s
+2025-12-16 15:38:11,550 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2162
+2025-12-16 15:38:43,033 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:38:43,037 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:38:43,038 - openevolve.process_parallel - WARNING - Iteration 96 error: No valid diffs found in response
+2025-12-16 15:39:24,180 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:39:24,184 - openevolve.llm.ensemble - INFO - Sampled model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2025-12-16 15:39:24,184 - openevolve.process_parallel - WARNING - Iteration 97 error: No valid diffs found in response
+2025-12-16 15:40:00,355 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:40:02,421 - openevolve.evaluator - INFO - Evaluated program d25ce2a6-33d0-4ea9-a74e-9b434c8677a8 in 2.06s: combined_score=0.2161
+2025-12-16 15:40:02,424 - openevolve.process_parallel - INFO - Performing migration at iteration 98
+2025-12-16 15:40:02,425 - openevolve.database - INFO - Island Status:
+2025-12-16 15:40:02,425 - openevolve.database - INFO -  * Island 0: 50 programs, best=0.2162, avg=0.2044, diversity=790.88, gen=51 (best: dc4ede06-86d8-445e-bae8-3eb9a8a1bf5d)
+2025-12-16 15:40:02,425 - openevolve.process_parallel - INFO - Iteration 98: Program d25ce2a6-33d0-4ea9-a74e-9b434c8677a8 (parent: a51e744c-0d25-4f30-8f86-d129b4ed2f78) completed in 110.88s
+2025-12-16 15:40:02,425 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2161
+2025-12-16 15:40:39,112 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:40:41,440 - openevolve.evaluator - INFO - Evaluated program 9da9922e-e319-4193-90fc-49d62a39bdd0 in 2.33s: combined_score=0.2162
+2025-12-16 15:40:41,451 - openevolve.process_parallel - INFO - Performing migration at iteration 100
+2025-12-16 15:40:41,452 - openevolve.database - INFO - Island Status:
+2025-12-16 15:40:41,452 - openevolve.database - INFO -  * Island 0: 51 programs, best=0.2162, avg=0.2046, diversity=790.88, gen=52 (best: dc4ede06-86d8-445e-bae8-3eb9a8a1bf5d)
+2025-12-16 15:40:41,452 - openevolve.process_parallel - INFO - Iteration 100: Program 9da9922e-e319-4193-90fc-49d62a39bdd0 (parent: dc4ede06-86d8-445e-bae8-3eb9a8a1bf5d) completed in 77.26s
+2025-12-16 15:40:41,452 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2162
+2025-12-16 15:40:41,452 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 100
+2025-12-16 15:40:41,453 - openevolve.database - INFO - Island Status:
+2025-12-16 15:40:41,453 - openevolve.database - INFO -  * Island 0: 51 programs, best=0.2162, avg=0.2046, diversity=790.88, gen=52 (best: dc4ede06-86d8-445e-bae8-3eb9a8a1bf5d)
+2025-12-16 15:40:41,554 - openevolve.database - INFO - Saved database with 53 programs to openevolve_output/checkpoints/checkpoint_100
+2025-12-16 15:40:41,557 - openevolve.controller - INFO - Saved best program at checkpoint 100 with metrics: combined_score=0.2162
+2025-12-16 15:40:41,557 - openevolve.controller - INFO - Saved checkpoint at iteration 100 to openevolve_output/checkpoints/checkpoint_100
+2025-12-16 15:40:43,137 - openevolve.llm.openai - WARNING - Timeout on attempt 1/4. Retrying...
+2025-12-16 15:40:43,154 - openai._base_client - INFO - Retrying request to /chat/completions in 0.376146 seconds
+2025-12-16 15:41:25,170 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:41:26,739 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2025-12-16 15:41:26,749 - openevolve.process_parallel - WARNING - Iteration 99 error: No valid diffs found in response
+2025-12-16 15:41:26,749 - openevolve.process_parallel - INFO - ✅ Evolution completed - Maximum iterations reached
+2025-12-16 15:41:26,810 - openevolve.database - INFO - Saved database with 53 programs to openevolve_output/checkpoints/checkpoint_100
+2025-12-16 15:41:26,812 - openevolve.controller - INFO - Saved best program at checkpoint 100 with metrics: combined_score=0.2162
+2025-12-16 15:41:26,812 - openevolve.controller - INFO - Saved checkpoint at iteration 100 to openevolve_output/checkpoints/checkpoint_100
+2025-12-16 15:41:26,838 - openevolve.process_parallel - INFO - Stopped process pool
+2025-12-16 15:41:26,839 - openevolve.controller - INFO - Using tracked best program: dc4ede06-86d8-445e-bae8-3eb9a8a1bf5d
+2025-12-16 15:41:26,839 - openevolve.controller - INFO - Evolution complete. Best program has metrics: combined_score=0.2162
+2025-12-16 15:41:26,844 - openevolve.controller - INFO - Saved best program to openevolve_output/best/best_program.py with program info to openevolve_output/best/best_program_info.json
