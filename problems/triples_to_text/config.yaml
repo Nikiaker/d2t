@@ -9,7 +9,7 @@ llm:
   models:
     - name: "RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8"
   api_key: "DUMMY_LOCAL_KEY"
-  api_base: "http://localhost:8000/v1"
+  api_base: "https://openai-mock.mock.beeceptor.com/v1"
   max_tokens: 2000
   timeout: 120
 

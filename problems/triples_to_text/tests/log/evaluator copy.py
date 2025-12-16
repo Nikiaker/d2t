@@ -21,19 +21,12 @@ class TestTriple:
     subject: str
     predicate: str
     object: str
-
-    def __str__(self):
-        return f"({self.subject} | {self.predicate} | {self.object})"
-
-@dataclass
-class TestSentence:
-    triples: list[TestTriple]
     example_texts: list[str]
 
 @dataclass
 class PredicateData:
     predicate: str
-    sentences: list[TestSentence]
+    triples: list[TestTriple]
 
 
 train_files = select_files("/home/inf151915/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/train")
@@ -53,8 +46,16 @@ entries.extend(train_benchmark.entries)
 entries.extend(dev_benchmark.entries)
 entries.extend(test_benchmark.entries)
 
-airport_entries  = [e for e in entries if e.category == "Airport"]
-airport_test_sentences = [TestSentence([TestTriple(*triple) for triple in e.get_triples_tuple_list()], e.get_lexs_list()) for e in airport_entries]
+airport_entries  = [e for e in entries if e.category == "Airport" and e.size == "1"]
+
+triples_dict: dict[str, PredicateData] = {}
+for entry in airport_entries:
+    for triple_tuple in entry.get_triples_tuple_list():
+        test_triple = TestTriple(*triple_tuple, example_texts=entry.get_lexs_list())
+        if test_triple.predicate not in triples_dict:
+            triples_dict[test_triple.predicate] = PredicateData(predicate=test_triple.predicate, triples=[test_triple])
+        else:
+            triples_dict[test_triple.predicate].triples.append(test_triple)
 
 def run_with_timeout(func, args=(), kwargs={}, timeout_seconds=5):
     """
@@ -174,33 +175,43 @@ def evaluate(program_path):
 
         scores = []
         success_count = 0
+        bad_artifacts: dict[str, str] = {}
 
-        for test_sentence in airport_test_sentences:
+        for predicate, predicate_data in triples_dict.items():
             try:
-                triples = [Triple(test_triple.subject, test_triple.predicate, test_triple.object) for test_triple in test_sentence.triples]
+                is_bad = False
+                for test_triple in predicate_data.triples:
+                    triple = Triple(test_triple.subject, test_triple.predicate, test_triple.object)
+                    test_texts = test_triple.example_texts
 
-                # Run with timeout
-                result = run_with_timeout(program.predict, args=(triples,), timeout_seconds=5)
+                    # Run with timeout
+                    result = run_with_timeout(program.predict, args=(triple,), timeout_seconds=5)
 
-                # Handle different result formats
-                if isinstance(result, str):
-                    generated_text = result
-                else:
-                    print(
-                        f"Invalid result format, expected str but got {type(result)}"
-                    )
-                    continue
+                    # Handle different result formats
+                    if isinstance(result, str):
+                        generated_text = result
+                    else:
+                        print(
+                            f"Invalid result format, expected str but got {type(result)}"
+                        )
+                        continue
 
-                # Define your desired weights (example: higher weight for bi-grams)
-                weights = (0.25, 0.25)  # Weights for uni-gram, bi-gram, tri-gram, and 4-gram
+                    # Define your desired weights (example: higher weight for bi-grams)
+                    weights = (0.25, 0.25)  # Weights for uni-gram, bi-gram, tri-gram, and 4-gram
 
-                # Reference and predicted texts (same as before)
-                references = [test_text.lower().split() for test_text in test_sentence.example_texts]
-                prediction = generated_text.lower().split()
+                    # Reference and predicted texts (same as before)
+                    reference = [test_text.lower().split() for test_text in test_texts]
+                    predictions = generated_text.lower().split()
 
-                # Calculate BLEU score with weights
-                score = sentence_bleu(references, prediction, weights=weights)
-                scores.append(score)
+                    # Calculate BLEU score with weights
+                    score = sentence_bleu(reference, predictions, weights=weights)
+                    scores.append(score)
+
+                    if score < 0.1:
+                        if not is_bad:
+                            bad_artifacts[f"LowScore_{predicate}"] = f"For the predicate: {predicate}, the below triples had BLEU scores below 0.1:\n"
+                        is_bad = True
+                        bad_artifacts[f"LowScore_{predicate}"] += f"Score: {score:.4f}, Triple: ({triple.subject}, {triple.predicate}, {triple.object}), Generated: {generated_text}, Actuals: {test_texts}\n"
 
                 success_count += 1
 
@@ -243,6 +254,7 @@ def evaluate(program_path):
             metrics={
                 "combined_score": combined_score,
             },
+            artifacts=bad_artifacts
         )
     except Exception as e:
         print(f"Evaluation failed completely: {str(e)}")
