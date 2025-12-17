@@ -7,9 +7,9 @@ max_code_length: 20000
 # LLM configuration
 llm:
   models:
-    - name: "gpt-4o"
+    - name: "gpt-mock"
   api_key: "DUMMY_LOCAL_KEY"
-  api_base: "https://openai-mock.mock.beeceptor.com"
+  api_base: "http://127.0.0.1:8001/v1"
   max_tokens: 2000
   timeout: 120
 
