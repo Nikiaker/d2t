@@ -1,6 +1,5 @@
 # Current Program Information
-- Fitness: {fitness_score}
-- Feature coordinates: {feature_coords}
+- BLUE Score: {fitness_score}
 - Focus areas: {improvement_areas}
 
 {artifacts}
@@ -14,7 +13,7 @@
 ```
 
 # Task
-Suggest an improvement to the program that will improve its FITNESS SCORE.
+Suggest an improvement to the program that will improve its BLUE SCORE.
 Different solutions with similar fitness but different features are valuable.
 
 You MUST use the exact SEARCH/REPLACE diff format shown below to indicate changes:

@@ -13,6 +13,7 @@ pkgs.mkShell {
     python3Packages.flask
     python3Packages.nltk
     python3Packages.datasets
+    python3Packages.dacite
 
     # other dependencies
     python3Packages.scipy

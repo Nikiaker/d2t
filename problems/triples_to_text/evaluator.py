@@ -256,6 +256,7 @@ def evaluate(program_path):
             metrics={
                 "combined_score": combined_score,
             },
+            artifacts=low_score_artifacts
         )
     except Exception as e:
         print(f"Evaluation failed completely: {str(e)}")
