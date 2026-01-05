@@ -181,6 +181,8 @@ def evaluate(program_path):
 
         scores = []
         success_count = 0
+        low_score_artifacts = {}
+        error_msg = ""
 
         for test_sentence in airport_test_sentences:
             try:
@@ -209,22 +211,26 @@ def evaluate(program_path):
                 score = sentence_bleu(references, prediction, weights=weights)
                 scores.append(score)
 
+                if score < 0.1 and len(low_score_artifacts) < 50:
+                    txt = f"The program did very poorly with BLEU score {score}. The input triples were:\n"
+                    for triple in triples:
+                        txt += f"{triple.subject} | {triple.predicate} | {triple.object}\n"
+                    txt += f"The generated text was:\n{generated_text}\n"
+                    txt += f"The example correct sentences are:\n"
+                    for ref in test_sentence.example_texts:
+                        txt += f"{ref}\n"
+                    low_score_artifacts[f"poor_program_score_{len(low_score_artifacts)}"] = txt
+
                 success_count += 1
 
             except TimeoutError as e:
                 print(f"Trial: {str(e)}")
                 continue
-            except IndexError as e:
-                # Specifically handle IndexError which often happens with early termination checks
-                print(f"Trial: IndexError - {str(e)}")
-                print(
-                    "This is likely due to a list index check before the list is fully populated."
-                )
-                continue
             except Exception as e:
                 print(f"Trial: Error - {str(e)}")
                 print(traceback.format_exc())
-                continue
+                error_msg = str(e)
+                break
 
         # If all trials failed, return zero scores
         if success_count == 0:
@@ -237,7 +243,7 @@ def evaluate(program_path):
             return EvaluationResult(
                 metrics={
                     "combined_score": 0.0,
-                    "error": "All trials failed",
+                    "error": error_msg,
                 },
                 artifacts=error_artifacts
             )
@@ -265,9 +271,6 @@ def evaluate(program_path):
         
         return EvaluationResult(
             metrics={
-                "value_score": 0.0,
-                "distance_score": 0.0,
-                "reliability_score": 0.0,
                 "combined_score": 0.0,
                 "error": str(e),
             },
