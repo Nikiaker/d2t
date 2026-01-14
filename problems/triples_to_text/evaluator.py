@@ -17,6 +17,7 @@ import evaluate as ev
 import inspect
 from dataclasses import dataclass
 import os
+import random
 
 @dataclass
 class TestTriple:
@@ -64,7 +65,7 @@ entries.extend(dev_benchmark.entries)
 entries.extend(test_benchmark.entries)
 
 airport_entries  = [e for e in entries if e.category == "Airport"]
-airport_test_sentences = [TestSentence([TestTriple(*triple) for triple in e.get_triples_tuple_list()], e.get_lexs_list()) for e in airport_entries]
+airport_test_sentences = [TestSentence([TestTriple(*triple) for triple in e.get_clean_triples_tuple_list()], e.get_lexs_list()) for e in airport_entries]
 
 def run_with_timeout(func, args=(), kwargs={}, timeout_seconds=5):
     """
@@ -151,40 +152,9 @@ def evaluate(program_path):
                 artifacts=error_artifacts
             )
 
-        # Test with a sample triple to check return type
-        try:
-            test_triples = [Triple("test_subject", "test_predicate", "test_object")]
-            test_result = run_with_timeout(program.predict, args=(test_triples,), timeout_seconds=2)
-            if not isinstance(test_result, str):
-                error_artifacts = {
-                    "error_type": "InvalidReturnType",
-                    "error_message": f"predict function must return str, but returned {type(test_result).__name__}",
-                    "suggestion": "Make sure predict returns a string"
-                }
-                return EvaluationResult(
-                    metrics={
-                        "combined_score": 0.0,
-                        "error": "Invalid return type",
-                    },
-                    artifacts=error_artifacts
-                )
-        except Exception as e:
-            error_artifacts = {
-                "error_type": "FunctionTestFailed",
-                "error_message": f"Failed to test predict function: {str(e)}",
-                "suggestion": "Ensure predict can handle a list[Triple] object as input"
-            }
-            return EvaluationResult(
-                metrics={
-                    "combined_score": 0.0,
-                    "error": "Function test failed",
-                },
-                artifacts=error_artifacts
-            )
-
-        scores = []
+        scores: list[float] = []
         success_count = 0
-        low_score_artifacts = {}
+        low_score_artifacts: dict[str, str] = {}
         error_msg = ""
 
         for test_sentence in airport_test_sentences:
@@ -201,7 +171,18 @@ def evaluate(program_path):
                     print(
                         f"Invalid result format, expected str but got {type(result)}"
                     )
-                    continue
+                    error_artifacts = {
+                        "error_type": "InvalidReturnType",
+                        "error_message": f"predict function must return str, but returned {type(test_result).__name__}",
+                        "suggestion": "Make sure predict returns a string"
+                    }
+                    return EvaluationResult(
+                        metrics={
+                            "combined_score": 0.0,
+                            "error": "Invalid return type",
+                        },
+                        artifacts=error_artifacts
+                    )
 
                 # Define your desired weights (example: higher weight for bi-grams)
                 # weights = (0.25, 0.25)  # Weights for uni-gram, bi-gram, tri-gram, and 4-gram
@@ -212,10 +193,10 @@ def evaluate(program_path):
 
                 # Calculate BLEU score with weights
                 results = bleu.compute(predictions=[generated_text], references=[test_sentence.example_texts])
-                score = results['bleu']
+                score = float(results['bleu'])
                 scores.append(score)
 
-                if score < 0.1 and len(low_score_artifacts):
+                if score < 0.1:
                     txt = f"The program did very poorly with BLEU score {score}. The input triples were:\n"
                     for triple in triples:
                         txt += f"{triple.subject} | {triple.predicate} | {triple.object}\n"
@@ -229,7 +210,8 @@ def evaluate(program_path):
 
             except TimeoutError as e:
                 print(f"Trial: {str(e)}")
-                continue
+                error_msg = str(e)
+                break
             except Exception as e:
                 print(f"Trial: Error - {str(e)}")
                 print(traceback.format_exc())
@@ -237,7 +219,7 @@ def evaluate(program_path):
                 break
 
         # If all trials failed, return zero scores
-        if success_count == 0:
+        if success_count == 0 or error_msg != "":
             error_artifacts = {
                 "error_type": "AllTrialsFailed",
                 "error_message": f"All trials failed - common issues: timeouts, crashes, or invalid return values",
@@ -259,7 +241,7 @@ def evaluate(program_path):
         # Choose random 50 low_score_artifacts if too many
         if len(low_score_artifacts) > 50:
             keys = list(low_score_artifacts.keys())
-            selected_keys = np.random.choice(keys, size=50, replace=False)
+            selected_keys = random.sample(keys, 50)
             low_score_artifacts = {k: low_score_artifacts[k] for k in selected_keys}
 
         return EvaluationResult(

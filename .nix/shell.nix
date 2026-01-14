@@ -25,5 +25,7 @@ pkgs.mkShell {
     export HF_HOME="$PWD/.cache/huggingface"
     export HF_HUB_CACHE="$PWD/.cache/huggingface/hub"
     export WEBNLG_BASE_PATH="$PWD/../problems/triples_to_text/tests/webnlg/release_v3.0/en"
+
+    export PYTHONPATH=`pwd`/../openevolve/:$PYTHONPATH
   '';
 }
