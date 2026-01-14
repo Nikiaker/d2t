@@ -5,12 +5,10 @@
 #SBATCH -n1
 SERVER_LOG="/home/inf151915/vllm-server.log"
 conda run -n vllm-env vllm serve \
-	RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic \
+	google/gemma-3-27b-it \
     --port 2993 \
     --api-key AiIsMyLife25 \
-    --gpu-memory-utilization 0.99 \
-    --max-model-len 30000 \
-    --enforce-eager \
+    --kv-cache-memory=24778935644 \
     > "$SERVER_LOG" 2>&1 &
 SERVER_PID=$!
 
