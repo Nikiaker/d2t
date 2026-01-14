@@ -1,0 +1,1 @@
+python ../../openevolve/scripts/visualizer.py --path ./openevolve_output
