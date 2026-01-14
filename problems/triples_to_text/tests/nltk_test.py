@@ -8,7 +8,7 @@ reference_texts = [
 ]
 
 # Define your desired weights (example: higher weight for bi-grams)
-weights = (0.25,)  # Weights for uni-gram, bi-gram, tri-gram, and 4-gram
+weights = (0.25, 0.25, 0.25, 0.25)  # Weights for uni-gram, bi-gram, tri-gram, and 4-gram
 
 # Reference and predicted texts (same as before)
 reference = [ref.lower().split() for ref in reference_texts]

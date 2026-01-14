@@ -3,7 +3,7 @@ from best_program import Triple, predict
 if __name__ == "__main__":
     # Example triples
     triples = [
-        Triple(subject="Heathrow Airport", predicate="location", object="London"),
+        Triple(subject="Warsaw", predicate="isPartOf", object="Poland"),
         Triple(subject="Heathrow Airport", predicate="runwayLength", object="3902"),
         Triple(subject="Heathrow Airport", predicate="icaoLocationIdentifier", object="EGLL"),
     ]

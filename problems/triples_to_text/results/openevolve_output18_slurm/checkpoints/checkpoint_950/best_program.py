@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-import random
 
 @dataclass
 class Triple:

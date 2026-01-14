@@ -54,7 +54,7 @@ print("Number of selected entries: ", len(airport_entries))
 
 triples_dict: dict[str, PredicateData] = {}
 for entry in airport_entries:
-    triples = [TestTriple(*triple) for triple in entry.get_triples_tuple_list()]
+    triples = [TestTriple(*triple) for triple in entry.get_clean_triples_tuple_list()]
     example_texts = entry.get_lexs_list()
     test_sentence = TestSentence(triples=triples, example_texts=example_texts)
 

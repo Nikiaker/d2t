@@ -14,6 +14,7 @@ pkgs.mkShell {
     python3Packages.nltk
     python3Packages.datasets
     python3Packages.dacite
+    python3Packages.evaluate
 
     # other dependencies
     python3Packages.scipy

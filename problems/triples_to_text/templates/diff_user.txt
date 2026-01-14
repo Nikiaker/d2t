@@ -1,6 +1,5 @@
 # Current Program Information
 - BLUE Score: {fitness_score}
-- Focus areas: {improvement_areas}
 
 {artifacts}
 
@@ -13,8 +12,8 @@
 ```
 
 # Task
-Suggest an improvement to the program that will improve its BLUE SCORE.
-Different solutions with similar fitness but different features are valuable.
+Suggest an improvement to the current program that will improve its BLUE SCORE.
+Different solutions with similar fitness but different ideas are valuable.
 
 You MUST use the exact SEARCH/REPLACE diff format shown below to indicate changes:
 
@@ -24,7 +23,7 @@ You MUST use the exact SEARCH/REPLACE diff format shown below to indicate change
 # New replacement code
 >>>>>>> REPLACE
 
-Example of valid diff format:
+Example of a valid diff format:
 <<<<<<< SEARCH
     best_x = 0
     best_y = 0

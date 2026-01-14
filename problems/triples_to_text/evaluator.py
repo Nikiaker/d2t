@@ -13,6 +13,7 @@ from initial_program import Triple
 from tests.benchmark_reader.benchmark_reader import Benchmark, Entry
 from tests.benchmark_reader.benchmark_reader import select_files, select_test_file
 from nltk.translate.bleu_score import sentence_bleu
+import evaluate as ev
 import inspect
 from dataclasses import dataclass
 import os
@@ -35,6 +36,8 @@ class TestSentence:
 class PredicateData:
     predicate: str
     sentences: list[TestSentence]
+
+bleu = ev.load("bleu")
 
 WEBNLG_BASE_PATH = os.getenv(
     "WEBNLG_BASE_PATH",
@@ -201,17 +204,18 @@ def evaluate(program_path):
                     continue
 
                 # Define your desired weights (example: higher weight for bi-grams)
-                weights = (0.25, 0.25)  # Weights for uni-gram, bi-gram, tri-gram, and 4-gram
+                # weights = (0.25, 0.25)  # Weights for uni-gram, bi-gram, tri-gram, and 4-gram
 
                 # Reference and predicted texts (same as before)
-                references = [test_text.lower().split() for test_text in test_sentence.example_texts]
-                prediction = generated_text.lower().split()
+                # references = [test_text.lower().split() for test_text in test_sentence.example_texts]
+                # prediction = generated_text.lower().split()
 
                 # Calculate BLEU score with weights
-                score = sentence_bleu(references, prediction, weights=weights)
+                results = bleu.compute(predictions=[generated_text], references=[test_sentence.example_texts])
+                score = results['bleu']
                 scores.append(score)
 
-                if score < 0.1 and len(low_score_artifacts) < 50:
+                if score < 0.1 and len(low_score_artifacts):
                     txt = f"The program did very poorly with BLEU score {score}. The input triples were:\n"
                     for triple in triples:
                         txt += f"{triple.subject} | {triple.predicate} | {triple.object}\n"
@@ -251,6 +255,12 @@ def evaluate(program_path):
         # Calculate metrics
         avg_value = float(np.mean(scores))
         combined_score = avg_value
+
+        # Choose random 50 low_score_artifacts if too many
+        if len(low_score_artifacts) > 50:
+            keys = list(low_score_artifacts.keys())
+            selected_keys = np.random.choice(keys, size=50, replace=False)
+            low_score_artifacts = {k: low_score_artifacts[k] for k in selected_keys}
 
         return EvaluationResult(
             metrics={

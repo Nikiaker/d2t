@@ -137,6 +137,16 @@ class Entry:
             triples.append((triple.s, triple.p, triple.o))
         return triples
     
+    def get_clean_triples_tuple_list(self):
+        """
+        Return a list of triples as tuples for an entry, with stripped whitespace.
+        :return: list of triples as tuples
+        """
+        triples: list[tuple[str, str, str]] = []
+        for triple in self.modifiedtripleset.triples:
+            triples.append((triple.s.replace('_', ' '), triple.p, triple.o.replace('_', ' ')))
+        return triples
+    
     def get_lexs_list(self) -> list[str]:
         """
         Return a list of lexicalisations for an entry.
