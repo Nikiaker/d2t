@@ -1,0 +1,131 @@
+2026-01-14 22:24:08,284 - openevolve.controller - INFO - Logging to openevolve_output/logs/openevolve_20260114_222408.log
+2026-01-14 22:24:08,327 - openevolve.controller - INFO - Set random seed to 42 for reproducibility
+2026-01-14 22:24:08,464 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: google/gemma-3-27b-it
+2026-01-14 22:24:08,464 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: google/gemma-3-27b-it (weight: 1.00)
+2026-01-14 22:24:08,482 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-01-14 22:24:08,485 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-01-14 22:24:08,485 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-01-14 22:24:08,492 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-01-14 22:24:08,492 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-01-14 22:24:08,493 - openevolve.controller - INFO - Initialized OpenEvolve with initial_program.py
+2026-01-14 22:24:08,493 - openevolve.controller - INFO - Adding initial program to database
+2026-01-14 22:24:08,626 - openevolve.evaluator - INFO - Evaluated program 07707026-4686-4259-a71a-754566057f01 in 0.13s: validity=1.0000, sum_radii=0.9598, target_ratio=0.3642, combined_score=0.3642, radius_variance=0.0266, spatial_spread=0.2381
+2026-01-14 22:24:08,627 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'radius_variance': 5, 'spatial_spread': 5}
+2026-01-14 22:24:08,628 - openevolve.process_parallel - INFO - Initialized process parallel controller with 4 workers
+2026-01-14 22:24:08,628 - openevolve.process_parallel - INFO - Set max None tasks per child
+2026-01-14 22:24:08,629 - openevolve.process_parallel - INFO - Started process pool with 4 processes
+2026-01-14 22:24:08,629 - openevolve.controller - INFO - Using island-based evolution with 4 islands
+2026-01-14 22:24:08,629 - openevolve.database - INFO - Island Status:
+2026-01-14 22:24:08,629 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.3642, avg=0.3642, diversity=0.00, gen=0 (best: 07707026-4686-4259-a71a-754566057f01)
+2026-01-14 22:24:08,629 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-01-14 22:24:08,629 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-01-14 22:24:08,629 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-01-14 22:24:08,629 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 10 iterations (total: 11)
+2026-01-14 22:24:08,637 - openevolve.process_parallel - INFO - Early stopping disabled
+2026-01-14 22:24:08,673 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-01-14 22:24:08,674 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-01-14 22:24:08,674 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-01-14 22:24:08,675 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-14 22:24:08,677 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-01-14 22:24:08,680 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-01-14 22:24:08,681 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-01-14 22:24:08,681 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-01-14 22:24:08,681 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-01-14 22:24:08,681 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-01-14 22:24:08,682 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-01-14 22:24:08,682 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-14 22:24:08,682 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-14 22:24:08,683 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-01-14 22:24:08,683 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-01-14 22:24:08,684 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-14 22:24:56,880 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-14 22:24:56,880 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-14 22:24:56,889 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-14 22:24:56,890 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-14 22:24:57,263 - openevolve.evaluator - INFO - Evaluated program ac9e5827-ae4a-4fb2-9c56-7e4f7f8f0e39 in 0.36s: validity=1.0000, sum_radii=0.8499, target_ratio=0.3225, combined_score=0.3225, radius_variance=0.0127, spatial_spread=0.1629
+2026-01-14 22:24:57,274 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-14 22:24:57,284 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'radius_variance': 0, 'spatial_spread': 0}
+2026-01-14 22:24:57,284 - openevolve.process_parallel - INFO - Iteration 1: Program ac9e5827-ae4a-4fb2-9c56-7e4f7f8f0e39 (parent: 07707026-4686-4259-a71a-754566057f01) completed in 48.60s
+2026-01-14 22:24:57,284 - openevolve.process_parallel - INFO - Metrics: validity=1.0000, sum_radii=0.8499, target_ratio=0.3225, combined_score=0.3225, radius_variance=0.0127, spatial_spread=0.1629
+2026-01-14 22:24:57,284 - openevolve.evaluator - INFO - Evaluated program 885de4d6-120c-4223-8ea8-224a76500b50 in 0.39s: validity=1.0000, sum_radii=1.0395, target_ratio=0.3945, combined_score=0.3945, radius_variance=0.0076, spatial_spread=0.1389
+2026-01-14 22:24:57,286 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-14 22:24:57,294 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'radius_variance': 0, 'spatial_spread': 0} (fitness: 0.323 -> 0.395)
+2026-01-14 22:24:57,295 - openevolve.database - INFO - New best program 885de4d6-120c-4223-8ea8-224a76500b50 replaces 07707026-4686-4259-a71a-754566057f01 (combined_score: 0.3642 → 0.3945, +0.0303)
+2026-01-14 22:24:57,295 - openevolve.process_parallel - INFO - Iteration 3: Program 885de4d6-120c-4223-8ea8-224a76500b50 (parent: 07707026-4686-4259-a71a-754566057f01) completed in 48.60s
+2026-01-14 22:24:57,295 - openevolve.process_parallel - INFO - Metrics: validity=1.0000, sum_radii=1.0395, target_ratio=0.3945, combined_score=0.3945, radius_variance=0.0076, spatial_spread=0.1389
+2026-01-14 22:24:57,295 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 3: 885de4d6-120c-4223-8ea8-224a76500b50
+2026-01-14 22:24:57,317 - openevolve.evaluator - INFO - Evaluated program 0814422e-4e2b-4f4c-9cba-3b02b3ec6503 in 0.42s: validity=1.0000, sum_radii=1.1537, target_ratio=0.4378, combined_score=0.4378, radius_variance=0.0103, spatial_spread=0.1504
+2026-01-14 22:24:57,318 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-14 22:24:57,325 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'radius_variance': 1, 'spatial_spread': 1}
+2026-01-14 22:24:57,326 - openevolve.database - INFO - New best program 0814422e-4e2b-4f4c-9cba-3b02b3ec6503 replaces 885de4d6-120c-4223-8ea8-224a76500b50 (combined_score: 0.3945 → 0.4378, +0.0433)
+2026-01-14 22:24:57,326 - openevolve.process_parallel - INFO - Iteration 4: Program 0814422e-4e2b-4f4c-9cba-3b02b3ec6503 (parent: 07707026-4686-4259-a71a-754566057f01) completed in 48.64s
+2026-01-14 22:24:57,326 - openevolve.process_parallel - INFO - Metrics: validity=1.0000, sum_radii=1.1537, target_ratio=0.4378, combined_score=0.4378, radius_variance=0.0103, spatial_spread=0.1504
+2026-01-14 22:24:57,326 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 4: 0814422e-4e2b-4f4c-9cba-3b02b3ec6503
+2026-01-14 22:24:57,346 - openevolve.evaluator - INFO - Evaluated program 2679c3fa-dc19-410d-9ae9-344ecb2c09d1 in 0.45s: validity=1.0000, sum_radii=0.9127, target_ratio=0.3464, combined_score=0.3464, radius_variance=0.0112, spatial_spread=0.1516
+2026-01-14 22:24:57,347 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-14 22:24:57,356 - openevolve.process_parallel - INFO - Iteration 2: Program 2679c3fa-dc19-410d-9ae9-344ecb2c09d1 (parent: 07707026-4686-4259-a71a-754566057f01) completed in 48.66s
+2026-01-14 22:24:57,357 - openevolve.process_parallel - INFO - Metrics: validity=1.0000, sum_radii=0.9127, target_ratio=0.3464, combined_score=0.3464, radius_variance=0.0112, spatial_spread=0.1516
+2026-01-14 22:25:39,415 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-14 22:25:39,457 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-14 22:25:39,457 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-14 22:25:39,458 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-14 22:25:39,655 - openevolve.evaluator - INFO - Evaluated program e298ec75-0658-46d4-823c-c11a1e265b69 in 0.24s: validity=1.0000, sum_radii=1.0853, target_ratio=0.4119, combined_score=0.4119, radius_variance=0.0081, spatial_spread=0.1701
+2026-01-14 22:25:39,682 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-14 22:25:39,683 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'radius_variance': 0, 'spatial_spread': 3}
+2026-01-14 22:25:39,683 - openevolve.process_parallel - INFO - Iteration 6: Program e298ec75-0658-46d4-823c-c11a1e265b69 (parent: 07707026-4686-4259-a71a-754566057f01) completed in 42.40s
+2026-01-14 22:25:39,683 - openevolve.process_parallel - INFO - Metrics: validity=1.0000, sum_radii=1.0853, target_ratio=0.4119, combined_score=0.4119, radius_variance=0.0081, spatial_spread=0.1701
+2026-01-14 22:25:39,786 - openevolve.evaluator - INFO - Evaluated program fe265a05-510c-4b44-82d3-4ea5c4784743 in 0.31s: validity=1.0000, sum_radii=0.9234, target_ratio=0.3504, combined_score=0.3504, radius_variance=0.0083, spatial_spread=0.1524
+2026-01-14 22:25:39,795 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-14 22:25:39,799 - openevolve.evaluator - INFO - Evaluated program ea90be45-55d4-4c03-a878-3b9005072418 in 0.33s: validity=1.0000, sum_radii=1.2080, target_ratio=0.4584, combined_score=0.4584, radius_variance=0.0128, spatial_spread=0.1568
+2026-01-14 22:25:39,806 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'radius_variance': 0, 'spatial_spread': 1}
+2026-01-14 22:25:39,806 - openevolve.process_parallel - INFO - Iteration 5: Program fe265a05-510c-4b44-82d3-4ea5c4784743 (parent: 07707026-4686-4259-a71a-754566057f01) completed in 42.52s
+2026-01-14 22:25:39,806 - openevolve.process_parallel - INFO - Metrics: validity=1.0000, sum_radii=0.9234, target_ratio=0.3504, combined_score=0.3504, radius_variance=0.0083, spatial_spread=0.1524
+2026-01-14 22:25:39,806 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'radius_variance': 2, 'spatial_spread': 1}
+2026-01-14 22:25:39,806 - openevolve.database - INFO - New best program ea90be45-55d4-4c03-a878-3b9005072418 replaces 0814422e-4e2b-4f4c-9cba-3b02b3ec6503 (combined_score: 0.4378 → 0.4584, +0.0206)
+2026-01-14 22:25:39,806 - openevolve.process_parallel - INFO - Iteration 7: Program ea90be45-55d4-4c03-a878-3b9005072418 (parent: 07707026-4686-4259-a71a-754566057f01) completed in 42.48s
+2026-01-14 22:25:39,807 - openevolve.process_parallel - INFO - Metrics: validity=1.0000, sum_radii=1.2080, target_ratio=0.4584, combined_score=0.4584, radius_variance=0.0128, spatial_spread=0.1568
+2026-01-14 22:25:39,807 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 7: ea90be45-55d4-4c03-a878-3b9005072418
+2026-01-14 22:25:39,812 - openevolve.evaluator - INFO - Evaluated program 7027c76c-40e9-42da-a173-1bd1d6b8cc90 in 0.34s: validity=1.0000, sum_radii=0.9560, target_ratio=0.3628, combined_score=0.3628, radius_variance=0.0109, spatial_spread=0.1490
+2026-01-14 22:25:39,817 - openevolve.process_parallel - INFO - Iteration 8: Program 7027c76c-40e9-42da-a173-1bd1d6b8cc90 (parent: 07707026-4686-4259-a71a-754566057f01) completed in 42.46s
+2026-01-14 22:25:39,817 - openevolve.process_parallel - INFO - Metrics: validity=1.0000, sum_radii=0.9560, target_ratio=0.3628, combined_score=0.3628, radius_variance=0.0109, spatial_spread=0.1490
+2026-01-14 22:26:29,409 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-14 22:26:29,546 - openevolve.evaluator - INFO - Evaluated program f81887b7-d0de-43ff-9783-6c05caaec022 in 0.13s: validity=1.0000, sum_radii=0.7064, target_ratio=0.2681, combined_score=0.2681, radius_variance=0.0048, spatial_spread=0.2084
+2026-01-14 22:26:29,550 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'radius_variance': 0, 'spatial_spread': 7}
+2026-01-14 22:26:29,550 - openevolve.process_parallel - INFO - Iteration 9: Program f81887b7-d0de-43ff-9783-6c05caaec022 (parent: ac9e5827-ae4a-4fb2-9c56-7e4f7f8f0e39) completed in 49.86s
+2026-01-14 22:26:29,550 - openevolve.process_parallel - INFO - Metrics: validity=1.0000, sum_radii=0.7064, target_ratio=0.2681, combined_score=0.2681, radius_variance=0.0048, spatial_spread=0.2084
+2026-01-14 22:26:30,230 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-14 22:26:30,362 - openevolve.evaluator - INFO - Evaluated program 98de5bcb-57db-4e87-b511-2886f5225331 in 0.13s: validity=1.0000, sum_radii=1.0631, target_ratio=0.4034, combined_score=0.4034, radius_variance=0.0157, spatial_spread=0.1789
+2026-01-14 22:26:30,371 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'radius_variance': 4, 'spatial_spread': 4}
+2026-01-14 22:26:30,371 - openevolve.process_parallel - INFO - Performing migration at iteration 10
+2026-01-14 22:26:30,371 - openevolve.database - INFO - Performing migration between islands
+2026-01-14 22:26:30,372 - openevolve.database - INFO - New MAP-Elites cell occupied in island 1: {'radius_variance': 3, 'spatial_spread': 1}
+2026-01-14 22:26:30,372 - openevolve.database - INFO - Program aec2ed08 migrated to island 1
+2026-01-14 22:26:30,372 - openevolve.database - INFO - New MAP-Elites cell occupied in island 3: {'radius_variance': 3, 'spatial_spread': 1}
+2026-01-14 22:26:30,372 - openevolve.database - INFO - Program 8fc8274b migrated to island 3
+2026-01-14 22:26:30,372 - openevolve.database - INFO - Migration completed at generation 10
+2026-01-14 22:26:30,372 - openevolve.database - INFO - Island Status:
+2026-01-14 22:26:30,372 - openevolve.database - INFO -  * Island 0: 10 programs, best=0.4584, avg=0.3798, diversity=199.20, gen=10 (best: ea90be45-55d4-4c03-a878-3b9005072418)
+2026-01-14 22:26:30,372 - openevolve.database - INFO -    Island 1: 1 programs, best=0.4584, avg=0.4584, diversity=0.00, gen=0 (best: aec2ed08-42c2-42c3-a376-711abbecfae2)
+2026-01-14 22:26:30,372 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-01-14 22:26:30,372 - openevolve.database - INFO -    Island 3: 1 programs, best=0.4584, avg=0.4584, diversity=0.00, gen=0 (best: 8fc8274b-32e9-415b-b47e-c410414f8ac9)
+2026-01-14 22:26:30,372 - openevolve.process_parallel - INFO - Iteration 10: Program 98de5bcb-57db-4e87-b511-2886f5225331 (parent: 07707026-4686-4259-a71a-754566057f01) completed in 50.57s
+2026-01-14 22:26:30,372 - openevolve.process_parallel - INFO - Metrics: validity=1.0000, sum_radii=1.0631, target_ratio=0.4034, combined_score=0.4034, radius_variance=0.0157, spatial_spread=0.1789
+2026-01-14 22:26:30,373 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 10
+2026-01-14 22:26:30,373 - openevolve.database - INFO - Island Status:
+2026-01-14 22:26:30,373 - openevolve.database - INFO -  * Island 0: 10 programs, best=0.4584, avg=0.3798, diversity=199.20, gen=10 (best: ea90be45-55d4-4c03-a878-3b9005072418)
+2026-01-14 22:26:30,373 - openevolve.database - INFO -    Island 1: 1 programs, best=0.4584, avg=0.4584, diversity=0.00, gen=0 (best: aec2ed08-42c2-42c3-a376-711abbecfae2)
+2026-01-14 22:26:30,373 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-01-14 22:26:30,373 - openevolve.database - INFO -    Island 3: 1 programs, best=0.4584, avg=0.4584, diversity=0.00, gen=0 (best: 8fc8274b-32e9-415b-b47e-c410414f8ac9)
+2026-01-14 22:26:30,401 - openevolve.database - INFO - Saved database with 13 programs to openevolve_output/checkpoints/checkpoint_10
+2026-01-14 22:26:30,404 - openevolve.controller - INFO - Saved best program at checkpoint 10 with metrics: validity=1.0000, sum_radii=1.2080, target_ratio=0.4584, combined_score=0.4584, radius_variance=0.0128, spatial_spread=0.1568
+2026-01-14 22:26:30,404 - openevolve.controller - INFO - Saved checkpoint at iteration 10 to openevolve_output/checkpoints/checkpoint_10
+2026-01-14 22:26:30,404 - openevolve.process_parallel - INFO - ✅ Evolution completed - Maximum iterations reached
+2026-01-14 22:26:30,404 - openevolve.process_parallel - INFO - Total programs created: 10
+2026-01-14 22:26:30,404 - openevolve.process_parallel - INFO - Total failed program generations: 0
+2026-01-14 22:26:30,424 - openevolve.database - INFO - Saved database with 13 programs to openevolve_output/checkpoints/checkpoint_10
+2026-01-14 22:26:30,426 - openevolve.controller - INFO - Saved best program at checkpoint 10 with metrics: validity=1.0000, sum_radii=1.2080, target_ratio=0.4584, combined_score=0.4584, radius_variance=0.0128, spatial_spread=0.1568
+2026-01-14 22:26:30,426 - openevolve.controller - INFO - Saved checkpoint at iteration 10 to openevolve_output/checkpoints/checkpoint_10
+2026-01-14 22:26:30,437 - openevolve.process_parallel - INFO - Stopped process pool
+2026-01-14 22:26:30,437 - openevolve.controller - INFO - Using tracked best program: ea90be45-55d4-4c03-a878-3b9005072418
+2026-01-14 22:26:30,438 - openevolve.controller - INFO - Evolution complete. Best program has metrics: validity=1.0000, sum_radii=1.2080, target_ratio=0.4584, combined_score=0.4584, radius_variance=0.0128, spatial_spread=0.1568
+2026-01-14 22:26:30,440 - openevolve.controller - INFO - Saved best program to openevolve_output/best/best_program.py with program info to openevolve_output/best/best_program_info.json
