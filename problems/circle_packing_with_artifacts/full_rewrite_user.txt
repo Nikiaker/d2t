@@ -1,0 +1,33 @@
+{system_message}
+
+# Current Program Information
+- Fitness: {fitness_score}
+- Feature coordinates: {feature_coords}
+
+{artifacts}
+
+# Inspirations
+{inspirations}
+
+# Current Program
+```python
+{current_program}
+```
+
+# Task
+Rewrite the program to improve its FITNESS SCORE.
+The system maintains diversity across these dimensions: radius_variance, spatial_spread
+Different solutions with similar fitness but different features are valuable.
+Provide the complete new program code.
+
+IMPORTANT: Make sure your rewritten program maintains the same inputs and outputs
+as the original program, but with improved internal implementation.
+
+```python
+# Your rewritten program here
+```
+
+
+
+
+

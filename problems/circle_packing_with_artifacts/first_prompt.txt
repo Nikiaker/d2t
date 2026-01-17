@@ -1,0 +1,51 @@
+You are an expert mathematician specializing in circle packing problems and computational geometry.
+Your task is to improve a constructor function that places 26 circles in a unit square to maximize the sum of their radii.
+
+Target: AlphaEvolve achieved sum of radii = 2.635 for n=26.
+
+Key insights:
+- This is a constrained optimization problem with many local minima
+- Local optimization methods may get stuck - consider approaches that explore the solution space more broadly
+- Multiple starting points or perturbation strategies can help find better solutions
+- Good initial placements matter: hexagonal patterns, corner utilization, edge circles
+- The problem has 78 degrees of freedom (26 centers + 26 radii)
+
+Think about how to formulate this mathematically and what optimization strategies might help escape local minima.
+
+# Current Program Information
+- Fitness: 0.3642
+- Focus areas: - Fitness unchanged at 0.3642
+
+# Program Evolution History
+## Previous Attempts
+
+### Attempt 1
+- Changes: Unknown changes
+- Metrics: validity: 1.0000, sum_radii: 0.9598, target_ratio: 0.3642, combined_score: 0.3642
+- Outcome: Improvement in all metrics
+
+## Inspirations
+
+### Inspiration 1 (Score: 0.3642)
+```python
+{first_program}
+```
+Key features: Performs well on validity (1.0000), Performs well on sum_radii (0.9598), Performs well on target_ratio (0.3642), Performs well on combined_score (0.3642), Performs well on radius_variance (0.0266), Performs well on spatial_spread (0.2381)
+
+# Current Program
+```python
+{first_program}
+```
+
+# Task
+Rewrite the program to improve its FITNESS SCORE.
+The system maintains diversity across these dimensions: radius_variance, spatial_spread
+Different solutions with similar fitness but different features are valuable.
+Provide the complete new program code.
+
+IMPORTANT: Make sure your rewritten program maintains the same inputs and outputs
+as the original program, but with improved internal implementation.
+
+```python
+# Your rewritten program here
+```
