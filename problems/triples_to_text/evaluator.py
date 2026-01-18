@@ -47,6 +47,11 @@ WEBNLG_BASE_PATH = os.getenv(
 if not WEBNLG_BASE_PATH.endswith("/"):
     WEBNLG_BASE_PATH += "/"
 
+WEBNLG_DOMAIN = os.getenv(
+    "WEBNLG_DOMAIN",
+    "Airport",
+)
+
 train_files = select_files(WEBNLG_BASE_PATH + "train")
 dev_files = select_files(WEBNLG_BASE_PATH + "dev")
 test_dir = WEBNLG_BASE_PATH + "test"
@@ -64,8 +69,8 @@ entries.extend(train_benchmark.entries)
 entries.extend(dev_benchmark.entries)
 entries.extend(test_benchmark.entries)
 
-airport_entries  = [e for e in entries if e.category == "Airport"]
-airport_test_sentences = [TestSentence([TestTriple(*triple) for triple in e.get_clean_triples_tuple_list()], e.get_lexs_list()) for e in airport_entries]
+category_entries  = [e for e in entries if e.category == WEBNLG_DOMAIN]
+category_test_sentences = [TestSentence([TestTriple(*triple) for triple in e.get_clean_triples_tuple_list()], e.get_lexs_list()) for e in category_entries]
 
 def run_with_timeout(func, args=(), kwargs={}, timeout_seconds=5):
     """
@@ -157,7 +162,7 @@ def evaluate(program_path):
         low_score_artifacts: dict[str, str] = {}
         error_msg = ""
 
-        for test_sentence in airport_test_sentences:
+        for test_sentence in category_test_sentences:
             try:
                 triples = [Triple(test_triple.subject, test_triple.predicate, test_triple.object) for test_triple in test_sentence.triples]
 
@@ -173,7 +178,7 @@ def evaluate(program_path):
                     )
                     error_artifacts = {
                         "error_type": "InvalidReturnType",
-                        "error_message": f"predict function must return str, but returned {type(test_result).__name__}",
+                        "error_message": f"predict function must return str, but returned {type(result).__name__}",
                         "suggestion": "Make sure predict returns a string"
                     }
                     return EvaluationResult(
