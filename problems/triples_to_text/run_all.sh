@@ -1,0 +1,16 @@
+sbatch ~/d2t/problems/triples_to_text/outputs/Airport_output/Airport.sh
+sbatch ~/d2t/problems/triples_to_text/outputs/Artist_output/Artist.sh
+sbatch ~/d2t/problems/triples_to_text/outputs/Astronaut_output/Astronaut.sh
+sbatch ~/d2t/problems/triples_to_text/outputs/Athlete_output/Athlete.sh
+sbatch ~/d2t/problems/triples_to_text/outputs/Building_output/Building.sh
+sbatch ~/d2t/problems/triples_to_text/outputs/CelestialBody_output/CelestialBody.sh
+sbatch ~/d2t/problems/triples_to_text/outputs/City_output/City.sh
+sbatch ~/d2t/problems/triples_to_text/outputs/ComicsCharacter_output/ComicsCharacter.sh
+sbatch ~/d2t/problems/triples_to_text/outputs/Company_output/Company.sh
+sbatch ~/d2t/problems/triples_to_text/outputs/Food_output/Food.sh
+sbatch ~/d2t/problems/triples_to_text/outputs/MeanOfTransportation_output/MeanOfTransportation.sh
+sbatch ~/d2t/problems/triples_to_text/outputs/Monument_output/Monument.sh
+sbatch ~/d2t/problems/triples_to_text/outputs/Politician_output/Politician.sh
+sbatch ~/d2t/problems/triples_to_text/outputs/SportsTeam_output/SportsTeam.sh
+sbatch ~/d2t/problems/triples_to_text/outputs/University_output/University.sh
+sbatch ~/d2t/problems/triples_to_text/outputs/WrittenWork_output/WrittenWork.sh

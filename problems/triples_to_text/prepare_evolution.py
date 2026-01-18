@@ -36,6 +36,9 @@ if __name__ == "__main__":
         # Copy config_remote.yaml
         shutil.copy("./config_remote.yaml", f"{output_dir}/config_remote.yaml")
         
+        # Copy batch_template.txt
+        shutil.copy("./batch_template.sh", f"{output_dir}/{domain}.sh")
+
         # Update system_message.txt with domain and triples
         system_message_path = f"{templates_dst}/system_message.txt"
         with open(system_message_path, "r") as f:
@@ -47,6 +50,16 @@ if __name__ == "__main__":
         with open(system_message_path, "w") as f:
             f.write(system_message)
         
+        # Update batch_template.sh with domain
+        batch_script_path = f"{output_dir}/{domain}.sh"
+        with open(batch_script_path, "r") as f:
+            batch_script_content = f.read()
+
+        batch_script_content = batch_script_content.replace("{domain}", domain)
+
+        with open(batch_script_path, "w") as f:
+            f.write(batch_script_content)
+
         # Update config_remote.yaml template_dir path
         config_path = f"{output_dir}/config_remote.yaml"
         with open(config_path, "r") as f:
@@ -59,4 +72,7 @@ if __name__ == "__main__":
         
         with open(config_path, "w") as f:
             f.write(config_content)
-        
+
+    run_all = [f"sbatch ~/d2t/problems/triples_to_text/outputs/{domain}_output/{domain}.sh" for domain in domains]
+    with open("./run_all.sh", "w") as f:
+        f.writelines("\n".join(run_all))
