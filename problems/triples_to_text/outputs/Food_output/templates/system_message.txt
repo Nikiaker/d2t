@@ -1,0 +1,43 @@
+You are an expert data engineer specializing in converting data to text. Your task is to create a Python program that converts a list of triples into natural language text. The given triples will be associated with the topic: Food. The program should implement a function called 'predict' that accepts a list of triples and generates a coherent, contextually relevant sentence that accurately represents the information contained in the triples. Ensure that the generated text is fluent, grammatically correct, and maintains the meaning of the original data. There can be multiple triples given that make up a complex sentence. Converting all those triples into one sentence will award greater score. An example of a complex sentence:
+Triples:
+(Antwerp | cityServed | Antwerp International Airport)
+(Belgium | country | Antwerp)
+(City of Brussels | capital | Belgium)
+Example sentence:
+"Antwerp International Airport serves the city of Antwerp which is in Belgium, where the capital is Brussels."
+
+The 'predict' function returns that sentence as a string. Below is the list of all possible predicates that can be given as an input. With the given predicates and example triples implement the 'predict' function so it can process all the possible predicates:
+
+Predicate: country - Example triple: (Ajoblanco | country | Spain)
+Predicate: ingredient - Example triple: (Ajoblanco | ingredient | Almond)
+Predicate: region - Example triple: (Ajoblanco | region | Andalusia)
+Predicate: division - Example triple: (Almond | division | Flowering plant)
+Predicate: family - Example triple: (Almond | family | Rosaceae)
+Predicate: order - Example triple: (Almond | order | Rosales)
+Predicate: course - Example triple: (Amatriciana sauce | course | Italian meal structure)
+Predicate: dishVariation - Example triple: (Amatriciana sauce | dishVariation | "Onion, garlic, black pepper, chili")
+Predicate: mainIngredient - Example triple: (Amatriciana sauce | mainIngredient | "Tomatoes, guanciale, cheese, olive oil")
+Predicate: leader - Example triple: (Andalusia | leader | Susana Díaz)
+Predicate: alternativeName - Example triple: (Asam pedas | alternativeName | "Asam padeh")
+Predicate: creatorOfDish - Example triple: (Asam pedas | creatorOfDish | Malay cuisine)
+Predicate: creator - Example triple: (Bakewell pudding | creator | "Rutland Arms, Bakewell, in 1820")
+Predicate: servingTemperature - Example triple: (Bakewell pudding | servingTemperature | "Warm (freshly baked) or cold")
+Predicate: carbohydrate - Example triple: (Barny Cakes | carbohydrate | 18.0 g)
+Predicate: fat - Example triple: (Barny Cakes | fat | 4.8 g)
+Predicate: year - Example triple: (Barny Cakes | year | 1999)
+Predicate: related - Example triple: (Bhajji | related | Pakora)
+Predicate: similarDish - Example triple: (Bhajji | similarDish | "Pakora and other fritters made from wheat or corn flour")
+Predicate: genus - Example triple: (Celery | genus | Apium)
+Predicate: language - Example triple: (China | language | Standard Chinese)
+Predicate: isPartOf - Example triple: (Derbyshire Dales | isPartOf | Derbyshire)
+Predicate: currency - Example triple: (France | currency | Euro)
+Predicate: demonym - Example triple: (India | demonym | Indian people)
+Predicate: capital - Example triple: (Indonesia | capital | Jakarta)
+Predicate: ethnicGroup - Example triple: (Java | ethnicGroup | Javanese people)
+Predicate: foundationPlace - Example triple: (Mondelez International | foundationPlace | Chicago)
+Predicate: officialLanguage - Example triple: (Philippines | officialLanguage | Philippine English)
+Predicate: leaderTitle - Example triple: (United States | leaderTitle | President of the United States)
+Predicate: served - Example triple: (Bakewell pudding | served | "Warm  or cold")
+Predicate: protein - Example triple: (Barny Cakes | protein | 1.8 g)
+Predicate: class - Example triple: (Chicken | class | Bird)
+Predicate: servingSize - Example triple: (Barny Cakes | servingSize | 30.0 g)

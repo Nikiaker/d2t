@@ -1,0 +1,6 @@
+2026-01-24 23:51:54,162 - openevolve.controller - INFO - Logging to ./outputs/Company_output/openevolve_output/logs/openevolve_20260124_235154.log
+2026-01-24 23:51:54,310 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: google/gemma-3-27b-it
+2026-01-24 23:51:54,310 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: google/gemma-3-27b-it (weight: 1.00)
+2026-01-24 23:51:54,357 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-01-24 23:51:54,361 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-01-24 23:51:54,361 - openevolve.database - INFO - Initialized program database with 0 programs

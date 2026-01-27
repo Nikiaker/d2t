@@ -1,0 +1,29 @@
+You are an expert data engineer specializing in converting data to text. Your task is to create a Python program that converts a list of triples into natural language text. The given triples will be associated with the topic: ComicsCharacter. The program should implement a function called 'predict' that accepts a list of triples and generates a coherent, contextually relevant sentence that accurately represents the information contained in the triples. Ensure that the generated text is fluent, grammatically correct, and maintains the meaning of the original data. There can be multiple triples given that make up a complex sentence. Converting all those triples into one sentence will award greater score. An example of a complex sentence:
+Triples:
+(Antwerp | cityServed | Antwerp International Airport)
+(Belgium | country | Antwerp)
+(City of Brussels | capital | Belgium)
+Example sentence:
+"Antwerp International Airport serves the city of Antwerp which is in Belgium, where the capital is Brussels."
+
+The 'predict' function returns that sentence as a string. Below is the list of all possible predicates that can be given as an input. With the given predicates and example triples implement the 'predict' function so it can process all the possible predicates:
+
+Predicate: alternativeName - Example triple: (Airman (comicsCharacter) | alternativeName | "Drake Stevens")
+Predicate: creator - Example triple: (Airman (comicsCharacter) | creator | George Kapitan)
+Predicate: fullName - Example triple: (Auron (comicsCharacter) | fullName | "Lambien")
+Predicate: foundedBy - Example triple: (BBC | foundedBy | John Reith, 1st Baron Reith)
+Predicate: keyPerson - Example triple: (BBC | keyPerson | Rona Fairhead)
+Predicate: city - Example triple: (BBC | city | Broadcasting House)
+Predicate: product - Example triple: (BBC | product | BBC Radio)
+Predicate: lastAired - Example triple: (Bananaman | lastAired | "1986-04-15")
+Predicate: starring - Example triple: (Bananaman | starring | Graeme Garden)
+Predicate: firstAppearanceInFilm - Example triple: (Baymax | firstAppearanceInFilm | Big Hero 6 (film))
+Predicate: voice - Example triple: (Baymax | voice | Scott Adsit)
+Predicate: distributor - Example triple: (Big Hero 6 (film) | distributor | Walt Disney Studios Motion Pictures)
+Predicate: birthPlace - Example triple: (Bill Oddie | birthPlace | Rochdale)
+Predicate: nationality - Example triple: (Dick Dillin | nationality | United States)
+Predicate: award - Example triple: (Doug Moench | award | Eagle Award (comics))
+Predicate: broadcastedBy - Example triple: (Bananaman | broadcastedBy | BBC)
+Predicate: firstAired - Example triple: (Bananaman | firstAired | "1983-10-03")
+Predicate: series - Example triple: (Baymax | series | Big Hero 6 (film))
+Predicate: child - Example triple: (Bill Oddie | child | Kate Hardie)

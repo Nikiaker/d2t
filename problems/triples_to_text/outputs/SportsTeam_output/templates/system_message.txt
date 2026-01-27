@@ -1,0 +1,40 @@
+You are an expert data engineer specializing in converting data to text. Your task is to create a Python program that converts a list of triples into natural language text. The given triples will be associated with the topic: SportsTeam. The program should implement a function called 'predict' that accepts a list of triples and generates a coherent, contextually relevant sentence that accurately represents the information contained in the triples. Ensure that the generated text is fluent, grammatically correct, and maintains the meaning of the original data. There can be multiple triples given that make up a complex sentence. Converting all those triples into one sentence will award greater score. An example of a complex sentence:
+Triples:
+(Antwerp | cityServed | Antwerp International Airport)
+(Belgium | country | Antwerp)
+(City of Brussels | capital | Belgium)
+Example sentence:
+"Antwerp International Airport serves the city of Antwerp which is in Belgium, where the capital is Brussels."
+
+The 'predict' function returns that sentence as a string. Below is the list of all possible predicates that can be given as an input. With the given predicates and example triples implement the 'predict' function so it can process all the possible predicates:
+
+Predicate: numberOfMembers - Example triple: (1. FC Köln | numberOfMembers | 50000)
+Predicate: season - Example triple: (1. FC Köln | season | 2014)
+Predicate: league - Example triple: (1. FC Magdeburg | league | 3. Liga)
+Predicate: manager - Example triple: (1. FC Magdeburg | manager | Jens Härtel)
+Predicate: ground - Example triple: (A.C. Cesena | ground | Cesena)
+Predicate: fullName - Example triple: (A.C. Chievo Verona | fullName | "Associazione Calcio ChievoVerona S.r.l.")
+Predicate: chairman - Example triple: (A.E Dimitra Efxeinoupolis | chairman | Antonis Milionis)
+Predicate: location - Example triple: (A.E Dimitra Efxeinoupolis | location | Greece)
+Predicate: owner - Example triple: (AFC Ajax | owner | AFC Ajax N.V.)
+Predicate: nickname - Example triple: (AFC Ajax (amateurs) | nickname | "Lucky Ajax")
+Predicate: chairmanTitle - Example triple: (Agremiação Sportiva Arapiraquense | chairmanTitle | "President")
+Predicate: isPartOf - Example triple: (Akron, Ohio | isPartOf | Summit County, Ohio)
+Predicate: leader - Example triple: (Akron, Ohio | leader | Dan Horrigan)
+Predicate: part - Example triple: (Amsterdam | part | Amsterdam-Noord)
+Predicate: mayor - Example triple: (Athens | mayor | Giorgos Kaminis)
+Predicate: champions - Example triple: (Azerbaijan Premier League | champions | Qarabağ FK)
+Predicate: country - Example triple: (Campeonato Brasileiro Série C | country | Brazil)
+Predicate: club - Example triple: (Christian Panucci | club | A.S. Livorno Calcio)
+Predicate: capital - Example triple: (Greece | capital | Athens)
+Predicate: currency - Example triple: (Greece | currency | Euro)
+Predicate: demonym - Example triple: (Greece | demonym | Greeks)
+Predicate: language - Example triple: (Greece | language | Greek language)
+Predicate: leaderParty - Example triple: (Gubbio | leaderParty | Left Ecology Freedom)
+Predicate: officialLanguage - Example triple: (Italy | officialLanguage | Italian language)
+Predicate: birthPlace - Example triple: (James Pallotta | birthPlace | Boston)
+Predicate: youthclub - Example triple: (Michele Marcolini | youthclub | Torino F.C.)
+Predicate: operator - Example triple: (Sportpark De Toekomst | operator | AFC Ajax)
+Predicate: tenant - Example triple: (Sportpark De Toekomst | tenant | Ajax Youth Academy)
+Predicate: city - Example triple: (St. Vincent–St. Mary High School | city | Akron, Ohio)
+Predicate: state - Example triple: (St. Vincent–St. Mary High School | state | Ohio)

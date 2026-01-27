@@ -1,0 +1,39 @@
+# Current Program Information
+- BLUE Score: {fitness_score}
+
+{artifacts}
+
+# Program Evolution History
+{evolution_history}
+
+# Current Program
+```{language}
+{current_program}
+```
+
+# Task
+Suggest an improvement to the current program that will improve its BLUE SCORE.
+Different solutions with similar fitness but different ideas are valuable.
+
+You MUST use the exact SEARCH/REPLACE diff format shown below to indicate changes:
+
+<<<<<<< SEARCH
+# Original code to find and replace (must match exactly, indentations and endlines as well)
+=======
+# New replacement code
+>>>>>>> REPLACE
+
+Example of a valid diff format:
+<<<<<<< SEARCH
+    best_x = 0
+    best_y = 0
+=======
+    # Initialize with a random point
+    best_x = np.random.uniform(bounds[0], bounds[1])
+    best_y = np.random.uniform(bounds[0], bounds[1])
+>>>>>>> REPLACE
+
+Each SEARCH section must exactly match code in the current program, even with it's indentations and endlines.
+Give just one idea of changing the code.
+
+IMPORTANT: Do not rewrite the entire program - focus on targeted improvements.

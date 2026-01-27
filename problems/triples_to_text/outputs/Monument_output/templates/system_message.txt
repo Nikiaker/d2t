@@ -1,0 +1,39 @@
+You are an expert data engineer specializing in converting data to text. Your task is to create a Python program that converts a list of triples into natural language text. The given triples will be associated with the topic: Monument. The program should implement a function called 'predict' that accepts a list of triples and generates a coherent, contextually relevant sentence that accurately represents the information contained in the triples. Ensure that the generated text is fluent, grammatically correct, and maintains the meaning of the original data. There can be multiple triples given that make up a complex sentence. Converting all those triples into one sentence will award greater score. An example of a complex sentence:
+Triples:
+(Antwerp | cityServed | Antwerp International Airport)
+(Belgium | country | Antwerp)
+(City of Brussels | capital | Belgium)
+Example sentence:
+"Antwerp International Airport serves the city of Antwerp which is in Belgium, where the capital is Brussels."
+
+The 'predict' function returns that sentence as a string. Below is the list of all possible predicates that can be given as an input. With the given predicates and example triples implement the 'predict' function so it can process all the possible predicates:
+
+Predicate: category - Example triple: (11th Mississippi Infantry Monument | category | Contributing property)
+Predicate: country - Example triple: (11th Mississippi Infantry Monument | country | "United States")
+Predicate: location - Example triple: (11th Mississippi Infantry Monument | location | Adams County, Pennsylvania)
+Predicate: municipality - Example triple: (11th Mississippi Infantry Monument | municipality | Gettysburg, Pennsylvania)
+Predicate: state - Example triple: (11th Mississippi Infantry Monument | state | "Pennsylvania")
+Predicate: district - Example triple: (14th New Jersey Volunteer Infantry Monument | district | Monocacy National Battlefield)
+Predicate: established - Example triple: (14th New Jersey Volunteer Infantry Monument | established | "1907-07-11")
+Predicate: foundingDate - Example triple: (14th New Jersey Volunteer Infantry Monument | foundingDate | 1907-07-11)
+Predicate: owner - Example triple: (14th New Jersey Volunteer Infantry Monument | owner | National Park Service)
+Predicate: owningOrganisation - Example triple: (14th New Jersey Volunteer Infantry Monument | owningOrganisation | National Park Service)
+Predicate: hasToItsNorth - Example triple: (Adams County, Pennsylvania | hasToItsNorth | Cumberland County, Pennsylvania)
+Predicate: hasToItsSouthwest - Example triple: (Adams County, Pennsylvania | hasToItsSouthwest | Frederick County, Maryland)
+Predicate: hasToItsWest - Example triple: (Adams County, Pennsylvania | hasToItsWest | Franklin County, Pennsylvania)
+Predicate: inaugurationDate - Example triple: (Atatürk Monument (İzmir) | inaugurationDate | "1932-07-27")
+Predicate: capital - Example triple: (Azerbaijan | capital | Baku)
+Predicate: legislature - Example triple: (Azerbaijan | legislature | National Assembly (Azerbaijan))
+Predicate: dedicatedTo - Example triple: (Baku Turkish Martyrs' Memorial | dedicatedTo | "Ottoman Army soldiers killed in the Battle of Baku")
+Predicate: designer - Example triple: (Baku Turkish Martyrs' Memorial | designer | "Hüseyin Bütüner and Hilmi Güner")
+Predicate: material - Example triple: (Dead Man's Plack | material | Rock (geology))
+Predicate: ethnicGroup - Example triple: (England | ethnicGroup | British Arabs)
+Predicate: language - Example triple: (England | language | Cornish language)
+Predicate: religion - Example triple: (England | religion | Church of England)
+Predicate: nearestCity - Example triple: (Monocacy National Battlefield | nearestCity | Frederick, Maryland)
+Predicate: currency - Example triple: (Turkey | currency | Turkish lira)
+Predicate: largestCity - Example triple: (Turkey | largestCity | Istanbul)
+Predicate: leader - Example triple: (Turkey | leader | Ahmet Davutoğlu)
+Predicate: leaderTitle - Example triple: (Turkey | leaderTitle | President of Turkey)
+Predicate: hasToItsSoutheast - Example triple: (Adams County, Pennsylvania | hasToItsSoutheast | Carroll County, Maryland)
+Predicate: nativeName - Example triple: (Baku Turkish Martyrs' Memorial | nativeName | "Türk Şehitleri Anıtı")

@@ -1,0 +1,848 @@
+2026-01-22 17:17:15,311 - openevolve.controller - INFO - Logging to ./outputs/Monument_output/openevolve_output/logs/openevolve_20260122_171715.log
+2026-01-22 17:17:15,438 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: google/gemma-3-27b-it
+2026-01-22 17:17:15,438 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble with models: google/gemma-3-27b-it (weight: 1.00)
+2026-01-22 17:17:15,466 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-01-22 17:17:15,470 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-01-22 17:17:15,470 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-01-22 17:17:37,901 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-01-22 17:17:37,901 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-01-22 17:17:37,902 - openevolve.controller - INFO - Initialized OpenEvolve with initial_program.py
+2026-01-22 17:17:37,902 - openevolve.controller - INFO - Adding initial program to database
+2026-01-22 17:17:43,985 - openevolve.evaluator - INFO - Evaluated program db4c4576-3165-42d5-bc4b-cf6b2a0c72ca in 6.08s: combined_score=0.1660
+2026-01-22 17:17:43,985 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2026-01-22 17:17:43,987 - openevolve.process_parallel - INFO - Initialized process parallel controller with 2 workers
+2026-01-22 17:17:43,988 - openevolve.process_parallel - INFO - Set max None tasks per child
+2026-01-22 17:17:43,988 - openevolve.process_parallel - INFO - Started process pool with 2 processes
+2026-01-22 17:17:43,988 - openevolve.controller - INFO - Using island-based evolution with 4 islands
+2026-01-22 17:17:43,988 - openevolve.database - INFO - Island Status:
+2026-01-22 17:17:43,988 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.1660, avg=0.1660, diversity=0.00, gen=0 (best: db4c4576-3165-42d5-bc4b-cf6b2a0c72ca)
+2026-01-22 17:17:43,988 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-01-22 17:17:43,988 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-01-22 17:17:43,989 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-01-22 17:17:43,989 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 1000 iterations (total: 1001)
+2026-01-22 17:17:44,018 - openevolve.process_parallel - INFO - Early stopping disabled
+2026-01-22 17:17:44,045 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-01-22 17:17:44,052 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-01-22 17:17:47,840 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-01-22 17:17:47,840 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-01-22 17:17:47,841 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:17:47,969 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-01-22 17:17:47,970 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-01-22 17:17:47,970 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:18:03,364 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:18:12,549 - openevolve.evaluator - INFO - Evaluated program 3cd76b3a-f562-43f2-befa-33aaff8f9daa in 9.17s: combined_score=0.2956
+2026-01-22 17:18:12,551 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:18:12,553 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 5}
+2026-01-22 17:18:12,553 - openevolve.database - INFO - New best program 3cd76b3a-f562-43f2-befa-33aaff8f9daa replaces db4c4576-3165-42d5-bc4b-cf6b2a0c72ca (combined_score: 0.1660 → 0.2956, +0.1296)
+2026-01-22 17:18:12,553 - openevolve.process_parallel - INFO - Iteration 1: Program 3cd76b3a-f562-43f2-befa-33aaff8f9daa (parent: db4c4576-3165-42d5-bc4b-cf6b2a0c72ca) completed in 24.58s
+2026-01-22 17:18:12,553 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2956
+2026-01-22 17:18:12,553 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 1: 3cd76b3a-f562-43f2-befa-33aaff8f9daa
+2026-01-22 17:18:37,602 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:18:40,460 - openevolve.evaluator - INFO - Evaluated program 2c9d3594-4fb3-4767-8e52-3d9cfd339d91 in 2.83s: combined_score=0.3864
+2026-01-22 17:18:40,463 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:18:40,470 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 9}
+2026-01-22 17:18:40,470 - openevolve.database - INFO - New best program 2c9d3594-4fb3-4767-8e52-3d9cfd339d91 replaces 3cd76b3a-f562-43f2-befa-33aaff8f9daa (combined_score: 0.2956 → 0.3864, +0.0907)
+2026-01-22 17:18:40,470 - openevolve.process_parallel - INFO - Iteration 2: Program 2c9d3594-4fb3-4767-8e52-3d9cfd339d91 (parent: db4c4576-3165-42d5-bc4b-cf6b2a0c72ca) completed in 52.62s
+2026-01-22 17:18:40,470 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3864
+2026-01-22 17:18:40,470 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 2: 2c9d3594-4fb3-4767-8e52-3d9cfd339d91
+2026-01-22 17:18:59,923 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:19:06,091 - openevolve.evaluator - INFO - Evaluated program 5666a8bc-db3e-4338-8767-4f5df6ec5256 in 6.17s: combined_score=0.3310
+2026-01-22 17:19:06,099 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:19:06,101 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 3, 'diversity': 0}
+2026-01-22 17:19:06,101 - openevolve.process_parallel - INFO - Iteration 4: Program 5666a8bc-db3e-4338-8767-4f5df6ec5256 (parent: db4c4576-3165-42d5-bc4b-cf6b2a0c72ca) completed in 25.63s
+2026-01-22 17:19:06,101 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3310
+2026-01-22 17:19:25,486 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:19:31,056 - openevolve.evaluator - INFO - Evaluated program e570e293-deba-494d-bad2-35fa6fdef4bd in 5.57s: combined_score=0.2821
+2026-01-22 17:19:31,059 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 1}
+2026-01-22 17:19:31,059 - openevolve.process_parallel - INFO - Iteration 3: Program e570e293-deba-494d-bad2-35fa6fdef4bd (parent: db4c4576-3165-42d5-bc4b-cf6b2a0c72ca) completed in 78.51s
+2026-01-22 17:19:31,059 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2821
+2026-01-22 17:19:31,061 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:19:36,952 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:19:37,277 - openevolve.evaluator - INFO - Evaluated program d8449dc7-3594-41bc-941f-3735e0e41171 in 0.32s: combined_score=0.0000, error=float division by zero
+2026-01-22 17:19:37,279 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:19:37,282 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 2, 'diversity': 0}
+2026-01-22 17:19:37,282 - openevolve.process_parallel - INFO - Iteration 5: Program d8449dc7-3594-41bc-941f-3735e0e41171 (parent: 3cd76b3a-f562-43f2-befa-33aaff8f9daa) completed in 31.18s
+2026-01-22 17:19:37,282 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, error=float division by zero
+2026-01-22 17:20:07,952 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:20:22,724 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:20:28,237 - openevolve.evaluator - INFO - Evaluated program 0e0847db-f2c6-4367-82b9-3b95d899b185 in 5.51s: combined_score=0.3864
+2026-01-22 17:20:28,241 - openevolve.process_parallel - INFO - Iteration 7: Program 0e0847db-f2c6-4367-82b9-3b95d899b185 (parent: db4c4576-3165-42d5-bc4b-cf6b2a0c72ca) completed in 50.96s
+2026-01-22 17:20:28,241 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3864
+2026-01-22 17:20:28,241 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:20:29,655 - openevolve.evaluator - INFO - Evaluated program 58d62240-f898-4615-943e-78a4cae6642e in 21.70s: combined_score=0.2805
+2026-01-22 17:20:29,657 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:20:29,665 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 4, 'diversity': 0}
+2026-01-22 17:20:29,665 - openevolve.process_parallel - INFO - Iteration 6: Program 58d62240-f898-4615-943e-78a4cae6642e (parent: 3cd76b3a-f562-43f2-befa-33aaff8f9daa) completed in 58.59s
+2026-01-22 17:20:29,665 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2805
+2026-01-22 17:20:45,428 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:20:46,563 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:20:46,571 - openevolve.evaluator - INFO - Evaluated program 99a70827-9c79-44bd-82f9-1502d070497c in 0.01s: combined_score=0.0000, error=cannot access local variable 'sentence' where it is not associated with a value
+2026-01-22 17:20:46,576 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:20:46,578 - openevolve.process_parallel - INFO - Iteration 8: Program 99a70827-9c79-44bd-82f9-1502d070497c (parent: 3cd76b3a-f562-43f2-befa-33aaff8f9daa) completed in 18.33s
+2026-01-22 17:20:46,578 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, error=cannot access local variable 'sentence' where it is not associated with a value
+2026-01-22 17:20:48,660 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:20:48,664 - openevolve.evaluator - INFO - Evaluated program 477f0a67-bb82-476f-bed0-264a05ba3edf in 0.00s: combined_score=0.0000, error=cannot access local variable 'sentence' where it is not associated with a value
+2026-01-22 17:20:48,667 - openevolve.process_parallel - INFO - Iteration 10: Program 477f0a67-bb82-476f-bed0-264a05ba3edf (parent: 3cd76b3a-f562-43f2-befa-33aaff8f9daa) completed in 2.09s
+2026-01-22 17:20:48,667 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, error=cannot access local variable 'sentence' where it is not associated with a value
+2026-01-22 17:20:48,669 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:20:50,932 - openevolve.evaluator - INFO - Evaluated program e5eb184a-2a33-424b-915e-7871b71c9cb7 in 5.50s: combined_score=0.3097
+2026-01-22 17:20:50,935 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:20:50,943 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 1, 'diversity': 0}
+2026-01-22 17:20:50,943 - openevolve.process_parallel - INFO - Iteration 9: Program e5eb184a-2a33-424b-915e-7871b71c9cb7 (parent: db4c4576-3165-42d5-bc4b-cf6b2a0c72ca) completed in 21.28s
+2026-01-22 17:20:50,943 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3097
+2026-01-22 17:21:22,955 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:21:29,290 - openevolve.evaluator - INFO - Evaluated program 7a5b08a1-3cf3-486f-a106-f960733c1904 in 6.33s: combined_score=0.2880
+2026-01-22 17:21:29,294 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:21:29,300 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 2, 'diversity': 0} (fitness: 0.000 -> 0.288)
+2026-01-22 17:21:29,300 - openevolve.process_parallel - INFO - Iteration 12: Program 7a5b08a1-3cf3-486f-a106-f960733c1904 (parent: 5666a8bc-db3e-4338-8767-4f5df6ec5256) completed in 38.36s
+2026-01-22 17:21:29,300 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2880
+2026-01-22 17:21:42,677 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:21:45,223 - openevolve.evaluator - INFO - Evaluated program 7024c3c7-2dd6-429e-8b75-7b0c81fccdd2 in 2.54s: combined_score=0.3064
+2026-01-22 17:21:45,228 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:21:45,235 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 7, 'diversity': 4}
+2026-01-22 17:21:45,235 - openevolve.process_parallel - INFO - Iteration 11: Program 7024c3c7-2dd6-429e-8b75-7b0c81fccdd2 (parent: e570e293-deba-494d-bad2-35fa6fdef4bd) completed in 56.55s
+2026-01-22 17:21:45,235 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3064
+2026-01-22 17:22:08,132 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:22:08,136 - openevolve.evaluator - INFO - Evaluated program 879d8b8f-0653-4a70-95d9-426bed11759e in 0.00s: combined_score=0.0000, error=invalid syntax (tmpcdqjj5ex.py, line 33)
+2026-01-22 17:22:08,138 - openevolve.process_parallel - INFO - Iteration 14: Program 879d8b8f-0653-4a70-95d9-426bed11759e (parent: 5666a8bc-db3e-4338-8767-4f5df6ec5256) completed in 22.91s
+2026-01-22 17:22:08,139 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, error=invalid syntax (tmpcdqjj5ex.py, line 33)
+2026-01-22 17:22:08,144 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:22:22,643 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:22:28,101 - openevolve.evaluator - INFO - Evaluated program 6555c7f9-3169-4cc1-8e9f-3192966415f7 in 5.46s: combined_score=0.3528
+2026-01-22 17:22:28,109 - openevolve.process_parallel - INFO - Iteration 13: Program 6555c7f9-3169-4cc1-8e9f-3192966415f7 (parent: 2c9d3594-4fb3-4767-8e52-3d9cfd339d91) completed in 58.81s
+2026-01-22 17:22:28,109 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3528
+2026-01-22 17:22:28,109 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:22:39,216 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:22:42,418 - openevolve.evaluator - INFO - Evaluated program 58024fb6-0a8e-4739-8a43-b843b793ef98 in 3.20s: combined_score=0.3270
+2026-01-22 17:22:42,422 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 1, 'diversity': 0} (fitness: 0.310 -> 0.327)
+2026-01-22 17:22:42,423 - openevolve.process_parallel - INFO - Iteration 15: Program 58024fb6-0a8e-4739-8a43-b843b793ef98 (parent: 7a5b08a1-3cf3-486f-a106-f960733c1904) completed in 34.27s
+2026-01-22 17:22:42,423 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3270
+2026-01-22 17:22:42,426 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:22:56,518 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:23:01,984 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:23:03,653 - openevolve.evaluator - INFO - Evaluated program 4632d4cb-8493-446b-b591-e38a7de58559 in 7.13s: combined_score=0.3017
+2026-01-22 17:23:03,658 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:23:03,663 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 3, 'diversity': 2}
+2026-01-22 17:23:03,663 - openevolve.database - INFO - Island 0 MAP-Elites coverage reached 10.0% (10/100 cells)
+2026-01-22 17:23:03,663 - openevolve.process_parallel - INFO - Iteration 17: Program 4632d4cb-8493-446b-b591-e38a7de58559 (parent: e570e293-deba-494d-bad2-35fa6fdef4bd) completed in 21.23s
+2026-01-22 17:23:03,663 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3017
+2026-01-22 17:23:12,845 - openevolve.evaluator - INFO - Evaluated program cd275809-0880-46ff-8181-a4ac2a34e53e in 10.86s: combined_score=0.3012
+2026-01-22 17:23:12,847 - openevolve.process_parallel - INFO - Iteration 16: Program cd275809-0880-46ff-8181-a4ac2a34e53e (parent: 5666a8bc-db3e-4338-8767-4f5df6ec5256) completed in 44.74s
+2026-01-22 17:23:12,847 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3012
+2026-01-22 17:23:12,850 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:23:56,424 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:23:58,807 - openevolve.evaluator - INFO - Evaluated program a06d6483-4b39-49a7-8553-c84850bccb6b in 2.38s: combined_score=0.3124
+2026-01-22 17:23:58,815 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 8, 'diversity': 7}
+2026-01-22 17:23:58,815 - openevolve.process_parallel - INFO - Iteration 19: Program a06d6483-4b39-49a7-8553-c84850bccb6b (parent: 0e0847db-f2c6-4367-82b9-3b95d899b185) completed in 45.96s
+2026-01-22 17:23:58,815 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3124
+2026-01-22 17:23:58,819 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:24:05,515 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:24:08,243 - openevolve.evaluator - INFO - Evaluated program ebd341ef-7d9f-4efb-98cf-1b29faef8729 in 2.73s: combined_score=0.3865
+2026-01-22 17:24:08,247 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:24:08,254 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 4, 'diversity': 2}
+2026-01-22 17:24:08,254 - openevolve.database - INFO - New best program ebd341ef-7d9f-4efb-98cf-1b29faef8729 replaces 2c9d3594-4fb3-4767-8e52-3d9cfd339d91 (combined_score: 0.3864 → 0.3865, +0.0001)
+2026-01-22 17:24:08,254 - openevolve.process_parallel - INFO - Iteration 18: Program ebd341ef-7d9f-4efb-98cf-1b29faef8729 (parent: 477f0a67-bb82-476f-bed0-264a05ba3edf) completed in 64.59s
+2026-01-22 17:24:08,254 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3865
+2026-01-22 17:24:08,254 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 18: ebd341ef-7d9f-4efb-98cf-1b29faef8729
+2026-01-22 17:24:17,909 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:24:20,518 - openevolve.evaluator - INFO - Evaluated program 594d84cd-3e46-4cd8-807c-47161969fb4d in 2.61s: combined_score=0.2874
+2026-01-22 17:24:20,523 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:24:20,528 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 1, 'diversity': 1}
+2026-01-22 17:24:20,529 - openevolve.process_parallel - INFO - Iteration 20: Program 594d84cd-3e46-4cd8-807c-47161969fb4d (parent: 3cd76b3a-f562-43f2-befa-33aaff8f9daa) completed in 21.70s
+2026-01-22 17:24:20,529 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2874
+2026-01-22 17:24:22,346 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:24:22,351 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:24:22,357 - openevolve.process_parallel - WARNING - Iteration 21 error: LLM generated code is identical to parent code (no changes applied)
+2026-01-22 17:24:30,466 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:24:34,502 - openevolve.evaluator - INFO - Evaluated program 6ffc26c2-bc1e-469f-be4d-90f0c65c910d in 4.03s: combined_score=0.2743
+2026-01-22 17:24:34,505 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 3, 'diversity': 1}
+2026-01-22 17:24:34,505 - openevolve.process_parallel - INFO - Iteration 23: Program 6ffc26c2-bc1e-469f-be4d-90f0c65c910d (parent: 4632d4cb-8493-446b-b591-e38a7de58559) completed in 12.15s
+2026-01-22 17:24:34,505 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2743
+2026-01-22 17:24:34,511 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:24:58,444 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:25:01,663 - openevolve.evaluator - INFO - Evaluated program cfbbda49-6419-4721-8501-4647c742de36 in 3.22s: combined_score=0.3255
+2026-01-22 17:25:01,668 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:25:01,671 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 2, 'diversity': 1}
+2026-01-22 17:25:01,672 - openevolve.process_parallel - INFO - Iteration 22: Program cfbbda49-6419-4721-8501-4647c742de36 (parent: 58024fb6-0a8e-4739-8a43-b843b793ef98) completed in 41.14s
+2026-01-22 17:25:01,672 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3255
+2026-01-22 17:25:51,177 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:26:00,658 - openevolve.evaluator - INFO - Evaluated program 95027972-c30e-46dc-b26d-b64a266ca6bb in 9.43s: combined_score=0.2967
+2026-01-22 17:26:00,668 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 1, 'diversity': 1} (fitness: 0.287 -> 0.297)
+2026-01-22 17:26:00,669 - openevolve.process_parallel - INFO - Iteration 25: Program 95027972-c30e-46dc-b26d-b64a266ca6bb (parent: 58024fb6-0a8e-4739-8a43-b843b793ef98) completed in 58.99s
+2026-01-22 17:26:00,669 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2967
+2026-01-22 17:26:00,673 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:26:01,376 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:26:01,379 - openevolve.process_parallel - WARNING - Iteration 24 error: LLM generated code is identical to parent code (no changes applied)
+2026-01-22 17:26:01,387 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:26:21,302 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:26:21,310 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:26:21,317 - openevolve.process_parallel - WARNING - Iteration 26 error: LLM generated code is identical to parent code (no changes applied)
+2026-01-22 17:27:02,589 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:27:10,333 - openevolve.evaluator - INFO - Evaluated program 96175fe2-7116-46d7-bc73-0959714d5666 in 7.74s: combined_score=0.3108
+2026-01-22 17:27:10,340 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:27:10,343 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 1, 'diversity': 1} (fitness: 0.297 -> 0.311)
+2026-01-22 17:27:10,343 - openevolve.process_parallel - INFO - Iteration 28: Program 96175fe2-7116-46d7-bc73-0959714d5666 (parent: 7a5b08a1-3cf3-486f-a106-f960733c1904) completed in 49.02s
+2026-01-22 17:27:10,343 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3108
+2026-01-22 17:27:18,222 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:27:24,094 - openevolve.evaluator - INFO - Evaluated program 4fa40d5a-0fc5-49db-854d-63e69715a21e in 5.87s: combined_score=0.2900
+2026-01-22 17:27:24,102 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:27:24,104 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 3, 'diversity': 1} (fitness: 0.274 -> 0.290)
+2026-01-22 17:27:24,104 - openevolve.process_parallel - INFO - Iteration 27: Program 4fa40d5a-0fc5-49db-854d-63e69715a21e (parent: 7024c3c7-2dd6-429e-8b75-7b0c81fccdd2) completed in 82.71s
+2026-01-22 17:27:24,105 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2900
+2026-01-22 17:27:43,609 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:27:50,236 - openevolve.evaluator - INFO - Evaluated program 7a710b0f-3cb7-4802-a773-8e4ace7a91e6 in 6.62s: combined_score=0.2882
+2026-01-22 17:27:50,240 - openevolve.process_parallel - INFO - Iteration 29: Program 7a710b0f-3cb7-4802-a773-8e4ace7a91e6 (parent: 5666a8bc-db3e-4338-8767-4f5df6ec5256) completed in 39.90s
+2026-01-22 17:27:50,241 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2882
+2026-01-22 17:27:50,244 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:27:54,620 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:28:02,538 - openevolve.evaluator - INFO - Evaluated program b4fc4c0b-b4ec-45cb-b1bf-24457036607f in 7.92s: combined_score=0.3125
+2026-01-22 17:28:02,543 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:28:02,546 - openevolve.process_parallel - INFO - Iteration 30: Program b4fc4c0b-b4ec-45cb-b1bf-24457036607f (parent: 3cd76b3a-f562-43f2-befa-33aaff8f9daa) completed in 38.44s
+2026-01-22 17:28:02,546 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3125
+2026-01-22 17:28:15,762 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:28:21,234 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:28:21,242 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:28:21,244 - openevolve.process_parallel - WARNING - Iteration 32 error: LLM generated code is identical to parent code (no changes applied)
+2026-01-22 17:28:22,647 - openevolve.evaluator - INFO - Evaluated program 62a868c6-287d-4a46-9821-ed71f7e614cc in 6.88s: combined_score=0.2883
+2026-01-22 17:28:22,655 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:28:22,665 - openevolve.process_parallel - INFO - Iteration 31: Program 62a868c6-287d-4a46-9821-ed71f7e614cc (parent: e5eb184a-2a33-424b-915e-7871b71c9cb7) completed in 32.40s
+2026-01-22 17:28:22,665 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2883
+2026-01-22 17:28:47,739 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:28:54,024 - openevolve.evaluator - INFO - Evaluated program 64625b79-bfbd-4de7-ad68-62a30432d143 in 6.28s: combined_score=0.3000
+2026-01-22 17:28:54,032 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:28:54,035 - openevolve.process_parallel - INFO - Iteration 33: Program 64625b79-bfbd-4de7-ad68-62a30432d143 (parent: 7a5b08a1-3cf3-486f-a106-f960733c1904) completed in 32.78s
+2026-01-22 17:28:54,035 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3000
+2026-01-22 17:29:25,411 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:29:29,638 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:29:32,428 - openevolve.evaluator - INFO - Evaluated program b5fddbf8-236f-4063-94ef-c1221b5e35f1 in 7.01s: combined_score=0.2781
+2026-01-22 17:29:32,437 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:29:32,438 - openevolve.process_parallel - INFO - Iteration 35: Program b5fddbf8-236f-4063-94ef-c1221b5e35f1 (parent: 3cd76b3a-f562-43f2-befa-33aaff8f9daa) completed in 38.40s
+2026-01-22 17:29:32,438 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2781
+2026-01-22 17:29:35,079 - openevolve.evaluator - INFO - Evaluated program 5950ec1b-ac1e-4ec3-8d58-5748da9a4c2b in 5.43s: combined_score=0.2940
+2026-01-22 17:29:35,087 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:29:35,096 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 7, 'diversity': 6}
+2026-01-22 17:29:35,096 - openevolve.process_parallel - INFO - Iteration 34: Program 5950ec1b-ac1e-4ec3-8d58-5748da9a4c2b (parent: a06d6483-4b39-49a7-8553-c84850bccb6b) completed in 72.43s
+2026-01-22 17:29:35,096 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2940
+2026-01-22 17:29:38,081 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:29:38,083 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:29:42,034 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:29:47,982 - openevolve.evaluator - INFO - Evaluated program b2a9056d-7921-418e-b61d-aeaf9cb40dd4 in 5.95s: combined_score=0.2953
+2026-01-22 17:29:47,987 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:29:47,989 - openevolve.process_parallel - INFO - Iteration 36: Program b2a9056d-7921-418e-b61d-aeaf9cb40dd4 (parent: b4fc4c0b-b4ec-45cb-b1bf-24457036607f) completed in 15.55s
+2026-01-22 17:29:47,989 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2953
+2026-01-22 17:29:51,081 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:30:00,537 - openevolve.evaluator - INFO - Evaluated program 529bee9f-de87-4128-a853-72a34829fd29 in 9.45s: combined_score=0.2925
+2026-01-22 17:30:00,543 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 3, 'diversity': 1} (fitness: 0.290 -> 0.293)
+2026-01-22 17:30:00,544 - openevolve.process_parallel - INFO - Iteration 37: Program 529bee9f-de87-4128-a853-72a34829fd29 (parent: 4fa40d5a-0fc5-49db-854d-63e69715a21e) completed in 25.45s
+2026-01-22 17:30:00,544 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2925
+2026-01-22 17:30:00,549 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:30:02,760 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:30:02,762 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:30:13,431 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:30:13,436 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:30:13,438 - openevolve.process_parallel - WARNING - Iteration 38 error: LLM generated code is identical to parent code (no changes applied)
+2026-01-22 17:30:25,728 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:30:32,129 - openevolve.evaluator - INFO - Evaluated program 82ccbbd9-f3fd-4f02-8bda-1873cc03aee6 in 6.40s: combined_score=0.2755
+2026-01-22 17:30:32,139 - openevolve.process_parallel - INFO - Iteration 39: Program 82ccbbd9-f3fd-4f02-8bda-1873cc03aee6 (parent: 58024fb6-0a8e-4739-8a43-b843b793ef98) completed in 31.58s
+2026-01-22 17:30:32,139 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2755
+2026-01-22 17:30:32,146 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:30:59,189 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:31:09,644 - openevolve.evaluator - INFO - Evaluated program c39d0006-aa4c-4ca3-a9b2-3e0c10b27502 in 10.45s: combined_score=0.3295
+2026-01-22 17:31:09,654 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 1, 'diversity': 1} (fitness: 0.311 -> 0.329)
+2026-01-22 17:31:09,655 - openevolve.process_parallel - INFO - Iteration 41: Program c39d0006-aa4c-4ca3-a9b2-3e0c10b27502 (parent: 3cd76b3a-f562-43f2-befa-33aaff8f9daa) completed in 37.50s
+2026-01-22 17:31:09,655 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3295
+2026-01-22 17:31:09,661 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:31:27,439 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:31:35,264 - openevolve.evaluator - INFO - Evaluated program 55bcbe9e-bf94-4098-acec-9c40361a5df7 in 7.82s: combined_score=0.3528
+2026-01-22 17:31:35,275 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 8}
+2026-01-22 17:31:35,276 - openevolve.process_parallel - INFO - Iteration 40: Program 55bcbe9e-bf94-4098-acec-9c40361a5df7 (parent: 6555c7f9-3169-4cc1-8e9f-3192966415f7) completed in 81.83s
+2026-01-22 17:31:35,276 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3528
+2026-01-22 17:31:35,282 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:31:45,249 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:31:45,251 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:31:46,530 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:31:54,046 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:31:55,318 - openevolve.evaluator - INFO - Evaluated program 62561d65-27b2-4c57-9e69-7bc53f1eed18 in 8.78s: combined_score=0.3030
+2026-01-22 17:31:55,329 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 7, 'diversity': 7}
+2026-01-22 17:31:55,329 - openevolve.process_parallel - INFO - Iteration 42: Program 62561d65-27b2-4c57-9e69-7bc53f1eed18 (parent: 5950ec1b-ac1e-4ec3-8d58-5748da9a4c2b) completed in 45.66s
+2026-01-22 17:31:55,329 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3030
+2026-01-22 17:31:55,334 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:32:02,856 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:32:02,857 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:32:04,525 - openevolve.evaluator - INFO - Evaluated program dad29672-b162-4d77-8672-61c567fd5316 in 10.48s: combined_score=0.3081
+2026-01-22 17:32:04,530 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:32:04,531 - openevolve.process_parallel - INFO - Iteration 43: Program dad29672-b162-4d77-8672-61c567fd5316 (parent: 3cd76b3a-f562-43f2-befa-33aaff8f9daa) completed in 29.24s
+2026-01-22 17:32:04,531 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3081
+2026-01-22 17:32:07,015 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:32:22,911 - openevolve.evaluator - INFO - Evaluated program 5e436eea-5433-45d0-a472-1deab4930491 in 15.90s: combined_score=0.3181
+2026-01-22 17:32:22,916 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:32:22,918 - openevolve.process_parallel - INFO - Iteration 44: Program 5e436eea-5433-45d0-a472-1deab4930491 (parent: b2a9056d-7921-418e-b61d-aeaf9cb40dd4) completed in 27.59s
+2026-01-22 17:32:22,918 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3181
+2026-01-22 17:32:45,186 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:32:45,200 - openevolve.evaluator - INFO - Evaluated program 4e93d187-1b66-40a7-b218-ff6a59389644 in 0.01s: combined_score=0.0000, error=float division by zero
+2026-01-22 17:32:45,206 - openevolve.process_parallel - INFO - Iteration 45: Program 4e93d187-1b66-40a7-b218-ff6a59389644 (parent: d8449dc7-3594-41bc-941f-3735e0e41171) completed in 40.67s
+2026-01-22 17:32:45,206 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, error=float division by zero
+2026-01-22 17:32:45,207 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:33:07,705 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:33:07,707 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:33:30,833 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:33:38,011 - openevolve.evaluator - INFO - Evaluated program 62f6db28-2b22-417e-a617-59b3b3cd09a8 in 7.18s: combined_score=0.3405
+2026-01-22 17:33:38,013 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 3, 'diversity': 1} (fitness: 0.293 -> 0.340)
+2026-01-22 17:33:38,014 - openevolve.process_parallel - INFO - Iteration 47: Program 62f6db28-2b22-417e-a617-59b3b3cd09a8 (parent: cfbbda49-6419-4721-8501-4647c742de36) completed in 52.80s
+2026-01-22 17:33:38,014 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3405
+2026-01-22 17:33:38,016 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:33:54,438 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:34:04,633 - openevolve.evaluator - INFO - Evaluated program daf77d94-aaff-491f-9c48-264cf795c10f in 10.19s: combined_score=0.3455
+2026-01-22 17:34:04,645 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:34:04,652 - openevolve.process_parallel - INFO - Iteration 46: Program daf77d94-aaff-491f-9c48-264cf795c10f (parent: 55bcbe9e-bf94-4098-acec-9c40361a5df7) completed in 101.72s
+2026-01-22 17:34:04,652 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3455
+2026-01-22 17:34:15,655 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:34:15,657 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:34:22,590 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:34:22,592 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:34:29,523 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:34:37,601 - openevolve.evaluator - INFO - Evaluated program 66297943-a260-407f-abae-74316e447004 in 8.08s: combined_score=0.3118
+2026-01-22 17:34:37,611 - openevolve.process_parallel - INFO - Iteration 49: Program 66297943-a260-407f-abae-74316e447004 (parent: 3cd76b3a-f562-43f2-befa-33aaff8f9daa) completed in 32.96s
+2026-01-22 17:34:37,611 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3118
+2026-01-22 17:34:37,618 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:34:48,989 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:34:53,682 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:34:56,311 - openevolve.evaluator - INFO - Evaluated program 8c879de9-382f-4760-9f5e-0bf8330bed15 in 7.32s: combined_score=0.3026
+2026-01-22 17:34:56,319 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:34:56,319 - openevolve.process_parallel - INFO - Iteration 50: Program 8c879de9-382f-4760-9f5e-0bf8330bed15 (parent: e570e293-deba-494d-bad2-35fa6fdef4bd) completed in 18.69s
+2026-01-22 17:34:56,319 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3026
+2026-01-22 17:34:58,599 - openevolve.evaluator - INFO - Evaluated program 80915cdf-6f97-4141-9d66-4b46cc1ba33d in 4.91s: combined_score=0.3704
+2026-01-22 17:34:58,605 - openevolve.process_parallel - INFO - Iteration 48: Program 80915cdf-6f97-4141-9d66-4b46cc1ba33d (parent: 0e0847db-f2c6-4367-82b9-3b95d899b185) completed in 80.58s
+2026-01-22 17:34:58,605 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3704
+2026-01-22 17:34:58,609 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:35:06,989 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:35:09,501 - openevolve.evaluator - INFO - Evaluated program 86771765-f8cb-493a-88ee-01c8bcd08659 in 2.51s: combined_score=0.2972
+2026-01-22 17:35:09,504 - openevolve.process_parallel - INFO - Iteration 52: Program 86771765-f8cb-493a-88ee-01c8bcd08659 (parent: e570e293-deba-494d-bad2-35fa6fdef4bd) completed in 10.89s
+2026-01-22 17:35:09,505 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2972
+2026-01-22 17:35:09,509 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:35:23,293 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:35:27,717 - openevolve.evaluator - INFO - Evaluated program e9419bdf-aaa6-4a53-bf76-fec8a7a4b0f4 in 4.42s: combined_score=0.3143
+2026-01-22 17:35:27,723 - openevolve.process_parallel - INFO - Iteration 53: Program e9419bdf-aaa6-4a53-bf76-fec8a7a4b0f4 (parent: 7024c3c7-2dd6-429e-8b75-7b0c81fccdd2) completed in 18.21s
+2026-01-22 17:35:27,723 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3143
+2026-01-22 17:35:27,731 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:35:35,294 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:35:35,296 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:35:35,424 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:35:35,426 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:35:39,746 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:35:39,748 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:35:44,155 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:35:46,276 - openevolve.evaluator - INFO - Evaluated program 4de1a927-da91-4dd1-8533-2797c7cb4086 in 2.12s: combined_score=0.3181
+2026-01-22 17:35:46,288 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:35:46,293 - openevolve.process_parallel - INFO - Iteration 54: Program 4de1a927-da91-4dd1-8533-2797c7cb4086 (parent: 5e436eea-5433-45d0-a472-1deab4930491) completed in 18.55s
+2026-01-22 17:35:46,293 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3181
+2026-01-22 17:35:53,906 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:35:53,908 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:36:03,223 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:36:03,225 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:36:15,822 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:36:15,823 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:36:18,938 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:36:26,900 - openevolve.evaluator - INFO - Evaluated program ee2fd291-9e9d-408e-8166-3ab5eb9a2e20 in 7.96s: combined_score=0.2531
+2026-01-22 17:36:26,905 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:36:26,908 - openevolve.process_parallel - INFO - Iteration 55: Program ee2fd291-9e9d-408e-8166-3ab5eb9a2e20 (parent: e570e293-deba-494d-bad2-35fa6fdef4bd) completed in 40.61s
+2026-01-22 17:36:26,908 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2531
+2026-01-22 17:36:34,052 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:36:34,054 - openevolve.process_parallel - ERROR - LLM generation failed: No valid diffs found in response after 3 attempts
+2026-01-22 17:36:34,055 - openevolve.process_parallel - WARNING - Iteration 51 error: No valid diffs found in response
+2026-01-22 17:36:34,069 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:36:38,450 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:36:42,230 - openevolve.evaluator - INFO - Evaluated program 4c3fd89e-9983-41a7-8701-cfa25625d30f in 3.78s: combined_score=0.3560
+2026-01-22 17:36:42,241 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 3}
+2026-01-22 17:36:42,241 - openevolve.process_parallel - INFO - Iteration 56: Program 4c3fd89e-9983-41a7-8701-cfa25625d30f (parent: 0e0847db-f2c6-4367-82b9-3b95d899b185) completed in 15.33s
+2026-01-22 17:36:42,241 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3560
+2026-01-22 17:36:42,250 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:36:53,138 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:36:53,140 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:37:00,236 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:37:00,548 - openevolve.evaluator - INFO - Evaluated program 22510b6a-2428-45b8-b80c-08049abc070a in 0.31s: combined_score=0.0000, error=cannot access local variable 'subject' where it is not associated with a value
+2026-01-22 17:37:00,555 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:37:00,558 - openevolve.process_parallel - INFO - Iteration 58: Program 22510b6a-2428-45b8-b80c-08049abc070a (parent: 66297943-a260-407f-abae-74316e447004) completed in 18.30s
+2026-01-22 17:37:00,559 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, error=cannot access local variable 'subject' where it is not associated with a value
+2026-01-22 17:37:03,806 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:37:08,406 - openevolve.evaluator - INFO - Evaluated program b71e5011-841d-4ae4-b22f-bcfdfc0bee83 in 4.60s: combined_score=0.3448
+2026-01-22 17:37:08,413 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 4, 'diversity': 3}
+2026-01-22 17:37:08,413 - openevolve.process_parallel - INFO - Iteration 57: Program b71e5011-841d-4ae4-b22f-bcfdfc0bee83 (parent: 62f6db28-2b22-417e-a617-59b3b3cd09a8) completed in 34.34s
+2026-01-22 17:37:08,413 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3448
+2026-01-22 17:37:08,428 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:37:27,080 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:37:29,755 - openevolve.evaluator - INFO - Evaluated program b7c02b44-1c09-494d-ab18-b838e58e29f8 in 2.67s: combined_score=0.3420
+2026-01-22 17:37:29,760 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 1, 'diversity': 1} (fitness: 0.329 -> 0.342)
+2026-01-22 17:37:29,760 - openevolve.process_parallel - INFO - Iteration 59: Program b7c02b44-1c09-494d-ab18-b838e58e29f8 (parent: 58024fb6-0a8e-4739-8a43-b843b793ef98) completed in 29.20s
+2026-01-22 17:37:29,761 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3420
+2026-01-22 17:37:29,767 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:37:31,082 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:37:33,115 - openevolve.evaluator - INFO - Evaluated program 22c4dd5e-de5d-48ad-8513-bb7eecc7953f in 2.03s: combined_score=0.3135
+2026-01-22 17:37:33,125 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:37:33,133 - openevolve.process_parallel - INFO - Iteration 60: Program 22c4dd5e-de5d-48ad-8513-bb7eecc7953f (parent: 62a868c6-287d-4a46-9821-ed71f7e614cc) completed in 24.69s
+2026-01-22 17:37:33,133 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3135
+2026-01-22 17:38:03,929 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:38:07,869 - openevolve.evaluator - INFO - Evaluated program 97d056f9-70ad-457a-9c18-34d72eb38fdf in 3.94s: combined_score=0.2356
+2026-01-22 17:38:07,875 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:38:07,881 - openevolve.process_parallel - INFO - Iteration 61: Program 97d056f9-70ad-457a-9c18-34d72eb38fdf (parent: 5950ec1b-ac1e-4ec3-8d58-5748da9a4c2b) completed in 38.10s
+2026-01-22 17:38:07,881 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2356
+2026-01-22 17:38:31,397 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:38:33,423 - openevolve.evaluator - INFO - Evaluated program 2e543410-fa6a-44a0-a36d-0499e7142157 in 2.02s: combined_score=0.3188
+2026-01-22 17:38:33,434 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 6, 'diversity': 5}
+2026-01-22 17:38:33,434 - openevolve.process_parallel - INFO - Iteration 62: Program 2e543410-fa6a-44a0-a36d-0499e7142157 (parent: a06d6483-4b39-49a7-8553-c84850bccb6b) completed in 60.30s
+2026-01-22 17:38:33,434 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3188
+2026-01-22 17:38:33,441 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:38:33,909 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:38:33,916 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:38:33,918 - openevolve.process_parallel - WARNING - Iteration 63 error: LLM generated code is identical to parent code (no changes applied)
+2026-01-22 17:38:38,155 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:38:40,195 - openevolve.evaluator - INFO - Evaluated program a8351d6f-330d-4357-b738-88d9bce04ba8 in 2.04s: combined_score=0.3005
+2026-01-22 17:38:40,209 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:38:40,210 - openevolve.process_parallel - INFO - Iteration 64: Program a8351d6f-330d-4357-b738-88d9bce04ba8 (parent: 4632d4cb-8493-446b-b591-e38a7de58559) completed in 6.76s
+2026-01-22 17:38:40,210 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3005
+2026-01-22 17:38:42,134 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:38:43,732 - openevolve.evaluator - INFO - Evaluated program 2cd55c9a-5ea6-45d6-88d8-3b82ccd29efc in 1.60s: combined_score=0.3247
+2026-01-22 17:38:43,739 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:38:43,743 - openevolve.process_parallel - INFO - Iteration 65: Program 2cd55c9a-5ea6-45d6-88d8-3b82ccd29efc (parent: 5666a8bc-db3e-4338-8767-4f5df6ec5256) completed in 9.82s
+2026-01-22 17:38:43,743 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3247
+2026-01-22 17:38:53,720 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:38:53,721 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:38:59,514 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:39:01,121 - openevolve.evaluator - INFO - Evaluated program d2cc0770-75e5-499f-a71f-f38c62f486b3 in 1.61s: combined_score=0.3130
+2026-01-22 17:39:01,126 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:39:01,128 - openevolve.process_parallel - INFO - Iteration 67: Program d2cc0770-75e5-499f-a71f-f38c62f486b3 (parent: e9419bdf-aaa6-4a53-bf76-fec8a7a4b0f4) completed in 17.38s
+2026-01-22 17:39:01,128 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3130
+2026-01-22 17:39:14,708 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:39:14,712 - openevolve.process_parallel - WARNING - Iteration 68 error: LLM generated code is identical to parent code (no changes applied)
+2026-01-22 17:39:14,716 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:39:38,953 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:39:42,898 - openevolve.evaluator - INFO - Evaluated program 61592543-3a7c-4881-940e-a032fc556b69 in 3.94s: combined_score=0.3753
+2026-01-22 17:39:42,908 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 2, 'diversity': 1} (fitness: 0.325 -> 0.375)
+2026-01-22 17:39:42,908 - openevolve.process_parallel - INFO - Iteration 66: Program 61592543-3a7c-4881-940e-a032fc556b69 (parent: e9419bdf-aaa6-4a53-bf76-fec8a7a4b0f4) completed in 62.69s
+2026-01-22 17:39:42,908 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3753
+2026-01-22 17:39:42,920 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:39:47,688 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:39:50,840 - openevolve.evaluator - INFO - Evaluated program 58473813-266a-4066-9aee-4de284eba42b in 3.15s: combined_score=0.3085
+2026-01-22 17:39:50,847 - openevolve.process_parallel - INFO - Iteration 69: Program 58473813-266a-4066-9aee-4de284eba42b (parent: 58024fb6-0a8e-4739-8a43-b843b793ef98) completed in 36.12s
+2026-01-22 17:39:50,847 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3085
+2026-01-22 17:39:50,849 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:40:14,295 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:40:14,297 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:40:34,010 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:40:35,636 - openevolve.evaluator - INFO - Evaluated program 35144bcd-cc4b-4b83-b7e7-898feb2ca78c in 1.62s: combined_score=0.3049
+2026-01-22 17:40:35,639 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 3, 'diversity': 2} (fitness: 0.302 -> 0.305)
+2026-01-22 17:40:35,639 - openevolve.process_parallel - INFO - Iteration 71: Program 35144bcd-cc4b-4b83-b7e7-898feb2ca78c (parent: 62f6db28-2b22-417e-a617-59b3b3cd09a8) completed in 44.79s
+2026-01-22 17:40:35,640 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3049
+2026-01-22 17:40:35,643 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:40:44,486 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:40:46,513 - openevolve.evaluator - INFO - Evaluated program 3f427872-b7e7-49b7-9a3d-0c0ae48c1a59 in 2.02s: combined_score=0.2851
+2026-01-22 17:40:46,523 - openevolve.process_parallel - INFO - Iteration 70: Program 3f427872-b7e7-49b7-9a3d-0c0ae48c1a59 (parent: 4632d4cb-8493-446b-b591-e38a7de58559) completed in 63.59s
+2026-01-22 17:40:46,524 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2851
+2026-01-22 17:40:46,535 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:41:16,578 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:41:16,580 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:41:40,639 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:41:40,641 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:41:48,516 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:41:50,181 - openevolve.evaluator - INFO - Evaluated program dbe933d7-39db-4c2f-8e50-f21821c4b6d5 in 1.66s: combined_score=0.3486
+2026-01-22 17:41:50,188 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:41:50,188 - openevolve.process_parallel - INFO - Iteration 72: Program dbe933d7-39db-4c2f-8e50-f21821c4b6d5 (parent: ebd341ef-7d9f-4efb-98cf-1b29faef8729) completed in 74.54s
+2026-01-22 17:41:50,188 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3486
+2026-01-22 17:41:59,603 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:41:59,604 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:42:01,649 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:42:03,712 - openevolve.evaluator - INFO - Evaluated program 17f53389-8fba-4875-becd-9f6b37cf1e2b in 2.06s: combined_score=0.3157
+2026-01-22 17:42:03,722 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:42:03,724 - openevolve.process_parallel - INFO - Iteration 73: Program 17f53389-8fba-4875-becd-9f6b37cf1e2b (parent: e9419bdf-aaa6-4a53-bf76-fec8a7a4b0f4) completed in 77.18s
+2026-01-22 17:42:03,724 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3157
+2026-01-22 17:42:07,792 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:42:11,801 - openevolve.evaluator - INFO - Evaluated program b2f97632-44eb-4f79-aca4-49c2db381b42 in 4.01s: combined_score=0.3553
+2026-01-22 17:42:11,804 - openevolve.process_parallel - INFO - Iteration 74: Program b2f97632-44eb-4f79-aca4-49c2db381b42 (parent: 4c3fd89e-9983-41a7-8701-cfa25625d30f) completed in 21.61s
+2026-01-22 17:42:11,804 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3553
+2026-01-22 17:42:11,810 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:42:21,371 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:42:23,006 - openevolve.evaluator - INFO - Evaluated program 0bd7623e-bdd3-4df7-9664-5b8620ab363f in 1.63s: combined_score=0.3428
+2026-01-22 17:42:23,013 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:42:23,014 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 3, 'diversity': 2} (fitness: 0.305 -> 0.343)
+2026-01-22 17:42:23,014 - openevolve.process_parallel - INFO - Iteration 76: Program 0bd7623e-bdd3-4df7-9664-5b8620ab363f (parent: 62f6db28-2b22-417e-a617-59b3b3cd09a8) completed in 11.20s
+2026-01-22 17:42:23,014 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3428
+2026-01-22 17:43:21,266 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:43:25,750 - openevolve.evaluator - INFO - Evaluated program e1ced19e-d086-46dc-8e35-0f1ebb33e487 in 4.48s: combined_score=0.3079
+2026-01-22 17:43:25,756 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:43:25,758 - openevolve.process_parallel - INFO - Iteration 77: Program e1ced19e-d086-46dc-8e35-0f1ebb33e487 (parent: dbe933d7-39db-4c2f-8e50-f21821c4b6d5) completed in 62.74s
+2026-01-22 17:43:25,759 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3079
+2026-01-22 17:43:36,699 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:43:36,701 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:43:41,295 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:43:44,446 - openevolve.evaluator - INFO - Evaluated program a7d3921a-9663-4c71-97e8-1eba8f22c07b in 3.14s: combined_score=0.3495
+2026-01-22 17:43:44,458 - openevolve.process_parallel - INFO - Iteration 75: Program a7d3921a-9663-4c71-97e8-1eba8f22c07b (parent: 55bcbe9e-bf94-4098-acec-9c40361a5df7) completed in 100.73s
+2026-01-22 17:43:44,458 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3495
+2026-01-22 17:43:44,461 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:43:44,735 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:43:47,813 - openevolve.evaluator - INFO - Evaluated program d9565ad4-281d-42e7-8fb0-521569ba08bd in 3.08s: combined_score=0.3542
+2026-01-22 17:43:47,817 - openevolve.process_parallel - INFO - Iteration 78: Program d9565ad4-281d-42e7-8fb0-521569ba08bd (parent: 4c3fd89e-9983-41a7-8701-cfa25625d30f) completed in 22.06s
+2026-01-22 17:43:47,817 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3542
+2026-01-22 17:43:47,820 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:44:03,882 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:44:07,260 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:44:14,646 - openevolve.evaluator - INFO - Evaluated program 3c98c7c7-8ffa-4bb6-8278-5148f20146ae in 10.76s: combined_score=0.3683
+2026-01-22 17:44:14,650 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 5, 'diversity': 3} (fitness: 0.356 -> 0.368)
+2026-01-22 17:44:14,650 - openevolve.process_parallel - INFO - Iteration 80: Program 3c98c7c7-8ffa-4bb6-8278-5148f20146ae (parent: 80915cdf-6f97-4141-9d66-4b46cc1ba33d) completed in 26.83s
+2026-01-22 17:44:14,650 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3683
+2026-01-22 17:44:14,654 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:44:21,808 - openevolve.evaluator - INFO - Evaluated program 3aaa1380-0283-4048-a55f-90cfc6a9f026 in 14.55s: combined_score=0.3033
+2026-01-22 17:44:21,815 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:44:21,820 - openevolve.process_parallel - INFO - Iteration 79: Program 3aaa1380-0283-4048-a55f-90cfc6a9f026 (parent: 58024fb6-0a8e-4739-8a43-b843b793ef98) completed in 37.35s
+2026-01-22 17:44:21,820 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3033
+2026-01-22 17:44:23,953 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:44:23,955 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:44:26,729 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:44:31,356 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:44:31,368 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:44:31,369 - openevolve.process_parallel - WARNING - Iteration 81 error: LLM generated code is identical to parent code (no changes applied)
+2026-01-22 17:44:32,685 - openevolve.evaluator - INFO - Evaluated program 32755ebf-1886-4b48-af10-1aa4c3a5efff in 5.95s: combined_score=0.3843
+2026-01-22 17:44:32,692 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:44:32,694 - openevolve.process_parallel - INFO - Iteration 82: Program 32755ebf-1886-4b48-af10-1aa4c3a5efff (parent: 2c9d3594-4fb3-4767-8e52-3d9cfd339d91) completed in 10.87s
+2026-01-22 17:44:32,694 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3843
+2026-01-22 17:44:47,005 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:44:54,122 - openevolve.evaluator - INFO - Evaluated program 1a99a90c-f50d-4508-8e0a-060230b43d0d in 7.12s: combined_score=0.3803
+2026-01-22 17:44:54,132 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:44:54,133 - openevolve.process_parallel - INFO - Iteration 84: Program 1a99a90c-f50d-4508-8e0a-060230b43d0d (parent: 0e0847db-f2c6-4367-82b9-3b95d899b185) completed in 21.43s
+2026-01-22 17:44:54,133 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3803
+2026-01-22 17:45:05,012 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:45:08,892 - openevolve.evaluator - INFO - Evaluated program c68937bf-76ef-4528-96cb-24d1defd1022 in 3.88s: combined_score=0.2991
+2026-01-22 17:45:08,896 - openevolve.process_parallel - INFO - Iteration 83: Program c68937bf-76ef-4528-96cb-24d1defd1022 (parent: 0bd7623e-bdd3-4df7-9664-5b8620ab363f) completed in 37.52s
+2026-01-22 17:45:08,896 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2991
+2026-01-22 17:45:08,906 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:45:24,659 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:45:28,459 - openevolve.evaluator - INFO - Evaluated program 893ef733-c939-4793-8995-e130ff4db186 in 3.80s: combined_score=0.3555
+2026-01-22 17:45:28,470 - openevolve.process_parallel - INFO - Iteration 86: Program 893ef733-c939-4793-8995-e130ff4db186 (parent: b2f97632-44eb-4f79-aca4-49c2db381b42) completed in 19.55s
+2026-01-22 17:45:28,470 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3555
+2026-01-22 17:45:28,476 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:45:39,511 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:45:45,966 - openevolve.evaluator - INFO - Evaluated program 914eb4a1-dd46-4712-9a09-d9f386ad356b in 6.45s: combined_score=0.2540
+2026-01-22 17:45:45,971 - openevolve.process_parallel - INFO - Iteration 85: Program 914eb4a1-dd46-4712-9a09-d9f386ad356b (parent: 3aaa1380-0283-4048-a55f-90cfc6a9f026) completed in 51.83s
+2026-01-22 17:45:45,971 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2540
+2026-01-22 17:45:45,973 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:45:56,359 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:45:56,361 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:46:04,721 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:46:04,733 - openevolve.process_parallel - WARNING - Iteration 88 error: LLM generated code is identical to parent code (no changes applied)
+2026-01-22 17:46:04,740 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:46:38,368 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:46:45,489 - openevolve.evaluator - INFO - Evaluated program 14ec369e-48db-4cad-84fd-f219f021d40e in 7.12s: combined_score=0.3482
+2026-01-22 17:46:45,502 - openevolve.process_parallel - INFO - Iteration 89: Program 14ec369e-48db-4cad-84fd-f219f021d40e (parent: 80915cdf-6f97-4141-9d66-4b46cc1ba33d) completed in 40.75s
+2026-01-22 17:46:45,502 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3482
+2026-01-22 17:46:45,513 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:46:59,260 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:46:59,269 - openevolve.process_parallel - WARNING - Iteration 90 error: LLM generated code is identical to parent code (no changes applied)
+2026-01-22 17:46:59,280 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:47:22,416 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:47:30,414 - openevolve.evaluator - INFO - Evaluated program 83151307-9c93-4bb2-b90d-50f0195dcf61 in 7.99s: combined_score=0.3495
+2026-01-22 17:47:30,422 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:47:30,427 - openevolve.process_parallel - INFO - Iteration 87: Program 83151307-9c93-4bb2-b90d-50f0195dcf61 (parent: a7d3921a-9663-4c71-97e8-1eba8f22c07b) completed in 121.94s
+2026-01-22 17:47:30,427 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3495
+2026-01-22 17:47:52,130 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:48:02,228 - openevolve.evaluator - INFO - Evaluated program a2be40d5-4fa4-4399-a4d6-930b5e632c9b in 10.10s: combined_score=0.3629
+2026-01-22 17:48:02,232 - openevolve.process_parallel - INFO - Iteration 92: Program a2be40d5-4fa4-4399-a4d6-930b5e632c9b (parent: 32755ebf-1886-4b48-af10-1aa4c3a5efff) completed in 31.81s
+2026-01-22 17:48:02,232 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3629
+2026-01-22 17:48:02,243 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:48:12,302 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:48:12,305 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:48:57,359 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:48:57,360 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:48:57,891 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:49:06,363 - openevolve.evaluator - INFO - Evaluated program fa25eb9d-7e02-49d3-90d7-59db6678914c in 8.47s: combined_score=0.2955
+2026-01-22 17:49:06,371 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:49:06,372 - openevolve.process_parallel - INFO - Iteration 93: Program fa25eb9d-7e02-49d3-90d7-59db6678914c (parent: daf77d94-aaff-491f-9c48-264cf795c10f) completed in 64.12s
+2026-01-22 17:49:06,373 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2955
+2026-01-22 17:49:54,128 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:50:03,221 - openevolve.evaluator - INFO - Evaluated program 0abab3c5-9f0e-4fd4-bc2a-6d3c863c6d6b in 9.09s: combined_score=0.3284
+2026-01-22 17:50:03,224 - openevolve.process_parallel - INFO - Iteration 91: Program 0abab3c5-9f0e-4fd4-bc2a-6d3c863c6d6b (parent: b71e5011-841d-4ae4-b22f-bcfdfc0bee83) completed in 183.94s
+2026-01-22 17:50:03,224 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3284
+2026-01-22 17:50:03,231 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:50:11,395 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:50:19,724 - openevolve.evaluator - INFO - Evaluated program d43264a0-b5db-4159-890c-9a115bb0370f in 8.33s: combined_score=0.2476
+2026-01-22 17:50:19,734 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:50:19,735 - openevolve.process_parallel - INFO - Iteration 95: Program d43264a0-b5db-4159-890c-9a115bb0370f (parent: 0e0847db-f2c6-4367-82b9-3b95d899b185) completed in 16.49s
+2026-01-22 17:50:19,735 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2476
+2026-01-22 17:50:36,905 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:50:36,907 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:50:56,485 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:51:00,318 - openevolve.evaluator - INFO - Evaluated program ed304246-8480-45e9-a812-fa6a83103f65 in 3.83s: combined_score=0.3117
+2026-01-22 17:51:00,328 - openevolve.process_parallel - INFO - Iteration 96: Program ed304246-8480-45e9-a812-fa6a83103f65 (parent: dad29672-b162-4d77-8672-61c567fd5316) completed in 40.59s
+2026-01-22 17:51:00,328 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:51:00,329 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3117
+2026-01-22 17:51:08,529 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:51:12,746 - openevolve.evaluator - INFO - Evaluated program 810d5004-dd1f-46e2-a8f2-a5ddb0046df8 in 4.22s: combined_score=0.3656
+2026-01-22 17:51:12,754 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:51:12,756 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 4, 'diversity': 3} (fitness: 0.345 -> 0.366)
+2026-01-22 17:51:12,756 - openevolve.process_parallel - INFO - Iteration 97: Program 810d5004-dd1f-46e2-a8f2-a5ddb0046df8 (parent: 0e0847db-f2c6-4367-82b9-3b95d899b185) completed in 12.42s
+2026-01-22 17:51:12,756 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3656
+2026-01-22 17:52:11,578 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:52:25,510 - openevolve.evaluator - INFO - Evaluated program 7ecc71fd-171f-4741-82e0-48adf04cab60 in 13.92s: combined_score=0.3885
+2026-01-22 17:52:25,517 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 9, 'diversity': 8} (fitness: 0.353 -> 0.389)
+2026-01-22 17:52:25,517 - openevolve.database - INFO - New best program 7ecc71fd-171f-4741-82e0-48adf04cab60 replaces ebd341ef-7d9f-4efb-98cf-1b29faef8729 (combined_score: 0.3865 → 0.3885, +0.0021)
+2026-01-22 17:52:25,517 - openevolve.process_parallel - INFO - Iteration 94: Program 7ecc71fd-171f-4741-82e0-48adf04cab60 (parent: 6555c7f9-3169-4cc1-8e9f-3192966415f7) completed in 199.14s
+2026-01-22 17:52:25,517 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3885
+2026-01-22 17:52:25,517 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 94: 7ecc71fd-171f-4741-82e0-48adf04cab60
+2026-01-22 17:52:25,528 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:52:33,514 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:52:43,849 - openevolve.evaluator - INFO - Evaluated program af13d2ef-b14a-4ae5-b1a1-162ca3b9f5bd in 10.33s: combined_score=0.3453
+2026-01-22 17:52:43,858 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:52:43,861 - openevolve.process_parallel - INFO - Iteration 98: Program af13d2ef-b14a-4ae5-b1a1-162ca3b9f5bd (parent: 55bcbe9e-bf94-4098-acec-9c40361a5df7) completed in 91.10s
+2026-01-22 17:52:43,861 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3453
+2026-01-22 17:52:50,853 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:52:56,074 - openevolve.evaluator - INFO - Evaluated program 9815b0fe-52c2-4c4e-84ff-0eaa0173f7ca in 5.22s: combined_score=0.2958
+2026-01-22 17:52:56,089 - openevolve.process_parallel - INFO - Iteration 100: Program 9815b0fe-52c2-4c4e-84ff-0eaa0173f7ca (parent: e1ced19e-d086-46dc-8e35-0f1ebb33e487) completed in 12.22s
+2026-01-22 17:52:56,090 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2958
+2026-01-22 17:52:56,090 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 100
+2026-01-22 17:52:56,090 - openevolve.database - INFO - Island Status:
+2026-01-22 17:52:56,090 - openevolve.database - INFO -  * Island 0: 74 programs, best=0.3885, avg=0.2972, diversity=214.15, gen=88 (best: 7ecc71fd-171f-4741-82e0-48adf04cab60)
+2026-01-22 17:52:56,090 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-01-22 17:52:56,090 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-01-22 17:52:56,090 - openevolve.database - INFO -    Island 3: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-01-22 17:52:56,092 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:52:56,267 - openevolve.database - INFO - Saved database with 89 programs to ./outputs/Monument_output/openevolve_output/checkpoints/checkpoint_100
+2026-01-22 17:52:56,269 - openevolve.controller - INFO - Saved best program at checkpoint 100 with metrics: combined_score=0.3885
+2026-01-22 17:52:56,269 - openevolve.controller - INFO - Saved checkpoint at iteration 100 to ./outputs/Monument_output/openevolve_output/checkpoints/checkpoint_100
+2026-01-22 17:53:06,509 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:53:10,115 - openevolve.evaluator - INFO - Evaluated program 858112c0-977a-400c-bf35-e124558d28f2 in 3.60s: combined_score=0.3749
+2026-01-22 17:53:10,130 - openevolve.process_parallel - INFO - Iteration 99: Program 858112c0-977a-400c-bf35-e124558d28f2 (parent: 61592543-3a7c-4881-940e-a032fc556b69) completed in 44.59s
+2026-01-22 17:53:10,130 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3749
+2026-01-22 17:53:10,145 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:53:14,761 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:53:14,763 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:53:20,237 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:53:20,239 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:53:25,175 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:53:26,274 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:53:26,283 - openevolve.process_parallel - WARNING - Iteration 101 error: LLM generated code is identical to parent code (no changes applied)
+2026-01-22 17:53:26,284 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:53:30,623 - openevolve.evaluator - INFO - Evaluated program fe78d9af-52e6-4ba1-862c-078bdb29cde8 in 5.45s: combined_score=0.3664
+2026-01-22 17:53:30,633 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 4, 'diversity': 3} (fitness: 0.366 -> 0.366)
+2026-01-22 17:53:30,634 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:53:30,634 - openevolve.process_parallel - INFO - Iteration 102: Program fe78d9af-52e6-4ba1-862c-078bdb29cde8 (parent: 80915cdf-6f97-4141-9d66-4b46cc1ba33d) completed in 20.48s
+2026-01-22 17:53:30,634 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3664
+2026-01-22 17:53:52,656 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:53:58,276 - openevolve.evaluator - INFO - Evaluated program 36c1dde1-5feb-4e23-aa18-095a2696928c in 5.62s: combined_score=0.3542
+2026-01-22 17:53:58,281 - openevolve.process_parallel - INFO - Iteration 103: Program 36c1dde1-5feb-4e23-aa18-095a2696928c (parent: d9565ad4-281d-42e7-8fb0-521569ba08bd) completed in 31.99s
+2026-01-22 17:53:58,281 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3542
+2026-01-22 17:53:58,306 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:53:59,160 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:53:59,162 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:54:23,561 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:54:23,577 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:54:23,579 - openevolve.process_parallel - WARNING - Iteration 105 error: LLM generated code is identical to parent code (no changes applied)
+2026-01-22 17:54:24,278 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:54:24,291 - openevolve.process_parallel - WARNING - Iteration 104 error: LLM generated code is identical to parent code (no changes applied)
+2026-01-22 17:54:24,302 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:54:40,908 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:54:44,653 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:54:53,409 - openevolve.evaluator - INFO - Evaluated program e0ddc4ab-6586-49c5-87e3-50c4813d573e in 12.50s: combined_score=0.3576
+2026-01-22 17:54:53,415 - openevolve.process_parallel - INFO - Iteration 106: Program e0ddc4ab-6586-49c5-87e3-50c4813d573e (parent: 893ef733-c939-4793-8995-e130ff4db186) completed in 29.83s
+2026-01-22 17:54:53,415 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3576
+2026-01-22 17:54:53,419 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:54:58,475 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:55:00,103 - openevolve.evaluator - INFO - Evaluated program ffb84914-da84-4d81-989a-855a2b1fdacd in 15.45s: combined_score=0.3574
+2026-01-22 17:55:00,108 - openevolve.process_parallel - INFO - Iteration 107: Program ffb84914-da84-4d81-989a-855a2b1fdacd (parent: d9565ad4-281d-42e7-8fb0-521569ba08bd) completed in 35.80s
+2026-01-22 17:55:00,108 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3574
+2026-01-22 17:55:00,118 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:55:09,432 - openevolve.evaluator - INFO - Evaluated program 120b3efa-c1f9-4b1e-a659-811297a51275 in 10.96s: combined_score=0.3642
+2026-01-22 17:55:09,441 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:55:09,443 - openevolve.process_parallel - INFO - Iteration 108: Program 120b3efa-c1f9-4b1e-a659-811297a51275 (parent: 0e0847db-f2c6-4367-82b9-3b95d899b185) completed in 16.01s
+2026-01-22 17:55:09,444 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3642
+2026-01-22 17:55:16,405 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:55:16,406 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:55:28,781 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:55:31,311 - openevolve.evaluator - INFO - Evaluated program 7aaebf8a-7c90-4b99-a0ea-6451400abcf5 in 2.53s: combined_score=0.3553
+2026-01-22 17:55:31,321 - openevolve.process_parallel - INFO - Iteration 109: Program 7aaebf8a-7c90-4b99-a0ea-6451400abcf5 (parent: 893ef733-c939-4793-8995-e130ff4db186) completed in 31.19s
+2026-01-22 17:55:31,322 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3553
+2026-01-22 17:55:31,335 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:56:39,157 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:56:41,961 - openevolve.evaluator - INFO - Evaluated program 03af2ace-97bb-431b-a442-da0d40f679de in 2.80s: combined_score=0.3897
+2026-01-22 17:56:41,966 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 5, 'diversity': 3} (fitness: 0.368 -> 0.390)
+2026-01-22 17:56:41,966 - openevolve.database - INFO - New best program 03af2ace-97bb-431b-a442-da0d40f679de replaces 7ecc71fd-171f-4741-82e0-48adf04cab60 (combined_score: 0.3885 → 0.3897, +0.0012)
+2026-01-22 17:56:41,966 - openevolve.process_parallel - INFO - Iteration 110: Program 03af2ace-97bb-431b-a442-da0d40f679de (parent: 0e0847db-f2c6-4367-82b9-3b95d899b185) completed in 92.52s
+2026-01-22 17:56:41,966 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3897
+2026-01-22 17:56:41,966 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 110: 03af2ace-97bb-431b-a442-da0d40f679de
+2026-01-22 17:56:41,992 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:56:54,951 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:56:55,950 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:57:03,031 - openevolve.evaluator - INFO - Evaluated program 54ebe0af-e4c6-4e44-8c7d-5c87981051a6 in 7.08s: combined_score=0.3447
+2026-01-22 17:57:03,045 - openevolve.process_parallel - INFO - Iteration 112: Program 54ebe0af-e4c6-4e44-8c7d-5c87981051a6 (parent: 80915cdf-6f97-4141-9d66-4b46cc1ba33d) completed in 21.05s
+2026-01-22 17:57:03,045 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3447
+2026-01-22 17:57:03,047 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:57:03,964 - openevolve.evaluator - INFO - Evaluated program f39bfce6-5634-4434-a3f4-baf8ccb06009 in 9.01s: combined_score=0.3897
+2026-01-22 17:57:03,967 - openevolve.process_parallel - INFO - Iteration 111: Program f39bfce6-5634-4434-a3f4-baf8ccb06009 (parent: 0e0847db-f2c6-4367-82b9-3b95d899b185) completed in 92.63s
+2026-01-22 17:57:03,968 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3897
+2026-01-22 17:57:03,978 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:57:21,644 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:57:25,887 - openevolve.evaluator - INFO - Evaluated program 7e4de9a2-2ef9-4e57-bd3e-e39e7c7c441b in 4.24s: combined_score=0.3614
+2026-01-22 17:57:25,895 - openevolve.process_parallel - INFO - Iteration 113: Program 7e4de9a2-2ef9-4e57-bd3e-e39e7c7c441b (parent: 36c1dde1-5feb-4e23-aa18-095a2696928c) completed in 22.84s
+2026-01-22 17:57:25,895 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3614
+2026-01-22 17:57:25,912 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:57:39,969 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:57:44,997 - openevolve.evaluator - INFO - Evaluated program 6268f29a-e035-4cfa-abd9-9160869c48f7 in 5.02s: combined_score=0.3349
+2026-01-22 17:57:45,007 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 17:57:45,007 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 17:57:45,007 - openevolve.process_parallel - INFO - Performing migration at iteration 115
+2026-01-22 17:57:45,008 - openevolve.database - INFO - Performing migration between islands
+2026-01-22 17:57:45,008 - openevolve.database - INFO - New MAP-Elites cell occupied in island 1: {'complexity': 5, 'diversity': 3}
+2026-01-22 17:57:45,008 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 17:57:45,008 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 17:57:45,008 - openevolve.database - INFO - Program b2fa8679 migrated to island 1
+2026-01-22 17:57:45,008 - openevolve.database - INFO - New MAP-Elites cell occupied in island 3: {'complexity': 5, 'diversity': 3}
+2026-01-22 17:57:45,008 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 17:57:45,008 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 17:57:45,008 - openevolve.database - INFO - Program 58e73de3 migrated to island 3
+2026-01-22 17:57:45,008 - openevolve.database - INFO - New MAP-Elites cell occupied in island 1: {'complexity': 9, 'diversity': 8}
+2026-01-22 17:57:45,008 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 17:57:45,008 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 17:57:45,009 - openevolve.database - INFO - Program e0da752d migrated to island 1
+2026-01-22 17:57:45,009 - openevolve.database - INFO - New MAP-Elites cell occupied in island 3: {'complexity': 9, 'diversity': 8}
+2026-01-22 17:57:45,009 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 17:57:45,009 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 17:57:45,009 - openevolve.database - INFO - Program 69eeff3b migrated to island 3
+2026-01-22 17:57:45,009 - openevolve.database - INFO - New MAP-Elites cell occupied in island 1: {'complexity': 3, 'diversity': 2}
+2026-01-22 17:57:45,009 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 17:57:45,009 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 17:57:45,009 - openevolve.database - INFO - Program 2b558f56 migrated to island 1
+2026-01-22 17:57:45,009 - openevolve.database - INFO - New MAP-Elites cell occupied in island 3: {'complexity': 3, 'diversity': 2}
+2026-01-22 17:57:45,009 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 17:57:45,009 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 17:57:45,009 - openevolve.database - INFO - Program 4a4c4750 migrated to island 3
+2026-01-22 17:57:45,010 - openevolve.database - INFO - New MAP-Elites cell occupied in island 1: {'complexity': 4, 'diversity': 3}
+2026-01-22 17:57:45,010 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 17:57:45,010 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 17:57:45,010 - openevolve.database - INFO - Program b4e0bc80 migrated to island 1
+2026-01-22 17:57:45,010 - openevolve.database - INFO - New MAP-Elites cell occupied in island 3: {'complexity': 4, 'diversity': 3}
+2026-01-22 17:57:45,010 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 17:57:45,010 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 17:57:45,010 - openevolve.database - INFO - Program b00cc319 migrated to island 3
+2026-01-22 17:57:45,010 - openevolve.database - INFO - New MAP-Elites cell occupied in island 1: {'complexity': 4, 'diversity': 2}
+2026-01-22 17:57:45,010 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 17:57:45,010 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 17:57:45,010 - openevolve.database - INFO - Program f5933291 migrated to island 1
+2026-01-22 17:57:45,010 - openevolve.database - INFO - New MAP-Elites cell occupied in island 3: {'complexity': 4, 'diversity': 2}
+2026-01-22 17:57:45,010 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 17:57:45,011 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 17:57:45,011 - openevolve.database - INFO - Program 3a54ebd8 migrated to island 3
+2026-01-22 17:57:45,011 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 17:57:45,011 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 17:57:45,011 - openevolve.database - INFO - Program 0ad4aa00 migrated to island 1
+2026-01-22 17:57:45,011 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 17:57:45,011 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 17:57:45,011 - openevolve.database - INFO - Program 56be3cc2 migrated to island 3
+2026-01-22 17:57:45,011 - openevolve.database - INFO - Migration completed at generation 100
+2026-01-22 17:57:45,013 - openevolve.database - INFO - Island Status:
+2026-01-22 17:57:45,013 - openevolve.database - INFO -  * Island 0: 73 programs, best=0.3897, avg=0.3312, diversity=212.12, gen=100 (best: 03af2ace-97bb-431b-a442-da0d40f679de)
+2026-01-22 17:57:45,013 - openevolve.database - INFO -    Island 1: 6 programs, best=0.3897, avg=0.3859, diversity=290.32, gen=0 (best: b2fa8679-2f75-40f6-ab2b-1b48d65259a8)
+2026-01-22 17:57:45,013 - openevolve.database - INFO -    Island 2: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-01-22 17:57:45,013 - openevolve.database - INFO -    Island 3: 6 programs, best=0.3897, avg=0.3859, diversity=290.75, gen=0 (best: 58e73de3-ee91-43e3-ba46-4b1a780c5e58)
+2026-01-22 17:57:45,013 - openevolve.process_parallel - INFO - Iteration 115: Program 6268f29a-e035-4cfa-abd9-9160869c48f7 (parent: 120b3efa-c1f9-4b1e-a659-811297a51275) completed in 19.09s
+2026-01-22 17:57:45,013 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3349
+2026-01-22 17:57:45,027 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:58:00,562 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:58:00,564 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:58:09,435 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:58:09,444 - openevolve.process_parallel - WARNING - Iteration 116 error: LLM generated code is identical to parent code (no changes applied)
+2026-01-22 17:58:09,465 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:58:16,243 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:58:22,321 - openevolve.evaluator - INFO - Evaluated program 7fdcaf63-e54b-4a23-a64b-b0e4f31ed88c in 6.08s: combined_score=0.2923
+2026-01-22 17:58:22,335 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 17:58:22,335 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 17:58:22,335 - openevolve.process_parallel - INFO - Iteration 117: Program 7fdcaf63-e54b-4a23-a64b-b0e4f31ed88c (parent: 64625b79-bfbd-4de7-ad68-62a30432d143) completed in 12.86s
+2026-01-22 17:58:22,335 - openevolve.process_parallel - INFO - Metrics: combined_score=0.2923
+2026-01-22 17:58:22,343 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:58:27,824 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:58:27,826 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:58:29,103 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:58:33,656 - openevolve.evaluator - INFO - Evaluated program 6c91f784-7030-4509-9ee6-60cc62ab3337 in 4.55s: combined_score=0.3596
+2026-01-22 17:58:33,665 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 17:58:33,665 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 17:58:33,665 - openevolve.process_parallel - INFO - Iteration 118: Program 6c91f784-7030-4509-9ee6-60cc62ab3337 (parent: 1a99a90c-f50d-4508-8e0a-060230b43d0d) completed in 11.31s
+2026-01-22 17:58:33,665 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3596
+2026-01-22 17:58:33,674 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:59:52,256 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:59:52,257 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:59:53,441 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 17:59:53,451 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 17:59:53,454 - openevolve.process_parallel - WARNING - Iteration 119 error: LLM generated code is identical to parent code (no changes applied)
+2026-01-22 18:01:19,425 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 18:01:19,427 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 18:01:22,188 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 18:01:25,787 - openevolve.evaluator - INFO - Evaluated program 4368d8f6-ad70-4687-b891-58d3438e48d2 in 3.60s: combined_score=0.3814
+2026-01-22 18:01:25,798 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 18:01:25,798 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 18:01:25,799 - openevolve.process_parallel - INFO - Iteration 120: Program 4368d8f6-ad70-4687-b891-58d3438e48d2 (parent: 1a99a90c-f50d-4508-8e0a-060230b43d0d) completed in 92.34s
+2026-01-22 18:01:25,799 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3814
+2026-01-22 18:01:25,817 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 18:01:41,064 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 18:01:41,065 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 18:01:52,896 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 18:01:52,901 - openevolve.process_parallel - WARNING - Iteration 121 error: LLM generated code is identical to parent code (no changes applied)
+2026-01-22 18:01:52,914 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 18:02:08,835 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 18:02:21,130 - openevolve.evaluator - INFO - Evaluated program 497ed7fc-cebe-486f-8e2c-c1c9c64818aa in 12.29s: combined_score=0.3892
+2026-01-22 18:02:21,138 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 18:02:21,139 - openevolve.database - INFO - New MAP-Elites cell occupied in island 1: {'complexity': 5, 'diversity': 4}
+2026-01-22 18:02:21,139 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 18:02:21,139 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 18:02:21,139 - openevolve.process_parallel - INFO - Iteration 122: Program 497ed7fc-cebe-486f-8e2c-c1c9c64818aa (parent: b2fa8679-2f75-40f6-ab2b-1b48d65259a8) completed in 28.22s
+2026-01-22 18:02:21,139 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3892
+2026-01-22 18:02:46,095 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 18:02:46,097 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 18:02:50,035 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 18:02:50,036 - openevolve.process_parallel - ERROR - LLM generation failed: No valid diffs found in response after 3 attempts
+2026-01-22 18:02:50,044 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 18:02:50,046 - openevolve.process_parallel - WARNING - Iteration 114 error: No valid diffs found in response
+2026-01-22 18:02:51,691 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 18:02:53,731 - openevolve.evaluator - INFO - Evaluated program ae48ed85-96f1-4942-b018-4e66d8b1586e in 2.04s: combined_score=0.3800
+2026-01-22 18:02:53,735 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 4}
+2026-01-22 18:02:53,735 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 18:02:53,735 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 18:02:53,735 - openevolve.process_parallel - INFO - Iteration 123: Program ae48ed85-96f1-4942-b018-4e66d8b1586e (parent: 4368d8f6-ad70-4687-b891-58d3438e48d2) completed in 32.59s
+2026-01-22 18:02:53,735 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3800
+2026-01-22 18:02:53,738 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 18:03:05,410 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 18:03:05,522 - openevolve.evaluator - INFO - Evaluated program 8e8a0d06-946f-4a26-a263-daea98373c4d in 0.11s: combined_score=0.0000, error=cannot access local variable 'i' where it is not associated with a value
+2026-01-22 18:03:05,529 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 18:03:05,533 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 18:03:05,533 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 18:03:05,533 - openevolve.process_parallel - INFO - Iteration 125: Program 8e8a0d06-946f-4a26-a263-daea98373c4d (parent: 2b558f56-ccdb-4814-a396-6b4e3bb5d825) completed in 11.78s
+2026-01-22 18:03:05,534 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, error=cannot access local variable 'i' where it is not associated with a value
+2026-01-22 18:03:07,568 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 18:03:07,571 - openevolve.process_parallel - WARNING - Iteration 124 error: LLM generated code is identical to parent code (no changes applied)
+2026-01-22 18:03:07,577 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 18:04:26,113 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 18:04:29,598 - openevolve.evaluator - INFO - Evaluated program 67a7b3e5-c50f-4256-9dbb-daaa0c44c505 in 3.48s: combined_score=0.3897
+2026-01-22 18:04:29,605 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 5, 'diversity': 4} (fitness: 0.380 -> 0.390)
+2026-01-22 18:04:29,606 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 18:04:29,606 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 18:04:29,606 - openevolve.process_parallel - INFO - Iteration 127: Program 67a7b3e5-c50f-4256-9dbb-daaa0c44c505 (parent: 0e0847db-f2c6-4367-82b9-3b95d899b185) completed in 82.02s
+2026-01-22 18:04:29,606 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3897
+2026-01-22 18:04:29,625 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 18:04:50,972 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 18:04:50,973 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 18:05:51,647 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 18:05:51,659 - openevolve.process_parallel - WARNING - Iteration 128 error: LLM generated code is identical to parent code (no changes applied)
+2026-01-22 18:05:51,664 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 18:06:16,536 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 18:06:24,882 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 18:06:24,884 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 18:06:27,746 - openevolve.evaluator - INFO - Evaluated program 0db62c48-c343-4d99-9434-39df8fc7fa12 in 11.21s: combined_score=0.3704
+2026-01-22 18:06:27,750 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 18:06:27,750 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 18:06:27,750 - openevolve.process_parallel - INFO - Iteration 129: Program 0db62c48-c343-4d99-9434-39df8fc7fa12 (parent: 6268f29a-e035-4cfa-abd9-9160869c48f7) completed in 36.08s
+2026-01-22 18:06:27,751 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3704
+2026-01-22 18:06:27,753 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 18:08:05,686 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-01-22 18:08:10,112 - openevolve.evaluator - INFO - Evaluated program 96b72b7d-db2e-4e93-a204-72139257da6f in 4.42s: combined_score=0.3875
+2026-01-22 18:08:10,124 - openevolve.llm.ensemble - INFO - Sampled model: google/gemma-3-27b-it
+2026-01-22 18:08:10,127 - openevolve.database - INFO - Population size (101) exceeds limit (100), removing 1 programs
+2026-01-22 18:08:10,129 - openevolve.database - INFO - Population size after cleanup: 100
+2026-01-22 18:08:10,129 - openevolve.process_parallel - INFO - Iteration 130: Program 96b72b7d-db2e-4e93-a204-72139257da6f (parent: 0e0847db-f2c6-4367-82b9-3b95d899b185) completed in 102.36s
+2026-01-22 18:08:10,129 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3875
+2026-01-22 18:08:32,089 - openai._base_client - INFO - Retrying request to /chat/completions in 0.429155 seconds
+2026-01-22 18:08:32,084 - openevolve.llm.openai - WARNING - Timeout on attempt 1/4. Retrying...

@@ -1,0 +1,47 @@
+# Configuration for function minimization example
+max_iterations: 1000
+checkpoint_interval: 100
+diff_based_evolution: true
+max_code_length: 20000
+log_level: "INFO"
+random_seed: null
+
+# LLM configuration
+llm:
+  models:
+    - name: "google/gemma-3-27b-it"
+  api_key: "AiIsMyLife25"
+  api_base: "http://localhost:2993/v1"
+  max_tokens: 2000
+  timeout: 120
+
+# Prompt configuration
+prompt:
+  template_dir: "./outputs/City_output/templates/"
+  num_top_programs: 0
+  num_diverse_programs: 0
+  num_inspirations: 2
+  include_artifacts: true
+  suggest_simplification_after_chars: 10000
+
+# Database configuration
+database:
+  population_size: 100
+  archive_size: 20
+  num_islands: 4
+  exploration_ratio: 0.2
+  exploitation_ratio: 0.7
+  migration_interval: 100
+  migration_rate: 0.1
+  
+# Evaluator configuration
+evaluator:
+  cascade_evaluation: false
+  parallel_evaluations: 2
+
+evolution_trace:
+  enabled: false
+  format: 'json'
+  include_code: true
+  include_prompts: true
+  buffer_size: 10
