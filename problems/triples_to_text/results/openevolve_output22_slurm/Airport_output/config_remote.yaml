@@ -30,7 +30,7 @@ llm:
 
 # Prompt configuration
 prompt:
-  template_dir: "./templates/"
+  template_dir: "./outputs/Airport_output/templates/"
   num_top_programs: 0
   num_diverse_programs: 0
   num_inspirations: 1
@@ -47,7 +47,7 @@ database:
   migration_interval: 50
   migration_rate: 0.2
   roulette_selection: true
-  db_path: "./all_programs/"
+  db_path: "./outputs/Airport_output/all_programs/"
   
 # Evaluator configuration
 evaluator:
