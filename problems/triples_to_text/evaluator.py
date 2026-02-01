@@ -18,6 +18,7 @@ import inspect
 from dataclasses import dataclass
 import os
 import random
+from tests.senlen import Senlen
 
 @dataclass
 class TestTriple:
@@ -33,12 +34,13 @@ class TestSentence:
     triples: list[TestTriple]
     example_texts: list[str]
 
-@dataclass
-class PredicateData:
-    predicate: str
-    sentences: list[TestSentence]
-
 bleu = ev.load("bleu")
+meteor = ev.load("meteor")
+#bleurt = ev.load("bleurt", module_type="metric")
+senlen = Senlen()
+
+LOW_SCORE_THRESHOLD = 0.1
+LOW_SCORE_ARTIFACTS_LIMIT = 3
 
 WEBNLG_BASE_PATH = os.getenv(
     "WEBNLG_BASE_PATH",
@@ -54,20 +56,20 @@ WEBNLG_DOMAIN = os.getenv(
 
 train_files = select_files(WEBNLG_BASE_PATH + "train")
 dev_files = select_files(WEBNLG_BASE_PATH + "dev")
-test_dir = WEBNLG_BASE_PATH + "test"
-test_file = select_test_file(test_dir, "rdf-to-text-generation-test-data-with-refs-en.xml")
+#test_dir = WEBNLG_BASE_PATH + "test"
+#test_file = select_test_file(test_dir, "rdf-to-text-generation-test-data-with-refs-en.xml")
 
 train_benchmark = Benchmark()
 dev_benchmark = Benchmark()
-test_benchmark = Benchmark()
+#test_benchmark = Benchmark()
 train_benchmark.fill_benchmark(train_files)
 dev_benchmark.fill_benchmark(dev_files)
-test_benchmark.fill_benchmark(test_file)
+#test_benchmark.fill_benchmark(test_file)
 
 entries: list[Entry] = []
 entries.extend(train_benchmark.entries)
 entries.extend(dev_benchmark.entries)
-entries.extend(test_benchmark.entries)
+#entries.extend(test_benchmark.entries)
 
 category_entries  = [e for e in entries if e.category == WEBNLG_DOMAIN]
 category_test_sentences = [TestSentence([TestTriple(*triple) for triple in e.get_clean_triples_tuple_list()], e.get_lexs_list()) for e in category_entries]
@@ -157,7 +159,11 @@ def evaluate(program_path):
                 artifacts=error_artifacts
             )
 
-        scores: list[float] = []
+        bleu_scores: list[float] = []
+        meteor_scores: list[float] = []
+        #bleurt_scores: list[float] = []
+        senlen_scores: list[float] = []
+
         success_count = 0
         low_score_artifacts: dict[str, str] = {}
         error_msg = ""
@@ -197,16 +203,31 @@ def evaluate(program_path):
                 # prediction = generated_text.lower().split()
 
                 # Calculate BLEU score with weights
-                results = bleu.compute(predictions=[generated_text], references=[test_sentence.example_texts])
-                score = float(results['bleu'])
-                scores.append(score)
+                bleu_results = bleu.compute(predictions=[generated_text], references=[test_sentence.example_texts])
+                bleu_score = float(bleu_results['bleu'])
+                bleu_scores.append(bleu_score)
 
-                if score < 0.1:
-                    txt = f"The program did very poorly with BLEU score {score}. The input triples were:\n"
+                # Calculate METEOR score
+                meteor_results = meteor.compute(predictions=[generated_text], references=[test_sentence.example_texts])
+                meteor_score = float(meteor_results['meteor'])
+                meteor_scores.append(meteor_score)
+
+                # Calculate BLEURT score
+                #bleurt_results = bleurt.compute(predictions=[generated_text], references=[test_sentence.example_texts])
+                #bleurt_score = float(bleurt_results['scores'][0])
+                #bleurt_scores.append(bleurt_score)
+
+                # Calculate SENLEN score
+                senlen_results = senlen.compute(predictions=[generated_text], references=[test_sentence.example_texts])
+                senlen_score = float(senlen_results['senlen'])
+                senlen_scores.append(senlen_score)
+
+                if bleu_score < LOW_SCORE_THRESHOLD:
+                    txt = f"The program did very poorly with the given triples, getting BLEU score {bleu_score}. The input triples were:\n"
                     for triple in triples:
                         txt += f"{triple.subject} | {triple.predicate} | {triple.object}\n"
-                    txt += f"The generated text was:\n{generated_text}\n"
-                    txt += f"The example correct sentences are:\n"
+                    txt += f"\nThe generated text was:\n{generated_text}\n"
+                    txt += f"\nThe example correct sentences are:\n"
                     for ref in test_sentence.example_texts:
                         txt += f"{ref}\n"
                     low_score_artifacts[f"poor_program_score_{len(low_score_artifacts)}"] = txt
@@ -240,18 +261,26 @@ def evaluate(program_path):
             )
 
         # Calculate metrics
-        avg_value = float(np.mean(scores))
-        combined_score = avg_value
+        avg_bleu_score = float(np.mean(bleu_scores))
+        avg_meteor_score = float(np.mean(meteor_scores))
+        #avg_bleurt_score = float(np.mean(bleurt_scores))
+        avg_senlen_score = float(np.mean(senlen_scores))
 
-        # Choose random 50 low_score_artifacts if too many
-        if len(low_score_artifacts) > 50:
+        combined_score = avg_bleu_score
+
+        # Choose random n low_score_artifacts if too many
+        if len(low_score_artifacts) > LOW_SCORE_ARTIFACTS_LIMIT:
             keys = list(low_score_artifacts.keys())
-            selected_keys = random.sample(keys, 50)
+            selected_keys = random.sample(keys, LOW_SCORE_ARTIFACTS_LIMIT)
             low_score_artifacts = {k: low_score_artifacts[k] for k in selected_keys}
 
         return EvaluationResult(
             metrics={
                 "combined_score": combined_score,
+                "avg_bleu_score": avg_bleu_score,
+                "avg_meteor_score": avg_meteor_score,
+                #"avg_bleurt_score": avg_bleurt_score,
+                "avg_sentences_length_score": avg_senlen_score,
             },
             artifacts=low_score_artifacts
         )

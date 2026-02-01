@@ -1,1 +1,1 @@
-python ../../openevolve/openevolve-run.py initial_program.py evaluator.py --config config.yaml --output ./openevolve_output
+python ../../openevolve/openevolve-run.py initial_program.py evaluator.py --config ./outputs/Airport_output/config_remote.yaml --output ./openevolve_output

@@ -1,0 +1,15 @@
+[v] zmiejszyć raportowane błędy z 50 do 2-3
+[v] trening tylko na danych uczących (train + dev)
+[v] ewaluacja finalnego (najlepszego) programu na zbiorze testowym
+[] dorobić skrypt, który sam to zewaluuje
+[v] dodać więcej metryk (METEOR, BLEURT)
+[v] metryka związana z ilością zdań
+[] przetestować tylko 2-3 domeny, używająć różnych LLM'ów
+[v] zapisywać jakoś lepiej przebieg całej ewolucji (do wykresu żeby było dobre info)
+[v] stworzyć wykres z przebiegu ewolucji
+
+[v] 1 wyspa - 1 LLM?
+[?] Losowe prompty z innym taskiem (przerób całkowicie - tylko popraw)
+[v] nowy algorytm selekcji (ruletokowy) (teraz jest random kompletny) sample_from_island
+[v] nowy algorytm inspiracji (teraz jest random kompletny)
+[v] trochę poprawić prompty do nowego systemu
