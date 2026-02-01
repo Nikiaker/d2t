@@ -18,3 +18,6 @@ cd ~/d2t/problems/triples_to_text
 export WEBNLG_BASE_PATH="/home/inf151915/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/"
 export WEBNLG_DOMAIN={domain}
 conda run -n openevolve-env python ../../openevolve/openevolve-run.py initial_program.py evaluator.py --config ./outputs/${WEBNLG_DOMAIN}_output/config_remote.yaml --output ./outputs/${WEBNLG_DOMAIN}_output/openevolve_output
+
+cd ./outputs/${WEBNLG_DOMAIN}_output
+conda run -n openevolve-env python ../../triples_to_text/plot_results.py

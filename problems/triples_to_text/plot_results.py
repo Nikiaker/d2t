@@ -113,4 +113,4 @@ plt.tight_layout()
 out_path_best = Path(__file__).parent / 'best_islands_sum_radii.png'
 plt.savefig(out_path_best)
 print(f"Saved plot to {out_path_best}")
-plt.show()
+#plt.show()

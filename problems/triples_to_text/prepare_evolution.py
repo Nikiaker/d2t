@@ -69,6 +69,11 @@ if __name__ == "__main__":
             'template_dir: "./templates/"',
             f'template_dir: "{output_dir}/templates/"'
         )
+
+        config_content = config_content.replace(
+            'db_path: "./all_programs/"',
+            f'db_path: "./outputs/{domain}_output/all_programs/"'
+        )
         
         with open(config_path, "w") as f:
             f.write(config_content)

@@ -5,6 +5,7 @@ diff_based_evolution: true
 max_code_length: 20000
 log_level: "INFO"
 random_seed: null
+island_unique_models: true
 
 # LLM configuration
 llm:
@@ -20,24 +21,26 @@ prompt:
   template_dir: "./templates/"
   num_top_programs: 0
   num_diverse_programs: 0
-  num_inspirations: 2
+  num_inspirations: 1
   include_artifacts: true
   suggest_simplification_after_chars: 10000
 
 # Database configuration
 database:
-  population_size: 100
-  archive_size: 20
-  num_islands: 4
-  exploration_ratio: 0.2
-  exploitation_ratio: 0.7
-  migration_interval: 100
-  migration_rate: 0.1
+  population_size: 50
+  archive_size: 10
+  num_islands: 2
+  exploration_ratio: 0.0
+  exploitation_ratio: 1.0
+  migration_interval: 50
+  migration_rate: 0.2
+  roulette_selection: true
+  db_path: "./all_programs/"
   
 # Evaluator configuration
 evaluator:
   cascade_evaluation: false
-  parallel_evaluations: 2
+  parallel_evaluations: 1
 
 evolution_trace:
   enabled: false
