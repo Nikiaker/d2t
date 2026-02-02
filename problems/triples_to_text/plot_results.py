@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 ISLANDS_NUM = 4
 
 # Define the path to the all_programs folder
-programs_dir = Path(__file__).parent / "all_programs"
+programs_dir = Path.cwd() / "all_programs/programs"
 
 # Load all JSON files
 programs = []
@@ -53,7 +53,7 @@ for i, island in enumerate(islands):
         continue
     island_sorted = sorted(island, key=lambda p: p['iteration_found'])
     x = [p['iteration_found'] for p in island_sorted]
-    y = [p['metrics']['sum_radii'] for p in island_sorted]
+    y = [p['metrics']['combined_score'] for p in island_sorted]
     plt.plot(x, y, label=f'Island {i}', color=colors[i % len(colors)], marker='o', linewidth=1.5)
 
 plt.xlabel('Iteracja')
@@ -63,7 +63,7 @@ plt.grid(True, linestyle='--', alpha=0.4)
 plt.legend()
 plt.tight_layout()
 
-out_path = Path(__file__).parent / 'islands_sum_radii.png'
+out_path = Path.cwd() / 'islands_sum_radii.png'
 plt.savefig(out_path)
 print(f"Saved plot to {out_path}")
 # plt.show()  # Uncomment to display interactively
@@ -85,10 +85,10 @@ for i in range(ISLANDS_NUM):
 
     best_score_radii = -float('inf')
     for p in island_i_programs:
-        if p['metrics']['sum_radii'] > best_score_radii:
-            best_score_radii = p['metrics']['sum_radii']
+        if p['metrics']['combined_score'] > best_score_radii:
+            best_score_radii = p['metrics']['combined_score']
         else:
-            p['metrics']['sum_radii'] = best_score_radii
+            p['metrics']['combined_score'] = best_score_radii
 
     best_islands.append(island_i_programs)
 
@@ -100,7 +100,7 @@ for i, island in enumerate(best_islands):
         continue
     island_sorted = sorted(island, key=lambda p: p['iteration_found'])
     x = [p['iteration_found'] for p in island_sorted]
-    y = [p['metrics']['sum_radii'] for p in island_sorted]
+    y = [p['metrics']['combined_score'] for p in island_sorted]
     plt.plot(x, y, label=f'Island {i}', color=colors[i % len(colors)], marker='o', linewidth=1.5)
 
 plt.xlabel('Iteracja')
@@ -110,7 +110,7 @@ plt.grid(True, linestyle='--', alpha=0.4)
 plt.legend()
 plt.tight_layout()
 
-out_path_best = Path(__file__).parent / 'best_islands_sum_radii.png'
+out_path_best = Path.cwd() / 'best_islands_sum_radii.png'
 plt.savefig(out_path_best)
 print(f"Saved plot to {out_path_best}")
 #plt.show()

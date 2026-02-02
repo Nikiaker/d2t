@@ -1,6 +1,6 @@
 # Configuration for function minimization example
-max_iterations: 10
-checkpoint_interval: 5
+max_iterations: 1000
+checkpoint_interval: 100
 diff_based_evolution: true
 max_code_length: 20000
 log_level: "INFO"
@@ -52,7 +52,7 @@ database:
 # Evaluator configuration
 evaluator:
   cascade_evaluation: false
-  parallel_evaluations: 1
+  parallel_evaluations: 2
 
 evolution_trace:
   enabled: false
