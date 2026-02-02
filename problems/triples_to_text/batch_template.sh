@@ -21,3 +21,5 @@ conda run -n openevolve-env python ../../openevolve/openevolve-run.py initial_pr
 
 cd ./outputs/${WEBNLG_DOMAIN}_output
 conda run -n openevolve-env python ../../plot_results.py
+export BEST_PROGRAM_PATH="./openevolve_output/best/best_program.py"
+conda run -n openevolve-env python ../../final_test.py

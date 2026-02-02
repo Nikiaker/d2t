@@ -11,7 +11,8 @@
 {evolution_history}
 
 # Task
-Suggest an improvement to the current program that will improve its scores.
+Suggest an improvement to the current program that will improve the combined_score.
+The combined_score is the average from the BLUE Score with METEOR Score and the number of sentences score.
 Different solutions with similar fitness but different ideas are valuable.
 
 You MUST use the exact SEARCH/REPLACE diff format shown below to indicate changes:

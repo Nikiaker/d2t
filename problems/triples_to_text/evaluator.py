@@ -266,7 +266,7 @@ def evaluate(program_path):
         #avg_bleurt_score = float(np.mean(bleurt_scores))
         avg_senlen_score = float(np.mean(senlen_scores))
 
-        combined_score = avg_bleu_score
+        combined_score = (avg_bleu_score + avg_meteor_score + avg_senlen_score) / 3.0
 
         # Choose random n low_score_artifacts if too many
         if len(low_score_artifacts) > LOW_SCORE_ARTIFACTS_LIMIT:

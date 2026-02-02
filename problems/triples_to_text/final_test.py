@@ -56,7 +56,10 @@ WEBNLG_DOMAIN = os.getenv(
     "Airport",
 )
 
-PROGRAM_PATH = "./current_program.py"
+BEST_PROGRAM_PATH = os.getenv(
+    "BEST_PROGRAM_PATH",
+    "./current_program.py",
+)
 
 test_dir = WEBNLG_BASE_PATH + "test"
 test_file = select_test_file(test_dir, "rdf-to-text-generation-test-data-with-refs-en.xml")
@@ -68,7 +71,7 @@ entries = test_benchmark.entries
 category_entries  = [e for e in entries if e.category == WEBNLG_DOMAIN]
 category_test_sentences = [TestSentence([TestTriple(*triple) for triple in e.get_clean_triples_tuple_list()], e.get_lexs_list()) for e in category_entries]
 
-spec = importlib.util.spec_from_file_location("program", PROGRAM_PATH)
+spec = importlib.util.spec_from_file_location("program", BEST_PROGRAM_PATH)
 program = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(program)
 
@@ -115,3 +118,10 @@ print(f"Final Evaluation Results for domain '{WEBNLG_DOMAIN}':")
 print(f"Average BLEU Score: {avg_bleu_score}")
 print(f"Average METEOR Score: {avg_meteor_score}")
 print(f"Average SENLEN Score: {avg_senlen_score}")
+
+output_path = "./scores.txt"
+with open(output_path, "w", encoding="utf-8") as f:
+    f.write(f"Final Evaluation Results for domain '{WEBNLG_DOMAIN}':\n")
+    f.write(f"Average BLEU Score: {avg_bleu_score}\n")
+    f.write(f"Average METEOR Score: {avg_meteor_score}\n")
+    f.write(f"Average SENLEN Score: {avg_senlen_score}\n")
