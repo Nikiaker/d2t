@@ -1,0 +1,37 @@
+# Current Program Information
+{metrics}
+
+{artifacts}
+
+# Current Program
+```{language}
+{current_program}
+```
+
+{evolution_history}
+
+# Task
+Suggest an improvement to the current program that will improve the combined_score.
+The combined_score is the average from the BLUE Score with METEOR Score and the number of sentences score.
+Different solutions with similar fitness but different ideas are valuable.
+
+You MUST use the exact SEARCH/REPLACE diff format shown below to indicate changes:
+
+<<<<<<< SEARCH
+# Original code to find and replace (must match exactly, indentations and endlines as well)
+=======
+# New replacement code
+>>>>>>> REPLACE
+
+Example of a valid diff format:
+<<<<<<< SEARCH
+    best_x = 0
+    best_y = 0
+=======
+    # Initialize with a random point
+    best_x = np.random.uniform(bounds[0], bounds[1])
+    best_y = np.random.uniform(bounds[0], bounds[1])
+>>>>>>> REPLACE
+
+The SEARCH section must exactly match the code in the current program, even with it's indentations and endlines.
+Give just one SEARCH/REPLACE section.

@@ -1,0 +1,162 @@
+2026-02-02 23:01:07,434 - openevolve.controller - INFO - Logging to ./outputs/Airport_output/openevolve_output/logs/openevolve_20260202_230107.log
+2026-02-02 23:01:07,560 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:01:07,565 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: google/codegemma-7b-it
+2026-02-02 23:01:07,569 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8
+2026-02-02 23:01:07,574 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8
+2026-02-02 23:01:07,592 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/gemma-3-27b-it-FP8-dynamic (weight: 0.70), google/codegemma-7b-it (weight: 0.30)
+2026-02-02 23:01:07,592 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8 (weight: 0.70), Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8 (weight: 0.30)
+2026-02-02 23:01:07,627 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/gemma-3-27b-it-FP8-dynamic (weight: 0.70), google/codegemma-7b-it (weight: 0.30)
+2026-02-02 23:01:07,628 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8 (weight: 0.70), Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8 (weight: 0.30)
+2026-02-02 23:01:07,661 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-02-02 23:01:07,666 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-02-02 23:01:07,666 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-02-02 23:01:31,436 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-02-02 23:01:31,436 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-02-02 23:01:31,436 - openevolve.controller - INFO - Initialized OpenEvolve with initial_program.py
+2026-02-02 23:01:31,436 - openevolve.controller - INFO - Adding initial program to database
+2026-02-02 23:01:45,242 - openevolve.evaluator - INFO - Evaluated program 3f8e22bb-246b-42e9-bc6d-12336ef61ab8 in 13.81s: combined_score=0.5007, avg_bleu_score=0.2037, avg_meteor_score=0.4656, avg_sentences_length_score=0.8328
+2026-02-02 23:01:45,242 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2026-02-02 23:01:45,247 - openevolve.process_parallel - INFO - Initialized process parallel controller with 2 workers
+2026-02-02 23:01:45,247 - openevolve.process_parallel - INFO - Set max None tasks per child
+2026-02-02 23:01:45,248 - openevolve.process_parallel - INFO - Started process pool with 2 processes
+2026-02-02 23:01:45,248 - openevolve.controller - INFO - Using island-based evolution with 2 islands
+2026-02-02 23:01:45,248 - openevolve.database - INFO - Island Status:
+2026-02-02 23:01:45,248 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.5007, avg=0.5007, diversity=0.00, gen=0 (best: 3f8e22bb-246b-42e9-bc6d-12336ef61ab8)
+2026-02-02 23:01:45,248 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-02-02 23:01:45,248 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 10 iterations (total: 11)
+2026-02-02 23:01:45,263 - openevolve.process_parallel - INFO - Early stopping disabled
+2026-02-02 23:01:45,329 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/gemma-3-27b-it-FP8-dynamic (weight: 0.70), google/codegemma-7b-it (weight: 0.30)
+2026-02-02 23:01:45,330 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8 (weight: 0.70), Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8 (weight: 0.30)
+2026-02-02 23:01:45,331 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/gemma-3-27b-it-FP8-dynamic (weight: 0.70), google/codegemma-7b-it (weight: 0.30)
+2026-02-02 23:01:45,332 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8 (weight: 0.70), Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8 (weight: 0.30)
+2026-02-02 23:01:45,393 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/gemma-3-27b-it-FP8-dynamic (weight: 0.70), google/codegemma-7b-it (weight: 0.30)
+2026-02-02 23:01:45,393 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/gemma-3-27b-it-FP8-dynamic (weight: 0.70), google/codegemma-7b-it (weight: 0.30)
+2026-02-02 23:01:45,393 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8 (weight: 0.70), Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8 (weight: 0.30)
+2026-02-02 23:01:45,393 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8 (weight: 0.70), Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8 (weight: 0.30)
+2026-02-02 23:01:45,395 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-02-02 23:01:45,395 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-02-02 23:01:48,954 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-02-02 23:01:48,954 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-02-02 23:01:48,954 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-02-02 23:01:48,954 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-02-02 23:01:48,955 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:01:48,955 - openevolve.llm.ensemble - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:01:51,395 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:01:51,397 - openevolve.llm.openai - WARNING - Error on attempt 1/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:01:56,409 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:01:56,409 - openevolve.llm.openai - WARNING - Error on attempt 2/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:02:01,423 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:02:01,423 - openevolve.llm.openai - WARNING - Error on attempt 3/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:02:06,436 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:02:06,436 - openevolve.llm.openai - ERROR - All 4 attempts failed with error: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:02:06,437 - openevolve.process_parallel - ERROR - LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:02:06,438 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:02:06,447 - openevolve.process_parallel - WARNING - Iteration 1 error: LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:02:25,707 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:02:25,822 - openevolve.evaluator - INFO - Evaluated program 93d81584-0006-439e-a8be-d22c4a85a5d3 in 0.11s: combined_score=0.0000, error=float division by zero
+2026-02-02 23:02:25,824 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:02:25,830 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 5}
+2026-02-02 23:02:25,834 - openevolve.process_parallel - INFO - Iteration 2: Program 93d81584-0006-439e-a8be-d22c4a85a5d3 (parent: 3f8e22bb-246b-42e9-bc6d-12336ef61ab8) completed in 36.87s
+2026-02-02 23:02:25,834 - openevolve.process_parallel - INFO - Metrics: combined_score=0.0000, error=float division by zero
+2026-02-02 23:02:53,094 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:02:53,102 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:03:17,246 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:03:17,248 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:03:41,164 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:04:07,872 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:04:07,873 - openevolve.llm.ensemble - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:04:07,880 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:04:07,880 - openevolve.llm.openai - WARNING - Error on attempt 1/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:04:12,900 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:04:12,900 - openevolve.llm.openai - WARNING - Error on attempt 2/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:04:17,918 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:04:17,918 - openevolve.llm.openai - WARNING - Error on attempt 3/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:04:22,937 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:04:22,938 - openevolve.llm.openai - ERROR - All 4 attempts failed with error: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:04:22,939 - openevolve.process_parallel - ERROR - LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:04:22,940 - openevolve.llm.ensemble - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:04:22,944 - openevolve.process_parallel - WARNING - Iteration 4 error: LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:04:22,947 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:04:22,947 - openevolve.llm.openai - WARNING - Error on attempt 1/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:04:27,960 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:04:27,960 - openevolve.llm.openai - WARNING - Error on attempt 2/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:04:32,977 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:04:32,980 - openevolve.llm.openai - WARNING - Error on attempt 3/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:04:37,989 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:04:37,990 - openevolve.llm.openai - ERROR - All 4 attempts failed with error: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:04:37,990 - openevolve.process_parallel - ERROR - LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:04:37,991 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:04:37,995 - openevolve.process_parallel - WARNING - Iteration 5 error: LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:05:27,360 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:05:48,793 - openevolve.evaluator - INFO - Evaluated program b2f9eb03-4cab-4271-99a8-dd41d7669a48 in 127.63s: combined_score=0.5823, avg_bleu_score=0.4043, avg_meteor_score=0.6557, avg_sentences_length_score=0.6867
+2026-02-02 23:05:48,795 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 9}
+2026-02-02 23:05:48,795 - openevolve.database - INFO - New best program b2f9eb03-4cab-4271-99a8-dd41d7669a48 replaces 3f8e22bb-246b-42e9-bc6d-12336ef61ab8 (combined_score: 0.5007 → 0.5823, +0.0816)
+2026-02-02 23:05:48,795 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:05:48,797 - openevolve.process_parallel - INFO - Iteration 3: Program b2f9eb03-4cab-4271-99a8-dd41d7669a48 (parent: 3f8e22bb-246b-42e9-bc6d-12336ef61ab8) completed in 222.36s
+2026-02-02 23:05:48,797 - openevolve.process_parallel - INFO - Metrics: combined_score=0.5823, avg_bleu_score=0.4043, avg_meteor_score=0.6557, avg_sentences_length_score=0.6867
+2026-02-02 23:05:48,797 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 3: b2f9eb03-4cab-4271-99a8-dd41d7669a48
+2026-02-02 23:05:52,260 - openevolve.evaluator - INFO - Evaluated program a77dfdb7-3d68-4074-b6a6-e49f2e41c9d2 in 24.90s: combined_score=0.5579, avg_bleu_score=0.3530, avg_meteor_score=0.6339, avg_sentences_length_score=0.6867
+2026-02-02 23:05:52,261 - openevolve.llm.ensemble - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:05:52,263 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 8, 'diversity': 3}
+2026-02-02 23:05:52,265 - openevolve.process_parallel - INFO - Iteration 6: Program a77dfdb7-3d68-4074-b6a6-e49f2e41c9d2 (parent: 93d81584-0006-439e-a8be-d22c4a85a5d3) completed in 74.27s
+2026-02-02 23:05:52,265 - openevolve.process_parallel - INFO - Metrics: combined_score=0.5579, avg_bleu_score=0.3530, avg_meteor_score=0.6339, avg_sentences_length_score=0.6867
+2026-02-02 23:05:52,274 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:05:52,275 - openevolve.llm.openai - WARNING - Error on attempt 1/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:05:57,288 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:05:57,288 - openevolve.llm.openai - WARNING - Error on attempt 2/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:06:02,301 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:06:02,302 - openevolve.llm.openai - WARNING - Error on attempt 3/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:06:07,316 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:06:07,316 - openevolve.llm.openai - ERROR - All 4 attempts failed with error: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:06:07,317 - openevolve.process_parallel - ERROR - LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:06:07,318 - openevolve.llm.ensemble - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:06:07,325 - openevolve.process_parallel - WARNING - Iteration 8 error: LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:06:07,326 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:06:07,327 - openevolve.llm.openai - WARNING - Error on attempt 1/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:06:12,340 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:06:12,340 - openevolve.llm.openai - WARNING - Error on attempt 2/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:06:17,354 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:06:17,354 - openevolve.llm.openai - WARNING - Error on attempt 3/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:06:22,368 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:06:22,369 - openevolve.llm.openai - ERROR - All 4 attempts failed with error: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:06:22,369 - openevolve.process_parallel - ERROR - LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:06:22,370 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:06:22,376 - openevolve.process_parallel - WARNING - Iteration 9 error: LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:06:39,425 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:06:39,427 - openevolve.llm.ensemble - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:06:39,436 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:06:39,437 - openevolve.llm.openai - WARNING - Error on attempt 1/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:06:44,448 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:06:44,448 - openevolve.llm.openai - WARNING - Error on attempt 2/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:06:49,460 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:06:49,460 - openevolve.llm.openai - WARNING - Error on attempt 3/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:06:54,474 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:06:54,475 - openevolve.llm.openai - ERROR - All 4 attempts failed with error: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:06:54,475 - openevolve.process_parallel - ERROR - LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:06:54,484 - openevolve.process_parallel - WARNING - Iteration 7 error: LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:07:13,170 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:07:13,171 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:08:02,923 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:08:02,924 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:08:52,058 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:08:52,059 - openevolve.llm.ensemble - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:08:52,066 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:08:52,066 - openevolve.llm.openai - WARNING - Error on attempt 1/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:08:57,077 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:08:57,078 - openevolve.llm.openai - WARNING - Error on attempt 2/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:09:02,098 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:09:02,099 - openevolve.llm.openai - WARNING - Error on attempt 3/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:09:07,118 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:09:07,119 - openevolve.llm.openai - ERROR - All 4 attempts failed with error: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:09:07,120 - openevolve.process_parallel - ERROR - LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:09:07,129 - openevolve.process_parallel - WARNING - Iteration 10 error: LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:09:07,129 - openevolve.process_parallel - INFO - ✅ Evolution completed - Maximum iterations reached
+2026-02-02 23:09:07,129 - openevolve.process_parallel - INFO - Total programs created: 3
+2026-02-02 23:09:07,129 - openevolve.process_parallel - INFO - Total failed program generations: 7
+2026-02-02 23:09:07,142 - openevolve.database - INFO - Saved database with 4 programs to ./outputs/Airport_output/openevolve_output/checkpoints/checkpoint_10
+2026-02-02 23:09:07,146 - openevolve.controller - INFO - Saved best program at checkpoint 10 with metrics: combined_score=0.5823, avg_bleu_score=0.4043, avg_meteor_score=0.6557, avg_sentences_length_score=0.6867
+2026-02-02 23:09:07,146 - openevolve.controller - INFO - Saved checkpoint at iteration 10 to ./outputs/Airport_output/openevolve_output/checkpoints/checkpoint_10
+2026-02-02 23:09:07,180 - openevolve.process_parallel - INFO - Stopped process pool
+2026-02-02 23:09:07,180 - openevolve.controller - INFO - Using tracked best program: b2f9eb03-4cab-4271-99a8-dd41d7669a48
+2026-02-02 23:09:07,180 - openevolve.controller - INFO - Evolution complete. Best program has metrics: combined_score=0.5823, avg_bleu_score=0.4043, avg_meteor_score=0.6557, avg_sentences_length_score=0.6867
+2026-02-02 23:09:07,185 - openevolve.controller - INFO - Saved best program to ./outputs/Airport_output/openevolve_output/best/best_program.py with program info to ./outputs/Airport_output/openevolve_output/best/best_program_info.json

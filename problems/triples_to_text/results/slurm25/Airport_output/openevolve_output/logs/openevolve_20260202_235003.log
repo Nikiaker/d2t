@@ -1,0 +1,132 @@
+2026-02-02 23:50:03,375 - openevolve.controller - INFO - Logging to ./outputs/Airport_output/openevolve_output/logs/openevolve_20260202_235003.log
+2026-02-02 23:50:03,429 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:50:03,434 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: google/codegemma-7b-it
+2026-02-02 23:50:03,438 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8
+2026-02-02 23:50:03,443 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8
+2026-02-02 23:50:03,461 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/gemma-3-27b-it-FP8-dynamic (weight: 0.70), google/codegemma-7b-it (weight: 0.30)
+2026-02-02 23:50:03,461 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8 (weight: 0.70), Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8 (weight: 0.30)
+2026-02-02 23:50:03,498 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/gemma-3-27b-it-FP8-dynamic (weight: 0.70), google/codegemma-7b-it (weight: 0.30)
+2026-02-02 23:50:03,498 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8 (weight: 0.70), Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8 (weight: 0.30)
+2026-02-02 23:50:03,499 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-02-02 23:50:03,500 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-02-02 23:50:03,501 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-02-02 23:50:12,720 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-02-02 23:50:12,720 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-02-02 23:50:12,720 - openevolve.controller - INFO - Initialized OpenEvolve with initial_program.py
+2026-02-02 23:50:12,720 - openevolve.controller - INFO - Adding initial program to database
+2026-02-02 23:50:26,575 - openevolve.evaluator - INFO - Evaluated program c9dbb1e6-017a-4944-94b3-f899eda0e3f1 in 13.85s: combined_score=0.5007, avg_bleu_score=0.2037, avg_meteor_score=0.4656, avg_sentences_length_score=0.8328
+2026-02-02 23:50:26,575 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2026-02-02 23:50:26,579 - openevolve.process_parallel - INFO - Initialized process parallel controller with 2 workers
+2026-02-02 23:50:26,579 - openevolve.process_parallel - INFO - Set max None tasks per child
+2026-02-02 23:50:26,580 - openevolve.process_parallel - INFO - Started process pool with 2 processes
+2026-02-02 23:50:26,580 - openevolve.controller - INFO - Using island-based evolution with 2 islands
+2026-02-02 23:50:26,580 - openevolve.database - INFO - Island Status:
+2026-02-02 23:50:26,580 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.5007, avg=0.5007, diversity=0.00, gen=0 (best: c9dbb1e6-017a-4944-94b3-f899eda0e3f1)
+2026-02-02 23:50:26,580 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-02-02 23:50:26,580 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 10 iterations (total: 11)
+2026-02-02 23:50:26,595 - openevolve.process_parallel - INFO - Early stopping disabled
+2026-02-02 23:50:26,660 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/gemma-3-27b-it-FP8-dynamic (weight: 0.70), google/codegemma-7b-it (weight: 0.30)
+2026-02-02 23:50:26,660 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/gemma-3-27b-it-FP8-dynamic (weight: 0.70), google/codegemma-7b-it (weight: 0.30)
+2026-02-02 23:50:26,660 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8 (weight: 0.70), Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8 (weight: 0.30)
+2026-02-02 23:50:26,660 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8 (weight: 0.70), Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8 (weight: 0.30)
+2026-02-02 23:50:26,723 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/gemma-3-27b-it-FP8-dynamic (weight: 0.70), google/codegemma-7b-it (weight: 0.30)
+2026-02-02 23:50:26,723 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8 (weight: 0.70), Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8 (weight: 0.30)
+2026-02-02 23:50:26,723 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/gemma-3-27b-it-FP8-dynamic (weight: 0.70), google/codegemma-7b-it (weight: 0.30)
+2026-02-02 23:50:26,723 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8 (weight: 0.70), Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8 (weight: 0.30)
+2026-02-02 23:50:26,725 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-02-02 23:50:26,725 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-02-02 23:50:30,010 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-02-02 23:50:30,011 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-02-02 23:50:30,011 - openevolve.llm.ensemble - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:50:30,311 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-02-02 23:50:30,311 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-02-02 23:50:30,312 - openevolve.llm.ensemble - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:50:36,751 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:50:36,760 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:50:37,410 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:50:37,416 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:50:55,064 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:50:55,066 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:50:55,075 - openevolve.process_parallel - WARNING - Iteration 2 error: LLM generated code is identical to parent code (no changes applied)
+2026-02-02 23:50:56,581 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:50:56,583 - openevolve.llm.ensemble - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:50:56,590 - openevolve.process_parallel - WARNING - Iteration 1 error: LLM generated code is identical to parent code (no changes applied)
+2026-02-02 23:51:12,749 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:51:54,811 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:51:54,813 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:52:45,007 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:52:45,010 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:52:45,016 - openevolve.process_parallel - WARNING - Iteration 3 error: LLM generated code is identical to parent code (no changes applied)
+2026-02-02 23:53:34,503 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:53:34,508 - openevolve.llm.ensemble - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:54:07,689 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:54:25,967 - openevolve.evaluator - INFO - Evaluated program e5fb5f05-636e-430d-8609-30f74b5121fc in 18.27s: combined_score=0.6270, avg_bleu_score=0.4417, avg_meteor_score=0.7525, avg_sentences_length_score=0.6867
+2026-02-02 23:54:25,968 - openevolve.llm.ensemble - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:54:25,976 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 5}
+2026-02-02 23:54:25,976 - openevolve.database - INFO - New best program e5fb5f05-636e-430d-8609-30f74b5121fc replaces c9dbb1e6-017a-4944-94b3-f899eda0e3f1 (combined_score: 0.5007 → 0.6270, +0.1263)
+2026-02-02 23:54:25,979 - openevolve.process_parallel - INFO - Iteration 5: Program e5fb5f05-636e-430d-8609-30f74b5121fc (parent: c9dbb1e6-017a-4944-94b3-f899eda0e3f1) completed in 100.96s
+2026-02-02 23:54:25,979 - openevolve.process_parallel - INFO - Metrics: combined_score=0.6270, avg_bleu_score=0.4417, avg_meteor_score=0.7525, avg_sentences_length_score=0.6867
+2026-02-02 23:54:25,979 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 5: e5fb5f05-636e-430d-8609-30f74b5121fc
+2026-02-02 23:54:25,979 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 5
+2026-02-02 23:54:25,979 - openevolve.database - INFO - Island Status:
+2026-02-02 23:54:25,980 - openevolve.database - INFO -  * Island 0: 2 programs, best=0.6270, avg=0.5638, diversity=2038.40, gen=1 (best: e5fb5f05-636e-430d-8609-30f74b5121fc)
+2026-02-02 23:54:25,980 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-02-02 23:54:25,998 - openevolve.database - INFO - Saved database with 2 programs to ./outputs/Airport_output/openevolve_output/checkpoints/checkpoint_5
+2026-02-02 23:54:26,001 - openevolve.controller - INFO - Saved best program at checkpoint 5 with metrics: combined_score=0.6270, avg_bleu_score=0.4417, avg_meteor_score=0.7525, avg_sentences_length_score=0.6867
+2026-02-02 23:54:26,002 - openevolve.controller - INFO - Saved checkpoint at iteration 5 to ./outputs/Airport_output/openevolve_output/checkpoints/checkpoint_5
+2026-02-02 23:54:34,483 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:54:34,486 - openevolve.llm.ensemble - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:54:38,436 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:54:38,440 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:54:42,630 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:54:42,632 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:54:50,446 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:55:08,301 - openevolve.evaluator - INFO - Evaluated program 9cee8422-c77a-4347-858c-8845c05871b6 in 17.85s: combined_score=0.3243, avg_bleu_score=0.0209, avg_meteor_score=0.1464, avg_sentences_length_score=0.8057
+2026-02-02 23:55:08,304 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:55:08,306 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 0, 'diversity': 0}
+2026-02-02 23:55:08,308 - openevolve.process_parallel - INFO - Iteration 6: Program 9cee8422-c77a-4347-858c-8845c05871b6 (parent: c9dbb1e6-017a-4944-94b3-f899eda0e3f1) completed in 42.33s
+2026-02-02 23:55:08,308 - openevolve.process_parallel - INFO - Metrics: combined_score=0.3243, avg_bleu_score=0.0209, avg_meteor_score=0.1464, avg_sentences_length_score=0.8057
+2026-02-02 23:55:59,806 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:55:59,808 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:56:12,851 - openevolve.evaluator - WARNING - Evaluation timed out after 300s
+2026-02-02 23:56:51,886 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:56:51,887 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:57:44,133 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:57:44,135 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:58:36,379 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:58:36,381 - openevolve.process_parallel - ERROR - LLM generation failed: No valid diffs found in response after 3 attempts
+2026-02-02 23:58:36,384 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:58:36,390 - openevolve.process_parallel - WARNING - Iteration 7 error: No valid diffs found in response
+2026-02-02 23:58:45,648 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:58:45,657 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 0, 'diversity': 0} (fitness: 0.324 -> 0.500)
+2026-02-02 23:58:45,659 - openevolve.process_parallel - INFO - Iteration 4: Program 05eeec7c-b4f5-4c34-b6b8-ba89582b7b08 (parent: c9dbb1e6-017a-4944-94b3-f899eda0e3f1) completed in 469.06s
+2026-02-02 23:58:45,659 - openevolve.process_parallel - INFO - Metrics: error=0.0000, timeout=1.0000
+2026-02-02 23:58:45,659 - openevolve.process_parallel - WARNING - ⚠️  No 'combined_score' metric found in evaluation results. Using average of all numeric metrics (0.5000) for evolution guidance. For better evolution results, please modify your evaluator to return a 'combined_score' metric that properly weights different aspects of program performance.
+2026-02-02 23:59:29,175 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:59:29,177 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:59:37,490 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:59:37,494 - openevolve.llm.ensemble - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:59:44,499 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:59:44,501 - openevolve.llm.ensemble - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:59:44,502 - openevolve.process_parallel - WARNING - Iteration 9 error: LLM generated code is identical to parent code (no changes applied)
+2026-02-03 00:00:01,517 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 00:00:01,520 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-03 00:00:23,662 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 00:00:23,668 - openevolve.process_parallel - WARNING - Iteration 10 error: LLM generated code is identical to parent code (no changes applied)
+2026-02-03 00:00:32,689 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 00:00:32,690 - openevolve.llm.ensemble - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-03 00:01:03,998 - httpx - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 00:01:04,001 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-03 00:01:53,707 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-03 00:01:53,708 - openevolve.process_parallel - ERROR - LLM generation failed: No valid diffs found in response after 3 attempts
+2026-02-03 00:01:53,719 - openevolve.process_parallel - WARNING - Iteration 8 error: No valid diffs found in response
+2026-02-03 00:01:53,719 - openevolve.process_parallel - INFO - ✅ Evolution completed - Maximum iterations reached
+2026-02-03 00:01:53,719 - openevolve.process_parallel - INFO - Total programs created: 3
+2026-02-03 00:01:53,719 - openevolve.process_parallel - INFO - Total failed program generations: 7
+2026-02-03 00:01:53,731 - openevolve.database - INFO - Saved database with 4 programs to ./outputs/Airport_output/openevolve_output/checkpoints/checkpoint_10
+2026-02-03 00:01:53,734 - openevolve.controller - INFO - Saved best program at checkpoint 10 with metrics: combined_score=0.6270, avg_bleu_score=0.4417, avg_meteor_score=0.7525, avg_sentences_length_score=0.6867
+2026-02-03 00:01:53,734 - openevolve.controller - INFO - Saved checkpoint at iteration 10 to ./outputs/Airport_output/openevolve_output/checkpoints/checkpoint_10
+2026-02-03 00:01:53,783 - openevolve.process_parallel - INFO - Stopped process pool
+2026-02-03 00:01:53,783 - openevolve.controller - INFO - Using tracked best program: e5fb5f05-636e-430d-8609-30f74b5121fc
+2026-02-03 00:01:53,783 - openevolve.controller - INFO - Evolution complete. Best program has metrics: combined_score=0.6270, avg_bleu_score=0.4417, avg_meteor_score=0.7525, avg_sentences_length_score=0.6867
+2026-02-03 00:01:53,788 - openevolve.controller - INFO - Saved best program to ./outputs/Airport_output/openevolve_output/best/best_program.py with program info to ./outputs/Airport_output/openevolve_output/best/best_program_info.json

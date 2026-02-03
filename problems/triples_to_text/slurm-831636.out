@@ -1,0 +1,284 @@
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connected (HTTP error): HTTP 401
+
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connected (HTTP error): HTTP 401
+
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connected (HTTP error): HTTP 401
+
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connected (HTTP error): HTTP 401
+
+2026-02-02 23:01:07,434 - INFO - Logging to ./outputs/Airport_output/openevolve_output/logs/openevolve_20260202_230107.log
+2026-02-02 23:01:07,560 - INFO - Initialized OpenAI LLM with model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:01:07,565 - INFO - Initialized OpenAI LLM with model: google/codegemma-7b-it
+2026-02-02 23:01:07,569 - INFO - Initialized OpenAI LLM with model: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8
+2026-02-02 23:01:07,574 - INFO - Initialized OpenAI LLM with model: Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8
+2026-02-02 23:01:07,592 - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/gemma-3-27b-it-FP8-dynamic (weight: 0.70), google/codegemma-7b-it (weight: 0.30)
+2026-02-02 23:01:07,592 - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8 (weight: 0.70), Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8 (weight: 0.30)
+2026-02-02 23:01:07,627 - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/gemma-3-27b-it-FP8-dynamic (weight: 0.70), google/codegemma-7b-it (weight: 0.30)
+2026-02-02 23:01:07,628 - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8 (weight: 0.70), Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8 (weight: 0.30)
+2026-02-02 23:01:07,661 - INFO - Initialized prompt sampler
+2026-02-02 23:01:07,666 - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-02-02 23:01:07,666 - INFO - Initialized program database with 0 programs
+[nltk_data] Downloading package wordnet to
+[nltk_data]     /home/inf151915/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package punkt_tab to
+[nltk_data]     /home/inf151915/nltk_data...
+[nltk_data]   Package punkt_tab is already up-to-date!
+[nltk_data] Downloading package omw-1.4 to
+[nltk_data]     /home/inf151915/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+2026-02-02 23:01:31,436 - INFO - Successfully loaded evaluation function from evaluator.py
+2026-02-02 23:01:31,436 - INFO - Initialized evaluator with evaluator.py
+2026-02-02 23:01:31,436 - INFO - Initialized OpenEvolve with initial_program.py
+2026-02-02 23:01:31,436 - INFO - Adding initial program to database
+2026-02-02 23:01:45,242 - INFO - Evaluated program 3f8e22bb-246b-42e9-bc6d-12336ef61ab8 in 13.81s: combined_score=0.5007, avg_bleu_score=0.2037, avg_meteor_score=0.4656, avg_sentences_length_score=0.8328
+2026-02-02 23:01:45,242 - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2026-02-02 23:01:45,247 - INFO - Initialized process parallel controller with 2 workers
+2026-02-02 23:01:45,247 - INFO - Set max None tasks per child
+2026-02-02 23:01:45,248 - INFO - Started process pool with 2 processes
+2026-02-02 23:01:45,248 - INFO - Using island-based evolution with 2 islands
+2026-02-02 23:01:45,248 - INFO - Island Status:
+2026-02-02 23:01:45,248 - INFO -  * Island 0: 1 programs, best=0.5007, avg=0.5007, diversity=0.00, gen=0 (best: 3f8e22bb-246b-42e9-bc6d-12336ef61ab8)
+2026-02-02 23:01:45,248 - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-02-02 23:01:45,248 - INFO - Starting process-based evolution from iteration 1 for 10 iterations (total: 11)
+2026-02-02 23:01:45,263 - INFO - Early stopping disabled
+2026-02-02 23:01:45,329 - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/gemma-3-27b-it-FP8-dynamic (weight: 0.70), google/codegemma-7b-it (weight: 0.30)
+2026-02-02 23:01:45,330 - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8 (weight: 0.70), Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8 (weight: 0.30)
+2026-02-02 23:01:45,331 - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/gemma-3-27b-it-FP8-dynamic (weight: 0.70), google/codegemma-7b-it (weight: 0.30)
+2026-02-02 23:01:45,332 - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8 (weight: 0.70), Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8 (weight: 0.30)
+2026-02-02 23:01:45,393 - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/gemma-3-27b-it-FP8-dynamic (weight: 0.70), google/codegemma-7b-it (weight: 0.30)
+2026-02-02 23:01:45,393 - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/gemma-3-27b-it-FP8-dynamic (weight: 0.70), google/codegemma-7b-it (weight: 0.30)
+2026-02-02 23:01:45,393 - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8 (weight: 0.70), Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8 (weight: 0.30)
+2026-02-02 23:01:45,393 - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-30B-A3B-Instruct-2507-FP8 (weight: 0.70), Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8 (weight: 0.30)
+2026-02-02 23:01:45,395 - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-02-02 23:01:45,395 - INFO - Set custom templates: system=evaluator_system_message, user=None
+[nltk_data] Downloading package wordnet to
+[nltk_data]     /home/inf151915/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package punkt_tab to
+[nltk_data]     /home/inf151915/nltk_data...
+[nltk_data]   Package punkt_tab is already up-to-date!
+[nltk_data] Downloading package omw-1.4 to
+[nltk_data]     /home/inf151915/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+[nltk_data] Downloading package wordnet to
+[nltk_data]     /home/inf151915/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package punkt_tab to
+[nltk_data]     /home/inf151915/nltk_data...
+[nltk_data]   Package punkt_tab is already up-to-date!
+[nltk_data] Downloading package omw-1.4 to
+[nltk_data]     /home/inf151915/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+2026-02-02 23:01:48,954 - INFO - Successfully loaded evaluation function from evaluator.py
+2026-02-02 23:01:48,954 - INFO - Initialized evaluator with evaluator.py
+2026-02-02 23:01:48,954 - INFO - Successfully loaded evaluation function from evaluator.py
+2026-02-02 23:01:48,954 - INFO - Initialized evaluator with evaluator.py
+2026-02-02 23:01:48,955 - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:01:48,955 - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:01:51,395 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:01:51,397 - WARNING - Error on attempt 1/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:01:56,409 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:01:56,409 - WARNING - Error on attempt 2/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:02:01,423 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:02:01,423 - WARNING - Error on attempt 3/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:02:06,436 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:02:06,436 - ERROR - All 4 attempts failed with error: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:02:06,437 - ERROR - LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:02:06,438 - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:02:06,447 - WARNING - Iteration 1 error: LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:02:25,707 - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:02:25,822 - INFO - Evaluated program 93d81584-0006-439e-a8be-d22c4a85a5d3 in 0.11s: combined_score=0.0000, error=float division by zero
+2026-02-02 23:02:25,824 - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:02:25,830 - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 5}
+2026-02-02 23:02:25,834 - INFO - Iteration 2: Program 93d81584-0006-439e-a8be-d22c4a85a5d3 (parent: 3f8e22bb-246b-42e9-bc6d-12336ef61ab8) completed in 36.87s
+2026-02-02 23:02:25,834 - INFO - Metrics: combined_score=0.0000, error=float division by zero
+2026-02-02 23:02:53,094 - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:02:53,102 - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:03:17,246 - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:03:17,248 - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:03:41,164 - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:04:07,872 - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:04:07,873 - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:04:07,880 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:04:07,880 - WARNING - Error on attempt 1/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:04:12,900 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:04:12,900 - WARNING - Error on attempt 2/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:04:17,918 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:04:17,918 - WARNING - Error on attempt 3/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:04:22,937 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:04:22,938 - ERROR - All 4 attempts failed with error: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:04:22,939 - ERROR - LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:04:22,940 - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:04:22,944 - WARNING - Iteration 4 error: LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:04:22,947 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:04:22,947 - WARNING - Error on attempt 1/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:04:27,960 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:04:27,960 - WARNING - Error on attempt 2/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:04:32,977 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:04:32,980 - WARNING - Error on attempt 3/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:04:37,989 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:04:37,990 - ERROR - All 4 attempts failed with error: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:04:37,990 - ERROR - LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:04:37,991 - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:04:37,995 - WARNING - Iteration 5 error: LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:05:27,360 - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:05:48,793 - INFO - Evaluated program b2f9eb03-4cab-4271-99a8-dd41d7669a48 in 127.63s: combined_score=0.5823, avg_bleu_score=0.4043, avg_meteor_score=0.6557, avg_sentences_length_score=0.6867
+2026-02-02 23:05:48,795 - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 9}
+2026-02-02 23:05:48,795 - INFO - New best program b2f9eb03-4cab-4271-99a8-dd41d7669a48 replaces 3f8e22bb-246b-42e9-bc6d-12336ef61ab8 (combined_score: 0.5007 → 0.5823, +0.0816)
+2026-02-02 23:05:48,795 - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:05:48,797 - INFO - Iteration 3: Program b2f9eb03-4cab-4271-99a8-dd41d7669a48 (parent: 3f8e22bb-246b-42e9-bc6d-12336ef61ab8) completed in 222.36s
+2026-02-02 23:05:48,797 - INFO - Metrics: combined_score=0.5823, avg_bleu_score=0.4043, avg_meteor_score=0.6557, avg_sentences_length_score=0.6867
+2026-02-02 23:05:48,797 - INFO - 🌟 New best solution found at iteration 3: b2f9eb03-4cab-4271-99a8-dd41d7669a48
+2026-02-02 23:05:52,260 - INFO - Evaluated program a77dfdb7-3d68-4074-b6a6-e49f2e41c9d2 in 24.90s: combined_score=0.5579, avg_bleu_score=0.3530, avg_meteor_score=0.6339, avg_sentences_length_score=0.6867
+2026-02-02 23:05:52,261 - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:05:52,263 - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 8, 'diversity': 3}
+2026-02-02 23:05:52,265 - INFO - Iteration 6: Program a77dfdb7-3d68-4074-b6a6-e49f2e41c9d2 (parent: 93d81584-0006-439e-a8be-d22c4a85a5d3) completed in 74.27s
+2026-02-02 23:05:52,265 - INFO - Metrics: combined_score=0.5579, avg_bleu_score=0.3530, avg_meteor_score=0.6339, avg_sentences_length_score=0.6867
+2026-02-02 23:05:52,274 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:05:52,275 - WARNING - Error on attempt 1/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:05:57,288 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:05:57,288 - WARNING - Error on attempt 2/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:06:02,301 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:06:02,302 - WARNING - Error on attempt 3/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:06:07,316 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:06:07,316 - ERROR - All 4 attempts failed with error: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:06:07,317 - ERROR - LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:06:07,318 - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:06:07,325 - WARNING - Iteration 8 error: LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:06:07,326 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:06:07,327 - WARNING - Error on attempt 1/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:06:12,340 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:06:12,340 - WARNING - Error on attempt 2/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:06:17,354 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:06:17,354 - WARNING - Error on attempt 3/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:06:22,368 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:06:22,369 - ERROR - All 4 attempts failed with error: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:06:22,369 - ERROR - LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:06:22,370 - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:06:22,376 - WARNING - Iteration 9 error: LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:06:39,425 - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:06:39,427 - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:06:39,436 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:06:39,437 - WARNING - Error on attempt 1/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:06:44,448 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:06:44,448 - WARNING - Error on attempt 2/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:06:49,460 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:06:49,460 - WARNING - Error on attempt 3/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:06:54,474 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:06:54,475 - ERROR - All 4 attempts failed with error: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:06:54,475 - ERROR - LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:06:54,484 - WARNING - Iteration 7 error: LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:07:13,170 - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:07:13,171 - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:08:02,923 - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:08:02,924 - INFO - Sampled island model: RedHatAI/gemma-3-27b-it-FP8-dynamic
+2026-02-02 23:08:52,058 - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-02-02 23:08:52,059 - INFO - Sampled island model: google/codegemma-7b-it
+2026-02-02 23:08:52,066 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:08:52,066 - WARNING - Error on attempt 1/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:08:57,077 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:08:57,078 - WARNING - Error on attempt 2/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:09:02,098 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:09:02,099 - WARNING - Error on attempt 3/4: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}. Retrying...
+2026-02-02 23:09:07,118 - INFO - HTTP Request: POST http://localhost:2994/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-02-02 23:09:07,119 - ERROR - All 4 attempts failed with error: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:09:07,120 - ERROR - LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:09:07,129 - WARNING - Iteration 10 error: LLM generation failed: Error code: 400 - {'error': {'message': 'System role not supported System role not supported', 'type': 'BadRequestError', 'param': None, 'code': 400}}
+2026-02-02 23:09:07,129 - INFO - ✅ Evolution completed - Maximum iterations reached
+2026-02-02 23:09:07,129 - INFO - Total programs created: 3
+2026-02-02 23:09:07,129 - INFO - Total failed program generations: 7
+2026-02-02 23:09:07,142 - INFO - Saved database with 4 programs to ./outputs/Airport_output/openevolve_output/checkpoints/checkpoint_10
+2026-02-02 23:09:07,146 - INFO - Saved best program at checkpoint 10 with metrics: combined_score=0.5823, avg_bleu_score=0.4043, avg_meteor_score=0.6557, avg_sentences_length_score=0.6867
+2026-02-02 23:09:07,146 - INFO - Saved checkpoint at iteration 10 to ./outputs/Airport_output/openevolve_output/checkpoints/checkpoint_10
+2026-02-02 23:09:07,180 - INFO - Stopped process pool
+2026-02-02 23:09:07,180 - INFO - Using tracked best program: b2f9eb03-4cab-4271-99a8-dd41d7669a48
+2026-02-02 23:09:07,180 - INFO - Evolution complete. Best program has metrics: combined_score=0.5823, avg_bleu_score=0.4043, avg_meteor_score=0.6557, avg_sentences_length_score=0.6867
+2026-02-02 23:09:07,185 - INFO - Saved best program to ./outputs/Airport_output/openevolve_output/best/best_program.py with program info to ./outputs/Airport_output/openevolve_output/best/best_program_info.json
+
+Trial: Error - float division by zero
+Traceback (most recent call last):
+  File "/home/inf151915/d2t/problems/triples_to_text/evaluator.py", line 206, in evaluate
+    bleu_results = bleu.compute(predictions=[generated_text], references=[test_sentence.example_texts])
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/inf151915/miniconda3/envs/openevolve-env/lib/python3.12/site-packages/evaluate/module.py", line 467, in compute
+    output = self._compute(**inputs, **compute_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/inf151915/.cache/huggingface/modules/evaluate_modules/metrics/evaluate-metric--bleu/9e0985c1200e367cce45605ce0ecb5ede079894e0f24f54613fca08eeb8aff76/bleu.py", line 122, in _compute
+    score = compute_bleu(
+            ^^^^^^^^^^^^^
+  File "/home/inf151915/.cache/huggingface/modules/evaluate_modules/metrics/evaluate-metric--bleu/9e0985c1200e367cce45605ce0ecb5ede079894e0f24f54613fca08eeb8aff76/nmt_bleu.py", line 108, in compute_bleu
+    bp = math.exp(1 - 1. / ratio)
+                      ~~~^~~~~~~
+ZeroDivisionError: float division by zero
+
+
+Evolution complete!
+Best program metrics:
+  combined_score: 0.5823
+  avg_bleu_score: 0.4043
+  avg_meteor_score: 0.6557
+  avg_sentences_length_score: 0.6867
+
+Latest checkpoint saved at: ./outputs/Airport_output/openevolve_output/checkpoints/checkpoint_10
+To resume, use: --checkpoint ./outputs/Airport_output/openevolve_output/checkpoints/checkpoint_10
+
+Successfully loaded 4 JSON files
+Number of programs from island 0: 4
+Number of programs from island 1: 0
+Number of programs from island 2: 0
+Number of programs from island 3: 0
+Saved plot to /home/inf151915/d2t/problems/triples_to_text/outputs/Airport_output/islands_sum_radii.png
+Number of programs from island 0: 4
+Number of programs from island 1: 0
+Number of programs from island 2: 0
+Number of programs from island 3: 0
+Saved plot to /home/inf151915/d2t/problems/triples_to_text/outputs/Airport_output/best_islands_sum_radii.png
+
+[nltk_data] Downloading package wordnet to
+[nltk_data]     /home/inf151915/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package punkt_tab to
+[nltk_data]     /home/inf151915/nltk_data...
+[nltk_data]   Package punkt_tab is already up-to-date!
+[nltk_data] Downloading package omw-1.4 to
+[nltk_data]     /home/inf151915/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+
+Final Evaluation Results for domain 'Airport':
+Average BLEU Score: 0.4405348719474284
+Average METEOR Score: 0.6170510489422745
+Average SENLEN Score: 0.6247695627958787
+
+/var/spool/slurmd/job831636/slurm_script: line 71: vllm: command not found
+/var/spool/slurmd/job831636/slurm_script: line 73: vllm: command not found
+/var/spool/slurmd/job831636/slurm_script: line 74: vllm: command not found
+/var/spool/slurmd/job831636/slurm_script: line 76: vllm: command not found
+/var/spool/slurmd/job831636/slurm_script: line 77: vllm: command not found
+/var/spool/slurmd/job831636/slurm_script: line 80: vllm: command not found

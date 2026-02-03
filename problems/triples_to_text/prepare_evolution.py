@@ -10,6 +10,8 @@ if __name__ == "__main__":
         webnlg_domains = json.load(f)
     
     domains: list[str] = webnlg_domains["domains"]
+
+    Path("./outputs").mkdir(exist_ok=True)
     
     # Process each domain
     for domain in domains:

@@ -3,14 +3,21 @@ import time
 import urllib.request
 import urllib.error
 
-URL = "http://localhost:2993/v1/models"
+import argparse
+
 RETRY_DELAY_SECONDS = 10
 TIMEOUT_SECONDS = 30
 
 def main():
+    parser = argparse.ArgumentParser(description="test server response")
+    parser.add_argument("--port", type=int, default=2993, help="Port number of the server to test")
+    args = parser.parse_args()
+
+    url = f"http://localhost:{args.port}/v1/models"
+
     while True:
         try:
-            with urllib.request.urlopen(URL, timeout=TIMEOUT_SECONDS) as resp:
+            with urllib.request.urlopen(url, timeout=TIMEOUT_SECONDS) as resp:
                 # Any HTTP response means the connection succeeded
                 status = getattr(resp, "status", None) or resp.getcode()
                 print(f"Connected: HTTP {status}")
