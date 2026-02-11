@@ -40,6 +40,7 @@ for i in range(ISLANDS_NUM):
             unique_iterations[iteration] = p
 
     island_i_programs = list(unique_iterations.values())[1:]
+    print(f"Number of unique iterations for island {i}: {len(island_i_programs)}")
     islands.append(island_i_programs)
     #for p in island_i_programs:
     #    print(f"  - ID: {p['id']} Iteration: {p['iteration_found']} Score: {p['metrics']['sum_radii']:.4f}")
@@ -52,8 +53,14 @@ for i, island in enumerate(islands):
     if not island:
         continue
     island_sorted = sorted(island, key=lambda p: p['iteration_found'])
-    x = [p['iteration_found'] for p in island_sorted]
-    y = [p['metrics']['combined_score'] for p in island_sorted]
+    x = []
+    y = []
+    for p in island_sorted:
+        if p['metrics'] and 'combined_score' in p['metrics']:
+            x.append(p['iteration_found'])
+            y.append(p['metrics']['combined_score'])
+        else:
+            print(f"Warning: Missing 'combined_score' for program ID {p['id']} in island {i} at iteration {p['iteration_found']}")
     plt.plot(x, y, label=f'Island {i}', color=colors[i % len(colors)], marker='o', linewidth=1.5)
 
 plt.xlabel('Iteracja')
@@ -77,6 +84,9 @@ for i in range(ISLANDS_NUM):
 
     unique_iterations = {}
     for p in island_i_programs:
+        if 'combined_score' not in p['metrics']:
+            print(f"Warning: Missing 'combined_score' for program ID {p['id']} in island {i} at iteration {p['iteration_found']}")
+            continue
         iteration = p['iteration_found']
         if iteration not in unique_iterations or p['metrics']['combined_score'] > unique_iterations[iteration]['metrics']['combined_score']:
             unique_iterations[iteration] = p
@@ -85,6 +95,8 @@ for i in range(ISLANDS_NUM):
 
     best_score_radii = -float('inf')
     for p in island_i_programs:
+        if 'combined_score' not in p['metrics']:
+            continue
         if p['metrics']['combined_score'] > best_score_radii:
             best_score_radii = p['metrics']['combined_score']
         else:
