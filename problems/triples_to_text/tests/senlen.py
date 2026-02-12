@@ -8,6 +8,6 @@ class Senlen:
 
         pred_len = len(prediction.split("."))
 
-        score = pred_len / avg_ref_len if avg_ref_len >= pred_len else avg_ref_len / pred_len
+        score = abs(pred_len - avg_ref_len)
 
         return {"senlen": score}

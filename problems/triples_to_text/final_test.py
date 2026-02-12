@@ -78,10 +78,12 @@ spec.loader.exec_module(program)
 bleu = ev.load("bleu")
 meteor = ev.load("meteor")
 senlen = Senlen()
+bleurt = ev.load("bleurt", module_type="metric")
 
 bleu_scores: list[float] = []
 meteor_scores: list[float] = []
 senlen_scores: list[float] = []
+bleurt_scores: list[float] = []
 
 for test_sentence in category_test_sentences:
     triples = [Triple(test_triple.subject, test_triple.predicate, test_triple.object) for test_triple in test_sentence.triples]
@@ -99,6 +101,7 @@ for test_sentence in category_test_sentences:
         bleu_results = 0.0
         meteor_results = 0.0
         senlen_results = 0.0
+        bleurt_score = 0.0
     else:
         # Calculate BLEU score with weights
         bleu_results = bleu.compute(predictions=[generated_text], references=[test_sentence.example_texts])
@@ -115,14 +118,24 @@ for test_sentence in category_test_sentences:
         senlen_score = float(senlen_results['senlen'])
         senlen_scores.append(senlen_score)
 
+        # Calculate BLEURT score
+        bleurt_individual_scores = []
+        for ref in test_sentence.example_texts:
+            bleurt_results = bleurt.compute(predictions=[generated_text], references=[ref])
+            bleurt_individual_scores.append(float(bleurt_results['scores'][0]))
+        bleurt_score = float(np.mean(bleurt_individual_scores))
+        bleurt_scores.append(bleurt_score)
+
 avg_bleu_score = float(np.mean(bleu_scores))
 avg_meteor_score = float(np.mean(meteor_scores))
 avg_senlen_score = float(np.mean(senlen_scores))
+avg_bleurt_score = float(np.mean(bleurt_scores))
 
 print(f"Final Evaluation Results for domain '{WEBNLG_DOMAIN}':")
 print(f"Average BLEU Score: {avg_bleu_score}")
 print(f"Average METEOR Score: {avg_meteor_score}")
 print(f"Average SENLEN Score: {avg_senlen_score}")
+print(f"Average BLEURT Score: {avg_bleurt_score}")
 
 output_path = "./scores.txt"
 with open(output_path, "w", encoding="utf-8") as f:
@@ -130,3 +143,4 @@ with open(output_path, "w", encoding="utf-8") as f:
     f.write(f"Average BLEU Score: {avg_bleu_score}\n")
     f.write(f"Average METEOR Score: {avg_meteor_score}\n")
     f.write(f"Average SENLEN Score: {avg_senlen_score}\n")
+    f.write(f"Average BLEURT Score: {avg_bleurt_score}\n")
