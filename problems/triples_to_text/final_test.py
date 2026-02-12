@@ -95,20 +95,25 @@ for test_sentence in category_test_sentences:
     else:
         sys.exit(1)
 
-    # Calculate BLEU score with weights
-    bleu_results = bleu.compute(predictions=[generated_text], references=[test_sentence.example_texts])
-    bleu_score = float(bleu_results['bleu'])
-    bleu_scores.append(bleu_score)
+    if generated_text.strip() == "":
+        bleu_results = 0.0
+        meteor_results = 0.0
+        senlen_results = 0.0
+    else:
+        # Calculate BLEU score with weights
+        bleu_results = bleu.compute(predictions=[generated_text], references=[test_sentence.example_texts])
+        bleu_score = float(bleu_results['bleu'])
+        bleu_scores.append(bleu_score)
 
-    # Calculate METEOR score
-    meteor_results = meteor.compute(predictions=[generated_text], references=[test_sentence.example_texts])
-    meteor_score = float(meteor_results['meteor'])
-    meteor_scores.append(meteor_score)
+        # Calculate METEOR score
+        meteor_results = meteor.compute(predictions=[generated_text], references=[test_sentence.example_texts])
+        meteor_score = float(meteor_results['meteor'])
+        meteor_scores.append(meteor_score)
 
-    # Calculate SENLEN score
-    senlen_results = senlen.compute(predictions=[generated_text], references=[test_sentence.example_texts])
-    senlen_score = float(senlen_results['senlen'])
-    senlen_scores.append(senlen_score)
+        # Calculate SENLEN score
+        senlen_results = senlen.compute(predictions=[generated_text], references=[test_sentence.example_texts])
+        senlen_score = float(senlen_results['senlen'])
+        senlen_scores.append(senlen_score)
 
 avg_bleu_score = float(np.mean(bleu_scores))
 avg_meteor_score = float(np.mean(meteor_scores))

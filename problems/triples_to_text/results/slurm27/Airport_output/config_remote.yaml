@@ -1,0 +1,58 @@
+# Configuration for function minimization example
+max_iterations: 1000
+checkpoint_interval: 100
+diff_based_evolution: true
+max_code_length: 20000
+log_level: "INFO"
+random_seed: null
+island_unique_models: true
+
+# LLM configuration
+llm:
+  models:
+    - name: "RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic"
+      island: 0
+      weight: 1.0
+      api_base: "http://localhost:2993/v1"
+      api_key: "AiIsMyLife25"
+    - name: "Qwen/Qwen3-Next-80B-A3B-Instruct-FP8"
+      island: 1
+      weight: 1.0
+      api_base: "http://localhost:2994/v1"
+      api_key: "AiIsMyLife25"
+
+  max_tokens: 2000
+  timeout: 120
+
+# Prompt configuration
+prompt:
+  template_dir: "./outputs/Airport_output/templates/"
+  num_top_programs: 0
+  num_diverse_programs: 0
+  num_inspirations: 1
+  include_artifacts: true
+  suggest_simplification_after_chars: 10000
+
+# Database configuration
+database:
+  population_size: 50
+  archive_size: 10
+  num_islands: 2
+  exploration_ratio: 0.0
+  exploitation_ratio: 1.0
+  migration_interval: 50
+  migration_rate: 0.2
+  roulette_selection: true
+  db_path: "./outputs/Airport_output/all_programs/"
+  
+# Evaluator configuration
+evaluator:
+  cascade_evaluation: false
+  parallel_evaluations: 2
+
+evolution_trace:
+  enabled: true
+  format: 'json'
+  include_code: true
+  include_prompts: true
+  buffer_size: 10

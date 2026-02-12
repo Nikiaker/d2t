@@ -9,8 +9,8 @@ conda run -n vllm-env vllm serve \
     --port 2993 \
     --api-key AiIsMyLife25 \
     --gpu-memory-utilization 0.99 \
-    --max-model-len 30000 \
-    --enforce-eager \
+    --kv-cache-memory=8000000000 \
+    --max-model-len 16000 \
     > "$SERVER_LOG" 2>&1 &
 SERVER_PID=$!
 

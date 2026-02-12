@@ -10,25 +10,15 @@ island_unique_models: true
 # LLM configuration
 llm:
   models:
-    - name: "RedHatAI/gemma-3-27b-it-FP8-dynamic"
+    - name: "RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic"
       island: 0
-      weight: 0.7
+      weight: 1.0
       api_base: "http://localhost:2993/v1"
       api_key: "AiIsMyLife25"
-    - name: "google/codegemma-7b-it"
-      island: 0
-      weight: 0.3
+    - name: "Qwen/Qwen3-Next-80B-A3B-Instruct-FP8"
+      island: 1
+      weight: 1.0
       api_base: "http://localhost:2994/v1"
-      api_key: "AiIsMyLife25"
-    - name: "Qwen/Qwen3-30B-A3B-Instruct-2507-FP8"
-      island: 1
-      weight: 0.7
-      api_base: "http://localhost:2995/v1"
-      api_key: "AiIsMyLife25"
-    - name: "Qwen/Qwen3-Coder-30B-A3B-Instruct-FP8"
-      island: 1
-      weight: 0.3
-      api_base: "http://localhost:2996/v1"
       api_key: "AiIsMyLife25"
 
   max_tokens: 2000
@@ -61,7 +51,7 @@ evaluator:
   parallel_evaluations: 2
 
 evolution_trace:
-  enabled: false
+  enabled: true
   format: 'json'
   include_code: true
   include_prompts: true
