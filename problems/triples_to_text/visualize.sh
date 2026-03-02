@@ -1,1 +1,1 @@
-python ../../openevolve/scripts/visualizer.py --path ./openevolve_output
+python ../../openevolve/scripts/visualizer.py --path ./outputs/Airport_output/openevolve_output

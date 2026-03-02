@@ -8,3 +8,9 @@ The default templates are in openevolve/configs/default_config.yaml
 w apply_diff problemem są entery, czasem są czasem nie ma
 [v] problemem są taby, które w oryginalnym kodzie są, a w diff nie ma
 [v] niektóre entry mają puste spacje i to też przeszkadza
+
+przy odpowiedzi są takie sytuacje:
+[] search/replace i znaki są w dowolnej kolejności
+[] doklejany jest ```python``` z jakiegoś powodu
+
+[] poprawkowicz może powinnien mieć oryginalny kod...

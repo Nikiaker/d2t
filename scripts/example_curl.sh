@@ -1,7 +1,7 @@
-curl -X POST "http://localhost:8000/v1/chat/completions" \
+curl -X POST "http://localhost:8001/v1/chat/completions" \
 	-H "Content-Type: application/json" \
 	--data '{
-		"model": "RedHatAI/Meta-Llama-3.1-8B-Instruct-FP8",
+		"model": "RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic",
 		"messages": [
 			{
 				"role": "user",

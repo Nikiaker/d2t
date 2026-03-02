@@ -23,6 +23,7 @@ llm:
 
   max_tokens: 2000
   timeout: 120
+  manual_mode: true
 
 # Prompt configuration
 prompt:

@@ -67,10 +67,10 @@ if __name__ == "__main__":
         with open(config_path, "r") as f:
             config_content = f.read()
         
-        config_content = config_content.replace(
-            'template_dir: "./templates/"',
-            f'template_dir: "{output_dir}/templates/"'
-        )
+        #config_content = config_content.replace(
+        #    'template_dir: "./templates/"',
+        #    f'template_dir: "{output_dir}/templates/"'
+        #)
 
         config_content = config_content.replace(
             'db_path: "./all_programs/"',

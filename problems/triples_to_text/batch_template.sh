@@ -1,12 +1,13 @@
 #!/bin/bash
 #SBATCH -w hgx1
 #SBATCH -p hgx
-#SBATCH --gres=gpu:2
+#SBATCH -c4
+#SBATCH --gres=gpu:4
 #SBATCH -n1
 SERVER_LOG1="/home/inf151915/vllm-server1.log"
 SERVER_LOG2="/home/inf151915/vllm-server2.log"
 
-CUDA_VISIBLE_DEVICES=0 \
+CUDA_VISIBLE_DEVICES=0,1 \
 conda run -n vllm-env vllm serve \
 	RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic \
     --port 2993 \
@@ -19,8 +20,7 @@ SERVER_PID1=$!
 
 conda run -n openevolve-env python ~/d2t/.conda/test-response.py --port 2993
 
-CUDA_VISIBLE_DEVICES=1 \
-SERVER_LOG="/home/inf151915/vllm-server.log"
+CUDA_VISIBLE_DEVICES=2,3 \
 conda run -n vllm-env vllm serve \
 	Qwen/Qwen3-Next-80B-A3B-Instruct-FP8 \
     --port 2994 \
