@@ -34,5 +34,4 @@ Example of a valid diff format:
 >>>>>>> REPLACE
 
 The SEARCH section must exactly match the code in the current program, even with it's indentations and endlines.
-Do not provide explanations, only the SEARCH/REPLACE section.
-IMPORTANT: Do not rewrite the entire program - focus on targeted improvements.
+Give just one SEARCH/REPLACE section.

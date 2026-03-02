@@ -4,14 +4,22 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [                
-                    
         {
             "name": "Python: Current File",
             "type": "debugpy",
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "cwd": "${fileDirname}"            
+            "cwd": "${fileDirname}"
+        },
+        {
+            "name": "Python: Openevolve Run",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/openevolve/openevolve-run.py",
+            "args": ["initial_program.py", "evaluator.py", "--config", "./outputs/Airport_output/config_remote.yaml", "--output", "./outputs/Airport_output/openevolve_output"],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/problems/triples_to_text"
         }
     ]
 }

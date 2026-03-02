@@ -1,0 +1,4 @@
+{
+  "id": "4f0c0660-f3e2-46ef-bed2-23b09584610f",
+  "answer": "<<<<<<< SEARCH\n        if pred in direct:\n            return direct[pred]\n=======\n        # Prefer lexicalizations that better match common reference phrasings.\n        if pred == \"runwayLength\":\n            return f\"runway length is {o}\"\n        if pred == \"order\":\n            return f\"belongs to the order of {o}\"\n        if pred == \"officialLanguage\":\n            return f\"official language is {o}\"\n\n        if pred in direct:\n            return direct[pred]\n>>>>>>> REPLACE"
+}

@@ -1,0 +1,108 @@
+2026-03-02 22:19:33,547 - openevolve.controller - INFO - Logging to ./outputs/Airport_output/openevolve_output/logs/openevolve_20260302_221933.log
+2026-03-02 22:19:33,547 - openevolve.controller - INFO - Manual mode enabled. Queue dir: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue
+2026-03-02 22:19:33,548 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2026-03-02 22:19:33,548 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic (weight: 1.00)
+2026-03-02 22:19:33,548 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic (weight: 1.00)
+2026-03-02 22:19:33,551 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-03-02 22:19:33,552 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-03-02 22:19:33,553 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-03-02 22:19:35,272 - datasets - INFO - TensorFlow version 2.20.0 available.
+2026-03-02 22:19:39,354 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-03-02 22:19:39,354 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-03-02 22:19:39,354 - openevolve.controller - INFO - Initialized OpenEvolve with initial_program.py
+2026-03-02 22:19:39,354 - openevolve.evolution_trace - INFO - Evolution tracer initialized: outputs/Airport_output/openevolve_output/evolution_trace.json
+2026-03-02 22:19:39,354 - openevolve.controller - INFO - Evolution tracing enabled: ./outputs/Airport_output/openevolve_output/evolution_trace.json
+2026-03-02 22:19:39,354 - openevolve.controller - INFO - Adding initial program to database
+2026-03-02 22:19:49,565 - openevolve.evaluator - INFO - Evaluated program 687304e1-7260-470f-b295-635059ade060 in 10.21s: combined_score=0.2037, BLUE score=0.2037
+2026-03-02 22:19:49,565 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2026-03-02 22:19:49,566 - openevolve.process_parallel - INFO - Initialized process parallel controller with 1 workers
+2026-03-02 22:19:49,566 - openevolve.process_parallel - INFO - Set max None tasks per child
+2026-03-02 22:19:49,567 - openevolve.process_parallel - INFO - Started process pool with 1 processes
+2026-03-02 22:19:49,567 - openevolve.controller - INFO - Using island-based evolution with 1 islands
+2026-03-02 22:19:49,567 - openevolve.database - INFO - Island Status:
+2026-03-02 22:19:49,567 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.2037, avg=0.2037, diversity=0.00, gen=0 (best: 687304e1-7260-470f-b295-635059ade060)
+2026-03-02 22:19:49,567 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 1000 iterations (total: 1001)
+2026-03-02 22:19:49,567 - openevolve.process_parallel - INFO - Submitting iteration 1 to island 0
+2026-03-02 22:19:49,575 - openevolve.process_parallel - INFO - Submitting iteration 2 to island 0
+2026-03-02 22:19:49,575 - openevolve.process_parallel - INFO - Early stopping disabled
+2026-03-02 22:19:49,920 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic (weight: 1.00)
+2026-03-02 22:19:49,921 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic (weight: 1.00)
+2026-03-02 22:19:49,923 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-03-02 22:19:52,986 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-03-02 22:19:52,986 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-03-02 22:19:52,986 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2026-03-02 22:19:52,987 - openevolve.llm.openai - INFO - [manual_mode] Task enqueued: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue/6c88481c-3e56-4542-a560-f9497a8985b3.json
+2026-03-02 22:21:17,074 - openevolve.llm.openai - INFO - [manual_mode] Answer received for 6c88481c-3e56-4542-a560-f9497a8985b3
+2026-03-02 22:21:24,322 - openevolve.evaluator - INFO - Evaluated program 94835c11-7dee-478a-8043-231f6fe0355f in 7.25s: combined_score=0.4356, BLUE score=0.4356
+2026-03-02 22:21:24,323 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2026-03-02 22:21:24,324 - openevolve.llm.openai - INFO - [manual_mode] Task enqueued: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue/87f2b7b8-de71-4ef1-9301-7cf337c676be.json
+2026-03-02 22:21:24,331 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 5}
+2026-03-02 22:21:24,331 - openevolve.database - INFO - New best program 94835c11-7dee-478a-8043-231f6fe0355f replaces 687304e1-7260-470f-b295-635059ade060 (combined_score: 0.2037 → 0.4356, +0.2319)
+2026-03-02 22:21:24,332 - openevolve.process_parallel - INFO - Iteration 1: Program 94835c11-7dee-478a-8043-231f6fe0355f (parent: 687304e1-7260-470f-b295-635059ade060) completed in 91.34s
+2026-03-02 22:21:24,332 - openevolve.process_parallel - INFO - Metrics: combined_score=0.4356, BLUE score=0.4356
+2026-03-02 22:21:24,332 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 1: 94835c11-7dee-478a-8043-231f6fe0355f
+2026-03-02 22:21:24,332 - openevolve.process_parallel - INFO - Submitting iteration 3 to island 0
+2026-03-02 22:21:48,848 - openevolve.llm.openai - INFO - [manual_mode] Answer received for 87f2b7b8-de71-4ef1-9301-7cf337c676be
+2026-03-02 22:21:55,807 - openevolve.evaluator - INFO - Evaluated program 2cba9271-4390-4c36-bb24-1cc970e87db1 in 6.96s: combined_score=0.4356, BLUE score=0.4356
+2026-03-02 22:21:55,809 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2026-03-02 22:21:55,809 - openevolve.llm.openai - INFO - [manual_mode] Task enqueued: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue/a30d1b89-2ba9-4482-be2d-9b606663241c.json
+2026-03-02 22:21:55,815 - openevolve.process_parallel - WARNING - Iteration 2: Duplicate program detected in island 0, skipping addition
+2026-03-02 22:21:55,815 - openevolve.process_parallel - INFO - Submitting iteration 4 to island 0
+2026-03-02 22:23:02,877 - openevolve.llm.openai - INFO - [manual_mode] Answer received for a30d1b89-2ba9-4482-be2d-9b606663241c
+2026-03-02 22:23:10,109 - openevolve.evaluator - INFO - Evaluated program 2ae7c471-01b1-4ed1-8f5e-70f2765fff5c in 7.23s: combined_score=0.4335, BLUE score=0.4335
+2026-03-02 22:23:10,111 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2026-03-02 22:23:10,112 - openevolve.llm.openai - INFO - [manual_mode] Task enqueued: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue/1f87e0cb-e614-4a54-8e2b-7c3e4d16b9c9.json
+2026-03-02 22:23:10,112 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 0}
+2026-03-02 22:23:10,113 - openevolve.process_parallel - INFO - Iteration 3: Program 2ae7c471-01b1-4ed1-8f5e-70f2765fff5c (parent: 687304e1-7260-470f-b295-635059ade060) completed in 74.30s
+2026-03-02 22:23:10,113 - openevolve.process_parallel - INFO - Metrics: combined_score=0.4335, BLUE score=0.4335
+2026-03-02 22:23:10,113 - openevolve.process_parallel - INFO - Submitting iteration 5 to island 0
+2026-03-02 22:25:31,758 - openevolve.llm.openai - INFO - [manual_mode] Answer received for 1f87e0cb-e614-4a54-8e2b-7c3e4d16b9c9
+2026-03-02 22:25:38,715 - openevolve.evaluator - INFO - Evaluated program 85cb4944-678e-4133-adc5-cd40e3cb95e9 in 6.96s: combined_score=0.4629, BLUE score=0.4629
+2026-03-02 22:25:38,716 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2026-03-02 22:25:38,717 - openevolve.llm.openai - INFO - [manual_mode] Task enqueued: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue/b0d88bc2-259e-44a5-a591-c4ade28fc079.json
+2026-03-02 22:25:38,723 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 9, 'diversity': 0} (fitness: 0.434 -> 0.463)
+2026-03-02 22:25:38,723 - openevolve.database - INFO - New best program 85cb4944-678e-4133-adc5-cd40e3cb95e9 replaces 94835c11-7dee-478a-8043-231f6fe0355f (combined_score: 0.4356 → 0.4629, +0.0273)
+2026-03-02 22:25:38,724 - openevolve.process_parallel - INFO - Iteration 4: Program 85cb4944-678e-4133-adc5-cd40e3cb95e9 (parent: 94835c11-7dee-478a-8043-231f6fe0355f) completed in 148.60s
+2026-03-02 22:25:38,724 - openevolve.process_parallel - INFO - Metrics: combined_score=0.4629, BLUE score=0.4629
+2026-03-02 22:25:38,724 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 4: 85cb4944-678e-4133-adc5-cd40e3cb95e9
+2026-03-02 22:25:38,724 - openevolve.process_parallel - INFO - Submitting iteration 6 to island 0
+2026-03-02 22:30:14,994 - openevolve.llm.openai - INFO - [manual_mode] Answer received for b0d88bc2-259e-44a5-a591-c4ade28fc079
+2026-03-02 22:30:22,244 - openevolve.evaluator - INFO - Evaluated program be26b8fd-bd61-48b4-91f1-e66228b64731 in 7.25s: combined_score=0.4566, BLUE score=0.4566
+2026-03-02 22:30:22,246 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2026-03-02 22:30:22,246 - openevolve.llm.openai - INFO - [manual_mode] Task enqueued: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue/4f0c0660-f3e2-46ef-bed2-23b09584610f.json
+2026-03-02 22:30:22,253 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 2}
+2026-03-02 22:30:22,253 - openevolve.process_parallel - INFO - Iteration 5: Program be26b8fd-bd61-48b4-91f1-e66228b64731 (parent: 94835c11-7dee-478a-8043-231f6fe0355f) completed in 283.53s
+2026-03-02 22:30:22,253 - openevolve.process_parallel - INFO - Metrics: combined_score=0.4566, BLUE score=0.4566
+2026-03-02 22:30:22,253 - openevolve.process_parallel - INFO - Submitting iteration 7 to island 0
+2026-03-02 22:32:17,870 - openevolve.llm.openai - INFO - [manual_mode] Answer received for 4f0c0660-f3e2-46ef-bed2-23b09584610f
+2026-03-02 22:32:24,487 - openevolve.evaluator - INFO - Evaluated program 3eb5a134-0c39-48c2-8a45-61cf6227e559 in 6.62s: combined_score=0.4446, BLUE score=0.4446
+2026-03-02 22:32:24,488 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2026-03-02 22:32:24,489 - openevolve.llm.openai - INFO - [manual_mode] Task enqueued: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue/537c0d20-f383-4e7a-a6c7-74e59a6393d4.json
+2026-03-02 22:32:24,492 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 8, 'diversity': 0}
+2026-03-02 22:32:24,493 - openevolve.process_parallel - INFO - Iteration 6: Program 3eb5a134-0c39-48c2-8a45-61cf6227e559 (parent: 85cb4944-678e-4133-adc5-cd40e3cb95e9) completed in 122.24s
+2026-03-02 22:32:24,493 - openevolve.process_parallel - INFO - Metrics: combined_score=0.4446, BLUE score=0.4446
+2026-03-02 22:32:24,493 - openevolve.process_parallel - INFO - Submitting iteration 8 to island 0
+2026-03-02 22:35:15,163 - openevolve.llm.openai - INFO - [manual_mode] Answer received for 537c0d20-f383-4e7a-a6c7-74e59a6393d4
+2026-03-02 22:35:21,982 - openevolve.evaluator - INFO - Evaluated program c6f6efec-173e-48f9-aa24-96c8311856e2 in 6.82s: combined_score=0.4557, BLUE score=0.4557
+2026-03-02 22:35:21,984 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2026-03-02 22:35:21,984 - openevolve.llm.openai - INFO - [manual_mode] Task enqueued: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue/bf349b3b-6248-410e-a1c9-84b0ecf3062d.json
+2026-03-02 22:35:21,992 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 7, 'diversity': 0}
+2026-03-02 22:35:21,992 - openevolve.process_parallel - INFO - Iteration 7: Program c6f6efec-173e-48f9-aa24-96c8311856e2 (parent: 687304e1-7260-470f-b295-635059ade060) completed in 177.49s
+2026-03-02 22:35:21,992 - openevolve.process_parallel - INFO - Metrics: combined_score=0.4557, BLUE score=0.4557
+2026-03-02 22:35:21,992 - openevolve.process_parallel - INFO - Submitting iteration 9 to island 0
+2026-03-02 22:36:49,573 - openevolve.llm.openai - INFO - [manual_mode] Answer received for bf349b3b-6248-410e-a1c9-84b0ecf3062d
+2026-03-02 22:36:56,580 - openevolve.evaluator - INFO - Evaluated program 64aa1ab0-0341-4bdd-96c5-dc2f0de6df2b in 7.01s: combined_score=0.4571, BLUE score=0.4571
+2026-03-02 22:36:56,582 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2026-03-02 22:36:56,583 - openevolve.llm.openai - INFO - [manual_mode] Task enqueued: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue/fbad9d09-0d3c-4398-b382-68b21915861a.json
+2026-03-02 22:36:56,589 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 9, 'diversity': 2} (fitness: 0.457 -> 0.457)
+2026-03-02 22:36:56,589 - openevolve.process_parallel - INFO - Iteration 8: Program 64aa1ab0-0341-4bdd-96c5-dc2f0de6df2b (parent: 94835c11-7dee-478a-8043-231f6fe0355f) completed in 94.60s
+2026-03-02 22:36:56,589 - openevolve.process_parallel - INFO - Metrics: combined_score=0.4571, BLUE score=0.4571
+2026-03-02 22:36:56,590 - openevolve.process_parallel - INFO - Submitting iteration 10 to island 0
+2026-03-02 22:38:00,147 - openevolve.llm.openai - INFO - [manual_mode] Answer received for fbad9d09-0d3c-4398-b382-68b21915861a
+2026-03-02 22:38:06,714 - openevolve.evaluator - INFO - Evaluated program bfabda5a-10c6-4f41-8907-4aad254411f3 in 6.57s: combined_score=0.4599, BLUE score=0.4599
+2026-03-02 22:38:06,716 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2026-03-02 22:38:06,717 - openevolve.llm.openai - INFO - [manual_mode] Task enqueued: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue/8a9c8c3c-fca1-4d11-837d-05ea217bea04.json
+2026-03-02 22:38:06,726 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 7, 'diversity': 0} (fitness: 0.456 -> 0.460)
+2026-03-02 22:38:06,727 - openevolve.process_parallel - INFO - Iteration 9: Program bfabda5a-10c6-4f41-8907-4aad254411f3 (parent: 94835c11-7dee-478a-8043-231f6fe0355f) completed in 70.13s
+2026-03-02 22:38:06,727 - openevolve.process_parallel - INFO - Metrics: combined_score=0.4599, BLUE score=0.4599
+2026-03-02 22:38:06,727 - openevolve.process_parallel - INFO - Submitting iteration 11 to island 0
