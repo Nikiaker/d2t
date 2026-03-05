@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -w hgx1
+#SBATCH -w hgx2
 #SBATCH -p hgx
 #SBATCH -c4
 #SBATCH --gres=gpu:4
@@ -20,7 +20,6 @@ SERVER_PID1=$!
 conda run -n openevolve-env python ~/d2t/.conda/test-response.py --port 2993
 
 CUDA_VISIBLE_DEVICES=2,3 \
-SERVER_LOG="/home/inf151915/vllm-server.log"
 conda run -n vllm-env vllm serve \
 	Qwen/Qwen3-Next-80B-A3B-Instruct-FP8 \
     --port 2994 \

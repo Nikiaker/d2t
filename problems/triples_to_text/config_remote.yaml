@@ -23,7 +23,7 @@ llm:
 
   max_tokens: 2000
   timeout: 120
-  manual_mode: true
+  manual_mode: false
 
 # Prompt configuration
 prompt:
@@ -49,7 +49,7 @@ database:
 # Evaluator configuration
 evaluator:
   cascade_evaluation: false
-  parallel_evaluations: 2
+  parallel_evaluations: 1
 
 evolution_trace:
   enabled: true
