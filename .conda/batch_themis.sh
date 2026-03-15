@@ -1,0 +1,1 @@
+vllm serve "PKU-ONELab/Themis" --port 2993 --chat-template ~/d2t/jinja/llama.jinja
