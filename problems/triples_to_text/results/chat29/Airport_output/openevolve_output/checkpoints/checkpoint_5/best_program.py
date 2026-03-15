@@ -16,13 +16,13 @@ def predict(triples: list[Triple]) -> str:
 
     predicate_templates = {
         "cityServed": lambda s, o: f"{s} serves the city of {o}",
-        "elevationAboveTheSeaLevel": lambda s, o: f"is {o} metres above sea level",
-        "elevationAboveTheSeaLevelInFeet": lambda s, o: f"is {o} feet above sea level",
-        "elevationAboveTheSeaLevelInMetres": lambda s, o: f"is {o} metres above sea level",
+        "elevationAboveTheSeaLevel": lambda s, o: f"has an elevation of {o} metres above sea level",
+        "elevationAboveTheSeaLevelInFeet": lambda s, o: f"has an elevation of {o} feet above sea level",
+        "elevationAboveTheSeaLevelInMetres": lambda s, o: f"has an elevation of {o} metres above sea level",
         "location": lambda s, o: f"is located in {o}",
         "operatingOrganisation": lambda s, o: f"is operated by {o}",
-        "runwayLength": lambda s, o: f"has a runway length of {o}",
-        "runwayName": lambda s, o: f"has a runway name of {o}",
+        "runwayLength": lambda s, o: f"has a runway length of {o} metres",
+        "runwayName": lambda s, o: f"has a runway named {o}",
         "country": lambda s, o: f"is in {o}",
         "isPartOf": lambda s, o: f"is part of {o}",
         "1stRunwayLengthFeet": lambda s, o: f"has a first runway length of {o} feet",
@@ -42,7 +42,7 @@ def predict(triples: list[Triple]) -> str:
         "nativeName": lambda s, o: f"is natively known as {o}",
         "leaderParty": lambda s, o: f"is led by the {o}",
         "capital": lambda s, o: f"the capital of {s} is {o}",
-        "language": lambda s, o: f"{o.replace(' language', '')} is a language spoken in {s}",
+        "language": lambda s, o: f"uses the {o}",
         "officialLanguage": lambda s, o: f"the official language of {s} is {o}",
         "leader": lambda s, o: f"is led by {o}",
         "owner": lambda s, o: f"is owned by {o}",
@@ -78,7 +78,7 @@ def predict(triples: list[Triple]) -> str:
     # Standalone predicates that form their own sentence with full subject
     standalone_predicates = {
         "capital", "officialLanguage", "largestCity", "countySeat",
-        "mayor", "currency", "chief", "leaderTitle", "demonym", "language"
+        "mayor", "currency", "chief", "leaderTitle", "demonym"
     }
 
     # Group triples by subject
@@ -115,10 +115,12 @@ def predict(triples: list[Triple]) -> str:
             # Check if this predicate needs standalone sentence
             if pred in standalone_predicates:
                 standalone_phrases.append(phrase)
-            elif phrase.startswith(subj) or (len(phrase) > 1 and phrase[0].isupper() and not phrase.startswith(subj)):
-                standalone_phrases.append(phrase)
             else:
-                subj_phrases.append(phrase)
+                # Check if template already includes subject
+                if phrase.startswith(subj):
+                    standalone_phrases.append(phrase)
+                else:
+                    subj_phrases.append(phrase)
 
         if subj_phrases:
             # Combine subject-relative phrases

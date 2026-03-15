@@ -1,0 +1,30 @@
+fix na agenta
+
+system:
+user:
+agent:
+from dataclasses import dataclass
+
+@dataclass
+class Triple:
+    subject: str
+    predicate: str
+    object: str
+
+# EVOLVE-BLOCK-START
+
+def predict(triples: list[Triple]) -> str:
+
+    .....
+    
+    
+zamienny themis z blue
+
+
+większy model
+
+kimi
+
+only themis
+
+silny model i nowy

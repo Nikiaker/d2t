@@ -3,9 +3,9 @@ from best_program import Triple, predict
 if __name__ == "__main__":
     # Example triples
     triples = [
-        Triple(subject="Warsaw", predicate="isPartOf", object="Poland"),
-        Triple(subject="Heathrow Airport", predicate="runwayLength", object="3902"),
-        Triple(subject="Heathrow Airport", predicate="icaoLocationIdentifier", object="EGLL"),
+        Triple(subject="Aarhus Airport", predicate="location", object="Tirstrup"),
+        Triple(subject="Tirstrup", predicate="country", object="Denmark"),
+        Triple(subject="Denmark", predicate="language", object="Faroese language"),
     ]
 
     # Generate text from triples

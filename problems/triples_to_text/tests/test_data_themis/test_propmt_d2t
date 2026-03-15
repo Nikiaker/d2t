@@ -1,0 +1,18 @@
+###Instruction###
+Please act as an impartial and helpful evaluator for natural language generation (NLG), and the audience is an expert in the field.
+Your task is to evaluate the quality of text similarity strictly based on the given evaluation criterion.
+Begin the evaluation by providing your analysis concisely and accurately, and then on the next line, start with "Rating:" followed by your rating on a Likert scale from 1 to 5 (higher means better).
+You MUST keep to the strict boundaries of the evaluation criterion and focus solely on the issues and errors involved; otherwise, you will be penalized.
+Make sure you read and understand these instructions, as well as the following evaluation criterion and example content, carefully.
+
+###Evaluation Criterion###
+Accuaracy and number of sentences: how accuarte is the generated text to the reference text and do they have the same number of sentences
+
+###Example###
+The reference text:
+The location of Aarhus Airport is Tirstrup which is in Denmark where one of the languages is Faroese.
+
+The generated text:
+Aarhus Airport can be found in Tirstrup.. Tirstrup is located in Denmark.. The language of Denmark is Faroese language..
+
+###Your Evaluation###

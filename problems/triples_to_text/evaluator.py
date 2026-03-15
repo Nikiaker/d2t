@@ -236,6 +236,7 @@ def evaluate(program_path):
                     txt += f"\nThe example correct sentences are:\n"
                     for ref in test_sentence.example_texts:
                         txt += f"{ref}\n"
+                    txt += "\nTry to understand why the program might have performed poorly on this example and improve the program so that it generates a correct text based on those triples.\n"
                     low_score_artifacts[f"poor_program_score_{len(low_score_artifacts)}"] = txt
 
                 success_count += 1
