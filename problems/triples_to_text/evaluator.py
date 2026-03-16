@@ -19,6 +19,9 @@ from dataclasses import dataclass
 import os
 import random
 from tests.senlen import Senlen
+import yaml
+from openai import OpenAI
+import re
 
 @dataclass
 class TestTriple:
@@ -33,6 +36,25 @@ class TestTriple:
 class TestSentence:
     triples: list[TestTriple]
     example_texts: list[str]
+
+@dataclass
+class ThemisEvaluation:
+    review: str
+    rating: float
+
+CONFIG_PATH = os.getenv("CONFIG_PATH", "config_remote.yaml")
+
+with open(CONFIG_PATH, "r") as f:
+    config = yaml.safe_load(f)
+
+THEMIS_ENABLED = config['evaluator']['themis_enabled']
+THEMIS_NAME = config['evaluator']['themis_name']
+THEMIS_API_BASE = config['evaluator']['themis_api_base']
+THEMIS_API_KEY = config['evaluator']['themis_api_key']
+
+themis_client: OpenAI | None = None
+if THEMIS_ENABLED:
+    themis_client = OpenAI(base_url=THEMIS_API_BASE, api_key=THEMIS_API_KEY)
 
 bleu = ev.load("bleu")
 meteor = ev.load("meteor")
@@ -103,7 +125,27 @@ def safe_float(value):
     except (TypeError, ValueError):
         print(f"Warning: Could not convert {value} of type {type(value)} to float")
         return 0.0
+    
+def parse_themis_response(content: str) -> tuple[str, float]:
+    """
+    Expected format:
+    {review}
+    Rating: {number from 1 to 5}
+    """
+    text = (content or "").strip()
 
+    match = re.search(
+        r"^\s*Rating\s*:\s*([1-5](?:\.\d+)?)\s*$",
+        text,
+        flags=re.IGNORECASE | re.MULTILINE,
+    )
+
+    if not match:
+        return text, 0.0
+
+    review = text[:match.start()].strip()
+    rating = safe_float(match.group(1))
+    return review, rating
 
 def evaluate(program_path):
     """
@@ -163,6 +205,7 @@ def evaluate(program_path):
         #meteor_scores: list[float] = []
         #bleurt_scores: list[float] = []
         #senlen_scores: list[float] = []
+        themis_scores: list[ThemisEvaluation] = []
 
         success_count = 0
         low_score_artifacts: dict[str, str] = {}
@@ -208,6 +251,24 @@ def evaluate(program_path):
                     #bleurt_score = 0.0
                     #senlen_score = 0.0
                 else:
+                    if themis_client:
+                        source = "\n".join([f"{triple.subject}, {triple.predicate}, {triple.object}" for triple in triples])
+                        target = generated_text
+
+                        themis_response = themis_client.chat.completions.create(
+                            model=THEMIS_NAME,
+                            messages=[
+                                {
+                                    "role": "user",
+                                    "content": f"###Instruction###\nPlease act as an impartial and helpful evaluator for natural language generation (NLG), and the audience is an expert in the field.\nYour task is to evaluate the quality of text similarity strictly based on the given evaluation criterion.\nBegin the evaluation by providing your analysis concisely and accurately, and then on the next line, start with \"Rating:\" followed by your rating on a Likert scale from 1 to 5 (higher means better).\nYou MUST keep to the strict boundaries of the evaluation criterion and focus solely on the issues and errors involved; otherwise, you will be penalized.\nMake sure you read and understand these instructions, as well as the following evaluation criterion and example content, carefully.\n\n###Evaluation Criterion###\nAccuaracy and number of sentences: The generated text must accurately reference the triples. There cannot be any extra information that was not present in the triples. If possible there must be just one complex sentence instead of multiple sentences.\n\n###Example###\nThe triples in the form (subject, predicate, object):\n{source}\n\nThe generated text:\n{target}\n\n###Your Evaluation###"
+                                }
+                            ]
+                        )
+                        themis_score_str = themis_response.choices[0].message.content.strip()
+                        themis_review, themis_score = parse_themis_response(themis_score_str)
+                        themis_evaluation = ThemisEvaluation(review=themis_review, rating=themis_score)
+                        themis_scores.append(themis_evaluation)
+
                     # Calculate BLEU score with weights
                     bleu_results = bleu.compute(predictions=[generated_text], references=[test_sentence.example_texts])
                     bleu_score = float(bleu_results['bleu'])
@@ -228,7 +289,7 @@ def evaluate(program_path):
                     #senlen_score = float(senlen_results['senlen'])
                     #senlen_scores.append(senlen_score)
 
-                if bleu_score < LOW_SCORE_THRESHOLD:
+                if bleu_score < LOW_SCORE_THRESHOLD and not themis_client:
                     txt = f"The program did very poorly with the given triples, getting BLEU score {bleu_score}. The input triples were:\n"
                     for triple in triples:
                         txt += f"{triple.subject} | {triple.predicate} | {triple.object}\n"
@@ -237,6 +298,15 @@ def evaluate(program_path):
                     for ref in test_sentence.example_texts:
                         txt += f"{ref}\n"
                     txt += "\nTry to understand why the program might have performed poorly on this example and improve the program so that it generates a correct text based on those triples.\n"
+                    low_score_artifacts[f"poor_program_score_{len(low_score_artifacts)}"] = txt
+
+                if themis_client and themis_score < 5:
+                    txt = f"The program got scored by THEMIS with the score {themis_score}. The input triples were:\n"
+                    for triple in triples:
+                        txt += f"{triple.subject} | {triple.predicate} | {triple.object}\n"
+                    txt += f"\nThe generated text was:\n{generated_text}\n"
+                    txt += f"\nThe THEMIS review is:\n{themis_review}\n"
+                    txt += f"\nBased on the review try to understand why the program might have performed poorly and improve the program accordingly.\n"
                     low_score_artifacts[f"poor_program_score_{len(low_score_artifacts)}"] = txt
 
                 success_count += 1
@@ -272,14 +342,15 @@ def evaluate(program_path):
         #avg_meteor_score = float(np.mean(meteor_scores))
         #avg_bleurt_score = float(np.mean(bleurt_scores))
         #avg_senlen_score = float(np.mean(senlen_scores))
+        avg_themis_score = float(np.mean([eval.rating for eval in themis_scores])) if themis_scores else 0.0
 
-        combined_score = avg_bleu_score 
+        combined_score = avg_themis_score if themis_client else avg_bleu_score
 
         # Choose random n low_score_artifacts if too many
         if len(low_score_artifacts) > LOW_SCORE_ARTIFACTS_LIMIT:
             keys = list(low_score_artifacts.keys())
             selected_keys = random.sample(keys, LOW_SCORE_ARTIFACTS_LIMIT)
-            low_score_artifacts = {f"LOW BLUE SCORE {i}": low_score_artifacts[k] for i, k in enumerate(selected_keys)}
+            low_score_artifacts = {f"LOW SCORE {i}": low_score_artifacts[k] for i, k in enumerate(selected_keys)}
 
         return EvaluationResult(
             metrics={
