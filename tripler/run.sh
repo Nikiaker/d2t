@@ -1,0 +1,1 @@
+python app.py --input input_data.json --output output_data.json --model Qwen/Qwen3.5-35B-A3B --base-url http://localhost:8016/v1 --api-key none

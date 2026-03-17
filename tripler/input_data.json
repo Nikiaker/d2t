@@ -1,0 +1,132 @@
+{
+    "forecasts": [
+        {
+            "cod": "200",
+            "message": 0,
+            "cnt": 40,
+            "list": [
+                {
+                    "dt": 1704304800,
+                    "main": {
+                        "temp": 17.58,
+                        "feels_like": 15.84,
+                        "temp_min": 17.58,
+                        "temp_max": 17.58,
+                        "pressure": 1017,
+                        "sea_level": 1017,
+                        "grnd_level": 776,
+                        "humidity": 17,
+                        "temp_kf": 0
+                    },
+                    "weather": [
+                        {
+                            "id": 802,
+                            "main": "Clouds",
+                            "description": "scattered clouds",
+                            "icon": "03d"
+                        }
+                    ],
+                    "clouds": {
+                        "all": 35
+                    },
+                    "wind": {
+                        "speed": 2.41,
+                        "deg": 257,
+                        "gust": 2.4
+                    },
+                    "visibility": 10000,
+                    "pop": 0,
+                    "sys": {
+                        "pod": "d"
+                    },
+                    "dt_txt": "2024-01-03 18:00:00"
+                },
+                {
+                    "dt": 1704315600,
+                    "main": {
+                        "temp": 18.44,
+                        "feels_like": 16.78,
+                        "temp_min": 18.44,
+                        "temp_max": 20.17,
+                        "pressure": 1015,
+                        "sea_level": 1015,
+                        "grnd_level": 774,
+                        "humidity": 17,
+                        "temp_kf": -1.73
+                    },
+                    "weather": [
+                        {
+                            "id": 801,
+                            "main": "Clouds",
+                            "description": "few clouds",
+                            "icon": "02d"
+                        }
+                    ],
+                    "clouds": {
+                        "all": 23
+                    },
+                    "wind": {
+                        "speed": 4.29,
+                        "deg": 240,
+                        "gust": 4.51
+                    },
+                    "visibility": 10000,
+                    "pop": 0,
+                    "sys": {
+                        "pod": "d"
+                    },
+                    "dt_txt": "2024-01-03 21:00:00"
+                },
+                {
+                    "dt": 1704326400,
+                    "main": {
+                        "temp": 15.48,
+                        "feels_like": 13.87,
+                        "temp_min": 14.43,
+                        "temp_max": 15.48,
+                        "pressure": 1016,
+                        "sea_level": 1016,
+                        "grnd_level": 772,
+                        "humidity": 30,
+                        "temp_kf": 1.05
+                    },
+                    "weather": [
+                        {
+                            "id": 801,
+                            "main": "Clouds",
+                            "description": "few clouds",
+                            "icon": "02d"
+                        }
+                    ],
+                    "clouds": {
+                        "all": 12
+                    },
+                    "wind": {
+                        "speed": 2.5,
+                        "deg": 223,
+                        "gust": 2.6
+                    },
+                    "visibility": 10000,
+                    "pop": 0,
+                    "sys": {
+                        "pod": "d"
+                    },
+                    "dt_txt": "2024-01-04 00:00:00"
+                }
+            ],
+            "city": {
+                "id": 4012957,
+                "name": "Contepec",
+                "coord": {
+                    "lat": 19.9914,
+                    "lon": -100.2257
+                },
+                "country": "MX",
+                "population": 3623,
+                "timezone": -21600,
+                "sunrise": 1704287786,
+                "sunset": 1704327219
+            }
+        }
+    ]
+}
