@@ -147,6 +147,14 @@ def parse_themis_response(content: str) -> tuple[str, float]:
     rating = safe_float(match.group(1))
     return review, rating
 
+def fetch_completion(prompts: list[str]):
+    responses = themis_client.completions.create(
+        model=THEMIS_NAME,
+        prompt=prompts,
+        max_tokens=1000,
+    )
+    return responses
+
 def evaluate(program_path):
     """
     Evaluate the program by running it multiple times and checking how close
@@ -207,6 +215,10 @@ def evaluate(program_path):
         #senlen_scores: list[float] = []
         themis_scores: list[ThemisEvaluation] = []
 
+        themis_chat_messages: list[str] = []
+        generated_texts: list[str] = []
+        triples_list: list[list[Triple]] = []
+
         success_count = 0
         low_score_artifacts: dict[str, str] = {}
         error_msg = ""
@@ -254,20 +266,11 @@ def evaluate(program_path):
                     if themis_client:
                         source = "\n".join([f"{triple.subject}, {triple.predicate}, {triple.object}" for triple in triples])
                         target = generated_text
+                        chat_message = f"###Instruction###\nPlease act as an impartial and helpful evaluator for natural language generation (NLG), and the audience is an expert in the field.\nYour task is to evaluate the quality of text similarity strictly based on the given evaluation criterion.\nBegin the evaluation by providing your analysis concisely and accurately, and then on the next line, start with \"Rating:\" followed by your rating on a Likert scale from 1 to 5 (higher means better).\nYou MUST keep to the strict boundaries of the evaluation criterion and focus solely on the issues and errors involved; otherwise, you will be penalized.\nMake sure you read and understand these instructions, as well as the following evaluation criterion and example content, carefully.\n\n###Evaluation Criterion###\nAccuaracy and number of sentences: The generated text must accurately reference the triples. There cannot be any extra information that was not present in the triples. If possible there must be just one complex sentence instead of multiple sentences.\n\n###Example###\nThe triples in the form (subject, predicate, object):\n{source}\n\nThe generated text:\n{target}\n\n###Your Evaluation###"
 
-                        themis_response = themis_client.chat.completions.create(
-                            model=THEMIS_NAME,
-                            messages=[
-                                {
-                                    "role": "user",
-                                    "content": f"###Instruction###\nPlease act as an impartial and helpful evaluator for natural language generation (NLG), and the audience is an expert in the field.\nYour task is to evaluate the quality of text similarity strictly based on the given evaluation criterion.\nBegin the evaluation by providing your analysis concisely and accurately, and then on the next line, start with \"Rating:\" followed by your rating on a Likert scale from 1 to 5 (higher means better).\nYou MUST keep to the strict boundaries of the evaluation criterion and focus solely on the issues and errors involved; otherwise, you will be penalized.\nMake sure you read and understand these instructions, as well as the following evaluation criterion and example content, carefully.\n\n###Evaluation Criterion###\nAccuaracy and number of sentences: The generated text must accurately reference the triples. There cannot be any extra information that was not present in the triples. If possible there must be just one complex sentence instead of multiple sentences.\n\n###Example###\nThe triples in the form (subject, predicate, object):\n{source}\n\nThe generated text:\n{target}\n\n###Your Evaluation###"
-                                }
-                            ]
-                        )
-                        themis_score_str = themis_response.choices[0].message.content.strip()
-                        themis_review, themis_score = parse_themis_response(themis_score_str)
-                        themis_evaluation = ThemisEvaluation(review=themis_review, rating=themis_score)
-                        themis_scores.append(themis_evaluation)
+                        themis_chat_messages.append(chat_message)
+                        triples_list.append(triples)
+                        generated_texts.append(generated_text)
 
                     # Calculate BLEU score with weights
                     bleu_results = bleu.compute(predictions=[generated_text], references=[test_sentence.example_texts])
@@ -300,15 +303,6 @@ def evaluate(program_path):
                     txt += "\nTry to understand why the program might have performed poorly on this example and improve the program so that it generates a correct text based on those triples.\n"
                     low_score_artifacts[f"poor_program_score_{len(low_score_artifacts)}"] = txt
 
-                if themis_client and themis_score < 5:
-                    txt = f"The program got scored by THEMIS with the score {themis_score}. The input triples were:\n"
-                    for triple in triples:
-                        txt += f"{triple.subject} | {triple.predicate} | {triple.object}\n"
-                    txt += f"\nThe generated text was:\n{generated_text}\n"
-                    txt += f"\nThe THEMIS review is:\n{themis_review}\n"
-                    txt += f"\nBased on the review try to understand why the program might have performed poorly and improve the program accordingly.\n"
-                    low_score_artifacts[f"poor_program_score_{len(low_score_artifacts)}"] = txt
-
                 success_count += 1
 
             except TimeoutError as e:
@@ -320,6 +314,25 @@ def evaluate(program_path):
                 print(traceback.format_exc())
                 error_msg = str(e)
                 break
+
+        # Batch themis
+        if themis_client and themis_chat_messages:
+            results = fetch_completion(themis_chat_messages)
+            for i, result in enumerate(results.choices):
+                review, rating = parse_themis_response(result.text)
+                themis_scores.append(ThemisEvaluation(review=review, rating=rating))
+
+                if rating < 5:
+                    triples = triples_list[i]
+                    generated_text = generated_texts[i]
+
+                    txt = f"The program got scored by THEMIS with the score {rating}. The input triples were:\n"
+                    for triple in triples:
+                        txt += f"{triple.subject} | {triple.predicate} | {triple.object}\n"
+                    txt += f"\nThe generated text was:\n{generated_text}\n"
+                    txt += f"\nThe THEMIS review is:\n{review}\n"
+                    txt += f"\nBased on the review try to understand why the program might have performed poorly and improve the program accordingly.\n"
+                    low_score_artifacts[f"poor_program_score_{len(low_score_artifacts)}"] = txt
 
         # If all trials failed, return zero scores
         if success_count == 0 or error_msg != "":
@@ -345,6 +358,15 @@ def evaluate(program_path):
         avg_themis_score = float(np.mean([eval.rating for eval in themis_scores])) if themis_scores else 0.0
 
         combined_score = avg_themis_score if themis_client else avg_bleu_score
+
+        perfect_score_num = len(category_test_sentences) - len(low_score_artifacts) if low_score_artifacts else len(category_test_sentences)
+        all_score_num = len(category_test_sentences)
+
+        score_multiplier = perfect_score_num / all_score_num
+        combined_score *= score_multiplier
+
+        if themis_client:
+            combined_score = combined_score / 5.0
 
         # Choose random n low_score_artifacts if too many
         if len(low_score_artifacts) > LOW_SCORE_ARTIFACTS_LIMIT:

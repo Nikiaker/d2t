@@ -1,0 +1,161 @@
+2026-03-21 21:15:03,047 - openevolve.controller - INFO - Logging to ./outputs/Airport_output/openevolve_output/logs/openevolve_20260321_211503.log
+2026-03-21 21:15:03,047 - openevolve.controller - INFO - Manual mode enabled. Queue dir: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue
+2026-03-21 21:15:03,047 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2026-03-21 21:15:03,047 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: Qwen/Qwen3-Next-80B-A3B-Instruct-FP8
+2026-03-21 21:15:03,048 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic (weight: 1.00)
+2026-03-21 21:15:03,048 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-Next-80B-A3B-Instruct-FP8 (weight: 1.00)
+2026-03-21 21:15:03,048 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic (weight: 1.00)
+2026-03-21 21:15:03,048 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-Next-80B-A3B-Instruct-FP8 (weight: 1.00)
+2026-03-21 21:15:03,053 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-03-21 21:15:03,054 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-03-21 21:15:03,054 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-03-21 21:15:03,977 - datasets - INFO - TensorFlow version 2.20.0 available.
+2026-03-21 21:15:07,863 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-03-21 21:15:07,863 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-03-21 21:15:07,863 - openevolve.controller - INFO - Initialized OpenEvolve with initial_program.py
+2026-03-21 21:15:07,864 - openevolve.evolution_trace - INFO - Evolution tracer initialized: outputs/Airport_output/openevolve_output/evolution_trace.json
+2026-03-21 21:15:07,864 - openevolve.controller - INFO - Evolution tracing enabled: ./outputs/Airport_output/openevolve_output/evolution_trace.json
+2026-03-21 21:15:07,864 - openevolve.controller - INFO - Adding initial program to database
+2026-03-21 21:15:43,592 - httpx - INFO - HTTP Request: POST http://localhost:8001/v1/completions "HTTP/1.1 200 OK"
+2026-03-21 21:15:43,820 - openevolve.evaluator - INFO - Evaluated program 9b23e20f-1a35-47c3-8945-be2e58204185 in 35.96s: combined_score=0.8544, BLUE score=0.2037
+2026-03-21 21:15:43,821 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2026-03-21 21:15:43,821 - openevolve.process_parallel - INFO - Initialized process parallel controller with 1 workers
+2026-03-21 21:15:43,822 - openevolve.process_parallel - INFO - Set max None tasks per child
+2026-03-21 21:15:43,822 - openevolve.process_parallel - INFO - Started process pool with 1 processes
+2026-03-21 21:15:43,823 - openevolve.controller - INFO - Using island-based evolution with 2 islands
+2026-03-21 21:15:43,823 - openevolve.database - INFO - Island Status:
+2026-03-21 21:15:43,823 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.8544, avg=0.8544, diversity=0.00, gen=0 (best: 9b23e20f-1a35-47c3-8945-be2e58204185)
+2026-03-21 21:15:43,823 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-03-21 21:15:43,823 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 10 iterations (total: 11)
+2026-03-21 21:15:43,823 - openevolve.process_parallel - INFO - Submitting iteration 1 to island 0
+2026-03-21 21:15:43,832 - openevolve.process_parallel - INFO - Submitting iteration 2 to island 1
+2026-03-21 21:15:43,832 - openevolve.process_parallel - INFO - Early stopping disabled
+2026-03-21 21:15:43,835 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic (weight: 1.00)
+2026-03-21 21:15:43,835 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-Next-80B-A3B-Instruct-FP8 (weight: 1.00)
+2026-03-21 21:15:43,837 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic (weight: 1.00)
+2026-03-21 21:15:43,837 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3-Next-80B-A3B-Instruct-FP8 (weight: 1.00)
+2026-03-21 21:15:43,839 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-03-21 21:15:47,042 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-03-21 21:15:47,042 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-03-21 21:15:47,043 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2026-03-21 21:15:47,043 - openevolve.llm.openai - INFO - [manual_mode] Task enqueued: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue/95a047d5-9437-41e8-b650-9050cd12e34d.json
+2026-03-21 21:17:27,146 - openevolve.llm.openai - INFO - [manual_mode] Answer received for 95a047d5-9437-41e8-b650-9050cd12e34d
+2026-03-21 21:18:04,699 - httpx - INFO - HTTP Request: POST http://localhost:8001/v1/completions "HTTP/1.1 200 OK"
+2026-03-21 21:18:04,899 - openevolve.evaluator - INFO - Evaluated program 36e776c2-2557-48d5-9210-bffa76914d68 in 37.75s: combined_score=4.4491, BLUE score=0.4150
+2026-03-21 21:18:04,900 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2026-03-21 21:18:04,900 - openevolve.llm.openai - INFO - [manual_mode] Task enqueued: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue/1d640bcd-fe51-4ff4-a751-0ce4ede635af.json
+2026-03-21 21:18:04,907 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 5}
+2026-03-21 21:18:04,907 - openevolve.database - INFO - New best program 36e776c2-2557-48d5-9210-bffa76914d68 replaces 9b23e20f-1a35-47c3-8945-be2e58204185 (combined_score: 0.8544 → 4.4491, +3.5947)
+2026-03-21 21:18:04,908 - openevolve.process_parallel - INFO - Iteration 1: Program 36e776c2-2557-48d5-9210-bffa76914d68 (parent: 9b23e20f-1a35-47c3-8945-be2e58204185) completed in 137.86s
+2026-03-21 21:18:04,908 - openevolve.process_parallel - INFO - Metrics: combined_score=4.4491, BLUE score=0.4150
+2026-03-21 21:18:04,908 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 1: 36e776c2-2557-48d5-9210-bffa76914d68
+2026-03-21 21:18:04,908 - openevolve.process_parallel - INFO - Submitting iteration 3 to island 0
+2026-03-21 21:18:39,938 - openevolve.llm.openai - INFO - [manual_mode] Answer received for 1d640bcd-fe51-4ff4-a751-0ce4ede635af
+2026-03-21 21:19:14,785 - httpx - INFO - HTTP Request: POST http://localhost:8001/v1/completions "HTTP/1.1 200 OK"
+2026-03-21 21:19:15,495 - openevolve.evaluator - INFO - Evaluated program f3fc22b5-3c3e-4e55-a809-fad5cffb1041 in 35.56s: combined_score=4.4524, BLUE score=0.4150
+2026-03-21 21:19:15,497 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2026-03-21 21:19:15,498 - openevolve.llm.openai - INFO - [manual_mode] Task enqueued: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue/c0628618-22a3-44f0-a8ae-d4e7a68a53f8.json
+2026-03-21 21:19:15,506 - openevolve.database - INFO - New MAP-Elites cell occupied in island 1: {'complexity': 9, 'diversity': 5}
+2026-03-21 21:19:15,506 - openevolve.database - INFO - New best program f3fc22b5-3c3e-4e55-a809-fad5cffb1041 replaces 36e776c2-2557-48d5-9210-bffa76914d68 (combined_score: 4.4491 → 4.4524, +0.0033)
+2026-03-21 21:19:15,507 - openevolve.process_parallel - INFO - Iteration 2: Program f3fc22b5-3c3e-4e55-a809-fad5cffb1041 (parent: 9b23e20f-1a35-47c3-8945-be2e58204185) completed in 70.60s
+2026-03-21 21:19:15,507 - openevolve.process_parallel - INFO - Metrics: combined_score=4.4524, BLUE score=0.4150
+2026-03-21 21:19:15,507 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 2: f3fc22b5-3c3e-4e55-a809-fad5cffb1041
+2026-03-21 21:19:15,507 - openevolve.process_parallel - INFO - Submitting iteration 4 to island 1
+2026-03-21 21:21:48,156 - openevolve.llm.openai - INFO - [manual_mode] Answer received for c0628618-22a3-44f0-a8ae-d4e7a68a53f8
+2026-03-21 21:22:23,358 - httpx - INFO - HTTP Request: POST http://localhost:8001/v1/completions "HTTP/1.1 200 OK"
+2026-03-21 21:22:23,713 - openevolve.evaluator - INFO - Evaluated program d5d43164-2381-4ece-8f02-058987e04477 in 35.55s: combined_score=4.4447, BLUE score=0.4320
+2026-03-21 21:22:23,715 - openevolve.llm.ensemble - INFO - Sampled island model: Qwen/Qwen3-Next-80B-A3B-Instruct-FP8
+2026-03-21 21:22:23,715 - openevolve.llm.openai - INFO - [manual_mode] Task enqueued: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue/adaeb3fa-e2af-4f6c-82f5-909183574890.json
+2026-03-21 21:22:23,716 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 0}
+2026-03-21 21:22:23,716 - openevolve.process_parallel - INFO - Iteration 3: Program d5d43164-2381-4ece-8f02-058987e04477 (parent: 36e776c2-2557-48d5-9210-bffa76914d68) completed in 188.22s
+2026-03-21 21:22:23,716 - openevolve.process_parallel - INFO - Metrics: combined_score=4.4447, BLUE score=0.4320
+2026-03-21 21:22:23,716 - openevolve.process_parallel - INFO - Submitting iteration 5 to island 0
+2026-03-21 21:23:50,809 - openevolve.llm.openai - INFO - [manual_mode] Answer received for adaeb3fa-e2af-4f6c-82f5-909183574890
+2026-03-21 21:24:24,927 - httpx - INFO - HTTP Request: POST http://localhost:8001/v1/completions "HTTP/1.1 200 OK"
+2026-03-21 21:24:25,232 - openevolve.evaluator - INFO - Evaluated program b2406327-6174-43cf-b2a4-3eb701e8e321 in 34.42s: combined_score=4.3094, BLUE score=0.4286
+2026-03-21 21:24:25,234 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2026-03-21 21:24:25,234 - openevolve.llm.openai - INFO - [manual_mode] Task enqueued: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue/fa645258-7fbd-4de8-8b6b-a291b14e965f.json
+2026-03-21 21:24:25,235 - openevolve.database - INFO - New MAP-Elites cell occupied in island 1: {'complexity': 9, 'diversity': 0}
+2026-03-21 21:24:25,236 - openevolve.process_parallel - INFO - Iteration 4: Program b2406327-6174-43cf-b2a4-3eb701e8e321 (parent: f3fc22b5-3c3e-4e55-a809-fad5cffb1041) completed in 121.52s
+2026-03-21 21:24:25,236 - openevolve.process_parallel - INFO - Metrics: combined_score=4.3094, BLUE score=0.4286
+2026-03-21 21:24:25,236 - openevolve.process_parallel - INFO - Submitting iteration 6 to island 1
+2026-03-21 21:26:56,388 - openevolve.llm.openai - INFO - [manual_mode] Answer received for fa645258-7fbd-4de8-8b6b-a291b14e965f
+2026-03-21 21:27:31,443 - httpx - INFO - HTTP Request: POST http://localhost:8001/v1/completions "HTTP/1.1 200 OK"
+2026-03-21 21:27:31,712 - openevolve.evaluator - INFO - Evaluated program 821effe7-750a-45ed-a176-f5ae0f09891f in 35.32s: combined_score=4.5424, BLUE score=0.4343
+2026-03-21 21:27:31,713 - openevolve.llm.ensemble - INFO - Sampled island model: Qwen/Qwen3-Next-80B-A3B-Instruct-FP8
+2026-03-21 21:27:31,714 - openevolve.llm.openai - INFO - [manual_mode] Task enqueued: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue/19fbe589-e0c9-42fd-996a-6f17b69647e7.json
+2026-03-21 21:27:31,720 - openevolve.database - INFO - Island 0 MAP-Elites cell improved: {'complexity': 9, 'diversity': 0} (fitness: 4.445 -> 4.542)
+2026-03-21 21:27:31,720 - openevolve.database - INFO - New best program 821effe7-750a-45ed-a176-f5ae0f09891f replaces f3fc22b5-3c3e-4e55-a809-fad5cffb1041 (combined_score: 4.4524 → 4.5424, +0.0900)
+2026-03-21 21:27:31,720 - openevolve.process_parallel - INFO - Iteration 5: Program 821effe7-750a-45ed-a176-f5ae0f09891f (parent: d5d43164-2381-4ece-8f02-058987e04477) completed in 186.48s
+2026-03-21 21:27:31,720 - openevolve.process_parallel - INFO - Metrics: combined_score=4.5424, BLUE score=0.4343
+2026-03-21 21:27:31,720 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 5: 821effe7-750a-45ed-a176-f5ae0f09891f
+2026-03-21 21:27:31,720 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 5
+2026-03-21 21:27:31,721 - openevolve.database - INFO - Island Status:
+2026-03-21 21:27:31,721 - openevolve.database - INFO -  * Island 0: 3 programs, best=4.5424, avg=3.2820, diversity=1252.27, gen=3 (best: 821effe7-750a-45ed-a176-f5ae0f09891f)
+2026-03-21 21:27:31,721 - openevolve.database - INFO -    Island 1: 2 programs, best=4.4524, avg=4.3809, diversity=407.90, gen=2 (best: f3fc22b5-3c3e-4e55-a809-fad5cffb1041)
+2026-03-21 21:27:31,723 - openevolve.database - INFO - Saved database with 6 programs to ./outputs/Airport_output/openevolve_output/checkpoints/checkpoint_5
+2026-03-21 21:27:31,723 - openevolve.controller - INFO - Saved best program at checkpoint 5 with metrics: combined_score=4.5424, BLUE score=0.4343
+2026-03-21 21:27:31,723 - openevolve.controller - INFO - Saved checkpoint at iteration 5 to ./outputs/Airport_output/openevolve_output/checkpoints/checkpoint_5
+2026-03-21 21:27:31,723 - openevolve.process_parallel - INFO - Submitting iteration 7 to island 0
+2026-03-21 21:28:55,795 - openevolve.llm.openai - INFO - [manual_mode] Answer received for 19fbe589-e0c9-42fd-996a-6f17b69647e7
+2026-03-21 21:29:29,653 - httpx - INFO - HTTP Request: POST http://localhost:8001/v1/completions "HTTP/1.1 200 OK"
+2026-03-21 21:29:29,899 - openevolve.evaluator - INFO - Evaluated program 65f7db52-9568-4872-90e8-7ae4d5ff26e4 in 34.10s: combined_score=4.3326, BLUE score=0.4273
+2026-03-21 21:29:29,901 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2026-03-21 21:29:29,902 - openevolve.llm.openai - INFO - [manual_mode] Task enqueued: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue/98425e71-bc1e-4d1c-b774-161f31b6347d.json
+2026-03-21 21:29:29,909 - openevolve.database - INFO - Island 1 MAP-Elites cell improved: {'complexity': 9, 'diversity': 0} (fitness: 4.309 -> 4.333)
+2026-03-21 21:29:29,909 - openevolve.process_parallel - INFO - Iteration 6: Program 65f7db52-9568-4872-90e8-7ae4d5ff26e4 (parent: b2406327-6174-43cf-b2a4-3eb701e8e321) completed in 118.19s
+2026-03-21 21:29:29,909 - openevolve.process_parallel - INFO - Metrics: combined_score=4.3326, BLUE score=0.4273
+2026-03-21 21:29:29,909 - openevolve.process_parallel - INFO - Submitting iteration 8 to island 1
+2026-03-21 21:31:29,017 - openevolve.llm.openai - INFO - [manual_mode] Answer received for 98425e71-bc1e-4d1c-b774-161f31b6347d
+2026-03-21 21:32:03,682 - httpx - INFO - HTTP Request: POST http://localhost:8001/v1/completions "HTTP/1.1 200 OK"
+2026-03-21 21:32:03,909 - openevolve.evaluator - INFO - Evaluated program d2f5f284-310c-4e27-83f7-9dbfe2da874e in 34.89s: combined_score=4.4928, BLUE score=0.4293
+2026-03-21 21:32:03,911 - openevolve.llm.ensemble - INFO - Sampled island model: Qwen/Qwen3-Next-80B-A3B-Instruct-FP8
+2026-03-21 21:32:03,912 - openevolve.llm.openai - INFO - [manual_mode] Task enqueued: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue/c1183a65-75cd-478f-a6ae-cc78c82aef58.json
+2026-03-21 21:32:03,919 - openevolve.process_parallel - INFO - Iteration 7: Program d2f5f284-310c-4e27-83f7-9dbfe2da874e (parent: 36e776c2-2557-48d5-9210-bffa76914d68) completed in 154.01s
+2026-03-21 21:32:03,919 - openevolve.process_parallel - INFO - Metrics: combined_score=4.4928, BLUE score=0.4293
+2026-03-21 21:32:03,919 - openevolve.process_parallel - INFO - Submitting iteration 9 to island 0
+2026-03-21 21:32:49,456 - openevolve.llm.openai - INFO - [manual_mode] Answer received for c1183a65-75cd-478f-a6ae-cc78c82aef58
+2026-03-21 21:33:23,272 - httpx - INFO - HTTP Request: POST http://localhost:8001/v1/completions "HTTP/1.1 200 OK"
+2026-03-21 21:33:23,501 - openevolve.evaluator - INFO - Evaluated program a143c203-c826-4fa8-a689-5ce04c4b1ed3 in 34.04s: combined_score=4.4173, BLUE score=0.4285
+2026-03-21 21:33:23,503 - openevolve.llm.ensemble - INFO - Sampled island model: RedHatAI/Llama-3.3-70B-Instruct-FP8-dynamic
+2026-03-21 21:33:23,503 - openevolve.llm.openai - INFO - [manual_mode] Task enqueued: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue/74e90a91-a9f5-4e9e-afc0-8dc8343cdc43.json
+2026-03-21 21:33:23,512 - openevolve.database - INFO - Island 1 MAP-Elites cell improved: {'complexity': 9, 'diversity': 0} (fitness: 4.333 -> 4.417)
+2026-03-21 21:33:23,513 - openevolve.process_parallel - INFO - Iteration 8: Program a143c203-c826-4fa8-a689-5ce04c4b1ed3 (parent: f3fc22b5-3c3e-4e55-a809-fad5cffb1041) completed in 79.59s
+2026-03-21 21:33:23,513 - openevolve.process_parallel - INFO - Metrics: combined_score=4.4173, BLUE score=0.4285
+2026-03-21 21:33:23,513 - openevolve.process_parallel - INFO - Submitting iteration 10 to island 1
+2026-03-21 21:34:14,553 - openevolve.llm.openai - INFO - [manual_mode] Answer received for 74e90a91-a9f5-4e9e-afc0-8dc8343cdc43
+2026-03-21 21:34:49,211 - httpx - INFO - HTTP Request: POST http://localhost:8001/v1/completions "HTTP/1.1 200 OK"
+2026-03-21 21:34:49,893 - openevolve.evaluator - INFO - Evaluated program 39d1ec4c-0357-4cd3-958b-7d582db06206 in 35.34s: combined_score=4.5016, BLUE score=0.4281
+2026-03-21 21:34:49,894 - openevolve.llm.ensemble - INFO - Sampled island model: Qwen/Qwen3-Next-80B-A3B-Instruct-FP8
+2026-03-21 21:34:49,895 - openevolve.llm.openai - INFO - [manual_mode] Task enqueued: /home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/outputs/Airport_output/openevolve_output/manual_tasks_queue/1c61445f-367c-4f9c-8cb0-4bd217d68eeb.json
+2026-03-21 21:34:49,902 - openevolve.process_parallel - INFO - Iteration 9: Program 39d1ec4c-0357-4cd3-958b-7d582db06206 (parent: 36e776c2-2557-48d5-9210-bffa76914d68) completed in 86.39s
+2026-03-21 21:34:49,902 - openevolve.process_parallel - INFO - Metrics: combined_score=4.5016, BLUE score=0.4281
+2026-03-21 21:35:49,953 - openevolve.llm.openai - INFO - [manual_mode] Answer received for 1c61445f-367c-4f9c-8cb0-4bd217d68eeb
+2026-03-21 21:36:24,144 - httpx - INFO - HTTP Request: POST http://localhost:8001/v1/completions "HTTP/1.1 200 OK"
+2026-03-21 21:36:24,817 - openevolve.evaluator - INFO - Evaluated program ffc6cd8d-9308-4f3f-908c-0839703ee39e in 34.86s: combined_score=4.4418, BLUE score=0.4296
+2026-03-21 21:36:24,821 - openevolve.database - INFO - Island 1 MAP-Elites cell improved: {'complexity': 9, 'diversity': 0} (fitness: 4.417 -> 4.442)
+2026-03-21 21:36:24,822 - openevolve.process_parallel - INFO - Iteration 10: Program ffc6cd8d-9308-4f3f-908c-0839703ee39e (parent: f3fc22b5-3c3e-4e55-a809-fad5cffb1041) completed in 94.92s
+2026-03-21 21:36:24,822 - openevolve.process_parallel - INFO - Metrics: combined_score=4.4418, BLUE score=0.4296
+2026-03-21 21:36:24,822 - openevolve.process_parallel - INFO - Checkpoint interval reached at iteration 10
+2026-03-21 21:36:24,823 - openevolve.database - INFO - Island Status:
+2026-03-21 21:36:24,823 - openevolve.database - INFO -  * Island 0: 5 programs, best=4.5424, avg=3.7681, diversity=697.40, gen=5 (best: 821effe7-750a-45ed-a176-f5ae0f09891f)
+2026-03-21 21:36:24,823 - openevolve.database - INFO -    Island 1: 2 programs, best=4.4524, avg=4.4471, diversity=451.40, gen=5 (best: f3fc22b5-3c3e-4e55-a809-fad5cffb1041)
+2026-03-21 21:36:24,826 - openevolve.database - INFO - Saved database with 11 programs to ./outputs/Airport_output/openevolve_output/checkpoints/checkpoint_10
+2026-03-21 21:36:24,826 - openevolve.controller - INFO - Saved best program at checkpoint 10 with metrics: combined_score=4.5424, BLUE score=0.4343
+2026-03-21 21:36:24,826 - openevolve.controller - INFO - Saved checkpoint at iteration 10 to ./outputs/Airport_output/openevolve_output/checkpoints/checkpoint_10
+2026-03-21 21:36:24,826 - openevolve.process_parallel - INFO - ✅ Evolution completed - Maximum iterations reached
+2026-03-21 21:36:24,826 - openevolve.process_parallel - INFO - Total programs created: 10
+2026-03-21 21:36:24,826 - openevolve.process_parallel - INFO - Total failed program generations: 0
+2026-03-21 21:36:24,830 - openevolve.database - INFO - Saved database with 11 programs to ./outputs/Airport_output/openevolve_output/checkpoints/checkpoint_10
+2026-03-21 21:36:24,831 - openevolve.controller - INFO - Saved best program at checkpoint 10 with metrics: combined_score=4.5424, BLUE score=0.4343
+2026-03-21 21:36:24,831 - openevolve.controller - INFO - Saved checkpoint at iteration 10 to ./outputs/Airport_output/openevolve_output/checkpoints/checkpoint_10
+2026-03-21 21:36:24,856 - openevolve.process_parallel - INFO - Stopped process pool
+2026-03-21 21:36:24,858 - openevolve.utils.trace_export_utils - INFO - Exported 10 traces to outputs/Airport_output/openevolve_output/evolution_trace.json
+2026-03-21 21:36:24,858 - openevolve.evolution_trace - INFO - Evolution tracing complete. Total traces: 10
+2026-03-21 21:36:24,858 - openevolve.evolution_trace - INFO - Improvement rate: 60.00%
+2026-03-21 21:36:24,858 - openevolve.evolution_trace - INFO - Best improvements: {'combined_score': 3.597989787691481, 'BLUE score': 0.21136775059101526}
+2026-03-21 21:36:24,858 - openevolve.evolution_trace - INFO - Worst declines: {'combined_score': -0.1430045686643382, 'BLUE score': -0.0013158216069959483}
+2026-03-21 21:36:24,858 - openevolve.controller - INFO - Evolution tracer closed
+2026-03-21 21:36:24,859 - openevolve.controller - INFO - Using tracked best program: 821effe7-750a-45ed-a176-f5ae0f09891f
+2026-03-21 21:36:24,859 - openevolve.controller - INFO - Evolution complete. Best program has metrics: combined_score=4.5424, BLUE score=0.4343
+2026-03-21 21:36:24,859 - openevolve.controller - INFO - Saved best program to ./outputs/Airport_output/openevolve_output/best/best_program.py with program info to ./outputs/Airport_output/openevolve_output/best/best_program_info.json
