@@ -1,0 +1,59 @@
+2026-03-21 23:47:51,129 - openevolve.controller - INFO - Logging to ./outputs/Airport_output/openevolve_output/logs/openevolve_20260321_234751.log
+2026-03-21 23:47:51,286 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: openai/gpt-oss-120b
+2026-03-21 23:47:51,295 - openevolve.llm.openai - INFO - Initialized OpenAI LLM with model: Qwen/Qwen3.5-122B-A10B-FP8
+2026-03-21 23:47:51,311 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: openai/gpt-oss-120b (weight: 1.00)
+2026-03-21 23:47:51,311 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3.5-122B-A10B-FP8 (weight: 1.00)
+2026-03-21 23:47:51,344 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: openai/gpt-oss-120b (weight: 1.00)
+2026-03-21 23:47:51,344 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3.5-122B-A10B-FP8 (weight: 1.00)
+2026-03-21 23:47:51,388 - openevolve.prompt.sampler - INFO - Initialized prompt sampler
+2026-03-21 23:47:51,394 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-03-21 23:47:51,394 - openevolve.database - INFO - Initialized program database with 0 programs
+2026-03-21 23:48:40,115 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-03-21 23:48:40,116 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-03-21 23:48:40,116 - openevolve.controller - INFO - Initialized OpenEvolve with initial_program.py
+2026-03-21 23:48:40,116 - openevolve.evolution_trace - INFO - Evolution tracer initialized: outputs/Airport_output/openevolve_output/evolution_trace.json
+2026-03-21 23:48:40,116 - openevolve.controller - INFO - Evolution tracing enabled: ./outputs/Airport_output/openevolve_output/evolution_trace.json
+2026-03-21 23:48:40,116 - openevolve.controller - INFO - Adding initial program to database
+2026-03-21 23:49:28,082 - httpx - INFO - HTTP Request: POST http://localhost:2995/v1/completions "HTTP/1.1 200 OK"
+2026-03-21 23:49:28,158 - openevolve.evaluator - INFO - Evaluated program 5f3fb1ba-96db-453a-9708-881fb2b2372a in 48.04s: combined_score=0.1697, BLUE score=0.2037
+2026-03-21 23:49:28,158 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 5, 'diversity': 0}
+2026-03-21 23:49:28,167 - openevolve.process_parallel - INFO - Initialized process parallel controller with 1 workers
+2026-03-21 23:49:28,167 - openevolve.process_parallel - INFO - Set max None tasks per child
+2026-03-21 23:49:28,168 - openevolve.process_parallel - INFO - Started process pool with 1 processes
+2026-03-21 23:49:28,168 - openevolve.controller - INFO - Using island-based evolution with 2 islands
+2026-03-21 23:49:28,168 - openevolve.database - INFO - Island Status:
+2026-03-21 23:49:28,168 - openevolve.database - INFO -  * Island 0: 1 programs, best=0.1697, avg=0.1697, diversity=0.00, gen=0 (best: 5f3fb1ba-96db-453a-9708-881fb2b2372a)
+2026-03-21 23:49:28,168 - openevolve.database - INFO -    Island 1: 0 programs, best=0.0000, avg=0.0000, diversity=0.00, gen=0
+2026-03-21 23:49:28,168 - openevolve.process_parallel - INFO - Starting process-based evolution from iteration 1 for 1000 iterations (total: 1001)
+2026-03-21 23:49:28,168 - openevolve.process_parallel - INFO - Submitting iteration 1 to island 0
+2026-03-21 23:49:28,191 - openevolve.process_parallel - INFO - Submitting iteration 2 to island 1
+2026-03-21 23:49:28,192 - openevolve.process_parallel - INFO - Early stopping disabled
+2026-03-21 23:49:28,231 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: openai/gpt-oss-120b (weight: 1.00)
+2026-03-21 23:49:28,231 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3.5-122B-A10B-FP8 (weight: 1.00)
+2026-03-21 23:49:28,270 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 0 with models: openai/gpt-oss-120b (weight: 1.00)
+2026-03-21 23:49:28,270 - openevolve.llm.ensemble - INFO - Initialized LLM ensemble for island 1 with models: Qwen/Qwen3.5-122B-A10B-FP8 (weight: 1.00)
+2026-03-21 23:49:28,272 - openevolve.prompt.sampler - INFO - Set custom templates: system=evaluator_system_message, user=None
+2026-03-21 23:49:31,955 - openevolve.evaluator - INFO - Successfully loaded evaluation function from evaluator.py
+2026-03-21 23:49:31,955 - openevolve.evaluator - INFO - Initialized evaluator with evaluator.py
+2026-03-21 23:49:31,955 - openevolve.llm.ensemble - INFO - Sampled island model: openai/gpt-oss-120b
+2026-03-21 23:49:40,665 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-21 23:50:23,637 - httpx - INFO - HTTP Request: POST http://localhost:2995/v1/completions "HTTP/1.1 200 OK"
+2026-03-21 23:50:23,709 - openevolve.evaluator - INFO - Evaluated program 5381b38f-462e-4940-ad50-e1cf90c8b76e in 43.03s: combined_score=0.5058, BLUE score=0.4257
+2026-03-21 23:50:23,712 - openevolve.llm.ensemble - INFO - Sampled island model: openai/gpt-oss-120b
+2026-03-21 23:50:23,712 - openevolve.database - INFO - New MAP-Elites cell occupied in island 0: {'complexity': 9, 'diversity': 5}
+2026-03-21 23:50:23,712 - openevolve.database - INFO - New best program 5381b38f-462e-4940-ad50-e1cf90c8b76e replaces 5f3fb1ba-96db-453a-9708-881fb2b2372a (combined_score: 0.1697 → 0.5058, +0.3362)
+2026-03-21 23:50:23,715 - openevolve.process_parallel - INFO - Iteration 1: Program 5381b38f-462e-4940-ad50-e1cf90c8b76e (parent: 5f3fb1ba-96db-453a-9708-881fb2b2372a) completed in 51.76s
+2026-03-21 23:50:23,715 - openevolve.process_parallel - INFO - Metrics: combined_score=0.5058, BLUE score=0.4257
+2026-03-21 23:50:23,715 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 1: 5381b38f-462e-4940-ad50-e1cf90c8b76e
+2026-03-21 23:50:23,716 - openevolve.process_parallel - INFO - Submitting iteration 3 to island 0
+2026-03-21 23:50:33,487 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-21 23:51:14,352 - httpx - INFO - HTTP Request: POST http://localhost:2995/v1/completions "HTTP/1.1 200 OK"
+2026-03-21 23:51:14,420 - openevolve.evaluator - INFO - Evaluated program dbcdec2c-248f-44e2-a785-5a30ff292e9b in 40.93s: combined_score=0.7690, BLUE score=0.3587
+2026-03-21 23:51:14,424 - openevolve.llm.ensemble - INFO - Sampled island model: openai/gpt-oss-120b
+2026-03-21 23:51:14,424 - openevolve.database - INFO - New MAP-Elites cell occupied in island 1: {'complexity': 9, 'diversity': 0}
+2026-03-21 23:51:14,425 - openevolve.database - INFO - New best program dbcdec2c-248f-44e2-a785-5a30ff292e9b replaces 5381b38f-462e-4940-ad50-e1cf90c8b76e (combined_score: 0.5058 → 0.7690, +0.2632)
+2026-03-21 23:51:14,427 - openevolve.process_parallel - INFO - Iteration 2: Program dbcdec2c-248f-44e2-a785-5a30ff292e9b (parent: 5f3fb1ba-96db-453a-9708-881fb2b2372a) completed in 50.71s
+2026-03-21 23:51:14,427 - openevolve.process_parallel - INFO - Metrics: combined_score=0.7690, BLUE score=0.3587
+2026-03-21 23:51:14,427 - openevolve.process_parallel - INFO - 🌟 New best solution found at iteration 2: dbcdec2c-248f-44e2-a785-5a30ff292e9b
+2026-03-21 23:51:14,427 - openevolve.process_parallel - INFO - Submitting iteration 4 to island 1
+2026-03-21 23:51:33,424 - httpx - INFO - HTTP Request: POST http://localhost:2993/v1/chat/completions "HTTP/1.1 200 OK"

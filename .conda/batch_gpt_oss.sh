@@ -1,0 +1,1 @@
+vllm serve openai/gpt-oss-120b

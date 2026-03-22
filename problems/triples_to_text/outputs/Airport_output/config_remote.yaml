@@ -44,7 +44,7 @@ database:
   migration_interval: 50
   migration_rate: 0.2
   roulette_selection: true
-  db_path: "./all_programs/"
+  db_path: "./outputs/Airport_output/all_programs/"
   
 # Evaluator configuration
 evaluator:
