@@ -2,6 +2,8 @@ import argparse
 import json
 import itertools
 import re
+import io
+import time
 from dataclasses import dataclass, asdict
 from pathlib import Path
 from typing import Any
@@ -17,7 +19,9 @@ EXTRACTION_SYSTEM_PROMPT = (
     "Return ONLY JSON with this exact schema: "
     '{"triples":[{"subject":"...","predicate":"...","object":"..."}]}. '
     "Rules: use concise noun phrases for subject/object, use short predicate labels, "
-    "avoid duplicates, and keep predicates in lower_snake_case when possible."
+    "avoid duplicates, and keep predicates in lower_snake_case when possible. "
+    "If the instance contains many time points (e.g., a full forecast), extract only the most important high-level aspects "
+    "(location/context, key trends, extremes, notable conditions) rather than point-by-point details."
 )
 
 EQUIVALENCE_SYSTEM_PROMPT = (
@@ -26,6 +30,52 @@ EQUIVALENCE_SYSTEM_PROMPT = (
     '{"equivalent": true|false, "confidence": 0.0-1.0, "reason": "..."}. '
     "Be strict: equivalent only if they can be safely merged in a knowledge graph."
 )
+
+EXTRACTION_RESPONSE_FORMAT: dict[str, Any] = {
+    "type": "json_schema",
+    "json_schema": {
+        "name": "triple_extraction",
+        "strict": True,
+        "schema": {
+            "type": "object",
+            "additionalProperties": False,
+            "properties": {
+                "triples": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": False,
+                        "properties": {
+                            "subject": {"type": "string"},
+                            "predicate": {"type": "string"},
+                            "object": {"type": "string"},
+                        },
+                        "required": ["subject", "predicate", "object"],
+                    },
+                }
+            },
+            "required": ["triples"],
+        },
+    },
+}
+
+EQUIVALENCE_RESPONSE_FORMAT: dict[str, Any] = {
+    "type": "json_schema",
+    "json_schema": {
+        "name": "predicate_equivalence",
+        "strict": True,
+        "schema": {
+            "type": "object",
+            "additionalProperties": False,
+            "properties": {
+                "equivalent": {"type": "boolean"},
+                "confidence": {"type": "number"},
+                "reason": {"type": "string"},
+            },
+            "required": ["equivalent", "confidence", "reason"],
+        },
+    },
+}
 
 
 @dataclass
@@ -78,17 +128,15 @@ def extract_instances(payload: Any) -> list[dict[str, Any]]:
     instances: list[dict[str, Any]] = []
 
     if isinstance(payload, dict) and isinstance(payload.get("forecasts"), list):
-        for forecast in payload["forecasts"]:
+        for idx, forecast in enumerate(payload["forecasts"]):
             city = (forecast.get("city") or {}).get("name")
-            for idx, item in enumerate(forecast.get("list") or []):
-                instances.append(
-                    {
-                        "instance_id": len(instances),
-                        "city": city,
-                        "position_in_city": idx,
-                        "data": item,
-                    }
-                )
+            instances.append(
+                {
+                    "instance_id": idx,
+                    "city": city,
+                    "data": forecast,
+                }
+            )
         return instances
 
     if isinstance(payload, dict) and isinstance(payload.get("list"), list):
@@ -107,7 +155,13 @@ def extract_instances(payload: Any) -> list[dict[str, Any]]:
     )
 
 
-def call_llm_json(client: OpenAI, model: str, system_prompt: str, user_prompt: str) -> dict[str, Any]:
+def call_llm_json(
+    client: OpenAI,
+    model: str,
+    system_prompt: str,
+    user_prompt: str,
+    response_format: dict[str, Any] | None = None,
+) -> dict[str, Any]:
     logger.debug(f"System prompt:\n{system_prompt}\nUser prompt:\n{user_prompt}")
 
     max_retries = 3
@@ -117,13 +171,17 @@ def call_llm_json(client: OpenAI, model: str, system_prompt: str, user_prompt: s
     ]
 
     for attempt in range(max_retries + 1):
-        response = client.chat.completions.create(
-            model=model,
-            messages=messages,
-            extra_body={
+        request_payload: dict[str, Any] = {
+            "model": model,
+            "messages": messages,
+            "extra_body": {
                 "chat_template_kwargs": {"enable_thinking": False}
-            }
-        )
+            },
+        }
+        if response_format is not None:
+            request_payload["response_format"] = response_format
+
+        response = client.chat.completions.create(**request_payload)
         content = response.choices[0].message.content or ""
         logger.debug(f"Raw model response (attempt {attempt + 1}/{max_retries + 1}):\n{content}")
 
@@ -167,7 +225,13 @@ def triples_from_instance(
         "Return JSON only."
     )
     try:
-        result = call_llm_json(client, model, extraction_system_prompt, user_prompt)
+        result = call_llm_json(
+            client,
+            model,
+            extraction_system_prompt,
+            user_prompt,
+            response_format=EXTRACTION_RESPONSE_FORMAT,
+        )
     except Exception as exc:
         logger.warning(
             "Skipping instance %s after JSON-format retries failed: %s",
@@ -190,6 +254,389 @@ def triples_from_instance(
     return triples
 
 
+def build_extraction_batch_jsonl(
+    model: str,
+    extraction_system_prompt: str,
+    instances: list[dict[str, Any]],
+) -> str:
+    lines: list[str] = []
+    for instance in instances:
+        instance_id = instance.get("instance_id")
+        user_prompt = (
+            "Generate semantic triples for this ONE data instance.\n\n"
+            f"instance_context={json.dumps(instance, ensure_ascii=False)}\n\n"
+            "Return JSON only."
+        )
+        request_payload = {
+            "custom_id": f"instance-{instance_id}",
+            "method": "POST",
+            "url": "/v1/chat/completions",
+            "body": {
+                "model": model,
+                "messages": [
+                    {"role": "system", "content": extraction_system_prompt},
+                    {"role": "user", "content": user_prompt},
+                ],
+                "response_format": EXTRACTION_RESPONSE_FORMAT,
+                "extra_body": {
+                    "chat_template_kwargs": {"enable_thinking": False}
+                },
+            },
+        }
+        lines.append(json.dumps(request_payload, ensure_ascii=False))
+
+    return "\n".join(lines) + "\n"
+
+
+def wait_for_batch_completion(
+    client: OpenAI,
+    batch_id: str,
+    timeout_seconds: int,
+    poll_interval_seconds: int = 3,
+) -> Any:
+    start = time.time()
+    terminal_states = {"completed", "failed", "cancelled", "expired"}
+
+    while True:
+        batch = client.batches.retrieve(batch_id)
+        status = getattr(batch, "status", "unknown")
+        logger.info("Batch %s status: %s", batch_id, status)
+
+        if status in terminal_states:
+            return batch
+
+        elapsed = time.time() - start
+        if elapsed > timeout_seconds:
+            raise TimeoutError(
+                f"Timed out waiting for batch {batch_id} after {timeout_seconds} seconds"
+            )
+
+        time.sleep(poll_interval_seconds)
+
+
+def parse_batch_output(
+    output_text: str,
+) -> dict[int, list[Triple]]:
+    triples_by_instance_id: dict[int, list[Triple]] = {}
+
+    for raw_line in output_text.splitlines():
+        line = raw_line.strip()
+        if not line:
+            continue
+
+        entry = json.loads(line)
+        custom_id = str(entry.get("custom_id", ""))
+        if not custom_id.startswith("instance-"):
+            continue
+
+        try:
+            instance_id = int(custom_id.split("instance-", 1)[1])
+        except ValueError:
+            logger.warning("Skipping batch item with invalid custom_id: %s", custom_id)
+            continue
+
+        response_obj = entry.get("response")
+        if not isinstance(response_obj, dict):
+            logger.warning("Missing response for instance %s", instance_id)
+            triples_by_instance_id[instance_id] = []
+            continue
+
+        body = response_obj.get("body") or {}
+        choices = body.get("choices") or []
+        if not choices:
+            logger.warning("No choices returned for instance %s", instance_id)
+            triples_by_instance_id[instance_id] = []
+            continue
+
+        content = str(((choices[0] or {}).get("message") or {}).get("content") or "")
+        try:
+            result = parse_json_response(content)
+        except (JSONDecodeError, ValueError) as exc:
+            logger.warning(
+                "Invalid JSON in batch output for instance %s: %s",
+                instance_id,
+                exc,
+            )
+            triples_by_instance_id[instance_id] = []
+            continue
+
+        raw_triples = result.get("triples", [])
+        triples: list[Triple] = []
+        for triple_entry in raw_triples:
+            subject = str(triple_entry.get("subject", "")).strip()
+            predicate = str(triple_entry.get("predicate", "")).strip()
+            obj = str(triple_entry.get("object", "")).strip()
+            if subject and predicate and obj:
+                triples.append(Triple(subject=subject, predicate=predicate, object=obj))
+
+        triples_by_instance_id[instance_id] = triples
+
+    return triples_by_instance_id
+
+
+def read_openai_file_text(client: OpenAI, file_id: str) -> str:
+    file_response = client.files.content(file_id)
+    text_attr = getattr(file_response, "text", None)
+    if isinstance(text_attr, str):
+        return text_attr
+    if callable(text_attr):
+        return text_attr()
+
+    content_attr = getattr(file_response, "content", b"")
+    if callable(content_attr):
+        content_attr = content_attr()
+    if isinstance(content_attr, bytes):
+        return content_attr.decode("utf-8")
+    return str(content_attr)
+
+
+def triples_from_instances_batch(
+    client: OpenAI,
+    model: str,
+    extraction_system_prompt: str,
+    instances: list[dict[str, Any]],
+    batch_timeout_seconds: int,
+) -> dict[int, list[Triple]]:
+    if not instances:
+        return {}
+
+    batch_jsonl = build_extraction_batch_jsonl(
+        model=model,
+        extraction_system_prompt=extraction_system_prompt,
+        instances=instances,
+    )
+
+    input_file = client.files.create(
+        file=("triples_extraction_batch.jsonl", io.BytesIO(batch_jsonl.encode("utf-8"))),
+        purpose="batch",
+    )
+
+    batch = client.batches.create(
+        input_file_id=input_file.id,
+        endpoint="/v1/chat/completions",
+        completion_window="24h",
+    )
+    logger.info("Started extraction batch: %s", batch.id)
+
+    final_batch = wait_for_batch_completion(
+        client=client,
+        batch_id=batch.id,
+        timeout_seconds=batch_timeout_seconds,
+    )
+
+    if getattr(final_batch, "status", None) != "completed":
+        raise RuntimeError(f"Batch {batch.id} did not complete successfully: {final_batch.status}")
+
+    output_file_id = getattr(final_batch, "output_file_id", None)
+    if not output_file_id:
+        raise RuntimeError(f"Batch {batch.id} completed but has no output_file_id")
+
+    output_text = read_openai_file_text(client=client, file_id=output_file_id)
+
+    return parse_batch_output(output_text)
+
+
+def build_equivalence_batch_jsonl(
+    model: str,
+    equivalence_system_prompt: str,
+    predicate_pairs: list[tuple[str, str]],
+) -> tuple[str, dict[str, tuple[str, str]]]:
+    lines: list[str] = []
+    pair_by_custom_id: dict[str, tuple[str, str]] = {}
+
+    for index, (p1, p2) in enumerate(predicate_pairs):
+        custom_id = f"predicate-pair-{index}"
+        pair_by_custom_id[custom_id] = (p1, p2)
+
+        user_prompt = (
+            "Decide whether these predicates are equivalent in meaning.\n"
+            f"predicate_a={p1}\n"
+            f"predicate_b={p2}\n"
+            "Use strict semantic equivalence (not merely related)."
+        )
+        request_payload = {
+            "custom_id": custom_id,
+            "method": "POST",
+            "url": "/v1/chat/completions",
+            "body": {
+                "model": model,
+                "messages": [
+                    {"role": "system", "content": equivalence_system_prompt},
+                    {"role": "user", "content": user_prompt},
+                ],
+                "response_format": EQUIVALENCE_RESPONSE_FORMAT,
+                "extra_body": {
+                    "chat_template_kwargs": {"enable_thinking": False}
+                },
+            },
+        }
+        lines.append(json.dumps(request_payload, ensure_ascii=False))
+
+    return "\n".join(lines) + "\n", pair_by_custom_id
+
+
+def parse_equivalence_batch_output(
+    output_text: str,
+    pair_by_custom_id: dict[str, tuple[str, str]],
+) -> dict[str, dict[str, Any]]:
+    result_by_custom_id: dict[str, dict[str, Any]] = {}
+
+    for raw_line in output_text.splitlines():
+        line = raw_line.strip()
+        if not line:
+            continue
+
+        entry = json.loads(line)
+        custom_id = str(entry.get("custom_id", ""))
+        if custom_id not in pair_by_custom_id:
+            continue
+
+        p1, p2 = pair_by_custom_id[custom_id]
+
+        error_obj = entry.get("error")
+        if error_obj:
+            logger.warning(
+                "Batch request error for predicate pair '%s' vs '%s': %s",
+                p1,
+                p2,
+                error_obj,
+            )
+            result_by_custom_id[custom_id] = {
+                "predicate_a": p1,
+                "predicate_b": p2,
+                "equivalent": False,
+                "confidence": 0.0,
+                "reason": "request_error",
+            }
+            continue
+
+        response_obj = entry.get("response")
+        if not isinstance(response_obj, dict):
+            logger.warning("Missing response for predicate pair '%s' vs '%s'", p1, p2)
+            result_by_custom_id[custom_id] = {
+                "predicate_a": p1,
+                "predicate_b": p2,
+                "equivalent": False,
+                "confidence": 0.0,
+                "reason": "missing_response",
+            }
+            continue
+
+        body = response_obj.get("body") or {}
+        choices = body.get("choices") or []
+        if not choices:
+            logger.warning("No choices for predicate pair '%s' vs '%s'", p1, p2)
+            result_by_custom_id[custom_id] = {
+                "predicate_a": p1,
+                "predicate_b": p2,
+                "equivalent": False,
+                "confidence": 0.0,
+                "reason": "no_choices",
+            }
+            continue
+
+        content = str(((choices[0] or {}).get("message") or {}).get("content") or "")
+        try:
+            parsed = parse_json_response(content)
+            equivalent = bool(parsed.get("equivalent", False))
+            confidence_raw = parsed.get("confidence", 0.0)
+            try:
+                confidence = float(confidence_raw)
+            except (TypeError, ValueError):
+                confidence = 0.0
+            reason = str(parsed.get("reason", "")).strip()
+            result_by_custom_id[custom_id] = {
+                "predicate_a": p1,
+                "predicate_b": p2,
+                "equivalent": equivalent,
+                "confidence": confidence,
+                "reason": reason,
+            }
+        except (JSONDecodeError, ValueError) as exc:
+            logger.warning(
+                "Invalid JSON in equivalence batch output for '%s' vs '%s': %s",
+                p1,
+                p2,
+                exc,
+            )
+            result_by_custom_id[custom_id] = {
+                "predicate_a": p1,
+                "predicate_b": p2,
+                "equivalent": False,
+                "confidence": 0.0,
+                "reason": "invalid_json",
+            }
+
+    return result_by_custom_id
+
+
+def predicates_equivalent_batch(
+    client: OpenAI,
+    model: str,
+    equivalence_system_prompt: str,
+    predicate_pairs: list[tuple[str, str]],
+    batch_timeout_seconds: int,
+) -> list[dict[str, Any]]:
+    if not predicate_pairs:
+        return []
+
+    batch_jsonl, pair_by_custom_id = build_equivalence_batch_jsonl(
+        model=model,
+        equivalence_system_prompt=equivalence_system_prompt,
+        predicate_pairs=predicate_pairs,
+    )
+
+    input_file = client.files.create(
+        file=("predicate_equivalence_batch.jsonl", io.BytesIO(batch_jsonl.encode("utf-8"))),
+        purpose="batch",
+    )
+
+    batch = client.batches.create(
+        input_file_id=input_file.id,
+        endpoint="/v1/chat/completions",
+        completion_window="24h",
+    )
+    logger.info("Started predicate equivalence batch: %s", batch.id)
+
+    final_batch = wait_for_batch_completion(
+        client=client,
+        batch_id=batch.id,
+        timeout_seconds=batch_timeout_seconds,
+    )
+    if getattr(final_batch, "status", None) != "completed":
+        raise RuntimeError(
+            f"Predicate equivalence batch {batch.id} did not complete successfully: {final_batch.status}"
+        )
+
+    output_file_id = getattr(final_batch, "output_file_id", None)
+    if not output_file_id:
+        raise RuntimeError(f"Predicate equivalence batch {batch.id} has no output_file_id")
+
+    output_text = read_openai_file_text(client=client, file_id=output_file_id)
+    parsed_by_custom_id = parse_equivalence_batch_output(
+        output_text=output_text,
+        pair_by_custom_id=pair_by_custom_id,
+    )
+
+    ordered_results: list[dict[str, Any]] = []
+    for index, (p1, p2) in enumerate(predicate_pairs):
+        custom_id = f"predicate-pair-{index}"
+        ordered_results.append(
+            parsed_by_custom_id.get(
+                custom_id,
+                {
+                    "predicate_a": p1,
+                    "predicate_b": p2,
+                    "equivalent": False,
+                    "confidence": 0.0,
+                    "reason": "missing_result",
+                },
+            )
+        )
+
+    return ordered_results
+
+
 def predicates_equivalent(
     client: OpenAI,
     model: str,
@@ -205,7 +652,13 @@ def predicates_equivalent(
     )
 
     try:
-        result = call_llm_json(client, model, equivalence_system_prompt, user_prompt)
+        result = call_llm_json(
+            client,
+            model,
+            equivalence_system_prompt,
+            user_prompt,
+            response_format=EQUIVALENCE_RESPONSE_FORMAT,
+        )
     except Exception as exc:
         logger.warning(
             "Skipping predicate comparison for '%s' vs '%s' after JSON-format retries failed: %s",
@@ -226,6 +679,7 @@ def normalize_predicates(
     model: str,
     equivalence_system_prompt: str,
     triples: list[Triple],
+    batch_timeout_seconds: int,
 ) -> tuple[list[Triple], dict[str, list[str]], list[dict[str, Any]], int]:
     predicates = list(dict.fromkeys(t.predicate for t in triples))
     uf = UnionFind(predicates)
@@ -238,17 +692,22 @@ def normalize_predicates(
         total_pairs,
     )
 
-    current_num = 0
+    predicate_pairs = list(itertools.combinations(predicates, 2))
+    batch_results = predicates_equivalent_batch(
+        client=client,
+        model=model,
+        equivalence_system_prompt=equivalence_system_prompt,
+        predicate_pairs=predicate_pairs,
+        batch_timeout_seconds=batch_timeout_seconds,
+    )
 
-    for p1, p2 in itertools.combinations(predicates, 2):
-        logger.debug(f"Comparing predicates: '{p1}' vs '{p2}'")
-        equivalent, confidence, reason = predicates_equivalent(
-            client=client,
-            model=model,
-            equivalence_system_prompt=equivalence_system_prompt,
-            p1=p1,
-            p2=p2,
-        )
+    for current_num, comparison in enumerate(batch_results, start=1):
+        p1 = str(comparison.get("predicate_a", ""))
+        p2 = str(comparison.get("predicate_b", ""))
+        equivalent = bool(comparison.get("equivalent", False))
+        confidence = float(comparison.get("confidence", 0.0))
+        reason = str(comparison.get("reason", ""))
+
         comparisons.append(
             {
                 "predicate_a": p1,
@@ -259,11 +718,15 @@ def normalize_predicates(
             }
         )
         if equivalent:
-            logger.debug(f"Predicates '{p1}' and '{p2}' are equivalent (confidence: {confidence:.2f})")
+            logger.debug(
+                "Predicates '%s' and '%s' are equivalent (confidence: %.2f)",
+                p1,
+                p2,
+                confidence,
+            )
             uf.union(p1, p2)
-        
-        current_num += 1
-        logger.info(f"Completed {current_num}/{total_pairs} comparisons")
+
+        logger.info("Completed %d/%d comparisons", current_num, total_pairs)
 
     groups: dict[str, list[str]] = {}
     for p in predicates:
@@ -284,34 +747,12 @@ def normalize_predicates(
     return normalized, groups, comparisons, total_pairs
 
 
-def main() -> None:
-    logging.basicConfig(level=logging.DEBUG)
-
-    parser = argparse.ArgumentParser(
-        description="Generate semantic triples from JSON and normalize equivalent predicates via LLM."
-    )
-    parser.add_argument("--input", required=True, help="Path to input JSON file")
-    parser.add_argument("--output", required=True, help="Path to output JSON file")
-    parser.add_argument("--model", required=True, help="Model name served by vLLM/OpenAI-compatible API")
-    parser.add_argument("--base-url", default="http://localhost:8000/v1", help="OpenAI-compatible base URL")
-    parser.add_argument("--api-key", default="local-key", help="API key value accepted by the local server")
-    parser.add_argument(
-        "--extract-prompt-file",
-        default=None,
-        help="Optional file to override extraction system prompt",
-    )
-    parser.add_argument(
-        "--equivalence-prompt-file",
-        default=None,
-        help="Optional file to override predicate-equivalence system prompt",
-    )
-    args = parser.parse_args()
-
+def cmd_extract(args: argparse.Namespace) -> None:
+    """Extract triples from input JSON data."""
     logger.info(f"OpenAI base URL: {args.base_url}")
     logger.info(f"Model: {args.model}")
 
     extraction_system_prompt = load_prompt_override(args.extract_prompt_file, EXTRACTION_SYSTEM_PROMPT)
-    equivalence_system_prompt = load_prompt_override(args.equivalence_prompt_file, EQUIVALENCE_SYSTEM_PROMPT)
 
     payload = json.loads(Path(args.input).read_text(encoding="utf-8"))
     instances = extract_instances(payload)
@@ -324,13 +765,17 @@ def main() -> None:
     all_triples: list[Triple] = []
     triples_by_instance: list[dict[str, Any]] = []
 
+    logger.info("Submitting extraction batch for %d instances...", instances_num)
+    triples_by_instance_id = triples_from_instances_batch(
+        client=client,
+        model=args.model,
+        extraction_system_prompt=extraction_system_prompt,
+        instances=instances,
+        batch_timeout_seconds=args.batch_timeout_seconds,
+    )
+
     for i, instance in enumerate(instances):
-        triples = triples_from_instance(
-            client=client,
-            model=args.model,
-            extraction_system_prompt=extraction_system_prompt,
-            instance=instance,
-        )
+        triples = triples_by_instance_id.get(instance["instance_id"], [])
         all_triples.extend(triples)
         triples_by_instance.append(
             {
@@ -340,27 +785,130 @@ def main() -> None:
         )
         logger.info(f"Processed instance {i + 1}/{instances_num}")
 
+    unique_predicates = list(dict.fromkeys(t.predicate for t in all_triples))
+
+    extraction_output = {
+        "input_file": args.input,
+        "instances_count": len(instances),
+        "triples_count": len(all_triples),
+        "unique_predicates": unique_predicates,
+        "triples_by_instance": triples_by_instance,
+        "all_triples": [asdict(t) for t in all_triples],
+    }
+
+    Path(args.output).write_text(
+        json.dumps(extraction_output, indent=2, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    logger.info(f"Extraction complete. Results saved to {args.output}")
+
+
+def cmd_normalize(args: argparse.Namespace) -> None:
+    """Normalize predicates using extracted triples from extraction output file."""
+    logger.info(f"OpenAI base URL: {args.base_url}")
+    logger.info(f"Model: {args.model}")
+
+    extraction_output = json.loads(Path(args.input).read_text(encoding="utf-8"))
+    equivalence_system_prompt = load_prompt_override(args.equivalence_prompt_file, EQUIVALENCE_SYSTEM_PROMPT)
+
+    all_triples_dict = extraction_output.get("all_triples", [])
+    all_triples = [
+        Triple(
+            subject=t["subject"],
+            predicate=t["predicate"],
+            object=t["object"],
+        )
+        for t in all_triples_dict
+    ]
+
+    logger.info(f"Loaded {len(all_triples)} triples from {args.input}")
     logger.info("Normalizing predicates across all triples...")
+
+    client = OpenAI(base_url=args.base_url, api_key=args.api_key)
+
     normalized, groups, comparisons, predicate_pair_comparisons_count = normalize_predicates(
         client=client,
         model=args.model,
         equivalence_system_prompt=equivalence_system_prompt,
         triples=all_triples,
+        batch_timeout_seconds=args.batch_timeout_seconds,
     )
 
-    output_payload = {
-        "input_file": args.input,
-        "instances_count": len(instances),
-        "triples_count": len(all_triples),
-        "unique_predicates_before": list(dict.fromkeys(t.predicate for t in all_triples)),
+    unique_predicates_before = list(dict.fromkeys(t.predicate for t in all_triples))
+    unique_predicates_after = list(dict.fromkeys(t.predicate for t in normalized))
+
+    normalization_output = {
+        "extraction_source": args.input,
+        "unique_predicates_before": unique_predicates_before,
+        "unique_predicates_after": unique_predicates_after,
         "predicate_pair_comparisons_count": predicate_pair_comparisons_count,
         "predicate_groups": groups,
         "pairwise_predicate_comparisons": comparisons,
-        "triples_by_instance": triples_by_instance,
         "normalized_triples": [asdict(t) for t in normalized],
     }
 
-    Path(args.output).write_text(json.dumps(output_payload, indent=2, ensure_ascii=False), encoding="utf-8")
+    Path(args.output).write_text(
+        json.dumps(normalization_output, indent=2, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    logger.info(f"Normalization complete. Results saved to {args.output}")
+
+
+def main() -> None:
+    logging.basicConfig(level=logging.INFO)
+
+    parser = argparse.ArgumentParser(
+        description="Two-step semantic triple extraction and normalization pipeline."
+    )
+    subparsers = parser.add_subparsers(dest="command", help="Command to run")
+
+    # Extract subcommand
+    extract_parser = subparsers.add_parser("extract", help="Extract triples from input data")
+    extract_parser.add_argument("--input", required=True, help="Path to input JSON file")
+    extract_parser.add_argument("--output", required=True, help="Path to output extraction results")
+    extract_parser.add_argument("--model", required=True, help="Model name served by vLLM/OpenAI-compatible API")
+    extract_parser.add_argument("--base-url", default="http://localhost:8000/v1", help="OpenAI-compatible base URL")
+    extract_parser.add_argument("--api-key", default="local-key", help="API key value accepted by the local server")
+    extract_parser.add_argument(
+        "--extract-prompt-file",
+        default=None,
+        help="Optional file to override extraction system prompt",
+    )
+    extract_parser.add_argument(
+        "--batch-timeout-seconds",
+        type=int,
+        default=1800,
+        help="Max seconds to wait for extraction batch completion",
+    )
+    extract_parser.set_defaults(func=cmd_extract)
+
+    # Normalize subcommand
+    normalize_parser = subparsers.add_parser("normalize", help="Normalize predicates from extraction output")
+    normalize_parser.add_argument("--input", required=True, help="Path to extraction output file")
+    normalize_parser.add_argument("--output", required=True, help="Path to output normalization results")
+    normalize_parser.add_argument("--model", required=True, help="Model name served by vLLM/OpenAI-compatible API")
+    normalize_parser.add_argument("--base-url", default="http://localhost:8000/v1", help="OpenAI-compatible base URL")
+    normalize_parser.add_argument("--api-key", default="local-key", help="API key value accepted by the local server")
+    normalize_parser.add_argument(
+        "--equivalence-prompt-file",
+        default=None,
+        help="Optional file to override predicate-equivalence system prompt",
+    )
+    normalize_parser.add_argument(
+        "--batch-timeout-seconds",
+        type=int,
+        default=1800,
+        help="Max seconds to wait for predicate comparison batch completion",
+    )
+    normalize_parser.set_defaults(func=cmd_normalize)
+
+    args = parser.parse_args()
+
+    if not hasattr(args, "func"):
+        parser.print_help()
+        return
+
+    args.func(args)
 
 
 if __name__ == "__main__":

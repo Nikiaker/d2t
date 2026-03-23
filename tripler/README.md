@@ -25,6 +25,37 @@ python app.py \
   --api-key local-key
 ```
 
+## Batch Wrapper for vLLM (no `/v1/files` / `/v1/batches`)
+
+If your vLLM server does not implement OpenAI Files/Batch endpoints, run the local wrapper:
+
+```bash
+python batch_wrapper_server.py \
+  --upstream-base-url http://localhost:8001 \
+  --host 0.0.0.0 \
+  --port 8010 \
+  --storage-dir .batch_wrapper_data
+```
+
+Then point `app.py` to the wrapper:
+
+```bash
+python app.py \
+  --input input_data.json \
+  --output output_data.json \
+  --model vllm-model-1 \
+  --base-url http://localhost:8010/v1 \
+  --api-key none
+```
+
+The wrapper forwards each batch request line to upstream `POST /v1/chat/completions`, stores uploaded files locally, and exposes OpenAI-compatible:
+
+- `POST /v1/files`
+- `GET /v1/files/{file_id}`
+- `GET /v1/files/{file_id}/content`
+- `POST /v1/batches`
+- `GET /v1/batches/{batch_id}`
+
 ## Notes
 
 - The app expects one of these JSON shapes:

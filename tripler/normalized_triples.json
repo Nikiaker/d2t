@@ -1,0 +1,2965 @@
+{
+  "extraction_source": "extracted_triples.json",
+  "unique_predicates_before": [
+    "located_in",
+    "covers_city",
+    "temperature_range_celsius",
+    "humidity_range_percent",
+    "max_wind_gust_m_s",
+    "predominant_condition",
+    "overcast_cloud_coverage_percent",
+    "often_clear",
+    "frequent_wind_gusts_above_m_s",
+    "country",
+    "coordinates",
+    "date_range",
+    "max_value",
+    "min_value",
+    "peak_amount",
+    "moderate_rain_events",
+    "heavy_rain_events",
+    "high_periods",
+    "dominant_condition",
+    "max_gust",
+    "typical_speed",
+    "covers",
+    "recorded",
+    "occurred",
+    "trend",
+    "peak",
+    "range",
+    "shifted"
+  ],
+  "unique_predicates_after": [
+    "located_in",
+    "covers_city",
+    "temperature_range_celsius",
+    "humidity_range_percent",
+    "max_wind_gust_m_s",
+    "predominant_condition",
+    "overcast_cloud_coverage_percent",
+    "often_clear",
+    "frequent_wind_gusts_above_m_s",
+    "country",
+    "coordinates",
+    "date_range",
+    "max_value",
+    "min_value",
+    "peak_amount",
+    "moderate_rain_events",
+    "heavy_rain_events",
+    "high_periods",
+    "dominant_condition",
+    "max_gust",
+    "typical_speed",
+    "covers",
+    "recorded",
+    "occurred",
+    "trend",
+    "peak",
+    "range",
+    "shifted"
+  ],
+  "predicate_pair_comparisons_count": 378,
+  "predicate_groups": {
+    "located_in": [
+      "located_in"
+    ],
+    "covers_city": [
+      "covers_city"
+    ],
+    "temperature_range_celsius": [
+      "temperature_range_celsius"
+    ],
+    "humidity_range_percent": [
+      "humidity_range_percent"
+    ],
+    "max_wind_gust_m_s": [
+      "max_wind_gust_m_s"
+    ],
+    "predominant_condition": [
+      "predominant_condition"
+    ],
+    "overcast_cloud_coverage_percent": [
+      "overcast_cloud_coverage_percent"
+    ],
+    "often_clear": [
+      "often_clear"
+    ],
+    "frequent_wind_gusts_above_m_s": [
+      "frequent_wind_gusts_above_m_s"
+    ],
+    "country": [
+      "country"
+    ],
+    "coordinates": [
+      "coordinates"
+    ],
+    "date_range": [
+      "date_range"
+    ],
+    "max_value": [
+      "max_value"
+    ],
+    "min_value": [
+      "min_value"
+    ],
+    "peak_amount": [
+      "peak_amount"
+    ],
+    "moderate_rain_events": [
+      "moderate_rain_events"
+    ],
+    "heavy_rain_events": [
+      "heavy_rain_events"
+    ],
+    "high_periods": [
+      "high_periods"
+    ],
+    "dominant_condition": [
+      "dominant_condition"
+    ],
+    "max_gust": [
+      "max_gust"
+    ],
+    "typical_speed": [
+      "typical_speed"
+    ],
+    "covers": [
+      "covers"
+    ],
+    "recorded": [
+      "recorded"
+    ],
+    "occurred": [
+      "occurred"
+    ],
+    "trend": [
+      "trend"
+    ],
+    "peak": [
+      "peak"
+    ],
+    "range": [
+      "range"
+    ],
+    "shifted": [
+      "shifted"
+    ]
+  },
+  "pairwise_predicate_comparisons": [
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "covers_city",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "The predicate 'located_in' expresses a spatial containment relationship where the subject entity exists within a given location (e.g., a museum located_in a city). 'covers_city' denotes a coverage or service relationship, indicating that the subject (e.g., a newspaper, service provider) includes or serves the specified city. These relations convey different meanings and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "temperature_range_celsius",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicate 'located_in' expresses a spatial relationship indicating where an entity exists, while 'temperature_range_celsius' describes a numeric range of temperature values in Celsius. They refer to entirely different domains (spatial vs thermal) and cannot be interchanged or merged without loss of meaning."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "humidity_range_percent",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'located_in' expresses a spatial relationship indicating where an entity is situated, whereas 'humidity_range_percent' describes a quantitative property specifying a range of humidity values in percent. They belong to completely different semantic domains (spatial vs. measurement) and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "max_wind_gust_m_s",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'located_in' denotes a spatial relationship indicating that an entity exists within a specific place, whereas 'max_wind_gust_m_s' denotes a quantitative measurement of wind speed. They describe fundamentally different concepts and cannot be merged."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "predominant_condition",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"located_in\" describes a spatial relationship where an entity exists within a specific place (e.g., a city located in a country). \"predominant_condition\" describes the primary state or characteristic of an entity (e.g., the predominant condition of a region is tropical). These predicates refer to fundamentally different concepts—spatial containment versus characteristic state—and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "overcast_cloud_coverage_percent",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'located_in' describes a spatial relationship between an entity and a place, while 'overcast_cloud_coverage_percent' denotes a quantitative measurement of cloud cover in the atmosphere. They belong to different domains (geography vs. meteorology) and convey entirely distinct meanings, so they cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "often_clear",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "`located_in` expresses a spatial containment relationship between two entities, whereas `often_clear` describes a probabilistic attribute (frequency of clarity). They belong to distinct semantic domains and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "frequent_wind_gusts_above_m_s",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'located_in' denotes a spatial relationship indicating where something is situated, while 'frequent_wind_gusts_above_m_s' describes a weather condition involving wind speed. They refer to completely different concepts and cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "country",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "\"located_in\" is a general spatial relationship that can link any entity to any geographical entity (city, region, building, country, etc.). \"country\" specifically refers to the nation-state associated with an entity. While every \"country\" relation is a kind of \"located_in\", the converse is not true, so the predicates are not semantically equivalent and cannot be safely merged."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "coordinates",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "‘located_in’ expresses a relational link between an entity and a place (e.g., Eiffel Tower located_in Paris), while ‘coordinates’ provides a literal geographic datum (latitude/longitude) for an entity. They convey different types of information and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "date_range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"located_in\" describes a spatial relationship indicating that an entity is situated within a place or region, whereas \"date_range\" represents a temporal interval specifying start and end dates. They refer to fundamentally different dimensions (space vs. time) and cannot be used interchangeably in a knowledge graph."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "max_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'located_in' expresses a spatial or hierarchical relationship between an entity and a container (e.g., a city located_in a country). The predicate 'max_value' expresses a quantitative property indicating the greatest numerical value in a set (e.g., the max_value of a measurement). These two predicates describe fundamentally different kinds of information and cannot be merged without loss of meaning. Therefore, they are not semantically equivalent."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "min_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"located_in\" denotes a spatial relationship (an entity is situated within a place or container), whereas \"min_value\" represents a numeric attribute indicating the smallest value in a set or range. The meanings are unrelated and cannot be merged without loss of semantic integrity."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "peak_amount",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "\"located_in\" expresses a spatial relationship indicating where an entity is situated, while \"peak_amount\" denotes the maximum quantity or value associated with an entity. Their meanings are fundamentally different and cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "moderate_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'located_in' denotes a spatial relationship indicating that an entity exists within a particular place or region. The predicate 'moderate_rain_events' refers to occurrences of rain of moderate intensity, a weather phenomenon. These predicates describe fundamentally different concepts and cannot be used interchangeably in a knowledge graph."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "heavy_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'located_in' expresses a spatial relationship between an entity and a place (e.g., a city located_in a country). The predicate 'heavy_rain_events' denotes a class of meteorological occurrences. They describe fundamentally different concepts—one is a relation, the other is an event type—so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "high_periods",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'located_in' denotes a spatial relationship where an entity exists within a place or container. 'high_periods' refers to intervals of elevated values (e.g., temperature, demand) and conveys a temporal/qualitative concept. Their meanings are unrelated, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "dominant_condition",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"located_in\" expresses a spatial relationship where an entity exists within a specific place or region. \"dominant_condition\" describes the prevailing or most influential state or circumstance affecting something, which is a qualitative, non-spatial attribute. The two predicates refer to fundamentally different types of information and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "max_gust",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'located_in' denotes a spatial relationship between two entities (e.g., an object is situated within a place), whereas 'max_gust' denotes a meteorological measurement of the maximum wind gust speed. Their meanings are unrelated and cannot be merged."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "typical_speed",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"located_in\" expresses a spatial relationship indicating where an entity is situated, whereas \"typical_speed\" describes a numeric attribute representing the usual rate of motion for an entity. The predicates refer to fundamentally different types of information and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "covers",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "\"located_in\" expresses that an entity exists within the spatial bounds of another (subject → container). \"covers\" expresses that a region or entity contains or overlays another (subject → contained). The directionality and nuance differ, and \"covers\" can also be used in non-spatial or broader senses. Therefore they are not semantically equivalent and cannot be safely merged."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"located_in\" denotes a spatial containment or positioning relationship (e.g., a city located_in a country). \"recorded\" denotes the act of capturing, documenting, or storing information or an event. The two predicates describe fundamentally different types of relations and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'located_in' expresses a spatial relationship where an entity exists or is positioned within a place. The predicate 'occurred' denotes that an event took place, typically referring to a temporal occurrence and possibly a location, but its primary meaning is about the happening of an event, not about spatial containment. Since their core meanings differ, they cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'located_in' expresses a spatial relationship where an entity exists within a place (e.g., 'Paris located_in France'). The predicate 'trend' expresses a temporal or statistical relationship describing a direction of change or tendency (e.g., 'sales trend upward'). These meanings are fundamentally different and cannot be merged without loss of semantic precision; thus they are not equivalent."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"located_in\" expresses a spatial containment relationship (X is situated within Y). \"peak\" denotes either the highest point of something (a noun) or the action of reaching a maximum (a verb). The meanings are unrelated and cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"located_in\" expresses a spatial containment relationship where an entity is situated within a specific place. \"range\" denotes a span or interval (spatial, numeric, or functional) and does not convey the same containment meaning. Therefore the two predicates are not semantically equivalent and cannot be safely merged."
+    },
+    {
+      "predicate_a": "located_in",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'located_in' denotes a static spatial relationship indicating that an entity resides or is situated within a particular place (e.g., \"Paris located_in France\"). In contrast, 'shifted' describes a dynamic action or change of position, implying movement from one location to another (e.g., \"the tectonic plate shifted\"). These predicates describe fundamentally different concepts—one static location, the other motion—so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "temperature_range_celsius",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'covers_city' denotes a spatial relationship indicating that an entity (e.g., service, map) includes or serves a specific city. The predicate 'temperature_range_celsius' denotes a numerical property expressing a range of temperatures measured in Celsius. These predicates describe fundamentally different concepts (spatial coverage vs. temperature measurement) and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "humidity_range_percent",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'covers_city' denotes a relationship where an entity (e.g., service, organization) provides coverage for a city, while 'humidity_range_percent' denotes a quantitative measurement of humidity expressed as a percentage range. These concepts are unrelated and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "max_wind_gust_m_s",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'covers_city' denotes a relationship where an entity (e.g., a service, organization) includes or serves a particular city, while 'max_wind_gust_m_s' specifies a quantitative weather measurement (maximum wind gust speed in meters per second). Their meanings and domains are entirely different, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "predominant_condition",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'covers_city' describes a relationship where an entity provides coverage or service for a specific city, while 'predominant_condition' describes the most common condition (e.g., weather, status) in a context. These concepts are distinct and not interchangeable, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "overcast_cloud_coverage_percent",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "The predicate 'covers_city' denotes a binary relation indicating whether an entity (e.g., a cloud) physically covers a city area. In contrast, 'overcast_cloud_coverage_percent' denotes a quantitative measurement of cloud cover expressed as a percentage. While both concern cloud coverage, one is a Boolean spatial relation and the other a numeric metric; they cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "often_clear",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'covers_city' describes a spatial relationship where an entity (e.g., a service, map, or structure) extends over or includes an entire city. The predicate 'often_clear' describes a temporal frequency indicating that something is clear (e.g., weather, sky, schedule) most of the time. These concepts are unrelated in meaning and cannot be merged without loss of semantic integrity."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "frequent_wind_gusts_above_m_s",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'covers_city' describes a relationship where an entity (e.g., service, map, area) includes or spans a city, while 'frequent_wind_gusts_above_m_s' describes a weather condition involving repeated wind gusts exceeding a speed threshold. They refer to entirely different domains and meanings, so they cannot be merged as equivalent predicates."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "country",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'covers_city' expresses a relationship where an entity provides coverage (e.g., news, service, representation) for a specific city, while 'country' denotes a relationship linking an entity to a nation. These predicates refer to different concepts (city-level coverage vs. national affiliation) and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "coordinates",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'covers_city' denotes a relationship where an entity (e.g., a map, region, or event) includes or spans an entire city. The predicate 'coordinates' denotes a specific geospatial point (latitude/longitude) associated with an entity. These predicates convey fundamentally different types of information and cannot be used interchangeably in a knowledge graph."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "date_range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'covers_city' relates an entity to a geographic location (a city it covers), whereas 'date_range' specifies a temporal interval. Their semantics belong to different domains (spatial vs. temporal) and cannot be used interchangeably in a knowledge graph."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "max_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'covers_city' describes a relationship where an entity (e.g., organization, service) covers a particular city. The predicate 'max_value' denotes a numeric operation that returns the greatest value in a set. These predicates have completely different semantics—one is a spatial/coverage relation, the other is a quantitative aggregation—so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "min_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'covers_city' describes a spatial relationship where an entity (e.g., a region, map, or service area) includes or spans a particular city. The predicate 'min_value' denotes a numeric attribute representing the smallest value in a set or range. These predicates refer to entirely different domains (spatial coverage vs. quantitative minimum) and cannot be interchanged or merged in a knowledge graph without loss of meaning."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "peak_amount",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"covers_city\" denotes a relationship where an entity (e.g., service, policy, organization) includes or serves a specific city. \"peak_amount\" denotes the maximum value or quantity of something. The two predicates describe fundamentally different concepts—geographic coverage versus a numerical extreme—and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "moderate_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"covers_city\" denotes a relationship where an entity (e.g., flood, cloud, hazard) spatially covers a city. \"moderate_rain_events\" denotes a classification or occurrence of rain events of moderate intensity. The two predicates describe entirely different concepts—spatial coverage versus meteorological event intensity—and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "heavy_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"covers_city\" denotes a relation where an entity (e.g., a service, map, news outlet) includes or pertains to a specific city, while \"heavy_rain_events\" refers to instances of intense rainfall. The two predicates describe fundamentally different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "high_periods",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'covers_city' denotes a relationship where an entity (e.g., flood, satellite image, jurisdiction) extends over or includes a specific city. In contrast, 'high_periods' refers to intervals of elevated values (such as temperature, tide, demand, etc.) and does not convey any spatial coverage of a city. Their meanings are unrelated, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "dominant_condition",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"covers_city\" denotes a relation where an entity (e.g., a map, service, event) includes or spans a specific city. \"dominant_condition\" denotes a relation where an entity (e.g., a region, time period) is primarily associated with a particular condition (e.g., weather, economic state). The two predicates refer to fundamentally different types of relationships and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "max_gust",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"covers_city\" describes a spatial relationship (e.g., a service, area, or feature that includes or spans a city), whereas \"max_gust\" denotes a meteorological measurement (the maximum wind gust). The meanings are unrelated and cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "typical_speed",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'covers_city' describes a spatial relationship where an entity (e.g., a service, route, or area) includes or serves a specific city. The predicate 'typical_speed' describes a quantitative attribute indicating the usual speed of an entity (e.g., vehicle, process). These predicates convey fundamentally different types of information (spatial coverage vs. performance metric) and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "covers",
+      "equivalent": false,
+      "confidence": 0.96,
+      "reason": "The predicate 'covers_city' explicitly denotes a covering relationship specific to cities, while 'covers' is a generic covering relation applicable to any type of entity (e.g., topics, regions, objects). Because 'covers' is broader and not limited to cities, the two predicates cannot be safely merged without loss of semantic precision."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"covers_city\" denotes a relationship where an entity (e.g., a map, service, or media outlet) includes or spans a particular city. \"recorded\" denotes the action of capturing something (audio, video, data, etc.) as a record. The two predicates refer to completely different concepts and cannot be interchanged in a knowledge graph."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"covers_city\" denotes a relationship where an entity (e.g., an article, event, or policy) includes or pertains to a specific city. \"occurred\" denotes that an event or state happened, without specifying any geographic target. The two predicates describe fundamentally different concepts and cannot be merged safely in a knowledge graph."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"covers_city\" denotes a relationship where an entity (e.g., a service, report, or organization) includes or operates within a specific city. \"trend\" denotes a pattern of change or popularity over time. The concepts are unrelated and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'covers_city' denotes a relationship where an entity (e.g., a region, map, organization) includes or covers a city. The predicate 'peak' denotes a highest point or the act of reaching a maximum, typically unrelated to geographic covering. Their meanings are distinct and cannot be merged without loss of semantics."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"covers_city\" is a specific predicate denoting that an entity (e.g., a publication, service, or organization) includes or serves a particular city. \"range\" is a generic, domain‑agnostic predicate that describes a spatial, temporal, or numeric extent. The two predicates do not convey the same meaning and cannot be merged without loss of semantic precision."
+    },
+    {
+      "predicate_a": "covers_city",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"covers_city\" denotes a relationship where an entity (e.g., a service, region, or organization) includes or serves a specific city, while \"shifted\" describes a change in position, state, or condition. The two predicates refer to fundamentally different concepts and cannot be merged in a knowledge graph without loss of meaning."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "humidity_range_percent",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicates refer to distinct physical properties: one describes a temperature range measured in Celsius, while the other describes a humidity range measured in percent. They are not interchangeable and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "max_wind_gust_m_s",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'temperature_range_celsius' describes a range of temperature values measured in degrees Celsius, while 'max_wind_gust_m_s' describes the maximum wind gust speed measured in meters per second. They refer to distinct physical quantities (temperature vs wind speed) and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "predominant_condition",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'temperature_range_celsius' specifies a quantitative range of temperature values measured in degrees Celsius, while 'predominant_condition' describes a qualitative state or dominant weather condition (e.g., sunny, rainy). These concepts are fundamentally different and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "overcast_cloud_coverage_percent",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'temperature_range_celsius' describes a numeric range of air temperature measured in degrees Celsius, while 'overcast_cloud_coverage_percent' describes the proportion of the sky covered by clouds expressed as a percentage. These represent distinct physical phenomena (temperature vs. cloud cover) and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "often_clear",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'temperature_range_celsius' describes a numeric range of temperature values in Celsius, while 'often_clear' describes a frequent condition of clarity (e.g., sky or weather). They refer to distinct domains and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "frequent_wind_gusts_above_m_s",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The first predicate describes a temperature interval measured in Celsius, while the second describes the frequency of wind gusts exceeding a specific speed measured in meters per second. They refer to different physical quantities (temperature vs. wind speed) and cannot be merged without losing meaning."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "country",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'temperature_range_celsius' describes a numeric range of temperature measured in degrees Celsius, while the predicate 'country' denotes a geopolitical entity. They refer to entirely different domains and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "coordinates",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'temperature_range_celsius' describes a numeric range of temperature measured in degrees Celsius, while 'coordinates' refers to spatial location values (e.g., latitude/longitude). They represent entirely different domains and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "date_range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'temperature_range_celsius' specifies a range of temperatures measured in Celsius, while 'date_range' specifies a range of calendar dates. They refer to fundamentally different domains (physical temperature vs. temporal period) and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "max_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'temperature_range_celsius' specifically describes a range of temperature values measured in Celsius, encompassing both lower and upper bounds. In contrast, 'max_value' is a generic predicate indicating only the maximum value of any quantity, without context of temperature, units, or range. Therefore, they do not convey the same meaning and cannot be safely merged."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "min_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'temperature_range_celsius' specifically denotes a temperature interval expressed in degrees Celsius, whereas 'min_value' is a generic predicate that indicates the minimum numeric value of any attribute. Their meanings are not interchangeable; one is a domain‑specific range, the other is a generic minimum value. Hence they cannot be safely merged."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "peak_amount",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'temperature_range_celsius' specifies a temperature interval measured in Celsius, while 'peak_amount' denotes the maximum observed quantity of an unspecified metric. They describe fundamentally different concepts (temperature vs. quantity) and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "moderate_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'temperature_range_celsius' represents a numeric temperature interval measured in Celsius, while 'moderate_rain_events' denotes occurrences of rainfall of moderate intensity. They refer to distinct physical phenomena (temperature vs. precipitation) and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "heavy_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'temperature_range_celsius' describes a quantitative measurement of temperature expressed as a range in Celsius, while 'heavy_rain_events' refers to occurrences of intense precipitation. These concepts belong to distinct domains (thermal metrics vs. precipitation events) and cannot be interchanged without loss of meaning, so they are not semantically equivalent."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "high_periods",
+      "equivalent": false,
+      "confidence": 0.98,
+      "reason": "`temperature_range_celsius` denotes a numerical interval of temperature values measured in Celsius. `high_periods` denotes temporal intervals during which a variable (often unspecified) attains a high level. The predicates refer to different concepts—one to a value range, the other to a time span of elevated values—so they cannot be safely merged."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "dominant_condition",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'temperature_range_celsius' specifies a quantitative range of temperature measured in Celsius, while 'dominant_condition' describes a qualitative prevailing condition (e.g., weather, environmental state). They refer to different types of information—numeric temperature versus categorical condition—and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "max_gust",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'temperature_range_celsius' describes a range of temperature values expressed in degrees Celsius, whereas 'max_gust' refers to the maximum wind gust speed. These concepts are unrelated and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "typical_speed",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'temperature_range_celsius' describes a range of temperatures measured in Celsius, while 'typical_speed' describes a typical rate of movement (e.g., distance per time). They refer to fundamentally different physical quantities and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "covers",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'temperature_range_celsius' describes a numeric range of temperature values measured in Celsius, while 'covers' denotes an action or relationship of covering, including, or overlaying something. These concepts are unrelated and cannot be merged safely in a knowledge graph."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'temperature_range_celsius' specifies a quantitative attribute representing a range of temperature values measured in Celsius, while 'recorded' denotes the action of capturing or logging data. They refer to different concepts (a specific data type vs. an event of data capture) and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"temperature_range_celsius\" denotes a quantitative measurement of temperature expressed in Celsius, whereas \"occurred\" denotes the fact that an event took place. They describe fundamentally different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'temperature_range_celsius' describes a specific numeric interval of temperature measured in Celsius, whereas 'trend' describes the direction or pattern of change over time (e.g., increasing, decreasing). These concepts are distinct and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'temperature_range_celsius' specifically denotes a numeric range of temperatures expressed in Celsius units, while 'peak' denotes a maximum point or highest value in a generic sense. They refer to different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "The predicate 'temperature_range_celsius' denotes a specific numeric interval measuring temperature in Celsius, while 'range' is a generic term that can refer to any kind of interval (e.g., ages, distances, prices). The meanings are not identical, so they cannot be safely merged."
+    },
+    {
+      "predicate_a": "temperature_range_celsius",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'temperature_range_celsius' specifies a quantitative attribute describing a range of temperatures measured in Celsius, while the predicate 'shifted' denotes a generic notion of moving or relocating something. Their meanings are unrelated and cannot be merged without loss of semantic precision."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "max_wind_gust_m_s",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates refer to distinct physical phenomena: 'humidity_range_percent' describes a range of atmospheric humidity expressed as a percentage, while 'max_wind_gust_m_s' describes the maximum wind gust speed measured in meters per second. They are not interchangeable and cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "predominant_condition",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'humidity_range_percent' refers specifically to a quantitative range of atmospheric humidity expressed as a percentage, while 'predominant_condition' describes the main qualitative weather condition (e.g., sunny, rainy). They represent fundamentally different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "overcast_cloud_coverage_percent",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The two predicates describe distinct physical phenomena. 'humidity_range_percent' refers to the relative humidity of the air expressed as a percentage (often as a range), whereas 'overcast_cloud_coverage_percent' denotes the proportion of the sky covered by clouds, also expressed as a percentage. Since humidity and cloud coverage are unrelated concepts, they cannot be merged in a knowledge graph without losing semantic precision."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "often_clear",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'humidity_range_percent' refers to a quantitative measure of atmospheric humidity expressed as a percentage range, whereas 'often_clear' describes a qualitative weather condition indicating frequent clear skies. These concepts are unrelated and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "frequent_wind_gusts_above_m_s",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicates describe entirely different physical quantities: 'humidity_range_percent' refers to a range of atmospheric moisture expressed as a percentage, whereas 'frequent_wind_gusts_above_m_s' refers to the occurrence of wind gusts exceeding a speed threshold measured in meters per second. They are not interchangeable and cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "country",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'humidity_range_percent' describes a quantitative measurement of atmospheric moisture expressed as a percentage range, whereas 'country' denotes a geopolitical entity. They belong to entirely different semantic domains and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "coordinates",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'humidity_range_percent' describes a numeric range of atmospheric humidity expressed in percent, while 'coordinates' denotes spatial location (e.g., latitude/longitude). They refer to entirely different domains and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "date_range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The two predicates describe fundamentally different dimensions: one quantifies a range of humidity values expressed as percentages, while the other quantifies a span of calendar dates. Their meanings are unrelated and cannot be merged without loss of semantic integrity."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "max_value",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "The predicate 'humidity_range_percent' specifically denotes a range (typically minimum and maximum) of relative humidity expressed as a percentage. It conveys both the type of measurement (humidity) and its unit (%). In contrast, 'max_value' is a generic predicate indicating the highest numeric value of an unspecified attribute, without any reference to humidity, units, or a range. Because the meanings are distinct and not interchangeable, they cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "min_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"humidity_range_percent\" denotes a specific measurement of humidity expressed as a percentage range, whereas \"min_value\" is a generic attribute indicating the minimum of any numeric quantity. Their meanings are distinct and cannot be merged without loss of semantic precision."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "peak_amount",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'humidity_range_percent' specifically denotes a range of humidity values expressed as a percentage, a measure of atmospheric moisture. 'peak_amount' denotes the maximum quantity of an unspecified variable, without reference to humidity or percentages. The two predicates refer to different concepts and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "moderate_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'humidity_range_percent' describes a quantitative measurement of atmospheric humidity expressed as a percentage range, while 'moderate_rain_events' refers to the occurrence count or instances of rainfall classified as moderate. These concepts pertain to different weather attributes and cannot be safely merged."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "heavy_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'humidity_range_percent' describes a measurement of atmospheric humidity expressed as a percentage range, whereas 'heavy_rain_events' refers to occurrences of intense rainfall. These concepts represent different physical phenomena and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "high_periods",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'humidity_range_percent' specifies a quantitative range of humidity expressed as a percentage, while 'high_periods' denotes time intervals characterized by high values (potentially of any variable). They describe different concepts—one a numeric measurement, the other a temporal classification—so they cannot be safely merged."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "dominant_condition",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'humidity_range_percent' denotes a specific quantitative measurement of atmospheric humidity expressed as a percentage range, while 'dominant_condition' refers to the prevailing weather or environmental condition (e.g., sunny, rainy, foggy). These concepts describe fundamentally different attributes and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "max_gust",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'humidity_range_percent' describes a range of atmospheric humidity expressed as a percentage, whereas 'max_gust' refers to the peak wind gust speed. These concepts pertain to different physical properties (humidity vs. wind) and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "typical_speed",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'humidity_range_percent' denotes a quantitative range of atmospheric humidity expressed as a percentage, while 'typical_speed' denotes an expected or average rate of motion expressed in units of distance over time. They describe fundamentally different physical properties and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "covers",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "`humidity_range_percent` describes a quantitative measurement of humidity expressed as a percentage range, whereas `covers` denotes a relationship of covering or spanning (e.g., spatial, topical, or functional coverage). The meanings are unrelated and cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'humidity_range_percent' denotes a specific quantitative attribute (the range of relative humidity expressed as a percentage). The predicate 'recorded' is a generic action indicating that some data or event was captured, without specifying its type or value. They refer to fundamentally different concepts and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'humidity_range_percent' denotes a numeric measurement of humidity expressed as a percentage range, while 'occurred' denotes that an event took place. They represent fundamentally different concepts (a quantitative attribute vs. an event occurrence) and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'humidity_range_percent' describes a specific quantitative measurement (a range of humidity expressed as a percentage), whereas 'trend' refers to the direction or pattern of change over time (e.g., increasing, decreasing, stable). These concepts are distinct and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'humidity_range_percent' specifies a numerical range of humidity expressed as a percentage, while 'peak' denotes a maximal point or highest value in a dataset or signal. Their meanings are distinct and cannot be safely merged."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'humidity_range_percent' denotes a specific quantitative range of humidity values expressed as a percentage, whereas 'range' is a generic term that can refer to any type of interval or span across any domain. The meanings are not interchangeable, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "humidity_range_percent",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'humidity_range_percent' denotes a quantitative measurement of humidity expressed as a percentage range, whereas 'shifted' describes a generic change in position or timing without any reference to humidity or percentages. Their meanings are unrelated and cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "predominant_condition",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "Predicate A (max_wind_gust_m_s) denotes a quantitative measurement of the maximum wind gust speed in meters per second, while Predicate B (predominant_condition) denotes a qualitative description of the main weather condition (e.g., sunny, rainy). They refer to entirely different attributes and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "overcast_cloud_coverage_percent",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The two predicates refer to distinct physical phenomena: 'max_wind_gust_m_s' measures the peak wind speed (a wind-related metric), while 'overcast_cloud_coverage_percent' measures the fraction of sky covered by clouds (a cloud/visibility metric). They cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "often_clear",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'max_wind_gust_m_s' denotes a quantitative measurement of the maximum wind gust speed in meters per second, whereas 'often_clear' describes a qualitative weather condition indicating that clear skies occur frequently. These predicates refer to distinct, unrelated aspects of weather and cannot be safely merged."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "frequent_wind_gusts_above_m_s",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "Predicate A reports a single scalar value—the maximum wind gust speed observed (in m/s). Predicate B describes a pattern—a frequent occurrence of wind gusts exceeding a given speed threshold. They capture different attributes (peak magnitude vs. frequency of exceeding a threshold) and cannot be safely merged."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "country",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'max_wind_gust_m_s' denotes a numeric measurement of the maximum wind gust speed (meters per second), whereas 'country' denotes a geopolitical entity. They represent entirely different types of information and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "coordinates",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'max_wind_gust_m_s' refers to a meteorological measurement (maximum wind gust speed expressed in meters per second), while 'coordinates' refers to spatial location information (latitude/longitude or similar). They represent fundamentally different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "date_range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicates refer to completely different concepts: 'max_wind_gust_m_s' denotes a measurement of wind speed, while 'date_range' denotes a span of dates. They are not interchangeable or mergeable in a knowledge graph."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "max_value",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "The predicate 'max_wind_gust_m_s' refers specifically to the maximum wind gust speed measured in meters per second, a domain‑specific metric. 'max_value' is a generic term denoting the maximum of any variable without specifying the type of data or units. Because the meanings are not interchangeable, they cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "min_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'max_wind_gust_m_s' specifically denotes the maximum observed wind gust speed measured in meters per second, which is a concrete, domain‑specific metric. The predicate 'min_value' is a generic term referring to the smallest value in an unspecified context. Their meanings differ in both scope and direction (maximum vs. minimum) and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "peak_amount",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'max_wind_gust_m_s' refers explicitly to the maximum wind gust speed measured in meters per second, a specific meteorological quantity. 'peak_amount' is a generic term that could denote the maximum amount of any variable and lacks any domain, unit, or context specificity. Because the meanings are not identical and cannot be safely merged in a knowledge graph, they are not semantically equivalent."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "moderate_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'max_wind_gust_m_s' refers to a quantitative measurement of the strongest wind gust in meters per second, while 'moderate_rain_events' refers to occurrences of rain of moderate intensity. These predicates describe distinct physical phenomena (wind versus rain) and different types of data (a single numeric value versus a count/event description), so they cannot be merged as semantically equivalent."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "heavy_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'max_wind_gust_m_s' measures the maximum wind gust speed (a wind speed metric), whereas 'heavy_rain_events' refers to occurrences of intense rainfall. These describe distinct meteorological phenomena (wind vs precipitation) and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "high_periods",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'max_wind_gust_m_s' denotes a specific quantitative measurement of the maximum wind gust speed expressed in meters per second. 'high_periods' is a generic term that could refer to any intervals characterized by a high value of some variable (e.g., temperature, tide, pressure) and does not specify wind speed or a measurement. The meanings are not directly interchangeable, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "dominant_condition",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "max_wind_gust_m_s denotes a quantitative measurement of the highest wind gust speed (in meters per second), while dominant_condition refers to the primary weather condition (e.g., rain, snow, clear). These concepts are distinct and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "max_gust",
+      "equivalent": false,
+      "confidence": 0.82,
+      "reason": "Predicate A explicitly denotes the maximum wind gust measured in meters per second, specifying both the phenomenon (wind gust) and the unit (m/s). Predicate B, 'max_gust', lacks any unit specification and could refer to a maximum gust of wind or another type of gust, making its meaning ambiguous. Because the two predicates are not guaranteed to represent the same exact measurement, they cannot be safely merged."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "typical_speed",
+      "equivalent": false,
+      "confidence": 0.98,
+      "reason": "Predicate A specifies a precise measurement: the maximum wind gust speed expressed in meters per second. Predicate B is vague, referring only to a 'typical speed' without context (could be wind, vehicle, animal, etc.) and does not convey the same exact concept of a maximum gust value. Therefore they are not semantically equivalent and cannot be merged."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "covers",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'max_wind_gust_m_s' denotes a quantitative measurement of the maximum wind gust speed in meters per second, while 'covers' expresses a spatial relationship where one entity extends over another. These concepts belong to different domains (meteorological metric vs. topological relation) and cannot be interchanged or merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'max_wind_gust_m_s' specifies a particular measured value (maximum wind gust speed in meters per second), while 'recorded' is a generic verb indicating that any data was captured. They refer to different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"max_wind_gust_m_s\" denotes a specific quantitative attribute (the maximum wind gust speed measured in meters per second). \"occurred\" is a generic verb indicating that an event happened, without specifying any measurable property. The two predicates refer to entirely different concepts and cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"max_wind_gust_m_s\" specifically denotes a quantitative measurement of the maximum wind gust speed in meters per second, while \"trend\" is a generic concept describing the direction or pattern of change (e.g., increasing, decreasing, stable) across any variable. They refer to fundamentally different types of information and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "\"max_wind_gust_m_s\" refers specifically to the maximum wind gust speed measured in meters per second, a concrete meteorological attribute. \"peak\" is a generic term denoting the highest point or maximum of any variable or phenomenon. The meanings are not interchangeable, so they cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"max_wind_gust_m_s\" denotes a specific quantitative measurement (the maximum wind gust speed expressed in meters per second), while \"range\" is a generic term that can refer to any interval, span, or extent across diverse domains (e.g., geographic range, value range). The two predicates do not convey the same meaning and cannot be merged without loss of semantics."
+    },
+    {
+      "predicate_a": "max_wind_gust_m_s",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"max_wind_gust_m_s\" denotes a specific quantitative measurement (the maximum wind gust speed expressed in meters per second), while \"shifted\" is a generic adjective indicating a displacement or change in position, time, or state. The two predicates describe entirely different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "overcast_cloud_coverage_percent",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'predominant_condition' is a generic descriptor for the main condition of a system (e.g., weather, health) without specifying any measurement. The predicate 'overcast_cloud_coverage_percent' is a specific quantitative metric that measures the percentage of cloud cover indicating an overcast state. Because one is a broad categorical concept and the other is a precise numeric measurement, they are not semantically equivalent and cannot be merged safely in a knowledge graph."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "often_clear",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'predominant_condition' refers to the primary or most common state of something, whereas 'often_clear' indicates that something is frequently in a clear state. The meanings differ in scope and implication, so they cannot be safely merged."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "frequent_wind_gusts_above_m_s",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'predominant_condition' refers to any primary or most common condition in a context, which is a generic, abstract concept. The predicate 'frequent_wind_gusts_above_m_s' specifies a precise meteorological event—repeated wind gusts exceeding a particular speed. These two predicates describe fundamentally different meanings and cannot be merged without loss of semantic precision."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "country",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'predominant_condition' refers to the main or most significant condition (e.g., medical, environmental, or situational state), while 'country' denotes a geopolitical entity or nation. These concepts are unrelated and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "coordinates",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"predominant_condition\" denotes the main state or attribute of an entity (e.g., the chief weather condition, primary health condition), whereas \"coordinates\" refers to spatial location data (e.g., latitude/longitude or positional values). The two concepts describe entirely different dimensions and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "date_range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'predominant_condition' describes the main or most significant condition (e.g., a weather condition, disease state, etc.), whereas 'date_range' denotes a period between two dates. Their meanings are fundamentally different and cannot be used interchangeably in a knowledge graph."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "max_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'predominant_condition' refers to the most common or dominant condition in a set, which is a qualitative assessment of state or category. The predicate 'max_value' denotes the greatest numerical value in a collection, a quantitative measurement. These concepts are distinct and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "min_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'predominant_condition' denotes the primary or most significant condition in a set, which is a qualitative descriptor, while 'min_value' denotes the smallest numeric value in a set, a quantitative measure. The meanings are distinct and not interchangeable."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "peak_amount",
+      "equivalent": false,
+      "confidence": 0.96,
+      "reason": "The predicate 'predominant_condition' denotes the main or most frequent state or circumstance, whereas 'peak_amount' refers specifically to the maximum quantitative value observed. These concepts describe different aspects (qualitative condition vs. quantitative maximum) and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "moderate_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'predominant_condition' is a generic term referring to the primary or most common condition in a context, which could be any type of condition (e.g., weather, health, system state). In contrast, 'moderate_rain_events' specifically denotes occurrences of rain of moderate intensity. The two predicates refer to different concepts and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "heavy_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'predominant_condition' refers to the overall or most significant state of a system (e.g., the main weather condition, health status, etc.) and is a generic, context‑dependent descriptor. In contrast, 'heavy_rain_events' specifically denotes occurrences of intense rainfall. The two predicates differ in scope (general vs. specific) and domain (any predominant condition vs. a particular type of weather event). Therefore, they cannot be safely merged in a knowledge graph as equivalent concepts."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "high_periods",
+      "equivalent": false,
+      "confidence": 0.96,
+      "reason": "\"predominant_condition\" refers to the main or dominant state of a system or phenomenon, while \"high_periods\" denotes specific intervals characterized by elevated values (e.g., temperature, activity). The concepts describe different aspects and cannot be safely merged."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "dominant_condition",
+      "equivalent": false,
+      "confidence": 0.78,
+      "reason": "While 'predominant' and 'dominant' are near-synonyms, they carry subtly different connotations: 'predominant' emphasizes prevalence or frequency, whereas 'dominant' emphasizes control or influence. This distinction can affect the meaning of a predicate in a knowledge graph, so they cannot be safely merged as strictly equivalent."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "max_gust",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"predominant_condition\" describes the primary weather condition (e.g., clear, rainy, snowy), whereas \"max_gust\" denotes a numeric measurement of the highest wind gust speed. They refer to completely different concepts and cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "typical_speed",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'predominant_condition' refers to the main or most common condition of an entity (e.g., weather, health, status), whereas 'typical_speed' denotes the usual rate of movement or velocity of an entity. These concepts describe entirely different attributes and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "covers",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'predominant_condition' refers to the primary or most significant condition of something, whereas 'covers' denotes inclusion or extent, indicating that one thing encompasses another. These concepts describe different relationships and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'predominant_condition' refers to the main or primary condition or state of an entity, while 'recorded' indicates that something was documented or entered into a record. These concepts describe entirely different relationships and cannot be interchanged without loss of meaning, thus they are not semantically equivalent."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"predominant_condition\" denotes the primary or main condition/state of something, whereas \"occurred\" simply indicates that an event or state happened. The terms refer to different aspects (qualitative nature vs. temporal occurrence) and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.96,
+      "reason": "The predicate 'predominant_condition' denotes the most frequent or prevailing state or circumstance, whereas 'trend' refers to a directional pattern of change over time. These concepts describe different aspects (static prevalence vs. dynamic movement) and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.98,
+      "reason": "The predicate 'predominant_condition' refers to the primary or most common state or circumstance within a set, whereas 'peak' denotes the highest point or maximum level of a quantity or performance. These concepts are related in that both can describe prominence, but they are not interchangeable: a predominant condition does not necessarily imply a maximum value, and a peak does not necessarily describe a condition or state. Therefore, they cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'predominant_condition' refers to the primary or most significant condition influencing something, whereas 'range' denotes a set of values between a minimum and maximum. These concepts are distinct and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "predominant_condition",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.98,
+      "reason": "The predicate 'predominant_condition' refers to a primary or prevailing state or condition, whereas 'shifted' denotes a change or movement from one state to another. They describe fundamentally different concepts and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "overcast_cloud_coverage_percent",
+      "predicate_b": "often_clear",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "Predicate A is a quantitative measure of cloud coverage expressed as a percentage, whereas Predicate B is a qualitative descriptor indicating that clear conditions occur frequently. They represent different types of information and cannot be safely merged."
+    },
+    {
+      "predicate_a": "overcast_cloud_coverage_percent",
+      "predicate_b": "frequent_wind_gusts_above_m_s",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The two predicates refer to entirely different meteorological phenomena: one measures the percentage of sky covered by overcast clouds, while the other describes the frequency of wind gusts exceeding a given speed. They cannot be merged without losing distinct meaning."
+    },
+    {
+      "predicate_a": "overcast_cloud_coverage_percent",
+      "predicate_b": "country",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'overcast_cloud_coverage_percent' denotes a numeric measurement of cloud coverage, while 'country' denotes a geopolitical entity. They refer to unrelated domains and cannot be merged."
+    },
+    {
+      "predicate_a": "overcast_cloud_coverage_percent",
+      "predicate_b": "coordinates",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicate 'overcast_cloud_coverage_percent' refers to a numeric measure of cloud cover percentage, while 'coordinates' refers to spatial location data (e.g., latitude/longitude). They belong to fundamentally different domains and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "overcast_cloud_coverage_percent",
+      "predicate_b": "date_range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'overcast_cloud_coverage_percent' describes a quantitative measurement of cloud cover expressed as a percentage, whereas 'date_range' denotes a temporal interval. These concepts belong to different domains (meteorological measurement vs. temporal span) and cannot be used interchangeably in a knowledge graph."
+    },
+    {
+      "predicate_a": "overcast_cloud_coverage_percent",
+      "predicate_b": "max_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"overcast_cloud_coverage_percent\" describes a specific meteorological measurement (the percentage of sky covered by clouds when overcast). \"max_value\" is a generic predicate indicating the maximum value of an unspecified quantity. Their meanings are unrelated and cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "overcast_cloud_coverage_percent",
+      "predicate_b": "min_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'overcast_cloud_coverage_percent' refers to a specific measurement of cloud coverage expressed as a percentage under overcast conditions. 'min_value' is a generic predicate denoting the smallest value in any set or context. They describe different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "overcast_cloud_coverage_percent",
+      "predicate_b": "peak_amount",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'overcast_cloud_coverage_percent' refers specifically to the percentage of the sky covered by overcast clouds, a precise meteorological measurement. 'peak_amount' is a generic term indicating the maximum quantity of an unspecified variable, lacking any domain or metric context. Because their meanings, scopes, and underlying concepts differ, they cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "overcast_cloud_coverage_percent",
+      "predicate_b": "moderate_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicates refer to entirely different phenomena: 'overcast_cloud_coverage_percent' quantifies the proportion of sky covered by clouds, while 'moderate_rain_events' refers to the occurrence or count of rain episodes of moderate intensity. They are not interchangeable or mergeable in a knowledge graph."
+    },
+    {
+      "predicate_a": "overcast_cloud_coverage_percent",
+      "predicate_b": "heavy_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The two predicates describe distinct weather phenomena: 'overcast_cloud_coverage_percent' measures the percentage of sky covered by clouds (a continuous numeric attribute of cloudiness), while 'heavy_rain_events' refers to discrete occurrences of heavy rain. They are not interchangeable and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "overcast_cloud_coverage_percent",
+      "predicate_b": "high_periods",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "Predicate A refers to a specific quantitative measurement of cloud cover expressed as a percentage, while Predicate B is a generic term indicating periods of 'high' conditions (e.g., high temperature, pressure, etc.) without any reference to cloud coverage. The meanings are unrelated and cannot be merged."
+    },
+    {
+      "predicate_a": "overcast_cloud_coverage_percent",
+      "predicate_b": "dominant_condition",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "The predicate 'overcast_cloud_coverage_percent' quantifies the proportion of the sky covered by clouds as a numeric percentage, while 'dominant_condition' denotes the primary weather condition (e.g., clear, rain, fog) as a categorical label. They represent different types of information and cannot be safely merged."
+    },
+    {
+      "predicate_a": "overcast_cloud_coverage_percent",
+      "predicate_b": "max_gust",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'overcast_cloud_coverage_percent' measures the percentage of sky covered by clouds, while 'max_gust' measures the peak wind speed. They describe distinct atmospheric phenomena and cannot be interchanged or merged."
+    },
+    {
+      "predicate_a": "overcast_cloud_coverage_percent",
+      "predicate_b": "typical_speed",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'overcast_cloud_coverage_percent' quantifies the proportion of sky covered by clouds, while 'typical_speed' denotes an average rate of motion (e.g., wind, vehicle, or other object). They describe entirely different physical properties and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "overcast_cloud_coverage_percent",
+      "predicate_b": "covers",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'overcast_cloud_coverage_percent' denotes a specific quantitative measure (percentage) of how much of the sky is covered by clouds. In contrast, 'covers' is a generic relational verb that can apply to any objects or surfaces (e.g., a blanket covers a bed, trees cover a hill). Their meanings are not identical and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "overcast_cloud_coverage_percent",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"overcast_cloud_coverage_percent\" denotes a specific quantitative observation about the percentage of cloud cover, whereas \"recorded\" is a generic verb indicating that some data or event was logged. The two predicates refer to entirely different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "overcast_cloud_coverage_percent",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"overcast_cloud_coverage_percent\" is a specific quantitative attribute measuring the percentage of cloud cover indicating overcast conditions, while \"occurred\" is a generic verb describing that an event happened. The two predicates refer to entirely different concepts and cannot be merged."
+    },
+    {
+      "predicate_a": "overcast_cloud_coverage_percent",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'overcast_cloud_coverage_percent' denotes a specific quantitative measurement (percentage of sky covered by clouds), whereas 'trend' is a generic concept describing the direction or pattern of change of any variable over time. They refer to fundamentally different types of information and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "overcast_cloud_coverage_percent",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"overcast_cloud_coverage_percent\" denotes a quantitative measurement (percentage) of cloud cover under overcast conditions, whereas \"peak\" refers to the highest point or maximum value in a generic context (e.g., a signal, mountain, or data series). The two predicates describe entirely different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "overcast_cloud_coverage_percent",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'overcast_cloud_coverage_percent' refers to a specific numeric measurement of cloud cover expressed as a percentage, whereas 'range' is a generic concept describing a span between lower and upper bounds. They are not semantically identical and cannot be safely merged."
+    },
+    {
+      "predicate_a": "overcast_cloud_coverage_percent",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "Predicate A refers to a specific quantitative measurement of cloud coverage expressed as a percentage (overcast condition). Predicate B is a generic term indicating a change in position or state, unrelated to cloud coverage. The meanings do not overlap and cannot be merged safely."
+    },
+    {
+      "predicate_a": "often_clear",
+      "predicate_b": "frequent_wind_gusts_above_m_s",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "Predicate A describes a condition of clear weather occurring often, while Predicate B describes frequent wind gusts exceeding a certain speed. These refer to distinct meteorological phenomena and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "often_clear",
+      "predicate_b": "country",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"often_clear\" describes a property of being frequently clear, while \"country\" denotes a geopolitical entity. The two predicates refer to completely different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "often_clear",
+      "predicate_b": "coordinates",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"often_clear\" suggests a property describing the frequency or clarity of something (e.g., an attribute that is frequently clear), whereas \"coordinates\" denotes a spatial relation linking an entity to a specific location or set of numeric values. The two predicates describe fundamentally different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "often_clear",
+      "predicate_b": "date_range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'often_clear' describes a frequency or quality (something being frequently clear), whereas 'date_range' denotes a temporal interval between two dates. Their meanings and domains are unrelated, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "often_clear",
+      "predicate_b": "max_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"often_clear\" denotes a frequency-based property indicating that something is clear many times, while \"max_value\" denotes a quantitative property representing the greatest numeric value in a set. The predicates describe fundamentally different concepts (temporal/frequency vs. numeric extremum) and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "often_clear",
+      "predicate_b": "min_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'often_clear' describes a frequency-based qualitative state (something being clear frequently), whereas 'min_value' denotes a quantitative measurement (the smallest value in a set). Their meanings are unrelated and cannot be merged safely in a knowledge graph."
+    },
+    {
+      "predicate_a": "often_clear",
+      "predicate_b": "peak_amount",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'often_clear' describes a frequency or likelihood that something is clear, whereas 'peak_amount' refers to the maximum quantity or level reached. These concepts are unrelated in meaning and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "often_clear",
+      "predicate_b": "moderate_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'often_clear' describes a frequent condition of clear weather, whereas 'moderate_rain_events' describes occurrences of moderate rain. These concepts are distinct and not interchangeable; they cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "often_clear",
+      "predicate_b": "heavy_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'often_clear' describes a condition of frequent clarity (e.g., clear skies), while 'heavy_rain_events' refers to occurrences of intense rainfall. These concepts are distinct and not interchangeable; they cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "often_clear",
+      "predicate_b": "high_periods",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "The predicate 'often_clear' denotes a condition that occurs frequently and is clear (e.g., clear weather or clear state), whereas 'high_periods' denotes intervals characterized by a high value (e.g., high tide, high activity). Their meanings describe different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "often_clear",
+      "predicate_b": "dominant_condition",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"often_clear\" describes the frequency with which something is clear, indicating a repeated state of clarity. \"dominant_condition\" refers to a condition that is prevailing or primary among alternatives. The two predicates convey distinct concepts and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "often_clear",
+      "predicate_b": "max_gust",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "`often_clear` describes the frequency of clear weather conditions, while `max_gust` refers to the maximum wind gust speed. These predicates convey completely different concepts and cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "often_clear",
+      "predicate_b": "typical_speed",
+      "equivalent": false,
+      "confidence": 0.98,
+      "reason": "The predicate 'often_clear' describes frequency of a condition being clear (e.g., visibility or clarity), whereas 'typical_speed' describes a usual rate of movement. They refer to entirely different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "often_clear",
+      "predicate_b": "covers",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'often_clear' describes a frequent state of being clear (e.g., weather, visibility), whereas 'covers' denotes the action or relation of one object overlaying or protecting another. Their meanings belong to different domains and are not interchangeable, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "often_clear",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"often_clear\" describes a state of being frequently clear or unobstructed, while \"recorded\" denotes that something has been documented or captured in a record. The two predicates refer to entirely different concepts and cannot be used interchangeably in a knowledge graph."
+    },
+    {
+      "predicate_a": "often_clear",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"occurred\" denotes that an event happened or took place, whereas \"often_clear\" suggests a state of being clear with high frequency. The two predicates refer to different concepts (event occurrence vs a frequent clarity condition) and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "often_clear",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "The predicate 'often_clear' describes a condition that occurs frequently (e.g., the sky being clear often), whereas 'trend' refers to a general pattern or direction of change over time. Their meanings are distinct and cannot be merged without loss of information."
+    },
+    {
+      "predicate_a": "often_clear",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"often_clear\" describes the frequency or tendency of something being clear, while \"peak\" refers to a maximum point, summit, or the action of reaching a maximum. The two predicates denote distinct concepts with no direct identity, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "often_clear",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'often_clear' describes a frequency or state (e.g., something being clear many times), whereas 'range' denotes a span or interval (spatial, temporal, or numeric). Their meanings are unrelated and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "often_clear",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.98,
+      "reason": "The predicate 'often_clear' describes a state of being frequently clear, while 'shifted' describes a change in position or state. These concepts are unrelated and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "frequent_wind_gusts_above_m_s",
+      "predicate_b": "country",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'frequent_wind_gusts_above_m_s' describes a meteorological condition (wind gusts exceeding a speed threshold occurring frequently), whereas 'country' denotes a political/geographic entity. Their meanings are unrelated and cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "frequent_wind_gusts_above_m_s",
+      "predicate_b": "coordinates",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The first predicate describes a meteorological condition (frequent wind gusts exceeding a certain speed in meters per second), whereas the second predicate refers to spatial location data (geographic coordinates). They denote entirely different concepts and cannot be merged."
+    },
+    {
+      "predicate_a": "frequent_wind_gusts_above_m_s",
+      "predicate_b": "date_range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'frequent_wind_gusts_above_m_s' describes a weather condition (the occurrence of wind gusts exceeding a certain speed), while 'date_range' denotes a temporal interval. These concepts belong to entirely different domains and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "frequent_wind_gusts_above_m_s",
+      "predicate_b": "max_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'frequent_wind_gusts_above_m_s' describes a specific weather condition (wind gusts occurring often and exceeding a speed threshold in meters per second), whereas 'max_value' is a generic term referring to the highest value in any dataset or context. Their meanings are unrelated and cannot be merged."
+    },
+    {
+      "predicate_a": "frequent_wind_gusts_above_m_s",
+      "predicate_b": "min_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "Predicate A specifies a specific meteorological condition (frequent wind gusts exceeding a certain speed measured in meters per second), while Predicate B is a generic term referring to the minimum value of any variable. Their meanings are unrelated and cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "frequent_wind_gusts_above_m_s",
+      "predicate_b": "peak_amount",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "Predicate A describes a specific weather condition—frequent occurrences of wind gusts exceeding a given speed (meters per second). Predicate B, ‘peak_amount’, is a generic term referring to the maximum quantity or value of any variable and does not convey the same concept of wind gust frequency or speed. Therefore they are not semantically equivalent and cannot be merged."
+    },
+    {
+      "predicate_a": "frequent_wind_gusts_above_m_s",
+      "predicate_b": "moderate_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "Predicate A describes the frequency of wind gusts exceeding a certain speed (m/s), while Predicate B describes occurrences of moderate rain. They refer to distinct atmospheric phenomena (wind vs precipitation) and convey different conditions, so they cannot be merged in a knowledge graph as equivalent."
+    },
+    {
+      "predicate_a": "frequent_wind_gusts_above_m_s",
+      "predicate_b": "heavy_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "Predicate A describes the frequency of wind gusts exceeding a certain speed, while Predicate B describes occurrences of heavy rain. They refer to different meteorological phenomena (wind vs precipitation) and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "frequent_wind_gusts_above_m_s",
+      "predicate_b": "high_periods",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "Predicate A specifies a weather condition: frequent wind gusts exceeding a certain speed (meters per second). Predicate B, 'high periods', is vague and does not explicitly refer to wind speed or gust frequency. Because the meaning of 'high periods' could refer to any number of high-value intervals (e.g., temperature, pressure, demand) and lacks the specific attribute of wind gusts, the two predicates cannot be considered semantically equivalent and cannot be safely merged."
+    },
+    {
+      "predicate_a": "frequent_wind_gusts_above_m_s",
+      "predicate_b": "dominant_condition",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "Predicate A describes a specific meteorological measurement (frequent wind gusts exceeding a speed threshold), whereas Predicate B is a generic label for the prevailing or most significant condition, which could refer to any type of condition. The meanings are not interchangeable, so they cannot be merged."
+    },
+    {
+      "predicate_a": "frequent_wind_gusts_above_m_s",
+      "predicate_b": "max_gust",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "Predicate A describes the occurrence of frequent wind gusts exceeding a certain speed threshold (e.g., m/s), emphasizing frequency and a threshold condition. Predicate B denotes the single highest wind gust speed recorded, without reference to frequency or thresholds. The concepts differ fundamentally, so they cannot be merged."
+    },
+    {
+      "predicate_a": "frequent_wind_gusts_above_m_s",
+      "predicate_b": "typical_speed",
+      "equivalent": false,
+      "confidence": 0.96,
+      "reason": "Predicate A describes the frequency of wind gusts that exceed a specific speed threshold (e.g., gusts above X m/s occurring often). Predicate B is a generic term for a typical speed, without specifying the phenomenon (wind), the context (gusts vs. sustained flow), or the frequency aspect. Their meanings do not match closely enough to be merged."
+    },
+    {
+      "predicate_a": "frequent_wind_gusts_above_m_s",
+      "predicate_b": "covers",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "Predicate A describes a meteorological condition (frequent wind gusts exceeding a certain speed), while Predicate B denotes a spatial relationship (one entity covering another). Their meanings are unrelated and cannot be merged."
+    },
+    {
+      "predicate_a": "frequent_wind_gusts_above_m_s",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "Predicate A describes a specific meteorological condition (frequent wind gusts exceeding a certain speed), while Predicate B is a generic action indicating that something was captured or logged. The meanings are unrelated and cannot be merged without loss of semantics."
+    },
+    {
+      "predicate_a": "frequent_wind_gusts_above_m_s",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "Predicate A describes a specific meteorological condition (frequent wind gusts exceeding a certain speed), while Predicate B is a generic verb indicating that something happened. The meanings are unrelated; they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "frequent_wind_gusts_above_m_s",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.98,
+      "reason": "Predicate A describes a specific weather condition (frequent wind gusts exceeding a certain speed), whereas Predicate B is a generic term referring to any direction or tendency of change. They do not convey the same meaning and cannot be merged."
+    },
+    {
+      "predicate_a": "frequent_wind_gusts_above_m_s",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'frequent_wind_gusts_above_m_s' describes a specific meteorological condition (regular wind gusts exceeding a certain speed measured in meters per second). The predicate 'peak' is a generic term indicating a maximum point or highest value in any domain and does not specify wind, frequency, or speed. Their meanings are unrelated, so they cannot be safely merged."
+    },
+    {
+      "predicate_a": "frequent_wind_gusts_above_m_s",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "Predicate A describes a specific meteorological condition (frequent wind gusts exceeding a certain speed in meters per second), while Predicate B is a generic term denoting a span between two limits applicable to any variable. Their meanings are unrelated and cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "frequent_wind_gusts_above_m_s",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'frequent_wind_gusts_above_m_s' describes a meteorological condition involving repeated wind gusts exceeding a specific speed measured in meters per second. The predicate 'shifted' denotes a change in position or state, without any reference to wind or speed. Their meanings are unrelated, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "country",
+      "predicate_b": "coordinates",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'country' denotes a political or geographic entity (e.g., France, Canada), while 'coordinates' denotes a pair of numerical values (latitude and longitude) that locate a point on the Earth's surface. These concepts are distinct and not interchangeable; they cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "country",
+      "predicate_b": "date_range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'country' denotes a geographic entity (a nation or sovereign state), whereas 'date_range' denotes a temporal interval defined by start and end dates. They refer to fundamentally different domains (spatial vs. temporal) and cannot be used interchangeably in a knowledge graph."
+    },
+    {
+      "predicate_a": "country",
+      "predicate_b": "max_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"country\" denotes a relation indicating a nation's identity or affiliation, while \"max_value\" denotes the greatest numeric value in a set. They belong to completely different semantic domains and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "country",
+      "predicate_b": "min_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'country' denotes a geopolitical entity associated with an item, while 'min_value' denotes the smallest numeric value in a set. They represent entirely different concepts (categorical location vs. quantitative measurement) and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "country",
+      "predicate_b": "peak_amount",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'country' denotes a geopolitical entity (e.g., a nation) whereas 'peak_amount' denotes a numerical value representing the maximum amount of something. These concepts are unrelated and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "country",
+      "predicate_b": "moderate_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'country' denotes a geographic or political entity, while 'moderate_rain_events' refers to occurrences of rain of moderate intensity. Their meanings and domains are completely different, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "country",
+      "predicate_b": "heavy_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'country' denotes a geopolitical entity, while 'heavy_rain_events' denotes a specific type of weather phenomenon. Their meanings are unrelated and cannot be merged without loss of semantic integrity."
+    },
+    {
+      "predicate_a": "country",
+      "predicate_b": "high_periods",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'country' denotes a geopolitical entity or location, whereas 'high_periods' denotes time intervals characterized by elevated levels of some variable. Their meanings are unrelated and cannot be merged without loss of semantic precision."
+    },
+    {
+      "predicate_a": "country",
+      "predicate_b": "dominant_condition",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'country' denotes a geopolitical entity or a relationship involving a nation, whereas 'dominant_condition' refers to the primary state, circumstance, or condition affecting something. Their meanings are unrelated and cannot be merged in a knowledge graph without loss of semantic precision."
+    },
+    {
+      "predicate_a": "country",
+      "predicate_b": "max_gust",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicate 'country' denotes a geopolitical entity or nation, whereas 'max_gust' denotes a measurement of the maximum wind speed (gust). They refer to entirely different domains (geography vs. meteorological data) and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "country",
+      "predicate_b": "typical_speed",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'country' denotes a geopolitical entity (a nation or state), whereas 'typical_speed' denotes a numeric measurement describing the usual speed of something. They refer to completely different domains and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "country",
+      "predicate_b": "covers",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'country' denotes a geopolitical entity or a relation to such an entity, whereas 'covers' describes an action of spanning, including, or protecting something. Their meanings and usages are fundamentally different and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "country",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'country' denotes a geopolitical entity or nation, whereas 'recorded' denotes the action or state of being captured in a record or documentation. Their meanings are unrelated and cannot be merged in a knowledge graph without loss of semantic accuracy."
+    },
+    {
+      "predicate_a": "country",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'country' denotes a relationship linking an entity to a nation or geographic region, while 'occurred' denotes the happening or execution of an event. They describe fundamentally different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "country",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'country' refers to a geopolitical entity (a nation or state), whereas 'trend' refers to a pattern or direction of change over time. Their meanings are unrelated and cannot be merged without loss of semantic precision."
+    },
+    {
+      "predicate_a": "country",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'country' denotes a sovereign nation or geopolitical entity, while 'peak' denotes the highest point of a mountain or hill. They refer to entirely different concepts and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "country",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'country' denotes a geopolitical entity (e.g., France, Japan), whereas 'range' denotes a span, interval, or set of values (e.g., temperature range, numeric interval). They represent distinct concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "country",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"country\" denotes a geographical or political entity (e.g., the country where something is located), whereas \"shifted\" describes a change in position or state. Their meanings are unrelated, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "coordinates",
+      "predicate_b": "date_range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"coordinates\" denotes spatial position information (e.g., latitude/longitude or x‑y values), whereas \"date_range\" denotes a temporal interval between two dates. The two predicates describe fundamentally different dimensions (space vs. time) and cannot be used interchangeably in a knowledge graph."
+    },
+    {
+      "predicate_a": "coordinates",
+      "predicate_b": "max_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"coordinates\" refers to a set of numerical values that specify a location in a space (e.g., latitude/longitude or x‑y positions). \"max_value\" denotes the greatest numerical value within a set or range. The two predicates describe fundamentally different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "coordinates",
+      "predicate_b": "min_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'coordinates' refers to positional or spatial values (e.g., latitude/longitude, x‑y‑z points) that describe a location in a space, while 'min_value' denotes the smallest numeric value in a collection or a lower bound. Their meanings are distinct and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "coordinates",
+      "predicate_b": "peak_amount",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "`coordinates` denotes a spatial position (e.g., latitude/longitude or a tuple of values), whereas `peak_amount` denotes a maximum quantitative value (e.g., the highest observed amount). Their meanings are unrelated; they cannot be merged safely in a knowledge graph."
+    },
+    {
+      "predicate_a": "coordinates",
+      "predicate_b": "moderate_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"coordinates\" refers to spatial location data (e.g., latitude/longitude), whereas \"moderate_rain_events\" denotes occurrences of rain of moderate intensity. They belong to completely different domains and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "coordinates",
+      "predicate_b": "heavy_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'coordinates' denotes spatial location data (e.g., latitude and longitude) used to identify positions on a map. The predicate 'heavy_rain_events' refers to occurrences of intense rainfall. These concepts describe completely different types of information—one is a geometric descriptor, the other is a weather phenomenon—so they cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "coordinates",
+      "predicate_b": "high_periods",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'coordinates' refers to spatial location data (e.g., latitude/longitude, x‑y positions), whereas 'high_periods' denotes temporal intervals characterized by elevated values of some variable (e.g., high temperature periods). They represent fundamentally different concepts—spatial position versus time‑based intervals—so they cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "coordinates",
+      "predicate_b": "dominant_condition",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"coordinates\" denotes spatial or numerical location information (e.g., x‑y positions), whereas \"dominant_condition\" refers to a prevailing or primary condition/state. The meanings are unrelated and cannot be merged without loss of semantic fidelity."
+    },
+    {
+      "predicate_a": "coordinates",
+      "predicate_b": "max_gust",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'coordinates' denotes a location expressed in a spatial reference system (e.g., latitude/longitude), while 'max_gust' denotes the maximum wind gust speed observed at a point in time. They describe fundamentally different concepts—spatial position versus a meteorological measurement—and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "coordinates",
+      "predicate_b": "typical_speed",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'coordinates' denotes spatial location information (e.g., latitude and longitude) whereas 'typical_speed' denotes a measure of how fast something usually moves. They describe fundamentally different attributes and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "coordinates",
+      "predicate_b": "covers",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'coordinates' (e.g., to organize or arrange something) expresses a distinct action from 'covers' (e.g., to physically overlay, to provide coverage, or to report on a topic). Their meanings and use‑cases do not overlap sufficiently to be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "coordinates",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.98,
+      "reason": "The predicate 'coordinates' denotes the act of arranging, organizing, or specifying spatial positions, whereas 'recorded' denotes the act of capturing or documenting information. Their meanings are distinct and not interchangeable in a knowledge graph; they refer to different types of relationships or actions."
+    },
+    {
+      "predicate_a": "coordinates",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'coordinates' denotes the act of organizing, arranging, or providing spatial location data, while 'occurred' denotes that an event took place in time. Their meanings are distinct and not interchangeable in a knowledge graph."
+    },
+    {
+      "predicate_a": "coordinates",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'coordinates' describes positional or spatial data (e.g., x‑y values), while 'trend' describes the direction or pattern of change over time. Their meanings are distinct and cannot be merged without loss of semantic precision."
+    },
+    {
+      "predicate_a": "coordinates",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"coordinates\" refers to a set of numerical values that locate a point in space, while \"peak\" denotes the highest point of a mountain or a maximum value in a dataset. Their meanings are distinct and not interchangeable, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "coordinates",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'coordinates' denotes a specific location expressed as a set of values (e.g., latitude/longitude, x‑y pair), whereas 'range' denotes an interval or span of values (e.g., a numeric interval, distance extent). They refer to different concepts and cannot be safely merged."
+    },
+    {
+      "predicate_a": "coordinates",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'coordinates' refers to specifying or relating positions, often as a verb meaning to align or map entities. The predicate 'shifted' means moved or displaced from an original position. These concepts are distinct; one describes the act of aligning or mapping, the other describes a change in position, so they cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "date_range",
+      "predicate_b": "max_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'date_range' specifies a period defined by a start and end date, while 'max_value' designates the highest numeric quantity in a set. Their meanings refer to fundamentally different concepts (temporal interval vs. numerical maximum) and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "date_range",
+      "predicate_b": "min_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'date_range' denotes a span of time defined by a start and end date, while 'min_value' denotes the lowest permissible numeric value (or lower bound) for a measurement. They represent fundamentally different concepts—temporal interval versus a numeric threshold—and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "date_range",
+      "predicate_b": "peak_amount",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'date_range' denotes a temporal interval (start and end dates), whereas 'peak_amount' denotes a quantitative maximum value. Their meanings are unrelated; they cannot be merged without loss of semantics."
+    },
+    {
+      "predicate_a": "date_range",
+      "predicate_b": "moderate_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'date_range' denotes a temporal interval (a start and end date), whereas 'moderate_rain_events' denotes specific weather occurrences classified as moderate rain. These concepts describe different types of information (time span vs. weather event) and cannot be safely merged."
+    },
+    {
+      "predicate_a": "date_range",
+      "predicate_b": "heavy_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'date_range' denotes a temporal interval (a span of dates), whereas 'heavy_rain_events' refers to specific occurrences of heavy rain. Their meanings are unrelated and cannot substitute for each other in a knowledge graph."
+    },
+    {
+      "predicate_a": "date_range",
+      "predicate_b": "high_periods",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "\"date_range\" denotes any interval between two dates, while \"high_periods\" refers specifically to intervals characterized by a high value of some attribute (e.g., demand, temperature). The concepts overlap only in that both are temporal spans, but they have distinct meanings and cannot be safely merged."
+    },
+    {
+      "predicate_a": "date_range",
+      "predicate_b": "dominant_condition",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'date_range' denotes a period delimited by start and end dates, whereas 'dominant_condition' refers to the prevailing state or condition (e.g., weather, health, market) at a given time. The concepts are unrelated and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "date_range",
+      "predicate_b": "max_gust",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'date_range' represents a temporal interval (e.g., start and end dates), while 'max_gust' denotes a numeric measurement of the maximum wind gust speed. Their meanings are unrelated and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "date_range",
+      "predicate_b": "typical_speed",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'date_range' represents a temporal interval (e.g., start and end dates), whereas 'typical_speed' denotes a rate of movement or velocity. They refer to fundamentally different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "date_range",
+      "predicate_b": "covers",
+      "equivalent": false,
+      "confidence": 0.98,
+      "reason": "The predicate 'date_range' denotes a specific attribute that represents a start and end date interval, whereas 'covers' is a more general relation that can indicate inclusion or spanning of any entity (e.g., an event covers a period, a map covers an area). Their meanings overlap only in certain contexts but they are not interchangeable across a knowledge graph."
+    },
+    {
+      "predicate_a": "date_range",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'date_range' denotes a span between two dates (start and end), whereas 'recorded' typically denotes a single timestamp indicating when an event or item was captured. They convey different concepts (a range vs. a point-in-time) and cannot be safely merged."
+    },
+    {
+      "predicate_a": "date_range",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "The predicate 'date_range' represents a span of time (start and end dates), whereas 'occurred' denotes that something happened at a specific point or during a period. They serve different semantic roles and cannot be safely merged."
+    },
+    {
+      "predicate_a": "date_range",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"date_range\" denotes a specific interval between two dates, whereas \"trend\" describes the direction or pattern of change over time. They represent fundamentally different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "date_range",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'date_range' denotes a span of time defined by a start and end date, whereas 'peak' denotes a maximum point or highest value (often temporal but can be non‑temporal). Their meanings are distinct and cannot be merged without loss of semantic precision."
+    },
+    {
+      "predicate_a": "date_range",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.96,
+      "reason": "The predicate 'date_range' specifically denotes a range limited to dates (e.g., start‑date to end‑date), whereas 'range' is a generic concept that can apply to any ordered domain such as numbers, times, alphabetic sequences, etc. Because 'date_range' is a specialized subset of 'range', they cannot be safely merged without losing type information."
+    },
+    {
+      "predicate_a": "date_range",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'date_range' denotes a specific interval defined by start and end dates, while 'shifted' describes a transformation that moves something (often temporally) from its original position. They refer to different concepts—one specifies a span of time, the other describes an action applied to an entity—so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "max_value",
+      "predicate_b": "min_value",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'max_value' denotes the greatest value in a set, while 'min_value' denotes the smallest value. They represent opposite, mutually exclusive concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "max_value",
+      "predicate_b": "peak_amount",
+      "equivalent": false,
+      "confidence": 0.78,
+      "reason": "'max_value' denotes the generic maximum of a set, whereas 'peak_amount' usually refers to the highest observed amount, often in a temporal or contextual sense and can imply a local or situational peak. The subtle differences prevent safe merging as identical predicates."
+    },
+    {
+      "predicate_a": "max_value",
+      "predicate_b": "moderate_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'max_value' denotes a generic maximum measurement of any quantity, whereas 'moderate_rain_events' specifically refers to occurrences of moderate rain. Their meanings are unrelated and cannot be merged."
+    },
+    {
+      "predicate_a": "max_value",
+      "predicate_b": "heavy_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"max_value\" denotes a generic concept of the highest numeric measurement for any variable, while \"heavy_rain_events\" specifically refers to occurrences of intense rainfall. The two predicates describe entirely different domains and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "max_value",
+      "predicate_b": "high_periods",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'max_value' denotes a single extreme numeric measurement (the greatest value observed for a variable), whereas 'high_periods' refers to intervals of time during which the variable remains elevated. They describe different concepts—one is a point-based extreme value, the other is a temporal pattern—and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "max_value",
+      "predicate_b": "dominant_condition",
+      "equivalent": false,
+      "confidence": 0.94,
+      "reason": "The predicate 'max_value' denotes the greatest numeric value within a set or range, a precise quantitative concept. In contrast, 'dominant_condition' describes the prevailing or most influential condition or state, which may be qualitative, contextual, and not tied to a numeric maximum. The meanings are distinct and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "max_value",
+      "predicate_b": "max_gust",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'max_value' is a generic term referring to the maximum value of any variable, while 'max_gust' specifically denotes the maximum wind gust speed. They are not interchangeable and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "max_value",
+      "predicate_b": "typical_speed",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"max_value\" denotes the maximum possible or observed magnitude of a variable, regardless of its type, while \"typical_speed\" specifically refers to a representative or average speed of an entity. The concepts differ in both scope (generic maximum vs. specific typical speed) and measurement focus, so they cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "max_value",
+      "predicate_b": "covers",
+      "equivalent": false,
+      "confidence": 0.98,
+      "reason": "The predicate 'max_value' denotes a relationship indicating the greatest numeric value associated with an entity, while 'covers' denotes a spatial or conceptual relationship where one entity encompasses or includes another. Their meanings are distinct and cannot be merged without loss of semantics."
+    },
+    {
+      "predicate_a": "max_value",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"max_value\" describes a quantitative attribute representing the highest value in a set, while \"recorded\" denotes the action of capturing or noting information. They refer to fundamentally different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "max_value",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'max_value' denotes a quantitative property representing the highest value in a set, while 'occurred' denotes an event or fact of something happening. These concepts are fundamentally different and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "max_value",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'max_value' denotes a specific numeric extreme (the highest measured or observed value) of a variable, whereas 'trend' denotes the general direction or pattern of change of that variable over time. They describe fundamentally different concepts and cannot be safely merged."
+    },
+    {
+      "predicate_a": "max_value",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.12,
+      "reason": "While both terms refer to high points, 'max_value' explicitly denotes the absolute maximum of a set or function, whereas 'peak' can refer to a local maximum, a high point in a physical landscape, or a metaphorical high point. Thus they are related but not strictly semantically identical for knowledge graph merging."
+    },
+    {
+      "predicate_a": "max_value",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "\"max_value\" denotes a single numeric point—the highest value in a set—whereas \"range\" denotes an interval or the difference between the maximum and minimum values. They convey distinct concepts and cannot be safely merged."
+    },
+    {
+      "predicate_a": "max_value",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"max_value\" denotes a predicate that identifies the maximum numeric value within a domain or set, whereas \"shifted\" denotes a predicate indicating that an object or value has been displaced (e.g., in time, space, or index). The concepts are distinct and not interchangeable; they cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "min_value",
+      "predicate_b": "peak_amount",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"min_value\" denotes the smallest or minimum value in a dataset or over time, whereas \"peak_amount\" refers to the highest or maximum amount (a peak). They represent opposite extremes and are not interchangeable, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "min_value",
+      "predicate_b": "moderate_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "`min_value` denotes a numerical minimum attribute, while `moderate_rain_events` denotes occurrences of moderate rain. Their meanings are unrelated and cannot be merged."
+    },
+    {
+      "predicate_a": "min_value",
+      "predicate_b": "heavy_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'min_value' denotes a numerical concept representing the smallest value in a dataset or range, while 'heavy_rain_events' refers to occurrences of heavy rainfall. These concepts belong to entirely different domains (numeric aggregation vs weather event counting) and cannot be interchanged without loss of meaning. Thus they are not semantically equivalent."
+    },
+    {
+      "predicate_a": "min_value",
+      "predicate_b": "high_periods",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"min_value\" denotes the minimum numerical value of a quantity, whereas \"high_periods\" refers to time intervals during which a quantity is high. The concepts are distinct (a value vs. a temporal condition) and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "min_value",
+      "predicate_b": "dominant_condition",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'min_value' denotes a quantitative concept referring to the smallest numeric value in a set, while 'dominant_condition' refers to a qualitative concept indicating the most influential or prevailing condition. Their meanings differ in both domain (numeric vs. qualitative) and semantic role, so they cannot be safely merged."
+    },
+    {
+      "predicate_a": "min_value",
+      "predicate_b": "max_gust",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'min_value' denotes a generic minimum measurement of any quantity, whereas 'max_gust' specifically refers to the maximum wind gust speed. Their meanings are distinct and cannot be merged."
+    },
+    {
+      "predicate_a": "min_value",
+      "predicate_b": "typical_speed",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"min_value\" denotes the lowest possible or observed value of a variable, without specifying the type of measurement, while \"typical_speed\" specifically refers to a standard or average speed measurement. The concepts differ in scope and reference, so they cannot be safely merged as equivalent predicates."
+    },
+    {
+      "predicate_a": "min_value",
+      "predicate_b": "covers",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'min_value' denotes a numeric property specifying the smallest allowable or observed value for an attribute, whereas 'covers' denotes a spatial or set-theoretic relationship where one entity includes or overlays another. Their meanings are unrelated and cannot be merged without loss of semantics."
+    },
+    {
+      "predicate_a": "min_value",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'min_value' specifies a quantitative relationship indicating the smallest value in a set or range, whereas 'recorded' denotes the act of capturing or storing information. They describe fundamentally different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "min_value",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"min_value\" denotes a quantitative property representing the smallest value in a set or range, while \"occurred\" denotes the happening or existence of an event. They refer to fundamentally different concepts (numeric measurement vs. event occurrence) and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "min_value",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'min_value' denotes the smallest numeric value in a set or range, while 'trend' describes the pattern of change (e.g., increasing, decreasing, stable) over time or another variable. They refer to distinct concepts and cannot be safely merged."
+    },
+    {
+      "predicate_a": "min_value",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"min_value\" denotes the lowest or minimal value in a dataset or function, whereas \"peak\" denotes a highest point or maximum. They represent opposite concepts and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "min_value",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'min_value' refers specifically to the smallest permissible or observed value for a property, while 'range' denotes the interval between a minimum and a maximum (or the set of possible values). They capture different concepts and cannot be safely merged."
+    },
+    {
+      "predicate_a": "min_value",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"min_value\" denotes a numeric minimum attribute of a set or variable, whereas \"shifted\" describes a transformation or displacement of an entity. They refer to distinct concepts and cannot be used interchangeably in a knowledge graph."
+    },
+    {
+      "predicate_a": "peak_amount",
+      "predicate_b": "moderate_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'peak_amount' denotes a quantitative measure representing the maximum value of a variable (e.g., the highest observed rainfall amount). In contrast, 'moderate_rain_events' denotes the count or occurrence of specific events classified as moderate rain. These concepts describe different aspects—one is a singular extreme magnitude, the other is a frequency of a particular class of events—so they are not semantically equivalent and cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "peak_amount",
+      "predicate_b": "heavy_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'peak_amount' is a generic term referring to the maximum quantity of any measured variable, whereas 'heavy_rain_events' specifically denotes occurrences of intense rainfall. Their meanings differ in scope and domain, making them not semantically equivalent."
+    },
+    {
+      "predicate_a": "peak_amount",
+      "predicate_b": "high_periods",
+      "equivalent": false,
+      "confidence": 0.98,
+      "reason": "\"peak_amount\" denotes a specific maximum value or quantity, while \"high_periods\" refers to intervals of time during which a metric remains elevated. The concepts address different aspects (a singular quantitative peak versus temporal spans of high values) and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "peak_amount",
+      "predicate_b": "dominant_condition",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'peak_amount' denotes the maximum or highest quantitative value of something, whereas 'dominant_condition' refers to the primary or most influential state or factor. These concepts describe different aspects (a numeric extreme versus a leading condition) and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "peak_amount",
+      "predicate_b": "max_gust",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"peak_amount\" is a generic predicate denoting the highest quantity of any measured variable, while \"max_gust\" specifically denotes the maximum wind gust speed. The latter is a specialized case of a peak amount, not interchangeable in meaning, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "peak_amount",
+      "predicate_b": "typical_speed",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"peak_amount\" denotes the maximum or highest quantity of something, while \"typical_speed\" denotes an average or normal rate of motion. These concepts belong to different domains (quantity vs. velocity) and cannot be used interchangeably in a knowledge graph."
+    },
+    {
+      "predicate_a": "peak_amount",
+      "predicate_b": "covers",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "\"peak_amount\" denotes the maximum or highest quantity/value of something, whereas \"covers\" indicates inclusion, protection, or span over something. Their meanings differ fundamentally and they cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "peak_amount",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'peak_amount' denotes the maximum or highest value of a quantity, whereas 'recorded' denotes that something was documented or captured. These concepts are distinct and cannot be interchanged without loss of meaning, so they are not semantically equivalent."
+    },
+    {
+      "predicate_a": "peak_amount",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"peak_amount\" denotes a quantitative measure representing the maximum value of a variable, whereas \"occurred\" describes the fact that an event took place. The semantics are fundamentally different (one is a numeric attribute, the other is a binary event occurrence), so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "peak_amount",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"peak_amount\" denotes the maximum value or highest quantity observed, whereas \"trend\" describes the overall direction or pattern of change over time (e.g., increasing, decreasing, stable). These concepts are distinct and not interchangeable in a knowledge graph."
+    },
+    {
+      "predicate_a": "peak_amount",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.96,
+      "reason": "\"peak\" denotes the highest point or level in a general sense (which can refer to a location, time, value, etc.), whereas \"peak_amount\" specifically refers to the quantitative value at that highest point. The latter is a specialized subset of the concept expressed by \"peak\" and adds the notion of a measurable amount, making them related but not semantically identical. Therefore they cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "peak_amount",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"peak_amount\" refers to a single maximum value reached (the highest amount), whereas \"range\" denotes an interval between a minimum and a maximum or a set of possible values. The concepts are distinct; they cannot be used interchangeably in a knowledge graph."
+    },
+    {
+      "predicate_a": "peak_amount",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'peak_amount' refers to a quantitative property indicating the maximum or highest value of an amount, while 'shifted' describes a change in position or state (e.g., moving or offsetting). These concepts are unrelated and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "moderate_rain_events",
+      "predicate_b": "heavy_rain_events",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicates refer to distinct categories of rain intensity: 'moderate_rain_events' denotes rainfall of moderate strength, while 'heavy_rain_events' denotes rainfall of heavy strength. They are related but not interchangeable, so they cannot be merged in a knowledge graph without loss of meaning."
+    },
+    {
+      "predicate_a": "moderate_rain_events",
+      "predicate_b": "high_periods",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'moderate_rain_events' refers to occurrences of rainfall at a moderate intensity, whereas 'high_periods' refers to intervals characterized by high values (e.g., temperature, pressure, or other metric). The two concepts describe different phenomena and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "moderate_rain_events",
+      "predicate_b": "dominant_condition",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'moderate_rain_events' refers specifically to occurrences of rain of moderate intensity, while 'dominant_condition' refers to the most prevalent or controlling condition in a given context. These concepts describe entirely different phenomena and cannot be interchanged without loss of meaning, so they are not semantically equivalent."
+    },
+    {
+      "predicate_a": "moderate_rain_events",
+      "predicate_b": "max_gust",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "`moderate_rain_events` describes occurrences of rainfall of moderate intensity, whereas `max_gust` refers to the peak wind speed measured during a gust. These predicates refer to different meteorological phenomena (precipitation vs. wind) and cannot be merged without losing meaning."
+    },
+    {
+      "predicate_a": "moderate_rain_events",
+      "predicate_b": "typical_speed",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'moderate_rain_events' refers to occurrences of rainfall with moderate intensity, which is a weather-related event. The predicate 'typical_speed' refers to the usual rate of motion or velocity of an object or entity, which is a measurement of dynamical behavior. These concepts belong to distinct domains (hydrometeorology vs. kinematics) and do not share the same meaning, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "moderate_rain_events",
+      "predicate_b": "covers",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'moderate_rain_events' refers specifically to weather occurrences of rain at moderate intensity, while 'covers' is a generic verb indicating one entity being over, hiding, or including another. Their meanings belong to entirely different domains and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "moderate_rain_events",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'moderate_rain_events' denotes a specific type of weather event (rain of moderate intensity). The predicate 'recorded' denotes an action of documentation or measurement without specifying the subject. Since they refer to fundamentally different concepts, they cannot be merged as equivalent in a knowledge graph."
+    },
+    {
+      "predicate_a": "moderate_rain_events",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'moderate_rain_events' denotes a specific class of weather events (moderate rain), whereas 'occurred' is a generic verb indicating that something happened. They differ in scope and meaning; one cannot be substituted for the other without loss of specificity, so they are not semantically equivalent."
+    },
+    {
+      "predicate_a": "moderate_rain_events",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'moderate_rain_events' refers to specific occurrences of moderate rain, a concrete weather phenomenon. The predicate 'trend' denotes an abstract pattern of change over time applicable to any variable. Their meanings are distinct and cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "moderate_rain_events",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'moderate_rain_events' specifically denotes occurrences of rain with moderate intensity, a type of weather event. The predicate 'peak' refers to a highest point or maximum in a variety of contexts (e.g., mountain peak, peak value of a time series) and does not convey any information about rain or its intensity. Since the meanings are unrelated and cannot be merged without loss of semantics, they are not equivalent."
+    },
+    {
+      "predicate_a": "moderate_rain_events",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'moderate_rain_events' denotes a specific type of weather event (instances of rain of moderate intensity), whereas 'range' denotes a numeric interval or span between two values. Their meanings are unrelated and cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "moderate_rain_events",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'moderate_rain_events' refers to occurrences of rainfall of moderate intensity, a specific type of weather event. The predicate 'shifted' denotes a change in position or state, typically describing movement or alteration. These meanings are unrelated and cannot be merged without loss of semantic fidelity."
+    },
+    {
+      "predicate_a": "heavy_rain_events",
+      "predicate_b": "high_periods",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "The predicate 'heavy_rain_events' specifically denotes occurrences of intense rainfall, while 'high_periods' is a vague term that could refer to any time intervals characterized by a high value of some variable (e.g., temperature, tide, pressure). The meanings are not identical and cannot be safely merged."
+    },
+    {
+      "predicate_a": "heavy_rain_events",
+      "predicate_b": "dominant_condition",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"heavy_rain_events\" denotes specific instances of heavy rain, a concrete weather phenomenon. \"dominant_condition\" is a generic term for the primary condition in a context (e.g., weather, environment) and can refer to any condition, not necessarily heavy rain. The meanings are not interchangeable, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "heavy_rain_events",
+      "predicate_b": "max_gust",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'heavy_rain_events' describes occurrences of intense precipitation, while 'max_gust' describes the maximum wind speed (gust) recorded. These refer to different meteorological phenomena (rain vs. wind) and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "heavy_rain_events",
+      "predicate_b": "typical_speed",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'heavy_rain_events' denotes occurrences of intense rainfall, while 'typical_speed' denotes a usual rate of motion (e.g., vehicle, wind, etc.). They refer to entirely different domains and concepts, with no direct overlap in meaning, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "heavy_rain_events",
+      "predicate_b": "covers",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'heavy_rain_events' denotes a specific class of meteorological occurrences, whereas 'covers' describes a spatial relationship where one entity lies over or extends across another. They represent fundamentally different concepts and cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "heavy_rain_events",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'heavy_rain_events' denotes a specific type of meteorological occurrence, whereas 'recorded' denotes the act of documenting or logging information. They refer to entirely different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "heavy_rain_events",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'heavy_rain_events' denotes a specific class of weather phenomena (events of heavy rain), whereas 'occurred' is a generic verb indicating that something happened. They refer to different concepts and cannot be safely merged; one is a type of event, the other is a temporal predicate about any event."
+    },
+    {
+      "predicate_a": "heavy_rain_events",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'heavy_rain_events' denotes specific instances of heavy rainfall, whereas 'trend' denotes a general direction or tendency over time. They refer to fundamentally different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "heavy_rain_events",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"heavy_rain_events\" denotes specific occurrences of intense rainfall, a concrete meteorological phenomenon. \"peak\" is a generic term referring to the highest point or maximum of any variable (e.g., a peak temperature, peak demand, a mountain peak) and does not specify heavy rain. The meanings do not align sufficiently to be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "heavy_rain_events",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"heavy_rain_events\" denotes specific weather occurrences characterized by intense precipitation, whereas \"range\" denotes a span or interval (often numeric) between two bounds. The concepts belong to different domains and do not represent the same meaning, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "heavy_rain_events",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'heavy_rain_events' denotes specific weather occurrences involving intense precipitation, whereas 'shifted' denotes a change in position, timing, or state. These concepts are unrelated and cannot be merged in a knowledge graph without loss of meaning."
+    },
+    {
+      "predicate_a": "high_periods",
+      "predicate_b": "dominant_condition",
+      "equivalent": false,
+      "confidence": 0.96,
+      "reason": "The predicate 'high_periods' refers to specific intervals characterized by elevated values or intensity of a variable, whereas 'dominant_condition' refers to the primary or prevailing condition among several. These concepts describe different aspects and cannot be safely merged."
+    },
+    {
+      "predicate_a": "high_periods",
+      "predicate_b": "max_gust",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'high_periods' refers to intervals characterized by elevated levels of a variable (e.g., high temperature periods, high pressure periods), whereas 'max_gust' denotes a specific measurement—the maximum wind gust speed observed. They describe different concepts (a temporal pattern vs. a singular extreme value) and cannot be safely merged."
+    },
+    {
+      "predicate_a": "high_periods",
+      "predicate_b": "typical_speed",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'high_periods' denotes intervals characterized by elevated values of some variable (e.g., high temperature periods, high tide periods). The predicate 'typical_speed' describes a characteristic average or usual rate of movement. These concepts refer to fundamentally different dimensions—temporal intervals of high magnitude versus a quantitative measure of speed—and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "high_periods",
+      "predicate_b": "covers",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'high_periods' denotes a temporal interval characterized by a high value of some variable, whereas 'covers' denotes an action or relation of spanning, including, or protecting something. Their meanings are distinct and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "high_periods",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.98,
+      "reason": "The predicate 'high_periods' denotes a temporal interval characterized by elevated values of some variable, whereas 'recorded' denotes the act of documenting or capturing data. These concepts describe different aspects (a type of period vs. an action of logging) and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "high_periods",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "\"high_periods\" denotes a specific type of time interval characterized by elevated values (e.g., high temperature periods, high demand periods). \"occurred\" is a generic verb indicating that an event took place, without specifying any particular nature of the event. The meanings are not interchangeable, so they cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "high_periods",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "The predicate 'high_periods' denotes specific intervals where a value is above a threshold, while 'trend' describes the overall direction or pattern of change over time. They capture different concepts—one is a categorical time segment, the other is a temporal pattern—so they cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "high_periods",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.96,
+      "reason": "\"high_periods\" denotes intervals or durations during which a measure remains high, whereas \"peak\" refers to a singular maximum point or the highest value itself. They are related concepts but not interchangeable; one describes a time span, the other a specific extremum, so they cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "high_periods",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'high_periods' denotes specific intervals characterized by elevated values or conditions, whereas 'range' denotes the numerical span between a minimum and maximum. These concepts describe different aspects and cannot be safely merged."
+    },
+    {
+      "predicate_a": "high_periods",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.96,
+      "reason": "The predicate 'high_periods' denotes intervals characterized by elevated values or conditions, whereas 'shifted' describes a displacement or change in position or timing. Their meanings are distinct and not interchangeable, so they cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "dominant_condition",
+      "predicate_b": "max_gust",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'dominant_condition' refers to the primary overall condition (e.g., weather condition or state), whereas 'max_gust' specifically denotes the maximum wind gust speed. These concepts are distinct and not interchangeable, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "dominant_condition",
+      "predicate_b": "typical_speed",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"dominant_condition\" denotes the prevailing or most influential state/condition in a context, whereas \"typical_speed\" refers to the usual rate of motion or progress. These concepts describe fundamentally different attributes and cannot be interchanged without loss of meaning, so they are not semantically equivalent."
+    },
+    {
+      "predicate_a": "dominant_condition",
+      "predicate_b": "covers",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'dominant_condition' denotes a primary or prevailing condition, while 'covers' indicates an inclusion relationship (e.g., one entity covering another). Their meanings are distinct and not interchangeable in a knowledge graph."
+    },
+    {
+      "predicate_a": "dominant_condition",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "`dominant_condition` refers to a primary or prevailing condition or state, whereas `recorded` denotes that something has been documented or captured. The two predicates describe fundamentally different concepts and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "dominant_condition",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "The predicate 'dominant_condition' denotes a specific relationship where a condition is identified as the primary or most influential among multiple conditions. In contrast, 'occurred' simply indicates that an event or state happened, without specifying any dominance or hierarchical relationship. Since the meanings differ and cannot be safely merged in a knowledge graph, they are not semantically equivalent."
+    },
+    {
+      "predicate_a": "dominant_condition",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"dominant_condition\" denotes the primary or prevailing condition influencing a system, whereas \"trend\" refers to the general direction or pattern of change over time. These concepts convey different meanings and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "dominant_condition",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.96,
+      "reason": "\"dominant_condition\" refers to the most prevalent or primary condition in a given context, emphasizing prevalence or influence. \"peak\" denotes the highest point, maximum value, or climax of a measurement or process. The two predicates describe different concepts—one about dominance/prevalence, the other about a maximal point—so they cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "dominant_condition",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"dominant_condition\" refers to the primary or controlling condition in a scenario, whereas \"range\" denotes a span of values or limits. The concepts are distinct and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "dominant_condition",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"dominant_condition\" denotes a primary or prevailing condition, whereas \"shifted\" describes something that has been moved or altered in position. The meanings are unrelated and cannot be merged without loss of semantic integrity."
+    },
+    {
+      "predicate_a": "max_gust",
+      "predicate_b": "typical_speed",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'max_gust' refers specifically to the highest instantaneous wind speed observed (a gust), whereas 'typical_speed' denotes a representative or average wind speed under normal conditions. These concepts capture different aspects of wind behavior and cannot be safely merged without loss of meaning."
+    },
+    {
+      "predicate_a": "max_gust",
+      "predicate_b": "covers",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"max_gust\" denotes a specific quantitative measurement (the maximum wind gust speed), while \"covers\" denotes a spatial relationship where one entity overlays or conceals another. The two predicates refer to entirely different concepts and cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "max_gust",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"max_gust\" denotes a specific metric (the maximum wind gust speed), whereas \"recorded\" is a generic action indicating that any data or event was logged. The two predicates refer to different concepts and cannot be safely merged."
+    },
+    {
+      "predicate_a": "max_gust",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"max_gust\" denotes a specific measurement (the maximum wind gust value) while \"occurred\" is a generic verb indicating that an event happened. Their meanings are unrelated and cannot be merged without loss of semantics."
+    },
+    {
+      "predicate_a": "max_gust",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'max_gust' denotes a specific measurement of the highest wind gust observed, while 'trend' describes the direction or pattern of change over time for any variable. They refer to fundamentally different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "max_gust",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "\"max_gust\" specifically denotes the maximum wind gust measurement, a precise meteorological attribute. \"peak\" is a generic term for the highest point or maximum value in any context (e.g., peak temperature, peak performance). Because \"peak\" lacks the domain-specific meaning of wind gusts, the two predicates cannot be safely merged."
+    },
+    {
+      "predicate_a": "max_gust",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'max_gust' denotes a specific metric – the maximum wind gust speed observed or forecast – whereas 'range' is a generic concept representing the interval between a minimum and maximum value for any variable. They refer to different kinds of information and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "max_gust",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'max_gust' denotes a specific meteorological measurement (the maximum wind gust speed), while 'shifted' is a generic term describing a displacement or change in position, time, frequency, etc. They refer to fundamentally different concepts and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "typical_speed",
+      "predicate_b": "covers",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'typical_speed' denotes a quantitative measure of the usual speed of an entity, whereas 'covers' denotes an action or relationship of extending over, including, or protecting something. Their meanings and domains are unrelated, so they cannot be merged safely in a knowledge graph."
+    },
+    {
+      "predicate_a": "typical_speed",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"typical_speed\" denotes a property describing the usual or expected speed of an entity, whereas \"recorded\" indicates that something has been captured, logged, or documented. The two predicates refer to fundamentally different concepts and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "typical_speed",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'typical_speed' denotes a quantitative attribute describing the usual speed of an entity, whereas 'occurred' denotes the fact that an event took place. They refer to fundamentally different types of information (attribute vs event occurrence) and cannot be safely merged."
+    },
+    {
+      "predicate_a": "typical_speed",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'typical_speed' denotes a characteristic value describing the usual rate of motion for an entity, whereas 'trend' denotes the direction or pattern of change over time. These concepts describe different aspects and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "typical_speed",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"typical_speed\" denotes the normal, average, or usual speed of an entity, whereas \"peak\" denotes the maximum or highest observed value (often of speed, but could be any metric). The concepts are distinct: one describes a central tendency, the other a extremum. Therefore they are not semantically equivalent and cannot be safely merged."
+    },
+    {
+      "predicate_a": "typical_speed",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"typical_speed\" denotes a specific characteristic describing the usual speed of an entity, whereas \"range\" is a generic term that can refer to a span of values, distance covered, or interval of operation. The meanings are distinct and not interchangeable in a knowledge graph."
+    },
+    {
+      "predicate_a": "typical_speed",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"typical_speed\" denotes a quantitative attribute describing the usual or average speed of an entity, whereas \"shifted\" describes a qualitative state of having been moved or displaced (in space, time, or context). The concepts are unrelated and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "covers",
+      "predicate_b": "recorded",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"covers\" denotes the act of providing coverage or a rendition (e.g., a musical cover, insurance coverage, geographic coverage), whereas \"recorded\" denotes the act of capturing audio, video, or data for later playback or storage. Their meanings are distinct and cannot be merged without loss of semantic precision."
+    },
+    {
+      "predicate_a": "covers",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"covers\" denotes a relationship where one entity includes, spans, protects, or overlays another (e.g., a map covers an area, a policy covers a risk). \"occurred\" denotes the event of something happening or taking place in time. The two predicates describe fundamentally different kinds of relations—spatial/coverage versus temporal occurrence—and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "covers",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'covers' denotes inclusion, protection, or reporting over a subject, whereas 'trend' denotes a pattern or tendency over time. Their meanings differ fundamentally and cannot be merged without loss of semantic precision."
+    },
+    {
+      "predicate_a": "covers",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"covers\" denotes the action of extending over, encompassing, protecting, or paying for something, while \"peak\" denotes the highest point of a quantity or a verb meaning to reach a maximum. Their meanings are unrelated and cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "covers",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'covers' typically denotes a spatial or inclusion relationship where one entity entirely includes or overlays another (e.g., a map covers an area, a roof covers a house). The predicate 'range' generally refers to the extent of values, distances, or the set of possible outputs of a function (e.g., temperature range, range of a sensor). These meanings are distinct and not interchangeable in a knowledge graph, so they cannot be safely merged."
+    },
+    {
+      "predicate_a": "covers",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"covers\" denotes a relationship where one entity lies over, includes, or protects another (e.g., a blanket covers a bed, a law covers a situation). \"shifted\" denotes a change in position or state, indicating that something has been moved or displaced. The meanings are distinct and cannot be interchanged without altering semantics, so they are not equivalent for merging in a knowledge graph."
+    },
+    {
+      "predicate_a": "recorded",
+      "predicate_b": "occurred",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate \"recorded\" denotes that an event or information has been captured or logged, whereas \"occurred\" denotes that an event actually happened. An event can be recorded without occurring (e.g., a simulated or erroneous entry) and an event can occur without being recorded. Therefore, the meanings are not interchangeable and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "recorded",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"recorded\" denotes the act of capturing or documenting information, while \"trend\" denotes a pattern or direction over time. They describe fundamentally different concepts and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "recorded",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"recorded\" denotes the action of capturing or storing information, events, or signals (e.g., a song was recorded, data was recorded). \"peak\" denotes a maximum point, summit, or highest value (e.g., the mountain peak, the peak temperature). The two predicates describe entirely different concepts and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "recorded",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"recorded\" denotes the action of capturing or storing information or events, whereas \"range\" denotes a span, interval, or set of values. The meanings are distinct and cannot be merged without loss of semantic precision."
+    },
+    {
+      "predicate_a": "recorded",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'recorded' denotes the action of capturing or documenting information, events, or data. The predicate 'shifted' denotes the action of moving something from one position or state to another. Their meanings are distinct and not interchangeable, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "occurred",
+      "predicate_b": "trend",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"occurred\" denotes that an event or fact took place at a specific point in time, whereas \"trend\" refers to a pattern or direction of change over a period. The concepts are related to temporal data but they describe fundamentally different relationships and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "occurred",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"occurred\" denotes that an event happened or took place, without implying any notion of intensity or maximum. \"peak\" refers to the highest point or maximum intensity of something, or the act of reaching that maximum. The meanings are distinct and cannot be merged without loss of semantic precision."
+    },
+    {
+      "predicate_a": "occurred",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"occurred\" denotes the happening or execution of an event, whereas \"range\" denotes a span, interval, or set of values. They represent fundamentally different relations and cannot be merged without loss of meaning."
+    },
+    {
+      "predicate_a": "occurred",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "\"occurred\" denotes that an event took place or happened, whereas \"shifted\" denotes a change in position, state, or timing. The two predicates describe different types of actions and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "trend",
+      "predicate_b": "peak",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'trend' refers to the general direction or pattern of change over time (e.g., increasing, decreasing, stable), while 'peak' denotes a specific maximum point within a series. Their meanings differ fundamentally and cannot be merged without loss of semantic precision."
+    },
+    {
+      "predicate_a": "trend",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.97,
+      "reason": "The predicate 'trend' denotes a directional pattern or change over time (e.g., increasing, decreasing, stable), whereas 'range' denotes the interval between minimum and maximum values in a dataset. They describe distinct concepts and cannot be safely merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "trend",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.98,
+      "reason": "The predicate 'trend' describes a general direction or tendency over time (e.g., increasing, decreasing, stable), whereas 'shifted' denotes a specific change in position, state, or value. Their meanings are distinct and cannot be safely merged in a knowledge graph without loss of semantic precision."
+    },
+    {
+      "predicate_a": "peak",
+      "predicate_b": "range",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"peak\" denotes a singular highest point (e.g., the summit of a mountain), while \"range\" denotes a collection or series of mountains or values. They represent fundamentally different concepts and cannot be safely merged as the same predicate in a knowledge graph."
+    },
+    {
+      "predicate_a": "peak",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "\"peak\" denotes the maximum or highest point of something, while \"shifted\" describes something that has been moved or displaced from its original position. The meanings are distinct and not interchangeable, so they cannot be merged in a knowledge graph."
+    },
+    {
+      "predicate_a": "range",
+      "predicate_b": "shifted",
+      "equivalent": false,
+      "confidence": 0.99,
+      "reason": "The predicate 'range' refers to the span of values or interval that a variable can take, whereas 'shifted' describes a transformation that moves something by a certain offset. These concepts are distinct and not interchangeable; they cannot be safely merged in a knowledge graph."
+    }
+  ],
+  "normalized_triples": [
+    {
+      "subject": "Contepec",
+      "predicate": "located_in",
+      "object": "Mexico"
+    },
+    {
+      "subject": "forecast period Jan 3-8 2024",
+      "predicate": "covers_city",
+      "object": "Contepec"
+    },
+    {
+      "subject": "forecast period Jan 3-8 2024",
+      "predicate": "temperature_range_celsius",
+      "object": "5.49-18.44"
+    },
+    {
+      "subject": "forecast period Jan 3-8 2024",
+      "predicate": "humidity_range_percent",
+      "object": "17-81"
+    },
+    {
+      "subject": "forecast period Jan 3-8 2024",
+      "predicate": "max_wind_gust_m_s",
+      "object": "11.22"
+    },
+    {
+      "subject": "Jan 3-5 2024",
+      "predicate": "predominant_condition",
+      "object": "scattered to broken clouds"
+    },
+    {
+      "subject": "Jan 6-8 2024",
+      "predicate": "predominant_condition",
+      "object": "clear sky with occasional clouds"
+    },
+    {
+      "subject": "Jan 7 2024",
+      "predicate": "overcast_cloud_coverage_percent",
+      "object": "96-99"
+    },
+    {
+      "subject": "nighttime",
+      "predicate": "often_clear",
+      "object": "clear sky with low cloud cover"
+    },
+    {
+      "subject": "daytime",
+      "predicate": "frequent_wind_gusts_above_m_s",
+      "object": "8-11"
+    },
+    {
+      "subject": "Anori",
+      "predicate": "country",
+      "object": "Brazil"
+    },
+    {
+      "subject": "Anori",
+      "predicate": "coordinates",
+      "object": "-3.7728,-61.6442"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "date_range",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "max_value",
+      "object": "34.27°C at 2024-01-04 18:00"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "min_value",
+      "object": "22.84°C at 2024-01-08 06:00"
+    },
+    {
+      "subject": "rainfall",
+      "predicate": "peak_amount",
+      "object": "6.59 mm at 2024-01-08 06:00"
+    },
+    {
+      "subject": "rainfall",
+      "predicate": "moderate_rain_events",
+      "object": "2024-01-05 03:00‑06:00, 2024-01-07 18:00‑21:00"
+    },
+    {
+      "subject": "rainfall",
+      "predicate": "heavy_rain_events",
+      "object": "2024-01-05 18:00‑21:00, 2024-01-06 18:00‑21:00"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "high_periods",
+      "object": "≥90% from 2024-01-05 to 2024-01-08"
+    },
+    {
+      "subject": "cloud_coverage",
+      "predicate": "dominant_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "wind",
+      "predicate": "max_gust",
+      "object": "7.64 m/s at 2024-01-05 03:00"
+    },
+    {
+      "subject": "wind",
+      "predicate": "typical_speed",
+      "object": "1‑3 m/s during daylight hours"
+    },
+    {
+      "subject": "ses Salines",
+      "predicate": "located_in",
+      "object": "Spain"
+    },
+    {
+      "subject": "forecast period",
+      "predicate": "covers",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "maximum temperature",
+      "predicate": "recorded",
+      "object": "17.26 °C at 2024-01-04 15:00"
+    },
+    {
+      "subject": "minimum temperature",
+      "predicate": "recorded",
+      "object": "4.81 °C at 2024-01-08 06:00"
+    },
+    {
+      "subject": "maximum precipitation",
+      "predicate": "recorded",
+      "object": "16.38 mm (3 h) at 2024-01-06 03:00"
+    },
+    {
+      "subject": "heavy rain",
+      "predicate": "occurred",
+      "object": "2024-01-05 09:00 and 2024-01-06 03:00"
+    },
+    {
+      "subject": "light rain",
+      "predicate": "occurred",
+      "object": "multiple intervals between 2024-01-04 09:00 and 2024-01-06 09:00"
+    },
+    {
+      "subject": "cloud cover",
+      "predicate": "trend",
+      "object": "overcast early, clearing after 2024-01-06 night"
+    },
+    {
+      "subject": "wind gust",
+      "predicate": "peak",
+      "object": "14 m/s at 2024-01-07 03:00"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "range",
+      "object": "40 % to 97 % during the period"
+    },
+    {
+      "subject": "weather condition",
+      "predicate": "shifted",
+      "object": "from cloudy to clear after 2024-01-06"
+    }
+  ]
+}
