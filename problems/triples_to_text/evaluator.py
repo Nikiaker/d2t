@@ -8,6 +8,8 @@ import time
 import concurrent.futures
 import traceback
 import signal
+import json
+import io
 from openevolve.evaluation_result import EvaluationResult
 from initial_program import Triple
 from tests.benchmark_reader.benchmark_reader import Benchmark, Entry
@@ -148,12 +150,90 @@ def parse_themis_response(content: str) -> tuple[str, float]:
     return review, rating
 
 def fetch_completion(prompts: list[str]):
-    responses = themis_client.completions.create(
-        model=THEMIS_NAME,
-        prompt=prompts,
-        max_tokens=1000,
+    if themis_client is None:
+        return []
+
+    requests_payload: list[dict] = []
+    for i, prompt in enumerate(prompts):
+        requests_payload.append(
+            {
+                "custom_id": f"themis-{i}",
+                "method": "POST",
+                "url": "/v1/chat/completions",
+                "body": {
+                    "model": THEMIS_NAME,
+                    "messages": [
+                        {"role": "user", "content": prompt},
+                    ],
+                    "max_tokens": 1000,
+                },
+            }
+        )
+
+    jsonl_content = "\n".join(json.dumps(item) for item in requests_payload) + "\n"
+    batch_input_file = io.BytesIO(jsonl_content.encode("utf-8"))
+    batch_input_file.name = "themis_batch.jsonl"
+
+    uploaded_file = themis_client.files.create(
+        file=batch_input_file,
+        purpose="batch",
     )
-    return responses
+
+    batch = themis_client.batches.create(
+        input_file_id=uploaded_file.id,
+        endpoint="/v1/chat/completions",
+        completion_window="24h",
+    )
+
+    timeout_seconds = int(config["evaluator"].get("themis_batch_timeout_seconds", 300))
+    poll_interval_seconds = float(config["evaluator"].get("themis_batch_poll_interval_seconds", 2))
+    start_time = time.time()
+
+    while True:
+        batch = themis_client.batches.retrieve(batch.id)
+
+        if batch.status == "completed":
+            break
+
+        if batch.status in {"failed", "expired", "cancelled"}:
+            raise RuntimeError(f"THEMIS batch finished with status: {batch.status}")
+
+        if (time.time() - start_time) > timeout_seconds:
+            raise TimeoutError(
+                f"THEMIS batch timed out after {timeout_seconds} seconds with status {batch.status}"
+            )
+
+        time.sleep(poll_interval_seconds)
+
+    if not batch.output_file_id:
+        raise RuntimeError("THEMIS batch completed but no output_file_id was returned")
+
+    output_content = themis_client.files.content(batch.output_file_id)
+    output_text = output_content.text
+
+    responses_by_index: dict[int, str] = {}
+    for line in output_text.splitlines():
+        if not line.strip():
+            continue
+
+        row = json.loads(line)
+        custom_id = row.get("custom_id", "")
+        match = re.search(r"themis-(\d+)$", custom_id)
+        if not match:
+            continue
+
+        index = int(match.group(1))
+        body = (row.get("response") or {}).get("body") or {}
+        choices = body.get("choices") or []
+
+        content = ""
+        if choices:
+            message = choices[0].get("message") or {}
+            content = message.get("content") or ""
+
+        responses_by_index[index] = content
+
+    return [responses_by_index.get(i, "") for i in range(len(prompts))]
 
 def evaluate(program_path):
     """
@@ -318,8 +398,8 @@ def evaluate(program_path):
         # Batch themis
         if themis_client and themis_chat_messages:
             results = fetch_completion(themis_chat_messages)
-            for i, result in enumerate(results.choices):
-                review, rating = parse_themis_response(result.text)
+            for i, result_content in enumerate(results):
+                review, rating = parse_themis_response(result_content)
                 themis_scores.append(ThemisEvaluation(review=review, rating=rating))
 
                 if rating < 5:

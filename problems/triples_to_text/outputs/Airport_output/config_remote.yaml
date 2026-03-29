@@ -51,8 +51,8 @@ evaluator:
   cascade_evaluation: false
   parallel_evaluations: 1
   themis_enabled: true
-  themis_name: "PKU-ONELab/Themis"
-  themis_api_base: "http://localhost:2995/v1"
+  themis_name: "openai/gpt-oss-120b"
+  themis_api_base: "http://localhost:2992/v1"
   themis_api_key: "AiIsMyLife25"
 
 evolution_trace:

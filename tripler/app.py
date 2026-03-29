@@ -77,6 +77,7 @@ EQUIVALENCE_RESPONSE_FORMAT: dict[str, Any] = {
     },
 }
 
+BATCH_TIMEOUT_SECONDS = 21600 # 6 hours
 
 @dataclass
 class Triple:
@@ -881,7 +882,7 @@ def main() -> None:
     extract_parser.add_argument(
         "--batch-timeout-seconds",
         type=int,
-        default=1800,
+        default=BATCH_TIMEOUT_SECONDS,
         help="Max seconds to wait for extraction batch completion",
     )
     extract_parser.set_defaults(func=cmd_extract)
@@ -901,7 +902,7 @@ def main() -> None:
     normalize_parser.add_argument(
         "--batch-timeout-seconds",
         type=int,
-        default=1800,
+        default=BATCH_TIMEOUT_SECONDS,
         help="Max seconds to wait for predicate comparison batch completion",
     )
     normalize_parser.set_defaults(func=cmd_normalize)

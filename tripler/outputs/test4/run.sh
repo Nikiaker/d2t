@@ -1,0 +1,3 @@
+python app_text_pipeline.py extract --input inputs/input_data_weather_dev_full.json --output outputs/test4/extracted_triples.json --model openai/gpt-oss-120b --base-url http://localhost:8001/v1 --api-key none
+
+python app_text_pipeline.py normalize --input outputs/test4/extracted_triples.json --output outputs/test4/normalized_triples.json --model openai/gpt-oss-120b --base-url http://localhost:8001/v1 --api-key none
