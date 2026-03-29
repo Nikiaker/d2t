@@ -405,9 +405,11 @@ def triples_from_instances_batch(
         extraction_system_prompt=extraction_system_prompt,
         instances=instances,
     )
+    batch_jsonl_bytes = batch_jsonl.encode("utf-8")
+    logger.info("Extraction batch file size: %d bytes", len(batch_jsonl_bytes))
 
     input_file = client.files.create(
-        file=("triples_extraction_batch.jsonl", io.BytesIO(batch_jsonl.encode("utf-8"))),
+        file=("triples_extraction_batch.jsonl", io.BytesIO(batch_jsonl_bytes)),
         purpose="batch",
     )
 
@@ -585,9 +587,11 @@ def predicates_equivalent_batch(
         equivalence_system_prompt=equivalence_system_prompt,
         predicate_pairs=predicate_pairs,
     )
+    batch_jsonl_bytes = batch_jsonl.encode("utf-8")
+    logger.info("Predicate equivalence batch file size: %d bytes", len(batch_jsonl_bytes))
 
     input_file = client.files.create(
-        file=("predicate_equivalence_batch.jsonl", io.BytesIO(batch_jsonl.encode("utf-8"))),
+        file=("predicate_equivalence_batch.jsonl", io.BytesIO(batch_jsonl_bytes)),
         purpose="batch",
     )
 

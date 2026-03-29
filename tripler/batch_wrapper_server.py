@@ -206,10 +206,33 @@ def create_app(upstream_base_url: str, storage_dir: str) -> FastAPI:
 
             timeout = httpx.Timeout(120.0, connect=10.0)
             async with httpx.AsyncClient(base_url=upstream_base_url, timeout=timeout) as client:
-                tasks = [run_single_request(client, req) for req in requests_payload]
-                results = await asyncio.gather(*tasks)
+                max_concurrency = 100
+                indexed_requests: asyncio.Queue[tuple[int, dict[str, Any]]] = asyncio.Queue()
+                for idx, req in enumerate(requests_payload):
+                    indexed_requests.put_nowait((idx, req))
 
-            output_jsonl = "\n".join(json.dumps(result, ensure_ascii=False) for result in results) + "\n"
+                results: list[dict[str, Any] | None] = [None] * len(requests_payload)
+
+                async def worker() -> None:
+                    while True:
+                        try:
+                            idx, req = indexed_requests.get_nowait()
+                        except asyncio.QueueEmpty:
+                            return
+                        try:
+                            results[idx] = await run_single_request(client, req)
+                        finally:
+                            indexed_requests.task_done()
+
+                worker_count = min(max_concurrency, len(requests_payload))
+                if worker_count > 0:
+                    workers = [asyncio.create_task(worker()) for _ in range(worker_count)]
+                    await indexed_requests.join()
+                    await asyncio.gather(*workers)
+
+                final_results = [result for result in results if result is not None]
+
+            output_jsonl = "\n".join(json.dumps(result, ensure_ascii=False) for result in final_results) + "\n"
             output_file = storage.save_file_from_text(
                 text=output_jsonl,
                 filename=f"{batch_id}_output.jsonl",
@@ -220,7 +243,7 @@ def create_app(upstream_base_url: str, storage_dir: str) -> FastAPI:
             batch.output_file_id = output_file.id
             batch.errors = None
             storage.update_batch(batch)
-            logger.info("Batch %s completed with %d requests", batch_id, len(results))
+            logger.info("Batch %s completed with %d requests", batch_id, len(final_results))
         except Exception as exc:
             logger.exception("Batch %s failed: %s", batch_id, exc)
             batch = storage.get_batch(batch_id)

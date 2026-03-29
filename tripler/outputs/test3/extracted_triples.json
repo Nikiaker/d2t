@@ -1,0 +1,5596 @@
+{
+  "input_file": "inputs/input_data_weather_dev_full.json",
+  "instances_count": 100,
+  "triples_count": 488,
+  "unique_predicates": [
+    "located_in",
+    "covers_dates",
+    "reached",
+    "heavy_event",
+    "moderate_event",
+    "predominantly",
+    "exceeded_90_percent",
+    "generally_low",
+    "showed_daytime_warmth",
+    "showed_nighttime_cool",
+    "peaked",
+    "often_full",
+    "includes",
+    "has_country",
+    "has_population",
+    "covers_period",
+    "max_temp",
+    "min_temp",
+    "temperature_trend",
+    "includes_heavy_rain",
+    "rain_amount_mm",
+    "max_wind_gust",
+    "early_condition",
+    "mid_condition",
+    "late_condition",
+    "minimum",
+    "maximum",
+    "pattern",
+    "predominant_condition",
+    "event",
+    "peak",
+    "range",
+    "starts",
+    "overall",
+    "covers",
+    "max",
+    "min",
+    "condition",
+    "occurs_on",
+    "type",
+    "peak_intensity",
+    "max_gust",
+    "lowest",
+    "lowest_at",
+    "peak_at",
+    "max_at",
+    "description",
+    "refers_to_city",
+    "country",
+    "time_range",
+    "weather",
+    "early_high",
+    "mid_low",
+    "generally",
+    "coordinates",
+    "population",
+    "date_range",
+    "max_temperature",
+    "min_temperature",
+    "recorded_at",
+    "dominant_condition",
+    "occurred_at",
+    "lowest_value",
+    "max_speed",
+    "average_range",
+    "daily_pattern",
+    "occurred_on",
+    "features",
+    "escalates_to",
+    "amount",
+    "time",
+    "value",
+    "temperature",
+    "precipitation",
+    "has_coordinates",
+    "starts_at",
+    "ends_at",
+    "min_value",
+    "max_value",
+    "predominant_weather",
+    "precipitation_amount",
+    "intensity",
+    "speed",
+    "forecast_period",
+    "trend",
+    "peak_probability",
+    "peak_time",
+    "first_occurrence",
+    "max_gust_time",
+    "range_celsius",
+    "value_celsius",
+    "observed_at",
+    "dominant_type",
+    "frequency",
+    "occurs_at",
+    "max_value_m_s",
+    "minimum_meters",
+    "peak_percent",
+    "temperature_range_celsius",
+    "max_temperature_celsius",
+    "min_temperature_celsius",
+    "max_wind_speed_m_s",
+    "highest_humidity_percent",
+    "lowest_humidity_percent",
+    "clear_skies_notable",
+    "overcast_notable",
+    "wind_direction_trend",
+    "range_percent",
+    "predominant",
+    "value_m_s",
+    "range_hpa",
+    "latitude",
+    "longitude",
+    "start_date",
+    "end_date",
+    "timestamp",
+    "dominant_before_2024-01-07",
+    "dominant_after_2024-01-07",
+    "start_time",
+    "snow_amount",
+    "probability",
+    "average_percent",
+    "temperature_range_c",
+    "lowest_temperature_c",
+    "highest_temperature_c",
+    "heavy_rain",
+    "max_wind_gust_mps",
+    "city_in",
+    "has_range",
+    "has_condition",
+    "recorded_wind_gust",
+    "is_zero",
+    "dominant_precip_type",
+    "moderate_rain_events",
+    "coldest_temperature_c",
+    "warmest_temperature_c",
+    "highest_precipitation_mm",
+    "humidity_range_percent",
+    "cloud_cover_percent",
+    "starts_on",
+    "ends_on",
+    "reaches_peak",
+    "lowest_temperature",
+    "occurs",
+    "epoch",
+    "has_latitude",
+    "has_longitude",
+    "predominant_state",
+    "maximum_amount_mm",
+    "maximum_speed_mps",
+    "moderate_events",
+    "light_events",
+    "generally_light",
+    "trend_precipitation",
+    "trend_temperature",
+    "has_temperature_range",
+    "starts_with",
+    "has_clear_sky_period",
+    "has_rain_period",
+    "overall_trend",
+    "has_forecast_period",
+    "temperature_range",
+    "humidity_range",
+    "max_rain_intensity",
+    "predominant_condition_early",
+    "predominant_condition_late",
+    "wind_speed_range",
+    "weather_trend",
+    "location",
+    "min_celsius",
+    "max_celsius",
+    "max_time",
+    "min_time",
+    "period_start",
+    "period_end",
+    "lowest_meters",
+    "lowest_time",
+    "trend_initial",
+    "trend_mid",
+    "trend_late",
+    "max_speed_m_s",
+    "max_speed_time",
+    "period",
+    "temp_min",
+    "temp_max",
+    "humidity_min",
+    "humidity_max",
+    "max_gust_speed",
+    "early_weather",
+    "mid_weather",
+    "late_weather",
+    "precipitation_probability_max",
+    "peak_cloud_cover",
+    "primary_condition",
+    "peak_snowfall_3h",
+    "initial_range_celsius",
+    "minimum_celsius",
+    "maximum_celsius",
+    "maximum_gust_m_s",
+    "moderate_at",
+    "amount_3h",
+    "heavy_at",
+    "reduced_during_heavy_precipitation",
+    "high_throughout_period",
+    "has_location",
+    "extreme_low_temperature",
+    "extreme_high_temperature",
+    "occasional_weather",
+    "cloud_coverage_range_percent",
+    "wind_speed_range_mps",
+    "snow_event",
+    "type_sequence",
+    "max_intensity",
+    "max_amount",
+    "max_mps",
+    "value_percent",
+    "typical_percent",
+    "weather_condition",
+    "temperature_celsius",
+    "precipitation_mm_3h",
+    "visibility_meters",
+    "max_wind_gust_m_s",
+    "coldest_temperature_celsius",
+    "cloud_coverage_transition",
+    "decreases_from",
+    "peaks_at",
+    "max_3h",
+    "ranges_between",
+    "mostly",
+    "had",
+    "experienced",
+    "characterized_by",
+    "shows",
+    "forecast_dates",
+    "experienced_heavy_rain",
+    "max_precipitation_rate",
+    "dominant_cloud_cover",
+    "pressure_range",
+    "peak_temperature_2024_01_08",
+    "lowest_temperature_2024_01_06_night",
+    "end_time",
+    "occurrence",
+    "rain_probability",
+    "has_forecast",
+    "shows_temperature_range",
+    "exhibits_cooling_trend",
+    "features_precipitation",
+    "recorded_precipitation",
+    "average_wind_speed",
+    "includes_heavy_rain_event",
+    "shows_cloudiness_variation",
+    "has_max_temperature",
+    "has_min_temperature",
+    "ends_with",
+    "high_range",
+    "peak_amount",
+    "transition",
+    "dominant_precipitation",
+    "snow_occurrence",
+    "average_humidity",
+    "cloud_cover",
+    "precipitation_extremes",
+    "visibility_minimum",
+    "moderate_rain_occurrence",
+    "heavy_rain_amount",
+    "light_snow_occurrence",
+    "wind_peak_speed",
+    "high_humidity",
+    "low_visibility",
+    "daytime_condition"
+  ],
+  "triples_by_instance": [
+    {
+      "instance_id": 0,
+      "triples": []
+    },
+    {
+      "instance_id": 1,
+      "triples": [
+        {
+          "subject": "Anori",
+          "predicate": "located_in",
+          "object": "Brazil"
+        },
+        {
+          "subject": "forecast period",
+          "predicate": "covers_dates",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "maximum temperature",
+          "predicate": "reached",
+          "object": "34.27°C on 2024-01-04 18:00"
+        },
+        {
+          "subject": "minimum temperature",
+          "predicate": "reached",
+          "object": "22.84°C on 2024-01-08 06:00"
+        },
+        {
+          "subject": "rainfall",
+          "predicate": "heavy_event",
+          "object": "6.59 mm on 2024-01-08 06:00"
+        },
+        {
+          "subject": "rainfall",
+          "predicate": "moderate_event",
+          "object": "3.47 mm on 2024-01-05 03:00"
+        },
+        {
+          "subject": "rainfall",
+          "predicate": "moderate_event",
+          "object": "4.78 mm on 2024-01-07 21:00"
+        },
+        {
+          "subject": "sky condition",
+          "predicate": "predominantly",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "exceeded_90_percent",
+          "object": "during rain periods"
+        },
+        {
+          "subject": "wind speed",
+          "predicate": "generally_low",
+          "object": "0.4-2.8 m/s"
+        },
+        {
+          "subject": "temperature trend",
+          "predicate": "showed_daytime_warmth",
+          "object": "30-34°C during daytime"
+        },
+        {
+          "subject": "temperature trend",
+          "predicate": "showed_nighttime_cool",
+          "object": "23-27°C during nighttime"
+        },
+        {
+          "subject": "precipitation probability",
+          "predicate": "peaked",
+          "object": "0.98 on 2024-01-06 18:00"
+        },
+        {
+          "subject": "cloud cover",
+          "predicate": "often_full",
+          "object": "100% during rain events"
+        },
+        {
+          "subject": "Anori forecast",
+          "predicate": "includes",
+          "object": "light rain episodes"
+        }
+      ]
+    },
+    {
+      "instance_id": 2,
+      "triples": [
+        {
+          "subject": "ses Salines",
+          "predicate": "has_country",
+          "object": "Spain"
+        },
+        {
+          "subject": "ses Salines",
+          "predicate": "has_population",
+          "object": "4290"
+        },
+        {
+          "subject": "forecast for ses Salines",
+          "predicate": "covers_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "forecast for ses Salines",
+          "predicate": "max_temp",
+          "object": "17.26°C at 2024-01-04 15:00"
+        },
+        {
+          "subject": "forecast for ses Salines",
+          "predicate": "min_temp",
+          "object": "4.81°C at 2024-01-08 06:00"
+        },
+        {
+          "subject": "forecast for ses Salines",
+          "predicate": "temperature_trend",
+          "object": "cooling from ~16°C to ~5°C"
+        },
+        {
+          "subject": "forecast for ses Salines",
+          "predicate": "includes_heavy_rain",
+          "object": "yes"
+        },
+        {
+          "subject": "heavy rain on 2024-01-05 09:00",
+          "predicate": "rain_amount_mm",
+          "object": "12.19"
+        },
+        {
+          "subject": "heavy rain on 2024-01-06 03:00",
+          "predicate": "rain_amount_mm",
+          "object": "16.38"
+        },
+        {
+          "subject": "forecast for ses Salines",
+          "predicate": "max_wind_gust",
+          "object": "14 m/s at 2024-01-07 03:00"
+        },
+        {
+          "subject": "forecast for ses Salines",
+          "predicate": "early_condition",
+          "object": "scattered to broken clouds"
+        },
+        {
+          "subject": "forecast for ses Salines",
+          "predicate": "mid_condition",
+          "object": "rainy with periods of heavy rain"
+        },
+        {
+          "subject": "forecast for ses Salines",
+          "predicate": "late_condition",
+          "object": "clear skies"
+        }
+      ]
+    },
+    {
+      "instance_id": 3,
+      "triples": [
+        {
+          "subject": "Ohangaron",
+          "predicate": "located_in",
+          "object": "Uzbekistan"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "covers_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "minimum",
+          "object": "1.08°C at 2024-01-03 18:00"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "maximum",
+          "object": "16.64°C at 2024-01-06 09:00"
+        },
+        {
+          "subject": "temperature_trend",
+          "predicate": "pattern",
+          "object": "rising then falling"
+        },
+        {
+          "subject": "cloud_cover",
+          "predicate": "predominant_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "rain",
+          "predicate": "event",
+          "object": "moderate rain 3.83 mm at 2024-01-07 18:00"
+        },
+        {
+          "subject": "rain",
+          "predicate": "event",
+          "object": "light rain 0.46 mm at 2024-01-07 15:00"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "peak",
+          "object": "5.25 m/s at 2024-01-07 21:00"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "range",
+          "object": "30% to 82%"
+        },
+        {
+          "subject": "clear_sky",
+          "predicate": "starts",
+          "object": "2024-01-08 09:00"
+        },
+        {
+          "subject": "weather",
+          "predicate": "overall",
+          "object": "mostly cloudy with intermittent rain"
+        }
+      ]
+    },
+    {
+      "instance_id": 4,
+      "triples": [
+        {
+          "subject": "jonesville",
+          "predicate": "located_in",
+          "object": "us"
+        },
+        {
+          "subject": "forecast_period",
+          "predicate": "covers",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "max",
+          "object": "9.3 °C"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "min",
+          "object": "-2.15 °C"
+        },
+        {
+          "subject": "early_forecast",
+          "predicate": "condition",
+          "object": "broken clouds"
+        },
+        {
+          "subject": "mid_forecast",
+          "predicate": "condition",
+          "object": "clear sky"
+        },
+        {
+          "subject": "late_forecast",
+          "predicate": "condition",
+          "object": "moderate rain"
+        },
+        {
+          "subject": "snow_event",
+          "predicate": "occurs_on",
+          "object": "2024-01-06"
+        },
+        {
+          "subject": "snow_event",
+          "predicate": "type",
+          "object": "light snow and freezing rain"
+        },
+        {
+          "subject": "rain_event",
+          "predicate": "peak_intensity",
+          "object": "8.13 mm in 3 h"
+        },
+        {
+          "subject": "rain_event",
+          "predicate": "occurs_on",
+          "object": "2024-01-06"
+        },
+        {
+          "subject": "wind",
+          "predicate": "max_gust",
+          "object": "11.5 m/s"
+        },
+        {
+          "subject": "visibility",
+          "predicate": "lowest",
+          "object": "156 m"
+        },
+        {
+          "subject": "visibility",
+          "predicate": "lowest_at",
+          "object": "2024-01-07 03:00"
+        },
+        {
+          "subject": "cloud_cover",
+          "predicate": "peak",
+          "object": "100 %"
+        },
+        {
+          "subject": "cloud_cover",
+          "predicate": "peak_at",
+          "object": "2024-01-06 night"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "max",
+          "object": "100 %"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "max_at",
+          "object": "2024-01-07"
+        },
+        {
+          "subject": "precipitation",
+          "predicate": "type",
+          "object": "snow, freezing rain, moderate rain"
+        },
+        {
+          "subject": "temperature_trend",
+          "predicate": "description",
+          "object": "cooling from ~9 °C to below 0 °C overnight, warming to ~8 °C midday, then fluctuating near 0–5 °C with rain events"
+        }
+      ]
+    },
+    {
+      "instance_id": 5,
+      "triples": [
+        {
+          "subject": "instance_5",
+          "predicate": "refers_to_city",
+          "object": "Agua Dulce"
+        },
+        {
+          "subject": "Agua Dulce",
+          "predicate": "country",
+          "object": "Mexico"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "time_range",
+          "object": "2024-01-03 18:00 to 2024-01-08 15:00"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "minimum",
+          "object": "16.58°C at 2024-01-05 09:00"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "maximum",
+          "object": "26.24°C at 2024-01-05 21:00"
+        },
+        {
+          "subject": "early_period",
+          "predicate": "weather",
+          "object": "light rain with overcast clouds"
+        },
+        {
+          "subject": "mid_period",
+          "predicate": "weather",
+          "object": "clear sky"
+        },
+        {
+          "subject": "late_period",
+          "predicate": "weather",
+          "object": "mixed clouds with occasional light rain"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "early_high",
+          "object": "94-96%"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "mid_low",
+          "object": "70%"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "generally",
+          "object": "light (≤5 m/s)"
+        }
+      ]
+    },
+    {
+      "instance_id": 6,
+      "triples": [
+        {
+          "subject": "Kankan",
+          "predicate": "country",
+          "object": "Guinea"
+        },
+        {
+          "subject": "Kankan",
+          "predicate": "coordinates",
+          "object": "10.4167° N, 9.2667° W"
+        },
+        {
+          "subject": "Kankan",
+          "predicate": "population",
+          "object": "114009"
+        },
+        {
+          "subject": "Kankan weather forecast",
+          "predicate": "date_range",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "max_temperature",
+          "object": "36.96°C"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "min_temperature",
+          "object": "20.27°C"
+        },
+        {
+          "subject": "max_temperature",
+          "predicate": "recorded_at",
+          "object": "2024-01-08 15:00"
+        },
+        {
+          "subject": "min_temperature",
+          "predicate": "recorded_at",
+          "object": "2024-01-04 06:00"
+        },
+        {
+          "subject": "clear sky",
+          "predicate": "dominant_condition",
+          "object": "daytime hours"
+        },
+        {
+          "subject": "overcast clouds",
+          "predicate": "occurred_at",
+          "object": "2024-01-06 09:00 and 2024-01-06 12:00"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "lowest_value",
+          "object": "8% at 2024-01-04 15:00"
+        },
+        {
+          "subject": "wind gust",
+          "predicate": "max_speed",
+          "object": "4.86 m/s at 2024-01-08 12:00"
+        },
+        {
+          "subject": "pressure",
+          "predicate": "average_range",
+          "object": "1009–1016 hPa"
+        },
+        {
+          "subject": "temperature trend",
+          "predicate": "daily_pattern",
+          "object": "rises to peak in afternoon, falls at night"
+        },
+        {
+          "subject": "high temperature events (>35°C)",
+          "predicate": "occurred_on",
+          "object": "2024-01-04, 2024-01-05, 2024-01-06, 2024-01-07, 2024-01-08"
+        }
+      ]
+    },
+    {
+      "instance_id": 7,
+      "triples": [
+        {
+          "subject": "Bilinga",
+          "predicate": "located_in",
+          "object": "Australia"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "covers_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "early_forecast",
+          "predicate": "features",
+          "object": "scattered clouds"
+        },
+        {
+          "subject": "mid_forecast",
+          "predicate": "features",
+          "object": "light rain"
+        },
+        {
+          "subject": "mid_forecast",
+          "predicate": "escalates_to",
+          "object": "moderate rain"
+        },
+        {
+          "subject": "peak_rainfall",
+          "predicate": "amount",
+          "object": "3.69 mm per 3h"
+        },
+        {
+          "subject": "peak_rainfall",
+          "predicate": "time",
+          "object": "2024-01-06 03:00"
+        },
+        {
+          "subject": "maximum_temperature",
+          "predicate": "value",
+          "object": "26.14°C"
+        },
+        {
+          "subject": "maximum_temperature",
+          "predicate": "time",
+          "object": "2024-01-05 03:00"
+        },
+        {
+          "subject": "minimum_temperature",
+          "predicate": "value",
+          "object": "21.35°C"
+        },
+        {
+          "subject": "minimum_temperature",
+          "predicate": "time",
+          "object": "2024-01-07 18:00"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "range",
+          "object": "80-90%"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "peak",
+          "object": "9.34 m/s"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "time",
+          "object": "2024-01-06 09:00"
+        },
+        {
+          "subject": "overall_trend",
+          "predicate": "temperature",
+          "object": "rising to ~26°C then decreasing to ~21°C"
+        },
+        {
+          "subject": "overall_trend",
+          "predicate": "precipitation",
+          "object": "increasing to moderate rain then tapering off"
+        }
+      ]
+    },
+    {
+      "instance_id": 8,
+      "triples": [
+        {
+          "subject": "taxiarches_city",
+          "predicate": "located_in",
+          "object": "greece"
+        },
+        {
+          "subject": "taxiarches_city",
+          "predicate": "has_coordinates",
+          "object": "lat 39.5757, lon 21.8925"
+        },
+        {
+          "subject": "forecast_period",
+          "predicate": "starts_at",
+          "object": "2024-01-03 18:00"
+        },
+        {
+          "subject": "forecast_period",
+          "predicate": "ends_at",
+          "object": "2024-01-08 15:00"
+        },
+        {
+          "subject": "temperature_range",
+          "predicate": "min_value",
+          "object": "6.88 °C"
+        },
+        {
+          "subject": "temperature_range",
+          "predicate": "max_value",
+          "object": "16.8 °C"
+        },
+        {
+          "subject": "max_temperature",
+          "predicate": "recorded_at",
+          "object": "2024-01-04 12:00"
+        },
+        {
+          "subject": "min_temperature",
+          "predicate": "recorded_at",
+          "object": "2024-01-03 18:00"
+        },
+        {
+          "subject": "early_condition",
+          "predicate": "predominant_weather",
+          "object": "overcast clouds (first night)"
+        },
+        {
+          "subject": "midday_condition_jan4",
+          "predicate": "weather",
+          "object": "clear sky around noon"
+        },
+        {
+          "subject": "rain_event_jan7_midnight",
+          "predicate": "precipitation_amount",
+          "object": "7.94 mm"
+        },
+        {
+          "subject": "rain_event_jan7_midnight",
+          "predicate": "intensity",
+          "object": "moderate rain"
+        },
+        {
+          "subject": "rain_event_jan7_early_morning",
+          "predicate": "precipitation_amount",
+          "object": "0.69 mm"
+        },
+        {
+          "subject": "rain_event_jan7_early_morning",
+          "predicate": "intensity",
+          "object": "light rain"
+        },
+        {
+          "subject": "humidity_peak",
+          "predicate": "value",
+          "object": "98 % at 2024-01-07 06:00"
+        },
+        {
+          "subject": "wind_gust_peak",
+          "predicate": "speed",
+          "object": "4.61 m/s at 2024-01-06 12:00"
+        },
+        {
+          "subject": "overall_trend",
+          "predicate": "description",
+          "object": "warming to ~16 °C by Jan 4, then gradual cooling and persistent rain from Jan 7"
+        }
+      ]
+    },
+    {
+      "instance_id": 9,
+      "triples": [
+        {
+          "subject": "Pickworth",
+          "predicate": "located_in",
+          "object": "GB"
+        },
+        {
+          "subject": "Pickworth",
+          "predicate": "forecast_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "trend",
+          "object": "decreasing"
+        },
+        {
+          "subject": "max_temperature",
+          "predicate": "value",
+          "object": "7.72°C"
+        },
+        {
+          "subject": "max_temperature",
+          "predicate": "recorded_at",
+          "object": "2024-01-03 18:00"
+        },
+        {
+          "subject": "min_temperature",
+          "predicate": "value",
+          "object": "0.62°C"
+        },
+        {
+          "subject": "min_temperature",
+          "predicate": "recorded_at",
+          "object": "2024-01-08 09:00"
+        },
+        {
+          "subject": "precipitation",
+          "predicate": "type",
+          "object": "rain"
+        },
+        {
+          "subject": "precipitation",
+          "predicate": "type",
+          "object": "snow"
+        },
+        {
+          "subject": "rain",
+          "predicate": "peak_probability",
+          "object": "0.44"
+        },
+        {
+          "subject": "rain",
+          "predicate": "peak_time",
+          "object": "2024-01-05 06:00"
+        },
+        {
+          "subject": "snow",
+          "predicate": "first_occurrence",
+          "object": "2024-01-08 00:00"
+        },
+        {
+          "subject": "cloud_cover",
+          "predicate": "dominant_condition",
+          "object": "overcast"
+        },
+        {
+          "subject": "wind",
+          "predicate": "max_gust",
+          "object": "11.81 m/s"
+        },
+        {
+          "subject": "wind",
+          "predicate": "max_gust_time",
+          "object": "2024-01-04 03:00"
+        }
+      ]
+    },
+    {
+      "instance_id": 10,
+      "triples": [
+        {
+          "subject": "Aksu",
+          "predicate": "country",
+          "object": "Turkey"
+        },
+        {
+          "subject": "forecast for Aksu",
+          "predicate": "covers",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "range_celsius",
+          "object": "5.87-11.48"
+        },
+        {
+          "subject": "maximum_temperature",
+          "predicate": "value_celsius",
+          "object": "11.48"
+        },
+        {
+          "subject": "maximum_temperature",
+          "predicate": "observed_at",
+          "object": "2024-01-06 12:00"
+        },
+        {
+          "subject": "minimum_temperature",
+          "predicate": "value_celsius",
+          "object": "5.87"
+        },
+        {
+          "subject": "minimum_temperature",
+          "predicate": "observed_at",
+          "object": "2024-01-08 15:00"
+        },
+        {
+          "subject": "weather",
+          "predicate": "dominant_type",
+          "object": "cloudy"
+        },
+        {
+          "subject": "rain",
+          "predicate": "frequency",
+          "object": "light rain frequent"
+        },
+        {
+          "subject": "moderate_rain",
+          "predicate": "occurs_at",
+          "object": "2024-01-08 15:00"
+        },
+        {
+          "subject": "wind_gust",
+          "predicate": "max_value_m_s",
+          "object": "20.3"
+        },
+        {
+          "subject": "wind_gust",
+          "predicate": "observed_at",
+          "object": "2024-01-07 21:00"
+        },
+        {
+          "subject": "visibility",
+          "predicate": "minimum_meters",
+          "object": "306"
+        },
+        {
+          "subject": "visibility",
+          "predicate": "observed_at",
+          "object": "2024-01-07 12:00"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "peak_percent",
+          "object": "94"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "observed_at",
+          "object": "2024-01-08 15:00"
+        },
+        {
+          "subject": "temperature_trend",
+          "predicate": "description",
+          "object": "warming from Jan 3 to Jan 6 then cooling to Jan 8"
+        }
+      ]
+    },
+    {
+      "instance_id": 11,
+      "triples": [
+        {
+          "subject": "Saḩāb",
+          "predicate": "located_in",
+          "object": "Jordan"
+        },
+        {
+          "subject": "Saḩāb",
+          "predicate": "has_coordinates",
+          "object": "31.8703, 36.0048"
+        },
+        {
+          "subject": "forecast_period",
+          "predicate": "covers_dates",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "forecast_for_Saḩāb",
+          "predicate": "temperature_range_celsius",
+          "object": "7.44-18.13"
+        },
+        {
+          "subject": "forecast_for_Saḩāb",
+          "predicate": "max_temperature_celsius",
+          "object": "18.13 at 2024-01-07 12:00"
+        },
+        {
+          "subject": "forecast_for_Saḩāb",
+          "predicate": "min_temperature_celsius",
+          "object": "7.44 at 2024-01-05 03:00"
+        },
+        {
+          "subject": "forecast_for_Saḩāb",
+          "predicate": "max_wind_speed_m_s",
+          "object": "6.75 at 2024-01-07 09:00"
+        },
+        {
+          "subject": "forecast_for_Saḩāb",
+          "predicate": "highest_humidity_percent",
+          "object": "91 at 2024-01-06 03:00"
+        },
+        {
+          "subject": "forecast_for_Saḩāb",
+          "predicate": "lowest_humidity_percent",
+          "object": "30 at 2024-01-07 12:00"
+        },
+        {
+          "subject": "forecast_for_Saḩāb",
+          "predicate": "predominant_condition",
+          "object": "cloudy"
+        },
+        {
+          "subject": "forecast_for_Saḩāb",
+          "predicate": "clear_skies_notable",
+          "object": "2024-01-07 daytime"
+        },
+        {
+          "subject": "forecast_for_Saḩāb",
+          "predicate": "overcast_notable",
+          "object": "2024-01-08 all day"
+        },
+        {
+          "subject": "forecast_for_Saḩāb",
+          "predicate": "wind_direction_trend",
+          "object": "northwest to east"
+        }
+      ]
+    },
+    {
+      "instance_id": 12,
+      "triples": [
+        {
+          "subject": "Nato",
+          "predicate": "located_in",
+          "object": "Philippines"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "covers_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "range_celsius",
+          "object": "25.5-28.8"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "range_percent",
+          "object": "72-84"
+        },
+        {
+          "subject": "cloud_cover",
+          "predicate": "predominant",
+          "object": "broken to overcast clouds"
+        },
+        {
+          "subject": "rain",
+          "predicate": "occurs_on",
+          "object": "2024-01-05, 2024-01-07, 2024-01-08"
+        },
+        {
+          "subject": "max_wind_speed",
+          "predicate": "value_m_s",
+          "object": "9.96"
+        },
+        {
+          "subject": "max_wind_gust",
+          "predicate": "value_m_s",
+          "object": "11.3"
+        },
+        {
+          "subject": "pressure",
+          "predicate": "range_hpa",
+          "object": "1008-1013"
+        },
+        {
+          "subject": "weather_trend",
+          "predicate": "description",
+          "object": "temperatures remain above 25 °C with occasional light rain and high cloudiness"
+        }
+      ]
+    },
+    {
+      "instance_id": 13,
+      "triples": [
+        {
+          "subject": "Cornu Luncii",
+          "predicate": "located_in",
+          "object": "Romania"
+        },
+        {
+          "subject": "Cornu Luncii",
+          "predicate": "latitude",
+          "object": "47.4667"
+        },
+        {
+          "subject": "Cornu Luncii",
+          "predicate": "longitude",
+          "object": "26.15"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "start_date",
+          "object": "2024-01-03"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "end_date",
+          "object": "2024-01-08"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "trend",
+          "object": "decreasing"
+        },
+        {
+          "subject": "max_temperature",
+          "predicate": "value",
+          "object": "10.75°C"
+        },
+        {
+          "subject": "max_temperature",
+          "predicate": "timestamp",
+          "object": "2024-01-04 12:00"
+        },
+        {
+          "subject": "min_temperature",
+          "predicate": "value",
+          "object": "-9.01°C"
+        },
+        {
+          "subject": "min_temperature",
+          "predicate": "timestamp",
+          "object": "2024-01-08 15:00"
+        },
+        {
+          "subject": "weather",
+          "predicate": "dominant_before_2024-01-07",
+          "object": "overcast_clouds"
+        },
+        {
+          "subject": "weather",
+          "predicate": "dominant_after_2024-01-07",
+          "object": "snow"
+        },
+        {
+          "subject": "snow",
+          "predicate": "start_time",
+          "object": "2024-01-07 12:00"
+        },
+        {
+          "subject": "heavy_snow_event_2024-01-07_15:00",
+          "predicate": "snow_amount",
+          "object": "3.42 cm"
+        },
+        {
+          "subject": "heavy_snow_event_2024-01-07_15:00",
+          "predicate": "probability",
+          "object": "1"
+        },
+        {
+          "subject": "wind_gust",
+          "predicate": "max_value",
+          "object": "12.76 m/s"
+        },
+        {
+          "subject": "wind_gust",
+          "predicate": "timestamp",
+          "object": "2024-01-05 00:00"
+        },
+        {
+          "subject": "visibility",
+          "predicate": "min_value",
+          "object": "116 m"
+        },
+        {
+          "subject": "visibility",
+          "predicate": "timestamp",
+          "object": "2024-01-07 15:00"
+        },
+        {
+          "subject": "cloud_coverage",
+          "predicate": "average_percent",
+          "object": ">90%"
+        }
+      ]
+    },
+    {
+      "instance_id": 14,
+      "triples": [
+        {
+          "subject": "mountain_brook",
+          "predicate": "country",
+          "object": "US"
+        },
+        {
+          "subject": "mountain_brook",
+          "predicate": "forecast_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "early_forecast",
+          "predicate": "weather",
+          "object": "light rain"
+        },
+        {
+          "subject": "early_forecast",
+          "predicate": "temperature_range_c",
+          "object": "4.78-5.00"
+        },
+        {
+          "subject": "mid_forecast",
+          "predicate": "weather",
+          "object": "clear sky"
+        },
+        {
+          "subject": "mid_forecast",
+          "predicate": "temperature_range_c",
+          "object": "0.25-3.07"
+        },
+        {
+          "subject": "late_forecast",
+          "predicate": "weather",
+          "object": "clear sky with scattered clouds"
+        },
+        {
+          "subject": "late_forecast",
+          "predicate": "temperature_range_c",
+          "object": "9.93-12.17"
+        },
+        {
+          "subject": "mountain_brook",
+          "predicate": "lowest_temperature_c",
+          "object": "0.25 at 2024-01-04 12:00"
+        },
+        {
+          "subject": "mountain_brook",
+          "predicate": "highest_temperature_c",
+          "object": "12.17 at 2024-01-07 21:00"
+        },
+        {
+          "subject": "mountain_brook",
+          "predicate": "heavy_rain",
+          "object": "7.36mm at 2024-01-06 03:00"
+        },
+        {
+          "subject": "mountain_brook",
+          "predicate": "max_wind_gust_mps",
+          "object": "17.42 at 2024-01-06 06:00"
+        }
+      ]
+    },
+    {
+      "instance_id": 15,
+      "triples": [
+        {
+          "subject": "Capácuaro",
+          "predicate": "city_in",
+          "object": "Mexico"
+        },
+        {
+          "subject": "Capácuaro forecast",
+          "predicate": "covers_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "forecast temperature",
+          "predicate": "has_range",
+          "object": "6.49 °C – 20.86 °C"
+        },
+        {
+          "subject": "forecast temperature",
+          "predicate": "trend",
+          "object": "cool nights followed by warming days"
+        },
+        {
+          "subject": "forecast humidity",
+          "predicate": "has_range",
+          "object": "21 % – 86 %"
+        },
+        {
+          "subject": "cloud cover",
+          "predicate": "generally",
+          "object": "few clouds"
+        },
+        {
+          "subject": "2024-01-07 15:00",
+          "predicate": "has_condition",
+          "object": "overcast clouds (100 % coverage)"
+        },
+        {
+          "subject": "2024-01-06 21:00",
+          "predicate": "recorded_wind_gust",
+          "object": "9.92 m/s"
+        },
+        {
+          "subject": "forecast precipitation probability",
+          "predicate": "is_zero",
+          "object": "throughout period"
+        },
+        {
+          "subject": "wind direction",
+          "predicate": "predominant",
+          "object": "south‑west to south‑east"
+        },
+        {
+          "subject": "sunrise",
+          "predicate": "occurs_at",
+          "object": "2024-01-03 06:23:06"
+        },
+        {
+          "subject": "sunset",
+          "predicate": "occurs_at",
+          "object": "2024-01-03 18:22:04"
+        }
+      ]
+    },
+    {
+      "instance_id": 16,
+      "triples": [
+        {
+          "subject": "Checca",
+          "predicate": "located_in",
+          "object": "Peru"
+        },
+        {
+          "subject": "Checca",
+          "predicate": "has_coordinates",
+          "object": "-14.5333,-71.3056"
+        },
+        {
+          "subject": "Checca",
+          "predicate": "forecast_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "Checca",
+          "predicate": "predominant_weather",
+          "object": "rain"
+        },
+        {
+          "subject": "Checca",
+          "predicate": "dominant_precip_type",
+          "object": "light rain"
+        },
+        {
+          "subject": "Checca",
+          "predicate": "moderate_rain_events",
+          "object": "2024-01-06 00:00, 2024-01-07 00:00, 2024-01-08 00:00"
+        },
+        {
+          "subject": "Checca",
+          "predicate": "temperature_range_c",
+          "object": "3.43-13.42"
+        },
+        {
+          "subject": "Checca",
+          "predicate": "coldest_temperature_c",
+          "object": "3.43 at 2024-01-08 06:00"
+        },
+        {
+          "subject": "Checca",
+          "predicate": "warmest_temperature_c",
+          "object": "13.42 at 2024-01-07 21:00"
+        },
+        {
+          "subject": "Checca",
+          "predicate": "highest_precipitation_mm",
+          "object": "10.37 at 2024-01-08 03:00"
+        },
+        {
+          "subject": "Checca",
+          "predicate": "humidity_range_percent",
+          "object": "57-97"
+        },
+        {
+          "subject": "Checca",
+          "predicate": "cloud_cover_percent",
+          "object": "near 100"
+        },
+        {
+          "subject": "Checca",
+          "predicate": "max_wind_gust_mps",
+          "object": "5 at 2024-01-08 00:00"
+        }
+      ]
+    },
+    {
+      "instance_id": 17,
+      "triples": [
+        {
+          "subject": "Géri",
+          "predicate": "located_in",
+          "object": "Cyprus"
+        },
+        {
+          "subject": "Géri",
+          "predicate": "has_coordinates",
+          "object": "35.1056, 33.4198"
+        },
+        {
+          "subject": "forecast_period",
+          "predicate": "starts_on",
+          "object": "2024-01-03"
+        },
+        {
+          "subject": "forecast_period",
+          "predicate": "ends_on",
+          "object": "2024-01-08"
+        },
+        {
+          "subject": "temperature_trend",
+          "predicate": "reaches_peak",
+          "object": "19.36 °C at 2024-01-07 12:00"
+        },
+        {
+          "subject": "temperature_trend",
+          "predicate": "lowest_temperature",
+          "object": "12.34 °C at 2024-01-04 03:00"
+        },
+        {
+          "subject": "cloud_cover",
+          "predicate": "predominantly",
+          "object": "overcast (80‑100 %)"
+        },
+        {
+          "subject": "clear_sky",
+          "predicate": "occurs",
+          "object": "night of 2024-01-04 21:00 to 2024-01-05 03:00"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "maximum",
+          "object": "8.92 m/s at 2024-01-04 12:00"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "maximum",
+          "object": "95 % at 2024-01-07 06:00"
+        },
+        {
+          "subject": "precipitation_probability",
+          "predicate": "maximum",
+          "object": "0.36 (36 %)"
+        },
+        {
+          "subject": "weather_condition",
+          "predicate": "dominant_type",
+          "object": "clouds"
+        },
+        {
+          "subject": "sunrise_time",
+          "predicate": "epoch",
+          "object": "1704257684"
+        },
+        {
+          "subject": "sunset_time",
+          "predicate": "epoch",
+          "object": "1704293151"
+        }
+      ]
+    },
+    {
+      "instance_id": 18,
+      "triples": [
+        {
+          "subject": "Amahusu",
+          "predicate": "located_in",
+          "object": "Indonesia"
+        },
+        {
+          "subject": "Amahusu",
+          "predicate": "has_latitude",
+          "object": "-3.7253"
+        },
+        {
+          "subject": "Amahusu",
+          "predicate": "has_longitude",
+          "object": "128.1471"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "covers_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "range_celsius",
+          "object": "26.15‑29.16"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "range_percent",
+          "object": "15‑80"
+        },
+        {
+          "subject": "weather",
+          "predicate": "predominant_condition",
+          "object": "rain"
+        },
+        {
+          "subject": "cloud_cover",
+          "predicate": "predominant_state",
+          "object": "overcast"
+        },
+        {
+          "subject": "precipitation",
+          "predicate": "maximum_amount_mm",
+          "object": "6.38 at 2024-01-04 15:00"
+        },
+        {
+          "subject": "wind",
+          "predicate": "maximum_speed_mps",
+          "object": "4.62 at 2024-01-08 06:00"
+        },
+        {
+          "subject": "rainfall",
+          "predicate": "moderate_events",
+          "object": "2024-01-04 with 4‑6 mm"
+        },
+        {
+          "subject": "rainfall",
+          "predicate": "light_events",
+          "object": "throughout the period"
+        },
+        {
+          "subject": "wind",
+          "predicate": "generally_light",
+          "object": "≤2 m/s with occasional stronger gusts"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "trend_precipitation",
+          "object": "increased early Jan 4, then gradual decline"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "trend_temperature",
+          "object": "stable around high‑20s °C"
+        }
+      ]
+    },
+    {
+      "instance_id": 19,
+      "triples": [
+        {
+          "subject": "Montefano",
+          "predicate": "located_in",
+          "object": "Italy"
+        },
+        {
+          "subject": "Montefano forecast (2024-01-03 to 2024-01-08)",
+          "predicate": "has_temperature_range",
+          "object": "6.9-15.7°C"
+        },
+        {
+          "subject": "Montefano forecast",
+          "predicate": "starts_with",
+          "object": "overcast clouds at night"
+        },
+        {
+          "subject": "Montefano forecast",
+          "predicate": "has_clear_sky_period",
+          "object": "midday on 2024-01-04"
+        },
+        {
+          "subject": "Montefano forecast",
+          "predicate": "has_rain_period",
+          "object": "2024-01-06 night to 2024-01-08 early morning"
+        },
+        {
+          "subject": "rain",
+          "predicate": "peak_intensity",
+          "object": "2.06 mm in 3 h at 03:00 on 2024-01-07"
+        },
+        {
+          "subject": "wind",
+          "predicate": "max_gust",
+          "object": "12.3 m/s at 06:00 on 2024-01-04"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "max_value",
+          "object": "91 % during rain on 2024-01-07"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "max_value",
+          "object": "15.67 °C at 12:00 on 2024-01-04"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "min_value",
+          "object": "6.89 °C at 09:00 on 2024-01-08"
+        },
+        {
+          "subject": "cloud_cover",
+          "predicate": "predominant",
+          "object": "overcast (≥90 %)"
+        },
+        {
+          "subject": "Montefano forecast",
+          "predicate": "overall_trend",
+          "object": "cooling after 2024-01-04 temperature peak"
+        }
+      ]
+    },
+    {
+      "instance_id": 20,
+      "triples": [
+        {
+          "subject": "Bintawan",
+          "predicate": "has_forecast_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "Bintawan",
+          "predicate": "temperature_range",
+          "object": "20.61°C‑26.80°C"
+        },
+        {
+          "subject": "Bintawan",
+          "predicate": "humidity_range",
+          "object": "70%‑98%"
+        },
+        {
+          "subject": "Bintawan",
+          "predicate": "max_temperature",
+          "object": "26.80°C on 2024-01-05 06:00"
+        },
+        {
+          "subject": "Bintawan",
+          "predicate": "min_temperature",
+          "object": "20.61°C on 2024-01-07 21:00"
+        },
+        {
+          "subject": "Bintawan",
+          "predicate": "max_rain_intensity",
+          "object": "0.74 mm/3h on 2024-01-04 09:00"
+        },
+        {
+          "subject": "Bintawan",
+          "predicate": "predominant_condition_early",
+          "object": "light rain"
+        },
+        {
+          "subject": "Bintawan",
+          "predicate": "predominant_condition_late",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Bintawan",
+          "predicate": "wind_speed_range",
+          "object": "0.39‑2.18 m s⁻¹"
+        },
+        {
+          "subject": "Bintawan",
+          "predicate": "weather_trend",
+          "object": "rain throughout early period, tapering to overcast and scattered clouds later"
+        }
+      ]
+    },
+    {
+      "instance_id": 21,
+      "triples": [
+        {
+          "subject": "san_bartolo_tutotepec",
+          "predicate": "country",
+          "object": "mx"
+        },
+        {
+          "subject": "san_bartolo_tutotepec",
+          "predicate": "latitude",
+          "object": "20.3984"
+        },
+        {
+          "subject": "san_bartolo_tutotepec",
+          "predicate": "longitude",
+          "object": "-98.2008"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "location",
+          "object": "san_bartolo_tutotepec"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "start_date",
+          "object": "2024-01-03"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "end_date",
+          "object": "2024-01-08"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "min_celsius",
+          "object": "13.86"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "max_celsius",
+          "object": "25.74"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "max_time",
+          "object": "2024-01-05 18:00"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "min_time",
+          "object": "2024-01-06 12:00"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "peak_percent",
+          "object": "99"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "peak_time",
+          "object": "2024-01-04 03:00"
+        },
+        {
+          "subject": "precipitation",
+          "predicate": "type",
+          "object": "light_rain"
+        },
+        {
+          "subject": "precipitation",
+          "predicate": "period_start",
+          "object": "2024-01-03 21:00"
+        },
+        {
+          "subject": "precipitation",
+          "predicate": "period_end",
+          "object": "2024-01-04 21:00"
+        },
+        {
+          "subject": "visibility",
+          "predicate": "lowest_meters",
+          "object": "63"
+        },
+        {
+          "subject": "visibility",
+          "predicate": "lowest_time",
+          "object": "2024-01-04 03:00"
+        },
+        {
+          "subject": "sky_condition",
+          "predicate": "trend_initial",
+          "object": "scattered_clouds"
+        },
+        {
+          "subject": "sky_condition",
+          "predicate": "trend_mid",
+          "object": "rain"
+        },
+        {
+          "subject": "sky_condition",
+          "predicate": "trend_late",
+          "object": "clear"
+        },
+        {
+          "subject": "wind",
+          "predicate": "max_speed_m_s",
+          "object": "3.78"
+        },
+        {
+          "subject": "wind",
+          "predicate": "max_speed_time",
+          "object": "2024-01-05 12:00"
+        }
+      ]
+    },
+    {
+      "instance_id": 22,
+      "triples": [
+        {
+          "subject": "shuidong",
+          "predicate": "located_in",
+          "object": "china"
+        },
+        {
+          "subject": "shuidong",
+          "predicate": "latitude",
+          "object": "21.5134"
+        },
+        {
+          "subject": "shuidong",
+          "predicate": "longitude",
+          "object": "111.0018"
+        },
+        {
+          "subject": "shuidong_forecast",
+          "predicate": "period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "shuidong_forecast",
+          "predicate": "temp_min",
+          "object": "15.8°C"
+        },
+        {
+          "subject": "shuidong_forecast",
+          "predicate": "temp_max",
+          "object": "23.01°C"
+        },
+        {
+          "subject": "shuidong_forecast",
+          "predicate": "humidity_min",
+          "object": "49%"
+        },
+        {
+          "subject": "shuidong_forecast",
+          "predicate": "humidity_max",
+          "object": "92%"
+        },
+        {
+          "subject": "shuidong_forecast",
+          "predicate": "max_gust_speed",
+          "object": "12.09 m/s"
+        },
+        {
+          "subject": "shuidong_forecast",
+          "predicate": "max_gust_time",
+          "object": "2024-01-07 15:00:00"
+        },
+        {
+          "subject": "shuidong_forecast",
+          "predicate": "early_weather",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "shuidong_forecast",
+          "predicate": "mid_weather",
+          "object": "clear sky"
+        },
+        {
+          "subject": "shuidong_forecast",
+          "predicate": "late_weather",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "shuidong_forecast",
+          "predicate": "precipitation_probability_max",
+          "object": "0%"
+        },
+        {
+          "subject": "shuidong_forecast",
+          "predicate": "peak_cloud_cover",
+          "object": "97% at 2024-01-04 00:00:00"
+        }
+      ]
+    },
+    {
+      "instance_id": 23,
+      "triples": [
+        {
+          "subject": "Ljungbyholm",
+          "predicate": "country",
+          "object": "Sweden"
+        },
+        {
+          "subject": "Ljungbyholm",
+          "predicate": "forecast_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "early_forecast",
+          "predicate": "primary_condition",
+          "object": "heavy snow"
+        },
+        {
+          "subject": "heavy snow",
+          "predicate": "peak_snowfall_3h",
+          "object": "3.25 mm"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "initial_range_celsius",
+          "object": "-2.6 to -4.4"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "minimum_celsius",
+          "object": "-17.6 (2024-01-06 00:00)"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "maximum_celsius",
+          "object": "-2.6 (2024-01-03 18:00)"
+        },
+        {
+          "subject": "temperature_trend",
+          "predicate": "description",
+          "object": "decreasing then modest warming"
+        },
+        {
+          "subject": "snowfall",
+          "predicate": "trend",
+          "object": "diminishing after Jan 5"
+        },
+        {
+          "subject": "cloud_cover",
+          "predicate": "trend",
+          "object": "decreasing from 100% to clear"
+        },
+        {
+          "subject": "wind",
+          "predicate": "maximum_gust_m_s",
+          "object": "13.9 (2024-01-03 18:00)"
+        },
+        {
+          "subject": "visibility",
+          "predicate": "trend",
+          "object": "increasing to 10 km as snow ended"
+        }
+      ]
+    },
+    {
+      "instance_id": 24,
+      "triples": [
+        {
+          "subject": "Tușnad",
+          "predicate": "located_in",
+          "object": "Romania"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "covers_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "range",
+          "object": "-4.84°C to 8.53°C"
+        },
+        {
+          "subject": "lowest_temperature",
+          "predicate": "recorded_at",
+          "object": "2024-01-08 15:00"
+        },
+        {
+          "subject": "highest_temperature",
+          "predicate": "recorded_at",
+          "object": "2024-01-06 12:00"
+        },
+        {
+          "subject": "weather_condition",
+          "predicate": "predominant",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "precipitation_type",
+          "predicate": "includes",
+          "object": "rain and snow"
+        },
+        {
+          "subject": "rain_event",
+          "predicate": "moderate_at",
+          "object": "2024-01-04 15:00"
+        },
+        {
+          "subject": "rain_event",
+          "predicate": "amount_3h",
+          "object": "3.69 mm"
+        },
+        {
+          "subject": "snow_event",
+          "predicate": "heavy_at",
+          "object": "2024-01-07 15:00"
+        },
+        {
+          "subject": "snow_event",
+          "predicate": "amount_3h",
+          "object": "3.31 mm"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "peak",
+          "object": "7.43 m/s at 2024-01-04 21:00"
+        },
+        {
+          "subject": "visibility",
+          "predicate": "reduced_during_heavy_precipitation",
+          "object": "as low as 62 m at 2024-01-04 18:00"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "high_throughout_period",
+          "object": "90%+"
+        }
+      ]
+    },
+    {
+      "instance_id": 25,
+      "triples": [
+        {
+          "subject": "forecast_25",
+          "predicate": "has_location",
+          "object": "Bayan Uula Sumu"
+        },
+        {
+          "subject": "forecast_25",
+          "predicate": "covers_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "forecast_25",
+          "predicate": "temperature_range_celsius",
+          "object": "-20.44 to -10.6"
+        },
+        {
+          "subject": "forecast_25",
+          "predicate": "extreme_low_temperature",
+          "object": "-20.44°C at 2024-01-05 21:00"
+        },
+        {
+          "subject": "forecast_25",
+          "predicate": "extreme_high_temperature",
+          "object": "-10.6°C at 2024-01-04 06:00"
+        },
+        {
+          "subject": "forecast_25",
+          "predicate": "predominant_weather",
+          "object": "clear sky"
+        },
+        {
+          "subject": "forecast_25",
+          "predicate": "occasional_weather",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "forecast_25",
+          "predicate": "cloud_coverage_range_percent",
+          "object": "0 to 100"
+        },
+        {
+          "subject": "forecast_25",
+          "predicate": "wind_speed_range_mps",
+          "object": "0.76 to 5.6"
+        },
+        {
+          "subject": "forecast_25",
+          "predicate": "humidity_range_percent",
+          "object": "61 to 90"
+        },
+        {
+          "subject": "forecast_25",
+          "predicate": "snow_event",
+          "object": "light snow 0.19 mm on 2024-01-08 00:00"
+        },
+        {
+          "subject": "forecast_25",
+          "predicate": "temperature_trend",
+          "object": "cooling to ~-20°C by Jan 5 then modest warming to -15°C by Jan 7"
+        }
+      ]
+    },
+    {
+      "instance_id": 26,
+      "triples": [
+        {
+          "subject": "Jedovnice",
+          "predicate": "country",
+          "object": "Czech Republic"
+        },
+        {
+          "subject": "Jedovnice",
+          "predicate": "forecast_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "range",
+          "object": "-7.96°C to 7.10°C"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "trend",
+          "object": "cooling over the period"
+        },
+        {
+          "subject": "weather",
+          "predicate": "predominant_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "precipitation",
+          "predicate": "type_sequence",
+          "object": "rain transitioning to snow"
+        },
+        {
+          "subject": "rain",
+          "predicate": "max_intensity",
+          "object": "3.13 mm in 3h at 2024-01-06 09:00"
+        },
+        {
+          "subject": "snow",
+          "predicate": "max_amount",
+          "object": "2.0 cm in 3h at 2024-01-07 00:00"
+        },
+        {
+          "subject": "wind",
+          "predicate": "max_gust",
+          "object": "18.42 m/s at 2024-01-04 09:00"
+        },
+        {
+          "subject": "visibility",
+          "predicate": "minimum",
+          "object": "47 m at 2024-01-06 15:00"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "peak",
+          "object": "99% at 2024-01-06 09:00"
+        }
+      ]
+    },
+    {
+      "instance_id": 27,
+      "triples": [
+        {
+          "subject": "Pénjamo",
+          "predicate": "country",
+          "object": "Mexico"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "range_celsius",
+          "object": "7.96 to 24.71"
+        },
+        {
+          "subject": "warmest_temperature",
+          "predicate": "value_celsius",
+          "object": "24.71"
+        },
+        {
+          "subject": "warmest_temperature",
+          "predicate": "timestamp",
+          "object": "2024-01-07 21:00"
+        },
+        {
+          "subject": "coolest_temperature",
+          "predicate": "value_celsius",
+          "object": "7.96"
+        },
+        {
+          "subject": "coolest_temperature",
+          "predicate": "timestamp",
+          "object": "2024-01-06 12:00"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "range_percent",
+          "object": "13 to 80"
+        },
+        {
+          "subject": "clear_sky",
+          "predicate": "occurs_at",
+          "object": "multiple periods, especially nights and daytime after Jan 4"
+        },
+        {
+          "subject": "overcast_clouds",
+          "predicate": "occurs_at",
+          "object": "2024-01-07 15:00 and 2024-01-07 18:00"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "max_mps",
+          "object": "6.39 at 2024-01-06 21:00"
+        },
+        {
+          "subject": "precipitation_probability",
+          "predicate": "value_percent",
+          "object": "0 throughout forecast"
+        },
+        {
+          "subject": "cloud_coverage",
+          "predicate": "typical_percent",
+          "object": "low (<30%) except overcast periods"
+        }
+      ]
+    },
+    {
+      "instance_id": 28,
+      "triples": [
+        {
+          "subject": "Escopete",
+          "predicate": "located_in",
+          "object": "Spain"
+        },
+        {
+          "subject": "Escopete",
+          "predicate": "coordinates",
+          "object": "40.4132,-3.0046"
+        },
+        {
+          "subject": "Escopete_forecast_2024-01-03_to_2024-01-08",
+          "predicate": "covers_period",
+          "object": "2024-01-03 18:00 to 2024-01-08 15:00"
+        },
+        {
+          "subject": "Escopete_forecast_2024-01-03_18:00",
+          "predicate": "weather_condition",
+          "object": "overcast with light rain"
+        },
+        {
+          "subject": "Escopete_forecast_2024-01-03_18:00",
+          "predicate": "temperature_celsius",
+          "object": "9.96"
+        },
+        {
+          "subject": "Escopete_forecast_2024-01-04_18:00",
+          "predicate": "weather_condition",
+          "object": "moderate rain"
+        },
+        {
+          "subject": "Escopete_forecast_2024-01-04_18:00",
+          "predicate": "precipitation_mm_3h",
+          "object": "5.36"
+        },
+        {
+          "subject": "Escopete_forecast_2024-01-04_18:00",
+          "predicate": "visibility_meters",
+          "object": "381"
+        },
+        {
+          "subject": "Escopete_forecast_2024-01-05_18:00",
+          "predicate": "max_wind_gust_m_s",
+          "object": "13.83"
+        },
+        {
+          "subject": "Escopete_forecast",
+          "predicate": "temperature_trend",
+          "object": "decreasing from ~10 °C to below 0 °C"
+        },
+        {
+          "subject": "Escopete_forecast_2024-01-08_06:00",
+          "predicate": "coldest_temperature_celsius",
+          "object": "-0.95"
+        },
+        {
+          "subject": "Escopete_forecast_2024-01-06_00:00",
+          "predicate": "weather_condition",
+          "object": "clear sky"
+        },
+        {
+          "subject": "Escopete_forecast_2024-01-06_00:00",
+          "predicate": "precipitation_mm_3h",
+          "object": "0"
+        },
+        {
+          "subject": "Escopete_forecast",
+          "predicate": "humidity_range_percent",
+          "object": "50‑99"
+        },
+        {
+          "subject": "Escopete_forecast",
+          "predicate": "cloud_coverage_transition",
+          "object": "overcast → clear"
+        }
+      ]
+    },
+    {
+      "instance_id": 29,
+      "triples": [
+        {
+          "subject": "Nagymaros",
+          "predicate": "located_in",
+          "object": "Hungary"
+        },
+        {
+          "subject": "Nagymaros",
+          "predicate": "has_coordinates",
+          "object": "47.79N 18.96E"
+        },
+        {
+          "subject": "forecast_period",
+          "predicate": "covers",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "decreases_from",
+          "object": "9.7 °C to 0 °C"
+        },
+        {
+          "subject": "highest_temperature",
+          "predicate": "recorded_at",
+          "object": "2024-01-03 18:00 (≈9.7 °C)"
+        },
+        {
+          "subject": "lowest_temperature",
+          "predicate": "recorded_at",
+          "object": "2024-01-08 06:00 (0 °C)"
+        },
+        {
+          "subject": "weather_condition",
+          "predicate": "predominantly",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "rain_probability",
+          "predicate": "peaks_at",
+          "object": "≈100 % on 2024-01-06 and 2024-01-07"
+        },
+        {
+          "subject": "rainfall_amount",
+          "predicate": "max_3h",
+          "object": "2.6 mm (2024-01-06 12:00‑15:00)"
+        },
+        {
+          "subject": "wind_gust",
+          "predicate": "max",
+          "object": "18.9 m/s (2024-01-04 09:00)"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "ranges_between",
+          "object": "70 %‑97 %"
+        },
+        {
+          "subject": "cloud_cover",
+          "predicate": "mostly",
+          "object": "80‑100 %"
+        },
+        {
+          "subject": "temperature_trend",
+          "predicate": "overall",
+          "object": "cooling"
+        },
+        {
+          "subject": "precipitation_type",
+          "predicate": "mostly",
+          "object": "light rain"
+        },
+        {
+          "subject": "early_evening_jan_3",
+          "predicate": "had",
+          "object": "light rain with 0.23 mm in 3 h"
+        },
+        {
+          "subject": "midday_jan_4",
+          "predicate": "experienced",
+          "object": "broken clouds and wind gust 16.9 m/s"
+        },
+        {
+          "subject": "jan_6_to_jan_7",
+          "predicate": "characterized_by",
+          "object": "continuous heavy rain and high humidity"
+        },
+        {
+          "subject": "late_jan_8",
+          "predicate": "shows",
+          "object": "partial clearing with scattered clouds and temperature around 2 °C"
+        }
+      ]
+    },
+    {
+      "instance_id": 30,
+      "triples": []
+    },
+    {
+      "instance_id": 31,
+      "triples": [
+        {
+          "subject": "point_clare",
+          "predicate": "has_country",
+          "object": "australia"
+        },
+        {
+          "subject": "point_clare",
+          "predicate": "has_coordinates",
+          "object": "lat:-33.4438, lon:151.3273"
+        },
+        {
+          "subject": "point_clare",
+          "predicate": "forecast_dates",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "point_clare",
+          "predicate": "temperature_range",
+          "object": "14.87-32.24°C"
+        },
+        {
+          "subject": "point_clare",
+          "predicate": "experienced_heavy_rain",
+          "object": "2024-01-04 to 2024-01-05"
+        },
+        {
+          "subject": "point_clare",
+          "predicate": "max_precipitation_rate",
+          "object": "2.75 mm per 3h"
+        },
+        {
+          "subject": "point_clare",
+          "predicate": "humidity_range",
+          "object": "40-98%"
+        },
+        {
+          "subject": "point_clare",
+          "predicate": "dominant_cloud_cover",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "point_clare",
+          "predicate": "max_wind_gust",
+          "object": "9.42 m/s"
+        },
+        {
+          "subject": "point_clare",
+          "predicate": "pressure_range",
+          "object": "1014-1022 hPa"
+        },
+        {
+          "subject": "point_clare",
+          "predicate": "weather_trend",
+          "object": "rain then clearing then warming"
+        },
+        {
+          "subject": "point_clare",
+          "predicate": "peak_temperature_2024_01_08",
+          "object": "32.24°C"
+        },
+        {
+          "subject": "point_clare",
+          "predicate": "lowest_temperature_2024_01_06_night",
+          "object": "14.87°C"
+        }
+      ]
+    },
+    {
+      "instance_id": 32,
+      "triples": [
+        {
+          "subject": "sagopshi",
+          "predicate": "country",
+          "object": "Russia"
+        },
+        {
+          "subject": "sagopshi",
+          "predicate": "coordinates",
+          "object": "lat 43.4852, lon 44.5906"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "location",
+          "object": "sagopshi"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "start_time",
+          "object": "2024-01-03 18:00"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "end_time",
+          "object": "2024-01-08 15:00"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "min_value",
+          "object": "1.47°C at 2024-01-03 18:00"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "max_value",
+          "object": "10.22°C at 2024-01-05 12:00"
+        },
+        {
+          "subject": "temperature_trend",
+          "predicate": "description",
+          "object": "rise to 10°C mid‑forecast then gradual decline"
+        },
+        {
+          "subject": "weather",
+          "predicate": "predominant_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "clear_sky",
+          "predicate": "occurrence",
+          "object": "2024-01-04 21:00 and 2024-01-06 18:00"
+        },
+        {
+          "subject": "wind",
+          "predicate": "max_gust",
+          "object": "12.7 m/s at 2024-01-05 09:00"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "range",
+          "object": "47%–87%"
+        },
+        {
+          "subject": "cloud_cover",
+          "predicate": "average_percent",
+          "object": "high (≈80‑100%)"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "rain_probability",
+          "object": "0% (no precipitation)"
+        }
+      ]
+    },
+    {
+      "instance_id": 33,
+      "triples": [
+        {
+          "subject": "Saint-Romain-de-Benet",
+          "predicate": "has_forecast",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "shows_temperature_range",
+          "object": "1.73°C to 12.96°C"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "exhibits_cooling_trend",
+          "object": "nighttime temperatures drop steadily"
+        },
+        {
+          "subject": "early_period",
+          "predicate": "features_precipitation",
+          "object": "light rain with moderate intensity on 2024-01-04 21:00"
+        },
+        {
+          "subject": "2024-01-04 21:00",
+          "predicate": "recorded_precipitation",
+          "object": "3.19 mm moderate rain"
+        },
+        {
+          "subject": "mid_forecast",
+          "predicate": "dominant_cloud_cover",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "late_forecast",
+          "predicate": "dominant_cloud_cover",
+          "object": "clear to scattered clouds"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "average_wind_speed",
+          "object": "5‑7 m/s"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "humidity_range",
+          "object": "68% to 91%"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "includes_heavy_rain_event",
+          "object": "moderate rain at 2024-01-04 21:00"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "shows_cloudiness_variation",
+          "object": "overcast early, clearing mid‑period, few clouds late"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "has_max_temperature",
+          "object": "12.96°C at 2024-01-04 12:00"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "has_min_temperature",
+          "object": "1.73°C at 2024-01-08 03:00"
+        }
+      ]
+    },
+    {
+      "instance_id": 34,
+      "triples": [
+        {
+          "subject": "Friedersdorf",
+          "predicate": "forecast_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "starts_with",
+          "object": "light rain"
+        },
+        {
+          "subject": "forecast",
+          "predicate": "ends_with",
+          "object": "clear sky"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "high_range",
+          "object": "8.7 °C to -8.1 °C"
+        },
+        {
+          "subject": "rainfall",
+          "predicate": "peak_amount",
+          "object": "1.56 mm per 3 h at 2024-01-04 00:00"
+        },
+        {
+          "subject": "snowfall",
+          "predicate": "peak_amount",
+          "object": "1.19 mm per 3 h at 2024-01-06 15:00"
+        },
+        {
+          "subject": "wind",
+          "predicate": "max_gust",
+          "object": "20.8 m s⁻¹ at 2024-01-04 12:00"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "max_value",
+          "object": "99 % at 2024-01-06 15:00"
+        },
+        {
+          "subject": "cloud_cover",
+          "predicate": "predominant",
+          "object": "overcast (100 %)"
+        },
+        {
+          "subject": "weather_trend",
+          "predicate": "transition",
+          "object": "rain → snow → overcast → clear"
+        }
+      ]
+    },
+    {
+      "instance_id": 35,
+      "triples": [
+        {
+          "subject": "Waalwijk",
+          "predicate": "forecast_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "Waalwijk",
+          "predicate": "max_temperature",
+          "object": "8.99 °C on 2024-01-03 18:00"
+        },
+        {
+          "subject": "Waalwijk",
+          "predicate": "min_temperature",
+          "object": "-1.39 °C on 2024-01-08 03:00"
+        },
+        {
+          "subject": "Waalwijk",
+          "predicate": "dominant_precipitation",
+          "object": "rain (light to moderate) from 2024-01-03 to 2024-01-05"
+        },
+        {
+          "subject": "Waalwijk",
+          "predicate": "snow_occurrence",
+          "object": "light snow on 2024-01-07 15:00"
+        },
+        {
+          "subject": "Waalwijk",
+          "predicate": "average_humidity",
+          "object": "high (80‑95 %) throughout period"
+        },
+        {
+          "subject": "Waalwijk",
+          "predicate": "cloud_cover",
+          "object": "mostly overcast (80‑100 %)"
+        },
+        {
+          "subject": "Waalwijk",
+          "predicate": "wind_speed_range",
+          "object": "2.8‑8.2 m/s, gusts up to 14.7 m/s"
+        },
+        {
+          "subject": "Waalwijk",
+          "predicate": "precipitation_extremes",
+          "object": "4.38 mm rain in 3 h on 2024-01-05 00:00"
+        },
+        {
+          "subject": "Waalwijk",
+          "predicate": "visibility_minimum",
+          "object": "239 m at 2024-01-06 18:00"
+        }
+      ]
+    },
+    {
+      "instance_id": 36,
+      "triples": [
+        {
+          "subject": "Baincthun",
+          "predicate": "country",
+          "object": "France"
+        },
+        {
+          "subject": "Baincthun",
+          "predicate": "forecast_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "Baincthun",
+          "predicate": "temperature_trend",
+          "object": "decreasing"
+        },
+        {
+          "subject": "Baincthun",
+          "predicate": "max_temperature",
+          "object": "10.7°C"
+        },
+        {
+          "subject": "Baincthun",
+          "predicate": "min_temperature",
+          "object": "0.9°C"
+        },
+        {
+          "subject": "Baincthun",
+          "predicate": "dominant_precipitation",
+          "object": "rain"
+        },
+        {
+          "subject": "Baincthun",
+          "predicate": "moderate_rain_occurrence",
+          "object": "2024-01-04 18:00, 2024-01-04 21:00"
+        },
+        {
+          "subject": "Baincthun",
+          "predicate": "heavy_rain_amount",
+          "object": "5.3 mm in 3 h on 2024-01-04 21:00"
+        },
+        {
+          "subject": "Baincthun",
+          "predicate": "light_snow_occurrence",
+          "object": "2024-01-07 21:00"
+        },
+        {
+          "subject": "Baincthun",
+          "predicate": "wind_peak_speed",
+          "object": "16.73 m/s on 2024-01-05 03:00"
+        },
+        {
+          "subject": "Baincthun",
+          "predicate": "high_humidity",
+          "object": "92 % on 2024-01-05 09:00"
+        },
+        {
+          "subject": "Baincthun",
+          "predicate": "low_visibility",
+          "object": "4200 m on 2024-01-04 18:00"
+        },
+        {
+          "subject": "Baincthun",
+          "predicate": "cloud_cover",
+          "object": "overcast for most of period"
+        },
+        {
+          "subject": "Baincthun",
+          "predicate": "daytime_condition",
+          "object": "overcast clouds"
+        }
+      ]
+    },
+    {
+      "instance_id": 37,
+      "triples": []
+    },
+    {
+      "instance_id": 38,
+      "triples": []
+    },
+    {
+      "instance_id": 39,
+      "triples": []
+    },
+    {
+      "instance_id": 40,
+      "triples": []
+    },
+    {
+      "instance_id": 41,
+      "triples": []
+    },
+    {
+      "instance_id": 42,
+      "triples": []
+    },
+    {
+      "instance_id": 43,
+      "triples": []
+    },
+    {
+      "instance_id": 44,
+      "triples": []
+    },
+    {
+      "instance_id": 45,
+      "triples": []
+    },
+    {
+      "instance_id": 46,
+      "triples": []
+    },
+    {
+      "instance_id": 47,
+      "triples": []
+    },
+    {
+      "instance_id": 48,
+      "triples": []
+    },
+    {
+      "instance_id": 49,
+      "triples": []
+    },
+    {
+      "instance_id": 50,
+      "triples": []
+    },
+    {
+      "instance_id": 51,
+      "triples": []
+    },
+    {
+      "instance_id": 52,
+      "triples": []
+    },
+    {
+      "instance_id": 53,
+      "triples": []
+    },
+    {
+      "instance_id": 54,
+      "triples": []
+    },
+    {
+      "instance_id": 55,
+      "triples": []
+    },
+    {
+      "instance_id": 56,
+      "triples": []
+    },
+    {
+      "instance_id": 57,
+      "triples": []
+    },
+    {
+      "instance_id": 58,
+      "triples": []
+    },
+    {
+      "instance_id": 59,
+      "triples": []
+    },
+    {
+      "instance_id": 60,
+      "triples": []
+    },
+    {
+      "instance_id": 61,
+      "triples": []
+    },
+    {
+      "instance_id": 62,
+      "triples": []
+    },
+    {
+      "instance_id": 63,
+      "triples": []
+    },
+    {
+      "instance_id": 64,
+      "triples": []
+    },
+    {
+      "instance_id": 65,
+      "triples": []
+    },
+    {
+      "instance_id": 66,
+      "triples": []
+    },
+    {
+      "instance_id": 67,
+      "triples": []
+    },
+    {
+      "instance_id": 68,
+      "triples": []
+    },
+    {
+      "instance_id": 69,
+      "triples": []
+    },
+    {
+      "instance_id": 70,
+      "triples": []
+    },
+    {
+      "instance_id": 71,
+      "triples": []
+    },
+    {
+      "instance_id": 72,
+      "triples": []
+    },
+    {
+      "instance_id": 73,
+      "triples": []
+    },
+    {
+      "instance_id": 74,
+      "triples": []
+    },
+    {
+      "instance_id": 75,
+      "triples": []
+    },
+    {
+      "instance_id": 76,
+      "triples": []
+    },
+    {
+      "instance_id": 77,
+      "triples": []
+    },
+    {
+      "instance_id": 78,
+      "triples": []
+    },
+    {
+      "instance_id": 79,
+      "triples": []
+    },
+    {
+      "instance_id": 80,
+      "triples": []
+    },
+    {
+      "instance_id": 81,
+      "triples": []
+    },
+    {
+      "instance_id": 82,
+      "triples": []
+    },
+    {
+      "instance_id": 83,
+      "triples": []
+    },
+    {
+      "instance_id": 84,
+      "triples": []
+    },
+    {
+      "instance_id": 85,
+      "triples": []
+    },
+    {
+      "instance_id": 86,
+      "triples": []
+    },
+    {
+      "instance_id": 87,
+      "triples": []
+    },
+    {
+      "instance_id": 88,
+      "triples": []
+    },
+    {
+      "instance_id": 89,
+      "triples": []
+    },
+    {
+      "instance_id": 90,
+      "triples": []
+    },
+    {
+      "instance_id": 91,
+      "triples": []
+    },
+    {
+      "instance_id": 92,
+      "triples": []
+    },
+    {
+      "instance_id": 93,
+      "triples": []
+    },
+    {
+      "instance_id": 94,
+      "triples": []
+    },
+    {
+      "instance_id": 95,
+      "triples": []
+    },
+    {
+      "instance_id": 96,
+      "triples": []
+    },
+    {
+      "instance_id": 97,
+      "triples": []
+    },
+    {
+      "instance_id": 98,
+      "triples": []
+    },
+    {
+      "instance_id": 99,
+      "triples": []
+    }
+  ],
+  "all_triples": [
+    {
+      "subject": "Anori",
+      "predicate": "located_in",
+      "object": "Brazil"
+    },
+    {
+      "subject": "forecast period",
+      "predicate": "covers_dates",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "maximum temperature",
+      "predicate": "reached",
+      "object": "34.27°C on 2024-01-04 18:00"
+    },
+    {
+      "subject": "minimum temperature",
+      "predicate": "reached",
+      "object": "22.84°C on 2024-01-08 06:00"
+    },
+    {
+      "subject": "rainfall",
+      "predicate": "heavy_event",
+      "object": "6.59 mm on 2024-01-08 06:00"
+    },
+    {
+      "subject": "rainfall",
+      "predicate": "moderate_event",
+      "object": "3.47 mm on 2024-01-05 03:00"
+    },
+    {
+      "subject": "rainfall",
+      "predicate": "moderate_event",
+      "object": "4.78 mm on 2024-01-07 21:00"
+    },
+    {
+      "subject": "sky condition",
+      "predicate": "predominantly",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "exceeded_90_percent",
+      "object": "during rain periods"
+    },
+    {
+      "subject": "wind speed",
+      "predicate": "generally_low",
+      "object": "0.4-2.8 m/s"
+    },
+    {
+      "subject": "temperature trend",
+      "predicate": "showed_daytime_warmth",
+      "object": "30-34°C during daytime"
+    },
+    {
+      "subject": "temperature trend",
+      "predicate": "showed_nighttime_cool",
+      "object": "23-27°C during nighttime"
+    },
+    {
+      "subject": "precipitation probability",
+      "predicate": "peaked",
+      "object": "0.98 on 2024-01-06 18:00"
+    },
+    {
+      "subject": "cloud cover",
+      "predicate": "often_full",
+      "object": "100% during rain events"
+    },
+    {
+      "subject": "Anori forecast",
+      "predicate": "includes",
+      "object": "light rain episodes"
+    },
+    {
+      "subject": "ses Salines",
+      "predicate": "has_country",
+      "object": "Spain"
+    },
+    {
+      "subject": "ses Salines",
+      "predicate": "has_population",
+      "object": "4290"
+    },
+    {
+      "subject": "forecast for ses Salines",
+      "predicate": "covers_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "forecast for ses Salines",
+      "predicate": "max_temp",
+      "object": "17.26°C at 2024-01-04 15:00"
+    },
+    {
+      "subject": "forecast for ses Salines",
+      "predicate": "min_temp",
+      "object": "4.81°C at 2024-01-08 06:00"
+    },
+    {
+      "subject": "forecast for ses Salines",
+      "predicate": "temperature_trend",
+      "object": "cooling from ~16°C to ~5°C"
+    },
+    {
+      "subject": "forecast for ses Salines",
+      "predicate": "includes_heavy_rain",
+      "object": "yes"
+    },
+    {
+      "subject": "heavy rain on 2024-01-05 09:00",
+      "predicate": "rain_amount_mm",
+      "object": "12.19"
+    },
+    {
+      "subject": "heavy rain on 2024-01-06 03:00",
+      "predicate": "rain_amount_mm",
+      "object": "16.38"
+    },
+    {
+      "subject": "forecast for ses Salines",
+      "predicate": "max_wind_gust",
+      "object": "14 m/s at 2024-01-07 03:00"
+    },
+    {
+      "subject": "forecast for ses Salines",
+      "predicate": "early_condition",
+      "object": "scattered to broken clouds"
+    },
+    {
+      "subject": "forecast for ses Salines",
+      "predicate": "mid_condition",
+      "object": "rainy with periods of heavy rain"
+    },
+    {
+      "subject": "forecast for ses Salines",
+      "predicate": "late_condition",
+      "object": "clear skies"
+    },
+    {
+      "subject": "Ohangaron",
+      "predicate": "located_in",
+      "object": "Uzbekistan"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "covers_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "minimum",
+      "object": "1.08°C at 2024-01-03 18:00"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "maximum",
+      "object": "16.64°C at 2024-01-06 09:00"
+    },
+    {
+      "subject": "temperature_trend",
+      "predicate": "pattern",
+      "object": "rising then falling"
+    },
+    {
+      "subject": "cloud_cover",
+      "predicate": "predominant_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "rain",
+      "predicate": "event",
+      "object": "moderate rain 3.83 mm at 2024-01-07 18:00"
+    },
+    {
+      "subject": "rain",
+      "predicate": "event",
+      "object": "light rain 0.46 mm at 2024-01-07 15:00"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "peak",
+      "object": "5.25 m/s at 2024-01-07 21:00"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "range",
+      "object": "30% to 82%"
+    },
+    {
+      "subject": "clear_sky",
+      "predicate": "starts",
+      "object": "2024-01-08 09:00"
+    },
+    {
+      "subject": "weather",
+      "predicate": "overall",
+      "object": "mostly cloudy with intermittent rain"
+    },
+    {
+      "subject": "jonesville",
+      "predicate": "located_in",
+      "object": "us"
+    },
+    {
+      "subject": "forecast_period",
+      "predicate": "covers",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "max",
+      "object": "9.3 °C"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "min",
+      "object": "-2.15 °C"
+    },
+    {
+      "subject": "early_forecast",
+      "predicate": "condition",
+      "object": "broken clouds"
+    },
+    {
+      "subject": "mid_forecast",
+      "predicate": "condition",
+      "object": "clear sky"
+    },
+    {
+      "subject": "late_forecast",
+      "predicate": "condition",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "snow_event",
+      "predicate": "occurs_on",
+      "object": "2024-01-06"
+    },
+    {
+      "subject": "snow_event",
+      "predicate": "type",
+      "object": "light snow and freezing rain"
+    },
+    {
+      "subject": "rain_event",
+      "predicate": "peak_intensity",
+      "object": "8.13 mm in 3 h"
+    },
+    {
+      "subject": "rain_event",
+      "predicate": "occurs_on",
+      "object": "2024-01-06"
+    },
+    {
+      "subject": "wind",
+      "predicate": "max_gust",
+      "object": "11.5 m/s"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "lowest",
+      "object": "156 m"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "lowest_at",
+      "object": "2024-01-07 03:00"
+    },
+    {
+      "subject": "cloud_cover",
+      "predicate": "peak",
+      "object": "100 %"
+    },
+    {
+      "subject": "cloud_cover",
+      "predicate": "peak_at",
+      "object": "2024-01-06 night"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "max",
+      "object": "100 %"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "max_at",
+      "object": "2024-01-07"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "type",
+      "object": "snow, freezing rain, moderate rain"
+    },
+    {
+      "subject": "temperature_trend",
+      "predicate": "description",
+      "object": "cooling from ~9 °C to below 0 °C overnight, warming to ~8 °C midday, then fluctuating near 0–5 °C with rain events"
+    },
+    {
+      "subject": "instance_5",
+      "predicate": "refers_to_city",
+      "object": "Agua Dulce"
+    },
+    {
+      "subject": "Agua Dulce",
+      "predicate": "country",
+      "object": "Mexico"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "time_range",
+      "object": "2024-01-03 18:00 to 2024-01-08 15:00"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "minimum",
+      "object": "16.58°C at 2024-01-05 09:00"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "maximum",
+      "object": "26.24°C at 2024-01-05 21:00"
+    },
+    {
+      "subject": "early_period",
+      "predicate": "weather",
+      "object": "light rain with overcast clouds"
+    },
+    {
+      "subject": "mid_period",
+      "predicate": "weather",
+      "object": "clear sky"
+    },
+    {
+      "subject": "late_period",
+      "predicate": "weather",
+      "object": "mixed clouds with occasional light rain"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "early_high",
+      "object": "94-96%"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "mid_low",
+      "object": "70%"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "generally",
+      "object": "light (≤5 m/s)"
+    },
+    {
+      "subject": "Kankan",
+      "predicate": "country",
+      "object": "Guinea"
+    },
+    {
+      "subject": "Kankan",
+      "predicate": "coordinates",
+      "object": "10.4167° N, 9.2667° W"
+    },
+    {
+      "subject": "Kankan",
+      "predicate": "population",
+      "object": "114009"
+    },
+    {
+      "subject": "Kankan weather forecast",
+      "predicate": "date_range",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "max_temperature",
+      "object": "36.96°C"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "min_temperature",
+      "object": "20.27°C"
+    },
+    {
+      "subject": "max_temperature",
+      "predicate": "recorded_at",
+      "object": "2024-01-08 15:00"
+    },
+    {
+      "subject": "min_temperature",
+      "predicate": "recorded_at",
+      "object": "2024-01-04 06:00"
+    },
+    {
+      "subject": "clear sky",
+      "predicate": "dominant_condition",
+      "object": "daytime hours"
+    },
+    {
+      "subject": "overcast clouds",
+      "predicate": "occurred_at",
+      "object": "2024-01-06 09:00 and 2024-01-06 12:00"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "lowest_value",
+      "object": "8% at 2024-01-04 15:00"
+    },
+    {
+      "subject": "wind gust",
+      "predicate": "max_speed",
+      "object": "4.86 m/s at 2024-01-08 12:00"
+    },
+    {
+      "subject": "pressure",
+      "predicate": "average_range",
+      "object": "1009–1016 hPa"
+    },
+    {
+      "subject": "temperature trend",
+      "predicate": "daily_pattern",
+      "object": "rises to peak in afternoon, falls at night"
+    },
+    {
+      "subject": "high temperature events (>35°C)",
+      "predicate": "occurred_on",
+      "object": "2024-01-04, 2024-01-05, 2024-01-06, 2024-01-07, 2024-01-08"
+    },
+    {
+      "subject": "Bilinga",
+      "predicate": "located_in",
+      "object": "Australia"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "covers_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "early_forecast",
+      "predicate": "features",
+      "object": "scattered clouds"
+    },
+    {
+      "subject": "mid_forecast",
+      "predicate": "features",
+      "object": "light rain"
+    },
+    {
+      "subject": "mid_forecast",
+      "predicate": "escalates_to",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "peak_rainfall",
+      "predicate": "amount",
+      "object": "3.69 mm per 3h"
+    },
+    {
+      "subject": "peak_rainfall",
+      "predicate": "time",
+      "object": "2024-01-06 03:00"
+    },
+    {
+      "subject": "maximum_temperature",
+      "predicate": "value",
+      "object": "26.14°C"
+    },
+    {
+      "subject": "maximum_temperature",
+      "predicate": "time",
+      "object": "2024-01-05 03:00"
+    },
+    {
+      "subject": "minimum_temperature",
+      "predicate": "value",
+      "object": "21.35°C"
+    },
+    {
+      "subject": "minimum_temperature",
+      "predicate": "time",
+      "object": "2024-01-07 18:00"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "range",
+      "object": "80-90%"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "peak",
+      "object": "9.34 m/s"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "time",
+      "object": "2024-01-06 09:00"
+    },
+    {
+      "subject": "overall_trend",
+      "predicate": "temperature",
+      "object": "rising to ~26°C then decreasing to ~21°C"
+    },
+    {
+      "subject": "overall_trend",
+      "predicate": "precipitation",
+      "object": "increasing to moderate rain then tapering off"
+    },
+    {
+      "subject": "taxiarches_city",
+      "predicate": "located_in",
+      "object": "greece"
+    },
+    {
+      "subject": "taxiarches_city",
+      "predicate": "has_coordinates",
+      "object": "lat 39.5757, lon 21.8925"
+    },
+    {
+      "subject": "forecast_period",
+      "predicate": "starts_at",
+      "object": "2024-01-03 18:00"
+    },
+    {
+      "subject": "forecast_period",
+      "predicate": "ends_at",
+      "object": "2024-01-08 15:00"
+    },
+    {
+      "subject": "temperature_range",
+      "predicate": "min_value",
+      "object": "6.88 °C"
+    },
+    {
+      "subject": "temperature_range",
+      "predicate": "max_value",
+      "object": "16.8 °C"
+    },
+    {
+      "subject": "max_temperature",
+      "predicate": "recorded_at",
+      "object": "2024-01-04 12:00"
+    },
+    {
+      "subject": "min_temperature",
+      "predicate": "recorded_at",
+      "object": "2024-01-03 18:00"
+    },
+    {
+      "subject": "early_condition",
+      "predicate": "predominant_weather",
+      "object": "overcast clouds (first night)"
+    },
+    {
+      "subject": "midday_condition_jan4",
+      "predicate": "weather",
+      "object": "clear sky around noon"
+    },
+    {
+      "subject": "rain_event_jan7_midnight",
+      "predicate": "precipitation_amount",
+      "object": "7.94 mm"
+    },
+    {
+      "subject": "rain_event_jan7_midnight",
+      "predicate": "intensity",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "rain_event_jan7_early_morning",
+      "predicate": "precipitation_amount",
+      "object": "0.69 mm"
+    },
+    {
+      "subject": "rain_event_jan7_early_morning",
+      "predicate": "intensity",
+      "object": "light rain"
+    },
+    {
+      "subject": "humidity_peak",
+      "predicate": "value",
+      "object": "98 % at 2024-01-07 06:00"
+    },
+    {
+      "subject": "wind_gust_peak",
+      "predicate": "speed",
+      "object": "4.61 m/s at 2024-01-06 12:00"
+    },
+    {
+      "subject": "overall_trend",
+      "predicate": "description",
+      "object": "warming to ~16 °C by Jan 4, then gradual cooling and persistent rain from Jan 7"
+    },
+    {
+      "subject": "Pickworth",
+      "predicate": "located_in",
+      "object": "GB"
+    },
+    {
+      "subject": "Pickworth",
+      "predicate": "forecast_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "trend",
+      "object": "decreasing"
+    },
+    {
+      "subject": "max_temperature",
+      "predicate": "value",
+      "object": "7.72°C"
+    },
+    {
+      "subject": "max_temperature",
+      "predicate": "recorded_at",
+      "object": "2024-01-03 18:00"
+    },
+    {
+      "subject": "min_temperature",
+      "predicate": "value",
+      "object": "0.62°C"
+    },
+    {
+      "subject": "min_temperature",
+      "predicate": "recorded_at",
+      "object": "2024-01-08 09:00"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "type",
+      "object": "rain"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "type",
+      "object": "snow"
+    },
+    {
+      "subject": "rain",
+      "predicate": "peak_probability",
+      "object": "0.44"
+    },
+    {
+      "subject": "rain",
+      "predicate": "peak_time",
+      "object": "2024-01-05 06:00"
+    },
+    {
+      "subject": "snow",
+      "predicate": "first_occurrence",
+      "object": "2024-01-08 00:00"
+    },
+    {
+      "subject": "cloud_cover",
+      "predicate": "dominant_condition",
+      "object": "overcast"
+    },
+    {
+      "subject": "wind",
+      "predicate": "max_gust",
+      "object": "11.81 m/s"
+    },
+    {
+      "subject": "wind",
+      "predicate": "max_gust_time",
+      "object": "2024-01-04 03:00"
+    },
+    {
+      "subject": "Aksu",
+      "predicate": "country",
+      "object": "Turkey"
+    },
+    {
+      "subject": "forecast for Aksu",
+      "predicate": "covers",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "range_celsius",
+      "object": "5.87-11.48"
+    },
+    {
+      "subject": "maximum_temperature",
+      "predicate": "value_celsius",
+      "object": "11.48"
+    },
+    {
+      "subject": "maximum_temperature",
+      "predicate": "observed_at",
+      "object": "2024-01-06 12:00"
+    },
+    {
+      "subject": "minimum_temperature",
+      "predicate": "value_celsius",
+      "object": "5.87"
+    },
+    {
+      "subject": "minimum_temperature",
+      "predicate": "observed_at",
+      "object": "2024-01-08 15:00"
+    },
+    {
+      "subject": "weather",
+      "predicate": "dominant_type",
+      "object": "cloudy"
+    },
+    {
+      "subject": "rain",
+      "predicate": "frequency",
+      "object": "light rain frequent"
+    },
+    {
+      "subject": "moderate_rain",
+      "predicate": "occurs_at",
+      "object": "2024-01-08 15:00"
+    },
+    {
+      "subject": "wind_gust",
+      "predicate": "max_value_m_s",
+      "object": "20.3"
+    },
+    {
+      "subject": "wind_gust",
+      "predicate": "observed_at",
+      "object": "2024-01-07 21:00"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "minimum_meters",
+      "object": "306"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "observed_at",
+      "object": "2024-01-07 12:00"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "peak_percent",
+      "object": "94"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "observed_at",
+      "object": "2024-01-08 15:00"
+    },
+    {
+      "subject": "temperature_trend",
+      "predicate": "description",
+      "object": "warming from Jan 3 to Jan 6 then cooling to Jan 8"
+    },
+    {
+      "subject": "Saḩāb",
+      "predicate": "located_in",
+      "object": "Jordan"
+    },
+    {
+      "subject": "Saḩāb",
+      "predicate": "has_coordinates",
+      "object": "31.8703, 36.0048"
+    },
+    {
+      "subject": "forecast_period",
+      "predicate": "covers_dates",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "forecast_for_Saḩāb",
+      "predicate": "temperature_range_celsius",
+      "object": "7.44-18.13"
+    },
+    {
+      "subject": "forecast_for_Saḩāb",
+      "predicate": "max_temperature_celsius",
+      "object": "18.13 at 2024-01-07 12:00"
+    },
+    {
+      "subject": "forecast_for_Saḩāb",
+      "predicate": "min_temperature_celsius",
+      "object": "7.44 at 2024-01-05 03:00"
+    },
+    {
+      "subject": "forecast_for_Saḩāb",
+      "predicate": "max_wind_speed_m_s",
+      "object": "6.75 at 2024-01-07 09:00"
+    },
+    {
+      "subject": "forecast_for_Saḩāb",
+      "predicate": "highest_humidity_percent",
+      "object": "91 at 2024-01-06 03:00"
+    },
+    {
+      "subject": "forecast_for_Saḩāb",
+      "predicate": "lowest_humidity_percent",
+      "object": "30 at 2024-01-07 12:00"
+    },
+    {
+      "subject": "forecast_for_Saḩāb",
+      "predicate": "predominant_condition",
+      "object": "cloudy"
+    },
+    {
+      "subject": "forecast_for_Saḩāb",
+      "predicate": "clear_skies_notable",
+      "object": "2024-01-07 daytime"
+    },
+    {
+      "subject": "forecast_for_Saḩāb",
+      "predicate": "overcast_notable",
+      "object": "2024-01-08 all day"
+    },
+    {
+      "subject": "forecast_for_Saḩāb",
+      "predicate": "wind_direction_trend",
+      "object": "northwest to east"
+    },
+    {
+      "subject": "Nato",
+      "predicate": "located_in",
+      "object": "Philippines"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "covers_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "range_celsius",
+      "object": "25.5-28.8"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "range_percent",
+      "object": "72-84"
+    },
+    {
+      "subject": "cloud_cover",
+      "predicate": "predominant",
+      "object": "broken to overcast clouds"
+    },
+    {
+      "subject": "rain",
+      "predicate": "occurs_on",
+      "object": "2024-01-05, 2024-01-07, 2024-01-08"
+    },
+    {
+      "subject": "max_wind_speed",
+      "predicate": "value_m_s",
+      "object": "9.96"
+    },
+    {
+      "subject": "max_wind_gust",
+      "predicate": "value_m_s",
+      "object": "11.3"
+    },
+    {
+      "subject": "pressure",
+      "predicate": "range_hpa",
+      "object": "1008-1013"
+    },
+    {
+      "subject": "weather_trend",
+      "predicate": "description",
+      "object": "temperatures remain above 25 °C with occasional light rain and high cloudiness"
+    },
+    {
+      "subject": "Cornu Luncii",
+      "predicate": "located_in",
+      "object": "Romania"
+    },
+    {
+      "subject": "Cornu Luncii",
+      "predicate": "latitude",
+      "object": "47.4667"
+    },
+    {
+      "subject": "Cornu Luncii",
+      "predicate": "longitude",
+      "object": "26.15"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "start_date",
+      "object": "2024-01-03"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "end_date",
+      "object": "2024-01-08"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "trend",
+      "object": "decreasing"
+    },
+    {
+      "subject": "max_temperature",
+      "predicate": "value",
+      "object": "10.75°C"
+    },
+    {
+      "subject": "max_temperature",
+      "predicate": "timestamp",
+      "object": "2024-01-04 12:00"
+    },
+    {
+      "subject": "min_temperature",
+      "predicate": "value",
+      "object": "-9.01°C"
+    },
+    {
+      "subject": "min_temperature",
+      "predicate": "timestamp",
+      "object": "2024-01-08 15:00"
+    },
+    {
+      "subject": "weather",
+      "predicate": "dominant_before_2024-01-07",
+      "object": "overcast_clouds"
+    },
+    {
+      "subject": "weather",
+      "predicate": "dominant_after_2024-01-07",
+      "object": "snow"
+    },
+    {
+      "subject": "snow",
+      "predicate": "start_time",
+      "object": "2024-01-07 12:00"
+    },
+    {
+      "subject": "heavy_snow_event_2024-01-07_15:00",
+      "predicate": "snow_amount",
+      "object": "3.42 cm"
+    },
+    {
+      "subject": "heavy_snow_event_2024-01-07_15:00",
+      "predicate": "probability",
+      "object": "1"
+    },
+    {
+      "subject": "wind_gust",
+      "predicate": "max_value",
+      "object": "12.76 m/s"
+    },
+    {
+      "subject": "wind_gust",
+      "predicate": "timestamp",
+      "object": "2024-01-05 00:00"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "min_value",
+      "object": "116 m"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "timestamp",
+      "object": "2024-01-07 15:00"
+    },
+    {
+      "subject": "cloud_coverage",
+      "predicate": "average_percent",
+      "object": ">90%"
+    },
+    {
+      "subject": "mountain_brook",
+      "predicate": "country",
+      "object": "US"
+    },
+    {
+      "subject": "mountain_brook",
+      "predicate": "forecast_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "early_forecast",
+      "predicate": "weather",
+      "object": "light rain"
+    },
+    {
+      "subject": "early_forecast",
+      "predicate": "temperature_range_c",
+      "object": "4.78-5.00"
+    },
+    {
+      "subject": "mid_forecast",
+      "predicate": "weather",
+      "object": "clear sky"
+    },
+    {
+      "subject": "mid_forecast",
+      "predicate": "temperature_range_c",
+      "object": "0.25-3.07"
+    },
+    {
+      "subject": "late_forecast",
+      "predicate": "weather",
+      "object": "clear sky with scattered clouds"
+    },
+    {
+      "subject": "late_forecast",
+      "predicate": "temperature_range_c",
+      "object": "9.93-12.17"
+    },
+    {
+      "subject": "mountain_brook",
+      "predicate": "lowest_temperature_c",
+      "object": "0.25 at 2024-01-04 12:00"
+    },
+    {
+      "subject": "mountain_brook",
+      "predicate": "highest_temperature_c",
+      "object": "12.17 at 2024-01-07 21:00"
+    },
+    {
+      "subject": "mountain_brook",
+      "predicate": "heavy_rain",
+      "object": "7.36mm at 2024-01-06 03:00"
+    },
+    {
+      "subject": "mountain_brook",
+      "predicate": "max_wind_gust_mps",
+      "object": "17.42 at 2024-01-06 06:00"
+    },
+    {
+      "subject": "Capácuaro",
+      "predicate": "city_in",
+      "object": "Mexico"
+    },
+    {
+      "subject": "Capácuaro forecast",
+      "predicate": "covers_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "forecast temperature",
+      "predicate": "has_range",
+      "object": "6.49 °C – 20.86 °C"
+    },
+    {
+      "subject": "forecast temperature",
+      "predicate": "trend",
+      "object": "cool nights followed by warming days"
+    },
+    {
+      "subject": "forecast humidity",
+      "predicate": "has_range",
+      "object": "21 % – 86 %"
+    },
+    {
+      "subject": "cloud cover",
+      "predicate": "generally",
+      "object": "few clouds"
+    },
+    {
+      "subject": "2024-01-07 15:00",
+      "predicate": "has_condition",
+      "object": "overcast clouds (100 % coverage)"
+    },
+    {
+      "subject": "2024-01-06 21:00",
+      "predicate": "recorded_wind_gust",
+      "object": "9.92 m/s"
+    },
+    {
+      "subject": "forecast precipitation probability",
+      "predicate": "is_zero",
+      "object": "throughout period"
+    },
+    {
+      "subject": "wind direction",
+      "predicate": "predominant",
+      "object": "south‑west to south‑east"
+    },
+    {
+      "subject": "sunrise",
+      "predicate": "occurs_at",
+      "object": "2024-01-03 06:23:06"
+    },
+    {
+      "subject": "sunset",
+      "predicate": "occurs_at",
+      "object": "2024-01-03 18:22:04"
+    },
+    {
+      "subject": "Checca",
+      "predicate": "located_in",
+      "object": "Peru"
+    },
+    {
+      "subject": "Checca",
+      "predicate": "has_coordinates",
+      "object": "-14.5333,-71.3056"
+    },
+    {
+      "subject": "Checca",
+      "predicate": "forecast_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "Checca",
+      "predicate": "predominant_weather",
+      "object": "rain"
+    },
+    {
+      "subject": "Checca",
+      "predicate": "dominant_precip_type",
+      "object": "light rain"
+    },
+    {
+      "subject": "Checca",
+      "predicate": "moderate_rain_events",
+      "object": "2024-01-06 00:00, 2024-01-07 00:00, 2024-01-08 00:00"
+    },
+    {
+      "subject": "Checca",
+      "predicate": "temperature_range_c",
+      "object": "3.43-13.42"
+    },
+    {
+      "subject": "Checca",
+      "predicate": "coldest_temperature_c",
+      "object": "3.43 at 2024-01-08 06:00"
+    },
+    {
+      "subject": "Checca",
+      "predicate": "warmest_temperature_c",
+      "object": "13.42 at 2024-01-07 21:00"
+    },
+    {
+      "subject": "Checca",
+      "predicate": "highest_precipitation_mm",
+      "object": "10.37 at 2024-01-08 03:00"
+    },
+    {
+      "subject": "Checca",
+      "predicate": "humidity_range_percent",
+      "object": "57-97"
+    },
+    {
+      "subject": "Checca",
+      "predicate": "cloud_cover_percent",
+      "object": "near 100"
+    },
+    {
+      "subject": "Checca",
+      "predicate": "max_wind_gust_mps",
+      "object": "5 at 2024-01-08 00:00"
+    },
+    {
+      "subject": "Géri",
+      "predicate": "located_in",
+      "object": "Cyprus"
+    },
+    {
+      "subject": "Géri",
+      "predicate": "has_coordinates",
+      "object": "35.1056, 33.4198"
+    },
+    {
+      "subject": "forecast_period",
+      "predicate": "starts_on",
+      "object": "2024-01-03"
+    },
+    {
+      "subject": "forecast_period",
+      "predicate": "ends_on",
+      "object": "2024-01-08"
+    },
+    {
+      "subject": "temperature_trend",
+      "predicate": "reaches_peak",
+      "object": "19.36 °C at 2024-01-07 12:00"
+    },
+    {
+      "subject": "temperature_trend",
+      "predicate": "lowest_temperature",
+      "object": "12.34 °C at 2024-01-04 03:00"
+    },
+    {
+      "subject": "cloud_cover",
+      "predicate": "predominantly",
+      "object": "overcast (80‑100 %)"
+    },
+    {
+      "subject": "clear_sky",
+      "predicate": "occurs",
+      "object": "night of 2024-01-04 21:00 to 2024-01-05 03:00"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "maximum",
+      "object": "8.92 m/s at 2024-01-04 12:00"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "maximum",
+      "object": "95 % at 2024-01-07 06:00"
+    },
+    {
+      "subject": "precipitation_probability",
+      "predicate": "maximum",
+      "object": "0.36 (36 %)"
+    },
+    {
+      "subject": "weather_condition",
+      "predicate": "dominant_type",
+      "object": "clouds"
+    },
+    {
+      "subject": "sunrise_time",
+      "predicate": "epoch",
+      "object": "1704257684"
+    },
+    {
+      "subject": "sunset_time",
+      "predicate": "epoch",
+      "object": "1704293151"
+    },
+    {
+      "subject": "Amahusu",
+      "predicate": "located_in",
+      "object": "Indonesia"
+    },
+    {
+      "subject": "Amahusu",
+      "predicate": "has_latitude",
+      "object": "-3.7253"
+    },
+    {
+      "subject": "Amahusu",
+      "predicate": "has_longitude",
+      "object": "128.1471"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "covers_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "range_celsius",
+      "object": "26.15‑29.16"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "range_percent",
+      "object": "15‑80"
+    },
+    {
+      "subject": "weather",
+      "predicate": "predominant_condition",
+      "object": "rain"
+    },
+    {
+      "subject": "cloud_cover",
+      "predicate": "predominant_state",
+      "object": "overcast"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "maximum_amount_mm",
+      "object": "6.38 at 2024-01-04 15:00"
+    },
+    {
+      "subject": "wind",
+      "predicate": "maximum_speed_mps",
+      "object": "4.62 at 2024-01-08 06:00"
+    },
+    {
+      "subject": "rainfall",
+      "predicate": "moderate_events",
+      "object": "2024-01-04 with 4‑6 mm"
+    },
+    {
+      "subject": "rainfall",
+      "predicate": "light_events",
+      "object": "throughout the period"
+    },
+    {
+      "subject": "wind",
+      "predicate": "generally_light",
+      "object": "≤2 m/s with occasional stronger gusts"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "trend_precipitation",
+      "object": "increased early Jan 4, then gradual decline"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "trend_temperature",
+      "object": "stable around high‑20s °C"
+    },
+    {
+      "subject": "Montefano",
+      "predicate": "located_in",
+      "object": "Italy"
+    },
+    {
+      "subject": "Montefano forecast (2024-01-03 to 2024-01-08)",
+      "predicate": "has_temperature_range",
+      "object": "6.9-15.7°C"
+    },
+    {
+      "subject": "Montefano forecast",
+      "predicate": "starts_with",
+      "object": "overcast clouds at night"
+    },
+    {
+      "subject": "Montefano forecast",
+      "predicate": "has_clear_sky_period",
+      "object": "midday on 2024-01-04"
+    },
+    {
+      "subject": "Montefano forecast",
+      "predicate": "has_rain_period",
+      "object": "2024-01-06 night to 2024-01-08 early morning"
+    },
+    {
+      "subject": "rain",
+      "predicate": "peak_intensity",
+      "object": "2.06 mm in 3 h at 03:00 on 2024-01-07"
+    },
+    {
+      "subject": "wind",
+      "predicate": "max_gust",
+      "object": "12.3 m/s at 06:00 on 2024-01-04"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "max_value",
+      "object": "91 % during rain on 2024-01-07"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "max_value",
+      "object": "15.67 °C at 12:00 on 2024-01-04"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "min_value",
+      "object": "6.89 °C at 09:00 on 2024-01-08"
+    },
+    {
+      "subject": "cloud_cover",
+      "predicate": "predominant",
+      "object": "overcast (≥90 %)"
+    },
+    {
+      "subject": "Montefano forecast",
+      "predicate": "overall_trend",
+      "object": "cooling after 2024-01-04 temperature peak"
+    },
+    {
+      "subject": "Bintawan",
+      "predicate": "has_forecast_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "Bintawan",
+      "predicate": "temperature_range",
+      "object": "20.61°C‑26.80°C"
+    },
+    {
+      "subject": "Bintawan",
+      "predicate": "humidity_range",
+      "object": "70%‑98%"
+    },
+    {
+      "subject": "Bintawan",
+      "predicate": "max_temperature",
+      "object": "26.80°C on 2024-01-05 06:00"
+    },
+    {
+      "subject": "Bintawan",
+      "predicate": "min_temperature",
+      "object": "20.61°C on 2024-01-07 21:00"
+    },
+    {
+      "subject": "Bintawan",
+      "predicate": "max_rain_intensity",
+      "object": "0.74 mm/3h on 2024-01-04 09:00"
+    },
+    {
+      "subject": "Bintawan",
+      "predicate": "predominant_condition_early",
+      "object": "light rain"
+    },
+    {
+      "subject": "Bintawan",
+      "predicate": "predominant_condition_late",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Bintawan",
+      "predicate": "wind_speed_range",
+      "object": "0.39‑2.18 m s⁻¹"
+    },
+    {
+      "subject": "Bintawan",
+      "predicate": "weather_trend",
+      "object": "rain throughout early period, tapering to overcast and scattered clouds later"
+    },
+    {
+      "subject": "san_bartolo_tutotepec",
+      "predicate": "country",
+      "object": "mx"
+    },
+    {
+      "subject": "san_bartolo_tutotepec",
+      "predicate": "latitude",
+      "object": "20.3984"
+    },
+    {
+      "subject": "san_bartolo_tutotepec",
+      "predicate": "longitude",
+      "object": "-98.2008"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "location",
+      "object": "san_bartolo_tutotepec"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "start_date",
+      "object": "2024-01-03"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "end_date",
+      "object": "2024-01-08"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "min_celsius",
+      "object": "13.86"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "max_celsius",
+      "object": "25.74"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "max_time",
+      "object": "2024-01-05 18:00"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "min_time",
+      "object": "2024-01-06 12:00"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "peak_percent",
+      "object": "99"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "peak_time",
+      "object": "2024-01-04 03:00"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "type",
+      "object": "light_rain"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "period_start",
+      "object": "2024-01-03 21:00"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "period_end",
+      "object": "2024-01-04 21:00"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "lowest_meters",
+      "object": "63"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "lowest_time",
+      "object": "2024-01-04 03:00"
+    },
+    {
+      "subject": "sky_condition",
+      "predicate": "trend_initial",
+      "object": "scattered_clouds"
+    },
+    {
+      "subject": "sky_condition",
+      "predicate": "trend_mid",
+      "object": "rain"
+    },
+    {
+      "subject": "sky_condition",
+      "predicate": "trend_late",
+      "object": "clear"
+    },
+    {
+      "subject": "wind",
+      "predicate": "max_speed_m_s",
+      "object": "3.78"
+    },
+    {
+      "subject": "wind",
+      "predicate": "max_speed_time",
+      "object": "2024-01-05 12:00"
+    },
+    {
+      "subject": "shuidong",
+      "predicate": "located_in",
+      "object": "china"
+    },
+    {
+      "subject": "shuidong",
+      "predicate": "latitude",
+      "object": "21.5134"
+    },
+    {
+      "subject": "shuidong",
+      "predicate": "longitude",
+      "object": "111.0018"
+    },
+    {
+      "subject": "shuidong_forecast",
+      "predicate": "period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "shuidong_forecast",
+      "predicate": "temp_min",
+      "object": "15.8°C"
+    },
+    {
+      "subject": "shuidong_forecast",
+      "predicate": "temp_max",
+      "object": "23.01°C"
+    },
+    {
+      "subject": "shuidong_forecast",
+      "predicate": "humidity_min",
+      "object": "49%"
+    },
+    {
+      "subject": "shuidong_forecast",
+      "predicate": "humidity_max",
+      "object": "92%"
+    },
+    {
+      "subject": "shuidong_forecast",
+      "predicate": "max_gust_speed",
+      "object": "12.09 m/s"
+    },
+    {
+      "subject": "shuidong_forecast",
+      "predicate": "max_gust_time",
+      "object": "2024-01-07 15:00:00"
+    },
+    {
+      "subject": "shuidong_forecast",
+      "predicate": "early_weather",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "shuidong_forecast",
+      "predicate": "mid_weather",
+      "object": "clear sky"
+    },
+    {
+      "subject": "shuidong_forecast",
+      "predicate": "late_weather",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "shuidong_forecast",
+      "predicate": "precipitation_probability_max",
+      "object": "0%"
+    },
+    {
+      "subject": "shuidong_forecast",
+      "predicate": "peak_cloud_cover",
+      "object": "97% at 2024-01-04 00:00:00"
+    },
+    {
+      "subject": "Ljungbyholm",
+      "predicate": "country",
+      "object": "Sweden"
+    },
+    {
+      "subject": "Ljungbyholm",
+      "predicate": "forecast_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "early_forecast",
+      "predicate": "primary_condition",
+      "object": "heavy snow"
+    },
+    {
+      "subject": "heavy snow",
+      "predicate": "peak_snowfall_3h",
+      "object": "3.25 mm"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "initial_range_celsius",
+      "object": "-2.6 to -4.4"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "minimum_celsius",
+      "object": "-17.6 (2024-01-06 00:00)"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "maximum_celsius",
+      "object": "-2.6 (2024-01-03 18:00)"
+    },
+    {
+      "subject": "temperature_trend",
+      "predicate": "description",
+      "object": "decreasing then modest warming"
+    },
+    {
+      "subject": "snowfall",
+      "predicate": "trend",
+      "object": "diminishing after Jan 5"
+    },
+    {
+      "subject": "cloud_cover",
+      "predicate": "trend",
+      "object": "decreasing from 100% to clear"
+    },
+    {
+      "subject": "wind",
+      "predicate": "maximum_gust_m_s",
+      "object": "13.9 (2024-01-03 18:00)"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "trend",
+      "object": "increasing to 10 km as snow ended"
+    },
+    {
+      "subject": "Tușnad",
+      "predicate": "located_in",
+      "object": "Romania"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "covers_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "range",
+      "object": "-4.84°C to 8.53°C"
+    },
+    {
+      "subject": "lowest_temperature",
+      "predicate": "recorded_at",
+      "object": "2024-01-08 15:00"
+    },
+    {
+      "subject": "highest_temperature",
+      "predicate": "recorded_at",
+      "object": "2024-01-06 12:00"
+    },
+    {
+      "subject": "weather_condition",
+      "predicate": "predominant",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "precipitation_type",
+      "predicate": "includes",
+      "object": "rain and snow"
+    },
+    {
+      "subject": "rain_event",
+      "predicate": "moderate_at",
+      "object": "2024-01-04 15:00"
+    },
+    {
+      "subject": "rain_event",
+      "predicate": "amount_3h",
+      "object": "3.69 mm"
+    },
+    {
+      "subject": "snow_event",
+      "predicate": "heavy_at",
+      "object": "2024-01-07 15:00"
+    },
+    {
+      "subject": "snow_event",
+      "predicate": "amount_3h",
+      "object": "3.31 mm"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "peak",
+      "object": "7.43 m/s at 2024-01-04 21:00"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "reduced_during_heavy_precipitation",
+      "object": "as low as 62 m at 2024-01-04 18:00"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "high_throughout_period",
+      "object": "90%+"
+    },
+    {
+      "subject": "forecast_25",
+      "predicate": "has_location",
+      "object": "Bayan Uula Sumu"
+    },
+    {
+      "subject": "forecast_25",
+      "predicate": "covers_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "forecast_25",
+      "predicate": "temperature_range_celsius",
+      "object": "-20.44 to -10.6"
+    },
+    {
+      "subject": "forecast_25",
+      "predicate": "extreme_low_temperature",
+      "object": "-20.44°C at 2024-01-05 21:00"
+    },
+    {
+      "subject": "forecast_25",
+      "predicate": "extreme_high_temperature",
+      "object": "-10.6°C at 2024-01-04 06:00"
+    },
+    {
+      "subject": "forecast_25",
+      "predicate": "predominant_weather",
+      "object": "clear sky"
+    },
+    {
+      "subject": "forecast_25",
+      "predicate": "occasional_weather",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "forecast_25",
+      "predicate": "cloud_coverage_range_percent",
+      "object": "0 to 100"
+    },
+    {
+      "subject": "forecast_25",
+      "predicate": "wind_speed_range_mps",
+      "object": "0.76 to 5.6"
+    },
+    {
+      "subject": "forecast_25",
+      "predicate": "humidity_range_percent",
+      "object": "61 to 90"
+    },
+    {
+      "subject": "forecast_25",
+      "predicate": "snow_event",
+      "object": "light snow 0.19 mm on 2024-01-08 00:00"
+    },
+    {
+      "subject": "forecast_25",
+      "predicate": "temperature_trend",
+      "object": "cooling to ~-20°C by Jan 5 then modest warming to -15°C by Jan 7"
+    },
+    {
+      "subject": "Jedovnice",
+      "predicate": "country",
+      "object": "Czech Republic"
+    },
+    {
+      "subject": "Jedovnice",
+      "predicate": "forecast_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "range",
+      "object": "-7.96°C to 7.10°C"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "trend",
+      "object": "cooling over the period"
+    },
+    {
+      "subject": "weather",
+      "predicate": "predominant_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "type_sequence",
+      "object": "rain transitioning to snow"
+    },
+    {
+      "subject": "rain",
+      "predicate": "max_intensity",
+      "object": "3.13 mm in 3h at 2024-01-06 09:00"
+    },
+    {
+      "subject": "snow",
+      "predicate": "max_amount",
+      "object": "2.0 cm in 3h at 2024-01-07 00:00"
+    },
+    {
+      "subject": "wind",
+      "predicate": "max_gust",
+      "object": "18.42 m/s at 2024-01-04 09:00"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "minimum",
+      "object": "47 m at 2024-01-06 15:00"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "peak",
+      "object": "99% at 2024-01-06 09:00"
+    },
+    {
+      "subject": "Pénjamo",
+      "predicate": "country",
+      "object": "Mexico"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "range_celsius",
+      "object": "7.96 to 24.71"
+    },
+    {
+      "subject": "warmest_temperature",
+      "predicate": "value_celsius",
+      "object": "24.71"
+    },
+    {
+      "subject": "warmest_temperature",
+      "predicate": "timestamp",
+      "object": "2024-01-07 21:00"
+    },
+    {
+      "subject": "coolest_temperature",
+      "predicate": "value_celsius",
+      "object": "7.96"
+    },
+    {
+      "subject": "coolest_temperature",
+      "predicate": "timestamp",
+      "object": "2024-01-06 12:00"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "range_percent",
+      "object": "13 to 80"
+    },
+    {
+      "subject": "clear_sky",
+      "predicate": "occurs_at",
+      "object": "multiple periods, especially nights and daytime after Jan 4"
+    },
+    {
+      "subject": "overcast_clouds",
+      "predicate": "occurs_at",
+      "object": "2024-01-07 15:00 and 2024-01-07 18:00"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "max_mps",
+      "object": "6.39 at 2024-01-06 21:00"
+    },
+    {
+      "subject": "precipitation_probability",
+      "predicate": "value_percent",
+      "object": "0 throughout forecast"
+    },
+    {
+      "subject": "cloud_coverage",
+      "predicate": "typical_percent",
+      "object": "low (<30%) except overcast periods"
+    },
+    {
+      "subject": "Escopete",
+      "predicate": "located_in",
+      "object": "Spain"
+    },
+    {
+      "subject": "Escopete",
+      "predicate": "coordinates",
+      "object": "40.4132,-3.0046"
+    },
+    {
+      "subject": "Escopete_forecast_2024-01-03_to_2024-01-08",
+      "predicate": "covers_period",
+      "object": "2024-01-03 18:00 to 2024-01-08 15:00"
+    },
+    {
+      "subject": "Escopete_forecast_2024-01-03_18:00",
+      "predicate": "weather_condition",
+      "object": "overcast with light rain"
+    },
+    {
+      "subject": "Escopete_forecast_2024-01-03_18:00",
+      "predicate": "temperature_celsius",
+      "object": "9.96"
+    },
+    {
+      "subject": "Escopete_forecast_2024-01-04_18:00",
+      "predicate": "weather_condition",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "Escopete_forecast_2024-01-04_18:00",
+      "predicate": "precipitation_mm_3h",
+      "object": "5.36"
+    },
+    {
+      "subject": "Escopete_forecast_2024-01-04_18:00",
+      "predicate": "visibility_meters",
+      "object": "381"
+    },
+    {
+      "subject": "Escopete_forecast_2024-01-05_18:00",
+      "predicate": "max_wind_gust_m_s",
+      "object": "13.83"
+    },
+    {
+      "subject": "Escopete_forecast",
+      "predicate": "temperature_trend",
+      "object": "decreasing from ~10 °C to below 0 °C"
+    },
+    {
+      "subject": "Escopete_forecast_2024-01-08_06:00",
+      "predicate": "coldest_temperature_celsius",
+      "object": "-0.95"
+    },
+    {
+      "subject": "Escopete_forecast_2024-01-06_00:00",
+      "predicate": "weather_condition",
+      "object": "clear sky"
+    },
+    {
+      "subject": "Escopete_forecast_2024-01-06_00:00",
+      "predicate": "precipitation_mm_3h",
+      "object": "0"
+    },
+    {
+      "subject": "Escopete_forecast",
+      "predicate": "humidity_range_percent",
+      "object": "50‑99"
+    },
+    {
+      "subject": "Escopete_forecast",
+      "predicate": "cloud_coverage_transition",
+      "object": "overcast → clear"
+    },
+    {
+      "subject": "Nagymaros",
+      "predicate": "located_in",
+      "object": "Hungary"
+    },
+    {
+      "subject": "Nagymaros",
+      "predicate": "has_coordinates",
+      "object": "47.79N 18.96E"
+    },
+    {
+      "subject": "forecast_period",
+      "predicate": "covers",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "decreases_from",
+      "object": "9.7 °C to 0 °C"
+    },
+    {
+      "subject": "highest_temperature",
+      "predicate": "recorded_at",
+      "object": "2024-01-03 18:00 (≈9.7 °C)"
+    },
+    {
+      "subject": "lowest_temperature",
+      "predicate": "recorded_at",
+      "object": "2024-01-08 06:00 (0 °C)"
+    },
+    {
+      "subject": "weather_condition",
+      "predicate": "predominantly",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "rain_probability",
+      "predicate": "peaks_at",
+      "object": "≈100 % on 2024-01-06 and 2024-01-07"
+    },
+    {
+      "subject": "rainfall_amount",
+      "predicate": "max_3h",
+      "object": "2.6 mm (2024-01-06 12:00‑15:00)"
+    },
+    {
+      "subject": "wind_gust",
+      "predicate": "max",
+      "object": "18.9 m/s (2024-01-04 09:00)"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "ranges_between",
+      "object": "70 %‑97 %"
+    },
+    {
+      "subject": "cloud_cover",
+      "predicate": "mostly",
+      "object": "80‑100 %"
+    },
+    {
+      "subject": "temperature_trend",
+      "predicate": "overall",
+      "object": "cooling"
+    },
+    {
+      "subject": "precipitation_type",
+      "predicate": "mostly",
+      "object": "light rain"
+    },
+    {
+      "subject": "early_evening_jan_3",
+      "predicate": "had",
+      "object": "light rain with 0.23 mm in 3 h"
+    },
+    {
+      "subject": "midday_jan_4",
+      "predicate": "experienced",
+      "object": "broken clouds and wind gust 16.9 m/s"
+    },
+    {
+      "subject": "jan_6_to_jan_7",
+      "predicate": "characterized_by",
+      "object": "continuous heavy rain and high humidity"
+    },
+    {
+      "subject": "late_jan_8",
+      "predicate": "shows",
+      "object": "partial clearing with scattered clouds and temperature around 2 °C"
+    },
+    {
+      "subject": "point_clare",
+      "predicate": "has_country",
+      "object": "australia"
+    },
+    {
+      "subject": "point_clare",
+      "predicate": "has_coordinates",
+      "object": "lat:-33.4438, lon:151.3273"
+    },
+    {
+      "subject": "point_clare",
+      "predicate": "forecast_dates",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "point_clare",
+      "predicate": "temperature_range",
+      "object": "14.87-32.24°C"
+    },
+    {
+      "subject": "point_clare",
+      "predicate": "experienced_heavy_rain",
+      "object": "2024-01-04 to 2024-01-05"
+    },
+    {
+      "subject": "point_clare",
+      "predicate": "max_precipitation_rate",
+      "object": "2.75 mm per 3h"
+    },
+    {
+      "subject": "point_clare",
+      "predicate": "humidity_range",
+      "object": "40-98%"
+    },
+    {
+      "subject": "point_clare",
+      "predicate": "dominant_cloud_cover",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "point_clare",
+      "predicate": "max_wind_gust",
+      "object": "9.42 m/s"
+    },
+    {
+      "subject": "point_clare",
+      "predicate": "pressure_range",
+      "object": "1014-1022 hPa"
+    },
+    {
+      "subject": "point_clare",
+      "predicate": "weather_trend",
+      "object": "rain then clearing then warming"
+    },
+    {
+      "subject": "point_clare",
+      "predicate": "peak_temperature_2024_01_08",
+      "object": "32.24°C"
+    },
+    {
+      "subject": "point_clare",
+      "predicate": "lowest_temperature_2024_01_06_night",
+      "object": "14.87°C"
+    },
+    {
+      "subject": "sagopshi",
+      "predicate": "country",
+      "object": "Russia"
+    },
+    {
+      "subject": "sagopshi",
+      "predicate": "coordinates",
+      "object": "lat 43.4852, lon 44.5906"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "location",
+      "object": "sagopshi"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "start_time",
+      "object": "2024-01-03 18:00"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "end_time",
+      "object": "2024-01-08 15:00"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "min_value",
+      "object": "1.47°C at 2024-01-03 18:00"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "max_value",
+      "object": "10.22°C at 2024-01-05 12:00"
+    },
+    {
+      "subject": "temperature_trend",
+      "predicate": "description",
+      "object": "rise to 10°C mid‑forecast then gradual decline"
+    },
+    {
+      "subject": "weather",
+      "predicate": "predominant_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "clear_sky",
+      "predicate": "occurrence",
+      "object": "2024-01-04 21:00 and 2024-01-06 18:00"
+    },
+    {
+      "subject": "wind",
+      "predicate": "max_gust",
+      "object": "12.7 m/s at 2024-01-05 09:00"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "range",
+      "object": "47%–87%"
+    },
+    {
+      "subject": "cloud_cover",
+      "predicate": "average_percent",
+      "object": "high (≈80‑100%)"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "rain_probability",
+      "object": "0% (no precipitation)"
+    },
+    {
+      "subject": "Saint-Romain-de-Benet",
+      "predicate": "has_forecast",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "shows_temperature_range",
+      "object": "1.73°C to 12.96°C"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "exhibits_cooling_trend",
+      "object": "nighttime temperatures drop steadily"
+    },
+    {
+      "subject": "early_period",
+      "predicate": "features_precipitation",
+      "object": "light rain with moderate intensity on 2024-01-04 21:00"
+    },
+    {
+      "subject": "2024-01-04 21:00",
+      "predicate": "recorded_precipitation",
+      "object": "3.19 mm moderate rain"
+    },
+    {
+      "subject": "mid_forecast",
+      "predicate": "dominant_cloud_cover",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "late_forecast",
+      "predicate": "dominant_cloud_cover",
+      "object": "clear to scattered clouds"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "average_wind_speed",
+      "object": "5‑7 m/s"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "humidity_range",
+      "object": "68% to 91%"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "includes_heavy_rain_event",
+      "object": "moderate rain at 2024-01-04 21:00"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "shows_cloudiness_variation",
+      "object": "overcast early, clearing mid‑period, few clouds late"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "has_max_temperature",
+      "object": "12.96°C at 2024-01-04 12:00"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "has_min_temperature",
+      "object": "1.73°C at 2024-01-08 03:00"
+    },
+    {
+      "subject": "Friedersdorf",
+      "predicate": "forecast_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "starts_with",
+      "object": "light rain"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "ends_with",
+      "object": "clear sky"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "high_range",
+      "object": "8.7 °C to -8.1 °C"
+    },
+    {
+      "subject": "rainfall",
+      "predicate": "peak_amount",
+      "object": "1.56 mm per 3 h at 2024-01-04 00:00"
+    },
+    {
+      "subject": "snowfall",
+      "predicate": "peak_amount",
+      "object": "1.19 mm per 3 h at 2024-01-06 15:00"
+    },
+    {
+      "subject": "wind",
+      "predicate": "max_gust",
+      "object": "20.8 m s⁻¹ at 2024-01-04 12:00"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "max_value",
+      "object": "99 % at 2024-01-06 15:00"
+    },
+    {
+      "subject": "cloud_cover",
+      "predicate": "predominant",
+      "object": "overcast (100 %)"
+    },
+    {
+      "subject": "weather_trend",
+      "predicate": "transition",
+      "object": "rain → snow → overcast → clear"
+    },
+    {
+      "subject": "Waalwijk",
+      "predicate": "forecast_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "Waalwijk",
+      "predicate": "max_temperature",
+      "object": "8.99 °C on 2024-01-03 18:00"
+    },
+    {
+      "subject": "Waalwijk",
+      "predicate": "min_temperature",
+      "object": "-1.39 °C on 2024-01-08 03:00"
+    },
+    {
+      "subject": "Waalwijk",
+      "predicate": "dominant_precipitation",
+      "object": "rain (light to moderate) from 2024-01-03 to 2024-01-05"
+    },
+    {
+      "subject": "Waalwijk",
+      "predicate": "snow_occurrence",
+      "object": "light snow on 2024-01-07 15:00"
+    },
+    {
+      "subject": "Waalwijk",
+      "predicate": "average_humidity",
+      "object": "high (80‑95 %) throughout period"
+    },
+    {
+      "subject": "Waalwijk",
+      "predicate": "cloud_cover",
+      "object": "mostly overcast (80‑100 %)"
+    },
+    {
+      "subject": "Waalwijk",
+      "predicate": "wind_speed_range",
+      "object": "2.8‑8.2 m/s, gusts up to 14.7 m/s"
+    },
+    {
+      "subject": "Waalwijk",
+      "predicate": "precipitation_extremes",
+      "object": "4.38 mm rain in 3 h on 2024-01-05 00:00"
+    },
+    {
+      "subject": "Waalwijk",
+      "predicate": "visibility_minimum",
+      "object": "239 m at 2024-01-06 18:00"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "country",
+      "object": "France"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "forecast_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "temperature_trend",
+      "object": "decreasing"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "max_temperature",
+      "object": "10.7°C"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "min_temperature",
+      "object": "0.9°C"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "dominant_precipitation",
+      "object": "rain"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "moderate_rain_occurrence",
+      "object": "2024-01-04 18:00, 2024-01-04 21:00"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "heavy_rain_amount",
+      "object": "5.3 mm in 3 h on 2024-01-04 21:00"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "light_snow_occurrence",
+      "object": "2024-01-07 21:00"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "wind_peak_speed",
+      "object": "16.73 m/s on 2024-01-05 03:00"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "high_humidity",
+      "object": "92 % on 2024-01-05 09:00"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "low_visibility",
+      "object": "4200 m on 2024-01-04 18:00"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "cloud_cover",
+      "object": "overcast for most of period"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "daytime_condition",
+      "object": "overcast clouds"
+    }
+  ]
+}
