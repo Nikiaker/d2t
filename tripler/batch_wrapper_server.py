@@ -206,7 +206,7 @@ def create_app(upstream_base_url: str, storage_dir: str) -> FastAPI:
 
             timeout = httpx.Timeout(120.0, connect=10.0)
             async with httpx.AsyncClient(base_url=upstream_base_url, timeout=timeout) as client:
-                max_concurrency = 100
+                max_concurrency = 1000
                 indexed_requests: asyncio.Queue[tuple[int, dict[str, Any]]] = asyncio.Queue()
                 for idx, req in enumerate(requests_payload):
                     indexed_requests.put_nowait((idx, req))
