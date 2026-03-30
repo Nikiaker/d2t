@@ -1,0 +1,1 @@
+sbatch ~/d2t/.conda/batch_standalone_llms.sh

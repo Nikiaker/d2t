@@ -30,7 +30,7 @@ SERVER_PID2=$!
 
 conda run -n openevolve-env python ~/d2t/.conda/test-response.py --port 2994
 
-python ~/d2t/tripler/batch_wrapper_server.py \
+conda run -n openevolve-env python ~/d2t/tripler/batch_wrapper_server.py \
     --upstream-base-url http://localhost:2993 \
     --port 2992 \
     --storage-dir ~/.batch_wrapper_data
