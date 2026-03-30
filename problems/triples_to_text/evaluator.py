@@ -443,7 +443,7 @@ def evaluate(program_path):
         all_score_num = len(category_test_sentences)
 
         score_multiplier = perfect_score_num / all_score_num
-        combined_score *= score_multiplier
+        # combined_score *= score_multiplier
 
         if themis_client:
             combined_score = combined_score / 5.0
