@@ -12,3 +12,160 @@ Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 1
 Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
 Connected: HTTP 200
 
+/usr/bin/bash: /home/inf151915/miniconda3/lib/libtinfo.so.6: no version information available (required by /usr/bin/bash)
+
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connection failed: <urlopen error [Errno 111] Connection refused>. Retrying in 10 seconds...
+Connected: HTTP 200
+
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    from multiprocessing.spawn import spawn_main; spawn_main(tracker_fd=6, pipe_handle=8)
+                                                  ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/inf151915/miniconda3/lib/python3.13/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+  File "/home/inf151915/miniconda3/lib/python3.13/multiprocessing/spawn.py", line 131, in _main
+    prepare(preparation_data)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "/home/inf151915/miniconda3/lib/python3.13/multiprocessing/spawn.py", line 235, in prepare
+    os.chdir(data['dir'])
+    ~~~~~~~~^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/inf151915/d2t/problems/triples_to_text/outputs'
+
+# >>>>>>>>>>>>>>>>>>>>>> ERROR REPORT <<<<<<<<<<<<<<<<<<<<<<
+
+    Traceback (most recent call last):
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/exception_handler.py", line 28, in __call__
+        return func(*args, **kwargs)
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/cli/main.py", line 61, in main_subshell
+        exit_code = do_call(args, parser)
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/cli/conda_argparse.py", line 205, in do_call
+        result = getattr(module, func_name)(args, parser)
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/cli/main_run.py", line 109, in execute
+        response = subprocess_call(
+            command,
+        ...<3 lines>...
+            capture_output=not args.no_capture_output,
+        )
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/gateways/subprocess.py", line 108, in subprocess_call
+        process = Popen(
+            command,
+        ...<6 lines>...
+            errors="replace",
+        )
+      File "/home/inf151915/miniconda3/lib/python3.13/subprocess.py", line 1039, in __init__
+        self._execute_child(args, executable, preexec_fn, close_fds,
+        ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                            pass_fds, cwd, env,
+                            ^^^^^^^^^^^^^^^^^^^
+        ...<5 lines>...
+                            gid, gids, uid, umask,
+                            ^^^^^^^^^^^^^^^^^^^^^^
+                            start_new_session, process_group)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      File "/home/inf151915/miniconda3/lib/python3.13/subprocess.py", line 1972, in _execute_child
+        raise child_exception_type(errno_num, err_msg, err_filename)
+    FileNotFoundError: [Errno 2] No such file or directory: '/home/inf151915/d2t/problems/triples_to_text/outputs'
+
+`$ /home/inf151915/miniconda3/bin/conda run -n openevolve-env python /home/inf151915/d2t/tripler/batch_wrapper_server.py --upstream-base-url http://localhost:2993 --port 2992 --storage-dir /home/inf151915/.batch_wrapper_data`
+
+  environment variables:
+     BUNDLED_DEBUGPY_PATH=/home/inf151915/.vscode-server/extensions/ms-
+                          python.debugpy-2025.18.0-linux-x64/bundled/libs/debugpy
+                 CIO_TEST=<not set>
+        CONDA_DEFAULT_ENV=base
+                CONDA_EXE=/home/inf151915/miniconda3/bin/conda
+             CONDA_PREFIX=/home/inf151915/miniconda3
+    CONDA_PROMPT_MODIFIER=(base)
+         CONDA_PYTHON_EXE=/home/inf151915/miniconda3/bin/python
+               CONDA_ROOT=/home/inf151915/miniconda3
+              CONDA_SHLVL=1
+           CURL_CA_BUNDLE=<not set>
+          LD_LIBRARY_PATH=/home/inf151915/miniconda3/lib:
+               LD_PRELOAD=<not set>
+                  MANPATH=:
+               MODULEPATH=/etc/environment-modules/modules:/usr/share/modules/versions:/usr/shar
+                          e/modules/$MODULE_VERSION/modulefiles:/usr/share/modules/modulefiles
+                     PATH=/home/inf151915/.vscode-server/data/User/globalStorage/github.copilot-
+                          chat/debugCommand:/home/inf151915/.vscode-
+                          server/data/User/globalStorage/github.copilot-
+                          chat/copilotCli:/home/inf151915/.vscode-server/cli/servers/Stable-
+                          07ff9d6178ede9a1bd12ad3399074d726ebe6e43/server/bin/remote-cli:/home/i
+                          nf151915/miniconda3/bin:/home/inf151915/miniconda3/condabin:/usr/local
+                          /sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/snap/bi
+                          n:/home/inf151915/.vscode-server/extensions/ms-
+                          python.debugpy-2025.18.0-linux-x64/bundled/scripts/noConfigScripts
+            PYTHONSTARTUP=/home/inf151915/.vscode-
+                          server/data/User/workspaceStorage/4060dcccb2e37efb99481837381cc91f/ms-
+                          python.python/pythonrc.py
+        PYTHON_BASIC_REPL=1
+       REQUESTS_CA_BUNDLE=<not set>
+            SSL_CERT_FILE=<not set>
+         WEBNLG_BASE_PATH=/home/inf151915/d2t/problems/triples_to_text/tests/webnlg/release_v3.0
+                          /en/
+
+     active environment : base
+    active env location : /home/inf151915/miniconda3
+            shell level : 1
+       user config file : /home/inf151915/.condarc
+ populated config files : /home/inf151915/miniconda3/.condarc
+          conda version : 25.9.1
+    conda-build version : not installed
+         python version : 3.13.9.final.0
+                 solver : libmamba (default)
+       virtual packages : __archspec=1=zen3
+                          __conda=25.9.1=0
+                          __glibc=2.35=0
+                          __linux=5.15.0=0
+                          __unix=0=0
+       base environment : /home/inf151915/miniconda3  (writable)
+      conda av data dir : /home/inf151915/miniconda3/etc/conda
+  conda av metadata url : None
+           channel URLs : https://repo.anaconda.com/pkgs/main/linux-64
+                          https://repo.anaconda.com/pkgs/main/noarch
+                          https://repo.anaconda.com/pkgs/r/linux-64
+                          https://repo.anaconda.com/pkgs/r/noarch
+          package cache : /home/inf151915/miniconda3/pkgs
+                          /home/inf151915/.conda/pkgs
+       envs directories : /home/inf151915/miniconda3/envs
+                          /home/inf151915/.conda/envs
+               platform : linux-64
+             user-agent : conda/25.9.1 requests/2.32.5 CPython/3.13.9 Linux/5.15.0-56-generic ubuntu/22.04.1 glibc/2.35 solver/libmamba conda-libmamba-solver/25.4.0 libmambapy/2.3.2 aau/0.7.4 c/. s/. e/.
+                UID:GID : 19329:120
+             netrc file : None
+           offline mode : False
+
+
+An unexpected error has occurred. Conda has prepared the above report.
+If you suspect this error is being caused by a malfunctioning plugin,
+consider using the --no-plugins option to turn off plugins.
+
+Example: conda --no-plugins install <package>
+
+Alternatively, you can set the CONDA_NO_PLUGINS environment variable on
+the command line to run the command without plugins enabled.
+
+Example: CONDA_NO_PLUGINS=true conda install <package>
+
