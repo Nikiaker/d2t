@@ -1,0 +1,23 @@
+Przerobić na batch completions -> to może przyspieszyć
+    Opcja 1: w proxy stworzyć obiekt LLM
+    Opcja 2: w proxy użyć vLLM API batch completions
+
+Puścić testy openevolve, żeby sobie szły
+    - wersja z inspiracjami
+    - bez inspiracji
+    - z wyspami
+    - bez wysp
+    - używając THEMISA
+    - używając BLUE
+    (generalnie przygotować wiele wersji)
+
+Przetestować generowanie trójek z:
+    dane->trójki->predykaty->uspójnianie (LLM dobierz pary -> zweryfikuj pary -> scal -> powtórz)->normalizacja trójek
+
+    dane->tekst->trójki->(tak samo jak wyżej)
+
+    problem->potencjalne predykaty->trójki (na bazie predykatów + nowe)
+
+    * musi być jakaś ewaluacja tego jak dane referencyjne zostały przygotowane
+
+Spróbować ręcznie pogenerować trójki
