@@ -142,60 +142,33 @@ def create_app(upstream_base_url: str, storage_dir: str) -> FastAPI:
     app = FastAPI(title="vLLM Batch Wrapper", version="0.1.0")
     storage = Storage(Path(storage_dir))
 
-    async def run_single_request(client: httpx.AsyncClient, line: dict[str, Any]) -> dict[str, Any]:
-        custom_id = str(line.get("custom_id", ""))
-        method = str(line.get("method", "POST")).upper()
-        url = str(line.get("url", ""))
-        body = line.get("body", {})
+    def _error_result(custom_id: str, error_type: str, message: Any, status_code: int | None = None) -> dict[str, Any]:
+        error_payload: dict[str, Any] = {
+            "type": error_type,
+            "message": message,
+        }
+        if status_code is not None:
+            error_payload["status_code"] = status_code
+        return {
+            "custom_id": custom_id,
+            "error": error_payload,
+        }
 
-        if method != "POST":
-            return {
-                "custom_id": custom_id,
-                "error": {
-                    "type": "unsupported_method",
-                    "message": f"Only POST is supported, got {method}",
-                },
-            }
+    def _success_result(custom_id: str, response_json: dict[str, Any], status_code: int, request_id: str) -> dict[str, Any]:
+        return {
+            "id": f"batch_req-{uuid.uuid4().hex}",
+            "custom_id": custom_id,
+            "response": {
+                "status_code": status_code,
+                "request_id": request_id,
+                "body": response_json,
+            },
+            "error": None,
+        }
 
-        if url != "/v1/chat/completions":
-            return {
-                "custom_id": custom_id,
-                "error": {
-                    "type": "unsupported_url",
-                    "message": f"Only /v1/chat/completions is supported, got {url}",
-                },
-            }
-
-        try:
-            response = await client.post(url, json=body)
-            response_json = response.json()
-            if response.status_code >= 400:
-                return {
-                    "custom_id": custom_id,
-                    "error": {
-                        "type": "upstream_http_error",
-                        "status_code": response.status_code,
-                        "message": response_json,
-                    },
-                }
-            return {
-                "id": f"batch_req-{uuid.uuid4().hex}",
-                "custom_id": custom_id,
-                "response": {
-                    "status_code": response.status_code,
-                    "request_id": response.headers.get("x-request-id", ""),
-                    "body": response_json,
-                },
-                "error": None,
-            }
-        except Exception as exc:
-            return {
-                "custom_id": custom_id,
-                "error": {
-                    "type": "upstream_exception",
-                    "message": str(exc),
-                },
-            }
+    def _group_key_from_body(body: dict[str, Any]) -> str:
+        common_body = {k: v for k, v in body.items() if k != "messages"}
+        return json.dumps(common_body, sort_keys=True, ensure_ascii=False)
 
     async def process_batch(batch_id: str) -> None:
         try:
@@ -206,31 +179,135 @@ def create_app(upstream_base_url: str, storage_dir: str) -> FastAPI:
 
             timeout = httpx.Timeout(120.0, connect=10.0)
             async with httpx.AsyncClient(base_url=upstream_base_url, timeout=timeout) as client:
-                max_concurrency = 1000
-                indexed_requests: asyncio.Queue[tuple[int, dict[str, Any]]] = asyncio.Queue()
-                for idx, req in enumerate(requests_payload):
-                    indexed_requests.put_nowait((idx, req))
-
+                grouped_requests: dict[str, dict[str, Any]] = {}
                 results: list[dict[str, Any] | None] = [None] * len(requests_payload)
 
-                async def worker() -> None:
-                    while True:
-                        try:
-                            idx, req = indexed_requests.get_nowait()
-                        except asyncio.QueueEmpty:
-                            return
-                        try:
-                            results[idx] = await run_single_request(client, req)
-                        finally:
-                            indexed_requests.task_done()
+                for idx, req in enumerate(requests_payload):
+                    custom_id = str(req.get("custom_id", ""))
+                    method = str(req.get("method", "POST")).upper()
+                    url = str(req.get("url", ""))
+                    body = req.get("body", {})
 
-                worker_count = min(max_concurrency, len(requests_payload))
-                if worker_count > 0:
-                    workers = [asyncio.create_task(worker()) for _ in range(worker_count)]
-                    await indexed_requests.join()
-                    await asyncio.gather(*workers)
+                    if method != "POST":
+                        results[idx] = _error_result(
+                            custom_id=custom_id,
+                            error_type="unsupported_method",
+                            message=f"Only POST is supported, got {method}",
+                        )
+                        continue
 
-                final_results = [result for result in results if result is not None]
+                    if url != "/v1/chat/completions":
+                        results[idx] = _error_result(
+                            custom_id=custom_id,
+                            error_type="unsupported_url",
+                            message=f"Only /v1/chat/completions is supported, got {url}",
+                        )
+                        continue
+
+                    if not isinstance(body, dict):
+                        results[idx] = _error_result(
+                            custom_id=custom_id,
+                            error_type="invalid_body",
+                            message="Request body must be a JSON object",
+                        )
+                        continue
+
+                    messages = body.get("messages")
+                    if not isinstance(messages, list):
+                        results[idx] = _error_result(
+                            custom_id=custom_id,
+                            error_type="invalid_messages",
+                            message="Request body must include messages as a list",
+                        )
+                        continue
+
+                    group_key = _group_key_from_body(body)
+                    group = grouped_requests.setdefault(
+                        group_key,
+                        {
+                            "common_body": {k: v for k, v in body.items() if k != "messages"},
+                            "items": [],
+                        },
+                    )
+                    group["items"].append(
+                        {
+                            "idx": idx,
+                            "custom_id": custom_id,
+                            "messages": messages,
+                        }
+                    )
+
+                for group in grouped_requests.values():
+                    items: list[dict[str, Any]] = group["items"]
+                    batch_payload = dict(group["common_body"])
+                    batch_payload["messages"] = [item["messages"] for item in items]
+
+                    try:
+                        response = await client.post("/v1/chat/completions/batch", json=batch_payload)
+                    except Exception as exc:
+                        for item in items:
+                            results[item["idx"]] = _error_result(
+                                custom_id=item["custom_id"],
+                                error_type="upstream_exception",
+                                message=str(exc),
+                            )
+                        continue
+
+                    try:
+                        response_json = response.json()
+                    except ValueError:
+                        response_json = {"raw_text": response.text}
+
+                    if response.status_code >= 400:
+                        for item in items:
+                            results[item["idx"]] = _error_result(
+                                custom_id=item["custom_id"],
+                                error_type="upstream_http_error",
+                                message=response_json,
+                                status_code=response.status_code,
+                            )
+                        continue
+
+                    choices = response_json.get("choices") if isinstance(response_json, dict) else None
+                    if not isinstance(choices, list):
+                        for item in items:
+                            results[item["idx"]] = _error_result(
+                                custom_id=item["custom_id"],
+                                error_type="malformed_batch_response",
+                                message="Batch response missing choices array",
+                            )
+                        continue
+
+                    choices_by_index = {
+                        choice.get("index"): choice
+                        for choice in choices
+                        if isinstance(choice, dict) and isinstance(choice.get("index"), int)
+                    }
+
+                    for position, item in enumerate(items):
+                        choice = choices_by_index.get(position)
+                        if choice is None:
+                            results[item["idx"]] = _error_result(
+                                custom_id=item["custom_id"],
+                                error_type="missing_choice",
+                                message=f"No choice returned for batch item index {position}",
+                            )
+                            continue
+
+                        single_response = dict(response_json)
+                        single_response["choices"] = [choice]
+                        results[item["idx"]] = _success_result(
+                            custom_id=item["custom_id"],
+                            response_json=single_response,
+                            status_code=response.status_code,
+                            request_id=response.headers.get("x-request-id", ""),
+                        )
+
+                final_results = [
+                    result
+                    for result in results
+                    if result is not None
+                ]
 
             output_jsonl = "\n".join(json.dumps(result, ensure_ascii=False) for result in final_results) + "\n"
             output_file = storage.save_file_from_text(

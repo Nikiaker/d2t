@@ -1,8 +1,14 @@
 1. Ogarnąć vllm online batched completions
 2. Puścić testy (z różnymi wariancjami - with themis, with blue)
 3. Przetestować warianty:
-    Dane => trójki -> predykaty ||=> porównane predykaty każdy z każdym => znormalizowane predykaty -> znormalizowane trójki
+    Dane => trójki -> predykaty ||=> porównane predykaty każdy z każdym -> znormalizowane predykaty -> znormalizowane trójki
     *new
-    Dane => trójki -> (predykaty => wybrane pary predykatów(;; jeśli nic) ||=> porównane pary predykatów)
+    Dane => trójki -> (predykaty => wybrane pary predykatów(;; jeśli nic) ||=> porównane pary predykatów) -> znormalizowane predykaty -> znormalizowane trójki
 
-    Dane => teksty => trójki -> predykaty => porównane predykaty każdy z każdym => znormalizowane predykaty -> znormalizowane trójki
+    Dane => teksty => trójki -> predykaty => porównane predykaty każdy z każdym -> znormalizowane predykaty -> znormalizowane trójki
+    *new
+    Dane => teksty => trójki -> (predykaty => wybrane pary predykatów(;; jeśli nic) ||=> porównane pary predykatów) -> znormalizowane predykaty -> znormalizowane trójki
+
+    Problem => predykaty => trójki z predykatów i danych (+nowe predykaty)
+
+4. Pobawić się w ręczne tworzenie trójek na podstawie danych
