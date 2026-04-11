@@ -10,76 +10,81 @@ if __name__ == "__main__":
         webnlg_domains = json.load(f)
     
     domains: list[str] = webnlg_domains["domains"]
+    evolution_configs: list[str] = webnlg_domains["configs"]
 
     Path("./outputs").mkdir(exist_ok=True)
-    
-    # Process each domain
-    for domain in domains:
-        # Create domain output folder
-        output_dir = f"./outputs/{domain}_output"
-        Path(output_dir).mkdir(exist_ok=True)
-        
-        # Set environment variable and run extraction
-        os.environ["WEBNLG_DOMAIN"] = domain
-        print(f"Processing domain: {domain}")
-        extract_triples(f"./{output_dir}/predicates_{domain}.txt")
 
-        # Read predicates from file
-        with open(f"./{output_dir}/predicates_{domain}.txt", "r") as f:
-            predicates_text = f.read()
+    run_all: list[str] = []
 
-        # Copy templates folder
-        templates_src = "./templates"
-        templates_dst = f"{output_dir}/templates"
-        if os.path.exists(templates_dst):
-            shutil.rmtree(templates_dst)
-        shutil.copytree(templates_src, templates_dst)
-        
-        # Copy config_remote.yaml
-        shutil.copy("./config_remote.yaml", f"{output_dir}/config_remote.yaml")
-        
-        # Copy batch_template.txt
-        shutil.copy("./batch_template.sh", f"{output_dir}/{domain}.sh")
+    # Process each config and domain pair
+    for evolution_config in evolution_configs:
+        config_dir = f"./configs/{evolution_config}"
+        config_template_path = f"{config_dir}/config_remote.yaml"
+        batch_template_path = f"{config_dir}/batch_template.sh"
 
-        # Update system_message.txt with domain and triples
-        system_message_path = f"{templates_dst}/system_message.txt"
-        with open(system_message_path, "r") as f:
-            system_message = f.read()
-        
-        system_message = system_message.replace("{domain}", domain)
-        system_message = system_message.replace("{triples}", predicates_text)
-        
-        with open(system_message_path, "w") as f:
-            f.write(system_message)
-        
-        # Update batch_template.sh with domain
-        batch_script_path = f"{output_dir}/{domain}.sh"
-        with open(batch_script_path, "r") as f:
-            batch_script_content = f.read()
+        for domain in domains:
+            # Create domain output folder under config folder
+            output_dir = f"./outputs/{evolution_config}/{domain}_output"
+            Path(output_dir).mkdir(parents=True, exist_ok=True)
 
-        batch_script_content = batch_script_content.replace("{domain}", domain)
+            # Set environment variable and run extraction
+            os.environ["WEBNLG_DOMAIN"] = domain
+            print(f"Processing config={evolution_config}, domain={domain}")
+            extract_triples(f"{output_dir}/predicates_{domain}.txt")
 
-        with open(batch_script_path, "w") as f:
-            f.write(batch_script_content)
+            # Read predicates from file
+            with open(f"{output_dir}/predicates_{domain}.txt", "r") as f:
+                predicates_text = f.read()
 
-        # Update config_remote.yaml template_dir path
-        config_path = f"{output_dir}/config_remote.yaml"
-        with open(config_path, "r") as f:
-            config_content = f.read()
-        
-        #config_content = config_content.replace(
-        #    'template_dir: "./templates/"',
-        #    f'template_dir: "{output_dir}/templates/"'
-        #)
+            # Copy templates folder
+            templates_src = "./templates"
+            templates_dst = f"{output_dir}/templates"
+            if os.path.exists(templates_dst):
+                shutil.rmtree(templates_dst)
+            shutil.copytree(templates_src, templates_dst)
 
-        config_content = config_content.replace(
-            'db_path: "./all_programs/"',
-            f'db_path: "./outputs/{domain}_output/all_programs/"'
-        )
-        
-        with open(config_path, "w") as f:
-            f.write(config_content)
+            # Copy config-specific files
+            shutil.copy(config_template_path, f"{output_dir}/config_remote.yaml")
+            shutil.copy(batch_template_path, f"{output_dir}/{domain}.sh")
 
-    run_all = [f"sbatch ~/d2t/problems/triples_to_text/outputs/{domain}_output/{domain}.sh" for domain in domains]
+            # Update system_message.txt with domain and triples
+            system_message_path = f"{templates_dst}/system_message.txt"
+            with open(system_message_path, "r") as f:
+                system_message = f.read()
+
+            system_message = system_message.replace("{domain}", domain)
+            system_message = system_message.replace("{triples}", predicates_text)
+
+            with open(system_message_path, "w") as f:
+                f.write(system_message)
+
+            # Update batch template with domain and config name
+            batch_script_path = f"{output_dir}/{domain}.sh"
+            with open(batch_script_path, "r") as f:
+                batch_script_content = f.read()
+
+            batch_script_content = batch_script_content.replace("{domain}", domain)
+            batch_script_content = batch_script_content.replace("{evolution_config}", evolution_config)
+
+            with open(batch_script_path, "w") as f:
+                f.write(batch_script_content)
+
+            # Update config db path for the nested output directory
+            config_path = f"{output_dir}/config_remote.yaml"
+            with open(config_path, "r") as f:
+                config_content = f.read()
+
+            config_content = config_content.replace(
+                'db_path: "./all_programs/"',
+                f'db_path: "./outputs/{evolution_config}/{domain}_output/all_programs/"'
+            )
+
+            with open(config_path, "w") as f:
+                f.write(config_content)
+
+            run_all.append(
+                f"sbatch ~/d2t/problems/triples_to_text/outputs/{evolution_config}/{domain}_output/{domain}.sh"
+            )
+
     with open("./run_all.sh", "w") as f:
         f.writelines("\n".join(run_all))

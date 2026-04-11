@@ -18,18 +18,6 @@ SERVER_PID1=$!
 
 conda run -n openevolve-env python ~/d2t/.conda/test-response.py --port 2993
 
-CUDA_VISIBLE_DEVICES=1,2 \
-conda run -n vllm-env vllm serve \
-	Qwen/Qwen3.5-122B-A10B-FP8 \
-    --port 2994 \
-    --reasoning-parser qwen3 \
-    --language-model-only \
-    --tensor-parallel-size 2 \
-    > "$SERVER_LOG2" 2>&1 &
-SERVER_PID2=$!
-
-conda run -n openevolve-env python ~/d2t/.conda/test-response.py --port 2994
-
 conda run -n openevolve-env python ~/d2t/tripler/batch_wrapper_server.py \
     --upstream-base-url http://localhost:2993 \
     --port 2992 \
