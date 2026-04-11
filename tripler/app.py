@@ -1,6 +1,5 @@
 import argparse
 import json
-import itertools
 import re
 import io
 import time
@@ -11,6 +10,8 @@ import logging
 from json import JSONDecodeError
 
 from openai import OpenAI
+
+from normalization_workflow import run_normalization_from_extraction_output
 
 logger = logging.getLogger(__name__)
 
@@ -29,6 +30,14 @@ EQUIVALENCE_SYSTEM_PROMPT = (
     "Return ONLY JSON with schema: "
     '{"equivalent": true|false, "confidence": 0.0-1.0, "reason": "..."}. '
     "Be strict: equivalent only if they can be safely merged in a knowledge graph."
+)
+
+CANDIDATE_EQUIVALENCE_PAIRS_SYSTEM_PROMPT = (
+    "You find candidate predicate pairs that may be semantically equivalent. "
+    "Return ONLY JSON with schema: "
+    '{"pairs":[{"predicate_a":"...","predicate_b":"..."}]}. '
+    "Rules: include only pairs with high likelihood of strict semantic equivalence; "
+    "do not include pairs that are merely related; do not include duplicates or self-pairs."
 )
 
 EXTRACTION_RESPONSE_FORMAT: dict[str, Any] = {
@@ -73,6 +82,33 @@ EQUIVALENCE_RESPONSE_FORMAT: dict[str, Any] = {
                 "reason": {"type": "string"},
             },
             "required": ["equivalent", "confidence", "reason"],
+        },
+    },
+}
+
+CANDIDATE_EQUIVALENCE_PAIRS_RESPONSE_FORMAT: dict[str, Any] = {
+    "type": "json_schema",
+    "json_schema": {
+        "name": "candidate_predicate_pairs",
+        "strict": True,
+        "schema": {
+            "type": "object",
+            "additionalProperties": False,
+            "properties": {
+                "pairs": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": False,
+                        "properties": {
+                            "predicate_a": {"type": "string"},
+                            "predicate_b": {"type": "string"},
+                        },
+                        "required": ["predicate_a", "predicate_b"],
+                    },
+                }
+            },
+            "required": ["pairs"],
         },
     },
 }
@@ -679,6 +715,45 @@ def predicates_equivalent(
     return equivalent, confidence, reason
 
 
+def suggest_equivalent_predicate_pairs(
+    client: OpenAI,
+    model: str,
+    predicates: list[str],
+) -> list[tuple[str, str]]:
+    if len(predicates) < 2:
+        return []
+
+    user_prompt = (
+        "Given this list of predicates, return candidate pairs that may have identical meaning.\n\n"
+        f"predicates={json.dumps(predicates, ensure_ascii=False)}\n\n"
+        "Return JSON only."
+    )
+    try:
+        result = call_llm_json(
+            client=client,
+            model=model,
+            system_prompt=CANDIDATE_EQUIVALENCE_PAIRS_SYSTEM_PROMPT,
+            user_prompt=user_prompt,
+            response_format=CANDIDATE_EQUIVALENCE_PAIRS_RESPONSE_FORMAT,
+        )
+    except Exception as exc:
+        logger.warning("Failed to generate candidate equivalence pairs: %s", exc)
+        return []
+
+    predicate_set = set(predicates)
+    unique_pairs: set[tuple[str, str]] = set()
+    for pair_entry in result.get("pairs", []):
+        p1 = str(pair_entry.get("predicate_a", "")).strip()
+        p2 = str(pair_entry.get("predicate_b", "")).strip()
+        if not p1 or not p2 or p1 == p2:
+            continue
+        if p1 not in predicate_set or p2 not in predicate_set:
+            continue
+        unique_pairs.add(tuple(sorted((p1, p2))))
+
+    return sorted(unique_pairs)
+
+
 def normalize_predicates(
     client: OpenAI,
     model: str,
@@ -686,52 +761,107 @@ def normalize_predicates(
     triples: list[Triple],
     batch_timeout_seconds: int,
 ) -> tuple[list[Triple], dict[str, list[str]], list[dict[str, Any]], int]:
+    if not triples:
+        return [], {}, [], 0
+
     predicates = list(dict.fromkeys(t.predicate for t in triples))
     uf = UnionFind(predicates)
     comparisons: list[dict[str, Any]] = []
-    total_pairs = len(predicates) * (len(predicates) - 1) // 2
+    validated_pair_count = 0
+    seen_candidate_round_signatures: set[tuple[tuple[str, str], ...]] = set()
+    max_rounds = max(1, len(predicates) * 2)
 
-    logger.info(
-        "Unique predicates: %d | Pairwise comparisons (nC2): %d",
-        len(predicates),
-        total_pairs,
-    )
+    for round_num in range(1, max_rounds + 1):
+        current_groups: dict[str, list[str]] = {}
+        for p in predicates:
+            root = uf.find(p)
+            current_groups.setdefault(root, []).append(p)
+        active_predicates = sorted(current_groups.keys())
 
-    predicate_pairs = list(itertools.combinations(predicates, 2))
-    batch_results = predicates_equivalent_batch(
-        client=client,
-        model=model,
-        equivalence_system_prompt=equivalence_system_prompt,
-        predicate_pairs=predicate_pairs,
-        batch_timeout_seconds=batch_timeout_seconds,
-    )
-
-    for current_num, comparison in enumerate(batch_results, start=1):
-        p1 = str(comparison.get("predicate_a", ""))
-        p2 = str(comparison.get("predicate_b", ""))
-        equivalent = bool(comparison.get("equivalent", False))
-        confidence = float(comparison.get("confidence", 0.0))
-        reason = str(comparison.get("reason", ""))
-
-        comparisons.append(
-            {
-                "predicate_a": p1,
-                "predicate_b": p2,
-                "equivalent": equivalent,
-                "confidence": confidence,
-                "reason": reason,
-            }
+        logger.info(
+            "Normalization round %d: active canonical predicates=%d",
+            round_num,
+            len(active_predicates),
         )
-        if equivalent:
-            logger.debug(
-                "Predicates '%s' and '%s' are equivalent (confidence: %.2f)",
-                p1,
-                p2,
-                confidence,
-            )
-            uf.union(p1, p2)
+        if len(active_predicates) < 2:
+            logger.info("Stopping normalization: fewer than two active predicates remain")
+            break
 
-        logger.info("Completed %d/%d comparisons", current_num, total_pairs)
+        candidate_pairs = suggest_equivalent_predicate_pairs(
+            client=client,
+            model=model,
+            predicates=active_predicates,
+        )
+        logger.info(
+            "Round %d: LLM proposed %d candidate predicate pairs",
+            round_num,
+            len(candidate_pairs),
+        )
+        if not candidate_pairs:
+            logger.info("Stopping normalization: LLM found no more candidate pairs")
+            break
+
+        round_signature = tuple(candidate_pairs)
+        if round_signature in seen_candidate_round_signatures:
+            logger.warning(
+                "Stopping normalization: candidate pairs repeated without convergence in round %d",
+                round_num,
+            )
+            break
+        seen_candidate_round_signatures.add(round_signature)
+
+        batch_results = predicates_equivalent_batch(
+            client=client,
+            model=model,
+            equivalence_system_prompt=equivalence_system_prompt,
+            predicate_pairs=candidate_pairs,
+            batch_timeout_seconds=batch_timeout_seconds,
+        )
+
+        merges_this_round = 0
+        for comparison in batch_results:
+            p1 = str(comparison.get("predicate_a", ""))
+            p2 = str(comparison.get("predicate_b", ""))
+            equivalent = bool(comparison.get("equivalent", False))
+            confidence = float(comparison.get("confidence", 0.0))
+            reason = str(comparison.get("reason", ""))
+
+            comparisons.append(
+                {
+                    "round": round_num,
+                    "predicate_a": p1,
+                    "predicate_b": p2,
+                    "equivalent": equivalent,
+                    "confidence": confidence,
+                    "reason": reason,
+                }
+            )
+            validated_pair_count += 1
+
+            if equivalent:
+                root_a = uf.find(p1)
+                root_b = uf.find(p2)
+                if root_a != root_b:
+                    uf.union(root_a, root_b)
+                    merges_this_round += 1
+                    logger.debug(
+                        "Round %d merge: '%s' and '%s' are equivalent (confidence: %.2f)",
+                        round_num,
+                        p1,
+                        p2,
+                        confidence,
+                    )
+
+        logger.info(
+            "Round %d complete: validated=%d, merges=%d",
+            round_num,
+            len(batch_results),
+            merges_this_round,
+        )
+
+        if merges_this_round == 0:
+            logger.info("Stopping normalization: no validated merges in this round")
+            break
 
     groups: dict[str, list[str]] = {}
     for p in predicates:
@@ -749,7 +879,7 @@ def normalize_predicates(
         for t in triples
     ]
 
-    return normalized, groups, comparisons, total_pairs
+    return normalized, groups, comparisons, validated_pair_count
 
 
 def cmd_extract(args: argparse.Namespace) -> None:
@@ -810,53 +940,14 @@ def cmd_extract(args: argparse.Namespace) -> None:
 
 def cmd_normalize(args: argparse.Namespace) -> None:
     """Normalize predicates using extracted triples from extraction output file."""
-    logger.info(f"OpenAI base URL: {args.base_url}")
-    logger.info(f"Model: {args.model}")
-
-    extraction_output = json.loads(Path(args.input).read_text(encoding="utf-8"))
-    equivalence_system_prompt = load_prompt_override(args.equivalence_prompt_file, EQUIVALENCE_SYSTEM_PROMPT)
-
-    all_triples_dict = extraction_output.get("all_triples", [])
-    all_triples = [
-        Triple(
-            subject=t["subject"],
-            predicate=t["predicate"],
-            object=t["object"],
-        )
-        for t in all_triples_dict
-    ]
-
-    logger.info(f"Loaded {len(all_triples)} triples from {args.input}")
-    logger.info("Normalizing predicates across all triples...")
-
-    client = OpenAI(base_url=args.base_url, api_key=args.api_key)
-
-    normalized, groups, comparisons, predicate_pair_comparisons_count = normalize_predicates(
-        client=client,
-        model=args.model,
-        equivalence_system_prompt=equivalence_system_prompt,
-        triples=all_triples,
-        batch_timeout_seconds=args.batch_timeout_seconds,
+    run_normalization_from_extraction_output(
+        args=args,
+        logger=logger,
+        default_equivalence_system_prompt=EQUIVALENCE_SYSTEM_PROMPT,
+        load_prompt_override=load_prompt_override,
+        normalize_predicates=normalize_predicates,
+        triple_type=Triple,
     )
-
-    unique_predicates_before = list(dict.fromkeys(t.predicate for t in all_triples))
-    unique_predicates_after = list(dict.fromkeys(t.predicate for t in normalized))
-
-    normalization_output = {
-        "extraction_source": args.input,
-        "unique_predicates_before": unique_predicates_before,
-        "unique_predicates_after": unique_predicates_after,
-        "predicate_pair_comparisons_count": predicate_pair_comparisons_count,
-        "predicate_groups": groups,
-        "pairwise_predicate_comparisons": comparisons,
-        "normalized_triples": [asdict(t) for t in normalized],
-    }
-
-    Path(args.output).write_text(
-        json.dumps(normalization_output, indent=2, ensure_ascii=False),
-        encoding="utf-8",
-    )
-    logger.info(f"Normalization complete. Results saved to {args.output}")
 
 
 def main() -> None:

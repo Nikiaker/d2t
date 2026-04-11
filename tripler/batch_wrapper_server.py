@@ -364,6 +364,29 @@ def create_app(upstream_base_url: str, storage_dir: str) -> FastAPI:
             raise HTTPException(status_code=404, detail=f"File not found: {exc}") from exc
         return Response(content=content, media_type="application/octet-stream")
 
+    @app.post("/v1/chat/completions")
+    async def proxy_chat_completions(payload: dict[str, Any]) -> Response:
+        timeout = httpx.Timeout(120.0, connect=10.0)
+        try:
+            async with httpx.AsyncClient(base_url=upstream_base_url, timeout=timeout) as client:
+                upstream_response = await client.post("/v1/chat/completions", json=payload)
+        except Exception as exc:
+            raise HTTPException(status_code=502, detail=f"Upstream request failed: {exc}") from exc
+
+        passthrough_headers = {}
+        content_type = upstream_response.headers.get("content-type")
+        request_id = upstream_response.headers.get("x-request-id")
+        if content_type:
+            passthrough_headers["content-type"] = content_type
+        if request_id:
+            passthrough_headers["x-request-id"] = request_id
+
+        return Response(
+            content=upstream_response.content,
+            status_code=upstream_response.status_code,
+            headers=passthrough_headers,
+        )
+
     @app.post("/v1/batches")
     async def create_batch(payload: dict[str, Any]) -> dict[str, Any]:
         input_file_id = str(payload.get("input_file_id", ""))

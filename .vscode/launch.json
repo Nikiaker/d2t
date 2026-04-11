@@ -20,6 +20,15 @@
             "args": ["initial_program.py", "evaluator.py", "--config", "./outputs/Airport_output/config_remote.yaml", "--output", "./outputs/Airport_output/openevolve_output"],
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}/problems/triples_to_text"
+        },
+        {
+            "name": "Python: Tripler Run",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/tripler/app.py",
+            "args": ["extract", "--input", "inputs/input_data_weather_dev_full.json", "--output", "extracted_triples.json", "--model", "google/gemma-3-270m-it", "--base-url", "http://localhost:8002/v1", "--api-key", "none"],
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/tripler"
         }
     ]
 }
