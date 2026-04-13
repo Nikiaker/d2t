@@ -1,6 +1,6 @@
 import os
 
-os.environ["CONFIG_PATH"] = "./outputs/Airport_output/config_remote.yaml"
+os.environ["CONFIG_PATH"] = "./config_remote.yaml"
 
 from evaluator import evaluate
 

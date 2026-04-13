@@ -1,0 +1,6913 @@
+{
+  "extraction_source": "outputs/test6-manual/extracted_triples_2.json",
+  "unique_predicates_before": [
+    "has_weather_period",
+    "is_dry",
+    "has_precipitation",
+    "peak_at",
+    "drop_to_low_of",
+    "vary_between",
+    "are_generally",
+    "occasionally_gust_up_to",
+    "has_high_temperature",
+    "has_low_temperature",
+    "occurs_between",
+    "has_sky_condition",
+    "peaks_on",
+    "has_value",
+    "reaches_maximum",
+    "has_characteristic",
+    "has_temperature_trend",
+    "high_value",
+    "is",
+    "low_value",
+    "starts_with",
+    "clear_starting",
+    "has_condition",
+    "has_forecast_condition",
+    "clears_up_by",
+    "occurs_on",
+    "experiences",
+    "expected_precipitation",
+    "evolves_from",
+    "evolves_to",
+    "has_condition_stabilization",
+    "has_sky_condition_on_January_8th",
+    "transitions_to",
+    "returns_to",
+    "occurs_through",
+    "has_range",
+    "is_characterized_as",
+    "follow_cycle",
+    "dip_to",
+    "ranges_between",
+    "has_temperature_range",
+    "temperature_period",
+    "has_weather_transition",
+    "conditions_clear_up_on",
+    "returns_on",
+    "has_peak_temperature",
+    "clear_up_on",
+    "has_rain_stretch",
+    "occurs_from",
+    "occurs_until",
+    "are",
+    "is_highest_during",
+    "is_value",
+    "characterized_by",
+    "transitions_through",
+    "ends_with",
+    "occurs_during",
+    "has_weather_condition",
+    "experienced",
+    "occurred_between",
+    "rose_from",
+    "reached_peak_of",
+    "occurred_on",
+    "transitioned_from",
+    "transitioned_to",
+    "ended_with",
+    "fluctuated_significantly",
+    "dropped_from_high_of",
+    "dropped_to_low_of",
+    "occurred_toward",
+    "generally_increased",
+    "peaked_at",
+    "has_weather",
+    "has_level",
+    "have_peak_value",
+    "will_experience",
+    "has_weather_on_Jan_4",
+    "peaks_at",
+    "concludes_with",
+    "bottoms_out_at",
+    "has_humidity",
+    "has_temperature",
+    "has_peak_high_temperature",
+    "has_maximum_temperature",
+    "has_weather_forecast_period",
+    "is_primarily",
+    "dips_to",
+    "ranges_from",
+    "ranges_to",
+    "starts_on",
+    "ends_on",
+    "transitions_from",
+    "high_temperature",
+    "low_temperature",
+    "shifts_to",
+    "occurs_after",
+    "includes",
+    "typically_occur",
+    "characterized_as",
+    "forecast_precipitation",
+    "consists_primarily_of",
+    "has_winds",
+    "stay_below",
+    "peaks_during",
+    "experiencing",
+    "range_from",
+    "range_to",
+    "status",
+    "intensity",
+    "direction",
+    "has_expected_condition",
+    "has_expected_humidity",
+    "has_minimum_temperature",
+    "has_maximum_value",
+    "has_minimum_value",
+    "trend",
+    "reach_maximum",
+    "has_temperature_low",
+    "has_temperature_high",
+    "occurs_by",
+    "condition_early_period",
+    "occur_between",
+    "will_be",
+    "expected_around",
+    "blow_from",
+    "starts_at",
+    "falls_to_low",
+    "will_be_severely_reduced",
+    "has_daytime_peak",
+    "has_nighttime_low",
+    "is_generally",
+    "has_occasional_gusts_up_to",
+    "is_rainy_and_overcast",
+    "is_around",
+    "has_clearer_skies",
+    "is_significantly_colder",
+    "has_low_of",
+    "has_peak_of",
+    "peak_around",
+    "decrease_as",
+    "temperature_date",
+    "has_forecast_start_condition",
+    "has_weather_event",
+    "temperature_trend",
+    "has_cloud_cover",
+    "drops_to_low_of",
+    "occurs_to",
+    "has_temperature_status",
+    "drop_from",
+    "drop_to",
+    "begins_with",
+    "is_approximately",
+    "reaches_low_of",
+    "is_characterized_by",
+    "starts_as",
+    "brings",
+    "clear_again_by",
+    "has_feels_like_temperature",
+    "is_status",
+    "has_intensity",
+    "intensify_starting",
+    "reach_up_to",
+    "occurred_by",
+    "transition_to",
+    "occurred_around",
+    "return_to",
+    "has_final_event",
+    "will_steadily_decline",
+    "will_transition_to",
+    "will_drop_significantly",
+    "transitions_into",
+    "shows",
+    "started_with",
+    "ranged_from",
+    "clear_significantly_on",
+    "had",
+    "is_for",
+    "range_down_to",
+    "has",
+    "occurs",
+    "drop_below_freezing",
+    "reached_peak_temperature",
+    "reached_low_temperature",
+    "will_drop_significantly_during",
+    "will_have_weather_transition",
+    "will_peak_around",
+    "will_continue_through",
+    "will_be_followed_by",
+    "will_clear_by",
+    "will_reach_low_of",
+    "will_reach_up_to",
+    "is_accompanied_by",
+    "will_hover_near",
+    "is_cold_and_volatile",
+    "are_around",
+    "fluctuate_between",
+    "is_reduced_during",
+    "drops_below",
+    "will_transition_from",
+    "will_become",
+    "accompanied_by",
+    "reach_gusts_of",
+    "has_daily_high_temperature",
+    "has_overnight_low_temperature",
+    "has_forecast",
+    "is_significantly_lower_than",
+    "daytime_high",
+    "nighttime_low",
+    "peak_value",
+    "minimum_value",
+    "occurred_at",
+    "has_weather_forecast",
+    "has_status",
+    "exceeds",
+    "ceases_on",
+    "clear_on",
+    "drops_significantly_after",
+    "reaches_low_temperature",
+    "experienced_light_rain",
+    "experienced_consistent_snow",
+    "has_wind_chill_low",
+    "increased_during",
+    "occurs_around",
+    "duration",
+    "will_fluctuate",
+    "range",
+    "has_forecast_precipitation",
+    "has_forecast_sky_condition",
+    "has_peak_humidity",
+    "has_wind_direction",
+    "has_wind_speed_range",
+    "steadily_decline",
+    "reduces",
+    "generally_moderate",
+    "culminates_in",
+    "will_drop_sharply_during",
+    "reaches_minimum_of",
+    "is_predominantly",
+    "have_lows_around",
+    "have_peak_high",
+    "is_typically_between",
+    "increase_slightly_toward",
+    "occurred_during",
+    "features",
+    "fluctuate_significantly",
+    "continues_through",
+    "strongest_during",
+    "reach_over",
+    "become",
+    "has_temperature_approx",
+    "has_temperature_drop",
+    "shifts_from",
+    "has_weather_progression",
+    "has_humidity_range",
+    "has_wind_condition",
+    "will_have",
+    "stabilize_by",
+    "will_have_temperature_around",
+    "reach",
+    "is_at_start",
+    "has_wind_speed_trend",
+    "has_peak_wind_speed",
+    "steadily_increases",
+    "are_strongest_during",
+    "calm_during",
+    "occurred_from",
+    "occurred_to",
+    "had_high_of",
+    "had_low_of",
+    "began_with",
+    "followed_by",
+    "reduced",
+    "cleared_toward",
+    "remained",
+    "has_peak_value",
+    "will_plummet_to_low",
+    "have_condition",
+    "hovers_near",
+    "has_weather_on",
+    "drops_from",
+    "improve_between",
+    "reached_on",
+    "reach_low_by",
+    "remain",
+    "peak_on",
+    "gradually_decline",
+    "will_reach_low_on",
+    "will_rise",
+    "has_peak_amount",
+    "will_increase",
+    "experienced_temperatures",
+    "were_generally",
+    "increased_toward",
+    "have_intensity",
+    "occurs_particularly_on_mornings_of",
+    "lasts_until",
+    "has_temperature_forecast",
+    "reach_low_of",
+    "rises_to",
+    "increase_during",
+    "is_mild_and_overcast",
+    "consists_of",
+    "drops_to",
+    "improve_toward"
+  ],
+  "unique_predicates_after": [
+    "has_weather_period",
+    "is_dry",
+    "has_precipitation",
+    "peak_at",
+    "drop_to_low_of",
+    "vary_between",
+    "are_generally",
+    "occasionally_gust_up_to",
+    "has_high_temperature",
+    "has_low_temperature",
+    "occurs_between",
+    "has_sky_condition",
+    "peaks_on",
+    "has_value",
+    "reaches_maximum",
+    "has_characteristic",
+    "has_temperature_trend",
+    "high_value",
+    "is",
+    "low_value",
+    "starts_with",
+    "clear_starting",
+    "has_condition",
+    "has_forecast_condition",
+    "clears_up_by",
+    "occurs_on",
+    "experiences",
+    "expected_precipitation",
+    "evolves_from",
+    "evolves_to",
+    "has_condition_stabilization",
+    "has_sky_condition_on_January_8th",
+    "transitions_to",
+    "returns_to",
+    "occurs_through",
+    "has_range",
+    "is_characterized_as",
+    "follow_cycle",
+    "dip_to",
+    "ranges_between",
+    "has_temperature_range",
+    "temperature_period",
+    "has_weather_transition",
+    "conditions_clear_up_on",
+    "returns_on",
+    "has_peak_temperature",
+    "clear_up_on",
+    "has_rain_stretch",
+    "occurs_from",
+    "occurs_until",
+    "are",
+    "is_highest_during",
+    "is_value",
+    "characterized_by",
+    "transitions_through",
+    "ends_with",
+    "occurs_during",
+    "has_weather_condition",
+    "experienced",
+    "occurred_between",
+    "rose_from",
+    "reached_peak_of",
+    "occurred_on",
+    "transitioned_from",
+    "transitioned_to",
+    "ended_with",
+    "fluctuated_significantly",
+    "dropped_from_high_of",
+    "dropped_to_low_of",
+    "occurred_toward",
+    "generally_increased",
+    "has_level",
+    "have_peak_value",
+    "will_experience",
+    "has_weather_on_Jan_4",
+    "bottoms_out_at",
+    "has_humidity",
+    "has_temperature",
+    "has_peak_high_temperature",
+    "has_weather_forecast_period",
+    "is_primarily",
+    "ranges_from",
+    "ranges_to",
+    "starts_on",
+    "ends_on",
+    "transitions_from",
+    "high_temperature",
+    "low_temperature",
+    "shifts_to",
+    "occurs_after",
+    "includes",
+    "typically_occur",
+    "forecast_precipitation",
+    "consists_primarily_of",
+    "has_winds",
+    "stay_below",
+    "peaks_during",
+    "range_to",
+    "status",
+    "intensity",
+    "direction",
+    "has_expected_condition",
+    "has_expected_humidity",
+    "has_minimum_temperature",
+    "has_maximum_value",
+    "has_minimum_value",
+    "trend",
+    "occurs_by",
+    "condition_early_period",
+    "occur_between",
+    "will_be",
+    "expected_around",
+    "blow_from",
+    "starts_at",
+    "falls_to_low",
+    "will_be_severely_reduced",
+    "has_daytime_peak",
+    "has_nighttime_low",
+    "has_occasional_gusts_up_to",
+    "is_rainy_and_overcast",
+    "is_around",
+    "has_clearer_skies",
+    "is_significantly_colder",
+    "has_low_of",
+    "has_peak_of",
+    "peak_around",
+    "decrease_as",
+    "temperature_date",
+    "has_forecast_start_condition",
+    "has_weather_event",
+    "temperature_trend",
+    "has_cloud_cover",
+    "occurs_to",
+    "has_temperature_status",
+    "drop_from",
+    "drop_to",
+    "reaches_low_of",
+    "starts_as",
+    "brings",
+    "clear_again_by",
+    "has_feels_like_temperature",
+    "is_status",
+    "has_intensity",
+    "intensify_starting",
+    "reach_up_to",
+    "occurred_by",
+    "occurred_around",
+    "return_to",
+    "has_final_event",
+    "will_steadily_decline",
+    "will_transition_to",
+    "will_drop_significantly",
+    "shows",
+    "started_with",
+    "clear_significantly_on",
+    "had",
+    "is_for",
+    "range_down_to",
+    "has",
+    "occurs",
+    "drop_below_freezing",
+    "reached_peak_temperature",
+    "reached_low_temperature",
+    "will_drop_significantly_during",
+    "will_have_weather_transition",
+    "will_peak_around",
+    "will_continue_through",
+    "will_be_followed_by",
+    "will_clear_by",
+    "will_reach_low_of",
+    "will_reach_up_to",
+    "is_accompanied_by",
+    "will_hover_near",
+    "is_cold_and_volatile",
+    "are_around",
+    "fluctuate_between",
+    "is_reduced_during",
+    "drops_below",
+    "will_transition_from",
+    "will_become",
+    "accompanied_by",
+    "reach_gusts_of",
+    "has_daily_high_temperature",
+    "has_overnight_low_temperature",
+    "has_forecast",
+    "is_significantly_lower_than",
+    "daytime_high",
+    "nighttime_low",
+    "peak_value",
+    "occurred_at",
+    "has_weather_forecast",
+    "exceeds",
+    "ceases_on",
+    "clear_on",
+    "drops_significantly_after",
+    "reaches_low_temperature",
+    "experienced_light_rain",
+    "experienced_consistent_snow",
+    "has_wind_chill_low",
+    "increased_during",
+    "occurs_around",
+    "duration",
+    "will_fluctuate",
+    "range",
+    "has_forecast_precipitation",
+    "has_forecast_sky_condition",
+    "has_peak_humidity",
+    "has_wind_direction",
+    "has_wind_speed_range",
+    "steadily_decline",
+    "reduces",
+    "generally_moderate",
+    "culminates_in",
+    "will_drop_sharply_during",
+    "have_lows_around",
+    "have_peak_high",
+    "is_typically_between",
+    "increase_slightly_toward",
+    "occurred_during",
+    "features",
+    "fluctuate_significantly",
+    "continues_through",
+    "strongest_during",
+    "reach_over",
+    "become",
+    "has_temperature_approx",
+    "has_temperature_drop",
+    "shifts_from",
+    "has_weather_progression",
+    "has_humidity_range",
+    "has_wind_condition",
+    "will_have",
+    "stabilize_by",
+    "will_have_temperature_around",
+    "reach",
+    "is_at_start",
+    "has_wind_speed_trend",
+    "has_peak_wind_speed",
+    "steadily_increases",
+    "are_strongest_during",
+    "calm_during",
+    "occurred_from",
+    "occurred_to",
+    "had_high_of",
+    "followed_by",
+    "reduced",
+    "cleared_toward",
+    "remained",
+    "will_plummet_to_low",
+    "hovers_near",
+    "has_weather_on",
+    "improve_between",
+    "reached_on",
+    "reach_low_by",
+    "remain",
+    "peak_on",
+    "gradually_decline",
+    "will_reach_low_on",
+    "will_rise",
+    "has_peak_amount",
+    "will_increase",
+    "experienced_temperatures",
+    "were_generally",
+    "increased_toward",
+    "have_intensity",
+    "occurs_particularly_on_mornings_of",
+    "lasts_until",
+    "has_temperature_forecast",
+    "rises_to",
+    "increase_during",
+    "is_mild_and_overcast",
+    "consists_of",
+    "improve_toward"
+  ],
+  "predicate_pair_comparisons_count": 94,
+  "predicate_groups": {
+    "has_weather_period": [
+      "has_weather_period"
+    ],
+    "is_dry": [
+      "is_dry"
+    ],
+    "has_precipitation": [
+      "has_precipitation"
+    ],
+    "peak_at": [
+      "peak_at",
+      "peaked_at",
+      "peaks_at"
+    ],
+    "drop_to_low_of": [
+      "drop_to_low_of",
+      "drops_to_low_of"
+    ],
+    "vary_between": [
+      "vary_between"
+    ],
+    "are_generally": [
+      "are_generally",
+      "is_generally"
+    ],
+    "occasionally_gust_up_to": [
+      "occasionally_gust_up_to"
+    ],
+    "has_high_temperature": [
+      "has_high_temperature"
+    ],
+    "has_low_temperature": [
+      "has_low_temperature"
+    ],
+    "occurs_between": [
+      "occurs_between"
+    ],
+    "has_sky_condition": [
+      "has_sky_condition"
+    ],
+    "peaks_on": [
+      "peaks_on"
+    ],
+    "has_value": [
+      "has_value"
+    ],
+    "reach_maximum": [
+      "reaches_maximum",
+      "reach_maximum"
+    ],
+    "has_characteristic": [
+      "has_characteristic"
+    ],
+    "has_temperature_trend": [
+      "has_temperature_trend"
+    ],
+    "high_value": [
+      "high_value"
+    ],
+    "is": [
+      "is"
+    ],
+    "low_value": [
+      "low_value"
+    ],
+    "begins_with": [
+      "starts_with",
+      "begins_with",
+      "began_with"
+    ],
+    "clear_starting": [
+      "clear_starting"
+    ],
+    "has_condition": [
+      "has_condition",
+      "have_condition"
+    ],
+    "has_forecast_condition": [
+      "has_forecast_condition"
+    ],
+    "clears_up_by": [
+      "clears_up_by"
+    ],
+    "occurs_on": [
+      "occurs_on"
+    ],
+    "experiences": [
+      "experiences",
+      "experiencing"
+    ],
+    "expected_precipitation": [
+      "expected_precipitation"
+    ],
+    "evolves_from": [
+      "evolves_from"
+    ],
+    "evolves_to": [
+      "evolves_to"
+    ],
+    "has_condition_stabilization": [
+      "has_condition_stabilization"
+    ],
+    "has_sky_condition_on_January_8th": [
+      "has_sky_condition_on_January_8th"
+    ],
+    "transition_to": [
+      "transitions_to",
+      "transition_to"
+    ],
+    "returns_to": [
+      "returns_to"
+    ],
+    "occurs_through": [
+      "occurs_through"
+    ],
+    "has_range": [
+      "has_range"
+    ],
+    "characterized_as": [
+      "is_characterized_as",
+      "characterized_as"
+    ],
+    "follow_cycle": [
+      "follow_cycle"
+    ],
+    "dip_to": [
+      "dip_to",
+      "dips_to"
+    ],
+    "ranges_between": [
+      "ranges_between"
+    ],
+    "has_temperature_range": [
+      "has_temperature_range"
+    ],
+    "temperature_period": [
+      "temperature_period"
+    ],
+    "has_weather_transition": [
+      "has_weather_transition"
+    ],
+    "conditions_clear_up_on": [
+      "conditions_clear_up_on"
+    ],
+    "returns_on": [
+      "returns_on"
+    ],
+    "has_maximum_temperature": [
+      "has_peak_temperature",
+      "has_maximum_temperature"
+    ],
+    "clear_up_on": [
+      "clear_up_on"
+    ],
+    "has_rain_stretch": [
+      "has_rain_stretch"
+    ],
+    "occurs_from": [
+      "occurs_from"
+    ],
+    "occurs_until": [
+      "occurs_until"
+    ],
+    "are": [
+      "are"
+    ],
+    "is_highest_during": [
+      "is_highest_during"
+    ],
+    "is_value": [
+      "is_value"
+    ],
+    "characterized_by": [
+      "characterized_by",
+      "is_characterized_by"
+    ],
+    "transitions_through": [
+      "transitions_through"
+    ],
+    "concludes_with": [
+      "ends_with",
+      "concludes_with"
+    ],
+    "occurs_during": [
+      "occurs_during"
+    ],
+    "has_weather": [
+      "has_weather_condition",
+      "has_weather"
+    ],
+    "experienced": [
+      "experienced"
+    ],
+    "occurred_between": [
+      "occurred_between"
+    ],
+    "rose_from": [
+      "rose_from"
+    ],
+    "reached_peak_of": [
+      "reached_peak_of"
+    ],
+    "occurred_on": [
+      "occurred_on"
+    ],
+    "transitioned_from": [
+      "transitioned_from"
+    ],
+    "transitioned_to": [
+      "transitioned_to",
+      "transitions_into"
+    ],
+    "ended_with": [
+      "ended_with"
+    ],
+    "fluctuated_significantly": [
+      "fluctuated_significantly"
+    ],
+    "dropped_from_high_of": [
+      "dropped_from_high_of"
+    ],
+    "dropped_to_low_of": [
+      "dropped_to_low_of"
+    ],
+    "occurred_toward": [
+      "occurred_toward"
+    ],
+    "generally_increased": [
+      "generally_increased"
+    ],
+    "has_level": [
+      "has_level"
+    ],
+    "have_peak_value": [
+      "have_peak_value"
+    ],
+    "will_experience": [
+      "will_experience"
+    ],
+    "has_weather_on_Jan_4": [
+      "has_weather_on_Jan_4"
+    ],
+    "bottoms_out_at": [
+      "bottoms_out_at"
+    ],
+    "has_humidity": [
+      "has_humidity"
+    ],
+    "has_temperature": [
+      "has_temperature"
+    ],
+    "has_peak_high_temperature": [
+      "has_peak_high_temperature"
+    ],
+    "has_weather_forecast_period": [
+      "has_weather_forecast_period"
+    ],
+    "is_predominantly": [
+      "is_primarily",
+      "is_predominantly"
+    ],
+    "range_from": [
+      "ranges_from",
+      "range_from",
+      "ranged_from"
+    ],
+    "ranges_to": [
+      "ranges_to"
+    ],
+    "starts_on": [
+      "starts_on"
+    ],
+    "ends_on": [
+      "ends_on"
+    ],
+    "transitions_from": [
+      "transitions_from"
+    ],
+    "has_temperature_high": [
+      "high_temperature",
+      "has_temperature_high"
+    ],
+    "has_temperature_low": [
+      "low_temperature",
+      "has_temperature_low"
+    ],
+    "shifts_to": [
+      "shifts_to"
+    ],
+    "occurs_after": [
+      "occurs_after"
+    ],
+    "includes": [
+      "includes"
+    ],
+    "typically_occur": [
+      "typically_occur"
+    ],
+    "forecast_precipitation": [
+      "forecast_precipitation"
+    ],
+    "consists_primarily_of": [
+      "consists_primarily_of"
+    ],
+    "has_winds": [
+      "has_winds"
+    ],
+    "stay_below": [
+      "stay_below"
+    ],
+    "peaks_during": [
+      "peaks_during"
+    ],
+    "range_to": [
+      "range_to"
+    ],
+    "status": [
+      "status"
+    ],
+    "intensity": [
+      "intensity"
+    ],
+    "direction": [
+      "direction"
+    ],
+    "has_expected_condition": [
+      "has_expected_condition"
+    ],
+    "has_expected_humidity": [
+      "has_expected_humidity"
+    ],
+    "has_minimum_temperature": [
+      "has_minimum_temperature"
+    ],
+    "has_maximum_value": [
+      "has_maximum_value",
+      "has_peak_value"
+    ],
+    "has_minimum_value": [
+      "has_minimum_value",
+      "minimum_value"
+    ],
+    "trend": [
+      "trend"
+    ],
+    "occurs_by": [
+      "occurs_by"
+    ],
+    "condition_early_period": [
+      "condition_early_period"
+    ],
+    "occur_between": [
+      "occur_between"
+    ],
+    "will_be": [
+      "will_be"
+    ],
+    "expected_around": [
+      "expected_around"
+    ],
+    "blow_from": [
+      "blow_from"
+    ],
+    "starts_at": [
+      "starts_at"
+    ],
+    "falls_to_low": [
+      "falls_to_low"
+    ],
+    "will_be_severely_reduced": [
+      "will_be_severely_reduced"
+    ],
+    "has_daytime_peak": [
+      "has_daytime_peak"
+    ],
+    "has_nighttime_low": [
+      "has_nighttime_low"
+    ],
+    "has_occasional_gusts_up_to": [
+      "has_occasional_gusts_up_to"
+    ],
+    "is_rainy_and_overcast": [
+      "is_rainy_and_overcast"
+    ],
+    "is_approximately": [
+      "is_around",
+      "is_approximately"
+    ],
+    "has_clearer_skies": [
+      "has_clearer_skies"
+    ],
+    "is_significantly_colder": [
+      "is_significantly_colder"
+    ],
+    "had_low_of": [
+      "has_low_of",
+      "had_low_of"
+    ],
+    "has_peak_of": [
+      "has_peak_of"
+    ],
+    "peak_around": [
+      "peak_around"
+    ],
+    "decrease_as": [
+      "decrease_as"
+    ],
+    "temperature_date": [
+      "temperature_date"
+    ],
+    "has_forecast_start_condition": [
+      "has_forecast_start_condition"
+    ],
+    "has_weather_event": [
+      "has_weather_event"
+    ],
+    "temperature_trend": [
+      "temperature_trend"
+    ],
+    "has_cloud_cover": [
+      "has_cloud_cover"
+    ],
+    "occurs_to": [
+      "occurs_to"
+    ],
+    "has_temperature_status": [
+      "has_temperature_status"
+    ],
+    "drop_from": [
+      "drop_from",
+      "drops_from"
+    ],
+    "drop_to": [
+      "drop_to",
+      "drops_to"
+    ],
+    "reach_low_of": [
+      "reaches_low_of",
+      "reaches_minimum_of",
+      "reach_low_of"
+    ],
+    "starts_as": [
+      "starts_as"
+    ],
+    "brings": [
+      "brings"
+    ],
+    "clear_again_by": [
+      "clear_again_by"
+    ],
+    "has_feels_like_temperature": [
+      "has_feels_like_temperature"
+    ],
+    "has_status": [
+      "is_status",
+      "has_status"
+    ],
+    "has_intensity": [
+      "has_intensity"
+    ],
+    "intensify_starting": [
+      "intensify_starting"
+    ],
+    "reach_up_to": [
+      "reach_up_to"
+    ],
+    "occurred_by": [
+      "occurred_by"
+    ],
+    "occurred_around": [
+      "occurred_around"
+    ],
+    "return_to": [
+      "return_to"
+    ],
+    "has_final_event": [
+      "has_final_event"
+    ],
+    "will_steadily_decline": [
+      "will_steadily_decline"
+    ],
+    "will_transition_to": [
+      "will_transition_to"
+    ],
+    "will_drop_significantly": [
+      "will_drop_significantly"
+    ],
+    "shows": [
+      "shows"
+    ],
+    "started_with": [
+      "started_with"
+    ],
+    "clear_significantly_on": [
+      "clear_significantly_on"
+    ],
+    "had": [
+      "had"
+    ],
+    "is_for": [
+      "is_for"
+    ],
+    "range_down_to": [
+      "range_down_to"
+    ],
+    "has": [
+      "has"
+    ],
+    "occurs": [
+      "occurs"
+    ],
+    "drop_below_freezing": [
+      "drop_below_freezing"
+    ],
+    "reached_peak_temperature": [
+      "reached_peak_temperature"
+    ],
+    "reached_low_temperature": [
+      "reached_low_temperature"
+    ],
+    "will_drop_significantly_during": [
+      "will_drop_significantly_during"
+    ],
+    "will_have_weather_transition": [
+      "will_have_weather_transition"
+    ],
+    "will_peak_around": [
+      "will_peak_around"
+    ],
+    "will_continue_through": [
+      "will_continue_through"
+    ],
+    "will_be_followed_by": [
+      "will_be_followed_by"
+    ],
+    "will_clear_by": [
+      "will_clear_by"
+    ],
+    "will_reach_low_of": [
+      "will_reach_low_of"
+    ],
+    "will_reach_up_to": [
+      "will_reach_up_to"
+    ],
+    "is_accompanied_by": [
+      "is_accompanied_by"
+    ],
+    "will_hover_near": [
+      "will_hover_near"
+    ],
+    "is_cold_and_volatile": [
+      "is_cold_and_volatile"
+    ],
+    "are_around": [
+      "are_around"
+    ],
+    "fluctuate_between": [
+      "fluctuate_between"
+    ],
+    "is_reduced_during": [
+      "is_reduced_during"
+    ],
+    "drops_below": [
+      "drops_below"
+    ],
+    "will_transition_from": [
+      "will_transition_from"
+    ],
+    "will_become": [
+      "will_become"
+    ],
+    "accompanied_by": [
+      "accompanied_by"
+    ],
+    "reach_gusts_of": [
+      "reach_gusts_of"
+    ],
+    "has_daily_high_temperature": [
+      "has_daily_high_temperature"
+    ],
+    "has_overnight_low_temperature": [
+      "has_overnight_low_temperature"
+    ],
+    "has_forecast": [
+      "has_forecast"
+    ],
+    "is_significantly_lower_than": [
+      "is_significantly_lower_than"
+    ],
+    "daytime_high": [
+      "daytime_high"
+    ],
+    "nighttime_low": [
+      "nighttime_low"
+    ],
+    "peak_value": [
+      "peak_value"
+    ],
+    "occurred_at": [
+      "occurred_at"
+    ],
+    "has_weather_forecast": [
+      "has_weather_forecast"
+    ],
+    "exceeds": [
+      "exceeds"
+    ],
+    "ceases_on": [
+      "ceases_on"
+    ],
+    "clear_on": [
+      "clear_on"
+    ],
+    "drops_significantly_after": [
+      "drops_significantly_after"
+    ],
+    "reaches_low_temperature": [
+      "reaches_low_temperature"
+    ],
+    "experienced_light_rain": [
+      "experienced_light_rain"
+    ],
+    "experienced_consistent_snow": [
+      "experienced_consistent_snow"
+    ],
+    "has_wind_chill_low": [
+      "has_wind_chill_low"
+    ],
+    "increased_during": [
+      "increased_during"
+    ],
+    "occurs_around": [
+      "occurs_around"
+    ],
+    "duration": [
+      "duration"
+    ],
+    "will_fluctuate": [
+      "will_fluctuate"
+    ],
+    "range": [
+      "range"
+    ],
+    "has_forecast_precipitation": [
+      "has_forecast_precipitation"
+    ],
+    "has_forecast_sky_condition": [
+      "has_forecast_sky_condition"
+    ],
+    "has_peak_humidity": [
+      "has_peak_humidity"
+    ],
+    "has_wind_direction": [
+      "has_wind_direction"
+    ],
+    "has_wind_speed_range": [
+      "has_wind_speed_range"
+    ],
+    "steadily_decline": [
+      "steadily_decline"
+    ],
+    "reduces": [
+      "reduces"
+    ],
+    "generally_moderate": [
+      "generally_moderate"
+    ],
+    "culminates_in": [
+      "culminates_in"
+    ],
+    "will_drop_sharply_during": [
+      "will_drop_sharply_during"
+    ],
+    "have_lows_around": [
+      "have_lows_around"
+    ],
+    "have_peak_high": [
+      "have_peak_high"
+    ],
+    "is_typically_between": [
+      "is_typically_between"
+    ],
+    "increase_slightly_toward": [
+      "increase_slightly_toward"
+    ],
+    "occurred_during": [
+      "occurred_during"
+    ],
+    "features": [
+      "features"
+    ],
+    "fluctuate_significantly": [
+      "fluctuate_significantly"
+    ],
+    "continues_through": [
+      "continues_through"
+    ],
+    "strongest_during": [
+      "strongest_during"
+    ],
+    "reach_over": [
+      "reach_over"
+    ],
+    "become": [
+      "become"
+    ],
+    "has_temperature_approx": [
+      "has_temperature_approx"
+    ],
+    "has_temperature_drop": [
+      "has_temperature_drop"
+    ],
+    "shifts_from": [
+      "shifts_from"
+    ],
+    "has_weather_progression": [
+      "has_weather_progression"
+    ],
+    "has_humidity_range": [
+      "has_humidity_range"
+    ],
+    "has_wind_condition": [
+      "has_wind_condition"
+    ],
+    "will_have": [
+      "will_have"
+    ],
+    "stabilize_by": [
+      "stabilize_by"
+    ],
+    "will_have_temperature_around": [
+      "will_have_temperature_around"
+    ],
+    "reach": [
+      "reach"
+    ],
+    "is_at_start": [
+      "is_at_start"
+    ],
+    "has_wind_speed_trend": [
+      "has_wind_speed_trend"
+    ],
+    "has_peak_wind_speed": [
+      "has_peak_wind_speed"
+    ],
+    "steadily_increases": [
+      "steadily_increases"
+    ],
+    "are_strongest_during": [
+      "are_strongest_during"
+    ],
+    "calm_during": [
+      "calm_during"
+    ],
+    "occurred_from": [
+      "occurred_from"
+    ],
+    "occurred_to": [
+      "occurred_to"
+    ],
+    "had_high_of": [
+      "had_high_of"
+    ],
+    "followed_by": [
+      "followed_by"
+    ],
+    "reduced": [
+      "reduced"
+    ],
+    "cleared_toward": [
+      "cleared_toward"
+    ],
+    "remained": [
+      "remained"
+    ],
+    "will_plummet_to_low": [
+      "will_plummet_to_low"
+    ],
+    "hovers_near": [
+      "hovers_near"
+    ],
+    "has_weather_on": [
+      "has_weather_on"
+    ],
+    "improve_between": [
+      "improve_between"
+    ],
+    "reached_on": [
+      "reached_on"
+    ],
+    "reach_low_by": [
+      "reach_low_by"
+    ],
+    "remain": [
+      "remain"
+    ],
+    "peak_on": [
+      "peak_on"
+    ],
+    "gradually_decline": [
+      "gradually_decline"
+    ],
+    "will_reach_low_on": [
+      "will_reach_low_on"
+    ],
+    "will_rise": [
+      "will_rise"
+    ],
+    "has_peak_amount": [
+      "has_peak_amount"
+    ],
+    "will_increase": [
+      "will_increase"
+    ],
+    "experienced_temperatures": [
+      "experienced_temperatures"
+    ],
+    "were_generally": [
+      "were_generally"
+    ],
+    "increased_toward": [
+      "increased_toward"
+    ],
+    "have_intensity": [
+      "have_intensity"
+    ],
+    "occurs_particularly_on_mornings_of": [
+      "occurs_particularly_on_mornings_of"
+    ],
+    "lasts_until": [
+      "lasts_until"
+    ],
+    "has_temperature_forecast": [
+      "has_temperature_forecast"
+    ],
+    "rises_to": [
+      "rises_to"
+    ],
+    "increase_during": [
+      "increase_during"
+    ],
+    "is_mild_and_overcast": [
+      "is_mild_and_overcast"
+    ],
+    "consists_of": [
+      "consists_of"
+    ],
+    "improve_toward": [
+      "improve_toward"
+    ]
+  },
+  "pairwise_predicate_comparisons": [
+    {
+      "round": 1,
+      "predicate_a": "are",
+      "predicate_b": "is",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "While both are forms of the verb 'to be', they differ in grammatical number (singular vs. plural). In a knowledge graph, predicates represent specific relations; 'is' and 'are' are typically normalized to a single identity relation (e.g., 'isA' or 'equals'), but as raw linguistic tokens, they are distinct forms."
+    },
+    {
+      "round": 1,
+      "predicate_a": "are_generally",
+      "predicate_b": "is_generally",
+      "equivalent": true,
+      "confidence": 1.0,
+      "reason": "The only difference is the grammatical number (plural vs. singular) of the copula. In the context of knowledge graph predicates, they represent the same semantic relationship of general characteristic or tendency regardless of the subject's cardinality."
+    },
+    {
+      "round": 1,
+      "predicate_a": "began_with",
+      "predicate_b": "starts_with",
+      "equivalent": true,
+      "confidence": 1.0,
+      "reason": "In the context of strings, sequences, or events, 'began_with' and 'starts_with' are semantically identical, describing the initial element or segment of an entity."
+    },
+    {
+      "round": 1,
+      "predicate_a": "begins_with",
+      "predicate_b": "starts_with",
+      "equivalent": true,
+      "confidence": 1.0,
+      "reason": "In the context of string or sequence manipulation, 'begins_with' and 'starts_with' are synonymous and describe the exact same logical relationship: that a sequence starts with a specific prefix."
+    },
+    {
+      "round": 1,
+      "predicate_a": "characterized_as",
+      "predicate_b": "is_characterized_as",
+      "equivalent": true,
+      "confidence": 1.0,
+      "reason": "The addition of the copula 'is' in predicate_b is a grammatical variation that does not change the semantic meaning of the relationship expressed by 'characterized_as'. In a knowledge graph context, these are functionally identical."
+    },
+    {
+      "round": 1,
+      "predicate_a": "characterized_by",
+      "predicate_b": "is_characterized_by",
+      "equivalent": true,
+      "confidence": 1.0,
+      "reason": "The difference is purely syntactic (the inclusion of the copula 'is'). In the context of knowledge graph predicates, 'characterized_by' and 'is_characterized_by' represent the same semantic relation between a subject and its characteristics."
+    },
+    {
+      "round": 1,
+      "predicate_a": "dip_to",
+      "predicate_b": "dips_to",
+      "equivalent": true,
+      "confidence": 1.0,
+      "reason": "The predicates differ only by a plural/third-person singular inflection ('s'), which is a morphological variation of the same verb 'dip'. In a knowledge graph, these represent the same semantic relationship."
+    },
+    {
+      "round": 1,
+      "predicate_a": "drop_from",
+      "predicate_b": "drops_from",
+      "equivalent": true,
+      "confidence": 0.95,
+      "reason": "The difference is purely morphological (singular vs. plural/third-person conjugation of the same verb). In the context of knowledge graph predicates, they describe the same semantic relationship."
+    },
+    {
+      "round": 1,
+      "predicate_a": "drop_to",
+      "predicate_b": "drops_to",
+      "equivalent": true,
+      "confidence": 1.0,
+      "reason": "The predicates differ only by a suffix ('s') indicating a grammatical tense or number agreement (drop vs. drops). In the context of knowledge graph predicates, which typically represent relations rather than natural language sentences, these are semantically identical."
+    },
+    {
+      "round": 1,
+      "predicate_a": "drop_to_low_of",
+      "predicate_b": "drops_to_low_of",
+      "equivalent": true,
+      "confidence": 1.0,
+      "reason": "The difference is purely morphological (singular vs. third-person singular verb conjugation). In the context of knowledge graph predicates, these represent the same semantic relationship."
+    },
+    {
+      "round": 1,
+      "predicate_a": "experienced",
+      "predicate_b": "experiences",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in grammatical tense: 'experienced' is past tense or a participial adjective, while 'experiences' is present tense. In a knowledge graph, these represent different temporal states or aspects of an event."
+    },
+    {
+      "round": 1,
+      "predicate_a": "experienced",
+      "predicate_b": "experiencing",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in grammatical aspect/tense: 'experienced' refers to a past or completed event, whereas 'experiencing' refers to an ongoing or current state. In a knowledge graph, these represent different temporal states."
+    },
+    {
+      "round": 1,
+      "predicate_a": "has_condition",
+      "predicate_b": "has_weather_condition",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "'has_condition' is a generic predicate that can refer to medical conditions, legal conditions, or general states, whereas 'has_weather_condition' is specifically restricted to meteorological phenomena."
+    },
+    {
+      "round": 1,
+      "predicate_a": "has_low_temperature",
+      "predicate_b": "has_minimum_temperature",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "'Low temperature' is a qualitative descriptor indicating a value below a certain threshold, whereas 'minimum temperature' refers to the lowest recorded or possible value within a specific set or period."
+    },
+    {
+      "round": 1,
+      "predicate_a": "has_maximum_temperature",
+      "predicate_b": "has_peak_temperature",
+      "equivalent": true,
+      "confidence": 0.95,
+      "reason": "In the context of temperature measurements, 'maximum' and 'peak' are synonymous terms referring to the highest value reached during a specific period or process."
+    },
+    {
+      "round": 1,
+      "predicate_a": "has_maximum_value",
+      "predicate_b": "has_peak_value",
+      "equivalent": true,
+      "confidence": 0.9,
+      "reason": "In the context of data and knowledge graphs, 'maximum value' and 'peak value' both refer to the highest numerical point in a set or signal. They are functionally interchangeable for representing the upper bound of a measured property."
+    },
+    {
+      "round": 1,
+      "predicate_a": "occurred_between",
+      "predicate_b": "occurs_between",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in grammatical tense (past vs. present). In a knowledge graph, 'occurred_between' typically refers to a historical event, while 'occurs_between' refers to a recurring event or a general truth. They are not interchangeable."
+    },
+    {
+      "round": 1,
+      "predicate_a": "occurred_on",
+      "predicate_b": "occurs_on",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in grammatical tense ('occurred' is past tense, 'occurs' is present/habitual). In a knowledge graph, these typically represent different temporal properties: one for a historical event and one for a recurring or current event."
+    },
+    {
+      "round": 1,
+      "predicate_a": "peak_at",
+      "predicate_b": "peaked_at",
+      "equivalent": true,
+      "confidence": 0.95,
+      "reason": "The difference is purely morphological (tense/aspect). In a knowledge graph, 'peak_at' and 'peaked_at' describe the same semantic relationship between an entity and its maximum value, regardless of whether the statement is phrased in the present or past tense."
+    },
+    {
+      "round": 1,
+      "predicate_a": "peak_at",
+      "predicate_b": "peaks_at",
+      "equivalent": true,
+      "confidence": 1.0,
+      "reason": "The difference is purely morphological (singular vs. plural/third-person singular verb conjugation). In the context of knowledge graph predicates, these represent the same semantic relationship between an entity and its peak value/time."
+    },
+    {
+      "round": 1,
+      "predicate_a": "range_from",
+      "predicate_b": "ranges_from",
+      "equivalent": true,
+      "confidence": 1.0,
+      "reason": "The predicates are identical in meaning, differing only by a grammatical inflection ('range' vs 'ranges'). In a knowledge graph context, they both represent the same semantic relationship of specifying a starting point of a range."
+    },
+    {
+      "round": 1,
+      "predicate_a": "reach_low_of",
+      "predicate_b": "reaches_low_of",
+      "equivalent": true,
+      "confidence": 1.0,
+      "reason": "The only difference is the inflection of the verb ('reach' vs 'reaches'). In the context of knowledge graph predicates, these represent the same semantic relationship regardless of grammatical number or tense."
+    },
+    {
+      "round": 1,
+      "predicate_a": "transition_to",
+      "predicate_b": "transitions_to",
+      "equivalent": true,
+      "confidence": 1.0,
+      "reason": "The predicates differ only by a grammatical inflection (singular vs. plural/present tense). In the context of a knowledge graph, both represent the same semantic relationship of transitioning from one state or entity to another."
+    },
+    {
+      "round": 2,
+      "predicate_a": "are",
+      "predicate_b": "is",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "While both are forms of the copula verb 'to be', they differ in grammatical number (singular vs. plural). In a knowledge graph, predicates must be consistent; using 'is' and 'are' as distinct predicates would create redundancy, but they are not semantically identical in usage or linguistic function."
+    },
+    {
+      "round": 2,
+      "predicate_a": "characterized_as",
+      "predicate_b": "characterized_by",
+      "equivalent": false,
+      "confidence": 0.95,
+      "reason": "'characterized_as' typically denotes a classification or a label (e.g., 'X is characterized as a leader'), whereas 'characterized_by' denotes a feature, attribute, or property (e.g., 'X is characterized by leadership'). They represent different semantic relationships: categorization vs. attribution."
+    },
+    {
+      "round": 2,
+      "predicate_a": "concludes_with",
+      "predicate_b": "ends_with",
+      "equivalent": true,
+      "confidence": 0.95,
+      "reason": "In the context of a narrative, sequence, or document, 'concludes with' and 'ends with' are semantically interchangeable and refer to the final element of the sequence."
+    },
+    {
+      "round": 2,
+      "predicate_a": "consists_of",
+      "predicate_b": "includes",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "'consists_of' implies an exhaustive list of components (composition), whereas 'includes' implies that the mentioned items are a subset of the whole without necessarily being exhaustive (membership/containment)."
+    },
+    {
+      "round": 2,
+      "predicate_a": "experienced",
+      "predicate_b": "experiences",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in grammatical tense: 'experienced' is past tense or a participial adjective, while 'experiences' is present tense. In a knowledge graph, these represent different temporal states or roles."
+    },
+    {
+      "round": 2,
+      "predicate_a": "experiences",
+      "predicate_b": "experiencing",
+      "equivalent": true,
+      "confidence": 0.95,
+      "reason": "These are different morphological forms (present tense vs. present participle) of the same verb 'experience'. In the context of a knowledge graph, they describe the same semantic relationship between an entity and an event or state."
+    },
+    {
+      "round": 2,
+      "predicate_a": "had",
+      "predicate_b": "has",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in grammatical tense (past vs. present), which represents a distinct temporal state in a knowledge graph."
+    },
+    {
+      "round": 2,
+      "predicate_a": "had_low_of",
+      "predicate_b": "has_low_of",
+      "equivalent": true,
+      "confidence": 0.95,
+      "reason": "The predicates differ only by tense ('had' vs 'has'). In the context of knowledge graph predicates, tense is typically normalized to a present-tense property representing a state or attribute of an entity."
+    },
+    {
+      "round": 2,
+      "predicate_a": "has_condition",
+      "predicate_b": "have_condition",
+      "equivalent": true,
+      "confidence": 1.0,
+      "reason": "The predicates are identical in meaning, differing only by a morphological variation (singular vs. plural/base form) of the same verb. In the context of knowledge graph predicates, 'has_condition' and 'have_condition' describe the same semantic relationship between an entity and a medical or situational condition."
+    },
+    {
+      "round": 2,
+      "predicate_a": "has_high_temperature",
+      "predicate_b": "has_maximum_temperature",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "'High temperature' is a relative qualitative state (above a certain threshold), whereas 'maximum temperature' refers to the peak value recorded or possible. A high temperature is not necessarily the maximum temperature."
+    },
+    {
+      "round": 2,
+      "predicate_a": "has_humidity",
+      "predicate_b": "has_humidity_range",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The first predicate refers to a specific value of humidity, whereas the second refers to a range of values. A single value is not semantically equivalent to a range."
+    },
+    {
+      "round": 2,
+      "predicate_a": "has_low_temperature",
+      "predicate_b": "has_minimum_temperature",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "'Low temperature' is a relative qualitative description, whereas 'minimum temperature' refers to a specific quantitative extreme or a measured lower bound."
+    },
+    {
+      "round": 2,
+      "predicate_a": "has_minimum_value",
+      "predicate_b": "minimum_value",
+      "equivalent": true,
+      "confidence": 0.95,
+      "reason": "In the context of knowledge graph predicates, 'has_minimum_value' (verb-phrase) and 'minimum_value' (noun-phrase) both describe the same semantic relationship between an entity and its lower bound. The 'has_' prefix is a common naming convention for properties that does not change the underlying semantic meaning."
+    },
+    {
+      "round": 2,
+      "predicate_a": "has_peak_of",
+      "predicate_b": "peak_value",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "predicate_a ('has_peak_of') is a relation connecting an entity to its peak, while predicate_b ('peak_value') is a property describing the value of that peak. One is a link between entities, the other is an attribute of a measurement."
+    },
+    {
+      "round": 2,
+      "predicate_a": "has_temperature_high",
+      "predicate_b": "high_temperature",
+      "equivalent": true,
+      "confidence": 0.95,
+      "reason": "Both predicates describe the same state (high temperature). 'has_temperature_high' follows a verb-object-attribute pattern, while 'high_temperature' follows an adjective-noun pattern, but in a knowledge graph context, they both function as a property indicating that an entity's temperature is high."
+    },
+    {
+      "round": 2,
+      "predicate_a": "has_temperature_low",
+      "predicate_b": "low_temperature",
+      "equivalent": true,
+      "confidence": 0.95,
+      "reason": "Both predicates denote the same semantic property (a low temperature state). In a knowledge graph context, 'has_temperature_low' (verb-based) and 'low_temperature' (noun/attribute-based) are typically used interchangeably to represent the same fact about an entity."
+    },
+    {
+      "round": 2,
+      "predicate_a": "has_weather",
+      "predicate_b": "has_weather_condition",
+      "equivalent": true,
+      "confidence": 0.9,
+      "reason": "In the context of knowledge graphs, 'weather' and 'weather condition' are used interchangeably to describe the state of the atmosphere at a given time and place."
+    },
+    {
+      "round": 2,
+      "predicate_a": "is_approximately",
+      "predicate_b": "is_around",
+      "equivalent": true,
+      "confidence": 0.95,
+      "reason": "In the context of a knowledge graph, both 'is_approximately' and 'is_around' serve as hedges for numerical or temporal values, indicating that the value is not exact but close. They are functionally interchangeable for representing approximate values."
+    },
+    {
+      "round": 2,
+      "predicate_a": "is_predominantly",
+      "predicate_b": "is_primarily",
+      "equivalent": true,
+      "confidence": 0.95,
+      "reason": "Both 'predominantly' and 'primarily' denote that a particular quality or characteristic is the most frequent, common, or important element. In the context of knowledge graph predicates, they both function as qualifiers indicating a majority or primary state."
+    },
+    {
+      "round": 2,
+      "predicate_a": "occurred_between",
+      "predicate_b": "occurs_between",
+      "equivalent": false,
+      "confidence": 0.95,
+      "reason": "The predicates differ in grammatical tense (past vs. present). In a knowledge graph, 'occurred_between' typically refers to a completed historical event, while 'occurs_between' refers to a recurring or current state. They are not interchangeable in a strict temporal context."
+    },
+    {
+      "round": 2,
+      "predicate_a": "occurred_during",
+      "predicate_b": "occurs_during",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in grammatical tense (past vs. present). In a knowledge graph, 'occurred_during' typically refers to a historical event, while 'occurs_during' refers to a recurring or general truth. Merging them would lose the temporal distinction between a specific past occurrence and a general property."
+    },
+    {
+      "round": 2,
+      "predicate_a": "occurred_on",
+      "predicate_b": "occurs_on",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in grammatical tense ('occurred' is past tense, 'occurs' is present tense). In a knowledge graph, these represent different temporal aspects: one denotes a completed event in the past, while the other denotes a recurring event or a general fact."
+    },
+    {
+      "round": 2,
+      "predicate_a": "reach_low_of",
+      "predicate_b": "reaches_minimum_of",
+      "equivalent": true,
+      "confidence": 0.95,
+      "reason": "Both predicates describe the event of a value or entity attaining its lowest point in a given range or period. In a knowledge graph context, 'low' and 'minimum' are semantically interchangeable when describing the bottom limit of a measurement."
+    },
+    {
+      "round": 2,
+      "predicate_a": "reach_maximum",
+      "predicate_b": "reaches_maximum",
+      "equivalent": true,
+      "confidence": 1.0,
+      "reason": "The predicates differ only by a grammatical inflection (third-person singular 's'). In the context of knowledge graph predicates, these represent the same semantic relation."
+    },
+    {
+      "round": 3,
+      "predicate_a": "are",
+      "predicate_b": "is",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "While both are forms of the verb 'to be', they differ in grammatical number (singular vs. plural) and agreement. In a knowledge graph, predicates are typically treated as relations; while they represent the same logical concept of equality or membership, they are distinct linguistic tokens. However, strict semantic equivalence in a KG context usually requires identical meaning and usage; since 'is' and 'are' are not interchangeable in all contexts without changing the subject's number, they are not strictly equivalent."
+    },
+    {
+      "round": 3,
+      "predicate_a": "characterized_as",
+      "predicate_b": "characterized_by",
+      "equivalent": false,
+      "confidence": 0.95,
+      "reason": "'characterized_as' typically introduces a classification or label (e.g., 'X is characterized as a leader'), whereas 'characterized_by' introduces a feature or property (e.g., 'X is characterized by leadership'). They describe different semantic relationships: identity/categorization vs. attribution/property."
+    },
+    {
+      "round": 3,
+      "predicate_a": "drop_to",
+      "predicate_b": "drop_to_low_of",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "'drop_to' is a general movement or change of state to a specific target, whereas 'drop_to_low_of' specifically implies reaching the minimum point or lower bound of a particular range or entity. The latter is a specialized subset of the former."
+    },
+    {
+      "round": 3,
+      "predicate_a": "experienced",
+      "predicate_b": "experiences",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in grammatical tense: 'experienced' is past tense or a participial adjective, while 'experiences' is present tense. In a knowledge graph, these represent different temporal states or functional roles."
+    },
+    {
+      "round": 3,
+      "predicate_a": "has_high_temperature",
+      "predicate_b": "has_maximum_temperature",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "'has_high_temperature' describes a state or quality (a temperature that is above a certain threshold), whereas 'has_maximum_temperature' describes a specific peak value or a limit (the highest temperature reached or possible)."
+    },
+    {
+      "round": 3,
+      "predicate_a": "has_low_temperature",
+      "predicate_b": "has_minimum_temperature",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "'Low temperature' is a relative qualitative state (a range), whereas 'minimum temperature' refers to a specific extreme value (the lowest point in a set or period)."
+    },
+    {
+      "round": 3,
+      "predicate_a": "has_low_temperature",
+      "predicate_b": "has_minimum_value",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates describe fundamentally different concepts: 'has_low_temperature' refers to a specific physical property (temperature) being at a low level, whereas 'has_minimum_value' is a general mathematical or quantitative property referring to the lowest point in a set of values, regardless of the property being measured."
+    },
+    {
+      "round": 3,
+      "predicate_a": "has_maximum_temperature",
+      "predicate_b": "has_temperature_high",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The first predicate refers to a specific upper bound (maximum), whereas the second refers to a general quality or a high value of temperature. A maximum temperature is a single defined limit, while a high temperature is a relative state."
+    },
+    {
+      "round": 3,
+      "predicate_a": "has_maximum_value",
+      "predicate_b": "has_peak_of",
+      "equivalent": false,
+      "confidence": 0.9,
+      "reason": "While related, 'has_maximum_value' typically refers to a scalar limit or a defined upper bound of a range, whereas 'has_peak_of' often refers to a specific point of highest intensity or frequency within a temporal or spatial distribution (e.g., a peak in a wave or a peak in population). They are not interchangeable in all knowledge graph contexts."
+    },
+    {
+      "round": 3,
+      "predicate_a": "has_minimum_temperature",
+      "predicate_b": "has_temperature_low",
+      "equivalent": false,
+      "confidence": 0.95,
+      "reason": "'has_minimum_temperature' refers to a specific threshold or lower bound of a range, whereas 'has_temperature_low' describes a qualitative state or a relative value. They are not interchangeable in a knowledge graph."
+    },
+    {
+      "round": 3,
+      "predicate_a": "occurred_between",
+      "predicate_b": "occurs_between",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in grammatical tense (past vs. present). In a knowledge graph, 'occurred_between' typically refers to a completed historical event, whereas 'occurs_between' implies a recurring or current state. They are not interchangeable for strict temporal logic."
+    },
+    {
+      "round": 3,
+      "predicate_a": "range_from",
+      "predicate_b": "ranged_from",
+      "equivalent": true,
+      "confidence": 0.95,
+      "reason": "The only difference is the verb tense (present vs. past). In the context of knowledge graph predicates, these typically represent the same semantic relationship (the extent of a range), where tense is usually handled by the temporal properties of the entity or the statement rather than the predicate itself."
+    },
+    {
+      "round": 3,
+      "predicate_a": "reach_low_of",
+      "predicate_b": "reached_low_temperature",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "predicate_a is a general predicate that could apply to any metric (price, altitude, water level), whereas predicate_b is specifically restricted to temperature."
+    },
+    {
+      "round": 3,
+      "predicate_a": "transitioned_to",
+      "predicate_b": "transitions_into",
+      "equivalent": true,
+      "confidence": 0.9,
+      "reason": "Both predicates describe the process of changing from one state, phase, or entity into another. The difference in tense ('transitioned' vs 'transitions') and preposition ('to' vs 'into') does not change the core semantic relationship of state transition in a knowledge graph context."
+    },
+    {
+      "round": 4,
+      "predicate_a": "are",
+      "predicate_b": "is",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "While 'is' and 'are' are both forms of the verb 'to be', they differ in grammatical number (singular vs. plural). In a knowledge graph, predicates are typically treated as unique relations; using different forms of the same verb as separate predicates usually indicates a need for normalization to a single lemma (e.g., 'be'), but as literal strings, they are morphologically and syntactically distinct."
+    },
+    {
+      "round": 4,
+      "predicate_a": "experienced",
+      "predicate_b": "experiences",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in tense (past vs. present), which denotes different temporal states and cannot be safely merged in a knowledge graph without losing temporal information."
+    },
+    {
+      "round": 4,
+      "predicate_a": "has_high_temperature",
+      "predicate_b": "has_maximum_temperature",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "'High temperature' is a qualitative state relative to a threshold, whereas 'maximum temperature' refers to a specific quantitative peak or upper limit. A high temperature is not necessarily the maximum temperature."
+    },
+    {
+      "round": 4,
+      "predicate_a": "has_low_temperature",
+      "predicate_b": "has_minimum_temperature",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "'Low temperature' is a relative qualitative state (a range), whereas 'minimum temperature' refers to a specific quantitative extremum (the lowest point recorded or possible)."
+    },
+    {
+      "round": 4,
+      "predicate_a": "has_maximum_temperature",
+      "predicate_b": "has_maximum_value",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "predicate_a specifically refers to temperature, whereas predicate_b is a generic predicate that could refer to any numerical value (pressure, voltage, length, etc.). They are not interchangeable in a knowledge graph."
+    },
+    {
+      "round": 4,
+      "predicate_a": "has_maximum_temperature",
+      "predicate_b": "has_temperature_high",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "'has_maximum_temperature' refers to a specific upper bound or peak value of a temperature range, whereas 'has_temperature_high' describes a qualitative state or a relative category of temperature."
+    },
+    {
+      "round": 4,
+      "predicate_a": "has_minimum_temperature",
+      "predicate_b": "has_minimum_value",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "predicate_a is specific to temperature, whereas predicate_b is a generic property that could refer to any numerical value (e.g., pressure, voltage, price)."
+    },
+    {
+      "round": 4,
+      "predicate_a": "has_minimum_temperature",
+      "predicate_b": "has_temperature_low",
+      "equivalent": false,
+      "confidence": 0.95,
+      "reason": "'has_minimum_temperature' refers to a specific boundary value (the lowest point of a range), whereas 'has_temperature_low' is a qualitative description or a categorization of temperature being low."
+    },
+    {
+      "round": 4,
+      "predicate_a": "has_status",
+      "predicate_b": "is_status",
+      "equivalent": true,
+      "confidence": 0.9,
+      "reason": "In the context of knowledge graph predicates, 'has_status' and 'is_status' both denote the relationship between an entity and its current state or status. The difference is purely grammatical (possessive vs. copular), representing the same semantic link."
+    },
+    {
+      "round": 4,
+      "predicate_a": "has_value",
+      "predicate_b": "is_value",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates have different grammatical roles and semantic implications: 'has_value' is a property relating an entity to its value (e.g., Sensor has_value 25), whereas 'is_value' is a typing or categorization predicate asserting that an entity itself is a value (e.g., 25 is_value X)."
+    },
+    {
+      "round": 4,
+      "predicate_a": "occurred_between",
+      "predicate_b": "occurs_between",
+      "equivalent": false,
+      "confidence": 0.95,
+      "reason": "The predicates differ in grammatical tense ('occurred' vs 'occurs'). In a knowledge graph, a past-tense predicate typically denotes a completed event, whereas a present-tense predicate denotes a recurring event or a general fact. They are not safely interchangeable."
+    },
+    {
+      "round": 4,
+      "predicate_a": "occurred_during",
+      "predicate_b": "occurs_during",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in grammatical tense ('occurred' is past tense, 'occurs' is present/habitual tense). In a knowledge graph, these often represent different temporal aspects: one for a specific historical event and one for a recurring or general property."
+    },
+    {
+      "round": 4,
+      "predicate_a": "occurred_from",
+      "predicate_b": "occurs_from",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in grammatical tense ('occurred' is past tense, 'occurs' is present tense). In a knowledge graph, this distinction often separates a historical event from a recurring process or a general rule."
+    },
+    {
+      "round": 4,
+      "predicate_a": "occurred_on",
+      "predicate_b": "occurs_on",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in grammatical tense ('occurred' is past tense, 'occurs' is present/habitual). In a knowledge graph, these represent different temporal states: one for historical events and one for recurring or current events."
+    },
+    {
+      "round": 4,
+      "predicate_a": "occurred_to",
+      "predicate_b": "occurs_to",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in grammatical tense (past tense 'occurred_to' vs. present tense 'occurs_to'). In a knowledge graph, temporal aspect is a semantic distinction; an event that occurred in the past is not identical to one that occurs generally or currently."
+    },
+    {
+      "round": 4,
+      "predicate_a": "remain",
+      "predicate_b": "remained",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in grammatical tense (present vs. past). In a knowledge graph, temporal state is often significant, and these represent different points in time or aspectual properties."
+    },
+    {
+      "round": 5,
+      "predicate_a": "are",
+      "predicate_b": "is",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "While both are forms of the verb 'to be', they differ in grammatical number (singular vs. plural). In a knowledge graph, predicates are typically treated as distinct relations; 'is' and 'are' are linguistic variations of the same semantic relation, but as raw strings/predicates, they are not identical. More importantly, if the graph distinguishes between singular and plural subjects, they are not interchangeable."
+    },
+    {
+      "round": 5,
+      "predicate_a": "experienced",
+      "predicate_b": "experiences",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in grammatical tense: 'experienced' is past tense (or a past participle/adjective), while 'experiences' is present tense. In a knowledge graph, these often represent different temporal states or different semantic roles (e.g., a state of having had an experience vs. the act of currently undergoing one)."
+    },
+    {
+      "round": 5,
+      "predicate_a": "has_high_temperature",
+      "predicate_b": "has_maximum_temperature",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "'High temperature' is a qualitative state or threshold (e.g., a fever or a hot day), whereas 'maximum temperature' refers to a specific peak value within a range or period. A high temperature is not necessarily the maximum temperature."
+    },
+    {
+      "round": 5,
+      "predicate_a": "has_low_temperature",
+      "predicate_b": "has_minimum_temperature",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "'Low temperature' is a qualitative description indicating a temperature below a certain threshold or average, whereas 'minimum temperature' refers to the lowest specific value recorded or possible in a given set or period. A low temperature is not necessarily the minimum temperature."
+    },
+    {
+      "round": 5,
+      "predicate_a": "has_low_temperature",
+      "predicate_b": "has_minimum_value",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates refer to different concepts: 'has_low_temperature' refers to a specific physical property (temperature) being below a certain threshold, while 'has_minimum_value' is a generic mathematical or quantitative property that could apply to any metric (price, height, weight, etc.)."
+    },
+    {
+      "round": 5,
+      "predicate_a": "has_maximum_temperature",
+      "predicate_b": "has_temperature_high",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "'has_maximum_temperature' refers to a specific upper bound or limit of a temperature range, whereas 'has_temperature_high' is a qualitative description or a relative state indicating a high temperature. They represent different semantic concepts (a limit vs. a property/state)."
+    },
+    {
+      "round": 5,
+      "predicate_a": "has_maximum_value",
+      "predicate_b": "has_peak_of",
+      "equivalent": false,
+      "confidence": 0.9,
+      "reason": "While related, 'maximum value' typically refers to a scalar limit or the highest possible value in a set, whereas 'peak of' often refers to a specific point in time or space (a local maximum) within a signal, wave, or geographical feature."
+    },
+    {
+      "round": 5,
+      "predicate_a": "has_minimum_temperature",
+      "predicate_b": "has_temperature_low",
+      "equivalent": false,
+      "confidence": 0.95,
+      "reason": "'has_minimum_temperature' refers to a specific threshold or a lower bound of a range, whereas 'has_temperature_low' likely describes a state or a qualitative property of being low. They are not interchangeable in a knowledge graph."
+    },
+    {
+      "round": 5,
+      "predicate_a": "occurred_between",
+      "predicate_b": "occurs_between",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in grammatical tense ('occurred' is past tense, 'occurs' is present tense). In a knowledge graph, these typically represent different temporal modalities: one for historical events and one for recurring or current events."
+    },
+    {
+      "round": 5,
+      "predicate_a": "occurred_during",
+      "predicate_b": "occurs_during",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in grammatical tense (past vs. present). In a knowledge graph, 'occurred_during' typically refers to a historical event, whereas 'occurs_during' refers to a recurring or current state. They are not interchangeable."
+    },
+    {
+      "round": 5,
+      "predicate_a": "occurred_from",
+      "predicate_b": "occurs_from",
+      "equivalent": false,
+      "confidence": 0.95,
+      "reason": "The predicates differ in grammatical tense ('occurred' is past tense, 'occurs' is present tense). In a knowledge graph, these often represent different temporal states or property types (a historical event vs. a general rule or ongoing process)."
+    },
+    {
+      "round": 5,
+      "predicate_a": "occurred_on",
+      "predicate_b": "occurs_on",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in grammatical tense ('occurred' is past tense, 'occurs' is present/habitual). In a knowledge graph, these typically represent different temporal states: a specific historical event versus a recurring or current event."
+    },
+    {
+      "round": 5,
+      "predicate_a": "occurred_to",
+      "predicate_b": "occurs_to",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in grammatical tense (past vs. present). In a knowledge graph, 'occurred_to' represents a completed event in the past, whereas 'occurs_to' represents a general truth, a habit, or a current state."
+    },
+    {
+      "round": 5,
+      "predicate_a": "reach_low_of",
+      "predicate_b": "reached_low_temperature",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "predicate_a is a generic relation indicating reaching a minimum value of any property (e.g., price, altitude, pressure), whereas predicate_b is specifically restricted to temperature."
+    },
+    {
+      "round": 5,
+      "predicate_a": "reach_low_of",
+      "predicate_b": "reaches_low_temperature",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "predicate_a ('reach_low_of') is generic and could refer to various measurements (e.g., price, altitude, water level), whereas predicate_b ('reaches_low_temperature') is specifically restricted to temperature."
+    },
+    {
+      "round": 5,
+      "predicate_a": "reached_peak_of",
+      "predicate_b": "reached_peak_temperature",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "predicate_a is generic and can refer to physical height (mountains), career status, or any maximum value, whereas predicate_b is specific to temperature."
+    },
+    {
+      "round": 5,
+      "predicate_a": "remain",
+      "predicate_b": "remained",
+      "equivalent": false,
+      "confidence": 1.0,
+      "reason": "The predicates differ in grammatical tense (present vs. past). In a knowledge graph, predicates are typically normalized to a base form or a specific temporal state; 'remain' and 'remained' represent different temporal aspects of the same action."
+    }
+  ],
+  "normalized_triples": [
+    {
+      "subject": "Contepec",
+      "predicate": "has_weather_period",
+      "object": "January 3 to January 8"
+    },
+    {
+      "subject": "weather from January 3 to January 8",
+      "predicate": "is_dry",
+      "object": "true"
+    },
+    {
+      "subject": "weather from January 3 to January 8",
+      "predicate": "has_precipitation",
+      "object": "none"
+    },
+    {
+      "subject": "daily temperatures",
+      "predicate": "peak_at",
+      "object": "18.4°C"
+    },
+    {
+      "subject": "daily temperatures",
+      "predicate": "drop_to_low_of",
+      "object": "5.49°C"
+    },
+    {
+      "subject": "weather conditions",
+      "predicate": "vary_between",
+      "object": "clear skies and overcast clouds"
+    },
+    {
+      "subject": "wind speeds",
+      "predicate": "are_generally",
+      "object": "light"
+    },
+    {
+      "subject": "wind speeds",
+      "predicate": "occasionally_gust_up_to",
+      "object": "14.22 m/s"
+    },
+    {
+      "subject": "Anori",
+      "predicate": "has_high_temperature",
+      "object": "34.27°C"
+    },
+    {
+      "subject": "Anori",
+      "predicate": "has_low_temperature",
+      "object": "22.84°C"
+    },
+    {
+      "subject": "temperature_fluctuation",
+      "predicate": "occurs_between",
+      "object": "January 3rd to 8th"
+    },
+    {
+      "subject": "the_period",
+      "predicate": "has_sky_condition",
+      "object": "predominantly overcast"
+    },
+    {
+      "subject": "the_period",
+      "predicate": "has_precipitation",
+      "object": "frequent rainfall"
+    },
+    {
+      "subject": "moderate_rain",
+      "predicate": "peaks_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "has_value",
+      "object": "high"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "reaches_maximum",
+      "object": "99%"
+    },
+    {
+      "subject": "winds",
+      "predicate": "has_characteristic",
+      "object": "generally light"
+    },
+    {
+      "subject": "ses Salines",
+      "predicate": "has_temperature_trend",
+      "object": "gradually decline"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "high_value",
+      "object": "17.3°C"
+    },
+    {
+      "subject": "high_temperature_date",
+      "predicate": "is",
+      "object": "January 4th"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "low_value",
+      "object": "4.8°C"
+    },
+    {
+      "subject": "low_temperature_date",
+      "predicate": "is",
+      "object": "January 8th"
+    },
+    {
+      "subject": "weather_period",
+      "predicate": "starts_with",
+      "object": "cloudy skies"
+    },
+    {
+      "subject": "weather_period",
+      "predicate": "starts_with",
+      "object": "light rain"
+    },
+    {
+      "subject": "rain_intensity",
+      "predicate": "peaks_on",
+      "object": "January 5th"
+    },
+    {
+      "subject": "rain_intensity",
+      "predicate": "peaks_on",
+      "object": "January 6th"
+    },
+    {
+      "subject": "rain_intensity_peak",
+      "predicate": "is",
+      "object": "heavy intensity"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "clear_starting",
+      "object": "January 7th"
+    },
+    {
+      "subject": "January 7th onwards",
+      "predicate": "has_condition",
+      "object": "clear skies"
+    },
+    {
+      "subject": "January 7th onwards",
+      "predicate": "has_condition",
+      "object": "decreasing humidity"
+    },
+    {
+      "subject": "Ohangaron",
+      "predicate": "has_low_temperature",
+      "object": "1.08°C"
+    },
+    {
+      "subject": "Ohangaron",
+      "predicate": "has_high_temperature",
+      "object": "16.64°C"
+    },
+    {
+      "subject": "Ohangaron",
+      "predicate": "has_forecast_condition",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "overcast skies",
+      "predicate": "clears_up_by",
+      "object": "January 8th"
+    },
+    {
+      "subject": "light to moderate rain",
+      "predicate": "occurs_on",
+      "object": "evening of January 7th"
+    },
+    {
+      "subject": "Ohangaron",
+      "predicate": "experiences",
+      "object": "light to moderate rain"
+    },
+    {
+      "subject": "Jonesville",
+      "predicate": "has_high_temperature",
+      "object": "9.31°C on January 3rd"
+    },
+    {
+      "subject": "Jonesville",
+      "predicate": "has_low_temperature",
+      "object": "-2.15°C on January 5th"
+    },
+    {
+      "subject": "Jonesville",
+      "predicate": "has_sky_condition",
+      "object": "cloudy at start of forecast"
+    },
+    {
+      "subject": "Jonesville",
+      "predicate": "has_sky_condition",
+      "object": "clears up significantly between January 4th and 5th"
+    },
+    {
+      "subject": "Jonesville",
+      "predicate": "expected_precipitation",
+      "object": "January 6th"
+    },
+    {
+      "subject": "precipitation on January 6th",
+      "predicate": "evolves_from",
+      "object": "light snow and freezing rain"
+    },
+    {
+      "subject": "precipitation on January 6th",
+      "predicate": "evolves_to",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "Jonesville",
+      "predicate": "has_condition_stabilization",
+      "object": "January 8th"
+    },
+    {
+      "subject": "Jonesville",
+      "predicate": "has_sky_condition_on_January_8th",
+      "object": "mix of clear and partly cloudy skies"
+    },
+    {
+      "subject": "Agua Dulce",
+      "predicate": "has_low_temperature",
+      "object": "16.02°C"
+    },
+    {
+      "subject": "Agua Dulce",
+      "predicate": "has_high_temperature",
+      "object": "26.24°C"
+    },
+    {
+      "subject": "the period",
+      "predicate": "starts_with",
+      "object": "light rain"
+    },
+    {
+      "subject": "the period",
+      "predicate": "starts_with",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "the period",
+      "predicate": "transitions_to",
+      "object": "clear conditions"
+    },
+    {
+      "subject": "clear conditions",
+      "predicate": "occurs_on",
+      "object": "January 5th"
+    },
+    {
+      "subject": "the period",
+      "predicate": "returns_to",
+      "object": "cloudy intervals"
+    },
+    {
+      "subject": "the period",
+      "predicate": "returns_to",
+      "object": "light rain"
+    },
+    {
+      "subject": "cloudy intervals and light rain",
+      "predicate": "occurs_through",
+      "object": "January 8th"
+    },
+    {
+      "subject": "Humidity",
+      "predicate": "has_range",
+      "object": "67% to 97%"
+    },
+    {
+      "subject": "Humidity",
+      "predicate": "is_characterized_as",
+      "object": "high"
+    },
+    {
+      "subject": "Kankan",
+      "predicate": "has_weather_period",
+      "object": "January 3rd to 8th"
+    },
+    {
+      "subject": "weather in Kankan (Jan 3-8)",
+      "predicate": "has_sky_condition",
+      "object": "clear to partly cloudy"
+    },
+    {
+      "subject": "weather in Kankan (Jan 3-8)",
+      "predicate": "has_precipitation",
+      "object": "none"
+    },
+    {
+      "subject": "temperatures in Kankan (Jan 3-8)",
+      "predicate": "follow_cycle",
+      "object": "consistent daily cycle"
+    },
+    {
+      "subject": "afternoon temperatures in Kankan (Jan 3-8)",
+      "predicate": "peak_at",
+      "object": "36-37°C"
+    },
+    {
+      "subject": "overnight temperatures in Kankan (Jan 3-8)",
+      "predicate": "dip_to",
+      "object": "20-22°C"
+    },
+    {
+      "subject": "humidity in Kankan (Jan 3-8)",
+      "predicate": "is_characterized_as",
+      "object": "very low"
+    },
+    {
+      "subject": "humidity in Kankan (Jan 3-8)",
+      "predicate": "ranges_between",
+      "object": "8% and 22%"
+    },
+    {
+      "subject": "wind in Kankan (Jan 3-8)",
+      "predicate": "is_characterized_as",
+      "object": "light"
+    },
+    {
+      "subject": "Bilinga",
+      "predicate": "has_temperature_range",
+      "object": "21.4°C to 25.5°C"
+    },
+    {
+      "subject": "Bilinga",
+      "predicate": "temperature_period",
+      "object": "January 3rd to 8th"
+    },
+    {
+      "subject": "Bilinga",
+      "predicate": "has_weather_transition",
+      "object": "scattered clouds to frequent light and moderate rain"
+    },
+    {
+      "subject": "weather_transition",
+      "predicate": "occurs_between",
+      "object": "January 4th and 6th"
+    },
+    {
+      "subject": "heaviest precipitation",
+      "predicate": "occurs_on",
+      "object": "January 6th"
+    },
+    {
+      "subject": "Bilinga",
+      "predicate": "conditions_clear_up_on",
+      "object": "January 7th"
+    },
+    {
+      "subject": "light rain",
+      "predicate": "returns_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "Taxiárches",
+      "predicate": "has_low_temperature",
+      "object": "6.88°C"
+    },
+    {
+      "subject": "Taxiárches",
+      "predicate": "has_peak_temperature",
+      "object": "16.8°C"
+    },
+    {
+      "subject": "weather_period",
+      "predicate": "starts_with",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "skies",
+      "predicate": "clear_up_on",
+      "object": "January 4th"
+    },
+    {
+      "subject": "weather_period",
+      "predicate": "returns_to",
+      "object": "overcast conditions"
+    },
+    {
+      "subject": "weather_period",
+      "predicate": "has_rain_stretch",
+      "object": "light to moderate rain"
+    },
+    {
+      "subject": "light to moderate rain",
+      "predicate": "occurs_from",
+      "object": "night of January 6th"
+    },
+    {
+      "subject": "light to moderate rain",
+      "predicate": "occurs_until",
+      "object": "January 7th"
+    },
+    {
+      "subject": "winds",
+      "predicate": "are",
+      "object": "generally light"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "is_highest_during",
+      "object": "rainy period"
+    },
+    {
+      "subject": "Pickworth",
+      "predicate": "has_temperature_trend",
+      "object": "gradually decline"
+    },
+    {
+      "subject": "temperature_high",
+      "predicate": "is_value",
+      "object": "7.72°C"
+    },
+    {
+      "subject": "temperature_high",
+      "predicate": "occurs_on",
+      "object": "January 3rd"
+    },
+    {
+      "subject": "temperature_low",
+      "predicate": "is_value",
+      "object": "0.62°C"
+    },
+    {
+      "subject": "temperature_low",
+      "predicate": "occurs_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "the_period",
+      "predicate": "characterized_by",
+      "object": "frequent overcast skies"
+    },
+    {
+      "subject": "the_period",
+      "predicate": "starts_with",
+      "object": "light rain"
+    },
+    {
+      "subject": "the_period",
+      "predicate": "transitions_through",
+      "object": "several cloudy days"
+    },
+    {
+      "subject": "the_period",
+      "predicate": "ends_with",
+      "object": "light snow and broken clouds"
+    },
+    {
+      "subject": "Aksu",
+      "predicate": "has_temperature_range",
+      "object": "5.9°C to 11.5°C"
+    },
+    {
+      "subject": "temperature_range",
+      "predicate": "occurs_during",
+      "object": "January 3rd to 8th"
+    },
+    {
+      "subject": "January 3rd",
+      "predicate": "has_weather_condition",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "January 4th",
+      "predicate": "has_weather_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "January 5th",
+      "predicate": "has_weather_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "period_after_January 5th",
+      "predicate": "has_weather_condition",
+      "object": "brief clear spell"
+    },
+    {
+      "subject": "January 7th",
+      "predicate": "has_weather_condition",
+      "object": "persistent light rain"
+    },
+    {
+      "subject": "January 7th",
+      "predicate": "has_weather_condition",
+      "object": "increasing wind speeds"
+    },
+    {
+      "subject": "wind_speeds",
+      "predicate": "peak_at",
+      "object": "gusts over 20 m/s"
+    },
+    {
+      "subject": "January 8th afternoon",
+      "predicate": "has_weather_condition",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "January 8th afternoon",
+      "predicate": "has_weather_condition",
+      "object": "significantly reduced visibility"
+    },
+    {
+      "subject": "Saḩāb",
+      "predicate": "experienced",
+      "object": "gradual warming trend"
+    },
+    {
+      "subject": "gradual warming trend",
+      "predicate": "occurred_between",
+      "object": "January 3rd and 8th"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "rose_from",
+      "object": "7-8°C"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "reached_peak_of",
+      "object": "18.13°C"
+    },
+    {
+      "subject": "peak temperature",
+      "predicate": "occurred_on",
+      "object": "January 7th"
+    },
+    {
+      "subject": "weather",
+      "predicate": "transitioned_from",
+      "object": "scattered and broken clouds"
+    },
+    {
+      "subject": "weather",
+      "predicate": "transitioned_to",
+      "object": "several clear periods"
+    },
+    {
+      "subject": "weather",
+      "predicate": "ended_with",
+      "object": "overcast conditions"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "fluctuated_significantly",
+      "object": "true"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "dropped_from_high_of",
+      "object": "91%"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "dropped_to_low_of",
+      "object": "30%"
+    },
+    {
+      "subject": "low humidity",
+      "predicate": "occurred_toward",
+      "object": "end of the period"
+    },
+    {
+      "subject": "wind speeds",
+      "predicate": "generally_increased",
+      "object": "true"
+    },
+    {
+      "subject": "wind speeds",
+      "predicate": "peak_at",
+      "object": "6.75 m/s"
+    },
+    {
+      "subject": "Nato",
+      "predicate": "has_weather_condition",
+      "object": "consistently warm"
+    },
+    {
+      "subject": "Nato weather",
+      "predicate": "has_temperature_range",
+      "object": "25.6°C to 28.8°C"
+    },
+    {
+      "subject": "The period",
+      "predicate": "has_sky_condition",
+      "object": "predominantly cloudy"
+    },
+    {
+      "subject": "light rain",
+      "predicate": "occurred_on",
+      "object": "January 5th"
+    },
+    {
+      "subject": "light rain",
+      "predicate": "occurred_on",
+      "object": "January 7th"
+    },
+    {
+      "subject": "light rain",
+      "predicate": "occurred_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "Humidity",
+      "predicate": "has_level",
+      "object": "high"
+    },
+    {
+      "subject": "Humidity",
+      "predicate": "has_range",
+      "object": "72% to 84%"
+    },
+    {
+      "subject": "wind speeds",
+      "predicate": "have_peak_value",
+      "object": "10 m/s"
+    },
+    {
+      "subject": "Cornu Luncii",
+      "predicate": "will_experience",
+      "object": "significant temperature drop"
+    },
+    {
+      "subject": "Cornu Luncii",
+      "predicate": "has_weather_on_Jan_4",
+      "object": "mild and cloudy"
+    },
+    {
+      "subject": "temperature_on_Jan_4",
+      "predicate": "peak_at",
+      "object": "10.75°C"
+    },
+    {
+      "subject": "Cornu Luncii",
+      "predicate": "transitions_to",
+      "object": "freezing conditions by Jan 7"
+    },
+    {
+      "subject": "forecast_period",
+      "predicate": "ends_with",
+      "object": "cold snap and consistent snowfall"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "bottoms_out_at",
+      "object": "-9.01°C"
+    },
+    {
+      "subject": "Jan 7 and 8",
+      "predicate": "has_weather_condition",
+      "object": "snowfall"
+    },
+    {
+      "subject": "Jan 7 and 8",
+      "predicate": "has_humidity",
+      "object": "high humidity"
+    },
+    {
+      "subject": "Mountain Brook",
+      "predicate": "will_experience",
+      "object": "fluctuating weather from January 3rd to 8th"
+    },
+    {
+      "subject": "January 3rd",
+      "predicate": "has_weather_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "January 3rd",
+      "predicate": "has_temperature",
+      "object": "around 4°C"
+    },
+    {
+      "subject": "January 4th",
+      "predicate": "has_weather_condition",
+      "object": "clear and dry"
+    },
+    {
+      "subject": "January 4th",
+      "predicate": "has_peak_high_temperature",
+      "object": "nearly 10°C"
+    },
+    {
+      "subject": "January 6th",
+      "predicate": "has_weather_condition",
+      "object": "overcast conditions and significant moderate rain"
+    },
+    {
+      "subject": "January 7th",
+      "predicate": "has_peak_temperature",
+      "object": "approximately 12°C"
+    },
+    {
+      "subject": "January 8th",
+      "predicate": "has_temperature",
+      "object": "around 4-7°C"
+    },
+    {
+      "subject": "Capácuaro",
+      "predicate": "has_weather_forecast_period",
+      "object": "January 3rd to 8th"
+    },
+    {
+      "subject": "weather in Capácuaro",
+      "predicate": "is_primarily",
+      "object": "clear to partly cloudy"
+    },
+    {
+      "subject": "weather in Capácuaro",
+      "predicate": "has_precipitation",
+      "object": "none"
+    },
+    {
+      "subject": "daily temperature in Capácuaro",
+      "predicate": "peak_at",
+      "object": "20.6°C"
+    },
+    {
+      "subject": "daily temperature in Capácuaro",
+      "predicate": "dip_to",
+      "object": "6.4°C"
+    },
+    {
+      "subject": "humidity in Capácuaro",
+      "predicate": "ranges_from",
+      "object": "21%"
+    },
+    {
+      "subject": "humidity in Capácuaro",
+      "predicate": "ranges_to",
+      "object": "86%"
+    },
+    {
+      "subject": "Checca",
+      "predicate": "will_experience",
+      "object": "persistent rain"
+    },
+    {
+      "subject": "persistent rain",
+      "predicate": "starts_on",
+      "object": "January 3rd"
+    },
+    {
+      "subject": "persistent rain",
+      "predicate": "ends_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "persistent rain",
+      "predicate": "transitions_from",
+      "object": "light showers"
+    },
+    {
+      "subject": "persistent rain",
+      "predicate": "transitions_to",
+      "object": "moderate showers"
+    },
+    {
+      "subject": "Temperatures",
+      "predicate": "high_temperature",
+      "object": "13.42°C"
+    },
+    {
+      "subject": "Temperatures",
+      "predicate": "low_temperature",
+      "object": "3.43°C"
+    },
+    {
+      "subject": "coldest conditions",
+      "predicate": "occurs_on",
+      "object": "morning of January 8th"
+    },
+    {
+      "subject": "heaviest rainfall",
+      "predicate": "occurs_on",
+      "object": "morning of January 8th"
+    },
+    {
+      "subject": "weather",
+      "predicate": "shifts_to",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "overcast skies",
+      "predicate": "occurs_after",
+      "object": "morning of January 8th"
+    },
+    {
+      "subject": "Géri",
+      "predicate": "has_temperature_range",
+      "object": "12.3°C to 19.4°C"
+    },
+    {
+      "subject": "temperature_fluctuation",
+      "predicate": "occurs_during",
+      "object": "January 3rd to 8th"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "clear skies"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "scattered clouds"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "overcast conditions"
+    },
+    {
+      "subject": "peak_temperatures",
+      "predicate": "typically_occur",
+      "object": "midday"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "ranges_from",
+      "object": "49% to 95%"
+    },
+    {
+      "subject": "wind_speeds",
+      "predicate": "is_characterized_as",
+      "object": "light to moderate"
+    },
+    {
+      "subject": "wind_speeds",
+      "predicate": "peak_at",
+      "object": "8.9 m/s"
+    },
+    {
+      "subject": "wind_speed_peak",
+      "predicate": "occurs_on",
+      "object": "January 4th"
+    },
+    {
+      "subject": "Amahusu",
+      "predicate": "has_temperature_range",
+      "object": "26.15°C to 29.16°C"
+    },
+    {
+      "subject": "Amahusu",
+      "predicate": "experiences",
+      "object": "warm temperatures"
+    },
+    {
+      "subject": "Amahusu",
+      "predicate": "forecast_precipitation",
+      "object": "frequent precipitation"
+    },
+    {
+      "subject": "frequent precipitation",
+      "predicate": "consists_primarily_of",
+      "object": "light rain"
+    },
+    {
+      "subject": "moderate rain",
+      "predicate": "occurs_on",
+      "object": "January 4th"
+    },
+    {
+      "subject": "moderate rain",
+      "predicate": "occurs_on",
+      "object": "January 6th"
+    },
+    {
+      "subject": "Amahusu",
+      "predicate": "has_humidity",
+      "object": "generally high"
+    },
+    {
+      "subject": "Amahusu",
+      "predicate": "has_winds",
+      "object": "light"
+    },
+    {
+      "subject": "light winds",
+      "predicate": "stay_below",
+      "object": "5 m/s"
+    },
+    {
+      "subject": "Montefano",
+      "predicate": "has_high_temperature",
+      "object": "15.67°C"
+    },
+    {
+      "subject": "Montefano",
+      "predicate": "has_low_temperature",
+      "object": "6.89°C"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "starts_with",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "weather",
+      "predicate": "transitions_to",
+      "object": "clear weather"
+    },
+    {
+      "subject": "clear weather",
+      "predicate": "occurs_on",
+      "object": "January 4th"
+    },
+    {
+      "subject": "weather",
+      "predicate": "returns_to",
+      "object": "cloudy conditions"
+    },
+    {
+      "subject": "light rain",
+      "predicate": "starts_on",
+      "object": "evening of January 6th"
+    },
+    {
+      "subject": "light rain",
+      "predicate": "ends_on",
+      "object": "January 7th"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "peaks_during",
+      "object": "rainy period"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "reaches_maximum",
+      "object": "91%"
+    },
+    {
+      "subject": "Bintawan",
+      "predicate": "experiences",
+      "object": "unstable weather"
+    },
+    {
+      "subject": "unstable weather",
+      "predicate": "characterized_by",
+      "object": "frequent light rain"
+    },
+    {
+      "subject": "unstable weather",
+      "predicate": "characterized_by",
+      "object": "overcast to broken cloud cover"
+    },
+    {
+      "subject": "Temperatures",
+      "predicate": "ranges_from",
+      "object": "20.61°C"
+    },
+    {
+      "subject": "Temperatures",
+      "predicate": "range_to",
+      "object": "26.8°C"
+    },
+    {
+      "subject": "Temperatures",
+      "predicate": "status",
+      "object": "relatively steady"
+    },
+    {
+      "subject": "Humidity",
+      "predicate": "ranges_from",
+      "object": "71%"
+    },
+    {
+      "subject": "Humidity",
+      "predicate": "range_to",
+      "object": "98%"
+    },
+    {
+      "subject": "Humidity",
+      "predicate": "status",
+      "object": "high"
+    },
+    {
+      "subject": "winds",
+      "predicate": "intensity",
+      "object": "light"
+    },
+    {
+      "subject": "winds",
+      "predicate": "direction",
+      "object": "east or northeast"
+    },
+    {
+      "subject": "San Bartolo Tutotepec",
+      "predicate": "has_weather_transition",
+      "object": "rainy and overcast to clearer and warmer skies"
+    },
+    {
+      "subject": "January 5th",
+      "predicate": "has_low_temperature",
+      "object": "13.69°C"
+    },
+    {
+      "subject": "January 5th",
+      "predicate": "has_peak_temperature",
+      "object": "25.74°C"
+    },
+    {
+      "subject": "Initial period",
+      "predicate": "has_expected_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "Initial period",
+      "predicate": "has_expected_humidity",
+      "object": "up to 99%"
+    },
+    {
+      "subject": "January 5th",
+      "predicate": "has_expected_condition",
+      "object": "clear skies"
+    },
+    {
+      "subject": "January 5th",
+      "predicate": "has_expected_humidity",
+      "object": "lower humidity"
+    },
+    {
+      "subject": "January 6th",
+      "predicate": "has_expected_condition",
+      "object": "clear skies"
+    },
+    {
+      "subject": "January 6th",
+      "predicate": "has_expected_humidity",
+      "object": "lower humidity"
+    },
+    {
+      "subject": "January 7th",
+      "predicate": "has_expected_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "Shuidong",
+      "predicate": "has_minimum_temperature",
+      "object": "15.8°C"
+    },
+    {
+      "subject": "Shuidong",
+      "predicate": "has_peak_temperature",
+      "object": "23.01°C"
+    },
+    {
+      "subject": "temperature_fluctuation",
+      "predicate": "occurs_during",
+      "object": "January 3rd to 8th"
+    },
+    {
+      "subject": "weather",
+      "predicate": "transitions_from",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "weather",
+      "predicate": "transitions_to",
+      "object": "clear sunshine"
+    },
+    {
+      "subject": "weather",
+      "predicate": "returns_to",
+      "object": "broken or overcast conditions"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "has_maximum_value",
+      "object": "92%"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "has_minimum_value",
+      "object": "49%"
+    },
+    {
+      "subject": "wind_speeds",
+      "predicate": "trend",
+      "object": "increase toward the end of the forecast"
+    },
+    {
+      "subject": "wind_gusts",
+      "predicate": "reaches_maximum",
+      "object": "12.09 m/s"
+    },
+    {
+      "subject": "Ljungbyholm",
+      "predicate": "has_weather_condition",
+      "object": "snowy and windy"
+    },
+    {
+      "subject": "Ljungbyholm",
+      "predicate": "has_temperature",
+      "object": "-3°C to -5°C"
+    },
+    {
+      "subject": "January 3rd and 4th",
+      "predicate": "has_weather_condition",
+      "object": "snowy and windy"
+    },
+    {
+      "subject": "January 3rd and 4th",
+      "predicate": "has_temperature",
+      "object": "-3°C to -5°C"
+    },
+    {
+      "subject": "January 5th and 6th",
+      "predicate": "has_weather_condition",
+      "object": "clearer skies"
+    },
+    {
+      "subject": "January 5th and 6th",
+      "predicate": "low_temperature",
+      "object": "-17.6°C"
+    },
+    {
+      "subject": "January 8th",
+      "predicate": "has_weather_condition",
+      "object": "partly cloudy"
+    },
+    {
+      "subject": "January 8th",
+      "predicate": "high_temperature",
+      "object": "-3.6°C"
+    },
+    {
+      "subject": "the period",
+      "predicate": "ends_with",
+      "object": "gradual warming trend"
+    },
+    {
+      "subject": "Tuşnad",
+      "predicate": "has_temperature_trend",
+      "object": "steadily decline"
+    },
+    {
+      "subject": "temperature in Tuşnad",
+      "predicate": "high_value",
+      "object": "8.5°C"
+    },
+    {
+      "subject": "high of 8.5°C",
+      "predicate": "occurs_on",
+      "object": "January 6th"
+    },
+    {
+      "subject": "temperature in Tuşnad",
+      "predicate": "low_value",
+      "object": "-4.8°C"
+    },
+    {
+      "subject": "low of -4.8°C",
+      "predicate": "occurs_by",
+      "object": "January 8th"
+    },
+    {
+      "subject": "weather in Tuşnad",
+      "predicate": "condition_early_period",
+      "object": "light rain and overcast skies"
+    },
+    {
+      "subject": "light snow",
+      "predicate": "starts_on",
+      "object": "January 4th"
+    },
+    {
+      "subject": "light snow",
+      "predicate": "starts_on",
+      "object": "January 5th"
+    },
+    {
+      "subject": "consistent snowfall",
+      "predicate": "occurs_from",
+      "object": "January 7th"
+    },
+    {
+      "subject": "consistent snowfall",
+      "predicate": "occurs_through",
+      "object": "January 8th"
+    },
+    {
+      "subject": "freezing temperatures",
+      "predicate": "occurs_from",
+      "object": "January 7th"
+    },
+    {
+      "subject": "freezing temperatures",
+      "predicate": "occurs_through",
+      "object": "January 8th"
+    },
+    {
+      "subject": "Bayan Uula Sumu",
+      "predicate": "will_experience",
+      "object": "consistently freezing temperatures"
+    },
+    {
+      "subject": "consistently freezing temperatures",
+      "predicate": "occur_between",
+      "object": "January 3rd and 8th"
+    },
+    {
+      "subject": "consistently freezing temperatures",
+      "predicate": "high_temperature",
+      "object": "-10.09°C"
+    },
+    {
+      "subject": "consistently freezing temperatures",
+      "predicate": "low_temperature",
+      "object": "-20.73°C"
+    },
+    {
+      "subject": "weather",
+      "predicate": "will_be",
+      "object": "predominantly clear to partly cloudy"
+    },
+    {
+      "subject": "light snow",
+      "predicate": "expected_around",
+      "object": "midnight on January 8th"
+    },
+    {
+      "subject": "winds",
+      "predicate": "will_be",
+      "object": "light to moderate"
+    },
+    {
+      "subject": "winds",
+      "predicate": "blow_from",
+      "object": "northwest"
+    },
+    {
+      "subject": "Jedovnice",
+      "predicate": "has_temperature_trend",
+      "object": "drop significantly"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "starts_at",
+      "object": "7°C"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "falls_to_low",
+      "object": "-8°C"
+    },
+    {
+      "subject": "temperature_low_date",
+      "predicate": "is",
+      "object": "January 8th"
+    },
+    {
+      "subject": "weather",
+      "predicate": "is",
+      "object": "overcast skies and light rain"
+    },
+    {
+      "subject": "overcast_skies_and_light_rain",
+      "predicate": "occurs_between",
+      "object": "January 3rd and 6th"
+    },
+    {
+      "subject": "weather",
+      "predicate": "is",
+      "object": "light and moderate snow"
+    },
+    {
+      "subject": "light_and_moderate_snow",
+      "predicate": "occurs_on",
+      "object": "January 6th and 7th"
+    },
+    {
+      "subject": "weather",
+      "predicate": "returns_to",
+      "object": "overcast but dry conditions"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "will_be_severely_reduced",
+      "object": "during heaviest precipitation"
+    },
+    {
+      "subject": "heaviest_precipitation",
+      "predicate": "occurs_on",
+      "object": "January 6th"
+    },
+    {
+      "subject": "Pénjamo",
+      "predicate": "has_weather_period",
+      "object": "January 3rd to 8th"
+    },
+    {
+      "subject": "weather in Pénjamo (Jan 3-8)",
+      "predicate": "has_sky_condition",
+      "object": "clear to partly cloudy"
+    },
+    {
+      "subject": "weather in Pénjamo (Jan 3-8)",
+      "predicate": "has_precipitation",
+      "object": "none"
+    },
+    {
+      "subject": "temperatures in Pénjamo (Jan 3-8)",
+      "predicate": "has_daytime_peak",
+      "object": "24-25°C"
+    },
+    {
+      "subject": "temperatures in Pénjamo (Jan 3-8)",
+      "predicate": "has_nighttime_low",
+      "object": "8-10°C"
+    },
+    {
+      "subject": "humidity in Pénjamo (Jan 3-8)",
+      "predicate": "is",
+      "object": "relatively low"
+    },
+    {
+      "subject": "wind speeds in Pénjamo (Jan 3-8)",
+      "predicate": "are_generally",
+      "object": "light"
+    },
+    {
+      "subject": "wind speeds in Pénjamo (Jan 3-8)",
+      "predicate": "has_occasional_gusts_up_to",
+      "object": "9.5 m/s"
+    },
+    {
+      "subject": "Escopete",
+      "predicate": "has_weather_transition",
+      "object": "January 3rd to January 7th"
+    },
+    {
+      "subject": "weather in Escopete",
+      "predicate": "is_rainy_and_overcast",
+      "object": "January 3rd to 5th"
+    },
+    {
+      "subject": "temperature in Escopete",
+      "predicate": "is_around",
+      "object": "8-10°C between January 3rd and 5th"
+    },
+    {
+      "subject": "weather in Escopete",
+      "predicate": "has_clearer_skies",
+      "object": "January 6th and 7th"
+    },
+    {
+      "subject": "temperature in Escopete",
+      "predicate": "is_significantly_colder",
+      "object": "January 6th and 7th"
+    },
+    {
+      "subject": "temperature in Escopete",
+      "predicate": "has_low_of",
+      "object": "-0.45°C on January 6th and 7th"
+    },
+    {
+      "subject": "winds in Escopete",
+      "predicate": "are_generally",
+      "object": "light to moderate"
+    },
+    {
+      "subject": "wind_gusts in Escopete",
+      "predicate": "has_peak_of",
+      "object": "13.83 m/s on the evening of January 5th"
+    },
+    {
+      "subject": "Nagymaros",
+      "predicate": "has_temperature_trend",
+      "object": "gradually decline"
+    },
+    {
+      "subject": "temperature_high",
+      "predicate": "has_value",
+      "object": "10.3°C"
+    },
+    {
+      "subject": "temperature_high",
+      "predicate": "occurs_on",
+      "object": "January 3rd"
+    },
+    {
+      "subject": "temperature_low",
+      "predicate": "has_value",
+      "object": "0°C"
+    },
+    {
+      "subject": "temperature_low",
+      "predicate": "occurs_by",
+      "object": "January 8th"
+    },
+    {
+      "subject": "weather_period",
+      "predicate": "starts_with",
+      "object": "light rain"
+    },
+    {
+      "subject": "weather_period",
+      "predicate": "starts_with",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "clear_spell",
+      "predicate": "occurs_on",
+      "object": "January 5th"
+    },
+    {
+      "subject": "light_rain_stretch",
+      "predicate": "occurs_from",
+      "object": "January 6th"
+    },
+    {
+      "subject": "light_rain_stretch",
+      "predicate": "occurs_until",
+      "object": "morning of January 7th"
+    },
+    {
+      "subject": "wind_speeds",
+      "predicate": "peak_around",
+      "object": "January 4th"
+    },
+    {
+      "subject": "wind_gusts",
+      "predicate": "has_maximum_value",
+      "object": "18.24 m/s"
+    },
+    {
+      "subject": "wind_speeds",
+      "predicate": "decrease_as",
+      "object": "weather turns colder and clearer"
+    },
+    {
+      "subject": "Xiropótamos",
+      "predicate": "has_low_temperature",
+      "object": "6°C"
+    },
+    {
+      "subject": "Xiropótamos",
+      "predicate": "has_high_temperature",
+      "object": "15.6°C"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "starts_with",
+      "object": "cloudy to clear skies"
+    },
+    {
+      "subject": "weather",
+      "predicate": "shifts_to",
+      "object": "rainy weather"
+    },
+    {
+      "subject": "rainy weather",
+      "predicate": "starts_on",
+      "object": "evening of January 6th"
+    },
+    {
+      "subject": "moderate rain",
+      "predicate": "peaks_on",
+      "object": "January 7th"
+    },
+    {
+      "subject": "wind gusts",
+      "predicate": "peaks_on",
+      "object": "January 7th"
+    },
+    {
+      "subject": "Point Clare",
+      "predicate": "has_low_temperature",
+      "object": "14.87°C"
+    },
+    {
+      "subject": "Point Clare",
+      "predicate": "has_peak_temperature",
+      "object": "32.24°C"
+    },
+    {
+      "subject": "Point Clare",
+      "predicate": "temperature_date",
+      "object": "January 8th"
+    },
+    {
+      "subject": "Point Clare",
+      "predicate": "has_forecast_start_condition",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "Point Clare",
+      "predicate": "has_weather_event",
+      "object": "light rain"
+    },
+    {
+      "subject": "light rain",
+      "predicate": "occurs_between",
+      "object": "January 4th and 5th"
+    },
+    {
+      "subject": "Point Clare",
+      "predicate": "has_weather_condition",
+      "object": "clear skies"
+    },
+    {
+      "subject": "clear skies",
+      "predicate": "occurs_on",
+      "object": "January 6th"
+    },
+    {
+      "subject": "Point Clare",
+      "predicate": "has_weather_condition",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "overcast skies",
+      "predicate": "occurs_after",
+      "object": "January 6th"
+    },
+    {
+      "subject": "Point Clare",
+      "predicate": "temperature_trend",
+      "object": "warming up towards the end of the period"
+    },
+    {
+      "subject": "Sagopshi",
+      "predicate": "has_temperature_range",
+      "object": "1.47°C to 10.22°C"
+    },
+    {
+      "subject": "temperature_fluctuation_period",
+      "predicate": "starts_on",
+      "object": "January 3rd"
+    },
+    {
+      "subject": "temperature_fluctuation_period",
+      "predicate": "ends_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "weather_period",
+      "predicate": "has_cloud_cover",
+      "object": "predominantly overcast or broken"
+    },
+    {
+      "subject": "January 4th",
+      "predicate": "has_cloud_cover",
+      "object": "clear intervals"
+    },
+    {
+      "subject": "January 6th",
+      "predicate": "has_cloud_cover",
+      "object": "clear intervals"
+    },
+    {
+      "subject": "winds",
+      "predicate": "are_generally",
+      "object": "light"
+    },
+    {
+      "subject": "wind_gusts",
+      "predicate": "peak_at",
+      "object": "12.7 m/s"
+    },
+    {
+      "subject": "wind_gust_peak",
+      "predicate": "occurred_on",
+      "object": "January 5th"
+    },
+    {
+      "subject": "weather in Saint-Romain-de-Benet",
+      "predicate": "occurs_during",
+      "object": "January 3rd to 8th"
+    },
+    {
+      "subject": "weather in Saint-Romain-de-Benet",
+      "predicate": "transitions_from",
+      "object": "mild and rainy"
+    },
+    {
+      "subject": "weather in Saint-Romain-de-Benet",
+      "predicate": "transitions_to",
+      "object": "colder and clearer conditions"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "peak_at",
+      "object": "nearly 13°C"
+    },
+    {
+      "subject": "temperature peak",
+      "predicate": "occurs_on",
+      "object": "January 4th"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "drop_to_low_of",
+      "object": "approximately 1.7°C"
+    },
+    {
+      "subject": "temperature low",
+      "predicate": "occurs_by",
+      "object": "January 8th"
+    },
+    {
+      "subject": "first few days",
+      "predicate": "characterized_by",
+      "object": "frequent light to moderate rain"
+    },
+    {
+      "subject": "first few days",
+      "predicate": "characterized_by",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "period of clear skies and decreasing humidity",
+      "predicate": "starts_on",
+      "object": "January 6th"
+    },
+    {
+      "subject": "Friedersdorf",
+      "predicate": "will_experience",
+      "object": "significant cooling trend"
+    },
+    {
+      "subject": "significant cooling trend",
+      "predicate": "occurs_from",
+      "object": "January 3rd"
+    },
+    {
+      "subject": "significant cooling trend",
+      "predicate": "occurs_to",
+      "object": "January 8th"
+    },
+    {
+      "subject": "January 3rd",
+      "predicate": "has_weather_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "January 3rd",
+      "predicate": "has_temperature",
+      "object": "8°C"
+    },
+    {
+      "subject": "January 8th",
+      "predicate": "has_weather_condition",
+      "object": "clear skies"
+    },
+    {
+      "subject": "January 8th",
+      "predicate": "has_low_temperature",
+      "object": "-8.1°C"
+    },
+    {
+      "subject": "January 3rd to 5th",
+      "predicate": "has_weather_condition",
+      "object": "consistent light rain and overcast skies"
+    },
+    {
+      "subject": "January 5th and 6th",
+      "predicate": "has_weather_condition",
+      "object": "light snow"
+    },
+    {
+      "subject": "January 8th",
+      "predicate": "has_temperature_status",
+      "object": "well below freezing"
+    },
+    {
+      "subject": "Waalwijk",
+      "predicate": "will_experience",
+      "object": "significant cooling trend"
+    },
+    {
+      "subject": "significant cooling trend",
+      "predicate": "occurs_from",
+      "object": "January 3rd"
+    },
+    {
+      "subject": "significant cooling trend",
+      "predicate": "occurs_to",
+      "object": "January 8th"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "drop_from",
+      "object": "highs around 9°C"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "drop_to",
+      "object": "lows of -1.4°C"
+    },
+    {
+      "subject": "the period",
+      "predicate": "starts_with",
+      "object": "frequent light rain"
+    },
+    {
+      "subject": "the period",
+      "predicate": "starts_with",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "the period",
+      "predicate": "transitions_to",
+      "object": "cloudy conditions"
+    },
+    {
+      "subject": "light snow",
+      "predicate": "occurs_on",
+      "object": "January 7th"
+    },
+    {
+      "subject": "the period",
+      "predicate": "ends_with",
+      "object": "cold weather"
+    },
+    {
+      "subject": "the period",
+      "predicate": "ends_with",
+      "object": "overcast weather"
+    },
+    {
+      "subject": "the period",
+      "predicate": "ends_with",
+      "object": "strengthening northeasterly winds"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "has_temperature_trend",
+      "object": "steadily decline"
+    },
+    {
+      "subject": "temperature in Baincthun",
+      "predicate": "is_around",
+      "object": "11°C on January 3rd"
+    },
+    {
+      "subject": "temperature in Baincthun",
+      "predicate": "reaches_low_of",
+      "object": "approximately 1°C by January 8th"
+    },
+    {
+      "subject": "the period",
+      "predicate": "characterized_by",
+      "object": "persistent cloudy skies"
+    },
+    {
+      "subject": "the period",
+      "predicate": "characterized_by",
+      "object": "frequent precipitation"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "starts_as",
+      "object": "light to moderate rain"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "transitions_to",
+      "object": "light snow"
+    },
+    {
+      "subject": "the period",
+      "predicate": "ends_with",
+      "object": "overcast conditions"
+    },
+    {
+      "subject": "Fox Chase",
+      "predicate": "has_high_temperature",
+      "object": "5.22°C"
+    },
+    {
+      "subject": "Fox Chase",
+      "predicate": "has_low_temperature",
+      "object": "-4.03°C"
+    },
+    {
+      "subject": "weather_period",
+      "predicate": "starts_with",
+      "object": "cloudy skies"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "transitions_to",
+      "object": "clear conditions"
+    },
+    {
+      "subject": "clear conditions",
+      "predicate": "occurs_on",
+      "object": "January 5th"
+    },
+    {
+      "subject": "weather_shift",
+      "predicate": "occurs_on",
+      "object": "January 6th"
+    },
+    {
+      "subject": "weather_shift",
+      "predicate": "occurs_on",
+      "object": "January 7th"
+    },
+    {
+      "subject": "weather_shift",
+      "predicate": "brings",
+      "object": "snow"
+    },
+    {
+      "subject": "weather_shift",
+      "predicate": "brings",
+      "object": "severely reduced visibility"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "clear_again_by",
+      "object": "January 8th"
+    },
+    {
+      "subject": "Otwock",
+      "predicate": "will_experience",
+      "object": "significant cooling trend"
+    },
+    {
+      "subject": "significant cooling trend",
+      "predicate": "occurs_from",
+      "object": "January 3rd"
+    },
+    {
+      "subject": "significant cooling trend",
+      "predicate": "occurs_to",
+      "object": "January 8th"
+    },
+    {
+      "subject": "January 3rd",
+      "predicate": "has_weather_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "January 3rd",
+      "predicate": "has_temperature",
+      "object": "7°C"
+    },
+    {
+      "subject": "January 4th",
+      "predicate": "has_weather_condition",
+      "object": "light snow"
+    },
+    {
+      "subject": "January 5th",
+      "predicate": "has_weather_condition",
+      "object": "light snow"
+    },
+    {
+      "subject": "January 4th and 5th",
+      "predicate": "has_temperature",
+      "object": "below freezing"
+    },
+    {
+      "subject": "January 8th",
+      "predicate": "has_weather_condition",
+      "object": "clear"
+    },
+    {
+      "subject": "January 8th",
+      "predicate": "has_low_temperature",
+      "object": "-9.8°C"
+    },
+    {
+      "subject": "January 8th",
+      "predicate": "has_feels_like_temperature",
+      "object": "-16.8°C"
+    },
+    {
+      "subject": "Almería",
+      "predicate": "has_temperature_trend",
+      "object": "decline"
+    },
+    {
+      "subject": "temperature_high",
+      "predicate": "is_value",
+      "object": "17.6°C"
+    },
+    {
+      "subject": "temperature_high",
+      "predicate": "occurs_on",
+      "object": "January 4th"
+    },
+    {
+      "subject": "temperature_low",
+      "predicate": "is_value",
+      "object": "10.7°C"
+    },
+    {
+      "subject": "temperature_low",
+      "predicate": "occurs_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "sky_condition",
+      "predicate": "is_status",
+      "object": "clear skies"
+    },
+    {
+      "subject": "sky_condition",
+      "predicate": "starts_on",
+      "object": "January 4th"
+    },
+    {
+      "subject": "sky_condition",
+      "predicate": "transitions_to",
+      "object": "overcast conditions and light rain"
+    },
+    {
+      "subject": "overcast_conditions_and_light_rain",
+      "predicate": "occurs_between",
+      "object": "January 4th and 5th"
+    },
+    {
+      "subject": "sky_condition",
+      "predicate": "returns_to",
+      "object": "mostly clear or scattered cloud cover"
+    },
+    {
+      "subject": "winds",
+      "predicate": "has_intensity",
+      "object": "light to moderate"
+    },
+    {
+      "subject": "wind_speed_peak",
+      "predicate": "is_value",
+      "object": "8.4 m/s"
+    },
+    {
+      "subject": "wind_speed_peak",
+      "predicate": "occurs_on",
+      "object": "January 5th"
+    },
+    {
+      "subject": "Garches",
+      "predicate": "has_temperature_trend",
+      "object": "steadily decline"
+    },
+    {
+      "subject": "Garches",
+      "predicate": "has_high_temperature",
+      "object": "around 10°C on January 3rd"
+    },
+    {
+      "subject": "Garches",
+      "predicate": "has_low_temperature",
+      "object": "0.34°C by January 8th"
+    },
+    {
+      "subject": "The period",
+      "predicate": "starts_with",
+      "object": "light rain and broken clouds"
+    },
+    {
+      "subject": "The period",
+      "predicate": "transitions_to",
+      "object": "mostly overcast conditions with intermittent light rain"
+    },
+    {
+      "subject": "The period",
+      "predicate": "ends_with",
+      "object": "light snow and overcast skies"
+    },
+    {
+      "subject": "Verplanck",
+      "predicate": "has_high_temperature",
+      "object": "5.8°C"
+    },
+    {
+      "subject": "Verplanck",
+      "predicate": "has_low_temperature",
+      "object": "-3.3°C"
+    },
+    {
+      "subject": "weather",
+      "predicate": "starts_with",
+      "object": "cloudy skies"
+    },
+    {
+      "subject": "weather",
+      "predicate": "transitions_to",
+      "object": "clear conditions"
+    },
+    {
+      "subject": "clear conditions",
+      "predicate": "occurs_by",
+      "object": "January 5th"
+    },
+    {
+      "subject": "snow event",
+      "predicate": "occurs_from",
+      "object": "January 6th"
+    },
+    {
+      "subject": "snow event",
+      "predicate": "occurs_until",
+      "object": "January 8th"
+    },
+    {
+      "subject": "snow event",
+      "predicate": "characterized_by",
+      "object": "heavy snowfall"
+    },
+    {
+      "subject": "snow event",
+      "predicate": "characterized_by",
+      "object": "severely reduced visibility"
+    },
+    {
+      "subject": "Cornillon-Confoux",
+      "predicate": "has_peak_temperature",
+      "object": "13.37°C"
+    },
+    {
+      "subject": "peak_temperature",
+      "predicate": "occurs_on",
+      "object": "January 4th"
+    },
+    {
+      "subject": "Cornillon-Confoux",
+      "predicate": "has_low_temperature",
+      "object": "3.98°C"
+    },
+    {
+      "subject": "low_temperature",
+      "predicate": "occurs_by",
+      "object": "January 8th"
+    },
+    {
+      "subject": "Cornillon-Confoux",
+      "predicate": "has_sky_condition",
+      "object": "clear to cloudy skies"
+    },
+    {
+      "subject": "light to moderate rain",
+      "predicate": "occurs_on",
+      "object": "January 5th"
+    },
+    {
+      "subject": "winds",
+      "predicate": "intensify_starting",
+      "object": "January 6th"
+    },
+    {
+      "subject": "wind_gusts",
+      "predicate": "reach_up_to",
+      "object": "23.55 mph"
+    },
+    {
+      "subject": "Fazeley",
+      "predicate": "has_temperature_trend",
+      "object": "steadily decline"
+    },
+    {
+      "subject": "Fazeley",
+      "predicate": "has_high_temperature",
+      "object": "7.8°C"
+    },
+    {
+      "subject": "7.8°C",
+      "predicate": "occurred_on",
+      "object": "January 3rd"
+    },
+    {
+      "subject": "Fazeley",
+      "predicate": "has_low_temperature",
+      "object": "0.4°C"
+    },
+    {
+      "subject": "0.4°C",
+      "predicate": "occurred_by",
+      "object": "January 8th"
+    },
+    {
+      "subject": "the period",
+      "predicate": "starts_with",
+      "object": "frequent light rain"
+    },
+    {
+      "subject": "the period",
+      "predicate": "starts_with",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "weather conditions",
+      "predicate": "transitions_to",
+      "object": "clearer conditions"
+    },
+    {
+      "subject": "clearer conditions",
+      "predicate": "occurred_around",
+      "object": "January 6th"
+    },
+    {
+      "subject": "weather conditions",
+      "predicate": "return_to",
+      "object": "cloudy weather"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "has_final_event",
+      "object": "dip"
+    },
+    {
+      "subject": "Lamotte-Beuvron",
+      "predicate": "has_high_temperature",
+      "object": "10.3°C on January 4th"
+    },
+    {
+      "subject": "Lamotte-Beuvron",
+      "predicate": "has_low_temperature",
+      "object": "0.5°C on January 8th"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "will_steadily_decline",
+      "object": "from January 4th to January 8th"
+    },
+    {
+      "subject": "weather",
+      "predicate": "will_be",
+      "object": "overcast skies and intermittent light rain early in the period"
+    },
+    {
+      "subject": "weather",
+      "predicate": "will_transition_to",
+      "object": "light snow starting on the evening of January 7th"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "will_drop_significantly",
+      "object": "on the morning of January 8th"
+    },
+    {
+      "subject": "Churánov",
+      "predicate": "has_temperature_trend",
+      "object": "significantly downward"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "starts_at",
+      "object": "4.55°C"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "drop_to_low_of",
+      "object": "-9.78°C"
+    },
+    {
+      "subject": "weather",
+      "predicate": "starts_with",
+      "object": "light rain"
+    },
+    {
+      "subject": "weather",
+      "predicate": "transitioned_to",
+      "object": "periods of snow"
+    },
+    {
+      "subject": "weather",
+      "predicate": "transitioned_to",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "weather",
+      "predicate": "ends_with",
+      "object": "consistently freezing temperatures"
+    },
+    {
+      "subject": "weather",
+      "predicate": "ends_with",
+      "object": "light snow"
+    },
+    {
+      "subject": "weather in Imbituva",
+      "predicate": "shows",
+      "object": "warming trend"
+    },
+    {
+      "subject": "weather in Imbituva",
+      "predicate": "started_with",
+      "object": "frequent light to moderate rain"
+    },
+    {
+      "subject": "weather in Imbituva",
+      "predicate": "started_with",
+      "object": "cool temperatures"
+    },
+    {
+      "subject": "cool temperatures",
+      "predicate": "ranges_from",
+      "object": "16-24°C"
+    },
+    {
+      "subject": "conditions",
+      "predicate": "clear_significantly_on",
+      "object": "January 7th and 8th"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "peak_at",
+      "object": "33.5°C"
+    },
+    {
+      "subject": "January 7th and 8th",
+      "predicate": "had",
+      "object": "clear skies"
+    },
+    {
+      "subject": "weather forecast",
+      "predicate": "is_for",
+      "object": "Dragash"
+    },
+    {
+      "subject": "weather forecast",
+      "predicate": "shows",
+      "object": "period of instability"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "ranges_from",
+      "object": "9.2°C"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "range_down_to",
+      "object": "-0.2°C"
+    },
+    {
+      "subject": "period",
+      "predicate": "starts_with",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "period",
+      "predicate": "starts_with",
+      "object": "light rain"
+    },
+    {
+      "subject": "January 5th",
+      "predicate": "has",
+      "object": "brief clear spell"
+    },
+    {
+      "subject": "rain",
+      "predicate": "occurs",
+      "object": "intermittently"
+    },
+    {
+      "subject": "rain intensity",
+      "predicate": "peaks_on",
+      "object": "January 4th"
+    },
+    {
+      "subject": "rain intensity",
+      "predicate": "peaks_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "weather",
+      "predicate": "transitions_to",
+      "object": "light snow"
+    },
+    {
+      "subject": "light snow",
+      "predicate": "occurs_on",
+      "object": "afternoon of January 8th"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "drop_below_freezing",
+      "object": "afternoon of January 8th"
+    },
+    {
+      "subject": "Slatina",
+      "predicate": "has_weather_condition",
+      "object": "overcast"
+    },
+    {
+      "subject": "Slatina",
+      "predicate": "has_temperature",
+      "object": "mild"
+    },
+    {
+      "subject": "Slatina",
+      "predicate": "reached_peak_temperature",
+      "object": "10.4°C"
+    },
+    {
+      "subject": "peak_temperature",
+      "predicate": "occurred_on",
+      "object": "January 4th"
+    },
+    {
+      "subject": "Slatina",
+      "predicate": "will_experience",
+      "object": "significant cold snap"
+    },
+    {
+      "subject": "cold_snap",
+      "predicate": "starts_on",
+      "object": "January 7th"
+    },
+    {
+      "subject": "Slatina",
+      "predicate": "will_experience",
+      "object": "snow"
+    },
+    {
+      "subject": "Slatina",
+      "predicate": "will_experience",
+      "object": "freezing temperatures"
+    },
+    {
+      "subject": "Slatina",
+      "predicate": "reached_low_temperature",
+      "object": "-9.3°C"
+    },
+    {
+      "subject": "low_temperature",
+      "predicate": "occurred_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "will_drop_significantly_during",
+      "object": "snowfall period"
+    },
+    {
+      "subject": "Nakło nad Notecią",
+      "predicate": "will_have_weather_transition",
+      "object": "from rainy and mild to cold and clear"
+    },
+    {
+      "subject": "Temperatures",
+      "predicate": "will_peak_around",
+      "object": "6.9°C"
+    },
+    {
+      "subject": "light rain",
+      "predicate": "will_continue_through",
+      "object": "January 4th"
+    },
+    {
+      "subject": "weather",
+      "predicate": "will_be_followed_by",
+      "object": "light snow"
+    },
+    {
+      "subject": "weather",
+      "predicate": "will_be_followed_by",
+      "object": "sharp temperature drop"
+    },
+    {
+      "subject": "sky",
+      "predicate": "will_clear_by",
+      "object": "January 8th"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "will_reach_low_of",
+      "object": "-8.8°C"
+    },
+    {
+      "subject": "wind gusts",
+      "predicate": "will_reach_up_to",
+      "object": "13.4 m/s"
+    },
+    {
+      "subject": "Piqueras",
+      "predicate": "will_experience",
+      "object": "significant cooling trend"
+    },
+    {
+      "subject": "significant cooling trend",
+      "predicate": "occurs_from",
+      "object": "January 3rd"
+    },
+    {
+      "subject": "significant cooling trend",
+      "predicate": "occurs_until",
+      "object": "January 8th"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "drop_from",
+      "object": "8.3°C"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "drop_to",
+      "object": "-5.3°C"
+    },
+    {
+      "subject": "the period",
+      "predicate": "starts_with",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "the period",
+      "predicate": "starts_with",
+      "object": "light rain"
+    },
+    {
+      "subject": "weather",
+      "predicate": "transitions_to",
+      "object": "snow"
+    },
+    {
+      "subject": "snow",
+      "predicate": "occurs_on",
+      "object": "January 5th"
+    },
+    {
+      "subject": "snow",
+      "predicate": "occurs_on",
+      "object": "January 6th"
+    },
+    {
+      "subject": "snow",
+      "predicate": "is_accompanied_by",
+      "object": "poor visibility"
+    },
+    {
+      "subject": "conditions",
+      "predicate": "will_clear_by",
+      "object": "January 8th"
+    },
+    {
+      "subject": "the period",
+      "predicate": "ends_with",
+      "object": "clear skies"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "will_hover_near",
+      "object": "freezing"
+    },
+    {
+      "subject": "weather in Val-David",
+      "predicate": "is_cold_and_volatile",
+      "object": "January 3rd to 8th"
+    },
+    {
+      "subject": "period",
+      "predicate": "starts_with",
+      "object": "light snow"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "are_around",
+      "object": "0°C"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "drop_to_low_of",
+      "object": "-11.75°C"
+    },
+    {
+      "subject": "temperature_drop_date",
+      "predicate": "is",
+      "object": "January 5th"
+    },
+    {
+      "subject": "skies",
+      "predicate": "are",
+      "object": "clear to cloudy"
+    },
+    {
+      "subject": "light snow",
+      "predicate": "returns_on",
+      "object": "January 6th and 7th"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "fluctuate_between",
+      "object": "-4°C and -12°C"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "is_reduced_during",
+      "object": "snow events"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "drops_below",
+      "object": "500 meters"
+    },
+    {
+      "subject": "Saint-Vincent-de-Mercuze",
+      "predicate": "has_high_temperature",
+      "object": "11.35°C on January 3rd"
+    },
+    {
+      "subject": "Saint-Vincent-de-Mercuze",
+      "predicate": "has_low_temperature",
+      "object": "0.58°C by January 8th"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "will_steadily_decline",
+      "object": "from January 3rd to January 8th"
+    },
+    {
+      "subject": "weather",
+      "predicate": "will_transition_from",
+      "object": "light rain and broken clouds"
+    },
+    {
+      "subject": "weather",
+      "predicate": "will_transition_to",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "weather",
+      "predicate": "will_become",
+      "object": "consistent snow and light snow from January 5th through January 8th"
+    },
+    {
+      "subject": "weather",
+      "predicate": "accompanied_by",
+      "object": "high humidity"
+    },
+    {
+      "subject": "weather",
+      "predicate": "accompanied_by",
+      "object": "significantly reduced visibility"
+    },
+    {
+      "subject": "Province de la Kossi",
+      "predicate": "has_weather_period",
+      "object": "January 3rd to 8th"
+    },
+    {
+      "subject": "weather from January 3rd to 8th",
+      "predicate": "has_sky_condition",
+      "object": "clear to overcast"
+    },
+    {
+      "subject": "weather from January 3rd to 8th",
+      "predicate": "has_precipitation",
+      "object": "none"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "has_maximum_value",
+      "object": "36.72°C"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "has_minimum_value",
+      "object": "19.03°C"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "has_range",
+      "object": "6% to 15%"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "is_characterized_as",
+      "object": "very low"
+    },
+    {
+      "subject": "Torre Pacheco",
+      "predicate": "has_high_temperature",
+      "object": "19.82°C"
+    },
+    {
+      "subject": "19.82°C",
+      "predicate": "occurs_on",
+      "object": "January 4th"
+    },
+    {
+      "subject": "Torre Pacheco",
+      "predicate": "has_low_temperature",
+      "object": "6.14°C"
+    },
+    {
+      "subject": "6.14°C",
+      "predicate": "occurs_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "starts_with",
+      "object": "clear to cloudy skies"
+    },
+    {
+      "subject": "moderate rain",
+      "predicate": "occurs_on",
+      "object": "January 5th"
+    },
+    {
+      "subject": "wind speeds",
+      "predicate": "reach_gusts_of",
+      "object": "18.1 m/s"
+    },
+    {
+      "subject": "period",
+      "predicate": "ends_with",
+      "object": "clear, drier conditions"
+    },
+    {
+      "subject": "period",
+      "predicate": "ends_with",
+      "object": "cooler temperatures"
+    },
+    {
+      "subject": "Hatzendorf",
+      "predicate": "has_high_temperature",
+      "object": "9.15°C"
+    },
+    {
+      "subject": "9.15°C",
+      "predicate": "occurs_on",
+      "object": "January 4th"
+    },
+    {
+      "subject": "Hatzendorf",
+      "predicate": "has_low_temperature",
+      "object": "-1.5°C"
+    },
+    {
+      "subject": "-1.5°C",
+      "predicate": "occurs_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "weather",
+      "predicate": "starts_as",
+      "object": "clear"
+    },
+    {
+      "subject": "weather",
+      "predicate": "transitions_to",
+      "object": "overcast conditions"
+    },
+    {
+      "subject": "light to moderate rain",
+      "predicate": "occurs_from",
+      "object": "January 6th"
+    },
+    {
+      "subject": "light to moderate rain",
+      "predicate": "occurs_until",
+      "object": "January 7th"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "is",
+      "object": "generally high"
+    },
+    {
+      "subject": "winds",
+      "predicate": "are",
+      "object": "light to moderate"
+    },
+    {
+      "subject": "Cuetzalan",
+      "predicate": "has_weather_transition",
+      "object": "light rain and overcast skies to clearer, warmer conditions"
+    },
+    {
+      "subject": "early period weather",
+      "predicate": "has_temperature",
+      "object": "15-18°C"
+    },
+    {
+      "subject": "January 5th",
+      "predicate": "has_peak_temperature",
+      "object": "23.58°C"
+    },
+    {
+      "subject": "forecast conclusion",
+      "predicate": "has_condition",
+      "object": "mix of clear skies and occasional light rain"
+    },
+    {
+      "subject": "forecast conclusion",
+      "predicate": "has_temperature_range",
+      "object": "15°C to 23°C"
+    },
+    {
+      "subject": "Pedro Santana",
+      "predicate": "has_daily_high_temperature",
+      "object": "31-32°C"
+    },
+    {
+      "subject": "Pedro Santana",
+      "predicate": "has_overnight_low_temperature",
+      "object": "19-20°C"
+    },
+    {
+      "subject": "January 3rd",
+      "predicate": "has_forecast",
+      "object": "light rain"
+    },
+    {
+      "subject": "January 5th",
+      "predicate": "has_forecast",
+      "object": "light rain"
+    },
+    {
+      "subject": "remainder of the period",
+      "predicate": "has_forecast",
+      "object": "mostly cloudy or clear skies"
+    },
+    {
+      "subject": "nighttime humidity",
+      "predicate": "has_value",
+      "object": "up to 95%"
+    },
+    {
+      "subject": "afternoon humidity",
+      "predicate": "is_significantly_lower_than",
+      "object": "nighttime humidity"
+    },
+    {
+      "subject": "San Luis Acatlan",
+      "predicate": "has_weather_period",
+      "object": "January 3rd to 8th"
+    },
+    {
+      "subject": "weather from January 3rd to 8th",
+      "predicate": "characterized_by",
+      "object": "clear to overcast skies"
+    },
+    {
+      "subject": "weather from January 3rd to 8th",
+      "predicate": "has_precipitation",
+      "object": "none"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "daytime_high",
+      "object": "approximately 32°C"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "nighttime_low",
+      "object": "around 20°C"
+    },
+    {
+      "subject": "humidity levels",
+      "predicate": "peak_value",
+      "object": "89%"
+    },
+    {
+      "subject": "humidity levels",
+      "predicate": "has_minimum_value",
+      "object": "26%"
+    },
+    {
+      "subject": "Fargues-Saint-Hilaire",
+      "predicate": "has_high_temperature",
+      "object": "13.14°C"
+    },
+    {
+      "subject": "13.14°C",
+      "predicate": "occurred_on",
+      "object": "January 3rd"
+    },
+    {
+      "subject": "Fargues-Saint-Hilaire",
+      "predicate": "has_low_temperature",
+      "object": "0.05°C"
+    },
+    {
+      "subject": "0.05°C",
+      "predicate": "occurred_by",
+      "object": "January 8th"
+    },
+    {
+      "subject": "Fargues-Saint-Hilaire",
+      "predicate": "has_temperature_trend",
+      "object": "gradually decline"
+    },
+    {
+      "subject": "Fargues-Saint-Hilaire",
+      "predicate": "has_weather_condition",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "overcast skies",
+      "predicate": "occurred_at",
+      "object": "beginning of period"
+    },
+    {
+      "subject": "Fargues-Saint-Hilaire",
+      "predicate": "has_weather_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "light rain",
+      "predicate": "occurred_between",
+      "object": "January 4th and 5th"
+    },
+    {
+      "subject": "Fargues-Saint-Hilaire",
+      "predicate": "has_weather_condition",
+      "object": "mostly clear to partly cloudy"
+    },
+    {
+      "subject": "mostly clear to partly cloudy",
+      "predicate": "occurred_at",
+      "object": "end of forecast"
+    },
+    {
+      "subject": "Capitólio",
+      "predicate": "has_weather_forecast",
+      "object": "inconsistent weather"
+    },
+    {
+      "subject": "Capitólio",
+      "predicate": "has_precipitation",
+      "object": "frequent light rain"
+    },
+    {
+      "subject": "Capitólio",
+      "predicate": "has_sky_condition",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "Capitólio",
+      "predicate": "has_minimum_temperature",
+      "object": "approximately 19°C"
+    },
+    {
+      "subject": "Capitólio",
+      "predicate": "has_peak_temperature",
+      "object": "nearly 30°C"
+    },
+    {
+      "subject": "Humidity",
+      "predicate": "is_status",
+      "object": "high"
+    },
+    {
+      "subject": "Humidity",
+      "predicate": "exceeds",
+      "object": "90% during rainy periods"
+    },
+    {
+      "subject": "Wind speeds",
+      "predicate": "is_status",
+      "object": "generally light"
+    },
+    {
+      "subject": "Wind gusts",
+      "predicate": "reaches_maximum",
+      "object": "4.2 m/s by January 8th"
+    },
+    {
+      "subject": "Minsk City",
+      "predicate": "will_experience",
+      "object": "transition from snowy to clear conditions"
+    },
+    {
+      "subject": "transition from snowy to clear conditions",
+      "predicate": "occurs_between",
+      "object": "January 3rd and 8th"
+    },
+    {
+      "subject": "period",
+      "predicate": "starts_with",
+      "object": "consistent light snow"
+    },
+    {
+      "subject": "period",
+      "predicate": "has_temperature_range",
+      "object": "-12°C to -7°C"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "ceases_on",
+      "object": "January 5th"
+    },
+    {
+      "subject": "skies",
+      "predicate": "clear_on",
+      "object": "January 5th"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "drops_significantly_after",
+      "object": "January 5th"
+    },
+    {
+      "subject": "Minsk City",
+      "predicate": "reaches_low_temperature",
+      "object": "-17.06°C"
+    },
+    {
+      "subject": "-17.06°C",
+      "predicate": "occurs_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "Călăraşi",
+      "predicate": "has_weather_transition",
+      "object": "overcast skies and mild temperatures to a significant cold snap"
+    },
+    {
+      "subject": "Călăraşi",
+      "predicate": "has_peak_temperature",
+      "object": "11.37°C"
+    },
+    {
+      "subject": "peak_temperature",
+      "predicate": "occurred_on",
+      "object": "January 4th"
+    },
+    {
+      "subject": "Călăraşi",
+      "predicate": "experienced_light_rain",
+      "object": "January 4th"
+    },
+    {
+      "subject": "Călăraşi",
+      "predicate": "experienced_light_rain",
+      "object": "January 7th"
+    },
+    {
+      "subject": "Călăraşi",
+      "predicate": "experienced_consistent_snow",
+      "object": "from afternoon of January 7th through January 8th"
+    },
+    {
+      "subject": "Călăraşi",
+      "predicate": "has_low_temperature",
+      "object": "-7.06°C"
+    },
+    {
+      "subject": "Călăraşi",
+      "predicate": "has_wind_chill_low",
+      "object": "-14.06°C"
+    },
+    {
+      "subject": "wind_speeds",
+      "predicate": "increased_during",
+      "object": "cold snap"
+    },
+    {
+      "subject": "Isla Soyaltepec",
+      "predicate": "has_low_temperature",
+      "object": "19.56°C"
+    },
+    {
+      "subject": "Isla Soyaltepec",
+      "predicate": "has_high_temperature",
+      "object": "27.99°C"
+    },
+    {
+      "subject": "the period",
+      "predicate": "characterized_by",
+      "object": "frequent cloud cover"
+    },
+    {
+      "subject": "the period",
+      "predicate": "characterized_by",
+      "object": "intermittent light rain"
+    },
+    {
+      "subject": "intermittent light rain",
+      "predicate": "occurs_around",
+      "object": "January 4th"
+    },
+    {
+      "subject": "intermittent light rain",
+      "predicate": "occurs_around",
+      "object": "January 7th"
+    },
+    {
+      "subject": "clear skies",
+      "predicate": "occurs_on",
+      "object": "January 5th"
+    },
+    {
+      "subject": "clear skies",
+      "predicate": "occurs_on",
+      "object": "January 6th"
+    },
+    {
+      "subject": "Lohāru",
+      "predicate": "will_experience",
+      "object": "consistently clear skies and sunny conditions"
+    },
+    {
+      "subject": "clear skies and sunny conditions",
+      "predicate": "duration",
+      "object": "January 3rd to January 8th"
+    },
+    {
+      "subject": "Temperatures",
+      "predicate": "will_fluctuate",
+      "object": "daily"
+    },
+    {
+      "subject": "low temperatures",
+      "predicate": "range",
+      "object": "8-12°C"
+    },
+    {
+      "subject": "high temperatures",
+      "predicate": "peak_at",
+      "object": "24.38°C"
+    },
+    {
+      "subject": "24.38°C peak",
+      "predicate": "occurs_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "Humidity",
+      "predicate": "range",
+      "object": "16% to 48%"
+    },
+    {
+      "subject": "Humidity",
+      "predicate": "are_generally",
+      "object": "low"
+    },
+    {
+      "subject": "winds",
+      "predicate": "range",
+      "object": "light to moderate"
+    },
+    {
+      "subject": "winds",
+      "predicate": "duration",
+      "object": "throughout the period"
+    },
+    {
+      "subject": "Caraballeda",
+      "predicate": "has_high_temperature",
+      "object": "33.06°C"
+    },
+    {
+      "subject": "Caraballeda",
+      "predicate": "has_feels_like_temperature",
+      "object": "38.62°C"
+    },
+    {
+      "subject": "Caraballeda",
+      "predicate": "has_low_temperature",
+      "object": "24.61°C"
+    },
+    {
+      "subject": "Caraballeda",
+      "predicate": "has_forecast_precipitation",
+      "object": "intermittent light rain"
+    },
+    {
+      "subject": "Caraballeda",
+      "predicate": "has_forecast_sky_condition",
+      "object": "predominantly cloudy"
+    },
+    {
+      "subject": "Caraballeda",
+      "predicate": "has_peak_humidity",
+      "object": "90%"
+    },
+    {
+      "subject": "Caraballeda",
+      "predicate": "has_wind_direction",
+      "object": "east"
+    },
+    {
+      "subject": "Caraballeda",
+      "predicate": "has_wind_speed_range",
+      "object": "3.25 to 5.49 m/s"
+    },
+    {
+      "subject": "Krempe",
+      "predicate": "high_temperature",
+      "object": "6.91°C on January 3rd"
+    },
+    {
+      "subject": "Krempe",
+      "predicate": "low_temperature",
+      "object": "-4.62°C by January 7th"
+    },
+    {
+      "subject": "temperatures in Krempe",
+      "predicate": "steadily_decline",
+      "object": "from January 3rd to January 7th"
+    },
+    {
+      "subject": "Krempe",
+      "predicate": "has_sky_condition",
+      "object": "persistent overcast skies"
+    },
+    {
+      "subject": "light to moderate snow",
+      "predicate": "occurs_between",
+      "object": "January 4th and 6th"
+    },
+    {
+      "subject": "light to moderate snow",
+      "predicate": "reduces",
+      "object": "visibility"
+    },
+    {
+      "subject": "winds in Krempe",
+      "predicate": "generally_moderate",
+      "object": "over the period"
+    },
+    {
+      "subject": "weather in Krempe",
+      "predicate": "clears_up_by",
+      "object": "January 8th"
+    },
+    {
+      "subject": "Osek",
+      "predicate": "will_experience",
+      "object": "significant cooling trend"
+    },
+    {
+      "subject": "significant cooling trend",
+      "predicate": "occurs_from",
+      "object": "January 3rd"
+    },
+    {
+      "subject": "significant cooling trend",
+      "predicate": "occurs_to",
+      "object": "January 8th"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "drop_from",
+      "object": "7.6°C"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "drop_to",
+      "object": "-6.7°C"
+    },
+    {
+      "subject": "period",
+      "predicate": "starts_with",
+      "object": "consistent light rain"
+    },
+    {
+      "subject": "period",
+      "predicate": "starts_with",
+      "object": "breezy conditions"
+    },
+    {
+      "subject": "period",
+      "predicate": "transitions_to",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "overcast skies",
+      "predicate": "occurs_on",
+      "object": "January 5th"
+    },
+    {
+      "subject": "period",
+      "predicate": "culminates_in",
+      "object": "light snow"
+    },
+    {
+      "subject": "light snow",
+      "predicate": "occurs_between",
+      "object": "January 6th and 7th"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "will_drop_sharply_during",
+      "object": "snowfall"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "reaches_low_of",
+      "object": "35 meters"
+    },
+    {
+      "subject": "Muzaffarpur",
+      "predicate": "has_weather_period",
+      "object": "January 3rd to 8th"
+    },
+    {
+      "subject": "weather in Muzaffarpur",
+      "predicate": "is_primarily",
+      "object": "clear"
+    },
+    {
+      "subject": "January 5th",
+      "predicate": "has_weather_condition",
+      "object": "overcast"
+    },
+    {
+      "subject": "January 6th",
+      "predicate": "has_weather_condition",
+      "object": "overcast"
+    },
+    {
+      "subject": "temperatures in Muzaffarpur",
+      "predicate": "have_lows_around",
+      "object": "13-15°C"
+    },
+    {
+      "subject": "temperatures in Muzaffarpur",
+      "predicate": "have_peak_high",
+      "object": "26.7°C"
+    },
+    {
+      "subject": "peak high temperature",
+      "predicate": "occurred_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "humidity in Muzaffarpur",
+      "predicate": "is_typically_between",
+      "object": "21% and 61%"
+    },
+    {
+      "subject": "wind speeds in Muzaffarpur",
+      "predicate": "are_generally",
+      "object": "light"
+    },
+    {
+      "subject": "wind speeds in Muzaffarpur",
+      "predicate": "increase_slightly_toward",
+      "object": "end of the period"
+    },
+    {
+      "subject": "Meixing weather",
+      "predicate": "occurred_during",
+      "object": "January 3rd to 8th"
+    },
+    {
+      "subject": "Meixing weather",
+      "predicate": "is",
+      "object": "highly volatile"
+    },
+    {
+      "subject": "Meixing temperatures",
+      "predicate": "ranges_from",
+      "object": "-3.8°C to 12.63°C"
+    },
+    {
+      "subject": "Meixing weather",
+      "predicate": "features",
+      "object": "alternating patterns of clear skies, overcast conditions, and precipitation"
+    },
+    {
+      "subject": "light snow",
+      "predicate": "occurred_on",
+      "object": "January 4th"
+    },
+    {
+      "subject": "light snow",
+      "predicate": "occurred_on",
+      "object": "January 5th"
+    },
+    {
+      "subject": "light rain",
+      "predicate": "occurred_on",
+      "object": "January 5th"
+    },
+    {
+      "subject": "humidity levels",
+      "predicate": "fluctuate_significantly",
+      "object": "true"
+    },
+    {
+      "subject": "humidity levels",
+      "predicate": "peak_at",
+      "object": "98% during snowy periods"
+    },
+    {
+      "subject": "humidity levels",
+      "predicate": "drop_to",
+      "object": "15% during clear spells"
+    },
+    {
+      "subject": "Brunn an der Wild",
+      "predicate": "has_temperature_trend",
+      "object": "drop significantly"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "starts_at",
+      "object": "9°C"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "falls_to_low",
+      "object": "-7.9°C"
+    },
+    {
+      "subject": "temperature_low_date",
+      "predicate": "occurs_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "weather",
+      "predicate": "transitions_from",
+      "object": "overcast skies and light rain"
+    },
+    {
+      "subject": "weather",
+      "predicate": "transitions_to",
+      "object": "snow"
+    },
+    {
+      "subject": "snow",
+      "predicate": "starts_on",
+      "object": "January 6th"
+    },
+    {
+      "subject": "snow",
+      "predicate": "continues_through",
+      "object": "January 7th"
+    },
+    {
+      "subject": "snow",
+      "predicate": "accompanied_by",
+      "object": "sharp decrease in visibility"
+    },
+    {
+      "subject": "winds",
+      "predicate": "strongest_during",
+      "object": "early period"
+    },
+    {
+      "subject": "wind_gusts",
+      "predicate": "reach_over",
+      "object": "22 m/s"
+    },
+    {
+      "subject": "winds",
+      "predicate": "become",
+      "object": "calmer"
+    },
+    {
+      "subject": "weather_state",
+      "predicate": "is",
+      "object": "cold and cloudy"
+    },
+    {
+      "subject": "Frunzi",
+      "predicate": "has_weather_transition",
+      "object": "rainy and cool between January 3rd and 4th"
+    },
+    {
+      "subject": "Frunzi",
+      "predicate": "has_temperature_approx",
+      "object": "6°C between January 3rd and 4th"
+    },
+    {
+      "subject": "Frunzi",
+      "predicate": "has_weather_condition",
+      "object": "overcast skies and gradual cooling through January 6th"
+    },
+    {
+      "subject": "Frunzi",
+      "predicate": "has_temperature_drop",
+      "object": "January 8th"
+    },
+    {
+      "subject": "Frunzi",
+      "predicate": "has_low_temperature",
+      "object": "-2.18°C on January 8th"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "shifts_from",
+      "object": "light rain"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "shifts_to",
+      "object": "snow"
+    },
+    {
+      "subject": "Hohoe",
+      "predicate": "has_temperature_range",
+      "object": "25.32°C to 30.13°C"
+    },
+    {
+      "subject": "Hohoe",
+      "predicate": "has_temperature_status",
+      "object": "warm and stable"
+    },
+    {
+      "subject": "Hohoe",
+      "predicate": "has_weather_progression",
+      "object": "mostly overcast and broken clouds to clear days to broken clouds"
+    },
+    {
+      "subject": "clear days",
+      "predicate": "occur_between",
+      "object": "January 6th and 7th"
+    },
+    {
+      "subject": "Hohoe",
+      "predicate": "has_humidity_range",
+      "object": "49% to 86%"
+    },
+    {
+      "subject": "Hohoe",
+      "predicate": "has_wind_condition",
+      "object": "light to moderate winds"
+    },
+    {
+      "subject": "Forest Park",
+      "predicate": "will_experience",
+      "object": "cold and unsettled weather"
+    },
+    {
+      "subject": "cold and unsettled weather",
+      "predicate": "occurs_from",
+      "object": "January 3rd to 8th"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "ranges_from",
+      "object": "high of 4.48°C to a low of -2.85°C"
+    },
+    {
+      "subject": "weather_period",
+      "predicate": "starts_with",
+      "object": "clear to cloudy skies"
+    },
+    {
+      "subject": "January 6th",
+      "predicate": "will_have",
+      "object": "light snow"
+    },
+    {
+      "subject": "January 6th",
+      "predicate": "will_have",
+      "object": "significantly reduced visibility"
+    },
+    {
+      "subject": "January 7th",
+      "predicate": "will_have",
+      "object": "light rain"
+    },
+    {
+      "subject": "conditions",
+      "predicate": "stabilize_by",
+      "object": "January 8th"
+    },
+    {
+      "subject": "January 8th",
+      "predicate": "will_have",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "January 8th",
+      "predicate": "will_have_temperature_around",
+      "object": "1°C"
+    },
+    {
+      "subject": "Kisaran",
+      "predicate": "experiences",
+      "object": "consistent rain"
+    },
+    {
+      "subject": "Kisaran",
+      "predicate": "experiences",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "Kisaran",
+      "predicate": "has_temperature_range",
+      "object": "23°C to 31°C"
+    },
+    {
+      "subject": "the weather",
+      "predicate": "characterized_by",
+      "object": "frequent light to moderate rain"
+    },
+    {
+      "subject": "the weather",
+      "predicate": "characterized_by",
+      "object": "high humidity levels"
+    },
+    {
+      "subject": "humidity levels",
+      "predicate": "reach",
+      "object": "99%"
+    },
+    {
+      "subject": "Azaz",
+      "predicate": "has_temperature_range",
+      "object": "14.8°C to 7.7°C"
+    },
+    {
+      "subject": "temperature_fluctuation_period",
+      "predicate": "starts_on",
+      "object": "January 3rd"
+    },
+    {
+      "subject": "temperature_fluctuation_period",
+      "predicate": "ends_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "is_at_start",
+      "object": "frequent light rain and overcast skies"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "transitions_to",
+      "object": "clear weather"
+    },
+    {
+      "subject": "clear_weather",
+      "predicate": "occurs_on",
+      "object": "January 6th"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "returns_to",
+      "object": "cloudy conditions"
+    },
+    {
+      "subject": "cloudy_conditions",
+      "predicate": "occurs_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "Sopeira",
+      "predicate": "high_temperature",
+      "object": "11.25°C on January 4th"
+    },
+    {
+      "subject": "Sopeira",
+      "predicate": "low_temperature",
+      "object": "-2.57°C on January 8th"
+    },
+    {
+      "subject": "Sopeira",
+      "predicate": "temperature_trend",
+      "object": "gradually decline"
+    },
+    {
+      "subject": "Sopeira",
+      "predicate": "has_weather_condition",
+      "object": "overcast skies at the beginning"
+    },
+    {
+      "subject": "Sopeira",
+      "predicate": "has_weather_condition",
+      "object": "light rain between January 4th and 5th"
+    },
+    {
+      "subject": "Sopeira",
+      "predicate": "has_weather_condition",
+      "object": "light snow on January 6th and 7th"
+    },
+    {
+      "subject": "Sopeira",
+      "predicate": "has_weather_condition",
+      "object": "clearing up by January 8th"
+    },
+    {
+      "subject": "Sopeira",
+      "predicate": "has_wind_speed_trend",
+      "object": "generally light"
+    },
+    {
+      "subject": "Sopeira",
+      "predicate": "has_peak_wind_speed",
+      "object": "6.64 m/s on January 7th"
+    },
+    {
+      "subject": "Methven",
+      "predicate": "has_temperature_trend",
+      "object": "gradually decline"
+    },
+    {
+      "subject": "temperature in Methven",
+      "predicate": "is_around",
+      "object": "6°C on January 3rd"
+    },
+    {
+      "subject": "temperature in Methven",
+      "predicate": "reaches_low_of",
+      "object": "approximately 0.5°C by January 8th"
+    },
+    {
+      "subject": "weather period",
+      "predicate": "starts_with",
+      "object": "rain"
+    },
+    {
+      "subject": "weather period",
+      "predicate": "starts_with",
+      "object": "heavy cloud cover"
+    },
+    {
+      "subject": "weather period",
+      "predicate": "transitions_to",
+      "object": "clearer skies around January 6th"
+    },
+    {
+      "subject": "weather period",
+      "predicate": "transitions_to",
+      "object": "few clouds around January 6th"
+    },
+    {
+      "subject": "weather period",
+      "predicate": "returns_to",
+      "object": "overcast conditions"
+    },
+    {
+      "subject": "wind speeds",
+      "predicate": "are",
+      "object": "generally light"
+    },
+    {
+      "subject": "atmospheric pressure",
+      "predicate": "steadily_increases",
+      "object": "throughout the forecast period"
+    },
+    {
+      "subject": "Łapczyca",
+      "predicate": "has_weather_transition",
+      "object": "mild rain to cold snap"
+    },
+    {
+      "subject": "mild rain",
+      "predicate": "starts_on",
+      "object": "January 3rd"
+    },
+    {
+      "subject": "mild rain",
+      "predicate": "has_temperature",
+      "object": "around 8°C"
+    },
+    {
+      "subject": "January 5th",
+      "predicate": "has_weather_condition",
+      "object": "overcast skies and light snow"
+    },
+    {
+      "subject": "January 6th to 7th",
+      "predicate": "has_weather_condition",
+      "object": "heavier snow and plummeting temperatures"
+    },
+    {
+      "subject": "January 8th morning",
+      "predicate": "has_low_temperature",
+      "object": "-14.32°C"
+    },
+    {
+      "subject": "winds",
+      "predicate": "are_strongest_during",
+      "object": "initial rainy period"
+    },
+    {
+      "subject": "winds",
+      "predicate": "calm_during",
+      "object": "temperature drop"
+    },
+    {
+      "subject": "Mezinovskiy",
+      "predicate": "experienced",
+      "object": "severe cold"
+    },
+    {
+      "subject": "severe cold",
+      "predicate": "occurred_from",
+      "object": "January 3rd"
+    },
+    {
+      "subject": "severe cold",
+      "predicate": "occurred_to",
+      "object": "January 8th"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "had_high_of",
+      "object": "-12.2°C"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "has_low_of",
+      "object": "-29.5°C"
+    },
+    {
+      "subject": "period",
+      "predicate": "starts_with",
+      "object": "cloudy skies"
+    },
+    {
+      "subject": "period",
+      "predicate": "starts_with",
+      "object": "extreme cold"
+    },
+    {
+      "subject": "extreme cold",
+      "predicate": "followed_by",
+      "object": "brief warming trend"
+    },
+    {
+      "subject": "extreme cold",
+      "predicate": "followed_by",
+      "object": "light snowfall"
+    },
+    {
+      "subject": "light snowfall",
+      "predicate": "occurred_on",
+      "object": "January 6th"
+    },
+    {
+      "subject": "light snowfall",
+      "predicate": "reduced",
+      "object": "visibility"
+    },
+    {
+      "subject": "conditions",
+      "predicate": "cleared_toward",
+      "object": "January 8th"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "remained",
+      "object": "well below freezing"
+    },
+    {
+      "subject": "Ocilla",
+      "predicate": "has_temperature_range",
+      "object": "2.94°C to 17.24°C"
+    },
+    {
+      "subject": "temperature_fluctuation_period",
+      "predicate": "starts_on",
+      "object": "January 3rd"
+    },
+    {
+      "subject": "temperature_fluctuation_period",
+      "predicate": "ends_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "starts_with",
+      "object": "clear skies"
+    },
+    {
+      "subject": "January 3rd",
+      "predicate": "has_weather_condition",
+      "object": "rain"
+    },
+    {
+      "subject": "January 4th",
+      "predicate": "has_weather_condition",
+      "object": "rain"
+    },
+    {
+      "subject": "January 6th",
+      "predicate": "has_weather_condition",
+      "object": "heavy intensity rain"
+    },
+    {
+      "subject": "forecast_conclusion",
+      "predicate": "has_sky_condition",
+      "object": "predominantly overcast"
+    },
+    {
+      "subject": "forecast_conclusion",
+      "predicate": "has_temperature",
+      "object": "mild"
+    },
+    {
+      "subject": "Kap Choeng",
+      "predicate": "has_weather_period",
+      "object": "January 3rd to 8th"
+    },
+    {
+      "subject": "weather from January 3rd to 8th",
+      "predicate": "has_sky_condition",
+      "object": "clear to partly cloudy"
+    },
+    {
+      "subject": "weather from January 3rd to 8th",
+      "predicate": "has_precipitation",
+      "object": "none"
+    },
+    {
+      "subject": "daily temperature",
+      "predicate": "has_maximum_value",
+      "object": "32.6°C"
+    },
+    {
+      "subject": "daily temperature",
+      "predicate": "has_minimum_value",
+      "object": "18.9°C"
+    },
+    {
+      "subject": "daytime",
+      "predicate": "has_temperature",
+      "object": "32.6°C"
+    },
+    {
+      "subject": "nighttime",
+      "predicate": "has_temperature",
+      "object": "18.9°C"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "has_maximum_value",
+      "object": "84%"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "has_minimum_value",
+      "object": "34%"
+    },
+    {
+      "subject": "cooler periods",
+      "predicate": "has_humidity",
+      "object": "84%"
+    },
+    {
+      "subject": "midday heat",
+      "predicate": "has_humidity",
+      "object": "34%"
+    },
+    {
+      "subject": "Cengio",
+      "predicate": "will_experience",
+      "object": "significant temperature drop"
+    },
+    {
+      "subject": "Cengio",
+      "predicate": "will_experience",
+      "object": "deteriorating weather"
+    },
+    {
+      "subject": "weather on January 4th",
+      "predicate": "has_condition",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "weather on January 4th",
+      "predicate": "has_high_temperature",
+      "object": "12.36°C"
+    },
+    {
+      "subject": "weather from January 5th to 6th",
+      "predicate": "has_condition",
+      "object": "mixed precipitation"
+    },
+    {
+      "subject": "mixed precipitation",
+      "predicate": "includes",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "mixed precipitation",
+      "predicate": "includes",
+      "object": "heavy snow"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "will_plummet_to_low",
+      "object": "-0.23°C"
+    },
+    {
+      "subject": "snow events",
+      "predicate": "has_condition",
+      "object": "persistent overcast conditions"
+    },
+    {
+      "subject": "snow events",
+      "predicate": "has_condition",
+      "object": "low visibility"
+    },
+    {
+      "subject": "period",
+      "predicate": "ends_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "weather on January 8th",
+      "predicate": "has_condition",
+      "object": "continued snowfall"
+    },
+    {
+      "subject": "temperature on January 8th",
+      "predicate": "hovers_near",
+      "object": "0°C"
+    },
+    {
+      "subject": "Lankwitz",
+      "predicate": "has_weather_on",
+      "object": "January 3rd"
+    },
+    {
+      "subject": "January 3rd",
+      "predicate": "has_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "January 3rd",
+      "predicate": "has_temperature",
+      "object": "8-9°C"
+    },
+    {
+      "subject": "Lankwitz",
+      "predicate": "has_weather_on",
+      "object": "January 4th and 5th"
+    },
+    {
+      "subject": "January 4th and 5th",
+      "predicate": "has_condition",
+      "object": "cold snap"
+    },
+    {
+      "subject": "January 4th and 5th",
+      "predicate": "has_condition",
+      "object": "light snow"
+    },
+    {
+      "subject": "January 4th and 5th",
+      "predicate": "has_temperature",
+      "object": "freezing temperatures"
+    },
+    {
+      "subject": "Lankwitz",
+      "predicate": "has_weather_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "January 8th",
+      "predicate": "has_condition",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "January 8th",
+      "predicate": "has_condition",
+      "object": "clear intervals"
+    },
+    {
+      "subject": "January 8th",
+      "predicate": "has_low_temperature",
+      "object": "-4°C"
+    },
+    {
+      "subject": "Skidel'",
+      "predicate": "has_weather_condition",
+      "object": "consistent light snow and freezing rain from January 3rd to 5th"
+    },
+    {
+      "subject": "temperature in Skidel'",
+      "predicate": "drop_from",
+      "object": "-6°C to -9°C from January 3rd to 5th"
+    },
+    {
+      "subject": "Skidel'",
+      "predicate": "has_weather_condition",
+      "object": "transitioning from overcast to clear skies from January 6th to 8th"
+    },
+    {
+      "subject": "temperature in Skidel'",
+      "predicate": "reaches_low_of",
+      "object": "-15.44°C from January 6th to 8th"
+    },
+    {
+      "subject": "Gundaroo",
+      "predicate": "will_experience",
+      "object": "volatile weather pattern"
+    },
+    {
+      "subject": "volatile weather pattern",
+      "predicate": "occurs_from",
+      "object": "January 3rd"
+    },
+    {
+      "subject": "volatile weather pattern",
+      "predicate": "occurs_until",
+      "object": "January 8th"
+    },
+    {
+      "subject": "Gundaroo",
+      "predicate": "will_have",
+      "object": "persistent light to moderate rain"
+    },
+    {
+      "subject": "persistent light to moderate rain",
+      "predicate": "starts_on",
+      "object": "January 3rd"
+    },
+    {
+      "subject": "heavy intensity rain",
+      "predicate": "peaks_on",
+      "object": "January 4th"
+    },
+    {
+      "subject": "weather conditions",
+      "predicate": "improve_between",
+      "object": "January 5th and 6th"
+    },
+    {
+      "subject": "January 5th and 6th",
+      "predicate": "features",
+      "object": "clear skies"
+    },
+    {
+      "subject": "highest temperatures",
+      "predicate": "reach",
+      "object": "27.95°C"
+    },
+    {
+      "subject": "January 8th",
+      "predicate": "features",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "January 8th",
+      "predicate": "features",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "Burträsk",
+      "predicate": "has_minimum_temperature",
+      "object": "-33.25°C"
+    },
+    {
+      "subject": "-33.25°C",
+      "predicate": "has_feels_like_temperature",
+      "object": "-40.25°C"
+    },
+    {
+      "subject": "Burträsk",
+      "predicate": "has_peak_temperature",
+      "object": "2.62°C"
+    },
+    {
+      "subject": "2.62°C",
+      "predicate": "reached_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "transitions_from",
+      "object": "overcast and cloudy"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "transitions_to",
+      "object": "clear skies"
+    },
+    {
+      "subject": "clear skies",
+      "predicate": "occurs_around",
+      "object": "January 6th"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "returns_to",
+      "object": "cloudy skies"
+    },
+    {
+      "subject": "wind_speeds",
+      "predicate": "peak_at",
+      "object": "6.16 m/s"
+    },
+    {
+      "subject": "wind_gusts",
+      "predicate": "peak_at",
+      "object": "17.21 m/s"
+    },
+    {
+      "subject": "Birchington",
+      "predicate": "will_experience",
+      "object": "cooling trend"
+    },
+    {
+      "subject": "cooling trend",
+      "predicate": "duration",
+      "object": "next few days"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "drop_from",
+      "object": "9.5°C"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "drop_to",
+      "object": "3.85°C"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "reach_low_by",
+      "object": "January 8th"
+    },
+    {
+      "subject": "the period",
+      "predicate": "characterized_by",
+      "object": "frequent rain"
+    },
+    {
+      "subject": "the period",
+      "predicate": "characterized_by",
+      "object": "persistent overcast skies"
+    },
+    {
+      "subject": "moderate rainfall",
+      "predicate": "occurs_on",
+      "object": "night of January 4th"
+    },
+    {
+      "subject": "moderate rainfall",
+      "predicate": "occurs_on",
+      "object": "night of January 5th"
+    },
+    {
+      "subject": "winds",
+      "predicate": "remain",
+      "object": "steady"
+    },
+    {
+      "subject": "winds",
+      "predicate": "peak_at",
+      "object": "16.7 m/s"
+    },
+    {
+      "subject": "winds",
+      "predicate": "peak_on",
+      "object": "January 5th"
+    },
+    {
+      "subject": "Riaillé",
+      "predicate": "has_peak_temperature",
+      "object": "12.16°C"
+    },
+    {
+      "subject": "12.16°C",
+      "predicate": "occurs_on",
+      "object": "January 4th"
+    },
+    {
+      "subject": "Riaillé",
+      "predicate": "has_low_temperature",
+      "object": "1.59°C"
+    },
+    {
+      "subject": "1.59°C",
+      "predicate": "occurs_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "temperatures in Riaillé",
+      "predicate": "gradually_decline",
+      "object": "from January 4th to January 8th"
+    },
+    {
+      "subject": "Riaillé",
+      "predicate": "has_weather_condition",
+      "object": "cloudy skies and light rain"
+    },
+    {
+      "subject": "cloudy skies and light rain",
+      "predicate": "occurs_on",
+      "object": "January 4th"
+    },
+    {
+      "subject": "cloudy skies and light rain",
+      "predicate": "occurs_on",
+      "object": "January 5th"
+    },
+    {
+      "subject": "Riaillé",
+      "predicate": "has_weather_condition",
+      "object": "clearer conditions with occasional light rain"
+    },
+    {
+      "subject": "clearer conditions with occasional light rain",
+      "predicate": "occurs_on",
+      "object": "January 6th"
+    },
+    {
+      "subject": "Riaillé",
+      "predicate": "has_weather_condition",
+      "object": "mostly cloudy to clear skies and colder temperatures"
+    },
+    {
+      "subject": "mostly cloudy to clear skies and colder temperatures",
+      "predicate": "occurs_through",
+      "object": "January 8th"
+    },
+    {
+      "subject": "Broughton",
+      "predicate": "has_weather_transition",
+      "object": "light rain and temperatures around 6-8°C to increasingly clear skies and colder conditions"
+    },
+    {
+      "subject": "light rain and temperatures around 6-8°C",
+      "predicate": "occurred_during",
+      "object": "Jan 3-5"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "will_steadily_decline",
+      "object": "approximately 0°C"
+    },
+    {
+      "subject": "temperatures",
+      "predicate": "will_reach_low_on",
+      "object": "January 8"
+    },
+    {
+      "subject": "pressure",
+      "predicate": "will_rise",
+      "object": "throughout the period"
+    },
+    {
+      "subject": "Aridaea",
+      "predicate": "has_high_temperature",
+      "object": "15.89°C"
+    },
+    {
+      "subject": "Aridaea",
+      "predicate": "has_low_temperature",
+      "object": "7.59°C"
+    },
+    {
+      "subject": "the period",
+      "predicate": "starts_with",
+      "object": "scattered to overcast clouds and clear skies"
+    },
+    {
+      "subject": "the period",
+      "predicate": "shifts_to",
+      "object": "rainy pattern"
+    },
+    {
+      "subject": "rainy pattern",
+      "predicate": "starts_on",
+      "object": "evening of January 6th"
+    },
+    {
+      "subject": "moderate rain",
+      "predicate": "has_peak_amount",
+      "object": "8.67mm"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "will_increase",
+      "object": "over time"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "reaches_maximum",
+      "object": "98% during the rainy transition"
+    },
+    {
+      "subject": "Sherwood",
+      "predicate": "experienced_temperatures",
+      "object": "1.08°C to 11.12°C"
+    },
+    {
+      "subject": "temperature_fluctuation_period",
+      "predicate": "occurred_between",
+      "object": "January 3rd and 8th"
+    },
+    {
+      "subject": "weather",
+      "predicate": "transitioned_from",
+      "object": "broken clouds"
+    },
+    {
+      "subject": "weather",
+      "predicate": "transitioned_to",
+      "object": "several clear days"
+    },
+    {
+      "subject": "weather",
+      "predicate": "followed_by",
+      "object": "overcast skies and light rain"
+    },
+    {
+      "subject": "overcast skies and light rain",
+      "predicate": "occurred_on",
+      "object": "January 5th"
+    },
+    {
+      "subject": "winds",
+      "predicate": "were_generally",
+      "object": "light"
+    },
+    {
+      "subject": "wind_gustiness",
+      "predicate": "increased_toward",
+      "object": "end of the period"
+    },
+    {
+      "subject": "wind_gustiness",
+      "predicate": "peak_at",
+      "object": "14.48 m/s"
+    },
+    {
+      "subject": "peak_wind_gustiness",
+      "predicate": "occurred_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "Saint James",
+      "predicate": "has_high_temperature",
+      "object": "6.99°C"
+    },
+    {
+      "subject": "Saint James",
+      "predicate": "has_low_temperature",
+      "object": "-3.56°C"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "starts_with",
+      "object": "clear skies"
+    },
+    {
+      "subject": "forecast",
+      "predicate": "transitions_to",
+      "object": "overcast conditions"
+    },
+    {
+      "subject": "overcast conditions",
+      "predicate": "includes",
+      "object": "light snow"
+    },
+    {
+      "subject": "overcast conditions",
+      "predicate": "includes",
+      "object": "rain"
+    },
+    {
+      "subject": "overcast conditions",
+      "predicate": "occurs_between",
+      "object": "January 5th and 7th"
+    },
+    {
+      "subject": "winds",
+      "predicate": "have_intensity",
+      "object": "moderate"
+    },
+    {
+      "subject": "wind_gusts",
+      "predicate": "peak_at",
+      "object": "12.82 m/s"
+    },
+    {
+      "subject": "wind_gusts",
+      "predicate": "peak_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "Rio Chico",
+      "predicate": "has_temperature_range",
+      "object": "23.01°C to 30.28°C"
+    },
+    {
+      "subject": "temperature_fluctuation",
+      "predicate": "occurs_between",
+      "object": "January 3rd to 8th"
+    },
+    {
+      "subject": "the_period",
+      "predicate": "characterized_by",
+      "object": "high humidity"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "has_maximum_value",
+      "object": "95%"
+    },
+    {
+      "subject": "the_period",
+      "predicate": "characterized_by",
+      "object": "frequent light rain"
+    },
+    {
+      "subject": "light_rain",
+      "predicate": "occurs_particularly_on_mornings_of",
+      "object": "January 4th, 5th, 6th, 7th, and 8th"
+    },
+    {
+      "subject": "skies",
+      "predicate": "vary_between",
+      "object": "clear, scattered clouds, and overcast conditions"
+    },
+    {
+      "subject": "winds",
+      "predicate": "are",
+      "object": "light"
+    },
+    {
+      "subject": "Semeljci",
+      "predicate": "has_weather_transition",
+      "object": "from mild cloudy conditions to a significant cold snap"
+    },
+    {
+      "subject": "mild cloudy conditions",
+      "predicate": "includes",
+      "object": "occasional light rain"
+    },
+    {
+      "subject": "mild cloudy conditions",
+      "predicate": "has_temperature_range",
+      "object": "6°C to 14°C"
+    },
+    {
+      "subject": "mild cloudy conditions",
+      "predicate": "lasts_until",
+      "object": "January 6th"
+    },
+    {
+      "subject": "significant cold snap",
+      "predicate": "occurs_by",
+      "object": "January 8th"
+    },
+    {
+      "subject": "significant cold snap",
+      "predicate": "has_low_temperature",
+      "object": "-1.24°C"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "shifts_from",
+      "object": "rain"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "shifts_to",
+      "object": "snow"
+    },
+    {
+      "subject": "precipitation_shift",
+      "predicate": "starts_on",
+      "object": "evening of January 7th"
+    },
+    {
+      "subject": "significant cold snap",
+      "predicate": "accompanied_by",
+      "object": "reduced visibility"
+    },
+    {
+      "subject": "significant cold snap",
+      "predicate": "accompanied_by",
+      "object": "breezy conditions"
+    },
+    {
+      "subject": "Betz",
+      "predicate": "has_temperature_trend",
+      "object": "steadily decline"
+    },
+    {
+      "subject": "Betz",
+      "predicate": "high_temperature",
+      "object": "around 10°C on January 3rd"
+    },
+    {
+      "subject": "Betz",
+      "predicate": "has_temperature_forecast",
+      "object": "near or below freezing by January 8th"
+    },
+    {
+      "subject": "the period",
+      "predicate": "starts_with",
+      "object": "frequent light rain"
+    },
+    {
+      "subject": "the period",
+      "predicate": "starts_with",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "the period",
+      "predicate": "transitions_to",
+      "object": "mostly cloudy conditions"
+    },
+    {
+      "subject": "the period",
+      "predicate": "transitions_to",
+      "object": "light snow"
+    },
+    {
+      "subject": "the period",
+      "predicate": "ends_with",
+      "object": "significantly colder feels-like temperatures"
+    },
+    {
+      "subject": "feels-like temperatures",
+      "predicate": "reaches_low_of",
+      "object": "-5.6°C"
+    },
+    {
+      "subject": "Ébano (Colonia Veinte de Noviembre)",
+      "predicate": "has_low_temperature",
+      "object": "15.73°C"
+    },
+    {
+      "subject": "Ébano (Colonia Veinte de Noviembre)",
+      "predicate": "has_peak_temperature",
+      "object": "28.62°C"
+    },
+    {
+      "subject": "weather_period",
+      "predicate": "starts_with",
+      "object": "broken and overcast clouds"
+    },
+    {
+      "subject": "weather_period",
+      "predicate": "transitions_to",
+      "object": "clear skies"
+    },
+    {
+      "subject": "clear skies",
+      "predicate": "occurs_on",
+      "object": "January 5th and 6th"
+    },
+    {
+      "subject": "weather_period",
+      "predicate": "returns_to",
+      "object": "overcast conditions"
+    },
+    {
+      "subject": "overcast conditions",
+      "predicate": "occurs_on",
+      "object": "January 7th"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "has_maximum_value",
+      "object": "96%"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "has_minimum_value",
+      "object": "36%"
+    },
+    {
+      "subject": "minimum_humidity",
+      "predicate": "occurs_during",
+      "object": "warmest period"
+    },
+    {
+      "subject": "Pyhäjoki",
+      "predicate": "has_temperature",
+      "object": "around -26°C"
+    },
+    {
+      "subject": "temperature in Pyhäjoki",
+      "predicate": "occurs_during",
+      "object": "January 3rd to 6th"
+    },
+    {
+      "subject": "Pyhäjoki",
+      "predicate": "has_cloud_cover",
+      "object": "overcast to broken clouds"
+    },
+    {
+      "subject": "warming trend",
+      "predicate": "starts_on",
+      "object": "January 7th"
+    },
+    {
+      "subject": "temperature in Pyhäjoki",
+      "predicate": "rises_to",
+      "object": "-3.66°C"
+    },
+    {
+      "subject": "-3.66°C temperature",
+      "predicate": "occurs_on",
+      "object": "January 8th"
+    },
+    {
+      "subject": "winds",
+      "predicate": "increase_during",
+      "object": "warming period"
+    },
+    {
+      "subject": "wind gusts",
+      "predicate": "peak_at",
+      "object": "13.51 m/s"
+    },
+    {
+      "subject": "peak wind gusts",
+      "predicate": "occurs_on",
+      "object": "evening of January 7th"
+    },
+    {
+      "subject": "Weather in Târgu Trotuş",
+      "predicate": "is_mild_and_overcast",
+      "object": "January 4th"
+    },
+    {
+      "subject": "Temperature in Târgu Trotuş",
+      "predicate": "peak_at",
+      "object": "12.6°C on January 4th"
+    },
+    {
+      "subject": "Cold snap",
+      "predicate": "starts_on",
+      "object": "January 7th"
+    },
+    {
+      "subject": "Cold snap",
+      "predicate": "brings",
+      "object": "heavy snow"
+    },
+    {
+      "subject": "Cold snap",
+      "predicate": "brings",
+      "object": "sharp temperature drop"
+    },
+    {
+      "subject": "Temperature in Târgu Trotuş",
+      "predicate": "reaches_low_of",
+      "object": "-7.2°C by January 8th"
+    },
+    {
+      "subject": "Weather in Târgu Trotuş",
+      "predicate": "has",
+      "object": "poor visibility"
+    },
+    {
+      "subject": "Weather in Târgu Trotuş",
+      "predicate": "has",
+      "object": "consistent snowfall"
+    },
+    {
+      "subject": "Nakskov",
+      "predicate": "will_experience",
+      "object": "significant cooling trend"
+    },
+    {
+      "subject": "significant cooling trend",
+      "predicate": "occurs_from",
+      "object": "January 3rd"
+    },
+    {
+      "subject": "significant cooling trend",
+      "predicate": "occurs_to",
+      "object": "January 8th"
+    },
+    {
+      "subject": "weather on January 3rd",
+      "predicate": "consists_of",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "weather on January 3rd",
+      "predicate": "has_temperature",
+      "object": "6°C"
+    },
+    {
+      "subject": "weather",
+      "predicate": "drop_to",
+      "object": "sub-zero temperatures"
+    },
+    {
+      "subject": "weather",
+      "predicate": "transitions_from",
+      "object": "rain"
+    },
+    {
+      "subject": "weather",
+      "predicate": "transitions_to",
+      "object": "light snow"
+    },
+    {
+      "subject": "transition to light snow",
+      "predicate": "occurs_on",
+      "object": "January 4th"
+    },
+    {
+      "subject": "weather after January 4th",
+      "predicate": "characterized_by",
+      "object": "overcast skies"
+    },
+    {
+      "subject": "weather after January 4th",
+      "predicate": "characterized_by",
+      "object": "persistent cold"
+    },
+    {
+      "subject": "low temperatures",
+      "predicate": "reach",
+      "object": "-2.75°C"
+    },
+    {
+      "subject": "weather conditions",
+      "predicate": "improve_toward",
+      "object": "January 8th"
+    },
+    {
+      "subject": "weather on January 8th",
+      "predicate": "has_sky_condition",
+      "object": "clear skies"
+    },
+    {
+      "subject": "weather on January 8th",
+      "predicate": "has_temperature",
+      "object": "-1°C"
+    }
+  ]
+}

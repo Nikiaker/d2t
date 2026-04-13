@@ -211,9 +211,6 @@ def call_llm_json(
         request_payload: dict[str, Any] = {
             "model": model,
             "messages": messages,
-            "extra_body": {
-                "chat_template_kwargs": {"enable_thinking": False}
-            },
         }
         if response_format is not None:
             request_payload["response_format"] = response_format
@@ -296,6 +293,7 @@ def build_extraction_batch_jsonl(
     extraction_system_prompt: str,
     instances: list[dict[str, Any]],
 ) -> str:
+    cnt = 0
     lines: list[str] = []
     for instance in instances:
         instance_id = instance.get("instance_id")
@@ -315,12 +313,12 @@ def build_extraction_batch_jsonl(
                     {"role": "user", "content": user_prompt},
                 ],
                 "response_format": EXTRACTION_RESPONSE_FORMAT,
-                "extra_body": {
-                    "chat_template_kwargs": {"enable_thinking": False}
-                },
             },
         }
         lines.append(json.dumps(request_payload, ensure_ascii=False))
+        #cnt += 1
+        #if cnt >= 20:  # Limit the number of instances in the batch
+        #    break
 
     return "\n".join(lines) + "\n"
 
@@ -504,9 +502,6 @@ def build_equivalence_batch_jsonl(
                     {"role": "user", "content": user_prompt},
                 ],
                 "response_format": EQUIVALENCE_RESPONSE_FORMAT,
-                "extra_body": {
-                    "chat_template_kwargs": {"enable_thinking": False}
-                },
             },
         }
         lines.append(json.dumps(request_payload, ensure_ascii=False))

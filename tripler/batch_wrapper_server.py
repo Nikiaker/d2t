@@ -177,7 +177,7 @@ def create_app(upstream_base_url: str, storage_dir: str) -> FastAPI:
             lines = [line.strip() for line in input_bytes.decode("utf-8").splitlines() if line.strip()]
             requests_payload = [json.loads(line) for line in lines]
 
-            timeout = httpx.Timeout(120.0, connect=10.0)
+            timeout = httpx.Timeout(86400.0, connect=10.0)
             async with httpx.AsyncClient(base_url=upstream_base_url, timeout=timeout) as client:
                 grouped_requests: dict[str, dict[str, Any]] = {}
                 results: list[dict[str, Any] | None] = [None] * len(requests_payload)
@@ -366,7 +366,7 @@ def create_app(upstream_base_url: str, storage_dir: str) -> FastAPI:
 
     @app.post("/v1/chat/completions")
     async def proxy_chat_completions(payload: dict[str, Any]) -> Response:
-        timeout = httpx.Timeout(120.0, connect=10.0)
+        timeout = httpx.Timeout(86400.0, connect=10.0)
         try:
             async with httpx.AsyncClient(base_url=upstream_base_url, timeout=timeout) as client:
                 upstream_response = await client.post("/v1/chat/completions", json=payload)

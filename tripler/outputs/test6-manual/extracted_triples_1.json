@@ -1,0 +1,8034 @@
+{
+  "input_file": "inputs/input_data_weather_dev_full.json",
+  "instances_count": 100,
+  "triples_count": 738,
+  "unique_predicates": [
+    "is_located_in",
+    "has_population",
+    "has_location",
+    "ranges_between",
+    "varies_between",
+    "reaches_maximum",
+    "includes",
+    "max_value",
+    "located_in",
+    "location",
+    "min_value",
+    "extreme_event",
+    "ranges_from",
+    "predominantly",
+    "trends_towards",
+    "has_max_temp",
+    "has_min_temp",
+    "shows_trend",
+    "has_condition",
+    "has_extreme_event",
+    "has_weather_trend",
+    "max_temperature",
+    "min_temperature",
+    "notable_condition",
+    "has_temp_range",
+    "has_humidity_range",
+    "dominant_condition",
+    "has_max_wind_speed",
+    "has_temperature_range",
+    "has_weather_condition",
+    "experiences_extreme_condition",
+    "has_max_temperature",
+    "has_min_temperature",
+    "experiences_weather",
+    "temperature_trend",
+    "maximum_wind_gust",
+    "weather_trend",
+    "extreme_condition",
+    "max_wind_gust",
+    "has_forecast_period",
+    "is",
+    "has_dominant_condition",
+    "has_notable_condition",
+    "evolves_to",
+    "occurs_on",
+    "forecast_period",
+    "peaks_on",
+    "is_predominantly",
+    "typical_state",
+    "cloud_cover",
+    "humidity_range",
+    "occurs_during",
+    "secondary_condition",
+    "min_temp",
+    "max_temp",
+    "range",
+    "max_gust",
+    "starts_with",
+    "transitions_to",
+    "shows_decline",
+    "has_dominant_weather",
+    "experienced_condition",
+    "trend",
+    "maximum",
+    "minimum",
+    "drops_during",
+    "dominant_state",
+    "value",
+    "initial_condition",
+    "final_condition",
+    "maximum_value",
+    "minimum_value",
+    "maximum_gust",
+    "reaches",
+    "sky_condition",
+    "constant_at",
+    "has_temperature_trend",
+    "weather_conditions",
+    "primary_types",
+    "has_precipitation",
+    "has_extreme_condition",
+    "has_wind_speed_max",
+    "has_cloud_cover",
+    "transition_condition",
+    "temperature_range",
+    "primary_conditions",
+    "precipitation_types",
+    "has_extreme_low_visibility",
+    "general_sky_condition",
+    "predominant_state",
+    "notable_event",
+    "applies_to",
+    "has_value",
+    "notable_decrease",
+    "ends_with",
+    "contains_condition",
+    "experience_condition",
+    "extreme_low",
+    "has_precipitation_probability",
+    "starts_on",
+    "ends_on",
+    "occurred_on",
+    "weather_condition",
+    "wind_condition",
+    "description",
+    "occurrence",
+    "has_minimum",
+    "has_maximum",
+    "max_wind_speed",
+    "has_weather_conditions",
+    "has_visibility",
+    "average_range",
+    "experiences_weather_condition",
+    "shows_pattern",
+    "experiences_condition",
+    "is_mostly",
+    "includes_occasional",
+    "peaks_at",
+    "includes_extreme",
+    "shows",
+    "reaches_minimum",
+    "max_humidity",
+    "level",
+    "evolves_from",
+    "experienced_temperature_range",
+    "experienced_weather_condition",
+    "has_pressure_range",
+    "maximum_temperature",
+    "minimum_temperature",
+    "occurs",
+    "increases_to",
+    "remains_high",
+    "has_weather_forecast",
+    "trends",
+    "primary_condition",
+    "has_wind_speed_range",
+    "direction",
+    "wind_speed_max",
+    "dominant_weather",
+    "humidity_level",
+    "wind_speed_trend",
+    "has_max_wind_gust",
+    "has_min_visibility"
+  ],
+  "triples_by_instance": [
+    {
+      "instance_id": 0,
+      "triples": [
+        {
+          "subject": "Contepec",
+          "predicate": "is_located_in",
+          "object": "MX"
+        },
+        {
+          "subject": "Contepec",
+          "predicate": "has_population",
+          "object": "3623"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "has_location",
+          "object": "Contepec"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "ranges_between",
+          "object": "5.49°C to 20.17°C"
+        },
+        {
+          "subject": "sky_condition",
+          "predicate": "varies_between",
+          "object": "clear sky and overcast clouds"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "reaches_maximum",
+          "object": "8.84 m/s"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "ranges_between",
+          "object": "17% to 81%"
+        }
+      ]
+    },
+    {
+      "instance_id": 1,
+      "triples": [
+        {
+          "subject": "Anori",
+          "predicate": "is_located_in",
+          "object": "Brazil"
+        },
+        {
+          "subject": "Anori",
+          "predicate": "has_population",
+          "object": "8064"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "has_location",
+          "object": "Anori"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "ranges_between",
+          "object": "22.84 to 34.27 degrees"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "light rain"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "moderate rain"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "ranges_between",
+          "object": "45% to 99%"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "max_value",
+          "object": "2.75 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 2,
+      "triples": [
+        {
+          "subject": "ses Salines",
+          "predicate": "located_in",
+          "object": "ES"
+        },
+        {
+          "subject": "ses Salines",
+          "predicate": "has_population",
+          "object": "4290"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "location",
+          "object": "ses Salines"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "max_value",
+          "object": "17.26"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "min_value",
+          "object": "4.81"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "scattered clouds"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "heavy intensity rain"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "clear sky"
+        },
+        {
+          "subject": "precipitation",
+          "predicate": "extreme_event",
+          "object": "heavy intensity rain"
+        }
+      ]
+    },
+    {
+      "instance_id": 3,
+      "triples": [
+        {
+          "subject": "Ohangaron",
+          "predicate": "located_in",
+          "object": "UZ"
+        },
+        {
+          "subject": "Ohangaron",
+          "predicate": "has_population",
+          "object": "35516"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "has_location",
+          "object": "Ohangaron"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "ranges_from",
+          "object": "1.08 to 16.64 degrees"
+        },
+        {
+          "subject": "weather_condition",
+          "predicate": "predominantly",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "notable_event",
+          "predicate": "includes",
+          "object": "moderate rain on 2024-01-07"
+        },
+        {
+          "subject": "sky_condition",
+          "predicate": "trends_towards",
+          "object": "clear sky by 2024-01-08"
+        }
+      ]
+    },
+    {
+      "instance_id": 4,
+      "triples": [
+        {
+          "subject": "Jonesville",
+          "predicate": "is_located_in",
+          "object": "US"
+        },
+        {
+          "subject": "Jonesville weather",
+          "predicate": "has_max_temp",
+          "object": "9.31"
+        },
+        {
+          "subject": "Jonesville weather",
+          "predicate": "has_min_temp",
+          "object": "-2.15"
+        },
+        {
+          "subject": "Jonesville weather",
+          "predicate": "shows_trend",
+          "object": "cooling then fluctuating"
+        },
+        {
+          "subject": "Jonesville weather",
+          "predicate": "has_condition",
+          "object": "broken and overcast clouds"
+        },
+        {
+          "subject": "Jonesville weather",
+          "predicate": "has_condition",
+          "object": "clear skies"
+        },
+        {
+          "subject": "Jonesville weather",
+          "predicate": "has_extreme_event",
+          "object": "moderate rain and light snow"
+        }
+      ]
+    },
+    {
+      "instance_id": 5,
+      "triples": [
+        {
+          "subject": "Agua Dulce",
+          "predicate": "located_in",
+          "object": "Mexico"
+        },
+        {
+          "subject": "Agua Dulce",
+          "predicate": "has_weather_trend",
+          "object": "variable with periods of rain and clear skies"
+        },
+        {
+          "subject": "Agua Dulce",
+          "predicate": "max_temperature",
+          "object": "26.24°C"
+        },
+        {
+          "subject": "Agua Dulce",
+          "predicate": "min_temperature",
+          "object": "16.02°C"
+        },
+        {
+          "subject": "Agua Dulce",
+          "predicate": "notable_condition",
+          "object": "light rain"
+        },
+        {
+          "subject": "Agua Dulce",
+          "predicate": "notable_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Agua Dulce",
+          "predicate": "notable_condition",
+          "object": "clear sky"
+        }
+      ]
+    },
+    {
+      "instance_id": 6,
+      "triples": [
+        {
+          "subject": "Kankan",
+          "predicate": "is_located_in",
+          "object": "GN"
+        },
+        {
+          "subject": "Kankan",
+          "predicate": "has_population",
+          "object": "114009"
+        },
+        {
+          "subject": "Kankan weather",
+          "predicate": "has_temp_range",
+          "object": "20.27°C to 36.96°C"
+        },
+        {
+          "subject": "Kankan weather",
+          "predicate": "has_humidity_range",
+          "object": "8% to 22%"
+        },
+        {
+          "subject": "Kankan weather",
+          "predicate": "dominant_condition",
+          "object": "clear to cloudy"
+        },
+        {
+          "subject": "Kankan weather",
+          "predicate": "has_max_wind_speed",
+          "object": "2.89 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 7,
+      "triples": [
+        {
+          "subject": "Bilinga",
+          "predicate": "has_location",
+          "object": "AU"
+        },
+        {
+          "subject": "Bilinga",
+          "predicate": "has_temperature_range",
+          "object": "21.35C to 25.5C"
+        },
+        {
+          "subject": "Bilinga",
+          "predicate": "has_weather_condition",
+          "object": "scattered clouds"
+        },
+        {
+          "subject": "Bilinga",
+          "predicate": "has_weather_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Bilinga",
+          "predicate": "has_weather_condition",
+          "object": "light rain"
+        },
+        {
+          "subject": "Bilinga",
+          "predicate": "has_weather_condition",
+          "object": "moderate rain"
+        },
+        {
+          "subject": "Bilinga",
+          "predicate": "has_max_wind_speed",
+          "object": "9.34 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 8,
+      "triples": [
+        {
+          "subject": "Taxiárches",
+          "predicate": "is_located_in",
+          "object": "GR"
+        },
+        {
+          "subject": "Taxiárches",
+          "predicate": "has_temperature_range",
+          "object": "6.88 to 16.8 °C"
+        },
+        {
+          "subject": "Taxiárches",
+          "predicate": "has_weather_trend",
+          "object": "transition from overcast to clear then to rain"
+        },
+        {
+          "subject": "Taxiárches",
+          "predicate": "experiences_extreme_condition",
+          "object": "moderate rain on 2024-01-07"
+        },
+        {
+          "subject": "Taxiárches",
+          "predicate": "has_max_temperature",
+          "object": "16.8 °C"
+        },
+        {
+          "subject": "Taxiárches",
+          "predicate": "has_min_temperature",
+          "object": "6.88 °C"
+        }
+      ]
+    },
+    {
+      "instance_id": 9,
+      "triples": [
+        {
+          "subject": "Pickworth",
+          "predicate": "located_in",
+          "object": "GB"
+        },
+        {
+          "subject": "Pickworth",
+          "predicate": "has_temperature_range",
+          "object": "0.62 to 7.72 degrees Celsius"
+        },
+        {
+          "subject": "Pickworth",
+          "predicate": "experiences_weather",
+          "object": "light rain"
+        },
+        {
+          "subject": "Pickworth",
+          "predicate": "experiences_weather",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Pickworth",
+          "predicate": "experiences_weather",
+          "object": "light snow"
+        },
+        {
+          "subject": "Pickworth",
+          "predicate": "temperature_trend",
+          "object": "decreasing"
+        },
+        {
+          "subject": "Pickworth",
+          "predicate": "maximum_wind_gust",
+          "object": "11.81 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 10,
+      "triples": [
+        {
+          "subject": "Aksu",
+          "predicate": "is_located_in",
+          "object": "TR"
+        },
+        {
+          "subject": "Aksu",
+          "predicate": "has_population",
+          "object": "3842"
+        },
+        {
+          "subject": "Aksu",
+          "predicate": "weather_trend",
+          "object": "predominantly cloudy with periodic light rain"
+        },
+        {
+          "subject": "Aksu",
+          "predicate": "max_temperature",
+          "object": "11.48"
+        },
+        {
+          "subject": "Aksu",
+          "predicate": "min_temperature",
+          "object": "5.87"
+        },
+        {
+          "subject": "Aksu",
+          "predicate": "extreme_condition",
+          "object": "moderate rain on 2024-01-08"
+        },
+        {
+          "subject": "Aksu",
+          "predicate": "max_wind_gust",
+          "object": "20.3"
+        }
+      ]
+    },
+    {
+      "instance_id": 11,
+      "triples": [
+        {
+          "subject": "Saḩāb",
+          "predicate": "is_located_in",
+          "object": "Jordan"
+        },
+        {
+          "subject": "Saḩāb",
+          "predicate": "has_forecast_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "ranges_between",
+          "object": "7.44°C and 18.13°C"
+        },
+        {
+          "subject": "maximum_temperature",
+          "predicate": "is",
+          "object": "18.13°C"
+        },
+        {
+          "subject": "minimum_temperature",
+          "predicate": "is",
+          "object": "7.44°C"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "varies_between",
+          "object": "clear sky and overcast clouds"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "ranges_between",
+          "object": "30% and 91%"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "ranges_between",
+          "object": "0.69 m/s and 6.75 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 12,
+      "triples": [
+        {
+          "subject": "Nato",
+          "predicate": "is_located_in",
+          "object": "PH"
+        },
+        {
+          "subject": "Nato",
+          "predicate": "has_population",
+          "object": "3548"
+        },
+        {
+          "subject": "Nato weather",
+          "predicate": "has_temperature_range",
+          "object": "25.58C to 28.75C"
+        },
+        {
+          "subject": "Nato weather",
+          "predicate": "has_dominant_condition",
+          "object": "Clouds"
+        },
+        {
+          "subject": "Nato weather",
+          "predicate": "has_notable_condition",
+          "object": "light rain"
+        },
+        {
+          "subject": "Nato weather",
+          "predicate": "has_humidity_range",
+          "object": "72% to 84%"
+        }
+      ]
+    },
+    {
+      "instance_id": 13,
+      "triples": [
+        {
+          "subject": "Cornu Luncii",
+          "predicate": "is_located_in",
+          "object": "RO"
+        },
+        {
+          "subject": "Cornu Luncii",
+          "predicate": "has_population",
+          "object": "7288"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "has_location",
+          "object": "Cornu Luncii"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "ranges_from",
+          "object": "-9.01 to 10.75"
+        },
+        {
+          "subject": "weather_condition",
+          "predicate": "evolves_to",
+          "object": "snow"
+        },
+        {
+          "subject": "snow_event",
+          "predicate": "occurs_on",
+          "object": "2024-01-07"
+        },
+        {
+          "subject": "snow_event",
+          "predicate": "occurs_on",
+          "object": "2024-01-08"
+        },
+        {
+          "subject": "sky_condition",
+          "predicate": "predominantly",
+          "object": "overcast clouds"
+        }
+      ]
+    },
+    {
+      "instance_id": 14,
+      "triples": [
+        {
+          "subject": "Mountain Brook",
+          "predicate": "has_location",
+          "object": "US"
+        },
+        {
+          "subject": "Mountain Brook",
+          "predicate": "forecast_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "ranges_between",
+          "object": "0.25°C and 12.17°C"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "light rain"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "moderate rain"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "clear sky"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "rain_event",
+          "predicate": "peaks_on",
+          "object": "2024-01-06"
+        }
+      ]
+    },
+    {
+      "instance_id": 15,
+      "triples": [
+        {
+          "subject": "Capácuaro",
+          "predicate": "is_located_in",
+          "object": "MX"
+        },
+        {
+          "subject": "Capácuaro",
+          "predicate": "has_population",
+          "object": "7283"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "has_location",
+          "object": "Capácuaro"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "ranges_between",
+          "object": "6.49°C to 20.86°C"
+        },
+        {
+          "subject": "general_condition",
+          "predicate": "is_predominantly",
+          "object": "clear sky"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "ranges_between",
+          "object": "21% to 86%"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "ranges_between",
+          "object": "1.84 m/s to 4.76 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 16,
+      "triples": [
+        {
+          "subject": "Checca",
+          "predicate": "is_located_in",
+          "object": "PE"
+        },
+        {
+          "subject": "Checca",
+          "predicate": "has_population",
+          "object": "3810"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "location",
+          "object": "Checca"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "dominant_condition",
+          "object": "light rain"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "max_value",
+          "object": "13.42"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "min_value",
+          "object": "3.43"
+        },
+        {
+          "subject": "precipitation",
+          "predicate": "extreme_event",
+          "object": "moderate rain"
+        },
+        {
+          "subject": "cloud_cover",
+          "predicate": "typical_state",
+          "object": "overcast"
+        }
+      ]
+    },
+    {
+      "instance_id": 17,
+      "triples": [
+        {
+          "subject": "Géri",
+          "predicate": "is_located_in",
+          "object": "Cyprus"
+        },
+        {
+          "subject": "Géri",
+          "predicate": "has_population",
+          "object": "7639"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "ranges_between",
+          "object": "12.34°C and 19.36°C"
+        },
+        {
+          "subject": "weather_condition",
+          "predicate": "varies_between",
+          "object": "clear sky and overcast clouds"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "reaches_maximum",
+          "object": "8.92 m/s"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "ranges_between",
+          "object": "49% and 95%"
+        }
+      ]
+    },
+    {
+      "instance_id": 18,
+      "triples": [
+        {
+          "subject": "Amahusu",
+          "predicate": "is_located_in",
+          "object": "Indonesia"
+        },
+        {
+          "subject": "Amahusu weather",
+          "predicate": "has_temperature_range",
+          "object": "26.15C to 29.16C"
+        },
+        {
+          "subject": "Amahusu weather",
+          "predicate": "dominant_condition",
+          "object": "light rain"
+        },
+        {
+          "subject": "Amahusu weather",
+          "predicate": "extreme_condition",
+          "object": "moderate rain"
+        },
+        {
+          "subject": "Amahusu weather",
+          "predicate": "cloud_cover",
+          "object": "broken to overcast"
+        },
+        {
+          "subject": "Amahusu weather",
+          "predicate": "humidity_range",
+          "object": "15% to 80%"
+        }
+      ]
+    },
+    {
+      "instance_id": 19,
+      "triples": [
+        {
+          "subject": "Montefano",
+          "predicate": "is_located_in",
+          "object": "IT"
+        },
+        {
+          "subject": "Montefano",
+          "predicate": "has_population",
+          "object": "3228"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "has_location",
+          "object": "Montefano"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "ranges_between",
+          "object": "6.89 to 15.67"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "clear sky"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "light rain"
+        },
+        {
+          "subject": "light_rain",
+          "predicate": "occurs_during",
+          "object": "2024-01-06 to 2024-01-08"
+        }
+      ]
+    },
+    {
+      "instance_id": 20,
+      "triples": [
+        {
+          "subject": "Bintawan",
+          "predicate": "located_in",
+          "object": "PH"
+        },
+        {
+          "subject": "Bintawan",
+          "predicate": "has_population",
+          "object": "4971"
+        },
+        {
+          "subject": "Bintawan weather",
+          "predicate": "dominant_condition",
+          "object": "light rain"
+        },
+        {
+          "subject": "Bintawan weather",
+          "predicate": "secondary_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Bintawan temperature",
+          "predicate": "min_temp",
+          "object": "20.61"
+        },
+        {
+          "subject": "Bintawan temperature",
+          "predicate": "max_temp",
+          "object": "26.8"
+        },
+        {
+          "subject": "Bintawan humidity",
+          "predicate": "range",
+          "object": "71% to 98%"
+        },
+        {
+          "subject": "Bintawan wind",
+          "predicate": "max_gust",
+          "object": "3.05"
+        }
+      ]
+    },
+    {
+      "instance_id": 21,
+      "triples": [
+        {
+          "subject": "San Bartolo Tutotepec",
+          "predicate": "is_located_in",
+          "object": "MX"
+        },
+        {
+          "subject": "San Bartolo Tutotepec",
+          "predicate": "has_temperature_range",
+          "object": "13.69°C to 25.74°C"
+        },
+        {
+          "subject": "San Bartolo Tutotepec",
+          "predicate": "experiences_weather",
+          "object": "light rain"
+        },
+        {
+          "subject": "San Bartolo Tutotepec",
+          "predicate": "experiences_weather",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "San Bartolo Tutotepec",
+          "predicate": "experiences_weather",
+          "object": "clear sky"
+        },
+        {
+          "subject": "San Bartolo Tutotepec",
+          "predicate": "has_humidity_range",
+          "object": "42% to 99%"
+        }
+      ]
+    },
+    {
+      "instance_id": 22,
+      "triples": [
+        {
+          "subject": "Shuidong",
+          "predicate": "is_located_in",
+          "object": "CN"
+        },
+        {
+          "subject": "Shuidong",
+          "predicate": "has_temperature_range",
+          "object": "15.8°C to 23.01°C"
+        },
+        {
+          "subject": "Shuidong",
+          "predicate": "has_weather_condition",
+          "object": "predominantly cloudy and clear"
+        },
+        {
+          "subject": "Shuidong",
+          "predicate": "has_max_wind_speed",
+          "object": "7.8 m/s"
+        },
+        {
+          "subject": "Shuidong",
+          "predicate": "has_humidity_range",
+          "object": "49% to 92%"
+        }
+      ]
+    },
+    {
+      "instance_id": 23,
+      "triples": [
+        {
+          "subject": "Ljungbyholm",
+          "predicate": "has_location",
+          "object": "Sweden"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "starts_with",
+          "object": "snow"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "transitions_to",
+          "object": "clear skies"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "ranges_from",
+          "object": "-2.61 to -17.63 degrees Celsius"
+        },
+        {
+          "subject": "minimum_temperature",
+          "predicate": "is",
+          "object": "-17.63 degrees Celsius"
+        },
+        {
+          "subject": "maximum_temperature",
+          "predicate": "is",
+          "object": "-2.61 degrees Celsius"
+        },
+        {
+          "subject": "weather_condition",
+          "predicate": "includes",
+          "object": "light snow"
+        },
+        {
+          "subject": "weather_condition",
+          "predicate": "includes",
+          "object": "broken clouds"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "max_value",
+          "object": "7.37 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 24,
+      "triples": [
+        {
+          "subject": "Tuşnad",
+          "predicate": "is_located_in",
+          "object": "RO"
+        },
+        {
+          "subject": "Tuşnad",
+          "predicate": "has_population",
+          "object": "2084"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "has_location",
+          "object": "Tuşnad"
+        },
+        {
+          "subject": "temperature_trend",
+          "predicate": "shows_decline",
+          "object": "from 8.53 to -4.84 degrees"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "rain"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "snow"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "extreme_low_temp",
+          "predicate": "is",
+          "object": "-4.84 degrees"
+        },
+        {
+          "subject": "extreme_high_temp",
+          "predicate": "is",
+          "object": "8.53 degrees"
+        }
+      ]
+    },
+    {
+      "instance_id": 25,
+      "triples": [
+        {
+          "subject": "Bayan Uula Sumu",
+          "predicate": "is_located_in",
+          "object": "Mongolia"
+        },
+        {
+          "subject": "Bayan Uula Sumu",
+          "predicate": "has_temperature_range",
+          "object": "-20.73 to -10.09 Celsius"
+        },
+        {
+          "subject": "Bayan Uula Sumu",
+          "predicate": "has_dominant_weather",
+          "object": "Clear"
+        },
+        {
+          "subject": "Bayan Uula Sumu",
+          "predicate": "experienced_condition",
+          "object": "light snow"
+        },
+        {
+          "subject": "Bayan Uula Sumu",
+          "predicate": "has_max_wind_speed",
+          "object": "3.92 m/s"
+        },
+        {
+          "subject": "Bayan Uula Sumu",
+          "predicate": "has_humidity_range",
+          "object": "61 to 90 percent"
+        }
+      ]
+    },
+    {
+      "instance_id": 26,
+      "triples": [
+        {
+          "subject": "Jedovnice",
+          "predicate": "is_located_in",
+          "object": "CZ"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "location",
+          "object": "Jedovnice"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "trend",
+          "object": "decreasing"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "maximum",
+          "object": "7.24"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "minimum",
+          "object": "-7.96"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "light rain"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "snow"
+        },
+        {
+          "subject": "visibility",
+          "predicate": "drops_during",
+          "object": "precipitation"
+        }
+      ]
+    },
+    {
+      "instance_id": 27,
+      "triples": [
+        {
+          "subject": "Pénjamo",
+          "predicate": "located_in",
+          "object": "MX"
+        },
+        {
+          "subject": "Pénjamo",
+          "predicate": "has_population",
+          "object": "33509"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "location",
+          "object": "Pénjamo"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "max_value",
+          "object": "25.03"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "min_value",
+          "object": "7.96"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "dominant_state",
+          "object": "clear to partly cloudy"
+        },
+        {
+          "subject": "precipitation_probability",
+          "predicate": "value",
+          "object": "0"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "max_gust",
+          "object": "9.5"
+        }
+      ]
+    },
+    {
+      "instance_id": 28,
+      "triples": [
+        {
+          "subject": "Escopete",
+          "predicate": "is_located_in",
+          "object": "Spain"
+        },
+        {
+          "subject": "Escopete weather",
+          "predicate": "shows_trend",
+          "object": "cooling temperature"
+        },
+        {
+          "subject": "Escopete weather",
+          "predicate": "initial_condition",
+          "object": "light rain"
+        },
+        {
+          "subject": "Escopete weather",
+          "predicate": "final_condition",
+          "object": "clear sky"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "maximum_value",
+          "object": "9.96°C"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "minimum_value",
+          "object": "-0.95°C"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "moderate rain"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "range",
+          "object": "48% to 99%"
+        }
+      ]
+    },
+    {
+      "instance_id": 29,
+      "triples": [
+        {
+          "subject": "Nagymaros",
+          "predicate": "is_located_in",
+          "object": "HU"
+        },
+        {
+          "subject": "Nagymaros",
+          "predicate": "has_population",
+          "object": "4629"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "location",
+          "object": "Nagymaros"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "range",
+          "object": "0 to 10.3 Celsius"
+        },
+        {
+          "subject": "weather_condition",
+          "predicate": "includes",
+          "object": "light rain"
+        },
+        {
+          "subject": "weather_condition",
+          "predicate": "includes",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "maximum_gust",
+          "object": "18.24 m/s"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "range",
+          "object": "51 to 97 percent"
+        }
+      ]
+    },
+    {
+      "instance_id": 30,
+      "triples": [
+        {
+          "subject": "Xiropótamos",
+          "predicate": "is_located_in",
+          "object": "GR"
+        },
+        {
+          "subject": "Xiropótamos",
+          "predicate": "has_population",
+          "object": "2670"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "has_location",
+          "object": "Xiropótamos"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "ranges_from",
+          "object": "6.04 to 15.59 degrees Celsius"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "broken clouds"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "clear sky"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "moderate rain"
+        },
+        {
+          "subject": "rain_event",
+          "predicate": "occurs_during",
+          "object": "January 6 to January 8"
+        },
+        {
+          "subject": "max_wind_gust",
+          "predicate": "reaches",
+          "object": "10.48 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 31,
+      "triples": [
+        {
+          "subject": "Point Clare",
+          "predicate": "is_located_in",
+          "object": "Australia"
+        },
+        {
+          "subject": "Point Clare",
+          "predicate": "has_weather_trend",
+          "object": "cloudy with intermittent rain"
+        },
+        {
+          "subject": "Point Clare",
+          "predicate": "max_temperature",
+          "object": "32.24°C"
+        },
+        {
+          "subject": "Point Clare",
+          "predicate": "min_temperature",
+          "object": "14.87°C"
+        },
+        {
+          "subject": "Point Clare",
+          "predicate": "notable_condition",
+          "object": "light rain between 2024-01-04 and 2024-01-06"
+        },
+        {
+          "subject": "Point Clare",
+          "predicate": "sky_condition",
+          "object": "predominantly overcast"
+        }
+      ]
+    },
+    {
+      "instance_id": 32,
+      "triples": [
+        {
+          "subject": "Sagopshi",
+          "predicate": "is_located_in",
+          "object": "RU"
+        },
+        {
+          "subject": "Sagopshi",
+          "predicate": "has_forecast_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "ranges_between",
+          "object": "1.47 to 10.22 degrees Celsius"
+        },
+        {
+          "subject": "weather_condition",
+          "predicate": "predominantly",
+          "object": "cloudy"
+        },
+        {
+          "subject": "maximum_temperature",
+          "predicate": "occurs_on",
+          "object": "2024-01-05"
+        },
+        {
+          "subject": "minimum_temperature",
+          "predicate": "occurs_on",
+          "object": "2024-01-03"
+        },
+        {
+          "subject": "visibility",
+          "predicate": "constant_at",
+          "object": "10000 meters"
+        }
+      ]
+    },
+    {
+      "instance_id": 33,
+      "triples": [
+        {
+          "subject": "Saint-Romain-de-Benet",
+          "predicate": "is_located_in",
+          "object": "France"
+        },
+        {
+          "subject": "Saint-Romain-de-Benet",
+          "predicate": "has_temperature_range",
+          "object": "1.73°C to 12.96°C"
+        },
+        {
+          "subject": "Saint-Romain-de-Benet",
+          "predicate": "has_weather_condition",
+          "object": "light rain"
+        },
+        {
+          "subject": "Saint-Romain-de-Benet",
+          "predicate": "has_weather_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Saint-Romain-de-Benet",
+          "predicate": "has_weather_condition",
+          "object": "clear sky"
+        },
+        {
+          "subject": "Saint-Romain-de-Benet",
+          "predicate": "has_temperature_trend",
+          "object": "decreasing"
+        },
+        {
+          "subject": "Saint-Romain-de-Benet",
+          "predicate": "has_max_wind_speed",
+          "object": "9.42 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 34,
+      "triples": [
+        {
+          "subject": "Friedersdorf",
+          "predicate": "has_location",
+          "object": "Germany"
+        },
+        {
+          "subject": "Friedersdorf",
+          "predicate": "weather_trend",
+          "object": "cooling"
+        },
+        {
+          "subject": "Friedersdorf",
+          "predicate": "max_temperature",
+          "object": "8.69°C"
+        },
+        {
+          "subject": "Friedersdorf",
+          "predicate": "min_temperature",
+          "object": "-8.12°C"
+        },
+        {
+          "subject": "Friedersdorf",
+          "predicate": "weather_conditions",
+          "object": "light rain"
+        },
+        {
+          "subject": "Friedersdorf",
+          "predicate": "weather_conditions",
+          "object": "light snow"
+        },
+        {
+          "subject": "Friedersdorf",
+          "predicate": "weather_conditions",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Friedersdorf",
+          "predicate": "weather_conditions",
+          "object": "clear sky"
+        }
+      ]
+    },
+    {
+      "instance_id": 35,
+      "triples": [
+        {
+          "subject": "Waalwijk",
+          "predicate": "has_location",
+          "object": "NL"
+        },
+        {
+          "subject": "Waalwijk",
+          "predicate": "forecast_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "trend",
+          "object": "decreasing"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "maximum",
+          "object": "9.14°C"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "minimum",
+          "object": "-1.39°C"
+        },
+        {
+          "subject": "weather_condition",
+          "predicate": "dominant_state",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "precipitation",
+          "predicate": "primary_types",
+          "object": "rain and light snow"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "maximum",
+          "object": "8.21 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 36,
+      "triples": [
+        {
+          "subject": "Baincthun",
+          "predicate": "is_located_in",
+          "object": "FR"
+        },
+        {
+          "subject": "Baincthun",
+          "predicate": "has_temperature_range",
+          "object": "0.89 to 10.77 Celsius"
+        },
+        {
+          "subject": "Baincthun",
+          "predicate": "has_weather_trend",
+          "object": "transition from rain to snow and overcast clouds"
+        },
+        {
+          "subject": "Baincthun",
+          "predicate": "has_precipitation",
+          "object": "light to moderate rain"
+        },
+        {
+          "subject": "Baincthun",
+          "predicate": "has_extreme_condition",
+          "object": "light snow on 2024-01-07"
+        },
+        {
+          "subject": "Baincthun",
+          "predicate": "has_wind_speed_max",
+          "object": "16.73 m/s"
+        },
+        {
+          "subject": "Baincthun",
+          "predicate": "has_cloud_cover",
+          "object": "predominantly overcast"
+        }
+      ]
+    },
+    {
+      "instance_id": 37,
+      "triples": [
+        {
+          "subject": "Fox Chase",
+          "predicate": "located_in",
+          "object": "US"
+        },
+        {
+          "subject": "Fox Chase",
+          "predicate": "has_temperature_range",
+          "object": "-4.03 to 5.22 Celsius"
+        },
+        {
+          "subject": "Fox Chase",
+          "predicate": "weather_trend",
+          "object": "transition from cloudy to clear then snow"
+        },
+        {
+          "subject": "Fox Chase",
+          "predicate": "notable_condition",
+          "object": "snowfall between 2024-01-06 and 2024-01-07"
+        },
+        {
+          "subject": "Fox Chase",
+          "predicate": "maximum_wind_gust",
+          "object": "12.61 m/s"
+        },
+        {
+          "subject": "Fox Chase",
+          "predicate": "humidity_range",
+          "object": "37% to 100%"
+        }
+      ]
+    },
+    {
+      "instance_id": 38,
+      "triples": [
+        {
+          "subject": "Otwock",
+          "predicate": "is_located_in",
+          "object": "PL"
+        },
+        {
+          "subject": "Otwock weather",
+          "predicate": "shows_trend",
+          "object": "cooling trend"
+        },
+        {
+          "subject": "Otwock weather",
+          "predicate": "initial_condition",
+          "object": "light rain"
+        },
+        {
+          "subject": "Otwock weather",
+          "predicate": "transition_condition",
+          "object": "light snow"
+        },
+        {
+          "subject": "Otwock weather",
+          "predicate": "final_condition",
+          "object": "clear sky"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "maximum_value",
+          "object": "7.11°C"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "minimum_value",
+          "object": "-9.8°C"
+        }
+      ]
+    },
+    {
+      "instance_id": 39,
+      "triples": [
+        {
+          "subject": "Almería",
+          "predicate": "has_location",
+          "object": "Spain"
+        },
+        {
+          "subject": "Almería",
+          "predicate": "has_temperature_range",
+          "object": "10.74°C to 17.58°C"
+        },
+        {
+          "subject": "Almería",
+          "predicate": "has_weather_trend",
+          "object": "clear to overcast with occasional light rain"
+        },
+        {
+          "subject": "Almería",
+          "predicate": "has_max_temp",
+          "object": "17.58°C"
+        },
+        {
+          "subject": "Almería",
+          "predicate": "has_min_temp",
+          "object": "10.74°C"
+        },
+        {
+          "subject": "Almería",
+          "predicate": "has_notable_condition",
+          "object": "light rain on 2024-01-05"
+        }
+      ]
+    },
+    {
+      "instance_id": 40,
+      "triples": [
+        {
+          "subject": "Garches",
+          "predicate": "is_located_in",
+          "object": "France"
+        },
+        {
+          "subject": "Garches weather",
+          "predicate": "temperature_range",
+          "object": "0.34°C to 10.46°C"
+        },
+        {
+          "subject": "Garches weather",
+          "predicate": "primary_conditions",
+          "object": "overcast and clouds"
+        },
+        {
+          "subject": "Garches weather",
+          "predicate": "precipitation_types",
+          "object": "light rain and light snow"
+        },
+        {
+          "subject": "Garches weather",
+          "predicate": "temperature_trend",
+          "object": "decreasing"
+        },
+        {
+          "subject": "Garches weather",
+          "predicate": "maximum_wind_gust",
+          "object": "17.13 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 41,
+      "triples": [
+        {
+          "subject": "Verplanck",
+          "predicate": "is_located_in",
+          "object": "US"
+        },
+        {
+          "subject": "Verplanck weather",
+          "predicate": "has_temperature_range",
+          "object": "-3.3 to 5.83 Celsius"
+        },
+        {
+          "subject": "Verplanck weather",
+          "predicate": "shows_trend",
+          "object": "cooling followed by snow"
+        },
+        {
+          "subject": "Verplanck weather",
+          "predicate": "has_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Verplanck weather",
+          "predicate": "has_condition",
+          "object": "clear sky"
+        },
+        {
+          "subject": "Verplanck weather",
+          "predicate": "has_condition",
+          "object": "snow"
+        },
+        {
+          "subject": "Verplanck weather",
+          "predicate": "has_extreme_low_visibility",
+          "object": "37 meters"
+        }
+      ]
+    },
+    {
+      "instance_id": 42,
+      "triples": [
+        {
+          "subject": "Cornillon-Confoux",
+          "predicate": "is_located_in",
+          "object": "France"
+        },
+        {
+          "subject": "Cornillon-Confoux",
+          "predicate": "has_weather_trend",
+          "object": "cooling trend"
+        },
+        {
+          "subject": "Cornillon-Confoux",
+          "predicate": "max_temperature",
+          "object": "13.37°C"
+        },
+        {
+          "subject": "Cornillon-Confoux",
+          "predicate": "min_temperature",
+          "object": "3.98°C"
+        },
+        {
+          "subject": "Cornillon-Confoux",
+          "predicate": "notable_condition",
+          "object": "light to moderate rain on 2024-01-05"
+        },
+        {
+          "subject": "Cornillon-Confoux",
+          "predicate": "notable_condition",
+          "object": "high wind speeds on 2024-01-06 and 2024-01-07"
+        },
+        {
+          "subject": "Cornillon-Confoux",
+          "predicate": "general_sky_condition",
+          "object": "predominantly cloudy"
+        }
+      ]
+    },
+    {
+      "instance_id": 43,
+      "triples": [
+        {
+          "subject": "Fazeley",
+          "predicate": "is_located_in",
+          "object": "GB"
+        },
+        {
+          "subject": "Fazeley",
+          "predicate": "has_population",
+          "object": "7522"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "location",
+          "object": "Fazeley"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "trend",
+          "object": "decreasing"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "maximum",
+          "object": "7.82"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "minimum",
+          "object": "0.38"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "predominant_state",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "notable_event",
+          "object": "light rain"
+        },
+        {
+          "subject": "pressure",
+          "predicate": "trend",
+          "object": "increasing"
+        }
+      ]
+    },
+    {
+      "instance_id": 44,
+      "triples": [
+        {
+          "subject": "Lamotte-Beuvron",
+          "predicate": "is_located_in",
+          "object": "FR"
+        },
+        {
+          "subject": "Lamotte-Beuvron",
+          "predicate": "has_population",
+          "object": "4426"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "location",
+          "object": "Lamotte-Beuvron"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "trend",
+          "object": "decreasing"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "maximum",
+          "object": "10.32"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "minimum",
+          "object": "0.48"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "light rain"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "light snow"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "maximum",
+          "object": "7.48"
+        }
+      ]
+    },
+    {
+      "instance_id": 45,
+      "triples": [
+        {
+          "subject": "Churánov",
+          "predicate": "has_location",
+          "object": "Czech Republic"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "applies_to",
+          "object": "Churánov"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "shows_trend",
+          "object": "decreasing"
+        },
+        {
+          "subject": "temperature_maximum",
+          "predicate": "has_value",
+          "object": "4.76°C"
+        },
+        {
+          "subject": "temperature_minimum",
+          "predicate": "has_value",
+          "object": "-9.78°C"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "light rain"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "snow"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "cloud_cover",
+          "predicate": "has_value",
+          "object": "mostly 100%"
+        }
+      ]
+    },
+    {
+      "instance_id": 46,
+      "triples": [
+        {
+          "subject": "Imbituva",
+          "predicate": "has_location",
+          "object": "Brazil"
+        },
+        {
+          "subject": "Imbituva",
+          "predicate": "weather_trend",
+          "object": "transition from rain to clear skies"
+        },
+        {
+          "subject": "Imbituva",
+          "predicate": "min_temperature",
+          "object": "15.82°C"
+        },
+        {
+          "subject": "Imbituva",
+          "predicate": "max_temperature",
+          "object": "33.5°C"
+        },
+        {
+          "subject": "Imbituva",
+          "predicate": "notable_condition",
+          "object": "moderate rain"
+        }
+      ]
+    },
+    {
+      "instance_id": 47,
+      "triples": [
+        {
+          "subject": "Dragash",
+          "predicate": "is_located_in",
+          "object": "XK"
+        },
+        {
+          "subject": "Dragash",
+          "predicate": "has_temperature_range",
+          "object": "-0.22 to 9.16 degrees Celsius"
+        },
+        {
+          "subject": "Dragash",
+          "predicate": "has_weather_condition",
+          "object": "rain"
+        },
+        {
+          "subject": "Dragash",
+          "predicate": "has_weather_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Dragash",
+          "predicate": "has_weather_condition",
+          "object": "light snow"
+        },
+        {
+          "subject": "Dragash",
+          "predicate": "has_max_temperature",
+          "object": "9.16 degrees Celsius"
+        },
+        {
+          "subject": "Dragash",
+          "predicate": "has_min_temperature",
+          "object": "-0.22 degrees Celsius"
+        }
+      ]
+    },
+    {
+      "instance_id": 48,
+      "triples": [
+        {
+          "subject": "Slatina",
+          "predicate": "is_located_in",
+          "object": "RO"
+        },
+        {
+          "subject": "Slatina",
+          "predicate": "has_population",
+          "object": "5196"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "location",
+          "object": "Slatina"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "max_value",
+          "object": "10.42"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "min_value",
+          "object": "-9.26"
+        },
+        {
+          "subject": "weather_condition",
+          "predicate": "dominant_state",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "weather_condition",
+          "predicate": "extreme_event",
+          "object": "snow"
+        },
+        {
+          "subject": "visibility",
+          "predicate": "notable_decrease",
+          "object": "during snow events"
+        }
+      ]
+    },
+    {
+      "instance_id": 49,
+      "triples": [
+        {
+          "subject": "Nakło nad Notecią",
+          "predicate": "is_located_in",
+          "object": "Poland"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "starts_with",
+          "object": "light rain"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "transitions_to",
+          "object": "light snow"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "ends_with",
+          "object": "clear sky"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "trend",
+          "object": "decreasing"
+        },
+        {
+          "subject": "maximum_temperature",
+          "predicate": "value",
+          "object": "7.18°C"
+        },
+        {
+          "subject": "minimum_temperature",
+          "predicate": "value",
+          "object": "-8.81°C"
+        },
+        {
+          "subject": "cloud_cover",
+          "predicate": "trend",
+          "object": "decreasing"
+        }
+      ]
+    },
+    {
+      "instance_id": 50,
+      "triples": [
+        {
+          "subject": "Piqueras",
+          "predicate": "is_located_in",
+          "object": "ES"
+        },
+        {
+          "subject": "Piqueras",
+          "predicate": "has_weather_trend",
+          "object": "cooling"
+        },
+        {
+          "subject": "Piqueras",
+          "predicate": "experienced_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Piqueras",
+          "predicate": "experienced_condition",
+          "object": "light rain"
+        },
+        {
+          "subject": "Piqueras",
+          "predicate": "experienced_condition",
+          "object": "snow"
+        },
+        {
+          "subject": "Piqueras",
+          "predicate": "max_temperature",
+          "object": "8.32"
+        },
+        {
+          "subject": "Piqueras",
+          "predicate": "min_temperature",
+          "object": "-5.3"
+        }
+      ]
+    },
+    {
+      "instance_id": 51,
+      "triples": [
+        {
+          "subject": "Val-David",
+          "predicate": "located_in",
+          "object": "CA"
+        },
+        {
+          "subject": "Val-David",
+          "predicate": "has_population",
+          "object": "1211"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "contains_condition",
+          "object": "light snow"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "contains_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "maximum_value",
+          "object": "0.41"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "minimum_value",
+          "object": "-11.75"
+        },
+        {
+          "subject": "temperature_trend",
+          "predicate": "is",
+          "object": "decreasing"
+        }
+      ]
+    },
+    {
+      "instance_id": 52,
+      "triples": [
+        {
+          "subject": "Saint-Vincent-de-Mercuze",
+          "predicate": "located_in",
+          "object": "France"
+        },
+        {
+          "subject": "Saint-Vincent-de-Mercuze",
+          "predicate": "has_weather_trend",
+          "object": "cooling trend"
+        },
+        {
+          "subject": "Saint-Vincent-de-Mercuze",
+          "predicate": "experience_condition",
+          "object": "light rain"
+        },
+        {
+          "subject": "Saint-Vincent-de-Mercuze",
+          "predicate": "experience_condition",
+          "object": "broken clouds"
+        },
+        {
+          "subject": "Saint-Vincent-de-Mercuze",
+          "predicate": "experience_condition",
+          "object": "moderate rain"
+        },
+        {
+          "subject": "Saint-Vincent-de-Mercuze",
+          "predicate": "experience_condition",
+          "object": "snow"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "max_value",
+          "object": "11.35°C"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "min_value",
+          "object": "0.58°C"
+        },
+        {
+          "subject": "visibility",
+          "predicate": "extreme_low",
+          "object": "19m"
+        }
+      ]
+    },
+    {
+      "instance_id": 53,
+      "triples": [
+        {
+          "subject": "Province de la Kossi",
+          "predicate": "is_located_in",
+          "object": "Burkina Faso"
+        },
+        {
+          "subject": "Province de la Kossi",
+          "predicate": "has_max_temp",
+          "object": "36.72°C"
+        },
+        {
+          "subject": "Province de la Kossi",
+          "predicate": "has_min_temp",
+          "object": "19.03°C"
+        },
+        {
+          "subject": "Province de la Kossi",
+          "predicate": "has_weather_condition",
+          "object": "clear to overcast clouds"
+        },
+        {
+          "subject": "Province de la Kossi",
+          "predicate": "has_humidity_range",
+          "object": "6% to 15%"
+        },
+        {
+          "subject": "Province de la Kossi",
+          "predicate": "has_precipitation_probability",
+          "object": "0%"
+        }
+      ]
+    },
+    {
+      "instance_id": 54,
+      "triples": [
+        {
+          "subject": "Torre Pacheco",
+          "predicate": "located_in",
+          "object": "Spain"
+        },
+        {
+          "subject": "forecast_period",
+          "predicate": "starts_on",
+          "object": "2024-01-03"
+        },
+        {
+          "subject": "forecast_period",
+          "predicate": "ends_on",
+          "object": "2024-01-08"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "maximum_value",
+          "object": "19.82°C"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "minimum_value",
+          "object": "6.14°C"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "clear sky"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "moderate rain"
+        },
+        {
+          "subject": "rain_event",
+          "predicate": "occurred_on",
+          "object": "2024-01-05"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "maximum_value",
+          "object": "11.48 m/s"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "range",
+          "object": "22% to 94%"
+        }
+      ]
+    },
+    {
+      "instance_id": 55,
+      "triples": [
+        {
+          "subject": "Hatzendorf",
+          "predicate": "is_located_in",
+          "object": "Austria"
+        },
+        {
+          "subject": "Hatzendorf weather",
+          "predicate": "has_max_temp",
+          "object": "9.15°C"
+        },
+        {
+          "subject": "Hatzendorf weather",
+          "predicate": "has_min_temp",
+          "object": "-1.5°C"
+        },
+        {
+          "subject": "Hatzendorf weather",
+          "predicate": "shows_trend",
+          "object": "cooling"
+        },
+        {
+          "subject": "Hatzendorf weather",
+          "predicate": "has_condition",
+          "object": "clear sky"
+        },
+        {
+          "subject": "Hatzendorf weather",
+          "predicate": "has_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Hatzendorf weather",
+          "predicate": "has_condition",
+          "object": "moderate rain"
+        }
+      ]
+    },
+    {
+      "instance_id": 56,
+      "triples": [
+        {
+          "subject": "Cuetzalan",
+          "predicate": "is_located_in",
+          "object": "MX"
+        },
+        {
+          "subject": "Cuetzalan",
+          "predicate": "has_temperature_range",
+          "object": "12.93°C to 23.58°C"
+        },
+        {
+          "subject": "Cuetzalan",
+          "predicate": "weather_condition",
+          "object": "light rain"
+        },
+        {
+          "subject": "Cuetzalan",
+          "predicate": "weather_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Cuetzalan",
+          "predicate": "weather_condition",
+          "object": "clear sky"
+        },
+        {
+          "subject": "Cuetzalan",
+          "predicate": "has_humidity_range",
+          "object": "59% to 97%"
+        }
+      ]
+    },
+    {
+      "instance_id": 57,
+      "triples": [
+        {
+          "subject": "Pedro Santana",
+          "predicate": "is_located_in",
+          "object": "DO"
+        },
+        {
+          "subject": "Pedro Santana",
+          "predicate": "has_population",
+          "object": "1170"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "has_location",
+          "object": "Pedro Santana"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "ranges_between",
+          "object": "19.55°C and 32.18°C"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "scattered clouds"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "light rain"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "clear sky"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "ranges_between",
+          "object": "38% and 95%"
+        }
+      ]
+    },
+    {
+      "instance_id": 58,
+      "triples": [
+        {
+          "subject": "San Luis Acatlan",
+          "predicate": "located_in",
+          "object": "MX"
+        },
+        {
+          "subject": "San Luis Acatlan",
+          "predicate": "has_max_temp",
+          "object": "32.35"
+        },
+        {
+          "subject": "San Luis Acatlan",
+          "predicate": "has_min_temp",
+          "object": "19.54"
+        },
+        {
+          "subject": "San Luis Acatlan",
+          "predicate": "weather_trend",
+          "object": "clear to overcast"
+        },
+        {
+          "subject": "San Luis Acatlan",
+          "predicate": "humidity_range",
+          "object": "26% to 89%"
+        },
+        {
+          "subject": "San Luis Acatlan",
+          "predicate": "wind_condition",
+          "object": "light breeze"
+        }
+      ]
+    },
+    {
+      "instance_id": 59,
+      "triples": [
+        {
+          "subject": "Fargues-Saint-Hilaire",
+          "predicate": "located_in",
+          "object": "France"
+        },
+        {
+          "subject": "Fargues-Saint-Hilaire",
+          "predicate": "max_temperature",
+          "object": "13.14°C"
+        },
+        {
+          "subject": "Fargues-Saint-Hilaire",
+          "predicate": "min_temperature",
+          "object": "0.05°C"
+        },
+        {
+          "subject": "weather_trend",
+          "predicate": "description",
+          "object": "gradual cooling with intermittent light rain"
+        },
+        {
+          "subject": "notable_condition",
+          "predicate": "occurrence",
+          "object": "light rain between Jan 4 and Jan 7"
+        },
+        {
+          "subject": "sky_condition",
+          "predicate": "varies_between",
+          "object": "clear to overcast"
+        }
+      ]
+    },
+    {
+      "instance_id": 60,
+      "triples": [
+        {
+          "subject": "Capitólio",
+          "predicate": "located_in",
+          "object": "Brazil"
+        },
+        {
+          "subject": "Capitólio",
+          "predicate": "has_weather_trend",
+          "object": "frequent light rain"
+        },
+        {
+          "subject": "Capitólio",
+          "predicate": "has_weather_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "min_value",
+          "object": "19.19°C"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "max_value",
+          "object": "29.6°C"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "range",
+          "object": "54% to 99%"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "maximum",
+          "object": "3.29 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 61,
+      "triples": [
+        {
+          "subject": "Minsk City",
+          "predicate": "has_location",
+          "object": "Belarus"
+        },
+        {
+          "subject": "Minsk City",
+          "predicate": "experience_condition",
+          "object": "light snow"
+        },
+        {
+          "subject": "Minsk City",
+          "predicate": "experience_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Minsk City",
+          "predicate": "experience_condition",
+          "object": "clear sky"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "has_minimum",
+          "object": "-17.06°C"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "has_maximum",
+          "object": "-2.43°C"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "shows_trend",
+          "object": "decreasing"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "has_maximum",
+          "object": "7.2 m/s"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "range",
+          "object": "86% to 99%"
+        }
+      ]
+    },
+    {
+      "instance_id": 62,
+      "triples": [
+        {
+          "subject": "Călăraşi",
+          "predicate": "has_location",
+          "object": "Romania"
+        },
+        {
+          "subject": "Călăraşi",
+          "predicate": "weather_trend",
+          "object": "cooling trend"
+        },
+        {
+          "subject": "Călăraşi",
+          "predicate": "max_temperature",
+          "object": "11.37°C"
+        },
+        {
+          "subject": "Călăraşi",
+          "predicate": "min_temperature",
+          "object": "-7.06°C"
+        },
+        {
+          "subject": "Călăraşi",
+          "predicate": "dominant_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Călăraşi",
+          "predicate": "notable_event",
+          "object": "light rain"
+        },
+        {
+          "subject": "Călăraşi",
+          "predicate": "extreme_condition",
+          "object": "snow"
+        },
+        {
+          "subject": "Călăraşi",
+          "predicate": "max_wind_speed",
+          "object": "8.82 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 63,
+      "triples": [
+        {
+          "subject": "Isla Soyaltepec",
+          "predicate": "is_located_in",
+          "object": "Mexico"
+        },
+        {
+          "subject": "Isla Soyaltepec",
+          "predicate": "has_temperature_range",
+          "object": "19.56°C to 27.99°C"
+        },
+        {
+          "subject": "Isla Soyaltepec",
+          "predicate": "has_weather_conditions",
+          "object": "broken clouds, light rain, and clear sky"
+        },
+        {
+          "subject": "Isla Soyaltepec",
+          "predicate": "has_humidity_range",
+          "object": "63% to 96%"
+        },
+        {
+          "subject": "Isla Soyaltepec",
+          "predicate": "has_wind_speed_max",
+          "object": "3.94 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 64,
+      "triples": [
+        {
+          "subject": "Lohāru",
+          "predicate": "is_located_in",
+          "object": "India"
+        },
+        {
+          "subject": "Lohāru",
+          "predicate": "has_weather_condition",
+          "object": "Clear sky"
+        },
+        {
+          "subject": "Lohāru",
+          "predicate": "has_max_temperature",
+          "object": "24.38°C"
+        },
+        {
+          "subject": "Lohāru",
+          "predicate": "has_min_temperature",
+          "object": "7.86°C"
+        },
+        {
+          "subject": "Lohāru",
+          "predicate": "has_temperature_trend",
+          "object": "diurnal fluctuation"
+        },
+        {
+          "subject": "Lohāru",
+          "predicate": "has_humidity_range",
+          "object": "16% to 48%"
+        },
+        {
+          "subject": "Lohāru",
+          "predicate": "has_visibility",
+          "object": "10000m"
+        }
+      ]
+    },
+    {
+      "instance_id": 65,
+      "triples": [
+        {
+          "subject": "Caraballeda",
+          "predicate": "located_in",
+          "object": "VE"
+        },
+        {
+          "subject": "Caraballeda",
+          "predicate": "has_population",
+          "object": "37824"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "location",
+          "object": "Caraballeda"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "range",
+          "object": "24.61 to 33.06 degrees Celsius"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "light rain"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "range",
+          "object": "57 to 90 percent"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "average_range",
+          "object": "3.25 to 5.49 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 66,
+      "triples": [
+        {
+          "subject": "Krempe",
+          "predicate": "is_located_in",
+          "object": "DE"
+        },
+        {
+          "subject": "Krempe",
+          "predicate": "has_temperature_range",
+          "object": "-4.62 to 6.91 degrees Celsius"
+        },
+        {
+          "subject": "Krempe",
+          "predicate": "experiences_weather_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Krempe",
+          "predicate": "experiences_weather_condition",
+          "object": "light snow"
+        },
+        {
+          "subject": "Krempe",
+          "predicate": "experiences_weather_condition",
+          "object": "clear sky"
+        },
+        {
+          "subject": "temperature_trend",
+          "predicate": "shows_pattern",
+          "object": "gradual decrease"
+        },
+        {
+          "subject": "weather_trend",
+          "predicate": "shows_pattern",
+          "object": "transition from clouds to snow then to clear skies"
+        }
+      ]
+    },
+    {
+      "instance_id": 67,
+      "triples": [
+        {
+          "subject": "Osek",
+          "predicate": "is_located_in",
+          "object": "CZ"
+        },
+        {
+          "subject": "Osek",
+          "predicate": "has_weather_trend",
+          "object": "cooling trend"
+        },
+        {
+          "subject": "Osek",
+          "predicate": "experiences_condition",
+          "object": "light rain"
+        },
+        {
+          "subject": "Osek",
+          "predicate": "experiences_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Osek",
+          "predicate": "experiences_condition",
+          "object": "light snow"
+        },
+        {
+          "subject": "Osek",
+          "predicate": "max_temperature",
+          "object": "7.96°C"
+        },
+        {
+          "subject": "Osek",
+          "predicate": "min_temperature",
+          "object": "-6.69°C"
+        }
+      ]
+    },
+    {
+      "instance_id": 68,
+      "triples": [
+        {
+          "subject": "Muzaffarpur",
+          "predicate": "is_located_in",
+          "object": "India"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "applies_to",
+          "object": "Muzaffarpur"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "ranges_from",
+          "object": "13.06°C to 26.7°C"
+        },
+        {
+          "subject": "general_condition",
+          "predicate": "is_mostly",
+          "object": "clear sky"
+        },
+        {
+          "subject": "sky_condition",
+          "predicate": "includes_occasional",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "ranges_from",
+          "object": "21% to 61%"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "peaks_at",
+          "object": "5.01 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 69,
+      "triples": [
+        {
+          "subject": "Meixing",
+          "predicate": "is_located_in",
+          "object": "CN"
+        },
+        {
+          "subject": "Meixing",
+          "predicate": "has_temperature_range",
+          "object": "-3.8 to 12.63 °C"
+        },
+        {
+          "subject": "Meixing",
+          "predicate": "experiences_weather",
+          "object": "clouds"
+        },
+        {
+          "subject": "Meixing",
+          "predicate": "experiences_weather",
+          "object": "light snow"
+        },
+        {
+          "subject": "Meixing",
+          "predicate": "experiences_weather",
+          "object": "light rain"
+        },
+        {
+          "subject": "Meixing",
+          "predicate": "experiences_weather",
+          "object": "clear sky"
+        },
+        {
+          "subject": "Meixing",
+          "predicate": "has_humidity_range",
+          "object": "15% to 98%"
+        }
+      ]
+    },
+    {
+      "instance_id": 70,
+      "triples": [
+        {
+          "subject": "Brunn an der Wild",
+          "predicate": "is_located_in",
+          "object": "Austria"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "has_location",
+          "object": "Brunn an der Wild"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "shows_trend",
+          "object": "decreasing"
+        },
+        {
+          "subject": "maximum_temperature",
+          "predicate": "has_value",
+          "object": "9.28°C"
+        },
+        {
+          "subject": "minimum_temperature",
+          "predicate": "has_value",
+          "object": "-7.94°C"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "light rain"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "snow"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "reaches_maximum",
+          "object": "12.79 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 71,
+      "triples": [
+        {
+          "subject": "Frunzi",
+          "predicate": "is_located_in",
+          "object": "RO"
+        },
+        {
+          "subject": "Frunzi",
+          "predicate": "has_population",
+          "object": "1614"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "starts_with",
+          "object": "light rain"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "includes_extreme",
+          "object": "moderate rain"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "ends_with",
+          "object": "light snow"
+        },
+        {
+          "subject": "temperature_trend",
+          "predicate": "shows",
+          "object": "cooling trend"
+        },
+        {
+          "subject": "maximum_temperature",
+          "predicate": "value",
+          "object": "7.96"
+        },
+        {
+          "subject": "minimum_temperature",
+          "predicate": "value",
+          "object": "-2.18"
+        },
+        {
+          "subject": "sky_condition",
+          "predicate": "predominantly",
+          "object": "overcast"
+        }
+      ]
+    },
+    {
+      "instance_id": 72,
+      "triples": [
+        {
+          "subject": "Hohoe",
+          "predicate": "is_located_in",
+          "object": "GH"
+        },
+        {
+          "subject": "Hohoe weather",
+          "predicate": "has_temperature_range",
+          "object": "25.32 to 30.13 Celsius"
+        },
+        {
+          "subject": "Hohoe weather",
+          "predicate": "has_condition",
+          "object": "mostly cloudy with occasional clear skies"
+        },
+        {
+          "subject": "Hohoe weather",
+          "predicate": "has_humidity_range",
+          "object": "49% to 86%"
+        },
+        {
+          "subject": "Hohoe weather",
+          "predicate": "has_max_wind_speed",
+          "object": "6.62 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 73,
+      "triples": [
+        {
+          "subject": "Forest Park",
+          "predicate": "is_located_in",
+          "object": "US"
+        },
+        {
+          "subject": "Forest Park",
+          "predicate": "has_population",
+          "object": "18720"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "has_location",
+          "object": "Forest Park"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "ranges_between",
+          "object": "-2.85 to 5.2"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "clear sky"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "light snow"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "light rain"
+        },
+        {
+          "subject": "visibility",
+          "predicate": "reaches_minimum",
+          "object": "45 meters"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "reaches_maximum",
+          "object": "100%"
+        }
+      ]
+    },
+    {
+      "instance_id": 74,
+      "triples": [
+        {
+          "subject": "Kisaran",
+          "predicate": "is_located_in",
+          "object": "ID"
+        },
+        {
+          "subject": "Kisaran",
+          "predicate": "has_weather_trend",
+          "object": "predominantly rain and overcast"
+        },
+        {
+          "subject": "Kisaran",
+          "predicate": "max_temperature",
+          "object": "31.14°C"
+        },
+        {
+          "subject": "Kisaran",
+          "predicate": "min_temperature",
+          "object": "22.67°C"
+        },
+        {
+          "subject": "Kisaran",
+          "predicate": "humidity_range",
+          "object": "64% to 100%"
+        },
+        {
+          "subject": "Kisaran",
+          "predicate": "notable_condition",
+          "object": "moderate rain"
+        }
+      ]
+    },
+    {
+      "instance_id": 75,
+      "triples": [
+        {
+          "subject": "Azaz",
+          "predicate": "located_in",
+          "object": "Syria"
+        },
+        {
+          "subject": "Azaz weather",
+          "predicate": "has_temperature_range",
+          "object": "7.73°C to 14.83°C"
+        },
+        {
+          "subject": "Azaz weather",
+          "predicate": "shows_trend",
+          "object": "transition from rain to clear skies"
+        },
+        {
+          "subject": "Azaz weather",
+          "predicate": "has_condition",
+          "object": "light rain"
+        },
+        {
+          "subject": "Azaz weather",
+          "predicate": "has_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Azaz weather",
+          "predicate": "has_condition",
+          "object": "clear sky"
+        },
+        {
+          "subject": "Azaz weather",
+          "predicate": "max_humidity",
+          "object": "96%"
+        }
+      ]
+    },
+    {
+      "instance_id": 76,
+      "triples": [
+        {
+          "subject": "Sopeira",
+          "predicate": "located_in",
+          "object": "ES"
+        },
+        {
+          "subject": "Sopeira",
+          "predicate": "has_population",
+          "object": "1000"
+        },
+        {
+          "subject": "weather_trend",
+          "predicate": "temperature_range",
+          "object": "-2.57 to 11.25 degrees Celsius"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "light rain"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "light snow"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "clear sky"
+        },
+        {
+          "subject": "maximum_temperature",
+          "predicate": "value",
+          "object": "11.25"
+        },
+        {
+          "subject": "minimum_temperature",
+          "predicate": "value",
+          "object": "-2.57"
+        }
+      ]
+    },
+    {
+      "instance_id": 77,
+      "triples": [
+        {
+          "subject": "Methven",
+          "predicate": "is_located_in",
+          "object": "GB"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "location",
+          "object": "Methven"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "range",
+          "object": "0.56 to 6.43 degrees Celsius"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "light rain"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "clear sky"
+        },
+        {
+          "subject": "pressure",
+          "predicate": "trend",
+          "object": "increasing"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "level",
+          "object": "high"
+        }
+      ]
+    },
+    {
+      "instance_id": 78,
+      "triples": [
+        {
+          "subject": "Łapczyca",
+          "predicate": "is_located_in",
+          "object": "Poland"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "has_location",
+          "object": "Łapczyca"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "shows_trend",
+          "object": "significant decrease"
+        },
+        {
+          "subject": "temperature_max",
+          "predicate": "has_value",
+          "object": "9.09°C"
+        },
+        {
+          "subject": "temperature_min",
+          "predicate": "has_value",
+          "object": "-14.32°C"
+        },
+        {
+          "subject": "precipitation",
+          "predicate": "evolves_from",
+          "object": "light rain"
+        },
+        {
+          "subject": "precipitation",
+          "predicate": "evolves_to",
+          "object": "snow"
+        },
+        {
+          "subject": "sky_condition",
+          "predicate": "is_mostly",
+          "object": "overcast"
+        },
+        {
+          "subject": "wind_speed_max",
+          "predicate": "has_value",
+          "object": "10.94 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 79,
+      "triples": [
+        {
+          "subject": "Mezinovskiy",
+          "predicate": "is_located_in",
+          "object": "RU"
+        },
+        {
+          "subject": "Mezinovskiy",
+          "predicate": "has_population",
+          "object": "2116"
+        },
+        {
+          "subject": "Mezinovskiy",
+          "predicate": "experienced_temperature_range",
+          "object": "-29.46 to -12.22 degrees Celsius"
+        },
+        {
+          "subject": "Mezinovskiy",
+          "predicate": "experienced_weather_condition",
+          "object": "broken clouds"
+        },
+        {
+          "subject": "Mezinovskiy",
+          "predicate": "experienced_weather_condition",
+          "object": "light snow"
+        },
+        {
+          "subject": "Mezinovskiy",
+          "predicate": "experienced_weather_condition",
+          "object": "clear sky"
+        },
+        {
+          "subject": "Mezinovskiy",
+          "predicate": "has_humidity_range",
+          "object": "91% to 100%"
+        },
+        {
+          "subject": "Mezinovskiy",
+          "predicate": "has_pressure_range",
+          "object": "1012 to 1027 hPa"
+        }
+      ]
+    },
+    {
+      "instance_id": 80,
+      "triples": [
+        {
+          "subject": "Ocilla",
+          "predicate": "is_located_in",
+          "object": "US"
+        },
+        {
+          "subject": "Ocilla",
+          "predicate": "has_temperature_range",
+          "object": "2.94 to 17.24 degrees"
+        },
+        {
+          "subject": "Ocilla",
+          "predicate": "experiences_weather",
+          "object": "clear sky"
+        },
+        {
+          "subject": "Ocilla",
+          "predicate": "experiences_weather",
+          "object": "rain"
+        },
+        {
+          "subject": "Ocilla",
+          "predicate": "experiences_weather",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Ocilla",
+          "predicate": "has_extreme_condition",
+          "object": "heavy intensity rain"
+        }
+      ]
+    },
+    {
+      "instance_id": 81,
+      "triples": [
+        {
+          "subject": "Kap Choeng",
+          "predicate": "located_in",
+          "object": "TH"
+        },
+        {
+          "subject": "Kap Choeng",
+          "predicate": "has_temperature_range",
+          "object": "18.91 to 32.6 °C"
+        },
+        {
+          "subject": "Kap Choeng",
+          "predicate": "has_weather_condition",
+          "object": "clear sky to broken clouds"
+        },
+        {
+          "subject": "Kap Choeng",
+          "predicate": "has_humidity_range",
+          "object": "34% to 84%"
+        },
+        {
+          "subject": "Kap Choeng",
+          "predicate": "has_wind_speed_max",
+          "object": "5.58 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 82,
+      "triples": [
+        {
+          "subject": "Cengio",
+          "predicate": "is_located_in",
+          "object": "Italy"
+        },
+        {
+          "subject": "Cengio",
+          "predicate": "has_max_temp",
+          "object": "12.36°C"
+        },
+        {
+          "subject": "Cengio",
+          "predicate": "has_min_temp",
+          "object": "-0.23°C"
+        },
+        {
+          "subject": "Cengio",
+          "predicate": "weather_trend",
+          "object": "transition from clear to snow and rain"
+        },
+        {
+          "subject": "Cengio",
+          "predicate": "notable_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Cengio",
+          "predicate": "extreme_condition",
+          "object": "snowfall"
+        }
+      ]
+    },
+    {
+      "instance_id": 83,
+      "triples": [
+        {
+          "subject": "Lankwitz",
+          "predicate": "located_in",
+          "object": "DE"
+        },
+        {
+          "subject": "Lankwitz",
+          "predicate": "has_temperature_trend",
+          "object": "decreasing"
+        },
+        {
+          "subject": "Lankwitz",
+          "predicate": "maximum_temperature",
+          "object": "9.51°C"
+        },
+        {
+          "subject": "Lankwitz",
+          "predicate": "minimum_temperature",
+          "object": "-4.16°C"
+        },
+        {
+          "subject": "Lankwitz",
+          "predicate": "weather_conditions",
+          "object": "rain"
+        },
+        {
+          "subject": "Lankwitz",
+          "predicate": "weather_conditions",
+          "object": "snow"
+        },
+        {
+          "subject": "Lankwitz",
+          "predicate": "weather_conditions",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Lankwitz",
+          "predicate": "weather_conditions",
+          "object": "clear sky"
+        }
+      ]
+    },
+    {
+      "instance_id": 84,
+      "triples": [
+        {
+          "subject": "Skidel'",
+          "predicate": "is_located_in",
+          "object": "BY"
+        },
+        {
+          "subject": "Skidel'",
+          "predicate": "has_population",
+          "object": "10700"
+        },
+        {
+          "subject": "weather_trend",
+          "predicate": "starts_with",
+          "object": "light snow"
+        },
+        {
+          "subject": "weather_trend",
+          "predicate": "transitions_to",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "weather_trend",
+          "predicate": "ends_with",
+          "object": "clear sky"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "range",
+          "object": "-2.09 to -15.44 degrees"
+        },
+        {
+          "subject": "temperature_trend",
+          "predicate": "shows",
+          "object": "cooling trend"
+        },
+        {
+          "subject": "notable_condition",
+          "predicate": "occurs",
+          "object": "freezing rain"
+        }
+      ]
+    },
+    {
+      "instance_id": 85,
+      "triples": [
+        {
+          "subject": "Gundaroo",
+          "predicate": "is_located_in",
+          "object": "AU"
+        },
+        {
+          "subject": "Gundaroo",
+          "predicate": "has_forecast_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "weather_trend",
+          "predicate": "shows_pattern",
+          "object": "initial rain followed by clear skies then returning rain"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "reaches_maximum",
+          "object": "27.95°C"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "reaches_minimum",
+          "object": "11.75°C"
+        },
+        {
+          "subject": "precipitation",
+          "predicate": "has_extreme_event",
+          "object": "heavy intensity rain on 2024-01-04"
+        },
+        {
+          "subject": "sky_condition",
+          "predicate": "varies_between",
+          "object": "clear sky and overcast clouds"
+        }
+      ]
+    },
+    {
+      "instance_id": 86,
+      "triples": [
+        {
+          "subject": "Burträsk",
+          "predicate": "is_located_in",
+          "object": "Sweden"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "has_location",
+          "object": "Burträsk"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "shows_trend",
+          "object": "significant increase"
+        },
+        {
+          "subject": "minimum_temperature",
+          "predicate": "has_value",
+          "object": "-33.67°C"
+        },
+        {
+          "subject": "maximum_temperature",
+          "predicate": "has_value",
+          "object": "2.62°C"
+        },
+        {
+          "subject": "sky_condition",
+          "predicate": "varies_between",
+          "object": "clear to overcast"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "increases_to",
+          "object": "6.16 m/s"
+        },
+        {
+          "subject": "humidity",
+          "predicate": "remains_high",
+          "object": "73% to 100%"
+        }
+      ]
+    },
+    {
+      "instance_id": 87,
+      "triples": [
+        {
+          "subject": "Birchington",
+          "predicate": "has_weather_forecast",
+          "object": "January 2024"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "trends",
+          "object": "decreasing"
+        },
+        {
+          "subject": "temperature_max",
+          "predicate": "value",
+          "object": "9.52°C"
+        },
+        {
+          "subject": "temperature_min",
+          "predicate": "value",
+          "object": "3.85°C"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "light rain"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "moderate rain"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "wind_speed_max",
+          "predicate": "value",
+          "object": "16.72 m/s"
+        },
+        {
+          "subject": "pressure",
+          "predicate": "trends",
+          "object": "increasing"
+        }
+      ]
+    },
+    {
+      "instance_id": 88,
+      "triples": [
+        {
+          "subject": "Riaillé",
+          "predicate": "located_in",
+          "object": "FR"
+        },
+        {
+          "subject": "Riaillé",
+          "predicate": "has_temperature_range",
+          "object": "1.59 to 12.16 degrees Celsius"
+        },
+        {
+          "subject": "Riaillé",
+          "predicate": "experiences_weather",
+          "object": "clouds"
+        },
+        {
+          "subject": "Riaillé",
+          "predicate": "experiences_weather",
+          "object": "light rain"
+        },
+        {
+          "subject": "Riaillé",
+          "predicate": "has_humidity_range",
+          "object": "64 to 95 percent"
+        },
+        {
+          "subject": "Riaillé",
+          "predicate": "has_wind_speed_max",
+          "object": "11.21 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 89,
+      "triples": [
+        {
+          "subject": "Broughton",
+          "predicate": "located_in",
+          "object": "GB"
+        },
+        {
+          "subject": "Broughton",
+          "predicate": "has_weather_trend",
+          "object": "cooling"
+        },
+        {
+          "subject": "Broughton",
+          "predicate": "max_temperature",
+          "object": "8.02°C"
+        },
+        {
+          "subject": "Broughton",
+          "predicate": "min_temperature",
+          "object": "0.04°C"
+        },
+        {
+          "subject": "Broughton",
+          "predicate": "notable_condition",
+          "object": "light rain"
+        },
+        {
+          "subject": "Broughton",
+          "predicate": "notable_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Broughton",
+          "predicate": "notable_condition",
+          "object": "clear sky"
+        }
+      ]
+    },
+    {
+      "instance_id": 90,
+      "triples": [
+        {
+          "subject": "Aridaea",
+          "predicate": "is_located_in",
+          "object": "GR"
+        },
+        {
+          "subject": "Aridaea",
+          "predicate": "has_population",
+          "object": "6091"
+        },
+        {
+          "subject": "forecast_period",
+          "predicate": "temperature_range",
+          "object": "7.59C to 15.89C"
+        },
+        {
+          "subject": "weather_trend",
+          "predicate": "primary_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "weather_trend",
+          "predicate": "notable_event",
+          "object": "moderate rain on 2024-01-07"
+        },
+        {
+          "subject": "weather_trend",
+          "predicate": "humidity_range",
+          "object": "50% to 98%"
+        }
+      ]
+    },
+    {
+      "instance_id": 91,
+      "triples": [
+        {
+          "subject": "Sherwood",
+          "predicate": "is_located_in",
+          "object": "US"
+        },
+        {
+          "subject": "Sherwood",
+          "predicate": "has_population",
+          "object": "29523"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "has_location",
+          "object": "Sherwood"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "ranges_from",
+          "object": "1.08 to 11.12 degrees"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "clear skies"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "light rain"
+        },
+        {
+          "subject": "precipitation",
+          "predicate": "occurs_on",
+          "object": "2024-01-05"
+        },
+        {
+          "subject": "wind_speed",
+          "predicate": "reaches_maximum",
+          "object": "5.38 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 92,
+      "triples": [
+        {
+          "subject": "Saint James",
+          "predicate": "is_located_in",
+          "object": "US"
+        },
+        {
+          "subject": "Saint James",
+          "predicate": "has_forecast_period",
+          "object": "2024-01-03 to 2024-01-08"
+        },
+        {
+          "subject": "Saint James",
+          "predicate": "max_temperature",
+          "object": "6.99°C"
+        },
+        {
+          "subject": "Saint James",
+          "predicate": "min_temperature",
+          "object": "-3.56°C"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "clear sky"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "light snow"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "light rain"
+        },
+        {
+          "subject": "temperature_trend",
+          "predicate": "shows",
+          "object": "fluctuating around freezing"
+        }
+      ]
+    },
+    {
+      "instance_id": 93,
+      "triples": [
+        {
+          "subject": "Rio Chico",
+          "predicate": "is_located_in",
+          "object": "VE"
+        },
+        {
+          "subject": "Rio Chico",
+          "predicate": "has_temperature_range",
+          "object": "23.01°C to 30.28°C"
+        },
+        {
+          "subject": "Rio Chico",
+          "predicate": "has_weather_condition",
+          "object": "scattered clouds"
+        },
+        {
+          "subject": "Rio Chico",
+          "predicate": "has_weather_condition",
+          "object": "light rain"
+        },
+        {
+          "subject": "Rio Chico",
+          "predicate": "has_weather_condition",
+          "object": "broken clouds"
+        },
+        {
+          "subject": "Rio Chico",
+          "predicate": "has_humidity_range",
+          "object": "58% to 95%"
+        },
+        {
+          "subject": "Rio Chico",
+          "predicate": "has_wind_speed_range",
+          "object": "0.27 to 3.6 m/s"
+        }
+      ]
+    },
+    {
+      "instance_id": 94,
+      "triples": [
+        {
+          "subject": "Semeljci",
+          "predicate": "is_located_in",
+          "object": "HR"
+        },
+        {
+          "subject": "Semeljci",
+          "predicate": "has_population",
+          "object": "1566"
+        },
+        {
+          "subject": "weather_forecast",
+          "predicate": "location",
+          "object": "Semeljci"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "max_value",
+          "object": "13.71"
+        },
+        {
+          "subject": "temperature",
+          "predicate": "min_value",
+          "object": "-1.24"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "light rain"
+        },
+        {
+          "subject": "weather_conditions",
+          "predicate": "includes",
+          "object": "snow"
+        },
+        {
+          "subject": "temperature_trend",
+          "predicate": "direction",
+          "object": "decreasing"
+        }
+      ]
+    },
+    {
+      "instance_id": 95,
+      "triples": [
+        {
+          "subject": "Betz",
+          "predicate": "is_located_in",
+          "object": "France"
+        },
+        {
+          "subject": "Betz",
+          "predicate": "has_temperature_trend",
+          "object": "decreasing"
+        },
+        {
+          "subject": "Betz",
+          "predicate": "max_temperature",
+          "object": "9.95"
+        },
+        {
+          "subject": "Betz",
+          "predicate": "min_temperature",
+          "object": "-0.34"
+        },
+        {
+          "subject": "Betz",
+          "predicate": "weather_conditions",
+          "object": "rain, clouds, and light snow"
+        },
+        {
+          "subject": "Betz",
+          "predicate": "wind_speed_max",
+          "object": "9.06"
+        },
+        {
+          "subject": "Betz",
+          "predicate": "humidity_range",
+          "object": "72% to 95%"
+        }
+      ]
+    },
+    {
+      "instance_id": 96,
+      "triples": [
+        {
+          "subject": "Ébano (Colonia Veinte de Noviembre)",
+          "predicate": "is_located_in",
+          "object": "MX"
+        },
+        {
+          "subject": "Ébano (Colonia Veinte de Noviembre)",
+          "predicate": "has_temperature_range",
+          "object": "15.73°C to 28.62°C"
+        },
+        {
+          "subject": "Ébano (Colonia Veinte de Noviembre)",
+          "predicate": "has_weather_condition",
+          "object": "broken clouds"
+        },
+        {
+          "subject": "Ébano (Colonia Veinte de Noviembre)",
+          "predicate": "has_weather_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Ébano (Colonia Veinte de Noviembre)",
+          "predicate": "has_weather_condition",
+          "object": "clear sky"
+        },
+        {
+          "subject": "Ébano (Colonia Veinte de Noviembre)",
+          "predicate": "has_humidity_range",
+          "object": "36% to 96%"
+        }
+      ]
+    },
+    {
+      "instance_id": 97,
+      "triples": [
+        {
+          "subject": "Pyhäjoki",
+          "predicate": "is_located_in",
+          "object": "Finland"
+        },
+        {
+          "subject": "Pyhäjoki",
+          "predicate": "has_temperature_trend",
+          "object": "warming"
+        },
+        {
+          "subject": "Pyhäjoki",
+          "predicate": "min_temperature",
+          "object": "-26.8°C"
+        },
+        {
+          "subject": "Pyhäjoki",
+          "predicate": "max_temperature",
+          "object": "-3.66°C"
+        },
+        {
+          "subject": "Pyhäjoki",
+          "predicate": "dominant_weather",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Pyhäjoki",
+          "predicate": "humidity_level",
+          "object": "high"
+        },
+        {
+          "subject": "Pyhäjoki",
+          "predicate": "wind_speed_trend",
+          "object": "increasing"
+        }
+      ]
+    },
+    {
+      "instance_id": 98,
+      "triples": [
+        {
+          "subject": "Târgu Trotuș",
+          "predicate": "is_located_in",
+          "object": "Romania"
+        },
+        {
+          "subject": "Târgu Trotuș",
+          "predicate": "has_weather_trend",
+          "object": "cooling trend"
+        },
+        {
+          "subject": "Târgu Trotuș",
+          "predicate": "max_temperature",
+          "object": "12.57°C"
+        },
+        {
+          "subject": "Târgu Trotuș",
+          "predicate": "min_temperature",
+          "object": "-7.23°C"
+        },
+        {
+          "subject": "Târgu Trotuș",
+          "predicate": "dominant_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Târgu Trotuș",
+          "predicate": "notable_event",
+          "object": "snowfall starting 2024-01-07"
+        }
+      ]
+    },
+    {
+      "instance_id": 99,
+      "triples": [
+        {
+          "subject": "Nakskov",
+          "predicate": "is_located_in",
+          "object": "Denmark"
+        },
+        {
+          "subject": "Nakskov",
+          "predicate": "has_temperature_range",
+          "object": "-2.75 to 6.17 degrees Celsius"
+        },
+        {
+          "subject": "Nakskov",
+          "predicate": "has_weather_trend",
+          "object": "transition from rain to snow to overcast and clear skies"
+        },
+        {
+          "subject": "Nakskov",
+          "predicate": "experienced_condition",
+          "object": "moderate rain"
+        },
+        {
+          "subject": "Nakskov",
+          "predicate": "experienced_condition",
+          "object": "light snow"
+        },
+        {
+          "subject": "Nakskov",
+          "predicate": "experienced_condition",
+          "object": "overcast clouds"
+        },
+        {
+          "subject": "Nakskov",
+          "predicate": "has_max_wind_gust",
+          "object": "20.61 m/s"
+        },
+        {
+          "subject": "Nakskov",
+          "predicate": "has_min_visibility",
+          "object": "71 meters"
+        }
+      ]
+    }
+  ],
+  "all_triples": [
+    {
+      "subject": "Contepec",
+      "predicate": "is_located_in",
+      "object": "MX"
+    },
+    {
+      "subject": "Contepec",
+      "predicate": "has_population",
+      "object": "3623"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "has_location",
+      "object": "Contepec"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "ranges_between",
+      "object": "5.49°C to 20.17°C"
+    },
+    {
+      "subject": "sky_condition",
+      "predicate": "varies_between",
+      "object": "clear sky and overcast clouds"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "reaches_maximum",
+      "object": "8.84 m/s"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "ranges_between",
+      "object": "17% to 81%"
+    },
+    {
+      "subject": "Anori",
+      "predicate": "is_located_in",
+      "object": "Brazil"
+    },
+    {
+      "subject": "Anori",
+      "predicate": "has_population",
+      "object": "8064"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "has_location",
+      "object": "Anori"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "ranges_between",
+      "object": "22.84 to 34.27 degrees"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "light rain"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "ranges_between",
+      "object": "45% to 99%"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "max_value",
+      "object": "2.75 m/s"
+    },
+    {
+      "subject": "ses Salines",
+      "predicate": "located_in",
+      "object": "ES"
+    },
+    {
+      "subject": "ses Salines",
+      "predicate": "has_population",
+      "object": "4290"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "location",
+      "object": "ses Salines"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "max_value",
+      "object": "17.26"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "min_value",
+      "object": "4.81"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "scattered clouds"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "heavy intensity rain"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "clear sky"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "extreme_event",
+      "object": "heavy intensity rain"
+    },
+    {
+      "subject": "Ohangaron",
+      "predicate": "located_in",
+      "object": "UZ"
+    },
+    {
+      "subject": "Ohangaron",
+      "predicate": "has_population",
+      "object": "35516"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "has_location",
+      "object": "Ohangaron"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "ranges_from",
+      "object": "1.08 to 16.64 degrees"
+    },
+    {
+      "subject": "weather_condition",
+      "predicate": "predominantly",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "notable_event",
+      "predicate": "includes",
+      "object": "moderate rain on 2024-01-07"
+    },
+    {
+      "subject": "sky_condition",
+      "predicate": "trends_towards",
+      "object": "clear sky by 2024-01-08"
+    },
+    {
+      "subject": "Jonesville",
+      "predicate": "is_located_in",
+      "object": "US"
+    },
+    {
+      "subject": "Jonesville weather",
+      "predicate": "has_max_temp",
+      "object": "9.31"
+    },
+    {
+      "subject": "Jonesville weather",
+      "predicate": "has_min_temp",
+      "object": "-2.15"
+    },
+    {
+      "subject": "Jonesville weather",
+      "predicate": "shows_trend",
+      "object": "cooling then fluctuating"
+    },
+    {
+      "subject": "Jonesville weather",
+      "predicate": "has_condition",
+      "object": "broken and overcast clouds"
+    },
+    {
+      "subject": "Jonesville weather",
+      "predicate": "has_condition",
+      "object": "clear skies"
+    },
+    {
+      "subject": "Jonesville weather",
+      "predicate": "has_extreme_event",
+      "object": "moderate rain and light snow"
+    },
+    {
+      "subject": "Agua Dulce",
+      "predicate": "located_in",
+      "object": "Mexico"
+    },
+    {
+      "subject": "Agua Dulce",
+      "predicate": "has_weather_trend",
+      "object": "variable with periods of rain and clear skies"
+    },
+    {
+      "subject": "Agua Dulce",
+      "predicate": "max_temperature",
+      "object": "26.24°C"
+    },
+    {
+      "subject": "Agua Dulce",
+      "predicate": "min_temperature",
+      "object": "16.02°C"
+    },
+    {
+      "subject": "Agua Dulce",
+      "predicate": "notable_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "Agua Dulce",
+      "predicate": "notable_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Agua Dulce",
+      "predicate": "notable_condition",
+      "object": "clear sky"
+    },
+    {
+      "subject": "Kankan",
+      "predicate": "is_located_in",
+      "object": "GN"
+    },
+    {
+      "subject": "Kankan",
+      "predicate": "has_population",
+      "object": "114009"
+    },
+    {
+      "subject": "Kankan weather",
+      "predicate": "has_temp_range",
+      "object": "20.27°C to 36.96°C"
+    },
+    {
+      "subject": "Kankan weather",
+      "predicate": "has_humidity_range",
+      "object": "8% to 22%"
+    },
+    {
+      "subject": "Kankan weather",
+      "predicate": "dominant_condition",
+      "object": "clear to cloudy"
+    },
+    {
+      "subject": "Kankan weather",
+      "predicate": "has_max_wind_speed",
+      "object": "2.89 m/s"
+    },
+    {
+      "subject": "Bilinga",
+      "predicate": "has_location",
+      "object": "AU"
+    },
+    {
+      "subject": "Bilinga",
+      "predicate": "has_temperature_range",
+      "object": "21.35C to 25.5C"
+    },
+    {
+      "subject": "Bilinga",
+      "predicate": "has_weather_condition",
+      "object": "scattered clouds"
+    },
+    {
+      "subject": "Bilinga",
+      "predicate": "has_weather_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Bilinga",
+      "predicate": "has_weather_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "Bilinga",
+      "predicate": "has_weather_condition",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "Bilinga",
+      "predicate": "has_max_wind_speed",
+      "object": "9.34 m/s"
+    },
+    {
+      "subject": "Taxiárches",
+      "predicate": "is_located_in",
+      "object": "GR"
+    },
+    {
+      "subject": "Taxiárches",
+      "predicate": "has_temperature_range",
+      "object": "6.88 to 16.8 °C"
+    },
+    {
+      "subject": "Taxiárches",
+      "predicate": "has_weather_trend",
+      "object": "transition from overcast to clear then to rain"
+    },
+    {
+      "subject": "Taxiárches",
+      "predicate": "experiences_extreme_condition",
+      "object": "moderate rain on 2024-01-07"
+    },
+    {
+      "subject": "Taxiárches",
+      "predicate": "has_max_temperature",
+      "object": "16.8 °C"
+    },
+    {
+      "subject": "Taxiárches",
+      "predicate": "has_min_temperature",
+      "object": "6.88 °C"
+    },
+    {
+      "subject": "Pickworth",
+      "predicate": "located_in",
+      "object": "GB"
+    },
+    {
+      "subject": "Pickworth",
+      "predicate": "has_temperature_range",
+      "object": "0.62 to 7.72 degrees Celsius"
+    },
+    {
+      "subject": "Pickworth",
+      "predicate": "experiences_weather",
+      "object": "light rain"
+    },
+    {
+      "subject": "Pickworth",
+      "predicate": "experiences_weather",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Pickworth",
+      "predicate": "experiences_weather",
+      "object": "light snow"
+    },
+    {
+      "subject": "Pickworth",
+      "predicate": "temperature_trend",
+      "object": "decreasing"
+    },
+    {
+      "subject": "Pickworth",
+      "predicate": "maximum_wind_gust",
+      "object": "11.81 m/s"
+    },
+    {
+      "subject": "Aksu",
+      "predicate": "is_located_in",
+      "object": "TR"
+    },
+    {
+      "subject": "Aksu",
+      "predicate": "has_population",
+      "object": "3842"
+    },
+    {
+      "subject": "Aksu",
+      "predicate": "weather_trend",
+      "object": "predominantly cloudy with periodic light rain"
+    },
+    {
+      "subject": "Aksu",
+      "predicate": "max_temperature",
+      "object": "11.48"
+    },
+    {
+      "subject": "Aksu",
+      "predicate": "min_temperature",
+      "object": "5.87"
+    },
+    {
+      "subject": "Aksu",
+      "predicate": "extreme_condition",
+      "object": "moderate rain on 2024-01-08"
+    },
+    {
+      "subject": "Aksu",
+      "predicate": "max_wind_gust",
+      "object": "20.3"
+    },
+    {
+      "subject": "Saḩāb",
+      "predicate": "is_located_in",
+      "object": "Jordan"
+    },
+    {
+      "subject": "Saḩāb",
+      "predicate": "has_forecast_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "ranges_between",
+      "object": "7.44°C and 18.13°C"
+    },
+    {
+      "subject": "maximum_temperature",
+      "predicate": "is",
+      "object": "18.13°C"
+    },
+    {
+      "subject": "minimum_temperature",
+      "predicate": "is",
+      "object": "7.44°C"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "varies_between",
+      "object": "clear sky and overcast clouds"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "ranges_between",
+      "object": "30% and 91%"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "ranges_between",
+      "object": "0.69 m/s and 6.75 m/s"
+    },
+    {
+      "subject": "Nato",
+      "predicate": "is_located_in",
+      "object": "PH"
+    },
+    {
+      "subject": "Nato",
+      "predicate": "has_population",
+      "object": "3548"
+    },
+    {
+      "subject": "Nato weather",
+      "predicate": "has_temperature_range",
+      "object": "25.58C to 28.75C"
+    },
+    {
+      "subject": "Nato weather",
+      "predicate": "has_dominant_condition",
+      "object": "Clouds"
+    },
+    {
+      "subject": "Nato weather",
+      "predicate": "has_notable_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "Nato weather",
+      "predicate": "has_humidity_range",
+      "object": "72% to 84%"
+    },
+    {
+      "subject": "Cornu Luncii",
+      "predicate": "is_located_in",
+      "object": "RO"
+    },
+    {
+      "subject": "Cornu Luncii",
+      "predicate": "has_population",
+      "object": "7288"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "has_location",
+      "object": "Cornu Luncii"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "ranges_from",
+      "object": "-9.01 to 10.75"
+    },
+    {
+      "subject": "weather_condition",
+      "predicate": "evolves_to",
+      "object": "snow"
+    },
+    {
+      "subject": "snow_event",
+      "predicate": "occurs_on",
+      "object": "2024-01-07"
+    },
+    {
+      "subject": "snow_event",
+      "predicate": "occurs_on",
+      "object": "2024-01-08"
+    },
+    {
+      "subject": "sky_condition",
+      "predicate": "predominantly",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Mountain Brook",
+      "predicate": "has_location",
+      "object": "US"
+    },
+    {
+      "subject": "Mountain Brook",
+      "predicate": "forecast_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "ranges_between",
+      "object": "0.25°C and 12.17°C"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "light rain"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "clear sky"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "rain_event",
+      "predicate": "peaks_on",
+      "object": "2024-01-06"
+    },
+    {
+      "subject": "Capácuaro",
+      "predicate": "is_located_in",
+      "object": "MX"
+    },
+    {
+      "subject": "Capácuaro",
+      "predicate": "has_population",
+      "object": "7283"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "has_location",
+      "object": "Capácuaro"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "ranges_between",
+      "object": "6.49°C to 20.86°C"
+    },
+    {
+      "subject": "general_condition",
+      "predicate": "is_predominantly",
+      "object": "clear sky"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "ranges_between",
+      "object": "21% to 86%"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "ranges_between",
+      "object": "1.84 m/s to 4.76 m/s"
+    },
+    {
+      "subject": "Checca",
+      "predicate": "is_located_in",
+      "object": "PE"
+    },
+    {
+      "subject": "Checca",
+      "predicate": "has_population",
+      "object": "3810"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "location",
+      "object": "Checca"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "dominant_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "max_value",
+      "object": "13.42"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "min_value",
+      "object": "3.43"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "extreme_event",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "cloud_cover",
+      "predicate": "typical_state",
+      "object": "overcast"
+    },
+    {
+      "subject": "Géri",
+      "predicate": "is_located_in",
+      "object": "Cyprus"
+    },
+    {
+      "subject": "Géri",
+      "predicate": "has_population",
+      "object": "7639"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "ranges_between",
+      "object": "12.34°C and 19.36°C"
+    },
+    {
+      "subject": "weather_condition",
+      "predicate": "varies_between",
+      "object": "clear sky and overcast clouds"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "reaches_maximum",
+      "object": "8.92 m/s"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "ranges_between",
+      "object": "49% and 95%"
+    },
+    {
+      "subject": "Amahusu",
+      "predicate": "is_located_in",
+      "object": "Indonesia"
+    },
+    {
+      "subject": "Amahusu weather",
+      "predicate": "has_temperature_range",
+      "object": "26.15C to 29.16C"
+    },
+    {
+      "subject": "Amahusu weather",
+      "predicate": "dominant_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "Amahusu weather",
+      "predicate": "extreme_condition",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "Amahusu weather",
+      "predicate": "cloud_cover",
+      "object": "broken to overcast"
+    },
+    {
+      "subject": "Amahusu weather",
+      "predicate": "humidity_range",
+      "object": "15% to 80%"
+    },
+    {
+      "subject": "Montefano",
+      "predicate": "is_located_in",
+      "object": "IT"
+    },
+    {
+      "subject": "Montefano",
+      "predicate": "has_population",
+      "object": "3228"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "has_location",
+      "object": "Montefano"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "ranges_between",
+      "object": "6.89 to 15.67"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "clear sky"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "light rain"
+    },
+    {
+      "subject": "light_rain",
+      "predicate": "occurs_during",
+      "object": "2024-01-06 to 2024-01-08"
+    },
+    {
+      "subject": "Bintawan",
+      "predicate": "located_in",
+      "object": "PH"
+    },
+    {
+      "subject": "Bintawan",
+      "predicate": "has_population",
+      "object": "4971"
+    },
+    {
+      "subject": "Bintawan weather",
+      "predicate": "dominant_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "Bintawan weather",
+      "predicate": "secondary_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Bintawan temperature",
+      "predicate": "min_temp",
+      "object": "20.61"
+    },
+    {
+      "subject": "Bintawan temperature",
+      "predicate": "max_temp",
+      "object": "26.8"
+    },
+    {
+      "subject": "Bintawan humidity",
+      "predicate": "range",
+      "object": "71% to 98%"
+    },
+    {
+      "subject": "Bintawan wind",
+      "predicate": "max_gust",
+      "object": "3.05"
+    },
+    {
+      "subject": "San Bartolo Tutotepec",
+      "predicate": "is_located_in",
+      "object": "MX"
+    },
+    {
+      "subject": "San Bartolo Tutotepec",
+      "predicate": "has_temperature_range",
+      "object": "13.69°C to 25.74°C"
+    },
+    {
+      "subject": "San Bartolo Tutotepec",
+      "predicate": "experiences_weather",
+      "object": "light rain"
+    },
+    {
+      "subject": "San Bartolo Tutotepec",
+      "predicate": "experiences_weather",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "San Bartolo Tutotepec",
+      "predicate": "experiences_weather",
+      "object": "clear sky"
+    },
+    {
+      "subject": "San Bartolo Tutotepec",
+      "predicate": "has_humidity_range",
+      "object": "42% to 99%"
+    },
+    {
+      "subject": "Shuidong",
+      "predicate": "is_located_in",
+      "object": "CN"
+    },
+    {
+      "subject": "Shuidong",
+      "predicate": "has_temperature_range",
+      "object": "15.8°C to 23.01°C"
+    },
+    {
+      "subject": "Shuidong",
+      "predicate": "has_weather_condition",
+      "object": "predominantly cloudy and clear"
+    },
+    {
+      "subject": "Shuidong",
+      "predicate": "has_max_wind_speed",
+      "object": "7.8 m/s"
+    },
+    {
+      "subject": "Shuidong",
+      "predicate": "has_humidity_range",
+      "object": "49% to 92%"
+    },
+    {
+      "subject": "Ljungbyholm",
+      "predicate": "has_location",
+      "object": "Sweden"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "starts_with",
+      "object": "snow"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "transitions_to",
+      "object": "clear skies"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "ranges_from",
+      "object": "-2.61 to -17.63 degrees Celsius"
+    },
+    {
+      "subject": "minimum_temperature",
+      "predicate": "is",
+      "object": "-17.63 degrees Celsius"
+    },
+    {
+      "subject": "maximum_temperature",
+      "predicate": "is",
+      "object": "-2.61 degrees Celsius"
+    },
+    {
+      "subject": "weather_condition",
+      "predicate": "includes",
+      "object": "light snow"
+    },
+    {
+      "subject": "weather_condition",
+      "predicate": "includes",
+      "object": "broken clouds"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "max_value",
+      "object": "7.37 m/s"
+    },
+    {
+      "subject": "Tuşnad",
+      "predicate": "is_located_in",
+      "object": "RO"
+    },
+    {
+      "subject": "Tuşnad",
+      "predicate": "has_population",
+      "object": "2084"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "has_location",
+      "object": "Tuşnad"
+    },
+    {
+      "subject": "temperature_trend",
+      "predicate": "shows_decline",
+      "object": "from 8.53 to -4.84 degrees"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "rain"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "snow"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "extreme_low_temp",
+      "predicate": "is",
+      "object": "-4.84 degrees"
+    },
+    {
+      "subject": "extreme_high_temp",
+      "predicate": "is",
+      "object": "8.53 degrees"
+    },
+    {
+      "subject": "Bayan Uula Sumu",
+      "predicate": "is_located_in",
+      "object": "Mongolia"
+    },
+    {
+      "subject": "Bayan Uula Sumu",
+      "predicate": "has_temperature_range",
+      "object": "-20.73 to -10.09 Celsius"
+    },
+    {
+      "subject": "Bayan Uula Sumu",
+      "predicate": "has_dominant_weather",
+      "object": "Clear"
+    },
+    {
+      "subject": "Bayan Uula Sumu",
+      "predicate": "experienced_condition",
+      "object": "light snow"
+    },
+    {
+      "subject": "Bayan Uula Sumu",
+      "predicate": "has_max_wind_speed",
+      "object": "3.92 m/s"
+    },
+    {
+      "subject": "Bayan Uula Sumu",
+      "predicate": "has_humidity_range",
+      "object": "61 to 90 percent"
+    },
+    {
+      "subject": "Jedovnice",
+      "predicate": "is_located_in",
+      "object": "CZ"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "location",
+      "object": "Jedovnice"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "trend",
+      "object": "decreasing"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "maximum",
+      "object": "7.24"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "minimum",
+      "object": "-7.96"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "light rain"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "snow"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "drops_during",
+      "object": "precipitation"
+    },
+    {
+      "subject": "Pénjamo",
+      "predicate": "located_in",
+      "object": "MX"
+    },
+    {
+      "subject": "Pénjamo",
+      "predicate": "has_population",
+      "object": "33509"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "location",
+      "object": "Pénjamo"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "max_value",
+      "object": "25.03"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "min_value",
+      "object": "7.96"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "dominant_state",
+      "object": "clear to partly cloudy"
+    },
+    {
+      "subject": "precipitation_probability",
+      "predicate": "value",
+      "object": "0"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "max_gust",
+      "object": "9.5"
+    },
+    {
+      "subject": "Escopete",
+      "predicate": "is_located_in",
+      "object": "Spain"
+    },
+    {
+      "subject": "Escopete weather",
+      "predicate": "shows_trend",
+      "object": "cooling temperature"
+    },
+    {
+      "subject": "Escopete weather",
+      "predicate": "initial_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "Escopete weather",
+      "predicate": "final_condition",
+      "object": "clear sky"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "maximum_value",
+      "object": "9.96°C"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "minimum_value",
+      "object": "-0.95°C"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "range",
+      "object": "48% to 99%"
+    },
+    {
+      "subject": "Nagymaros",
+      "predicate": "is_located_in",
+      "object": "HU"
+    },
+    {
+      "subject": "Nagymaros",
+      "predicate": "has_population",
+      "object": "4629"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "location",
+      "object": "Nagymaros"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "range",
+      "object": "0 to 10.3 Celsius"
+    },
+    {
+      "subject": "weather_condition",
+      "predicate": "includes",
+      "object": "light rain"
+    },
+    {
+      "subject": "weather_condition",
+      "predicate": "includes",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "maximum_gust",
+      "object": "18.24 m/s"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "range",
+      "object": "51 to 97 percent"
+    },
+    {
+      "subject": "Xiropótamos",
+      "predicate": "is_located_in",
+      "object": "GR"
+    },
+    {
+      "subject": "Xiropótamos",
+      "predicate": "has_population",
+      "object": "2670"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "has_location",
+      "object": "Xiropótamos"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "ranges_from",
+      "object": "6.04 to 15.59 degrees Celsius"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "broken clouds"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "clear sky"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "rain_event",
+      "predicate": "occurs_during",
+      "object": "January 6 to January 8"
+    },
+    {
+      "subject": "max_wind_gust",
+      "predicate": "reaches",
+      "object": "10.48 m/s"
+    },
+    {
+      "subject": "Point Clare",
+      "predicate": "is_located_in",
+      "object": "Australia"
+    },
+    {
+      "subject": "Point Clare",
+      "predicate": "has_weather_trend",
+      "object": "cloudy with intermittent rain"
+    },
+    {
+      "subject": "Point Clare",
+      "predicate": "max_temperature",
+      "object": "32.24°C"
+    },
+    {
+      "subject": "Point Clare",
+      "predicate": "min_temperature",
+      "object": "14.87°C"
+    },
+    {
+      "subject": "Point Clare",
+      "predicate": "notable_condition",
+      "object": "light rain between 2024-01-04 and 2024-01-06"
+    },
+    {
+      "subject": "Point Clare",
+      "predicate": "sky_condition",
+      "object": "predominantly overcast"
+    },
+    {
+      "subject": "Sagopshi",
+      "predicate": "is_located_in",
+      "object": "RU"
+    },
+    {
+      "subject": "Sagopshi",
+      "predicate": "has_forecast_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "ranges_between",
+      "object": "1.47 to 10.22 degrees Celsius"
+    },
+    {
+      "subject": "weather_condition",
+      "predicate": "predominantly",
+      "object": "cloudy"
+    },
+    {
+      "subject": "maximum_temperature",
+      "predicate": "occurs_on",
+      "object": "2024-01-05"
+    },
+    {
+      "subject": "minimum_temperature",
+      "predicate": "occurs_on",
+      "object": "2024-01-03"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "constant_at",
+      "object": "10000 meters"
+    },
+    {
+      "subject": "Saint-Romain-de-Benet",
+      "predicate": "is_located_in",
+      "object": "France"
+    },
+    {
+      "subject": "Saint-Romain-de-Benet",
+      "predicate": "has_temperature_range",
+      "object": "1.73°C to 12.96°C"
+    },
+    {
+      "subject": "Saint-Romain-de-Benet",
+      "predicate": "has_weather_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "Saint-Romain-de-Benet",
+      "predicate": "has_weather_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Saint-Romain-de-Benet",
+      "predicate": "has_weather_condition",
+      "object": "clear sky"
+    },
+    {
+      "subject": "Saint-Romain-de-Benet",
+      "predicate": "has_temperature_trend",
+      "object": "decreasing"
+    },
+    {
+      "subject": "Saint-Romain-de-Benet",
+      "predicate": "has_max_wind_speed",
+      "object": "9.42 m/s"
+    },
+    {
+      "subject": "Friedersdorf",
+      "predicate": "has_location",
+      "object": "Germany"
+    },
+    {
+      "subject": "Friedersdorf",
+      "predicate": "weather_trend",
+      "object": "cooling"
+    },
+    {
+      "subject": "Friedersdorf",
+      "predicate": "max_temperature",
+      "object": "8.69°C"
+    },
+    {
+      "subject": "Friedersdorf",
+      "predicate": "min_temperature",
+      "object": "-8.12°C"
+    },
+    {
+      "subject": "Friedersdorf",
+      "predicate": "weather_conditions",
+      "object": "light rain"
+    },
+    {
+      "subject": "Friedersdorf",
+      "predicate": "weather_conditions",
+      "object": "light snow"
+    },
+    {
+      "subject": "Friedersdorf",
+      "predicate": "weather_conditions",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Friedersdorf",
+      "predicate": "weather_conditions",
+      "object": "clear sky"
+    },
+    {
+      "subject": "Waalwijk",
+      "predicate": "has_location",
+      "object": "NL"
+    },
+    {
+      "subject": "Waalwijk",
+      "predicate": "forecast_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "trend",
+      "object": "decreasing"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "maximum",
+      "object": "9.14°C"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "minimum",
+      "object": "-1.39°C"
+    },
+    {
+      "subject": "weather_condition",
+      "predicate": "dominant_state",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "primary_types",
+      "object": "rain and light snow"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "maximum",
+      "object": "8.21 m/s"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "is_located_in",
+      "object": "FR"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "has_temperature_range",
+      "object": "0.89 to 10.77 Celsius"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "has_weather_trend",
+      "object": "transition from rain to snow and overcast clouds"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "has_precipitation",
+      "object": "light to moderate rain"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "has_extreme_condition",
+      "object": "light snow on 2024-01-07"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "has_wind_speed_max",
+      "object": "16.73 m/s"
+    },
+    {
+      "subject": "Baincthun",
+      "predicate": "has_cloud_cover",
+      "object": "predominantly overcast"
+    },
+    {
+      "subject": "Fox Chase",
+      "predicate": "located_in",
+      "object": "US"
+    },
+    {
+      "subject": "Fox Chase",
+      "predicate": "has_temperature_range",
+      "object": "-4.03 to 5.22 Celsius"
+    },
+    {
+      "subject": "Fox Chase",
+      "predicate": "weather_trend",
+      "object": "transition from cloudy to clear then snow"
+    },
+    {
+      "subject": "Fox Chase",
+      "predicate": "notable_condition",
+      "object": "snowfall between 2024-01-06 and 2024-01-07"
+    },
+    {
+      "subject": "Fox Chase",
+      "predicate": "maximum_wind_gust",
+      "object": "12.61 m/s"
+    },
+    {
+      "subject": "Fox Chase",
+      "predicate": "humidity_range",
+      "object": "37% to 100%"
+    },
+    {
+      "subject": "Otwock",
+      "predicate": "is_located_in",
+      "object": "PL"
+    },
+    {
+      "subject": "Otwock weather",
+      "predicate": "shows_trend",
+      "object": "cooling trend"
+    },
+    {
+      "subject": "Otwock weather",
+      "predicate": "initial_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "Otwock weather",
+      "predicate": "transition_condition",
+      "object": "light snow"
+    },
+    {
+      "subject": "Otwock weather",
+      "predicate": "final_condition",
+      "object": "clear sky"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "maximum_value",
+      "object": "7.11°C"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "minimum_value",
+      "object": "-9.8°C"
+    },
+    {
+      "subject": "Almería",
+      "predicate": "has_location",
+      "object": "Spain"
+    },
+    {
+      "subject": "Almería",
+      "predicate": "has_temperature_range",
+      "object": "10.74°C to 17.58°C"
+    },
+    {
+      "subject": "Almería",
+      "predicate": "has_weather_trend",
+      "object": "clear to overcast with occasional light rain"
+    },
+    {
+      "subject": "Almería",
+      "predicate": "has_max_temp",
+      "object": "17.58°C"
+    },
+    {
+      "subject": "Almería",
+      "predicate": "has_min_temp",
+      "object": "10.74°C"
+    },
+    {
+      "subject": "Almería",
+      "predicate": "has_notable_condition",
+      "object": "light rain on 2024-01-05"
+    },
+    {
+      "subject": "Garches",
+      "predicate": "is_located_in",
+      "object": "France"
+    },
+    {
+      "subject": "Garches weather",
+      "predicate": "temperature_range",
+      "object": "0.34°C to 10.46°C"
+    },
+    {
+      "subject": "Garches weather",
+      "predicate": "primary_conditions",
+      "object": "overcast and clouds"
+    },
+    {
+      "subject": "Garches weather",
+      "predicate": "precipitation_types",
+      "object": "light rain and light snow"
+    },
+    {
+      "subject": "Garches weather",
+      "predicate": "temperature_trend",
+      "object": "decreasing"
+    },
+    {
+      "subject": "Garches weather",
+      "predicate": "maximum_wind_gust",
+      "object": "17.13 m/s"
+    },
+    {
+      "subject": "Verplanck",
+      "predicate": "is_located_in",
+      "object": "US"
+    },
+    {
+      "subject": "Verplanck weather",
+      "predicate": "has_temperature_range",
+      "object": "-3.3 to 5.83 Celsius"
+    },
+    {
+      "subject": "Verplanck weather",
+      "predicate": "shows_trend",
+      "object": "cooling followed by snow"
+    },
+    {
+      "subject": "Verplanck weather",
+      "predicate": "has_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Verplanck weather",
+      "predicate": "has_condition",
+      "object": "clear sky"
+    },
+    {
+      "subject": "Verplanck weather",
+      "predicate": "has_condition",
+      "object": "snow"
+    },
+    {
+      "subject": "Verplanck weather",
+      "predicate": "has_extreme_low_visibility",
+      "object": "37 meters"
+    },
+    {
+      "subject": "Cornillon-Confoux",
+      "predicate": "is_located_in",
+      "object": "France"
+    },
+    {
+      "subject": "Cornillon-Confoux",
+      "predicate": "has_weather_trend",
+      "object": "cooling trend"
+    },
+    {
+      "subject": "Cornillon-Confoux",
+      "predicate": "max_temperature",
+      "object": "13.37°C"
+    },
+    {
+      "subject": "Cornillon-Confoux",
+      "predicate": "min_temperature",
+      "object": "3.98°C"
+    },
+    {
+      "subject": "Cornillon-Confoux",
+      "predicate": "notable_condition",
+      "object": "light to moderate rain on 2024-01-05"
+    },
+    {
+      "subject": "Cornillon-Confoux",
+      "predicate": "notable_condition",
+      "object": "high wind speeds on 2024-01-06 and 2024-01-07"
+    },
+    {
+      "subject": "Cornillon-Confoux",
+      "predicate": "general_sky_condition",
+      "object": "predominantly cloudy"
+    },
+    {
+      "subject": "Fazeley",
+      "predicate": "is_located_in",
+      "object": "GB"
+    },
+    {
+      "subject": "Fazeley",
+      "predicate": "has_population",
+      "object": "7522"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "location",
+      "object": "Fazeley"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "trend",
+      "object": "decreasing"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "maximum",
+      "object": "7.82"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "minimum",
+      "object": "0.38"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "predominant_state",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "notable_event",
+      "object": "light rain"
+    },
+    {
+      "subject": "pressure",
+      "predicate": "trend",
+      "object": "increasing"
+    },
+    {
+      "subject": "Lamotte-Beuvron",
+      "predicate": "is_located_in",
+      "object": "FR"
+    },
+    {
+      "subject": "Lamotte-Beuvron",
+      "predicate": "has_population",
+      "object": "4426"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "location",
+      "object": "Lamotte-Beuvron"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "trend",
+      "object": "decreasing"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "maximum",
+      "object": "10.32"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "minimum",
+      "object": "0.48"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "light rain"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "light snow"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "maximum",
+      "object": "7.48"
+    },
+    {
+      "subject": "Churánov",
+      "predicate": "has_location",
+      "object": "Czech Republic"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "applies_to",
+      "object": "Churánov"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "shows_trend",
+      "object": "decreasing"
+    },
+    {
+      "subject": "temperature_maximum",
+      "predicate": "has_value",
+      "object": "4.76°C"
+    },
+    {
+      "subject": "temperature_minimum",
+      "predicate": "has_value",
+      "object": "-9.78°C"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "light rain"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "snow"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "cloud_cover",
+      "predicate": "has_value",
+      "object": "mostly 100%"
+    },
+    {
+      "subject": "Imbituva",
+      "predicate": "has_location",
+      "object": "Brazil"
+    },
+    {
+      "subject": "Imbituva",
+      "predicate": "weather_trend",
+      "object": "transition from rain to clear skies"
+    },
+    {
+      "subject": "Imbituva",
+      "predicate": "min_temperature",
+      "object": "15.82°C"
+    },
+    {
+      "subject": "Imbituva",
+      "predicate": "max_temperature",
+      "object": "33.5°C"
+    },
+    {
+      "subject": "Imbituva",
+      "predicate": "notable_condition",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "Dragash",
+      "predicate": "is_located_in",
+      "object": "XK"
+    },
+    {
+      "subject": "Dragash",
+      "predicate": "has_temperature_range",
+      "object": "-0.22 to 9.16 degrees Celsius"
+    },
+    {
+      "subject": "Dragash",
+      "predicate": "has_weather_condition",
+      "object": "rain"
+    },
+    {
+      "subject": "Dragash",
+      "predicate": "has_weather_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Dragash",
+      "predicate": "has_weather_condition",
+      "object": "light snow"
+    },
+    {
+      "subject": "Dragash",
+      "predicate": "has_max_temperature",
+      "object": "9.16 degrees Celsius"
+    },
+    {
+      "subject": "Dragash",
+      "predicate": "has_min_temperature",
+      "object": "-0.22 degrees Celsius"
+    },
+    {
+      "subject": "Slatina",
+      "predicate": "is_located_in",
+      "object": "RO"
+    },
+    {
+      "subject": "Slatina",
+      "predicate": "has_population",
+      "object": "5196"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "location",
+      "object": "Slatina"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "max_value",
+      "object": "10.42"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "min_value",
+      "object": "-9.26"
+    },
+    {
+      "subject": "weather_condition",
+      "predicate": "dominant_state",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "weather_condition",
+      "predicate": "extreme_event",
+      "object": "snow"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "notable_decrease",
+      "object": "during snow events"
+    },
+    {
+      "subject": "Nakło nad Notecią",
+      "predicate": "is_located_in",
+      "object": "Poland"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "starts_with",
+      "object": "light rain"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "transitions_to",
+      "object": "light snow"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "ends_with",
+      "object": "clear sky"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "trend",
+      "object": "decreasing"
+    },
+    {
+      "subject": "maximum_temperature",
+      "predicate": "value",
+      "object": "7.18°C"
+    },
+    {
+      "subject": "minimum_temperature",
+      "predicate": "value",
+      "object": "-8.81°C"
+    },
+    {
+      "subject": "cloud_cover",
+      "predicate": "trend",
+      "object": "decreasing"
+    },
+    {
+      "subject": "Piqueras",
+      "predicate": "is_located_in",
+      "object": "ES"
+    },
+    {
+      "subject": "Piqueras",
+      "predicate": "has_weather_trend",
+      "object": "cooling"
+    },
+    {
+      "subject": "Piqueras",
+      "predicate": "experienced_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Piqueras",
+      "predicate": "experienced_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "Piqueras",
+      "predicate": "experienced_condition",
+      "object": "snow"
+    },
+    {
+      "subject": "Piqueras",
+      "predicate": "max_temperature",
+      "object": "8.32"
+    },
+    {
+      "subject": "Piqueras",
+      "predicate": "min_temperature",
+      "object": "-5.3"
+    },
+    {
+      "subject": "Val-David",
+      "predicate": "located_in",
+      "object": "CA"
+    },
+    {
+      "subject": "Val-David",
+      "predicate": "has_population",
+      "object": "1211"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "contains_condition",
+      "object": "light snow"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "contains_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "maximum_value",
+      "object": "0.41"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "minimum_value",
+      "object": "-11.75"
+    },
+    {
+      "subject": "temperature_trend",
+      "predicate": "is",
+      "object": "decreasing"
+    },
+    {
+      "subject": "Saint-Vincent-de-Mercuze",
+      "predicate": "located_in",
+      "object": "France"
+    },
+    {
+      "subject": "Saint-Vincent-de-Mercuze",
+      "predicate": "has_weather_trend",
+      "object": "cooling trend"
+    },
+    {
+      "subject": "Saint-Vincent-de-Mercuze",
+      "predicate": "experience_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "Saint-Vincent-de-Mercuze",
+      "predicate": "experience_condition",
+      "object": "broken clouds"
+    },
+    {
+      "subject": "Saint-Vincent-de-Mercuze",
+      "predicate": "experience_condition",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "Saint-Vincent-de-Mercuze",
+      "predicate": "experience_condition",
+      "object": "snow"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "max_value",
+      "object": "11.35°C"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "min_value",
+      "object": "0.58°C"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "extreme_low",
+      "object": "19m"
+    },
+    {
+      "subject": "Province de la Kossi",
+      "predicate": "is_located_in",
+      "object": "Burkina Faso"
+    },
+    {
+      "subject": "Province de la Kossi",
+      "predicate": "has_max_temp",
+      "object": "36.72°C"
+    },
+    {
+      "subject": "Province de la Kossi",
+      "predicate": "has_min_temp",
+      "object": "19.03°C"
+    },
+    {
+      "subject": "Province de la Kossi",
+      "predicate": "has_weather_condition",
+      "object": "clear to overcast clouds"
+    },
+    {
+      "subject": "Province de la Kossi",
+      "predicate": "has_humidity_range",
+      "object": "6% to 15%"
+    },
+    {
+      "subject": "Province de la Kossi",
+      "predicate": "has_precipitation_probability",
+      "object": "0%"
+    },
+    {
+      "subject": "Torre Pacheco",
+      "predicate": "located_in",
+      "object": "Spain"
+    },
+    {
+      "subject": "forecast_period",
+      "predicate": "starts_on",
+      "object": "2024-01-03"
+    },
+    {
+      "subject": "forecast_period",
+      "predicate": "ends_on",
+      "object": "2024-01-08"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "maximum_value",
+      "object": "19.82°C"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "minimum_value",
+      "object": "6.14°C"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "clear sky"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "rain_event",
+      "predicate": "occurred_on",
+      "object": "2024-01-05"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "maximum_value",
+      "object": "11.48 m/s"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "range",
+      "object": "22% to 94%"
+    },
+    {
+      "subject": "Hatzendorf",
+      "predicate": "is_located_in",
+      "object": "Austria"
+    },
+    {
+      "subject": "Hatzendorf weather",
+      "predicate": "has_max_temp",
+      "object": "9.15°C"
+    },
+    {
+      "subject": "Hatzendorf weather",
+      "predicate": "has_min_temp",
+      "object": "-1.5°C"
+    },
+    {
+      "subject": "Hatzendorf weather",
+      "predicate": "shows_trend",
+      "object": "cooling"
+    },
+    {
+      "subject": "Hatzendorf weather",
+      "predicate": "has_condition",
+      "object": "clear sky"
+    },
+    {
+      "subject": "Hatzendorf weather",
+      "predicate": "has_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Hatzendorf weather",
+      "predicate": "has_condition",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "Cuetzalan",
+      "predicate": "is_located_in",
+      "object": "MX"
+    },
+    {
+      "subject": "Cuetzalan",
+      "predicate": "has_temperature_range",
+      "object": "12.93°C to 23.58°C"
+    },
+    {
+      "subject": "Cuetzalan",
+      "predicate": "weather_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "Cuetzalan",
+      "predicate": "weather_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Cuetzalan",
+      "predicate": "weather_condition",
+      "object": "clear sky"
+    },
+    {
+      "subject": "Cuetzalan",
+      "predicate": "has_humidity_range",
+      "object": "59% to 97%"
+    },
+    {
+      "subject": "Pedro Santana",
+      "predicate": "is_located_in",
+      "object": "DO"
+    },
+    {
+      "subject": "Pedro Santana",
+      "predicate": "has_population",
+      "object": "1170"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "has_location",
+      "object": "Pedro Santana"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "ranges_between",
+      "object": "19.55°C and 32.18°C"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "scattered clouds"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "light rain"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "clear sky"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "ranges_between",
+      "object": "38% and 95%"
+    },
+    {
+      "subject": "San Luis Acatlan",
+      "predicate": "located_in",
+      "object": "MX"
+    },
+    {
+      "subject": "San Luis Acatlan",
+      "predicate": "has_max_temp",
+      "object": "32.35"
+    },
+    {
+      "subject": "San Luis Acatlan",
+      "predicate": "has_min_temp",
+      "object": "19.54"
+    },
+    {
+      "subject": "San Luis Acatlan",
+      "predicate": "weather_trend",
+      "object": "clear to overcast"
+    },
+    {
+      "subject": "San Luis Acatlan",
+      "predicate": "humidity_range",
+      "object": "26% to 89%"
+    },
+    {
+      "subject": "San Luis Acatlan",
+      "predicate": "wind_condition",
+      "object": "light breeze"
+    },
+    {
+      "subject": "Fargues-Saint-Hilaire",
+      "predicate": "located_in",
+      "object": "France"
+    },
+    {
+      "subject": "Fargues-Saint-Hilaire",
+      "predicate": "max_temperature",
+      "object": "13.14°C"
+    },
+    {
+      "subject": "Fargues-Saint-Hilaire",
+      "predicate": "min_temperature",
+      "object": "0.05°C"
+    },
+    {
+      "subject": "weather_trend",
+      "predicate": "description",
+      "object": "gradual cooling with intermittent light rain"
+    },
+    {
+      "subject": "notable_condition",
+      "predicate": "occurrence",
+      "object": "light rain between Jan 4 and Jan 7"
+    },
+    {
+      "subject": "sky_condition",
+      "predicate": "varies_between",
+      "object": "clear to overcast"
+    },
+    {
+      "subject": "Capitólio",
+      "predicate": "located_in",
+      "object": "Brazil"
+    },
+    {
+      "subject": "Capitólio",
+      "predicate": "has_weather_trend",
+      "object": "frequent light rain"
+    },
+    {
+      "subject": "Capitólio",
+      "predicate": "has_weather_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "min_value",
+      "object": "19.19°C"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "max_value",
+      "object": "29.6°C"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "range",
+      "object": "54% to 99%"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "maximum",
+      "object": "3.29 m/s"
+    },
+    {
+      "subject": "Minsk City",
+      "predicate": "has_location",
+      "object": "Belarus"
+    },
+    {
+      "subject": "Minsk City",
+      "predicate": "experience_condition",
+      "object": "light snow"
+    },
+    {
+      "subject": "Minsk City",
+      "predicate": "experience_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Minsk City",
+      "predicate": "experience_condition",
+      "object": "clear sky"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "has_minimum",
+      "object": "-17.06°C"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "has_maximum",
+      "object": "-2.43°C"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "shows_trend",
+      "object": "decreasing"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "has_maximum",
+      "object": "7.2 m/s"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "range",
+      "object": "86% to 99%"
+    },
+    {
+      "subject": "Călăraşi",
+      "predicate": "has_location",
+      "object": "Romania"
+    },
+    {
+      "subject": "Călăraşi",
+      "predicate": "weather_trend",
+      "object": "cooling trend"
+    },
+    {
+      "subject": "Călăraşi",
+      "predicate": "max_temperature",
+      "object": "11.37°C"
+    },
+    {
+      "subject": "Călăraşi",
+      "predicate": "min_temperature",
+      "object": "-7.06°C"
+    },
+    {
+      "subject": "Călăraşi",
+      "predicate": "dominant_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Călăraşi",
+      "predicate": "notable_event",
+      "object": "light rain"
+    },
+    {
+      "subject": "Călăraşi",
+      "predicate": "extreme_condition",
+      "object": "snow"
+    },
+    {
+      "subject": "Călăraşi",
+      "predicate": "max_wind_speed",
+      "object": "8.82 m/s"
+    },
+    {
+      "subject": "Isla Soyaltepec",
+      "predicate": "is_located_in",
+      "object": "Mexico"
+    },
+    {
+      "subject": "Isla Soyaltepec",
+      "predicate": "has_temperature_range",
+      "object": "19.56°C to 27.99°C"
+    },
+    {
+      "subject": "Isla Soyaltepec",
+      "predicate": "has_weather_conditions",
+      "object": "broken clouds, light rain, and clear sky"
+    },
+    {
+      "subject": "Isla Soyaltepec",
+      "predicate": "has_humidity_range",
+      "object": "63% to 96%"
+    },
+    {
+      "subject": "Isla Soyaltepec",
+      "predicate": "has_wind_speed_max",
+      "object": "3.94 m/s"
+    },
+    {
+      "subject": "Lohāru",
+      "predicate": "is_located_in",
+      "object": "India"
+    },
+    {
+      "subject": "Lohāru",
+      "predicate": "has_weather_condition",
+      "object": "Clear sky"
+    },
+    {
+      "subject": "Lohāru",
+      "predicate": "has_max_temperature",
+      "object": "24.38°C"
+    },
+    {
+      "subject": "Lohāru",
+      "predicate": "has_min_temperature",
+      "object": "7.86°C"
+    },
+    {
+      "subject": "Lohāru",
+      "predicate": "has_temperature_trend",
+      "object": "diurnal fluctuation"
+    },
+    {
+      "subject": "Lohāru",
+      "predicate": "has_humidity_range",
+      "object": "16% to 48%"
+    },
+    {
+      "subject": "Lohāru",
+      "predicate": "has_visibility",
+      "object": "10000m"
+    },
+    {
+      "subject": "Caraballeda",
+      "predicate": "located_in",
+      "object": "VE"
+    },
+    {
+      "subject": "Caraballeda",
+      "predicate": "has_population",
+      "object": "37824"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "location",
+      "object": "Caraballeda"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "range",
+      "object": "24.61 to 33.06 degrees Celsius"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "light rain"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "range",
+      "object": "57 to 90 percent"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "average_range",
+      "object": "3.25 to 5.49 m/s"
+    },
+    {
+      "subject": "Krempe",
+      "predicate": "is_located_in",
+      "object": "DE"
+    },
+    {
+      "subject": "Krempe",
+      "predicate": "has_temperature_range",
+      "object": "-4.62 to 6.91 degrees Celsius"
+    },
+    {
+      "subject": "Krempe",
+      "predicate": "experiences_weather_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Krempe",
+      "predicate": "experiences_weather_condition",
+      "object": "light snow"
+    },
+    {
+      "subject": "Krempe",
+      "predicate": "experiences_weather_condition",
+      "object": "clear sky"
+    },
+    {
+      "subject": "temperature_trend",
+      "predicate": "shows_pattern",
+      "object": "gradual decrease"
+    },
+    {
+      "subject": "weather_trend",
+      "predicate": "shows_pattern",
+      "object": "transition from clouds to snow then to clear skies"
+    },
+    {
+      "subject": "Osek",
+      "predicate": "is_located_in",
+      "object": "CZ"
+    },
+    {
+      "subject": "Osek",
+      "predicate": "has_weather_trend",
+      "object": "cooling trend"
+    },
+    {
+      "subject": "Osek",
+      "predicate": "experiences_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "Osek",
+      "predicate": "experiences_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Osek",
+      "predicate": "experiences_condition",
+      "object": "light snow"
+    },
+    {
+      "subject": "Osek",
+      "predicate": "max_temperature",
+      "object": "7.96°C"
+    },
+    {
+      "subject": "Osek",
+      "predicate": "min_temperature",
+      "object": "-6.69°C"
+    },
+    {
+      "subject": "Muzaffarpur",
+      "predicate": "is_located_in",
+      "object": "India"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "applies_to",
+      "object": "Muzaffarpur"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "ranges_from",
+      "object": "13.06°C to 26.7°C"
+    },
+    {
+      "subject": "general_condition",
+      "predicate": "is_mostly",
+      "object": "clear sky"
+    },
+    {
+      "subject": "sky_condition",
+      "predicate": "includes_occasional",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "ranges_from",
+      "object": "21% to 61%"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "peaks_at",
+      "object": "5.01 m/s"
+    },
+    {
+      "subject": "Meixing",
+      "predicate": "is_located_in",
+      "object": "CN"
+    },
+    {
+      "subject": "Meixing",
+      "predicate": "has_temperature_range",
+      "object": "-3.8 to 12.63 °C"
+    },
+    {
+      "subject": "Meixing",
+      "predicate": "experiences_weather",
+      "object": "clouds"
+    },
+    {
+      "subject": "Meixing",
+      "predicate": "experiences_weather",
+      "object": "light snow"
+    },
+    {
+      "subject": "Meixing",
+      "predicate": "experiences_weather",
+      "object": "light rain"
+    },
+    {
+      "subject": "Meixing",
+      "predicate": "experiences_weather",
+      "object": "clear sky"
+    },
+    {
+      "subject": "Meixing",
+      "predicate": "has_humidity_range",
+      "object": "15% to 98%"
+    },
+    {
+      "subject": "Brunn an der Wild",
+      "predicate": "is_located_in",
+      "object": "Austria"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "has_location",
+      "object": "Brunn an der Wild"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "shows_trend",
+      "object": "decreasing"
+    },
+    {
+      "subject": "maximum_temperature",
+      "predicate": "has_value",
+      "object": "9.28°C"
+    },
+    {
+      "subject": "minimum_temperature",
+      "predicate": "has_value",
+      "object": "-7.94°C"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "light rain"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "snow"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "reaches_maximum",
+      "object": "12.79 m/s"
+    },
+    {
+      "subject": "Frunzi",
+      "predicate": "is_located_in",
+      "object": "RO"
+    },
+    {
+      "subject": "Frunzi",
+      "predicate": "has_population",
+      "object": "1614"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "starts_with",
+      "object": "light rain"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "includes_extreme",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "ends_with",
+      "object": "light snow"
+    },
+    {
+      "subject": "temperature_trend",
+      "predicate": "shows",
+      "object": "cooling trend"
+    },
+    {
+      "subject": "maximum_temperature",
+      "predicate": "value",
+      "object": "7.96"
+    },
+    {
+      "subject": "minimum_temperature",
+      "predicate": "value",
+      "object": "-2.18"
+    },
+    {
+      "subject": "sky_condition",
+      "predicate": "predominantly",
+      "object": "overcast"
+    },
+    {
+      "subject": "Hohoe",
+      "predicate": "is_located_in",
+      "object": "GH"
+    },
+    {
+      "subject": "Hohoe weather",
+      "predicate": "has_temperature_range",
+      "object": "25.32 to 30.13 Celsius"
+    },
+    {
+      "subject": "Hohoe weather",
+      "predicate": "has_condition",
+      "object": "mostly cloudy with occasional clear skies"
+    },
+    {
+      "subject": "Hohoe weather",
+      "predicate": "has_humidity_range",
+      "object": "49% to 86%"
+    },
+    {
+      "subject": "Hohoe weather",
+      "predicate": "has_max_wind_speed",
+      "object": "6.62 m/s"
+    },
+    {
+      "subject": "Forest Park",
+      "predicate": "is_located_in",
+      "object": "US"
+    },
+    {
+      "subject": "Forest Park",
+      "predicate": "has_population",
+      "object": "18720"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "has_location",
+      "object": "Forest Park"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "ranges_between",
+      "object": "-2.85 to 5.2"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "clear sky"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "light snow"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "light rain"
+    },
+    {
+      "subject": "visibility",
+      "predicate": "reaches_minimum",
+      "object": "45 meters"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "reaches_maximum",
+      "object": "100%"
+    },
+    {
+      "subject": "Kisaran",
+      "predicate": "is_located_in",
+      "object": "ID"
+    },
+    {
+      "subject": "Kisaran",
+      "predicate": "has_weather_trend",
+      "object": "predominantly rain and overcast"
+    },
+    {
+      "subject": "Kisaran",
+      "predicate": "max_temperature",
+      "object": "31.14°C"
+    },
+    {
+      "subject": "Kisaran",
+      "predicate": "min_temperature",
+      "object": "22.67°C"
+    },
+    {
+      "subject": "Kisaran",
+      "predicate": "humidity_range",
+      "object": "64% to 100%"
+    },
+    {
+      "subject": "Kisaran",
+      "predicate": "notable_condition",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "Azaz",
+      "predicate": "located_in",
+      "object": "Syria"
+    },
+    {
+      "subject": "Azaz weather",
+      "predicate": "has_temperature_range",
+      "object": "7.73°C to 14.83°C"
+    },
+    {
+      "subject": "Azaz weather",
+      "predicate": "shows_trend",
+      "object": "transition from rain to clear skies"
+    },
+    {
+      "subject": "Azaz weather",
+      "predicate": "has_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "Azaz weather",
+      "predicate": "has_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Azaz weather",
+      "predicate": "has_condition",
+      "object": "clear sky"
+    },
+    {
+      "subject": "Azaz weather",
+      "predicate": "max_humidity",
+      "object": "96%"
+    },
+    {
+      "subject": "Sopeira",
+      "predicate": "located_in",
+      "object": "ES"
+    },
+    {
+      "subject": "Sopeira",
+      "predicate": "has_population",
+      "object": "1000"
+    },
+    {
+      "subject": "weather_trend",
+      "predicate": "temperature_range",
+      "object": "-2.57 to 11.25 degrees Celsius"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "light rain"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "light snow"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "clear sky"
+    },
+    {
+      "subject": "maximum_temperature",
+      "predicate": "value",
+      "object": "11.25"
+    },
+    {
+      "subject": "minimum_temperature",
+      "predicate": "value",
+      "object": "-2.57"
+    },
+    {
+      "subject": "Methven",
+      "predicate": "is_located_in",
+      "object": "GB"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "location",
+      "object": "Methven"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "range",
+      "object": "0.56 to 6.43 degrees Celsius"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "light rain"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "clear sky"
+    },
+    {
+      "subject": "pressure",
+      "predicate": "trend",
+      "object": "increasing"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "level",
+      "object": "high"
+    },
+    {
+      "subject": "Łapczyca",
+      "predicate": "is_located_in",
+      "object": "Poland"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "has_location",
+      "object": "Łapczyca"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "shows_trend",
+      "object": "significant decrease"
+    },
+    {
+      "subject": "temperature_max",
+      "predicate": "has_value",
+      "object": "9.09°C"
+    },
+    {
+      "subject": "temperature_min",
+      "predicate": "has_value",
+      "object": "-14.32°C"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "evolves_from",
+      "object": "light rain"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "evolves_to",
+      "object": "snow"
+    },
+    {
+      "subject": "sky_condition",
+      "predicate": "is_mostly",
+      "object": "overcast"
+    },
+    {
+      "subject": "wind_speed_max",
+      "predicate": "has_value",
+      "object": "10.94 m/s"
+    },
+    {
+      "subject": "Mezinovskiy",
+      "predicate": "is_located_in",
+      "object": "RU"
+    },
+    {
+      "subject": "Mezinovskiy",
+      "predicate": "has_population",
+      "object": "2116"
+    },
+    {
+      "subject": "Mezinovskiy",
+      "predicate": "experienced_temperature_range",
+      "object": "-29.46 to -12.22 degrees Celsius"
+    },
+    {
+      "subject": "Mezinovskiy",
+      "predicate": "experienced_weather_condition",
+      "object": "broken clouds"
+    },
+    {
+      "subject": "Mezinovskiy",
+      "predicate": "experienced_weather_condition",
+      "object": "light snow"
+    },
+    {
+      "subject": "Mezinovskiy",
+      "predicate": "experienced_weather_condition",
+      "object": "clear sky"
+    },
+    {
+      "subject": "Mezinovskiy",
+      "predicate": "has_humidity_range",
+      "object": "91% to 100%"
+    },
+    {
+      "subject": "Mezinovskiy",
+      "predicate": "has_pressure_range",
+      "object": "1012 to 1027 hPa"
+    },
+    {
+      "subject": "Ocilla",
+      "predicate": "is_located_in",
+      "object": "US"
+    },
+    {
+      "subject": "Ocilla",
+      "predicate": "has_temperature_range",
+      "object": "2.94 to 17.24 degrees"
+    },
+    {
+      "subject": "Ocilla",
+      "predicate": "experiences_weather",
+      "object": "clear sky"
+    },
+    {
+      "subject": "Ocilla",
+      "predicate": "experiences_weather",
+      "object": "rain"
+    },
+    {
+      "subject": "Ocilla",
+      "predicate": "experiences_weather",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Ocilla",
+      "predicate": "has_extreme_condition",
+      "object": "heavy intensity rain"
+    },
+    {
+      "subject": "Kap Choeng",
+      "predicate": "located_in",
+      "object": "TH"
+    },
+    {
+      "subject": "Kap Choeng",
+      "predicate": "has_temperature_range",
+      "object": "18.91 to 32.6 °C"
+    },
+    {
+      "subject": "Kap Choeng",
+      "predicate": "has_weather_condition",
+      "object": "clear sky to broken clouds"
+    },
+    {
+      "subject": "Kap Choeng",
+      "predicate": "has_humidity_range",
+      "object": "34% to 84%"
+    },
+    {
+      "subject": "Kap Choeng",
+      "predicate": "has_wind_speed_max",
+      "object": "5.58 m/s"
+    },
+    {
+      "subject": "Cengio",
+      "predicate": "is_located_in",
+      "object": "Italy"
+    },
+    {
+      "subject": "Cengio",
+      "predicate": "has_max_temp",
+      "object": "12.36°C"
+    },
+    {
+      "subject": "Cengio",
+      "predicate": "has_min_temp",
+      "object": "-0.23°C"
+    },
+    {
+      "subject": "Cengio",
+      "predicate": "weather_trend",
+      "object": "transition from clear to snow and rain"
+    },
+    {
+      "subject": "Cengio",
+      "predicate": "notable_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Cengio",
+      "predicate": "extreme_condition",
+      "object": "snowfall"
+    },
+    {
+      "subject": "Lankwitz",
+      "predicate": "located_in",
+      "object": "DE"
+    },
+    {
+      "subject": "Lankwitz",
+      "predicate": "has_temperature_trend",
+      "object": "decreasing"
+    },
+    {
+      "subject": "Lankwitz",
+      "predicate": "maximum_temperature",
+      "object": "9.51°C"
+    },
+    {
+      "subject": "Lankwitz",
+      "predicate": "minimum_temperature",
+      "object": "-4.16°C"
+    },
+    {
+      "subject": "Lankwitz",
+      "predicate": "weather_conditions",
+      "object": "rain"
+    },
+    {
+      "subject": "Lankwitz",
+      "predicate": "weather_conditions",
+      "object": "snow"
+    },
+    {
+      "subject": "Lankwitz",
+      "predicate": "weather_conditions",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Lankwitz",
+      "predicate": "weather_conditions",
+      "object": "clear sky"
+    },
+    {
+      "subject": "Skidel'",
+      "predicate": "is_located_in",
+      "object": "BY"
+    },
+    {
+      "subject": "Skidel'",
+      "predicate": "has_population",
+      "object": "10700"
+    },
+    {
+      "subject": "weather_trend",
+      "predicate": "starts_with",
+      "object": "light snow"
+    },
+    {
+      "subject": "weather_trend",
+      "predicate": "transitions_to",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "weather_trend",
+      "predicate": "ends_with",
+      "object": "clear sky"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "range",
+      "object": "-2.09 to -15.44 degrees"
+    },
+    {
+      "subject": "temperature_trend",
+      "predicate": "shows",
+      "object": "cooling trend"
+    },
+    {
+      "subject": "notable_condition",
+      "predicate": "occurs",
+      "object": "freezing rain"
+    },
+    {
+      "subject": "Gundaroo",
+      "predicate": "is_located_in",
+      "object": "AU"
+    },
+    {
+      "subject": "Gundaroo",
+      "predicate": "has_forecast_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "weather_trend",
+      "predicate": "shows_pattern",
+      "object": "initial rain followed by clear skies then returning rain"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "reaches_maximum",
+      "object": "27.95°C"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "reaches_minimum",
+      "object": "11.75°C"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "has_extreme_event",
+      "object": "heavy intensity rain on 2024-01-04"
+    },
+    {
+      "subject": "sky_condition",
+      "predicate": "varies_between",
+      "object": "clear sky and overcast clouds"
+    },
+    {
+      "subject": "Burträsk",
+      "predicate": "is_located_in",
+      "object": "Sweden"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "has_location",
+      "object": "Burträsk"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "shows_trend",
+      "object": "significant increase"
+    },
+    {
+      "subject": "minimum_temperature",
+      "predicate": "has_value",
+      "object": "-33.67°C"
+    },
+    {
+      "subject": "maximum_temperature",
+      "predicate": "has_value",
+      "object": "2.62°C"
+    },
+    {
+      "subject": "sky_condition",
+      "predicate": "varies_between",
+      "object": "clear to overcast"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "increases_to",
+      "object": "6.16 m/s"
+    },
+    {
+      "subject": "humidity",
+      "predicate": "remains_high",
+      "object": "73% to 100%"
+    },
+    {
+      "subject": "Birchington",
+      "predicate": "has_weather_forecast",
+      "object": "January 2024"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "trends",
+      "object": "decreasing"
+    },
+    {
+      "subject": "temperature_max",
+      "predicate": "value",
+      "object": "9.52°C"
+    },
+    {
+      "subject": "temperature_min",
+      "predicate": "value",
+      "object": "3.85°C"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "light rain"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "wind_speed_max",
+      "predicate": "value",
+      "object": "16.72 m/s"
+    },
+    {
+      "subject": "pressure",
+      "predicate": "trends",
+      "object": "increasing"
+    },
+    {
+      "subject": "Riaillé",
+      "predicate": "located_in",
+      "object": "FR"
+    },
+    {
+      "subject": "Riaillé",
+      "predicate": "has_temperature_range",
+      "object": "1.59 to 12.16 degrees Celsius"
+    },
+    {
+      "subject": "Riaillé",
+      "predicate": "experiences_weather",
+      "object": "clouds"
+    },
+    {
+      "subject": "Riaillé",
+      "predicate": "experiences_weather",
+      "object": "light rain"
+    },
+    {
+      "subject": "Riaillé",
+      "predicate": "has_humidity_range",
+      "object": "64 to 95 percent"
+    },
+    {
+      "subject": "Riaillé",
+      "predicate": "has_wind_speed_max",
+      "object": "11.21 m/s"
+    },
+    {
+      "subject": "Broughton",
+      "predicate": "located_in",
+      "object": "GB"
+    },
+    {
+      "subject": "Broughton",
+      "predicate": "has_weather_trend",
+      "object": "cooling"
+    },
+    {
+      "subject": "Broughton",
+      "predicate": "max_temperature",
+      "object": "8.02°C"
+    },
+    {
+      "subject": "Broughton",
+      "predicate": "min_temperature",
+      "object": "0.04°C"
+    },
+    {
+      "subject": "Broughton",
+      "predicate": "notable_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "Broughton",
+      "predicate": "notable_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Broughton",
+      "predicate": "notable_condition",
+      "object": "clear sky"
+    },
+    {
+      "subject": "Aridaea",
+      "predicate": "is_located_in",
+      "object": "GR"
+    },
+    {
+      "subject": "Aridaea",
+      "predicate": "has_population",
+      "object": "6091"
+    },
+    {
+      "subject": "forecast_period",
+      "predicate": "temperature_range",
+      "object": "7.59C to 15.89C"
+    },
+    {
+      "subject": "weather_trend",
+      "predicate": "primary_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "weather_trend",
+      "predicate": "notable_event",
+      "object": "moderate rain on 2024-01-07"
+    },
+    {
+      "subject": "weather_trend",
+      "predicate": "humidity_range",
+      "object": "50% to 98%"
+    },
+    {
+      "subject": "Sherwood",
+      "predicate": "is_located_in",
+      "object": "US"
+    },
+    {
+      "subject": "Sherwood",
+      "predicate": "has_population",
+      "object": "29523"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "has_location",
+      "object": "Sherwood"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "ranges_from",
+      "object": "1.08 to 11.12 degrees"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "clear skies"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "light rain"
+    },
+    {
+      "subject": "precipitation",
+      "predicate": "occurs_on",
+      "object": "2024-01-05"
+    },
+    {
+      "subject": "wind_speed",
+      "predicate": "reaches_maximum",
+      "object": "5.38 m/s"
+    },
+    {
+      "subject": "Saint James",
+      "predicate": "is_located_in",
+      "object": "US"
+    },
+    {
+      "subject": "Saint James",
+      "predicate": "has_forecast_period",
+      "object": "2024-01-03 to 2024-01-08"
+    },
+    {
+      "subject": "Saint James",
+      "predicate": "max_temperature",
+      "object": "6.99°C"
+    },
+    {
+      "subject": "Saint James",
+      "predicate": "min_temperature",
+      "object": "-3.56°C"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "clear sky"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "light snow"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "light rain"
+    },
+    {
+      "subject": "temperature_trend",
+      "predicate": "shows",
+      "object": "fluctuating around freezing"
+    },
+    {
+      "subject": "Rio Chico",
+      "predicate": "is_located_in",
+      "object": "VE"
+    },
+    {
+      "subject": "Rio Chico",
+      "predicate": "has_temperature_range",
+      "object": "23.01°C to 30.28°C"
+    },
+    {
+      "subject": "Rio Chico",
+      "predicate": "has_weather_condition",
+      "object": "scattered clouds"
+    },
+    {
+      "subject": "Rio Chico",
+      "predicate": "has_weather_condition",
+      "object": "light rain"
+    },
+    {
+      "subject": "Rio Chico",
+      "predicate": "has_weather_condition",
+      "object": "broken clouds"
+    },
+    {
+      "subject": "Rio Chico",
+      "predicate": "has_humidity_range",
+      "object": "58% to 95%"
+    },
+    {
+      "subject": "Rio Chico",
+      "predicate": "has_wind_speed_range",
+      "object": "0.27 to 3.6 m/s"
+    },
+    {
+      "subject": "Semeljci",
+      "predicate": "is_located_in",
+      "object": "HR"
+    },
+    {
+      "subject": "Semeljci",
+      "predicate": "has_population",
+      "object": "1566"
+    },
+    {
+      "subject": "weather_forecast",
+      "predicate": "location",
+      "object": "Semeljci"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "max_value",
+      "object": "13.71"
+    },
+    {
+      "subject": "temperature",
+      "predicate": "min_value",
+      "object": "-1.24"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "light rain"
+    },
+    {
+      "subject": "weather_conditions",
+      "predicate": "includes",
+      "object": "snow"
+    },
+    {
+      "subject": "temperature_trend",
+      "predicate": "direction",
+      "object": "decreasing"
+    },
+    {
+      "subject": "Betz",
+      "predicate": "is_located_in",
+      "object": "France"
+    },
+    {
+      "subject": "Betz",
+      "predicate": "has_temperature_trend",
+      "object": "decreasing"
+    },
+    {
+      "subject": "Betz",
+      "predicate": "max_temperature",
+      "object": "9.95"
+    },
+    {
+      "subject": "Betz",
+      "predicate": "min_temperature",
+      "object": "-0.34"
+    },
+    {
+      "subject": "Betz",
+      "predicate": "weather_conditions",
+      "object": "rain, clouds, and light snow"
+    },
+    {
+      "subject": "Betz",
+      "predicate": "wind_speed_max",
+      "object": "9.06"
+    },
+    {
+      "subject": "Betz",
+      "predicate": "humidity_range",
+      "object": "72% to 95%"
+    },
+    {
+      "subject": "Ébano (Colonia Veinte de Noviembre)",
+      "predicate": "is_located_in",
+      "object": "MX"
+    },
+    {
+      "subject": "Ébano (Colonia Veinte de Noviembre)",
+      "predicate": "has_temperature_range",
+      "object": "15.73°C to 28.62°C"
+    },
+    {
+      "subject": "Ébano (Colonia Veinte de Noviembre)",
+      "predicate": "has_weather_condition",
+      "object": "broken clouds"
+    },
+    {
+      "subject": "Ébano (Colonia Veinte de Noviembre)",
+      "predicate": "has_weather_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Ébano (Colonia Veinte de Noviembre)",
+      "predicate": "has_weather_condition",
+      "object": "clear sky"
+    },
+    {
+      "subject": "Ébano (Colonia Veinte de Noviembre)",
+      "predicate": "has_humidity_range",
+      "object": "36% to 96%"
+    },
+    {
+      "subject": "Pyhäjoki",
+      "predicate": "is_located_in",
+      "object": "Finland"
+    },
+    {
+      "subject": "Pyhäjoki",
+      "predicate": "has_temperature_trend",
+      "object": "warming"
+    },
+    {
+      "subject": "Pyhäjoki",
+      "predicate": "min_temperature",
+      "object": "-26.8°C"
+    },
+    {
+      "subject": "Pyhäjoki",
+      "predicate": "max_temperature",
+      "object": "-3.66°C"
+    },
+    {
+      "subject": "Pyhäjoki",
+      "predicate": "dominant_weather",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Pyhäjoki",
+      "predicate": "humidity_level",
+      "object": "high"
+    },
+    {
+      "subject": "Pyhäjoki",
+      "predicate": "wind_speed_trend",
+      "object": "increasing"
+    },
+    {
+      "subject": "Târgu Trotuș",
+      "predicate": "is_located_in",
+      "object": "Romania"
+    },
+    {
+      "subject": "Târgu Trotuș",
+      "predicate": "has_weather_trend",
+      "object": "cooling trend"
+    },
+    {
+      "subject": "Târgu Trotuș",
+      "predicate": "max_temperature",
+      "object": "12.57°C"
+    },
+    {
+      "subject": "Târgu Trotuș",
+      "predicate": "min_temperature",
+      "object": "-7.23°C"
+    },
+    {
+      "subject": "Târgu Trotuș",
+      "predicate": "dominant_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Târgu Trotuș",
+      "predicate": "notable_event",
+      "object": "snowfall starting 2024-01-07"
+    },
+    {
+      "subject": "Nakskov",
+      "predicate": "is_located_in",
+      "object": "Denmark"
+    },
+    {
+      "subject": "Nakskov",
+      "predicate": "has_temperature_range",
+      "object": "-2.75 to 6.17 degrees Celsius"
+    },
+    {
+      "subject": "Nakskov",
+      "predicate": "has_weather_trend",
+      "object": "transition from rain to snow to overcast and clear skies"
+    },
+    {
+      "subject": "Nakskov",
+      "predicate": "experienced_condition",
+      "object": "moderate rain"
+    },
+    {
+      "subject": "Nakskov",
+      "predicate": "experienced_condition",
+      "object": "light snow"
+    },
+    {
+      "subject": "Nakskov",
+      "predicate": "experienced_condition",
+      "object": "overcast clouds"
+    },
+    {
+      "subject": "Nakskov",
+      "predicate": "has_max_wind_gust",
+      "object": "20.61 m/s"
+    },
+    {
+      "subject": "Nakskov",
+      "predicate": "has_min_visibility",
+      "object": "71 meters"
+    }
+  ]
+}
