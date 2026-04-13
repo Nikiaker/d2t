@@ -15,6 +15,11 @@ if __name__ == "__main__":
     Path("./outputs").mkdir(exist_ok=True)
 
     run_all: list[str] = []
+    output_index = 0
+
+    def get_ports(index: int) -> tuple[int, int, int]:
+        base_port = 2992 + (index % 8) * 3
+        return base_port, base_port + 1, base_port + 2
 
     # Process each config and domain pair
     for evolution_config in evolution_configs:
@@ -47,6 +52,9 @@ if __name__ == "__main__":
             shutil.copy(config_template_path, f"{output_dir}/config_remote.yaml")
             shutil.copy(batch_template_path, f"{output_dir}/{domain}.sh")
 
+            port_0, port_1, port_2 = get_ports(output_index)
+            output_index += 1
+
             # Update system_message.txt with domain and triples
             system_message_path = f"{templates_dst}/system_message.txt"
             with open(system_message_path, "r") as f:
@@ -63,6 +71,9 @@ if __name__ == "__main__":
             with open(batch_script_path, "r") as f:
                 batch_script_content = f.read()
 
+            batch_script_content = batch_script_content.replace("{port_0}", str(port_0))
+            batch_script_content = batch_script_content.replace("{port_1}", str(port_1))
+            batch_script_content = batch_script_content.replace("{port_2}", str(port_2))
             batch_script_content = batch_script_content.replace("{domain}", domain)
             batch_script_content = batch_script_content.replace("{evolution_config}", evolution_config)
 
@@ -74,6 +85,9 @@ if __name__ == "__main__":
             with open(config_path, "r") as f:
                 config_content = f.read()
 
+            config_content = config_content.replace("{port_0}", str(port_0))
+            config_content = config_content.replace("{port_1}", str(port_1))
+            config_content = config_content.replace("{port_2}", str(port_2))
             config_content = config_content.replace(
                 'db_path: "./all_programs/"',
                 f'db_path: "./outputs/{evolution_config}/{domain}_output/all_programs/"'
