@@ -26,7 +26,6 @@ def cmd_extract(args: argparse.Namespace) -> None:
         model=args.model,
         domain=args.domain,
         instances=instances,
-        max_expansion_rounds=args.max_expansion_rounds,
         logger=logger,
     )
 
@@ -49,12 +48,6 @@ def main() -> None:
     parser.add_argument("--model", required=True, help="Model name served by vLLM/OpenAI-compatible API")
     parser.add_argument("--base-url", default="http://localhost:8000/v1", help="OpenAI-compatible base URL")
     parser.add_argument("--api-key", default="local-key", help="API key value accepted by the local server")
-    parser.add_argument(
-        "--max-expansion-rounds",
-        type=int,
-        default=3,
-        help="Max predicate-expansion retries per instance",
-    )
 
     args = parser.parse_args()
     cmd_extract(args)

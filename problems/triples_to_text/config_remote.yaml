@@ -10,15 +10,15 @@ island_unique_models: true
 # LLM configuration
 llm:
   models:
-    - name: "openai/gpt-oss-120b"
+    - name: "google/gemma-4-31B-it"
       island: 0
       weight: 1.0
-      api_base: "http://localhost:2993/v1"
+      api_base: "http://localhost:{port_1}/v1"
       api_key: "AiIsMyLife25"
     - name: "Qwen/Qwen3.5-122B-A10B-FP8"
       island: 1
       weight: 1.0
-      api_base: "http://localhost:2994/v1"
+      api_base: "http://localhost:{port_2}/v1"
       api_key: "AiIsMyLife25"
 
   max_tokens: 3000
@@ -52,7 +52,7 @@ evaluator:
   parallel_evaluations: 1
   themis_enabled: true
   themis_name: "google/gemma-4-31B-it"
-  themis_api_base: "http://localhost:2992/v1"
+  themis_api_base: "http://localhost:{port_0}/v1"
   themis_api_key: "AiIsMyLife25"
 
 evolution_trace:
