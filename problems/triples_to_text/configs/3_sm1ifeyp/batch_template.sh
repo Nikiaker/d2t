@@ -11,16 +11,17 @@ export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
 
 CUDA_VISIBLE_DEVICES=0 \
 conda run -n vllm-env vllm serve \
-	openai/gpt-oss-120b \
-    --port 2993 \
+	google/gemma-4-31B-it \
+    --port {port_1} \
+    --max-model-len 32K \
     > "$SERVER_LOG1" 2>&1 &
 SERVER_PID1=$!
 
-conda run -n openevolve-env python ~/d2t/.conda/test-response.py --port 2993
+conda run -n openevolve-env python ~/d2t/.conda/test-response.py --port {port_1}
 
 conda run -n openevolve-env python ~/d2t/tripler/batch_wrapper_server.py \
-    --upstream-base-url http://localhost:2993 \
-    --port 2992 \
+    --upstream-base-url http://localhost:{port_1} \
+    --port {port_0} \
     --storage-dir ~/.batch_wrapper_data \
 	2>&1 &
 
