@@ -1,4 +1,5 @@
 import os
+import json
 from openai import OpenAI
 from problems.triples_to_text.evaluator import ThemisEvaluation, fetch_completion, parse_themis_response
 from tests.benchmark_reader.benchmark_reader import Benchmark, select_test_file
@@ -171,11 +172,18 @@ print(f"Average SENLEN Score: {avg_senlen_score}")
 print(f"Average BLEURT Score: {avg_bleurt_score}")
 print(f"Average Themis Score: {avg_themis_score}")
 
-output_path = "./scores.txt"
+output_path = "./scores.json"
+results_payload = {
+    "domain": WEBNLG_DOMAIN,
+    "metrics": {
+        "bleu": avg_bleu_score,
+        "meteor": avg_meteor_score,
+        "senlen": avg_senlen_score,
+        "bleurt": avg_bleurt_score,
+        "themis": avg_themis_score,
+    },
+}
+
 with open(output_path, "w", encoding="utf-8") as f:
-    f.write(f"Final Evaluation Results for domain '{WEBNLG_DOMAIN}':\n")
-    f.write(f"Average BLEU Score: {avg_bleu_score}\n")
-    f.write(f"Average METEOR Score: {avg_meteor_score}\n")
-    f.write(f"Average SENLEN Score: {avg_senlen_score}\n")
-    f.write(f"Average BLEURT Score: {avg_bleurt_score}\n")
-    f.write(f"Average Themis Score: {avg_themis_score}\n")
+    json.dump(results_payload, f, indent=2, ensure_ascii=False)
+    f.write("\n")
