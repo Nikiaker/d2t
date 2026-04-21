@@ -1,5 +1,4 @@
 import json
-import os
 from pathlib import Path
 import matplotlib.pyplot as plt
 
@@ -64,8 +63,8 @@ for i, island in enumerate(islands):
     plt.plot(x, y, label=f'Island {i}', color=colors[i % len(colors)], marker='o', linewidth=1.5)
 
 plt.xlabel('Iteracja')
-plt.ylabel('Suma promieni')
-plt.title('Suma promieni w kolejnych iteracjach dla wysp')
+plt.ylabel('Ocena programu')
+plt.title('Ocena programu w kolejnych iteracjach')
 plt.grid(True, linestyle='--', alpha=0.4)
 plt.legend()
 plt.tight_layout()
@@ -116,8 +115,8 @@ for i, island in enumerate(best_islands):
     plt.plot(x, y, label=f'Island {i}', color=colors[i % len(colors)], marker='o', linewidth=1.5)
 
 plt.xlabel('Iteracja')
-plt.ylabel('Suma promieni')
-plt.title('Najlepsza suma promieni w kolejnych iteracjach dla wysp')
+plt.ylabel('Ocena programu')
+plt.title('Najlepsza ocena programu w kolejnych iteracjach dla wysp')
 plt.grid(True, linestyle='--', alpha=0.4)
 plt.legend()
 plt.tight_layout()
