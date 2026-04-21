@@ -1,7 +1,7 @@
 import os
 import json
 from openai import OpenAI
-from problems.triples_to_text.evaluator import ThemisEvaluation, fetch_completion, parse_themis_response
+from evaluator import ThemisEvaluation, fetch_completion, parse_themis_response
 from tests.benchmark_reader.benchmark_reader import Benchmark, select_test_file
 from dataclasses import dataclass
 from initial_program import Triple
@@ -22,7 +22,11 @@ THEMIS_NAME = config['evaluator']['themis_name']
 THEMIS_API_BASE = config['evaluator']['themis_api_base']
 THEMIS_API_KEY = config['evaluator']['themis_api_key']
 
-themis_client = OpenAI(base_url=THEMIS_API_BASE, api_key=THEMIS_API_KEY)
+try:
+    themis_client = OpenAI(base_url=THEMIS_API_BASE, api_key=THEMIS_API_KEY)
+    themis_client.models.list()
+except Exception:
+    themis_client = None
 
 def run_with_timeout(func, args=(), kwargs={}, timeout_seconds=5):
     """

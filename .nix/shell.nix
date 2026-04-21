@@ -53,7 +53,7 @@ pkgs.mkShell {
     export HF_HUB_CACHE="$PWD/.cache/huggingface/hub"
     export WEBNLG_BASE_PATH="$PWD/../problems/triples_to_text/tests/webnlg/release_v3.0/en"
 
-    export PYTHONPATH=`pwd`/../openevolve/:`pwd`/../problems/triples_to_text/tests/benchmark_reader/:$PYTHONPATH
+    export PYTHONPATH=`pwd`/../openevolve/:`pwd`/../problems/triples_to_text/tests/benchmark_reader/:`pwd`/../problems/triples_to_text/:$PYTHONPATH
   '';
 
   postShellHook = ''
