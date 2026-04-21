@@ -1,4 +1,0 @@
-{
-  "id": "ba70af7b-39ad-4eb8-92e0-c5d7ee0a0c78",
-  "answer": "<<<<<<< SEARCH\n        \"runwayLength\": lambda s, o: f\"{s} has a runway length of {o} metres\",\n=======\n        \"runwayLength\": lambda s, o: f\"the runway length of {s} is {o}\",\n>>>>>>> REPLACE\n\n<<<<<<< SEARCH\n        \"capital\": lambda s, o: f\"{o} is the capital of {s}\",\n=======\n        \"capital\": lambda s, o: f\"the capital of {s} is {o}\",\n>>>>>>> REPLACE\n\n<<<<<<< SEARCH\n        \"leader\": lambda s, o: f\"{s} is led by {o}\",\n=======\n        \"leader\": lambda s, o: f\"the leader of {s} is {o}\",\n>>>>>>> REPLACE"
-}
