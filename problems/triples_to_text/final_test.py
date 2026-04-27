@@ -88,6 +88,7 @@ test_benchmark.fill_benchmark(test_file)
 entries = test_benchmark.entries
 category_entries  = [e for e in entries if e.category == WEBNLG_DOMAIN]
 category_test_sentences = [TestSentence([TestTriple(*triple) for triple in e.get_clean_triples_tuple_list()], e.get_lexs_list()) for e in category_entries]
+print(f"Loaded {len(category_test_sentences)} test sentences for domain '{WEBNLG_DOMAIN}'.")
 
 spec = importlib.util.spec_from_file_location("program", BEST_PROGRAM_PATH)
 program = importlib.util.module_from_spec(spec)
@@ -106,11 +107,17 @@ themis_scores: list[ThemisEvaluation] = []
 
 themis_chat_messages: list[str] = []
 
+iteration = 0
+
 for test_sentence in category_test_sentences:
+#    print(f"Current iteration: {iteration}/{len(category_test_sentences)}")
+#    print(f"Test sentence triples: {[str(triple) for triple in test_sentence.triples]}")
     triples = [Triple(test_triple.subject, test_triple.predicate, test_triple.object) for test_triple in test_sentence.triples]
 
     # Run with timeout
     result = run_with_timeout(program.predict, args=(triples,), timeout_seconds=5)
+
+ #   print(f"Generated text: {result}")
 
     # Handle different result formats
     if isinstance(result, str):
@@ -125,21 +132,25 @@ for test_sentence in category_test_sentences:
         bleurt_score = 0.0
     else:
         # Calculate BLEU score with weights
+#        print("Calulating BLEU score...")
         bleu_results = bleu.compute(predictions=[generated_text], references=[test_sentence.example_texts])
         bleu_score = float(bleu_results['bleu'])
         bleu_scores.append(bleu_score)
 
         # Calculate METEOR score
+#        print("Calculating METEOR score...")
         meteor_results = meteor.compute(predictions=[generated_text], references=[test_sentence.example_texts])
         meteor_score = float(meteor_results['meteor'])
         meteor_scores.append(meteor_score)
 
         # Calculate SENLEN score
+#        print("Calculating SENLEN score...")
         senlen_results = senlen.compute(predictions=[generated_text], references=[test_sentence.example_texts])
         senlen_score = float(senlen_results['senlen'])
         senlen_scores.append(senlen_score)
 
         # Calculate BLEURT score
+        print("Calculating BLEURT score...")
         bleurt_individual_scores = []
         for ref in test_sentence.example_texts:
             bleurt_results = bleurt.compute(predictions=[generated_text], references=[ref])
@@ -155,6 +166,10 @@ for test_sentence in category_test_sentences:
 
             themis_chat_messages.append(chat_message)
 
+        iteration += 1
+
+print("Done generating outputs")
+
 # Batch themis
 if themis_client and themis_chat_messages:
     print(f"Running Themis evaluation for {len(themis_chat_messages)} examples...")
@@ -167,7 +182,7 @@ avg_bleu_score = float(np.mean(bleu_scores))
 avg_meteor_score = float(np.mean(meteor_scores))
 avg_senlen_score = float(np.mean(senlen_scores))
 avg_bleurt_score = float(np.mean(bleurt_scores))
-avg_themis_score = float(np.mean([eval.rating for eval in themis_scores])) if themis_scores else 0.0
+avg_themis_score = float(np.mean([eval.rating for eval in themis_scores])) / 5.0 if themis_scores else 0.0
 
 print(f"Final Evaluation Results for domain '{WEBNLG_DOMAIN}':")
 print(f"Average BLEU Score: {avg_bleu_score}")
