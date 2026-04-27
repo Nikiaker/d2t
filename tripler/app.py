@@ -161,9 +161,36 @@ def parse_json_response(text: str) -> dict[str, Any]:
     raise ValueError("Could not parse JSON from model response")
 
 
-def extract_instances(payload: Any) -> list[dict[str, Any]]:
+def extract_instances(payload: Any, top_level_key: str | None = None) -> list[dict[str, Any]]:
+    """Extract instances from payload. If top_level_key='none', payload must be a list.
+    If top_level_key is None, auto-detect (backward compatible). Otherwise, use specified key."""
     instances: list[dict[str, Any]] = []
 
+    # If top_level_key is 'none', treat payload as a direct list
+    if top_level_key == "none":
+        if isinstance(payload, list):
+            for idx, item in enumerate(payload):
+                instances.append({"instance_id": idx, "data": item})
+            return instances
+        raise ValueError("When top_level_key='none', payload must be a list")
+
+    # If top_level_key is explicitly specified, use it
+    if top_level_key is not None:
+        if isinstance(payload, dict):
+            items = payload.get(top_level_key)
+            if isinstance(items, list):
+                for idx, item in enumerate(items):
+                    instance_dict: dict[str, Any] = {"instance_id": idx, "data": item}
+                    # Preserve city if present in item (for backward compatibility)
+                    if isinstance(item, dict):
+                        city = (item.get("city") or {}).get("name")
+                        if city:
+                            instance_dict["city"] = city
+                    instances.append(instance_dict)
+                return instances
+        raise ValueError(f"Could not find '{top_level_key}' as a list in payload")
+
+    # Auto-detect mode (backward compatible)
     if isinstance(payload, dict) and isinstance(payload.get("forecasts"), list):
         for idx, forecast in enumerate(payload["forecasts"]):
             city = (forecast.get("city") or {}).get("name")
@@ -188,7 +215,8 @@ def extract_instances(payload: Any) -> list[dict[str, Any]]:
 
     raise ValueError(
         "Unsupported JSON structure. Expected one of: "
-        "{forecasts:[{list:[...]}]}, {list:[...]}, or [...]."
+        "{forecasts:[{list:[...]}]}, {list:[...]}, or [...]. "
+        "Or specify --top-level-key to indicate the key containing instances."
     )
 
 
@@ -885,7 +913,7 @@ def cmd_extract(args: argparse.Namespace) -> None:
     extraction_system_prompt = load_prompt_override(args.extract_prompt_file, EXTRACTION_SYSTEM_PROMPT)
 
     payload = json.loads(Path(args.input).read_text(encoding="utf-8"))
-    instances = extract_instances(payload)
+    instances = extract_instances(payload, top_level_key=args.top_level_key)
     instances_num = len(instances)
 
     logger.info(f"Extracted {instances_num} instances from input JSON")
@@ -970,6 +998,11 @@ def main() -> None:
         type=int,
         default=BATCH_TIMEOUT_SECONDS,
         help="Max seconds to wait for extraction batch completion",
+    )
+    extract_parser.add_argument(
+        "--top-level-key",
+        default=None,
+        help="Top-level JSON key containing instances. Use 'none' if instances are at top level as a list. If not specified, auto-detects.",
     )
     extract_parser.set_defaults(func=cmd_extract)
 

@@ -248,7 +248,7 @@ def cmd_extract(args: argparse.Namespace) -> None:
     logger.info("Model: %s", args.model)
 
     payload = json.loads(Path(args.input).read_text(encoding="utf-8"))
-    instances = extract_instances(payload)
+    instances = extract_instances(payload, top_level_key=args.top_level_key)
     instances_num = len(instances)
     logger.info("Extracted %d instances from input JSON", instances_num)
 
@@ -355,6 +355,11 @@ def main() -> None:
         type=int,
         default=1800,
         help="Max seconds to wait for text-generation batch completion",
+    )
+    parser.add_argument(
+        "--top-level-key",
+        default=None,
+        help="Top-level JSON key containing instances. Use 'none' if instances are at top level as a list. If not specified, auto-detects.",
     )
 
     args = parser.parse_args()

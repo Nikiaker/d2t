@@ -17,7 +17,7 @@ def cmd_extract(args: argparse.Namespace) -> None:
     logger.info("Domain: %s", args.domain)
 
     payload = json.loads(Path(args.input).read_text(encoding="utf-8"))
-    instances = extract_instances(payload)
+    instances = extract_instances(payload, top_level_key=args.top_level_key)
     logger.info("Extracted %d instances from input JSON", len(instances))
 
     client = OpenAI(base_url=args.base_url, api_key=args.api_key)
@@ -48,6 +48,11 @@ def main() -> None:
     parser.add_argument("--model", required=True, help="Model name served by vLLM/OpenAI-compatible API")
     parser.add_argument("--base-url", default="http://localhost:8000/v1", help="OpenAI-compatible base URL")
     parser.add_argument("--api-key", default="local-key", help="API key value accepted by the local server")
+    parser.add_argument(
+        "--top-level-key",
+        default=None,
+        help="Top-level JSON key containing instances (e.g., 'forecasts', 'data', 'list'). Use 'none' if instances are at top level as a list. If not specified, auto-detects.",
+    )
 
     args = parser.parse_args()
     cmd_extract(args)
