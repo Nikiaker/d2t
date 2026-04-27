@@ -24,7 +24,6 @@ THEMIS_API_KEY = config['evaluator']['themis_api_key']
 
 try:
     themis_client = OpenAI(base_url=THEMIS_API_BASE, api_key=THEMIS_API_KEY)
-    themis_client.models.list()
 except Exception:
     themis_client = None
 
@@ -158,7 +157,8 @@ for test_sentence in category_test_sentences:
 
 # Batch themis
 if themis_client and themis_chat_messages:
-    results = fetch_completion(themis_chat_messages)
+    print(f"Running Themis evaluation for {len(themis_chat_messages)} examples...")
+    results = fetch_completion(themis_chat_messages, themis_client)
     for i, result_content in enumerate(results):
         review, rating = parse_themis_response(result_content)
         themis_scores.append(ThemisEvaluation(review=review, rating=rating))

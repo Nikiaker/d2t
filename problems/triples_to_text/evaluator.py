@@ -149,8 +149,9 @@ def parse_themis_response(content: str) -> tuple[str, float]:
     rating = safe_float(match.group(1))
     return review, rating
 
-def fetch_completion(prompts: list[str]):
-    if themis_client is None:
+def fetch_completion(prompts: list[str], custom_themis: OpenAI | None = None) -> list[str]:
+    client = custom_themis if custom_themis is not None else themis_client
+    if client is None:
         return []
 
     requests_payload: list[dict] = []
@@ -174,12 +175,12 @@ def fetch_completion(prompts: list[str]):
     batch_input_file = io.BytesIO(jsonl_content.encode("utf-8"))
     batch_input_file.name = "themis_batch.jsonl"
 
-    uploaded_file = themis_client.files.create(
+    uploaded_file = client.files.create(
         file=batch_input_file,
         purpose="batch",
     )
 
-    batch = themis_client.batches.create(
+    batch = client.batches.create(
         input_file_id=uploaded_file.id,
         endpoint="/v1/chat/completions",
         completion_window="24h",
@@ -190,7 +191,7 @@ def fetch_completion(prompts: list[str]):
     start_time = time.time()
 
     while True:
-        batch = themis_client.batches.retrieve(batch.id)
+        batch = client.batches.retrieve(batch.id)
 
         if batch.status == "completed":
             break
@@ -208,7 +209,7 @@ def fetch_completion(prompts: list[str]):
     if not batch.output_file_id:
         raise RuntimeError("THEMIS batch completed but no output_file_id was returned")
 
-    output_content = themis_client.files.content(batch.output_file_id)
+    output_content = client.files.content(batch.output_file_id)
     output_text = output_content.text
 
     responses_by_index: dict[int, str] = {}
