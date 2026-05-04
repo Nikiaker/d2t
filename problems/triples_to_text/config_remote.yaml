@@ -50,7 +50,7 @@ database:
 evaluator:
   cascade_evaluation: false
   parallel_evaluations: 1
-  themis_enabled: true
+  themis_enabled: false
   themis_name: "google/gemma-4-31B-it"
   themis_api_base: "http://localhost:{port_0}/v1"
   themis_api_key: "AiIsMyLife25"
