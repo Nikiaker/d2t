@@ -12,7 +12,7 @@ import json
 import io
 from openevolve.evaluation_result import EvaluationResult
 from initial_program import Triple
-from tests.benchmark_reader.benchmark_reader import Benchmark, Entry
+from my_tests.benchmark_reader.benchmark_reader import Benchmark, Entry
 from tests.benchmark_reader.benchmark_reader import select_files, select_test_file
 from nltk.translate.bleu_score import sentence_bleu
 import evaluate as ev
@@ -347,7 +347,7 @@ def evaluate(program_path):
                     if themis_client:
                         source = "\n".join([f"{triple.subject}, {triple.predicate}, {triple.object}" for triple in triples])
                         target = generated_text
-                        chat_message = f"###Instruction###\nPlease act as an impartial and helpful evaluator for natural language generation (NLG), and the audience is an expert in the field.\nYour task is to evaluate the quality of text similarity strictly based on the given evaluation criterion.\nBegin the evaluation by providing your analysis concisely and accurately, and then on the next line, start with \"Rating:\" followed by your rating on a Likert scale from 1 to 5 (higher means better).\nYou MUST keep to the strict boundaries of the evaluation criterion and focus solely on the issues and errors involved; otherwise, you will be penalized.\nMake sure you read and understand these instructions, as well as the following evaluation criterion and example content, carefully.\n\n###Evaluation Criterion###\nAccuaracy and number of sentences: The generated text must accurately reference the triples. There cannot be any extra information that was not present in the triples. If possible there must be just one complex sentence instead of multiple sentences.\n\n###Example###\nThe triples in the form (subject, predicate, object):\n{source}\n\nThe generated text:\n{target}\n\n###Your Evaluation###"
+                        chat_message = f"###Instruction###\nPlease act as an impartial and helpful evaluator for natural language generation (NLG), and the audience is an expert in the field.\nYour task is to evaluate the quality of text similarity strictly based on the given evaluation criterion.\nBegin the evaluation by providing your analysis concisely and accurately, and then on the next line, start with \"Rating:\" followed by your rating on a Likert scale from 1 to 5 (higher means better).\nYou MUST keep to the strict boundaries of the evaluation criterion and focus solely on the issues and errors involved; otherwise, you will be penalized.\nMake sure you read and understand these instructions, as well as the following evaluation criterion and example content, carefully.\n\n###Evaluation Criterion###\nAccuaracy and number of sentences: The generated text must accurately reference the triples. There cannot be any extra information that was not present in the triples. If possible there must be just one complex sentence instead of multiple sentences.\n\n###Data###\nThe triples in the form (subject, predicate, object):\n{source}\n\nThe generated text:\n{target}\n\n###Your Evaluation###"
 
                         themis_chat_messages.append(chat_message)
                         triples_list.append(triples)

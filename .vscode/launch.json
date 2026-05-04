@@ -29,6 +29,19 @@
             "args": ["extract", "--input", "inputs/input_data_weather_dev_full.json", "--output", "extracted_triples.json", "--model", "google/gemma-3-270m-it", "--base-url", "http://localhost:8002/v1", "--api-key", "none"],
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}/tripler"
+        },
+        {
+            "name": "Python: Final Test Run",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/problems/triples_to_text/final_test.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/problems/triples_to_text/",
+            "env": {
+                "CONFIG_PATH": "/home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/results/slurm32/outputs/2_sm1ibeyp/Building_output/config_remote.yaml",
+                "WEBNLG_DOMAIN": "Building",
+                "BEST_PROGRAM_PATH": "/home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/results/slurm32/outputs/2_sm1ibeyp/Building_output/openevolve_output/best/best_program.py"
+            }
         }
     ]
 }
