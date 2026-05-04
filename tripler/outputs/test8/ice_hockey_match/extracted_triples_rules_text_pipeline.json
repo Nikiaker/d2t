@@ -1,0 +1,6719 @@
+{
+  "input_file": "/home/inf151915/d2t/tripler/inputs/ice_hockey_dev.json",
+  "problem_domain": "ice_hockey_match",
+  "instances_count": 100,
+  "rules_initial": {
+    "predicates": [
+      "played_by",
+      "scored_goal",
+      "assisted_by",
+      "committed_penalty",
+      "served_penalty_minutes",
+      "has_final_score",
+      "match_date",
+      "match_venue"
+    ],
+    "example_triples": [
+      {
+        "subject": "Match_2023_10_12_NYR_TOR",
+        "predicate": "played_by",
+        "object": "New York Rangers"
+      },
+      {
+        "subject": "Match_2023_10_12_NYR_TOR",
+        "predicate": "played_by",
+        "object": "Toronto Maple Leafs"
+      },
+      {
+        "subject": "Artemi Panarin",
+        "predicate": "scored_goal",
+        "object": "Match_2023_10_12_NYR_TOR"
+      },
+      {
+        "subject": "Artemi Panarin",
+        "predicate": "assisted_by",
+        "object": "Adam Fox"
+      },
+      {
+        "subject": "Match_2023_10_12_NYR_TOR",
+        "predicate": "has_final_score",
+        "object": "4-2"
+      },
+      {
+        "subject": "Chris Tanev",
+        "predicate": "committed_penalty",
+        "object": "Hooking"
+      },
+      {
+        "subject": "Chris Tanev",
+        "predicate": "served_penalty_minutes",
+        "object": "2"
+      }
+    ],
+    "example_text": "On October 12, 2023, the New York Rangers faced off against the Toronto Maple Leafs at Madison Square Garden. The Rangers won the match 4-2. Artemi Panarin scored a power-play goal, assisted by Adam Fox. Meanwhile, Toronto's Chris Tanev was sent to the box for 2 minutes for hooking.",
+    "guidelines": [
+      "Create a unique identifier for each match (e.g., Match_YYYY_MM_DD_TeamA_TeamB) to serve as the central node for match-level attributes.",
+      "Use 'scored_goal' to link a player to the specific match occurrence.",
+      "The 'assisted_by' predicate should link the goal scorer to the assisting player.",
+      "Normalize team names to their official full titles (e.g., 'NYR' to 'New York Rangers').",
+      "Extract penalty duration as a numeric value for 'served_penalty_minutes'.",
+      "Scores should be formatted as 'X-Y' strings."
+    ]
+  },
+  "rules_final": {
+    "predicates": [
+      "played_by",
+      "scored_goal",
+      "assisted_by",
+      "committed_penalty",
+      "served_penalty_minutes",
+      "has_final_score",
+      "match_date",
+      "match_venue",
+      "winner",
+      "part_of_season",
+      "part_of_round"
+    ],
+    "example_triples": [
+      {
+        "subject": "Match_2023_10_12_NYR_TOR",
+        "predicate": "played_by",
+        "object": "New York Rangers"
+      },
+      {
+        "subject": "Match_2023_10_12_NYR_TOR",
+        "predicate": "played_by",
+        "object": "Toronto Maple Leafs"
+      },
+      {
+        "subject": "Match_2023_10_12_NYR_TOR",
+        "predicate": "winner",
+        "object": "New York Rangers"
+      },
+      {
+        "subject": "Artemi Panarin",
+        "predicate": "scored_goal",
+        "object": "Match_2023_10_12_NYR_TOR"
+      },
+      {
+        "subject": "Match_2023_10_12_NYR_TOR",
+        "predicate": "has_final_score",
+        "object": "4-2"
+      },
+      {
+        "subject": "Match_KHL_23_24_Spartak_Avto",
+        "predicate": "winner",
+        "object": "Spartak Moscow"
+      },
+      {
+        "subject": "Match_KHL_23_24_Spartak_Avto",
+        "predicate": "part_of_season",
+        "object": "23/24"
+      },
+      {
+        "subject": "Match_KHL_23_24_Spartak_Avto",
+        "predicate": "part_of_round",
+        "object": "1"
+      }
+    ],
+    "example_text": "On October 12, 2023, the New York Rangers faced off against the Toronto Maple Leafs at Madison Square Garden. The Rangers won the match 4-2. In a KHL 23/24 round 1 match, Spartak Moscow defeated Avtomobilist Yekaterinburg 4-1.",
+    "guidelines": [
+      "Create a unique identifier for each match (e.g., Match_YYYY_MM_DD_TeamA_TeamB) to serve as the central node for match-level attributes.",
+      "Use 'winner' to link the match identifier to the winning team.",
+      "Use 'part_of_season' and 'part_of_round' to capture the league scheduling context of the match.",
+      "Use 'scored_goal' to link a player to the specific match occurrence.",
+      "The 'assisted_by' predicate should link the goal scorer to the assisting player.",
+      "Normalize team names to their official full titles.",
+      "Extract penalty duration as a numeric value for 'served_penalty_minutes'.",
+      "Scores should be formatted as 'X-Y' strings."
+    ]
+  },
+  "rules_validated_all_texts": true,
+  "rules_validation_rounds": [
+    {
+      "round": 1,
+      "checked_instances": 2,
+      "failed_instance_id": 1
+    },
+    {
+      "round": 2,
+      "checked_instances": 100,
+      "failed_instance_id": null
+    }
+  ],
+  "rules_revision_history": [
+    {
+      "round": 1,
+      "failed_instance_id": 1,
+      "reason": "The text contains a team victory/defeat relationship and a specific match round/season that are not covered by the provided predicates.",
+      "rule_gaps": [
+        "No predicate to capture the winner/loser of a match (e.g., 'defeated_by' or 'winner').",
+        "No predicate to capture the match round or season (e.g., 'part_of_round' or 'season')."
+      ]
+    }
+  ],
+  "triples_count": 565,
+  "unique_predicates": [
+    "played_by",
+    "winner",
+    "has_final_score",
+    "part_of_season",
+    "part_of_round"
+  ],
+  "generated_text_by_instance": [
+    {
+      "instance_id": 0,
+      "text": "In an NHL 23/24 regular season game, the Carolina Hurricanes defeated the Columbus Blue Jackets 3-2. Both teams remained scoreless through the first two periods, with all scoring occurring in the third period."
+    },
+    {
+      "instance_id": 1,
+      "text": "In a KHL 23/24 round 1 match, Spartak Moscow defeated Avtomobilist Yekaterinburg 4-1. After a scoreless first period, Spartak took control with two goals in both the second and third periods, while Avtomobilist managed only a single goal in the final frame."
+    },
+    {
+      "instance_id": 2,
+      "text": "In a Russian MHL 23/24 round 1 ice hockey match, Stalnye Lisy defeated Irbis Kazan 4-3. After a 3-3 draw in normal time—with Irbis Kazan dominating the first period 3-1 and Stalnye Lisy recovering in the third—Stalnye Lisy secured the win via a penalty shootout."
+    },
+    {
+      "instance_id": 3,
+      "text": "In round 19 of the Hockey Allsvenskan 23/24 season, Mora IK secured a dominant 6-0 victory over Almtuna IS, scoring two goals in the second period and four in the third."
+    },
+    {
+      "instance_id": 4,
+      "text": "In the MHL 23/24 season, Stalnye Lisy defeated Irbis Kazan 5-3. Stalnye Lisy maintained a lead throughout most of the game, starting strong with 2 goals in the first period."
+    },
+    {
+      "instance_id": 5,
+      "text": "In round 14 of the Swedish HockeyEttan Vastra 23/24 season, Falu IF defeated Mariestads BOIS 5-4 after overtime, following a 4-4 tie in regulation time."
+    },
+    {
+      "instance_id": 6,
+      "text": "In round 24 of the 23/24 ICE Hockey League in Austria, HC TWK Innsbruck defeated EC VSV 3-2. Innsbruck overcame a slow start (0-1 in the first period) to score three unanswered goals across the second and third periods."
+    },
+    {
+      "instance_id": 7,
+      "text": "In round 22 of the Polish Ice Hockey Ekstraliga (23/24 season), GKS Tychy defeated Unia Oświęcim 5-4. After a scoreless first period, GKS Tychy secured the win by outscoring Oświęcim 3-2 in the final period."
+    },
+    {
+      "instance_id": 8,
+      "text": "In round 22 of the Polish Ekstraliga 23/24 season, TAURON Podhale Nowy Targ dominated JKH GKS Jastrzębie with a 10-3 victory, fueled by a decisive 7-0 surge in the second period."
+    },
+    {
+      "instance_id": 9,
+      "text": "In a KHL 23/24 round 1 match, Vityaz Podolsk defeated Barys Astana 5-2, maintaining a consistent lead across all three periods."
+    },
+    {
+      "instance_id": 10,
+      "text": "The Bridgeport Islanders defeated the Belleville Senators 4-2 in an AHL 23/24 round 1 ice hockey game. After a scoreless first period, Bridgeport dominated the second with three goals to secure their victory."
+    },
+    {
+      "instance_id": 11,
+      "text": "In a KHL 23/24 round 1 matchup, Traktor Chelyabinsk defeated Torpedo Nizhny Novgorod 2-1. Traktor secured the win with goals in the first and third periods, while Torpedo managed a single goal in the final period."
+    },
+    {
+      "instance_id": 12,
+      "text": "In round 24 of the ICE Hockey League 23/24, the Graz 99ers defeated the Vienna Capitals 4-3 after overtime, following a 3-3 tie in regulation time."
+    },
+    {
+      "instance_id": 13,
+      "text": "In round 1 of the SDHL 23/24 season, Modo Hockey defeated Leksands IF 3-1. After a scoreless first period and a 1-0 lead for Leksands in the second, Modo Hockey secured the victory with three goals in the third period."
+    },
+    {
+      "instance_id": 14,
+      "text": "In round 22 of the Polish Ekstraliga (23/24 season), Tauron KH GKS Katowice dominated Comarch Cracovia with a 7-2 victory, largely driven by a strong 5-0 performance in the first period."
+    },
+    {
+      "instance_id": 15,
+      "text": "In round 22 of the Czech Republic Extraliga 23/24, HC Olomouc defeated HC Kometa Brno 3-1. After a 1-1 tie in the first period, Olomouc secured the victory by scoring one goal in each of the subsequent two periods."
+    },
+    {
+      "instance_id": 16,
+      "text": "In an NCAA Men's ice hockey regular season game (23/24), the Boston College Eagles defeated Harvard University 4-1. After a scoreless first period and a 1-1 tie in the second, Boston College secured the win with three goals in the third period."
+    },
+    {
+      "instance_id": 17,
+      "text": "In round 25 of the Czech Republic's 1st Liga (23/24 season), HC Frýdek-Místek defeated HC Stadion Litoměřice 4-0, scoring consistently across all three periods."
+    },
+    {
+      "instance_id": 18,
+      "text": "The Abbotsford Canucks defeated the Calgary Wranglers 7-2 in an AHL 23/24 regular season game, dominating the first two periods with 3 goals each."
+    },
+    {
+      "instance_id": 19,
+      "text": "The Belfast Giants defeated the Nottingham Panthers 4-2 in Round 1 of the Elite League 23/24. After a 1-1 tie in the first period and a scoreless second, Belfast secured the victory with three goals in the final period."
+    },
+    {
+      "instance_id": 20,
+      "text": "In the 23/24 Elite League (UK Ice Hockey), the Sheffield Steelers defeated the Guildford Flames 6-2. After a competitive start with the score tied 2-2 heading into the final period, Sheffield dominated the third period with 4 goals to secure the win."
+    },
+    {
+      "instance_id": 21,
+      "text": "In round 22 of the German DEL 23/24 ice hockey season, the Iserlohn Roosters defeated Eisbären Berlin 3-0, scoring two goals in the first period and one in the third."
+    },
+    {
+      "instance_id": 22,
+      "text": "The Peterborough Petes defeated the Sudbury Wolves 5-3 in an OHL 23/24 regular season game, leading consistently across the first two periods."
+    },
+    {
+      "instance_id": 23,
+      "text": "In round 20 of the Swedish SHL 23/24 season, Rögle BK secured a dominant 4-0 victory over the Malmö Redhawks, scoring two goals in the first period and one in each of the subsequent two."
+    },
+    {
+      "instance_id": 24,
+      "text": "In an NCAA Men's ice hockey regular season game, the Providence Friars defeated the Arizona State Sun Devils 2-1. All scoring occurred in the second period."
+    },
+    {
+      "instance_id": 25,
+      "text": "In round 18 of the German Oberliga Nord 23/24 season, EHC Erfurt defeated Fuchse Duisburg 4-3. After trailing 1-0 in the first period and tying 3-3 by the end of the second, Erfurt secured the win with two goals in the third period."
+    },
+    {
+      "instance_id": 26,
+      "text": "In a QMJHL 23/24 regular season game, the Halifax Mooseheads defeated the Moncton Wildcats 4-0, scoring consistently across all three periods."
+    },
+    {
+      "instance_id": 27,
+      "text": "In round 22 of the Czech Republic's Ice Hockey Extraliga (23/24 season), HC Motor České Budějovice defeated HC Verva Litvínov 1-0, with the deciding goal scored in the third period."
+    },
+    {
+      "instance_id": 28,
+      "text": "In an NCAA Men's ice hockey regular season game (23/24), the Miami Ohio Redhawks defeated the Mercyhurst Lakers 2-0, scoring one goal in each of the first and third periods."
+    },
+    {
+      "instance_id": 29,
+      "text": "In a QMJHL 23/24 regular season game, the Drummondville Voltigeurs defeated the Shawinigan Cataractes 3-1. All scoring occurred in the third period after a scoreless first and second."
+    },
+    {
+      "instance_id": 30,
+      "text": "In a VHL 23/24 ice hockey match, HK Ryazan defeated HC Chelny 3-1. After a scoreless first period and a 1-0 lead for Chelny in the second, Ryazan secured the victory with three goals in the third period."
+    },
+    {
+      "instance_id": 31,
+      "text": "In the Belarus Extraliga 23/24 season opener, Neman Grodno defeated Shakhter Soligorsk 3-2. After a tied first period, Neman Grodno secured the win with a single goal in the second period, while the third period remained scoreless."
+    },
+    {
+      "instance_id": 32,
+      "text": "In the Belarus Extraliga 23/24 season (Round 1), HK Vitebsk secured a dominant 6-1 victory over Khimik-SKA Novopolotsk, with the majority of their scoring occurring in the second period."
+    },
+    {
+      "instance_id": 33,
+      "text": "In a Czech Republic 1st Liga (Chance Liga) match for the 23/24 season, HC ZUBR Přerov defeated PSG Berani Zlín 3-2. The game was tied 2-2 after regulation time, with both teams scoring one goal each in the first two periods and none in the third; HC ZUBR Přerov ultimately secured the win via a penalty shootout."
+    },
+    {
+      "instance_id": 34,
+      "text": "In round 19 of the Hockey Allsvenskan 23/24 season, BIK Karlskoga defeated Östersunds IK 2-1. After Östersund took an early lead in the first period, Karlskoga secured the win by scoring one goal in each of the following two periods."
+    },
+    {
+      "instance_id": 35,
+      "text": "The Sudbury Wolves defeated the Oshawa Generals 7-5 in an OHL 23/24 season game. Despite trailing 1-0 after the first period, Sudbury surged back with 7 goals in the final two periods to secure the win."
+    },
+    {
+      "instance_id": 36,
+      "text": "In the VHL 23/24 season, Molot Perm defeated SKA-Neva 2-0, scoring one goal in each of the second and third periods."
+    },
+    {
+      "instance_id": 37,
+      "text": "In the opening round of the HockeyEttan Norra 23/24 season, Bodens HF defeated Hudiksvalls HC 4-1, with the majority of the scoring occurring in the first period."
+    },
+    {
+      "instance_id": 38,
+      "text": "In the opening round of the 23/24 Alps Hockey League, Rittner Buam defeated EHC Lustenau 7-3, maintaining a consistent scoring lead across all three periods."
+    },
+    {
+      "instance_id": 39,
+      "text": "In round 25 of the Czech Republic's 1st Liga (23/24 season), HC Dukla Jihlava defeated HC Banik Sokolov 4-1."
+    },
+    {
+      "instance_id": 40,
+      "text": "In round 21 of the German DEL 2 23/24 ice hockey season, EV Landshut defeated the Bietigheim Steelers 4-2."
+    },
+    {
+      "instance_id": 41,
+      "text": "In the WHL 23/24 Women Championship, Biryusa Krasnoyarsk defeated Tornado Dmitrov 3-1. Biryusa established an early lead with two goals in the first period and added a third in the final period, while Tornado managed only one goal during the second period."
+    },
+    {
+      "instance_id": 42,
+      "text": "The Detroit Red Wings defeated the Minnesota Wild 4-1 in an NHL 23/24 regular season game. After a 1-1 tie in the first period, Detroit dominated the rest of the match, outscoring Minnesota 3-0 across the second and third periods."
+    },
+    {
+      "instance_id": 43,
+      "text": "In the MHL 23/24 season, Loko Yaroslavl defeated Mikhailov Academy 4-0, with all scoring occurring in the first two periods."
+    },
+    {
+      "instance_id": 44,
+      "text": "In a KHL 23/24 Round 1 ice hockey match, Lokomotiv Yaroslavl defeated CSKA Moscow 3-2. Lokomotiv took an early lead with two goals in the first period and added one in the third, while CSKA's scoring was concentrated entirely in the second period."
+    },
+    {
+      "instance_id": 45,
+      "text": "In round 25 of the Czech Republic's 1st Liga (23/24 season), LHK Jestřábi Prostějov defeated HC RT Torax Poruba 5-4. While Poruba led after the first period, Prostějov dominated the second and maintained their lead through a high-scoring third period to secure the win."
+    },
+    {
+      "instance_id": 46,
+      "text": "In round 21 of the German Oberliga Sud 23/24 season, Heilbronner Falken defeated Lindau Islanders 4-1. Heilbronn secured the win with two goals in both the first and third periods, while Lindau's lone goal came in the first period."
+    },
+    {
+      "instance_id": 47,
+      "text": "In round 21 of the Slovakian Ice Hockey Extraliga 23/24 season, HK Poprad defeated HKM Zvolen with a decisive 5-1 victory, dominated largely by a strong second period."
+    },
+    {
+      "instance_id": 48,
+      "text": "In the VHL 23/24 season, HC AKM Tula secured a dominant 5-0 victory over Omskie Kryliya, scoring consistently across all three periods (1, 2, and 2 goals respectively)."
+    },
+    {
+      "instance_id": 49,
+      "text": "In the opening round of the HockeyEttan Ostra 23/24 season, Hanvikens SK defeated Segeltorps IF with a final score of 6-2, securing the win with a strong three-goal performance in the third period."
+    },
+    {
+      "instance_id": 50,
+      "text": "In round 19 of the Hockey Allsvenskan 23/24 season, AIK defeated Tingsryds AIF 3-2 after overtime, following a 2-2 tie in regulation time."
+    },
+    {
+      "instance_id": 51,
+      "text": "In round 24 of the 23/24 ICE Hockey League, HK Olimpija defeated KAC Klagenfurt 3-2, securing the win via a penalty shootout after the game ended 2-2 in regulation time."
+    },
+    {
+      "instance_id": 52,
+      "text": "In round 20 of the 23/24 Ligue Magnus, Brûleurs de Loups Grenoble secured a dominant 5-0 victory over Anglet Hormadi Pays Basque, scoring consistently across all three periods."
+    },
+    {
+      "instance_id": 53,
+      "text": "In the first round of the Belarus Ice Hockey Extraliga 23/24 season, HK Gomel defeated HK Lida with a final score of 4-2."
+    },
+    {
+      "instance_id": 54,
+      "text": "In the Suomi Sarja 23/24 round 1 ice hockey match, LeKi Hockey defeated Riemu 5-1. LeKi dominated the third period with 4 goals to secure the victory."
+    },
+    {
+      "instance_id": 55,
+      "text": "In a Russian VHL 23/24 ice hockey match, Neftyanik Almetyevsk defeated Gornyak UMMC 4-1, dominating the first two periods before each team scored once in the third."
+    },
+    {
+      "instance_id": 56,
+      "text": "In a Ligue Magnus 23/24 round 20 match, Boxers de Bordeaux defeated Jokers de Cergy-Pontoise 4-3 after overtime. The game was tied 3-3 at the end of normal time, with Bordeaux dominating the first two periods before Jokers rallied in the third."
+    },
+    {
+      "instance_id": 57,
+      "text": "In the opening round of the 23/24 Erste Liga ice hockey season, Corona Brașov defeated UTE 6-2, maintaining a steady lead throughout the game."
+    },
+    {
+      "instance_id": 58,
+      "text": "In a round 18 match of the German ice hockey Oberliga Nord (23/24 season), Herner EV defeated the Rostock Piranhas 5-4. The game was tied 4-4 at the end of regulation, with Herner EV securing the victory via a penalty shootout."
+    },
+    {
+      "instance_id": 59,
+      "text": "In the opening round of the SDHL 23/24 season, SDE Hockey secured a dominant 6-1 victory over AIK IF, consistently scoring two goals in each of the three periods."
+    },
+    {
+      "instance_id": 60,
+      "text": "In an NHL 23/24 regular season matchup, the Nashville Predators defeated the Winnipeg Jets 3-2. Nashville built a 3-0 lead through the first two periods, while Winnipeg attempted a late comeback with two goals in the third period."
+    },
+    {
+      "instance_id": 61,
+      "text": "In the WHL 23/24 Women Championship, Biryusa Krasnoyarsk decisively defeated Tornado Dmitrov 8-2, with a dominant five-goal second period securing the victory."
+    },
+    {
+      "instance_id": 62,
+      "text": "The Columbus Blue Jackets defeated the Boston Bruins 5-2 in an NHL 23/24 regular season game, maintaining a steady lead across all three periods."
+    },
+    {
+      "instance_id": 63,
+      "text": "In the first round of the Erste Liga 23/24 ice hockey season, FEHA19 defeated Dunaújvárosi Acélbikák 1-0, with the game's only goal scored during the second period."
+    },
+    {
+      "instance_id": 64,
+      "text": "In round 20 of the 23/24 Ligue Magnus, Amiens Hockey Élite secured a dominant 6-1 victory over Chamonix, with Amiens scoring three goals in both the first and third periods."
+    },
+    {
+      "instance_id": 65,
+      "text": "Brynäs IF defeated Nybro IF 4-1 in round 19 of the Hockey Allsvenskan 23/24 season, pulling away with three goals in the second and third periods after a 1-1 tie in the first."
+    },
+    {
+      "instance_id": 66,
+      "text": "In the MHL 23/24 season, Amurskie Tigry defeated Sahalinskie Akuly 4-2. After a scoreless first period, Amurskie Tigry took control in the second and third periods to secure the win."
+    },
+    {
+      "instance_id": 67,
+      "text": "In round 21 of the German DEL 2 23/24 ice hockey season, VER Selb defeated Dresdner Eislöwen 5-3. Selb took an early lead in the first period, while Dresden rallied in the second, but Selb secured the victory with a stronger third period."
+    },
+    {
+      "instance_id": 68,
+      "text": "In a WHL 23/24 Round 1 ice hockey game, the Brandon Wheat Kings defeated the Prince Albert Raiders 3-1. The Wheat Kings secured their lead with two goals in the second period, while both teams added one goal in the third."
+    },
+    {
+      "instance_id": 69,
+      "text": "In the opening round of the 23/24 Naisten Liiga women's ice hockey season, HIFK Helsinki dominated RoKi Hockey with a 6-0 victory, scoring 3 goals in the first period, 1 in the second, and 2 in the third."
+    },
+    {
+      "instance_id": 70,
+      "text": "In round 18 of the German Oberliga Nord 23/24 season, EC Hannover Indians secured a dominant 11-4 victory over the Herforder Ice Dragons."
+    },
+    {
+      "instance_id": 71,
+      "text": "In round 18 of the German Oberliga Nord 23/24 season, ESC Halle Saale Bulls defeated Hammer Eisbären 6-3. After trailing 2-0 in the first period, the Saale Bulls dominated the second period with 5 goals to secure the victory."
+    },
+    {
+      "instance_id": 72,
+      "text": "In a Russian VHL 23/24 season match, HC Khimik Voskresensk defeated Izhstal Izhevsk 2-1. After a scoreless first period, Khimik took the lead in the second, and both teams scored once in the final period."
+    },
+    {
+      "instance_id": 73,
+      "text": "In round 24 of the 23/24 ICE Hockey League, HC Bolzano defeated Pioneers Vorarlberg 4-1. After a scoreless first period and a 1-1 tie in the second, Bolzano dominated the third period with three goals to secure the victory."
+    },
+    {
+      "instance_id": 74,
+      "text": "In a KHL 23/24 round 1 matchup, Severstal Cherepovets defeated Sibir Novosibirsk 2-1. Severstal scored in both the first and third periods, while Sibir's lone goal came in the second."
+    },
+    {
+      "instance_id": 75,
+      "text": "In the MHL 23/24 season, Almaz Cherepovets decisively defeated Kapitan Stupino 7-2. Cherepovets dominated the first two periods, scoring 5 goals combined while holding Stupino scoreless, before both teams scored twice in the final period."
+    },
+    {
+      "instance_id": 76,
+      "text": "In the first round of the HockeyEttan Ostra 23/24 season, Visby/Roma HK defeated Wings HC 3-2."
+    },
+    {
+      "instance_id": 77,
+      "text": "In a QMJHL 23/24 regular season game, the Victoriaville Tigres defeated the Quebec Remparts 6-2, with the Tigres dominating throughout, particularly in the second period."
+    },
+    {
+      "instance_id": 78,
+      "text": "In round 21 of the German Oberliga Sud 23/24 season, Blue Devils Weiden defeated the Höchstadt Alligators 5-3. Weiden secured the win with a strong first and third period, while Höchstadt maintained a consistent but lower scoring rate throughout the match."
+    },
+    {
+      "instance_id": 79,
+      "text": "In a VHL 23/24 ice hockey match, Zauralie Kurgan defeated CSK VVS Samara 5-4 after a penalty shootout, following a 4-4 draw in regulation time."
+    },
+    {
+      "instance_id": 80,
+      "text": "In the opening round of the 23/24 Danish Metal Ligaen, the Rødovre Mighty Bulls defeated the Herning Blue Fox 3-2, securing the win via a penalty shootout after a 2-2 tie in regulation time."
+    },
+    {
+      "instance_id": 81,
+      "text": "In round 22 of the Czech Republic's Ice Hockey Extraliga 23/24, BK Mladá Boleslav defeated HC Rytíři Kladno 3-2. The match was tied 2-2 after normal time, with BK Mladá Boleslav securing the victory via a penalty shootout."
+    },
+    {
+      "instance_id": 82,
+      "text": "In an ECHL 23/24 regular season game, the Indy Fuel defeated the Kalamazoo Wings 4-2."
+    },
+    {
+      "instance_id": 83,
+      "text": "In round 21 of the German Oberliga Sud 23/24 season, Deggendorfer SC defeated SC Riessersee 4-1, maintaining a consistent lead throughout the game."
+    },
+    {
+      "instance_id": 84,
+      "text": "In a round 1 OHL match for the 23/24 season, the Saginaw Spirit defeated the Niagara IceDogs 6-2, dominating early with 3 goals in the first period."
+    },
+    {
+      "instance_id": 85,
+      "text": "In the opening round of the HockeyEttan Norra 23/24 season, Piteå HC secured a dominant 6-1 victory over Strömsbro If, scoring consistently with two goals in each of the three periods."
+    },
+    {
+      "instance_id": 86,
+      "text": "In an NHL 23/24 regular season matchup, the Edmonton Oilers dominated the Anaheim Ducks with a decisive 8-2 victory. Edmonton secured the win early, scoring four goals in the first period and adding two more in each of the following two periods, while the Ducks were held scoreless after the first frame."
+    },
+    {
+      "instance_id": 87,
+      "text": "In a VHL 23/24 ice hockey match, Sokol Krasnoyarsk defeated Buran Voronezh 3-2. After a scoreless first two periods, both teams scored twice in the third to end regulation in a 2-2 tie; Sokol Krasnoyarsk ultimately secured the win via a penalty shootout."
+    },
+    {
+      "instance_id": 88,
+      "text": "In an AHL 23/24 regular season matchup, the Henderson Silver Knights defeated the Tucson Roadrunners 3-2 in overtime after the game remained tied 2-2 through regulation."
+    },
+    {
+      "instance_id": 89,
+      "text": "In the ICE Young Stars League (23/24 season) U20 League Stage 2, Division 2, Deac Jegkorong Akademia U20 defeated Vasas Budapest Stars U20 with a final score of 4-1. The game was decided in the third period, where Deac Jegkorong Akademia scored three goals to secure the victory."
+    },
+    {
+      "instance_id": 90,
+      "text": "In round 14 of the Swedish HockeyEttan Vastra (23/24 season), Lindlövens IF defeated Forshaga IF 4-2."
+    },
+    {
+      "instance_id": 91,
+      "text": "In the 23/24 Elite League ice hockey season, the Cardiff Devils secured a dominant 6-0 victory over the Fife Flyers, with a strong 4-goal surge in the third period sealing the win."
+    },
+    {
+      "instance_id": 92,
+      "text": "In round 14 of the HockeyEttan Sodra 23/24 season, Alvesta SK defeated Mörrum Gois IK 6-2, securing the win with a dominant four-goal performance in the third period."
+    },
+    {
+      "instance_id": 93,
+      "text": "In round 21 of the Slovakian Ice Hockey Extraliga 23/24 season, HC Košice defeated HK Nitra 4-0, scoring two goals in both the first and third periods."
+    },
+    {
+      "instance_id": 94,
+      "text": "In the opening round of the Erste Liga 23/24 ice hockey season, FTC-Telekom defeated Gyergyói HK 4-1. All scoring occurred during the second period."
+    },
+    {
+      "instance_id": 95,
+      "text": "In a Russian VHL 23/24 ice hockey match, Chelmet Chelyabinsk defeated Dizel Penza 4-1. While Dizel Penza led 1-0 after the first period, Chelmet Chelyabinsk dominated the final period by scoring four unanswered goals to secure the win."
+    },
+    {
+      "instance_id": 96,
+      "text": "In a Russian MHL 23/24 round 1 ice hockey match, Belye Medvedi defeated Chaika Nizhny Novgorod 4-1, driven by a strong first period."
+    },
+    {
+      "instance_id": 97,
+      "text": "The Hershey Bears defeated the Iowa Wild 2-1 in an AHL 23/24 round 1 match. Hershey took an early lead with two goals in the first period, while Iowa managed a single goal in the second period."
+    },
+    {
+      "instance_id": 98,
+      "text": "In round 14 of the Swedish HockeyEttan Sodra 23/24 season, Vimmerby HC defeated Halmstad Hammers HC 4-3. The match was tied 3-3 after normal time, with Vimmerby securing the win via a penalty shootout."
+    },
+    {
+      "instance_id": 99,
+      "text": "In round 21 of the Slovakian Ice Hockey Extraliga 23/24 season, HC Slovan Bratislava defeated HC Nové Zámky 5-2."
+    }
+  ],
+  "triples_by_instance": [
+    {
+      "instance_id": 0,
+      "triples": [
+        {
+          "subject": "Match_NHL_23_24_CAR_CBJ",
+          "predicate": "played_by",
+          "object": "Carolina Hurricanes"
+        },
+        {
+          "subject": "Match_NHL_23_24_CAR_CBJ",
+          "predicate": "played_by",
+          "object": "Columbus Blue Jackets"
+        },
+        {
+          "subject": "Match_NHL_23_24_CAR_CBJ",
+          "predicate": "winner",
+          "object": "Carolina Hurricanes"
+        },
+        {
+          "subject": "Match_NHL_23_24_CAR_CBJ",
+          "predicate": "has_final_score",
+          "object": "3-2"
+        },
+        {
+          "subject": "Match_NHL_23_24_CAR_CBJ",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 1,
+      "triples": [
+        {
+          "subject": "Match_KHL_23_24_Spartak_Avtomobilist",
+          "predicate": "played_by",
+          "object": "Spartak Moscow"
+        },
+        {
+          "subject": "Match_KHL_23_24_Spartak_Avtomobilist",
+          "predicate": "played_by",
+          "object": "Avtomobilist Yekaterinburg"
+        },
+        {
+          "subject": "Match_KHL_23_24_Spartak_Avtomobilist",
+          "predicate": "winner",
+          "object": "Spartak Moscow"
+        },
+        {
+          "subject": "Match_KHL_23_24_Spartak_Avtomobilist",
+          "predicate": "has_final_score",
+          "object": "4-1"
+        },
+        {
+          "subject": "Match_KHL_23_24_Spartak_Avtomobilist",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_KHL_23_24_Spartak_Avtomobilist",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 2,
+      "triples": [
+        {
+          "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+          "predicate": "played_by",
+          "object": "Stalnye Lisy"
+        },
+        {
+          "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+          "predicate": "played_by",
+          "object": "Irbis Kazan"
+        },
+        {
+          "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+          "predicate": "winner",
+          "object": "Stalnye Lisy"
+        },
+        {
+          "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+          "predicate": "has_final_score",
+          "object": "4-3"
+        },
+        {
+          "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 3,
+      "triples": [
+        {
+          "subject": "Match_23_24_MoraIK_AlmtunaIS",
+          "predicate": "played_by",
+          "object": "Mora IK"
+        },
+        {
+          "subject": "Match_23_24_MoraIK_AlmtunaIS",
+          "predicate": "played_by",
+          "object": "Almtuna IS"
+        },
+        {
+          "subject": "Match_23_24_MoraIK_AlmtunaIS",
+          "predicate": "winner",
+          "object": "Mora IK"
+        },
+        {
+          "subject": "Match_23_24_MoraIK_AlmtunaIS",
+          "predicate": "has_final_score",
+          "object": "6-0"
+        },
+        {
+          "subject": "Match_23_24_MoraIK_AlmtunaIS",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_MoraIK_AlmtunaIS",
+          "predicate": "part_of_round",
+          "object": "19"
+        }
+      ]
+    },
+    {
+      "instance_id": 4,
+      "triples": [
+        {
+          "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+          "predicate": "played_by",
+          "object": "Stalnye Lisy"
+        },
+        {
+          "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+          "predicate": "played_by",
+          "object": "Irbis Kazan"
+        },
+        {
+          "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+          "predicate": "winner",
+          "object": "Stalnye Lisy"
+        },
+        {
+          "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+          "predicate": "has_final_score",
+          "object": "5-3"
+        },
+        {
+          "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 5,
+      "triples": [
+        {
+          "subject": "Match_23_24_FaluIF_MariestadsBOIS",
+          "predicate": "played_by",
+          "object": "Falu IF"
+        },
+        {
+          "subject": "Match_23_24_FaluIF_MariestadsBOIS",
+          "predicate": "played_by",
+          "object": "Mariestads BOIS"
+        },
+        {
+          "subject": "Match_23_24_FaluIF_MariestadsBOIS",
+          "predicate": "winner",
+          "object": "Falu IF"
+        },
+        {
+          "subject": "Match_23_24_FaluIF_MariestadsBOIS",
+          "predicate": "has_final_score",
+          "object": "5-4"
+        },
+        {
+          "subject": "Match_23_24_FaluIF_MariestadsBOIS",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_FaluIF_MariestadsBOIS",
+          "predicate": "part_of_round",
+          "object": "14"
+        }
+      ]
+    },
+    {
+      "instance_id": 6,
+      "triples": [
+        {
+          "subject": "Match_23_24_ICEHL_Innsbruck_VSV",
+          "predicate": "played_by",
+          "object": "HC TWK Innsbruck"
+        },
+        {
+          "subject": "Match_23_24_ICEHL_Innsbruck_VSV",
+          "predicate": "played_by",
+          "object": "EC VSV"
+        },
+        {
+          "subject": "Match_23_24_ICEHL_Innsbruck_VSV",
+          "predicate": "winner",
+          "object": "HC TWK Innsbruck"
+        },
+        {
+          "subject": "Match_23_24_ICEHL_Innsbruck_VSV",
+          "predicate": "has_final_score",
+          "object": "3-2"
+        },
+        {
+          "subject": "Match_23_24_ICEHL_Innsbruck_VSV",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_ICEHL_Innsbruck_VSV",
+          "predicate": "part_of_round",
+          "object": "24"
+        }
+      ]
+    },
+    {
+      "instance_id": 7,
+      "triples": [
+        {
+          "subject": "Match_23_24_GKS_Tychy_Unia_Oswiecim",
+          "predicate": "played_by",
+          "object": "GKS Tychy"
+        },
+        {
+          "subject": "Match_23_24_GKS_Tychy_Unia_Oswiecim",
+          "predicate": "played_by",
+          "object": "Unia Oświęcim"
+        },
+        {
+          "subject": "Match_23_24_GKS_Tychy_Unia_Oswiecim",
+          "predicate": "winner",
+          "object": "GKS Tychy"
+        },
+        {
+          "subject": "Match_23_24_GKS_Tychy_Unia_Oswiecim",
+          "predicate": "has_final_score",
+          "object": "5-4"
+        },
+        {
+          "subject": "Match_23_24_GKS_Tychy_Unia_Oswiecim",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_GKS_Tychy_Unia_Oswiecim",
+          "predicate": "part_of_round",
+          "object": "22"
+        }
+      ]
+    },
+    {
+      "instance_id": 8,
+      "triples": [
+        {
+          "subject": "Match_23_24_Podhale_JKH",
+          "predicate": "played_by",
+          "object": "TAURON Podhale Nowy Targ"
+        },
+        {
+          "subject": "Match_23_24_Podhale_JKH",
+          "predicate": "played_by",
+          "object": "JKH GKS Jastrzębie"
+        },
+        {
+          "subject": "Match_23_24_Podhale_JKH",
+          "predicate": "winner",
+          "object": "TAURON Podhale Nowy Targ"
+        },
+        {
+          "subject": "Match_23_24_Podhale_JKH",
+          "predicate": "has_final_score",
+          "object": "10-3"
+        },
+        {
+          "subject": "Match_23_24_Podhale_JKH",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_Podhale_JKH",
+          "predicate": "part_of_round",
+          "object": "22"
+        }
+      ]
+    },
+    {
+      "instance_id": 9,
+      "triples": [
+        {
+          "subject": "Match_KHL_23_24_Vityaz_Barys",
+          "predicate": "played_by",
+          "object": "Vityaz Podolsk"
+        },
+        {
+          "subject": "Match_KHL_23_24_Vityaz_Barys",
+          "predicate": "played_by",
+          "object": "Barys Astana"
+        },
+        {
+          "subject": "Match_KHL_23_24_Vityaz_Barys",
+          "predicate": "winner",
+          "object": "Vityaz Podolsk"
+        },
+        {
+          "subject": "Match_KHL_23_24_Vityaz_Barys",
+          "predicate": "has_final_score",
+          "object": "5-2"
+        },
+        {
+          "subject": "Match_KHL_23_24_Vityaz_Barys",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_KHL_23_24_Vityaz_Barys",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 10,
+      "triples": [
+        {
+          "subject": "Match_AHL_23_24_Bridgeport_Belleville",
+          "predicate": "played_by",
+          "object": "Bridgeport Islanders"
+        },
+        {
+          "subject": "Match_AHL_23_24_Bridgeport_Belleville",
+          "predicate": "played_by",
+          "object": "Belleville Senators"
+        },
+        {
+          "subject": "Match_AHL_23_24_Bridgeport_Belleville",
+          "predicate": "winner",
+          "object": "Bridgeport Islanders"
+        },
+        {
+          "subject": "Match_AHL_23_24_Bridgeport_Belleville",
+          "predicate": "has_final_score",
+          "object": "4-2"
+        },
+        {
+          "subject": "Match_AHL_23_24_Bridgeport_Belleville",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_AHL_23_24_Bridgeport_Belleville",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 11,
+      "triples": [
+        {
+          "subject": "Match_KHL_23_24_Traktor_Torpedo",
+          "predicate": "played_by",
+          "object": "Traktor Chelyabinsk"
+        },
+        {
+          "subject": "Match_KHL_23_24_Traktor_Torpedo",
+          "predicate": "played_by",
+          "object": "Torpedo Nizhny Novgorod"
+        },
+        {
+          "subject": "Match_KHL_23_24_Traktor_Torpedo",
+          "predicate": "winner",
+          "object": "Traktor Chelyabinsk"
+        },
+        {
+          "subject": "Match_KHL_23_24_Traktor_Torpedo",
+          "predicate": "has_final_score",
+          "object": "2-1"
+        },
+        {
+          "subject": "Match_KHL_23_24_Traktor_Torpedo",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_KHL_23_24_Traktor_Torpedo",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 12,
+      "triples": [
+        {
+          "subject": "Match_ICE_23_24_Graz_Vienna",
+          "predicate": "played_by",
+          "object": "Graz 99ers"
+        },
+        {
+          "subject": "Match_ICE_23_24_Graz_Vienna",
+          "predicate": "played_by",
+          "object": "Vienna Capitals"
+        },
+        {
+          "subject": "Match_ICE_23_24_Graz_Vienna",
+          "predicate": "winner",
+          "object": "Graz 99ers"
+        },
+        {
+          "subject": "Match_ICE_23_24_Graz_Vienna",
+          "predicate": "has_final_score",
+          "object": "4-3"
+        },
+        {
+          "subject": "Match_ICE_23_24_Graz_Vienna",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_ICE_23_24_Graz_Vienna",
+          "predicate": "part_of_round",
+          "object": "24"
+        }
+      ]
+    },
+    {
+      "instance_id": 13,
+      "triples": [
+        {
+          "subject": "Match_SDHL_23_24_Modo_Leksands",
+          "predicate": "played_by",
+          "object": "Modo Hockey"
+        },
+        {
+          "subject": "Match_SDHL_23_24_Modo_Leksands",
+          "predicate": "played_by",
+          "object": "Leksands IF"
+        },
+        {
+          "subject": "Match_SDHL_23_24_Modo_Leksands",
+          "predicate": "winner",
+          "object": "Modo Hockey"
+        },
+        {
+          "subject": "Match_SDHL_23_24_Modo_Leksands",
+          "predicate": "has_final_score",
+          "object": "3-1"
+        },
+        {
+          "subject": "Match_SDHL_23_24_Modo_Leksands",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_SDHL_23_24_Modo_Leksands",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 14,
+      "triples": [
+        {
+          "subject": "Match_23_24_Round22_Katowice_Cracovia",
+          "predicate": "played_by",
+          "object": "Tauron KH GKS Katowice"
+        },
+        {
+          "subject": "Match_23_24_Round22_Katowice_Cracovia",
+          "predicate": "played_by",
+          "object": "Comarch Cracovia"
+        },
+        {
+          "subject": "Match_23_24_Round22_Katowice_Cracovia",
+          "predicate": "winner",
+          "object": "Tauron KH GKS Katowice"
+        },
+        {
+          "subject": "Match_23_24_Round22_Katowice_Cracovia",
+          "predicate": "has_final_score",
+          "object": "7-2"
+        },
+        {
+          "subject": "Match_23_24_Round22_Katowice_Cracovia",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_Round22_Katowice_Cracovia",
+          "predicate": "part_of_round",
+          "object": "22"
+        }
+      ]
+    },
+    {
+      "instance_id": 15,
+      "triples": [
+        {
+          "subject": "Match_23_24_Olomouc_KometaBrno",
+          "predicate": "played_by",
+          "object": "HC Olomouc"
+        },
+        {
+          "subject": "Match_23_24_Olomouc_KometaBrno",
+          "predicate": "played_by",
+          "object": "HC Kometa Brno"
+        },
+        {
+          "subject": "Match_23_24_Olomouc_KometaBrno",
+          "predicate": "winner",
+          "object": "HC Olomouc"
+        },
+        {
+          "subject": "Match_23_24_Olomouc_KometaBrno",
+          "predicate": "has_final_score",
+          "object": "3-1"
+        },
+        {
+          "subject": "Match_23_24_Olomouc_KometaBrno",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_Olomouc_KometaBrno",
+          "predicate": "part_of_round",
+          "object": "22"
+        }
+      ]
+    },
+    {
+      "instance_id": 16,
+      "triples": [
+        {
+          "subject": "Match_23_24_Boston_College_Harvard",
+          "predicate": "played_by",
+          "object": "Boston College Eagles"
+        },
+        {
+          "subject": "Match_23_24_Boston_College_Harvard",
+          "predicate": "played_by",
+          "object": "Harvard University"
+        },
+        {
+          "subject": "Match_23_24_Boston_College_Harvard",
+          "predicate": "winner",
+          "object": "Boston College Eagles"
+        },
+        {
+          "subject": "Match_23_24_Boston_College_Harvard",
+          "predicate": "has_final_score",
+          "object": "4-1"
+        },
+        {
+          "subject": "Match_23_24_Boston_College_Harvard",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 17,
+      "triples": [
+        {
+          "subject": "Match_23_24_Frýdek-Místek_Litoměřice",
+          "predicate": "played_by",
+          "object": "HC Frýdek-Místek"
+        },
+        {
+          "subject": "Match_23_24_Frýdek-Místek_Litoměřice",
+          "predicate": "played_by",
+          "object": "HC Stadion Litoměřice"
+        },
+        {
+          "subject": "Match_23_24_Frýdek-Místek_Litoměřice",
+          "predicate": "winner",
+          "object": "HC Frýdek-Místek"
+        },
+        {
+          "subject": "Match_23_24_Frýdek-Místek_Litoměřice",
+          "predicate": "has_final_score",
+          "object": "4-0"
+        },
+        {
+          "subject": "Match_23_24_Frýdek-Místek_Litoměřice",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_Frýdek-Místek_Litoměřice",
+          "predicate": "part_of_round",
+          "object": "25"
+        }
+      ]
+    },
+    {
+      "instance_id": 18,
+      "triples": [
+        {
+          "subject": "Match_AHL_23_24_Abbotsford_Calgary",
+          "predicate": "played_by",
+          "object": "Abbotsford Canucks"
+        },
+        {
+          "subject": "Match_AHL_23_24_Abbotsford_Calgary",
+          "predicate": "played_by",
+          "object": "Calgary Wranglers"
+        },
+        {
+          "subject": "Match_AHL_23_24_Abbotsford_Calgary",
+          "predicate": "winner",
+          "object": "Abbotsford Canucks"
+        },
+        {
+          "subject": "Match_AHL_23_24_Abbotsford_Calgary",
+          "predicate": "has_final_score",
+          "object": "7-2"
+        },
+        {
+          "subject": "Match_AHL_23_24_Abbotsford_Calgary",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 19,
+      "triples": [
+        {
+          "subject": "Match_23_24_BelfastGiants_NottinghamPanthers",
+          "predicate": "played_by",
+          "object": "Belfast Giants"
+        },
+        {
+          "subject": "Match_23_24_BelfastGiants_NottinghamPanthers",
+          "predicate": "played_by",
+          "object": "Nottingham Panthers"
+        },
+        {
+          "subject": "Match_23_24_BelfastGiants_NottinghamPanthers",
+          "predicate": "winner",
+          "object": "Belfast Giants"
+        },
+        {
+          "subject": "Match_23_24_BelfastGiants_NottinghamPanthers",
+          "predicate": "has_final_score",
+          "object": "4-2"
+        },
+        {
+          "subject": "Match_23_24_BelfastGiants_NottinghamPanthers",
+          "predicate": "part_of_round",
+          "object": "1"
+        },
+        {
+          "subject": "Match_23_24_BelfastGiants_NottinghamPanthers",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 20,
+      "triples": [
+        {
+          "subject": "Match_23_24_Steelers_Flames",
+          "predicate": "played_by",
+          "object": "Sheffield Steelers"
+        },
+        {
+          "subject": "Match_23_24_Steelers_Flames",
+          "predicate": "played_by",
+          "object": "Guildford Flames"
+        },
+        {
+          "subject": "Match_23_24_Steelers_Flames",
+          "predicate": "winner",
+          "object": "Sheffield Steelers"
+        },
+        {
+          "subject": "Match_23_24_Steelers_Flames",
+          "predicate": "has_final_score",
+          "object": "6-2"
+        },
+        {
+          "subject": "Match_23_24_Steelers_Flames",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 21,
+      "triples": [
+        {
+          "subject": "Match_DEL_23_24_Iserlohn_Berlin",
+          "predicate": "played_by",
+          "object": "Iserlohn Roosters"
+        },
+        {
+          "subject": "Match_DEL_23_24_Iserlohn_Berlin",
+          "predicate": "played_by",
+          "object": "Eisbären Berlin"
+        },
+        {
+          "subject": "Match_DEL_23_24_Iserlohn_Berlin",
+          "predicate": "winner",
+          "object": "Iserlohn Roosters"
+        },
+        {
+          "subject": "Match_DEL_23_24_Iserlohn_Berlin",
+          "predicate": "has_final_score",
+          "object": "3-0"
+        },
+        {
+          "subject": "Match_DEL_23_24_Iserlohn_Berlin",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_DEL_23_24_Iserlohn_Berlin",
+          "predicate": "part_of_round",
+          "object": "22"
+        }
+      ]
+    },
+    {
+      "instance_id": 22,
+      "triples": [
+        {
+          "subject": "Match_OHL_23_24_Petes_Wolves",
+          "predicate": "played_by",
+          "object": "Peterborough Petes"
+        },
+        {
+          "subject": "Match_OHL_23_24_Petes_Wolves",
+          "predicate": "played_by",
+          "object": "Sudbury Wolves"
+        },
+        {
+          "subject": "Match_OHL_23_24_Petes_Wolves",
+          "predicate": "winner",
+          "object": "Peterborough Petes"
+        },
+        {
+          "subject": "Match_OHL_23_24_Petes_Wolves",
+          "predicate": "has_final_score",
+          "object": "5-3"
+        },
+        {
+          "subject": "Match_OHL_23_24_Petes_Wolves",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 23,
+      "triples": [
+        {
+          "subject": "Match_SHL_23_24_Rogle_Malmo",
+          "predicate": "played_by",
+          "object": "Rögle BK"
+        },
+        {
+          "subject": "Match_SHL_23_24_Rogle_Malmo",
+          "predicate": "played_by",
+          "object": "Malmö Redhawks"
+        },
+        {
+          "subject": "Match_SHL_23_24_Rogle_Malmo",
+          "predicate": "winner",
+          "object": "Rögle BK"
+        },
+        {
+          "subject": "Match_SHL_23_24_Rogle_Malmo",
+          "predicate": "has_final_score",
+          "object": "4-0"
+        },
+        {
+          "subject": "Match_SHL_23_24_Rogle_Malmo",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_SHL_23_24_Rogle_Malmo",
+          "predicate": "part_of_round",
+          "object": "20"
+        }
+      ]
+    },
+    {
+      "instance_id": 24,
+      "triples": [
+        {
+          "subject": "Match_NCAA_Providence_ASU",
+          "predicate": "played_by",
+          "object": "Providence Friars"
+        },
+        {
+          "subject": "Match_NCAA_Providence_ASU",
+          "predicate": "played_by",
+          "object": "Arizona State Sun Devils"
+        },
+        {
+          "subject": "Match_NCAA_Providence_ASU",
+          "predicate": "winner",
+          "object": "Providence Friars"
+        },
+        {
+          "subject": "Match_NCAA_Providence_ASU",
+          "predicate": "has_final_score",
+          "object": "2-1"
+        }
+      ]
+    },
+    {
+      "instance_id": 25,
+      "triples": [
+        {
+          "subject": "Match_23_24_Erfurt_Duisburg",
+          "predicate": "played_by",
+          "object": "EHC Erfurt"
+        },
+        {
+          "subject": "Match_23_24_Erfurt_Duisburg",
+          "predicate": "played_by",
+          "object": "Fuchse Duisburg"
+        },
+        {
+          "subject": "Match_23_24_Erfurt_Duisburg",
+          "predicate": "winner",
+          "object": "EHC Erfurt"
+        },
+        {
+          "subject": "Match_23_24_Erfurt_Duisburg",
+          "predicate": "has_final_score",
+          "object": "4-3"
+        },
+        {
+          "subject": "Match_23_24_Erfurt_Duisburg",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_Erfurt_Duisburg",
+          "predicate": "part_of_round",
+          "object": "18"
+        }
+      ]
+    },
+    {
+      "instance_id": 26,
+      "triples": [
+        {
+          "subject": "Match_QMJHL_23_24_Halifax_Moncton",
+          "predicate": "played_by",
+          "object": "Halifax Mooseheads"
+        },
+        {
+          "subject": "Match_QMJHL_23_24_Halifax_Moncton",
+          "predicate": "played_by",
+          "object": "Moncton Wildcats"
+        },
+        {
+          "subject": "Match_QMJHL_23_24_Halifax_Moncton",
+          "predicate": "winner",
+          "object": "Halifax Mooseheads"
+        },
+        {
+          "subject": "Match_QMJHL_23_24_Halifax_Moncton",
+          "predicate": "has_final_score",
+          "object": "4-0"
+        },
+        {
+          "subject": "Match_QMJHL_23_24_Halifax_Moncton",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 27,
+      "triples": [
+        {
+          "subject": "Match_23_24_HC_Motor_České_Budějovice_HC_Verva_Litvínov",
+          "predicate": "played_by",
+          "object": "HC Motor České Budějovice"
+        },
+        {
+          "subject": "Match_23_24_HC_Motor_České_Budějovice_HC_Verva_Litvínov",
+          "predicate": "played_by",
+          "object": "HC Verva Litvínov"
+        },
+        {
+          "subject": "Match_23_24_HC_Motor_České_Budějovice_HC_Verva_Litvínov",
+          "predicate": "winner",
+          "object": "HC Motor České Budějovice"
+        },
+        {
+          "subject": "Match_23_24_HC_Motor_České_Budějovice_HC_Verva_Litvínov",
+          "predicate": "has_final_score",
+          "object": "1-0"
+        },
+        {
+          "subject": "Match_23_24_HC_Motor_České_Budějovice_HC_Verva_Litvínov",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_HC_Motor_České_Budějovice_HC_Verva_Litvínov",
+          "predicate": "part_of_round",
+          "object": "22"
+        }
+      ]
+    },
+    {
+      "instance_id": 28,
+      "triples": [
+        {
+          "subject": "Match_23_24_MiamiOhioRedhawks_MercyhurstLakers",
+          "predicate": "played_by",
+          "object": "Miami Ohio Redhawks"
+        },
+        {
+          "subject": "Match_23_24_MiamiOhioRedhawks_MercyhurstLakers",
+          "predicate": "played_by",
+          "object": "Mercyhurst Lakers"
+        },
+        {
+          "subject": "Match_23_24_MiamiOhioRedhawks_MercyhurstLakers",
+          "predicate": "winner",
+          "object": "Miami Ohio Redhawks"
+        },
+        {
+          "subject": "Match_23_24_MiamiOhioRedhawks_MercyhurstLakers",
+          "predicate": "has_final_score",
+          "object": "2-0"
+        },
+        {
+          "subject": "Match_23_24_MiamiOhioRedhawks_MercyhurstLakers",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 29,
+      "triples": [
+        {
+          "subject": "Match_QMJHL_23_24_Voltigeurs_Cataractes",
+          "predicate": "played_by",
+          "object": "Drummondville Voltigeurs"
+        },
+        {
+          "subject": "Match_QMJHL_23_24_Voltigeurs_Cataractes",
+          "predicate": "played_by",
+          "object": "Shawinigan Cataractes"
+        },
+        {
+          "subject": "Match_QMJHL_23_24_Voltigeurs_Cataractes",
+          "predicate": "winner",
+          "object": "Drummondville Voltigeurs"
+        },
+        {
+          "subject": "Match_QMJHL_23_24_Voltigeurs_Cataractes",
+          "predicate": "has_final_score",
+          "object": "3-1"
+        },
+        {
+          "subject": "Match_QMJHL_23_24_Voltigeurs_Cataractes",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 30,
+      "triples": [
+        {
+          "subject": "Match_VHL_23_24_Ryazan_Chelny",
+          "predicate": "played_by",
+          "object": "HK Ryazan"
+        },
+        {
+          "subject": "Match_VHL_23_24_Ryazan_Chelny",
+          "predicate": "played_by",
+          "object": "HC Chelny"
+        },
+        {
+          "subject": "Match_VHL_23_24_Ryazan_Chelny",
+          "predicate": "winner",
+          "object": "HK Ryazan"
+        },
+        {
+          "subject": "Match_VHL_23_24_Ryazan_Chelny",
+          "predicate": "has_final_score",
+          "object": "3-1"
+        },
+        {
+          "subject": "Match_VHL_23_24_Ryazan_Chelny",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 31,
+      "triples": [
+        {
+          "subject": "Match_23_24_Neman_Shakhter",
+          "predicate": "played_by",
+          "object": "Neman Grodno"
+        },
+        {
+          "subject": "Match_23_24_Neman_Shakhter",
+          "predicate": "played_by",
+          "object": "Shakhter Soligorsk"
+        },
+        {
+          "subject": "Match_23_24_Neman_Shakhter",
+          "predicate": "winner",
+          "object": "Neman Grodno"
+        },
+        {
+          "subject": "Match_23_24_Neman_Shakhter",
+          "predicate": "has_final_score",
+          "object": "3-2"
+        },
+        {
+          "subject": "Match_23_24_Neman_Shakhter",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 32,
+      "triples": [
+        {
+          "subject": "Match_23_24_Vitebsk_Khimik",
+          "predicate": "played_by",
+          "object": "HK Vitebsk"
+        },
+        {
+          "subject": "Match_23_24_Vitebsk_Khimik",
+          "predicate": "played_by",
+          "object": "Khimik-SKA Novopolotsk"
+        },
+        {
+          "subject": "Match_23_24_Vitebsk_Khimik",
+          "predicate": "winner",
+          "object": "HK Vitebsk"
+        },
+        {
+          "subject": "Match_23_24_Vitebsk_Khimik",
+          "predicate": "has_final_score",
+          "object": "6-1"
+        },
+        {
+          "subject": "Match_23_24_Vitebsk_Khimik",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_Vitebsk_Khimik",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 33,
+      "triples": [
+        {
+          "subject": "Match_23_24_ZUBR_Berani",
+          "predicate": "played_by",
+          "object": "HC ZUBR Přerov"
+        },
+        {
+          "subject": "Match_23_24_ZUBR_Berani",
+          "predicate": "played_by",
+          "object": "PSG Berani Zlín"
+        },
+        {
+          "subject": "Match_23_24_ZUBR_Berani",
+          "predicate": "winner",
+          "object": "HC ZUBR Přerov"
+        },
+        {
+          "subject": "Match_23_24_ZUBR_Berani",
+          "predicate": "has_final_score",
+          "object": "3-2"
+        },
+        {
+          "subject": "Match_23_24_ZUBR_Berani",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 34,
+      "triples": [
+        {
+          "subject": "Match_23_24_BIK_Karlskoga_Ostersunds_IK",
+          "predicate": "played_by",
+          "object": "BIK Karlskoga"
+        },
+        {
+          "subject": "Match_23_24_BIK_Karlskoga_Ostersunds_IK",
+          "predicate": "played_by",
+          "object": "Östersunds IK"
+        },
+        {
+          "subject": "Match_23_24_BIK_Karlskoga_Ostersunds_IK",
+          "predicate": "winner",
+          "object": "BIK Karlskoga"
+        },
+        {
+          "subject": "Match_23_24_BIK_Karlskoga_Ostersunds_IK",
+          "predicate": "has_final_score",
+          "object": "2-1"
+        },
+        {
+          "subject": "Match_23_24_BIK_Karlskoga_Ostersunds_IK",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_BIK_Karlskoga_Ostersunds_IK",
+          "predicate": "part_of_round",
+          "object": "19"
+        }
+      ]
+    },
+    {
+      "instance_id": 35,
+      "triples": [
+        {
+          "subject": "Match_OHL_23_24_Sudbury_Oshawa",
+          "predicate": "played_by",
+          "object": "Sudbury Wolves"
+        },
+        {
+          "subject": "Match_OHL_23_24_Sudbury_Oshawa",
+          "predicate": "played_by",
+          "object": "Oshawa Generals"
+        },
+        {
+          "subject": "Match_OHL_23_24_Sudbury_Oshawa",
+          "predicate": "winner",
+          "object": "Sudbury Wolves"
+        },
+        {
+          "subject": "Match_OHL_23_24_Sudbury_Oshawa",
+          "predicate": "has_final_score",
+          "object": "7-5"
+        },
+        {
+          "subject": "Match_OHL_23_24_Sudbury_Oshawa",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 36,
+      "triples": [
+        {
+          "subject": "Match_VHL_23_24_MolotPerm_SKANeva",
+          "predicate": "played_by",
+          "object": "Molot Perm"
+        },
+        {
+          "subject": "Match_VHL_23_24_MolotPerm_SKANeva",
+          "predicate": "played_by",
+          "object": "SKA-Neva"
+        },
+        {
+          "subject": "Match_VHL_23_24_MolotPerm_SKANeva",
+          "predicate": "winner",
+          "object": "Molot Perm"
+        },
+        {
+          "subject": "Match_VHL_23_24_MolotPerm_SKANeva",
+          "predicate": "has_final_score",
+          "object": "2-0"
+        },
+        {
+          "subject": "Match_VHL_23_24_MolotPerm_SKANeva",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 37,
+      "triples": [
+        {
+          "subject": "Match_23_24_BodensHF_HudiksvallsHC",
+          "predicate": "played_by",
+          "object": "Bodens HF"
+        },
+        {
+          "subject": "Match_23_24_BodensHF_HudiksvallsHC",
+          "predicate": "played_by",
+          "object": "Hudiksvalls HC"
+        },
+        {
+          "subject": "Match_23_24_BodensHF_HudiksvallsHC",
+          "predicate": "winner",
+          "object": "Bodens HF"
+        },
+        {
+          "subject": "Match_23_24_BodensHF_HudiksvallsHC",
+          "predicate": "has_final_score",
+          "object": "4-1"
+        },
+        {
+          "subject": "Match_23_24_BodensHF_HudiksvallsHC",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_BodensHF_HudiksvallsHC",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 38,
+      "triples": [
+        {
+          "subject": "Match_23_24_RittnerBuam_EHCLustenau",
+          "predicate": "played_by",
+          "object": "Rittner Buam"
+        },
+        {
+          "subject": "Match_23_24_RittnerBuam_EHCLustenau",
+          "predicate": "played_by",
+          "object": "EHC Lustenau"
+        },
+        {
+          "subject": "Match_23_24_RittnerBuam_EHCLustenau",
+          "predicate": "winner",
+          "object": "Rittner Buam"
+        },
+        {
+          "subject": "Match_23_24_RittnerBuam_EHCLustenau",
+          "predicate": "has_final_score",
+          "object": "7-3"
+        },
+        {
+          "subject": "Match_23_24_RittnerBuam_EHCLustenau",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_RittnerBuam_EHCLustenau",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 39,
+      "triples": [
+        {
+          "subject": "Match_23_24_DuklaJihlava_BanikSokolov",
+          "predicate": "played_by",
+          "object": "HC Dukla Jihlava"
+        },
+        {
+          "subject": "Match_23_24_DuklaJihlava_BanikSokolov",
+          "predicate": "played_by",
+          "object": "HC Banik Sokolov"
+        },
+        {
+          "subject": "Match_23_24_DuklaJihlava_BanikSokolov",
+          "predicate": "winner",
+          "object": "HC Dukla Jihlava"
+        },
+        {
+          "subject": "Match_23_24_DuklaJihlava_BanikSokolov",
+          "predicate": "has_final_score",
+          "object": "4-1"
+        },
+        {
+          "subject": "Match_23_24_DuklaJihlava_BanikSokolov",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_DuklaJihlava_BanikSokolov",
+          "predicate": "part_of_round",
+          "object": "25"
+        }
+      ]
+    },
+    {
+      "instance_id": 40,
+      "triples": [
+        {
+          "subject": "Match_23_24_EVLandshut_BietigheimSteelers",
+          "predicate": "played_by",
+          "object": "EV Landshut"
+        },
+        {
+          "subject": "Match_23_24_EVLandshut_BietigheimSteelers",
+          "predicate": "played_by",
+          "object": "Bietigheim Steelers"
+        },
+        {
+          "subject": "Match_23_24_EVLandshut_BietigheimSteelers",
+          "predicate": "winner",
+          "object": "EV Landshut"
+        },
+        {
+          "subject": "Match_23_24_EVLandshut_BietigheimSteelers",
+          "predicate": "has_final_score",
+          "object": "4-2"
+        },
+        {
+          "subject": "Match_23_24_EVLandshut_BietigheimSteelers",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_EVLandshut_BietigheimSteelers",
+          "predicate": "part_of_round",
+          "object": "21"
+        }
+      ]
+    },
+    {
+      "instance_id": 41,
+      "triples": [
+        {
+          "subject": "Match_WHL_23_24_Biryusa_Tornado",
+          "predicate": "played_by",
+          "object": "Biryusa Krasnoyarsk"
+        },
+        {
+          "subject": "Match_WHL_23_24_Biryusa_Tornado",
+          "predicate": "played_by",
+          "object": "Tornado Dmitrov"
+        },
+        {
+          "subject": "Match_WHL_23_24_Biryusa_Tornado",
+          "predicate": "winner",
+          "object": "Biryusa Krasnoyarsk"
+        },
+        {
+          "subject": "Match_WHL_23_24_Biryusa_Tornado",
+          "predicate": "has_final_score",
+          "object": "3-1"
+        },
+        {
+          "subject": "Match_WHL_23_24_Biryusa_Tornado",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 42,
+      "triples": [
+        {
+          "subject": "Match_NHL_23_24_DET_MIN",
+          "predicate": "played_by",
+          "object": "Detroit Red Wings"
+        },
+        {
+          "subject": "Match_NHL_23_24_DET_MIN",
+          "predicate": "played_by",
+          "object": "Minnesota Wild"
+        },
+        {
+          "subject": "Match_NHL_23_24_DET_MIN",
+          "predicate": "winner",
+          "object": "Detroit Red Wings"
+        },
+        {
+          "subject": "Match_NHL_23_24_DET_MIN",
+          "predicate": "has_final_score",
+          "object": "4-1"
+        },
+        {
+          "subject": "Match_NHL_23_24_DET_MIN",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 43,
+      "triples": [
+        {
+          "subject": "Match_MHL_23_24_Loko_Mikhailov",
+          "predicate": "played_by",
+          "object": "Loko Yaroslavl"
+        },
+        {
+          "subject": "Match_MHL_23_24_Loko_Mikhailov",
+          "predicate": "played_by",
+          "object": "Mikhailov Academy"
+        },
+        {
+          "subject": "Match_MHL_23_24_Loko_Mikhailov",
+          "predicate": "winner",
+          "object": "Loko Yaroslavl"
+        },
+        {
+          "subject": "Match_MHL_23_24_Loko_Mikhailov",
+          "predicate": "has_final_score",
+          "object": "4-0"
+        },
+        {
+          "subject": "Match_MHL_23_24_Loko_Mikhailov",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 44,
+      "triples": [
+        {
+          "subject": "Match_KHL_23_24_Lokomotiv_CSKA",
+          "predicate": "played_by",
+          "object": "Lokomotiv Yaroslavl"
+        },
+        {
+          "subject": "Match_KHL_23_24_Lokomotiv_CSKA",
+          "predicate": "played_by",
+          "object": "CSKA Moscow"
+        },
+        {
+          "subject": "Match_KHL_23_24_Lokomotiv_CSKA",
+          "predicate": "winner",
+          "object": "Lokomotiv Yaroslavl"
+        },
+        {
+          "subject": "Match_KHL_23_24_Lokomotiv_CSKA",
+          "predicate": "has_final_score",
+          "object": "3-2"
+        },
+        {
+          "subject": "Match_KHL_23_24_Lokomotiv_CSKA",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_KHL_23_24_Lokomotiv_CSKA",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 45,
+      "triples": [
+        {
+          "subject": "Match_23_24_Jestrabiv_Torax",
+          "predicate": "played_by",
+          "object": "LHK Jestřábi Prostějov"
+        },
+        {
+          "subject": "Match_23_24_Jestrabiv_Torax",
+          "predicate": "played_by",
+          "object": "HC RT Torax Poruba"
+        },
+        {
+          "subject": "Match_23_24_Jestrabiv_Torax",
+          "predicate": "winner",
+          "object": "LHK Jestřábi Prostějov"
+        },
+        {
+          "subject": "Match_23_24_Jestrabiv_Torax",
+          "predicate": "has_final_score",
+          "object": "5-4"
+        },
+        {
+          "subject": "Match_23_24_Jestrabiv_Torax",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_Jestrabiv_Torax",
+          "predicate": "part_of_round",
+          "object": "25"
+        }
+      ]
+    },
+    {
+      "instance_id": 46,
+      "triples": [
+        {
+          "subject": "Match_23_24_Heilbronner_Falken_Lindau_Islanders",
+          "predicate": "played_by",
+          "object": "Heilbronner Falken"
+        },
+        {
+          "subject": "Match_23_24_Heilbronner_Falken_Lindau_Islanders",
+          "predicate": "played_by",
+          "object": "Lindau Islanders"
+        },
+        {
+          "subject": "Match_23_24_Heilbronner_Falken_Lindau_Islanders",
+          "predicate": "winner",
+          "object": "Heilbronner Falken"
+        },
+        {
+          "subject": "Match_23_24_Heilbronner_Falken_Lindau_Islanders",
+          "predicate": "has_final_score",
+          "object": "4-1"
+        },
+        {
+          "subject": "Match_23_24_Heilbronner_Falken_Lindau_Islanders",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_Heilbronner_Falken_Lindau_Islanders",
+          "predicate": "part_of_round",
+          "object": "21"
+        }
+      ]
+    },
+    {
+      "instance_id": 47,
+      "triples": [
+        {
+          "subject": "Match_23_24_Poprad_Zvolen",
+          "predicate": "played_by",
+          "object": "HK Poprad"
+        },
+        {
+          "subject": "Match_23_24_Poprad_Zvolen",
+          "predicate": "played_by",
+          "object": "HKM Zvolen"
+        },
+        {
+          "subject": "Match_23_24_Poprad_Zvolen",
+          "predicate": "winner",
+          "object": "HK Poprad"
+        },
+        {
+          "subject": "Match_23_24_Poprad_Zvolen",
+          "predicate": "has_final_score",
+          "object": "5-1"
+        },
+        {
+          "subject": "Match_23_24_Poprad_Zvolen",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_Poprad_Zvolen",
+          "predicate": "part_of_round",
+          "object": "21"
+        }
+      ]
+    },
+    {
+      "instance_id": 48,
+      "triples": [
+        {
+          "subject": "Match_VHL_23_24_AKM_Omskie",
+          "predicate": "played_by",
+          "object": "HC AKM Tula"
+        },
+        {
+          "subject": "Match_VHL_23_24_AKM_Omskie",
+          "predicate": "played_by",
+          "object": "Omskie Kryliya"
+        },
+        {
+          "subject": "Match_VHL_23_24_AKM_Omskie",
+          "predicate": "winner",
+          "object": "HC AKM Tula"
+        },
+        {
+          "subject": "Match_VHL_23_24_AKM_Omskie",
+          "predicate": "has_final_score",
+          "object": "5-0"
+        },
+        {
+          "subject": "Match_VHL_23_24_AKM_Omskie",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 49,
+      "triples": [
+        {
+          "subject": "Match_23_24_HanvikensSK_SegeltorpsIF",
+          "predicate": "played_by",
+          "object": "Hanvikens SK"
+        },
+        {
+          "subject": "Match_23_24_HanvikensSK_SegeltorpsIF",
+          "predicate": "played_by",
+          "object": "Segeltorps IF"
+        },
+        {
+          "subject": "Match_23_24_HanvikensSK_SegeltorpsIF",
+          "predicate": "winner",
+          "object": "Hanvikens SK"
+        },
+        {
+          "subject": "Match_23_24_HanvikensSK_SegeltorpsIF",
+          "predicate": "has_final_score",
+          "object": "6-2"
+        },
+        {
+          "subject": "Match_23_24_HanvikensSK_SegeltorpsIF",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_HanvikensSK_SegeltorpsIF",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 50,
+      "triples": [
+        {
+          "subject": "Match_23_24_AIK_TingsrydsAIF",
+          "predicate": "played_by",
+          "object": "AIK"
+        },
+        {
+          "subject": "Match_23_24_AIK_TingsrydsAIF",
+          "predicate": "played_by",
+          "object": "Tingsryds AIF"
+        },
+        {
+          "subject": "Match_23_24_AIK_TingsrydsAIF",
+          "predicate": "winner",
+          "object": "AIK"
+        },
+        {
+          "subject": "Match_23_24_AIK_TingsrydsAIF",
+          "predicate": "has_final_score",
+          "object": "3-2"
+        },
+        {
+          "subject": "Match_23_24_AIK_TingsrydsAIF",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_AIK_TingsrydsAIF",
+          "predicate": "part_of_round",
+          "object": "19"
+        }
+      ]
+    },
+    {
+      "instance_id": 51,
+      "triples": [
+        {
+          "subject": "Match_23_24_ICE_Olimpija_KAC",
+          "predicate": "played_by",
+          "object": "HK Olimpija"
+        },
+        {
+          "subject": "Match_23_24_ICE_Olimpija_KAC",
+          "predicate": "played_by",
+          "object": "KAC Klagenfurt"
+        },
+        {
+          "subject": "Match_23_24_ICE_Olimpija_KAC",
+          "predicate": "winner",
+          "object": "HK Olimpija"
+        },
+        {
+          "subject": "Match_23_24_ICE_Olimpija_KAC",
+          "predicate": "has_final_score",
+          "object": "3-2"
+        },
+        {
+          "subject": "Match_23_24_ICE_Olimpija_KAC",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_ICE_Olimpija_KAC",
+          "predicate": "part_of_round",
+          "object": "24"
+        }
+      ]
+    },
+    {
+      "instance_id": 52,
+      "triples": [
+        {
+          "subject": "Match_23_24_Grenoble_Anglet",
+          "predicate": "played_by",
+          "object": "Brûleurs de Loups Grenoble"
+        },
+        {
+          "subject": "Match_23_24_Grenoble_Anglet",
+          "predicate": "played_by",
+          "object": "Anglet Hormadi Pays Basque"
+        },
+        {
+          "subject": "Match_23_24_Grenoble_Anglet",
+          "predicate": "winner",
+          "object": "Brûleurs de Loups Grenoble"
+        },
+        {
+          "subject": "Match_23_24_Grenoble_Anglet",
+          "predicate": "has_final_score",
+          "object": "5-0"
+        },
+        {
+          "subject": "Match_23_24_Grenoble_Anglet",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_Grenoble_Anglet",
+          "predicate": "part_of_round",
+          "object": "20"
+        }
+      ]
+    },
+    {
+      "instance_id": 53,
+      "triples": [
+        {
+          "subject": "Match_23_24_Gomel_Lida",
+          "predicate": "played_by",
+          "object": "HK Gomel"
+        },
+        {
+          "subject": "Match_23_24_Gomel_Lida",
+          "predicate": "played_by",
+          "object": "HK Lida"
+        },
+        {
+          "subject": "Match_23_24_Gomel_Lida",
+          "predicate": "winner",
+          "object": "HK Gomel"
+        },
+        {
+          "subject": "Match_23_24_Gomel_Lida",
+          "predicate": "has_final_score",
+          "object": "4-2"
+        },
+        {
+          "subject": "Match_23_24_Gomel_Lida",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_Gomel_Lida",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 54,
+      "triples": [
+        {
+          "subject": "Match_SuomiSarja_23_24_LeKi_Riemu",
+          "predicate": "played_by",
+          "object": "LeKi Hockey"
+        },
+        {
+          "subject": "Match_SuomiSarja_23_24_LeKi_Riemu",
+          "predicate": "played_by",
+          "object": "Riemu"
+        },
+        {
+          "subject": "Match_SuomiSarja_23_24_LeKi_Riemu",
+          "predicate": "winner",
+          "object": "LeKi Hockey"
+        },
+        {
+          "subject": "Match_SuomiSarja_23_24_LeKi_Riemu",
+          "predicate": "has_final_score",
+          "object": "5-1"
+        },
+        {
+          "subject": "Match_SuomiSarja_23_24_LeKi_Riemu",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_SuomiSarja_23_24_LeKi_Riemu",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 55,
+      "triples": [
+        {
+          "subject": "Match_VHL_23_24_Neftyanik_Gornyak",
+          "predicate": "played_by",
+          "object": "Neftyanik Almetyevsk"
+        },
+        {
+          "subject": "Match_VHL_23_24_Neftyanik_Gornyak",
+          "predicate": "played_by",
+          "object": "Gornyak UMMC"
+        },
+        {
+          "subject": "Match_VHL_23_24_Neftyanik_Gornyak",
+          "predicate": "winner",
+          "object": "Neftyanik Almetyevsk"
+        },
+        {
+          "subject": "Match_VHL_23_24_Neftyanik_Gornyak",
+          "predicate": "has_final_score",
+          "object": "4-1"
+        },
+        {
+          "subject": "Match_VHL_23_24_Neftyanik_Gornyak",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 56,
+      "triples": [
+        {
+          "subject": "Match_LigueMagnus_23_24_Boxers_Jokers",
+          "predicate": "played_by",
+          "object": "Boxers de Bordeaux"
+        },
+        {
+          "subject": "Match_LigueMagnus_23_24_Boxers_Jokers",
+          "predicate": "played_by",
+          "object": "Jokers de Cergy-Pontoise"
+        },
+        {
+          "subject": "Match_LigueMagnus_23_24_Boxers_Jokers",
+          "predicate": "winner",
+          "object": "Boxers de Bordeaux"
+        },
+        {
+          "subject": "Match_LigueMagnus_23_24_Boxers_Jokers",
+          "predicate": "has_final_score",
+          "object": "4-3"
+        },
+        {
+          "subject": "Match_LigueMagnus_23_24_Boxers_Jokers",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_LigueMagnus_23_24_Boxers_Jokers",
+          "predicate": "part_of_round",
+          "object": "20"
+        }
+      ]
+    },
+    {
+      "instance_id": 57,
+      "triples": [
+        {
+          "subject": "Match_23_24_Corona_Brasov_UTE",
+          "predicate": "played_by",
+          "object": "Corona Brașov"
+        },
+        {
+          "subject": "Match_23_24_Corona_Brasov_UTE",
+          "predicate": "played_by",
+          "object": "UTE"
+        },
+        {
+          "subject": "Match_23_24_Corona_Brasov_UTE",
+          "predicate": "winner",
+          "object": "Corona Brașov"
+        },
+        {
+          "subject": "Match_23_24_Corona_Brasov_UTE",
+          "predicate": "has_final_score",
+          "object": "6-2"
+        },
+        {
+          "subject": "Match_23_24_Corona_Brasov_UTE",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_Corona_Brasov_UTE",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 58,
+      "triples": [
+        {
+          "subject": "Match_23_24_HernerEV_RostockPiranhas",
+          "predicate": "played_by",
+          "object": "Herner EV"
+        },
+        {
+          "subject": "Match_23_24_HernerEV_RostockPiranhas",
+          "predicate": "played_by",
+          "object": "Rostock Piranhas"
+        },
+        {
+          "subject": "Match_23_24_HernerEV_RostockPiranhas",
+          "predicate": "winner",
+          "object": "Herner EV"
+        },
+        {
+          "subject": "Match_23_24_HernerEV_RostockPiranhas",
+          "predicate": "has_final_score",
+          "object": "5-4"
+        },
+        {
+          "subject": "Match_23_24_HernerEV_RostockPiranhas",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_HernerEV_RostockPiranhas",
+          "predicate": "part_of_round",
+          "object": "18"
+        }
+      ]
+    },
+    {
+      "instance_id": 59,
+      "triples": [
+        {
+          "subject": "Match_SDHL_23_24_SDE_AIK",
+          "predicate": "played_by",
+          "object": "SDE Hockey"
+        },
+        {
+          "subject": "Match_SDHL_23_24_SDE_AIK",
+          "predicate": "played_by",
+          "object": "AIK IF"
+        },
+        {
+          "subject": "Match_SDHL_23_24_SDE_AIK",
+          "predicate": "winner",
+          "object": "SDE Hockey"
+        },
+        {
+          "subject": "Match_SDHL_23_24_SDE_AIK",
+          "predicate": "has_final_score",
+          "object": "6-1"
+        },
+        {
+          "subject": "Match_SDHL_23_24_SDE_AIK",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_SDHL_23_24_SDE_AIK",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 60,
+      "triples": [
+        {
+          "subject": "Match_NHL_23_24_Nashville_Winnipeg",
+          "predicate": "played_by",
+          "object": "Nashville Predators"
+        },
+        {
+          "subject": "Match_NHL_23_24_Nashville_Winnipeg",
+          "predicate": "played_by",
+          "object": "Winnipeg Jets"
+        },
+        {
+          "subject": "Match_NHL_23_24_Nashville_Winnipeg",
+          "predicate": "winner",
+          "object": "Nashville Predators"
+        },
+        {
+          "subject": "Match_NHL_23_24_Nashville_Winnipeg",
+          "predicate": "has_final_score",
+          "object": "3-2"
+        },
+        {
+          "subject": "Match_NHL_23_24_Nashville_Winnipeg",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 61,
+      "triples": [
+        {
+          "subject": "Match_WHL_23_24_Biryusa_Tornado",
+          "predicate": "played_by",
+          "object": "Biryusa Krasnoyarsk"
+        },
+        {
+          "subject": "Match_WHL_23_24_Biryusa_Tornado",
+          "predicate": "played_by",
+          "object": "Tornado Dmitrov"
+        },
+        {
+          "subject": "Match_WHL_23_24_Biryusa_Tornado",
+          "predicate": "winner",
+          "object": "Biryusa Krasnoyarsk"
+        },
+        {
+          "subject": "Match_WHL_23_24_Biryusa_Tornado",
+          "predicate": "has_final_score",
+          "object": "8-2"
+        },
+        {
+          "subject": "Match_WHL_23_24_Biryusa_Tornado",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 62,
+      "triples": [
+        {
+          "subject": "Match_NHL_23_24_CBJ_BOS",
+          "predicate": "played_by",
+          "object": "Columbus Blue Jackets"
+        },
+        {
+          "subject": "Match_NHL_23_24_CBJ_BOS",
+          "predicate": "played_by",
+          "object": "Boston Bruins"
+        },
+        {
+          "subject": "Match_NHL_23_24_CBJ_BOS",
+          "predicate": "winner",
+          "object": "Columbus Blue Jackets"
+        },
+        {
+          "subject": "Match_NHL_23_24_CBJ_BOS",
+          "predicate": "has_final_score",
+          "object": "5-2"
+        },
+        {
+          "subject": "Match_NHL_23_24_CBJ_BOS",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 63,
+      "triples": [
+        {
+          "subject": "Match_23_24_FEHA19_Dunaújvárosi_Acélbikák",
+          "predicate": "played_by",
+          "object": "FEHA19"
+        },
+        {
+          "subject": "Match_23_24_FEHA19_Dunaújvárosi_Acélbikák",
+          "predicate": "played_by",
+          "object": "Dunaújvárosi Acélbikák"
+        },
+        {
+          "subject": "Match_23_24_FEHA19_Dunaújvárosi_Acélbikák",
+          "predicate": "winner",
+          "object": "FEHA19"
+        },
+        {
+          "subject": "Match_23_24_FEHA19_Dunaújvárosi_Acélbikák",
+          "predicate": "has_final_score",
+          "object": "1-0"
+        },
+        {
+          "subject": "Match_23_24_FEHA19_Dunaújvárosi_Acélbikák",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_FEHA19_Dunaújvárosi_Acélbikák",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 64,
+      "triples": [
+        {
+          "subject": "Match_23_24_Amiens_Chamonix",
+          "predicate": "played_by",
+          "object": "Amiens Hockey Élite"
+        },
+        {
+          "subject": "Match_23_24_Amiens_Chamonix",
+          "predicate": "played_by",
+          "object": "Chamonix"
+        },
+        {
+          "subject": "Match_23_24_Amiens_Chamonix",
+          "predicate": "winner",
+          "object": "Amiens Hockey Élite"
+        },
+        {
+          "subject": "Match_23_24_Amiens_Chamonix",
+          "predicate": "has_final_score",
+          "object": "6-1"
+        },
+        {
+          "subject": "Match_23_24_Amiens_Chamonix",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_Amiens_Chamonix",
+          "predicate": "part_of_round",
+          "object": "20"
+        }
+      ]
+    },
+    {
+      "instance_id": 65,
+      "triples": [
+        {
+          "subject": "Match_23_24_Brynäs_Nybro",
+          "predicate": "played_by",
+          "object": "Brynäs IF"
+        },
+        {
+          "subject": "Match_23_24_Brynäs_Nybro",
+          "predicate": "played_by",
+          "object": "Nybro IF"
+        },
+        {
+          "subject": "Match_23_24_Brynäs_Nybro",
+          "predicate": "winner",
+          "object": "Brynäs IF"
+        },
+        {
+          "subject": "Match_23_24_Brynäs_Nybro",
+          "predicate": "has_final_score",
+          "object": "4-1"
+        },
+        {
+          "subject": "Match_23_24_Brynäs_Nybro",
+          "predicate": "part_of_round",
+          "object": "19"
+        },
+        {
+          "subject": "Match_23_24_Brynäs_Nybro",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 66,
+      "triples": [
+        {
+          "subject": "Match_MHL_23_24_AmurskieTigry_SahalinskieAkuly",
+          "predicate": "played_by",
+          "object": "Amurskie Tigry"
+        },
+        {
+          "subject": "Match_MHL_23_24_AmurskieTigry_SahalinskieAkuly",
+          "predicate": "played_by",
+          "object": "Sahalinskie Akuly"
+        },
+        {
+          "subject": "Match_MHL_23_24_AmurskieTigry_SahalinskieAkuly",
+          "predicate": "winner",
+          "object": "Amurskie Tigry"
+        },
+        {
+          "subject": "Match_MHL_23_24_AmurskieTigry_SahalinskieAkuly",
+          "predicate": "has_final_score",
+          "object": "4-2"
+        },
+        {
+          "subject": "Match_MHL_23_24_AmurskieTigry_SahalinskieAkuly",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 67,
+      "triples": [
+        {
+          "subject": "Match_23_24_Selb_Dresden",
+          "predicate": "played_by",
+          "object": "VER Selb"
+        },
+        {
+          "subject": "Match_23_24_Selb_Dresden",
+          "predicate": "played_by",
+          "object": "Dresdner Eislöwen"
+        },
+        {
+          "subject": "Match_23_24_Selb_Dresden",
+          "predicate": "winner",
+          "object": "VER Selb"
+        },
+        {
+          "subject": "Match_23_24_Selb_Dresden",
+          "predicate": "has_final_score",
+          "object": "5-3"
+        },
+        {
+          "subject": "Match_23_24_Selb_Dresden",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_Selb_Dresden",
+          "predicate": "part_of_round",
+          "object": "21"
+        }
+      ]
+    },
+    {
+      "instance_id": 68,
+      "triples": [
+        {
+          "subject": "Match_WHL_23_24_WheatKings_Raiders",
+          "predicate": "played_by",
+          "object": "Brandon Wheat Kings"
+        },
+        {
+          "subject": "Match_WHL_23_24_WheatKings_Raiders",
+          "predicate": "played_by",
+          "object": "Prince Albert Raiders"
+        },
+        {
+          "subject": "Match_WHL_23_24_WheatKings_Raiders",
+          "predicate": "winner",
+          "object": "Brandon Wheat Kings"
+        },
+        {
+          "subject": "Match_WHL_23_24_WheatKings_Raiders",
+          "predicate": "has_final_score",
+          "object": "3-1"
+        },
+        {
+          "subject": "Match_WHL_23_24_WheatKings_Raiders",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_WHL_23_24_WheatKings_Raiders",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 69,
+      "triples": [
+        {
+          "subject": "Match_23_24_HIFK_RoKi",
+          "predicate": "played_by",
+          "object": "HIFK Helsinki"
+        },
+        {
+          "subject": "Match_23_24_HIFK_RoKi",
+          "predicate": "played_by",
+          "object": "RoKi Hockey"
+        },
+        {
+          "subject": "Match_23_24_HIFK_RoKi",
+          "predicate": "winner",
+          "object": "HIFK Helsinki"
+        },
+        {
+          "subject": "Match_23_24_HIFK_RoKi",
+          "predicate": "has_final_score",
+          "object": "6-0"
+        },
+        {
+          "subject": "Match_23_24_HIFK_RoKi",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_HIFK_RoKi",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 70,
+      "triples": [
+        {
+          "subject": "Match_23_24_Hannover_Herford",
+          "predicate": "played_by",
+          "object": "EC Hannover Indians"
+        },
+        {
+          "subject": "Match_23_24_Hannover_Herford",
+          "predicate": "played_by",
+          "object": "Herforder Ice Dragons"
+        },
+        {
+          "subject": "Match_23_24_Hannover_Herford",
+          "predicate": "winner",
+          "object": "EC Hannover Indians"
+        },
+        {
+          "subject": "Match_23_24_Hannover_Herford",
+          "predicate": "has_final_score",
+          "object": "11-4"
+        },
+        {
+          "subject": "Match_23_24_Hannover_Herford",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_Hannover_Herford",
+          "predicate": "part_of_round",
+          "object": "18"
+        }
+      ]
+    },
+    {
+      "instance_id": 71,
+      "triples": [
+        {
+          "subject": "Match_23_24_ESC_Halle_Saale_Bulls_Hammer_Eisbaeren",
+          "predicate": "played_by",
+          "object": "ESC Halle Saale Bulls"
+        },
+        {
+          "subject": "Match_23_24_ESC_Halle_Saale_Bulls_Hammer_Eisbaeren",
+          "predicate": "played_by",
+          "object": "Hammer Eisbären"
+        },
+        {
+          "subject": "Match_23_24_ESC_Halle_Saale_Bulls_Hammer_Eisbaeren",
+          "predicate": "winner",
+          "object": "ESC Halle Saale Bulls"
+        },
+        {
+          "subject": "Match_23_24_ESC_Halle_Saale_Bulls_Hammer_Eisbaeren",
+          "predicate": "has_final_score",
+          "object": "6-3"
+        },
+        {
+          "subject": "Match_23_24_ESC_Halle_Saale_Bulls_Hammer_Eisbaeren",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_ESC_Halle_Saale_Bulls_Hammer_Eisbaeren",
+          "predicate": "part_of_round",
+          "object": "18"
+        }
+      ]
+    },
+    {
+      "instance_id": 72,
+      "triples": [
+        {
+          "subject": "Match_VHL_23_24_Khimik_Izhstal",
+          "predicate": "played_by",
+          "object": "HC Khimik Voskresensk"
+        },
+        {
+          "subject": "Match_VHL_23_24_Khimik_Izhstal",
+          "predicate": "played_by",
+          "object": "Izhstal Izhevsk"
+        },
+        {
+          "subject": "Match_VHL_23_24_Khimik_Izhstal",
+          "predicate": "winner",
+          "object": "HC Khimik Voskresensk"
+        },
+        {
+          "subject": "Match_VHL_23_24_Khimik_Izhstal",
+          "predicate": "has_final_score",
+          "object": "2-1"
+        },
+        {
+          "subject": "Match_VHL_23_24_Khimik_Izhstal",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 73,
+      "triples": [
+        {
+          "subject": "Match_23_24_ICE_Bolzano_Pioneers",
+          "predicate": "played_by",
+          "object": "HC Bolzano"
+        },
+        {
+          "subject": "Match_23_24_ICE_Bolzano_Pioneers",
+          "predicate": "played_by",
+          "object": "Pioneers Vorarlberg"
+        },
+        {
+          "subject": "Match_23_24_ICE_Bolzano_Pioneers",
+          "predicate": "winner",
+          "object": "HC Bolzano"
+        },
+        {
+          "subject": "Match_23_24_ICE_Bolzano_Pioneers",
+          "predicate": "has_final_score",
+          "object": "4-1"
+        },
+        {
+          "subject": "Match_23_24_ICE_Bolzano_Pioneers",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_ICE_Bolzano_Pioneers",
+          "predicate": "part_of_round",
+          "object": "24"
+        }
+      ]
+    },
+    {
+      "instance_id": 74,
+      "triples": [
+        {
+          "subject": "Match_KHL_23_24_Severstal_Sibir",
+          "predicate": "played_by",
+          "object": "Severstal Cherepovets"
+        },
+        {
+          "subject": "Match_KHL_23_24_Severstal_Sibir",
+          "predicate": "played_by",
+          "object": "Sibir Novosibirsk"
+        },
+        {
+          "subject": "Match_KHL_23_24_Severstal_Sibir",
+          "predicate": "winner",
+          "object": "Severstal Cherepovets"
+        },
+        {
+          "subject": "Match_KHL_23_24_Severstal_Sibir",
+          "predicate": "has_final_score",
+          "object": "2-1"
+        },
+        {
+          "subject": "Match_KHL_23_24_Severstal_Sibir",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_KHL_23_24_Severstal_Sibir",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 75,
+      "triples": [
+        {
+          "subject": "Match_MHL_23_24_Almaz_Kapitan",
+          "predicate": "played_by",
+          "object": "Almaz Cherepovets"
+        },
+        {
+          "subject": "Match_MHL_23_24_Almaz_Kapitan",
+          "predicate": "played_by",
+          "object": "Kapitan Stupino"
+        },
+        {
+          "subject": "Match_MHL_23_24_Almaz_Kapitan",
+          "predicate": "winner",
+          "object": "Almaz Cherepovets"
+        },
+        {
+          "subject": "Match_MHL_23_24_Almaz_Kapitan",
+          "predicate": "has_final_score",
+          "object": "7-2"
+        },
+        {
+          "subject": "Match_MHL_23_24_Almaz_Kapitan",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 76,
+      "triples": [
+        {
+          "subject": "Match_23_24_VisbyRoma_WingsHC",
+          "predicate": "played_by",
+          "object": "Visby/Roma HK"
+        },
+        {
+          "subject": "Match_23_24_VisbyRoma_WingsHC",
+          "predicate": "played_by",
+          "object": "Wings HC"
+        },
+        {
+          "subject": "Match_23_24_VisbyRoma_WingsHC",
+          "predicate": "winner",
+          "object": "Visby/Roma HK"
+        },
+        {
+          "subject": "Match_23_24_VisbyRoma_WingsHC",
+          "predicate": "has_final_score",
+          "object": "3-2"
+        },
+        {
+          "subject": "Match_23_24_VisbyRoma_WingsHC",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_VisbyRoma_WingsHC",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 77,
+      "triples": [
+        {
+          "subject": "Match_QMJHL_23_24_Tigres_Remparts",
+          "predicate": "played_by",
+          "object": "Victoriaville Tigres"
+        },
+        {
+          "subject": "Match_QMJHL_23_24_Tigres_Remparts",
+          "predicate": "played_by",
+          "object": "Quebec Remparts"
+        },
+        {
+          "subject": "Match_QMJHL_23_24_Tigres_Remparts",
+          "predicate": "winner",
+          "object": "Victoriaville Tigres"
+        },
+        {
+          "subject": "Match_QMJHL_23_24_Tigres_Remparts",
+          "predicate": "has_final_score",
+          "object": "6-2"
+        },
+        {
+          "subject": "Match_QMJHL_23_24_Tigres_Remparts",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 78,
+      "triples": [
+        {
+          "subject": "Match_23_24_BlueDevilsWeiden_HochstadtAlligators",
+          "predicate": "played_by",
+          "object": "Blue Devils Weiden"
+        },
+        {
+          "subject": "Match_23_24_BlueDevilsWeiden_HochstadtAlligators",
+          "predicate": "played_by",
+          "object": "Höchstadt Alligators"
+        },
+        {
+          "subject": "Match_23_24_BlueDevilsWeiden_HochstadtAlligators",
+          "predicate": "winner",
+          "object": "Blue Devils Weiden"
+        },
+        {
+          "subject": "Match_23_24_BlueDevilsWeiden_HochstadtAlligators",
+          "predicate": "has_final_score",
+          "object": "5-3"
+        },
+        {
+          "subject": "Match_23_24_BlueDevilsWeiden_HochstadtAlligators",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_BlueDevilsWeiden_HochstadtAlligators",
+          "predicate": "part_of_round",
+          "object": "21"
+        }
+      ]
+    },
+    {
+      "instance_id": 79,
+      "triples": [
+        {
+          "subject": "Match_VHL_23_24_Zauralie_CSKVVS",
+          "predicate": "played_by",
+          "object": "Zauralie Kurgan"
+        },
+        {
+          "subject": "Match_VHL_23_24_Zauralie_CSKVVS",
+          "predicate": "played_by",
+          "object": "CSK VVS Samara"
+        },
+        {
+          "subject": "Match_VHL_23_24_Zauralie_CSKVVS",
+          "predicate": "winner",
+          "object": "Zauralie Kurgan"
+        },
+        {
+          "subject": "Match_VHL_23_24_Zauralie_CSKVVS",
+          "predicate": "has_final_score",
+          "object": "5-4"
+        },
+        {
+          "subject": "Match_VHL_23_24_Zauralie_CSKVVS",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 80,
+      "triples": [
+        {
+          "subject": "Match_23_24_Rødovre_Herning",
+          "predicate": "played_by",
+          "object": "Rødovre Mighty Bulls"
+        },
+        {
+          "subject": "Match_23_24_Rødovre_Herning",
+          "predicate": "played_by",
+          "object": "Herning Blue Fox"
+        },
+        {
+          "subject": "Match_23_24_Rødovre_Herning",
+          "predicate": "winner",
+          "object": "Rødovre Mighty Bulls"
+        },
+        {
+          "subject": "Match_23_24_Rødovre_Herning",
+          "predicate": "has_final_score",
+          "object": "3-2"
+        },
+        {
+          "subject": "Match_23_24_Rødovre_Herning",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_Rødovre_Herning",
+          "predicate": "part_of_round",
+          "object": "opening round"
+        }
+      ]
+    },
+    {
+      "instance_id": 81,
+      "triples": [
+        {
+          "subject": "Match_Extraliga_23_24_R22_Boleslav_Kladno",
+          "predicate": "played_by",
+          "object": "BK Mladá Boleslav"
+        },
+        {
+          "subject": "Match_Extraliga_23_24_R22_Boleslav_Kladno",
+          "predicate": "played_by",
+          "object": "HC Rytíři Kladno"
+        },
+        {
+          "subject": "Match_Extraliga_23_24_R22_Boleslav_Kladno",
+          "predicate": "winner",
+          "object": "BK Mladá Boleslav"
+        },
+        {
+          "subject": "Match_Extraliga_23_24_R22_Boleslav_Kladno",
+          "predicate": "has_final_score",
+          "object": "3-2"
+        },
+        {
+          "subject": "Match_Extraliga_23_24_R22_Boleslav_Kladno",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_Extraliga_23_24_R22_Boleslav_Kladno",
+          "predicate": "part_of_round",
+          "object": "22"
+        }
+      ]
+    },
+    {
+      "instance_id": 82,
+      "triples": [
+        {
+          "subject": "Match_ECHL_23_24_IndyFuel_KalamazooWings",
+          "predicate": "played_by",
+          "object": "Indy Fuel"
+        },
+        {
+          "subject": "Match_ECHL_23_24_IndyFuel_KalamazooWings",
+          "predicate": "played_by",
+          "object": "Kalamazoo Wings"
+        },
+        {
+          "subject": "Match_ECHL_23_24_IndyFuel_KalamazooWings",
+          "predicate": "winner",
+          "object": "Indy Fuel"
+        },
+        {
+          "subject": "Match_ECHL_23_24_IndyFuel_KalamazooWings",
+          "predicate": "has_final_score",
+          "object": "4-2"
+        },
+        {
+          "subject": "Match_ECHL_23_24_IndyFuel_KalamazooWings",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 83,
+      "triples": [
+        {
+          "subject": "Match_23_24_DeggendorferSC_SCRiessersee",
+          "predicate": "played_by",
+          "object": "Deggendorfer SC"
+        },
+        {
+          "subject": "Match_23_24_DeggendorferSC_SCRiessersee",
+          "predicate": "played_by",
+          "object": "SC Riessersee"
+        },
+        {
+          "subject": "Match_23_24_DeggendorferSC_SCRiessersee",
+          "predicate": "winner",
+          "object": "Deggendorfer SC"
+        },
+        {
+          "subject": "Match_23_24_DeggendorferSC_SCRiessersee",
+          "predicate": "has_final_score",
+          "object": "4-1"
+        },
+        {
+          "subject": "Match_23_24_DeggendorferSC_SCRiessersee",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_DeggendorferSC_SCRiessersee",
+          "predicate": "part_of_round",
+          "object": "21"
+        }
+      ]
+    },
+    {
+      "instance_id": 84,
+      "triples": [
+        {
+          "subject": "Match_23_24_SaginawSpirit_NiagaraIceDogs",
+          "predicate": "played_by",
+          "object": "Saginaw Spirit"
+        },
+        {
+          "subject": "Match_23_24_SaginawSpirit_NiagaraIceDogs",
+          "predicate": "played_by",
+          "object": "Niagara IceDogs"
+        },
+        {
+          "subject": "Match_23_24_SaginawSpirit_NiagaraIceDogs",
+          "predicate": "winner",
+          "object": "Saginaw Spirit"
+        },
+        {
+          "subject": "Match_23_24_SaginawSpirit_NiagaraIceDogs",
+          "predicate": "has_final_score",
+          "object": "6-2"
+        },
+        {
+          "subject": "Match_23_24_SaginawSpirit_NiagaraIceDogs",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_SaginawSpirit_NiagaraIceDogs",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 85,
+      "triples": [
+        {
+          "subject": "Match_23_24_PiteaHC_StromsbroIf",
+          "predicate": "played_by",
+          "object": "Piteå HC"
+        },
+        {
+          "subject": "Match_23_24_PiteaHC_StromsbroIf",
+          "predicate": "played_by",
+          "object": "Strömsbro If"
+        },
+        {
+          "subject": "Match_23_24_PiteaHC_StromsbroIf",
+          "predicate": "winner",
+          "object": "Piteå HC"
+        },
+        {
+          "subject": "Match_23_24_PiteaHC_StromsbroIf",
+          "predicate": "has_final_score",
+          "object": "6-1"
+        },
+        {
+          "subject": "Match_23_24_PiteaHC_StromsbroIf",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_PiteaHC_StromsbroIf",
+          "predicate": "part_of_round",
+          "object": "opening round"
+        }
+      ]
+    },
+    {
+      "instance_id": 86,
+      "triples": [
+        {
+          "subject": "Match_NHL_23_24_EDM_ANA",
+          "predicate": "played_by",
+          "object": "Edmonton Oilers"
+        },
+        {
+          "subject": "Match_NHL_23_24_EDM_ANA",
+          "predicate": "played_by",
+          "object": "Anaheim Ducks"
+        },
+        {
+          "subject": "Match_NHL_23_24_EDM_ANA",
+          "predicate": "winner",
+          "object": "Edmonton Oilers"
+        },
+        {
+          "subject": "Match_NHL_23_24_EDM_ANA",
+          "predicate": "has_final_score",
+          "object": "8-2"
+        },
+        {
+          "subject": "Match_NHL_23_24_EDM_ANA",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 87,
+      "triples": [
+        {
+          "subject": "Match_VHL_23_24_Sokol_Buran",
+          "predicate": "played_by",
+          "object": "Sokol Krasnoyarsk"
+        },
+        {
+          "subject": "Match_VHL_23_24_Sokol_Buran",
+          "predicate": "played_by",
+          "object": "Buran Voronezh"
+        },
+        {
+          "subject": "Match_VHL_23_24_Sokol_Buran",
+          "predicate": "winner",
+          "object": "Sokol Krasnoyarsk"
+        },
+        {
+          "subject": "Match_VHL_23_24_Sokol_Buran",
+          "predicate": "has_final_score",
+          "object": "3-2"
+        },
+        {
+          "subject": "Match_VHL_23_24_Sokol_Buran",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 88,
+      "triples": [
+        {
+          "subject": "Match_AHL_23_24_Henderson_Tucson",
+          "predicate": "played_by",
+          "object": "Henderson Silver Knights"
+        },
+        {
+          "subject": "Match_AHL_23_24_Henderson_Tucson",
+          "predicate": "played_by",
+          "object": "Tucson Roadrunners"
+        },
+        {
+          "subject": "Match_AHL_23_24_Henderson_Tucson",
+          "predicate": "winner",
+          "object": "Henderson Silver Knights"
+        },
+        {
+          "subject": "Match_AHL_23_24_Henderson_Tucson",
+          "predicate": "has_final_score",
+          "object": "3-2"
+        },
+        {
+          "subject": "Match_AHL_23_24_Henderson_Tucson",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 89,
+      "triples": [
+        {
+          "subject": "Match_23_24_Deac_Vasas",
+          "predicate": "played_by",
+          "object": "Deac Jegkorong Akademia U20"
+        },
+        {
+          "subject": "Match_23_24_Deac_Vasas",
+          "predicate": "played_by",
+          "object": "Vasas Budapest Stars U20"
+        },
+        {
+          "subject": "Match_23_24_Deac_Vasas",
+          "predicate": "winner",
+          "object": "Deac Jegkorong Akademia U20"
+        },
+        {
+          "subject": "Match_23_24_Deac_Vasas",
+          "predicate": "has_final_score",
+          "object": "4-1"
+        },
+        {
+          "subject": "Match_23_24_Deac_Vasas",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_Deac_Vasas",
+          "predicate": "part_of_round",
+          "object": "League Stage 2"
+        }
+      ]
+    },
+    {
+      "instance_id": 90,
+      "triples": [
+        {
+          "subject": "Match_23_24_Lindlövens_IF_Forshaga_IF",
+          "predicate": "played_by",
+          "object": "Lindlövens IF"
+        },
+        {
+          "subject": "Match_23_24_Lindlövens_IF_Forshaga_IF",
+          "predicate": "played_by",
+          "object": "Forshaga IF"
+        },
+        {
+          "subject": "Match_23_24_Lindlövens_IF_Forshaga_IF",
+          "predicate": "winner",
+          "object": "Lindlövens IF"
+        },
+        {
+          "subject": "Match_23_24_Lindlövens_IF_Forshaga_IF",
+          "predicate": "has_final_score",
+          "object": "4-2"
+        },
+        {
+          "subject": "Match_23_24_Lindlövens_IF_Forshaga_IF",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_Lindlövens_IF_Forshaga_IF",
+          "predicate": "part_of_round",
+          "object": "14"
+        }
+      ]
+    },
+    {
+      "instance_id": 91,
+      "triples": [
+        {
+          "subject": "Match_23_24_CardiffDevils_FifeFlyers",
+          "predicate": "played_by",
+          "object": "Cardiff Devils"
+        },
+        {
+          "subject": "Match_23_24_CardiffDevils_FifeFlyers",
+          "predicate": "played_by",
+          "object": "Fife Flyers"
+        },
+        {
+          "subject": "Match_23_24_CardiffDevils_FifeFlyers",
+          "predicate": "winner",
+          "object": "Cardiff Devils"
+        },
+        {
+          "subject": "Match_23_24_CardiffDevils_FifeFlyers",
+          "predicate": "has_final_score",
+          "object": "6-0"
+        },
+        {
+          "subject": "Match_23_24_CardiffDevils_FifeFlyers",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 92,
+      "triples": [
+        {
+          "subject": "Match_23_24_AlvestaSK_MorrumGoisIK",
+          "predicate": "played_by",
+          "object": "Alvesta SK"
+        },
+        {
+          "subject": "Match_23_24_AlvestaSK_MorrumGoisIK",
+          "predicate": "played_by",
+          "object": "Mörrum Gois IK"
+        },
+        {
+          "subject": "Match_23_24_AlvestaSK_MorrumGoisIK",
+          "predicate": "winner",
+          "object": "Alvesta SK"
+        },
+        {
+          "subject": "Match_23_24_AlvestaSK_MorrumGoisIK",
+          "predicate": "has_final_score",
+          "object": "6-2"
+        },
+        {
+          "subject": "Match_23_24_AlvestaSK_MorrumGoisIK",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_AlvestaSK_MorrumGoisIK",
+          "predicate": "part_of_round",
+          "object": "14"
+        }
+      ]
+    },
+    {
+      "instance_id": 93,
+      "triples": [
+        {
+          "subject": "Match_23_24_HC_Kosice_HK_Nitra",
+          "predicate": "played_by",
+          "object": "HC Košice"
+        },
+        {
+          "subject": "Match_23_24_HC_Kosice_HK_Nitra",
+          "predicate": "played_by",
+          "object": "HK Nitra"
+        },
+        {
+          "subject": "Match_23_24_HC_Kosice_HK_Nitra",
+          "predicate": "winner",
+          "object": "HC Košice"
+        },
+        {
+          "subject": "Match_23_24_HC_Kosice_HK_Nitra",
+          "predicate": "has_final_score",
+          "object": "4-0"
+        },
+        {
+          "subject": "Match_23_24_HC_Kosice_HK_Nitra",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_HC_Kosice_HK_Nitra",
+          "predicate": "part_of_round",
+          "object": "21"
+        }
+      ]
+    },
+    {
+      "instance_id": 94,
+      "triples": [
+        {
+          "subject": "Match_23_24_FTC_Gyergyoi",
+          "predicate": "played_by",
+          "object": "FTC-Telekom"
+        },
+        {
+          "subject": "Match_23_24_FTC_Gyergyoi",
+          "predicate": "played_by",
+          "object": "Gyergyói HK"
+        },
+        {
+          "subject": "Match_23_24_FTC_Gyergyoi",
+          "predicate": "winner",
+          "object": "FTC-Telekom"
+        },
+        {
+          "subject": "Match_23_24_FTC_Gyergyoi",
+          "predicate": "has_final_score",
+          "object": "4-1"
+        },
+        {
+          "subject": "Match_23_24_FTC_Gyergyoi",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_FTC_Gyergyoi",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 95,
+      "triples": [
+        {
+          "subject": "Match_VHL_23_24_Chelmet_Dizel",
+          "predicate": "played_by",
+          "object": "Chelmet Chelyabinsk"
+        },
+        {
+          "subject": "Match_VHL_23_24_Chelmet_Dizel",
+          "predicate": "played_by",
+          "object": "Dizel Penza"
+        },
+        {
+          "subject": "Match_VHL_23_24_Chelmet_Dizel",
+          "predicate": "winner",
+          "object": "Chelmet Chelyabinsk"
+        },
+        {
+          "subject": "Match_VHL_23_24_Chelmet_Dizel",
+          "predicate": "has_final_score",
+          "object": "4-1"
+        },
+        {
+          "subject": "Match_VHL_23_24_Chelmet_Dizel",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 96,
+      "triples": [
+        {
+          "subject": "Match_MHL_23_24_BelyeMedvedi_Chaika",
+          "predicate": "played_by",
+          "object": "Belye Medvedi"
+        },
+        {
+          "subject": "Match_MHL_23_24_BelyeMedvedi_Chaika",
+          "predicate": "played_by",
+          "object": "Chaika Nizhny Novgorod"
+        },
+        {
+          "subject": "Match_MHL_23_24_BelyeMedvedi_Chaika",
+          "predicate": "winner",
+          "object": "Belye Medvedi"
+        },
+        {
+          "subject": "Match_MHL_23_24_BelyeMedvedi_Chaika",
+          "predicate": "has_final_score",
+          "object": "4-1"
+        },
+        {
+          "subject": "Match_MHL_23_24_BelyeMedvedi_Chaika",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_MHL_23_24_BelyeMedvedi_Chaika",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 97,
+      "triples": [
+        {
+          "subject": "Match_AHL_23_24_Hershey_Iowa",
+          "predicate": "played_by",
+          "object": "Hershey Bears"
+        },
+        {
+          "subject": "Match_AHL_23_24_Hershey_Iowa",
+          "predicate": "played_by",
+          "object": "Iowa Wild"
+        },
+        {
+          "subject": "Match_AHL_23_24_Hershey_Iowa",
+          "predicate": "winner",
+          "object": "Hershey Bears"
+        },
+        {
+          "subject": "Match_AHL_23_24_Hershey_Iowa",
+          "predicate": "has_final_score",
+          "object": "2-1"
+        },
+        {
+          "subject": "Match_AHL_23_24_Hershey_Iowa",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_AHL_23_24_Hershey_Iowa",
+          "predicate": "part_of_round",
+          "object": "1"
+        }
+      ]
+    },
+    {
+      "instance_id": 98,
+      "triples": [
+        {
+          "subject": "Match_23_24_Vimmerby_Halmstad",
+          "predicate": "played_by",
+          "object": "Vimmerby HC"
+        },
+        {
+          "subject": "Match_23_24_Vimmerby_Halmstad",
+          "predicate": "played_by",
+          "object": "Halmstad Hammers HC"
+        },
+        {
+          "subject": "Match_23_24_Vimmerby_Halmstad",
+          "predicate": "winner",
+          "object": "Vimmerby HC"
+        },
+        {
+          "subject": "Match_23_24_Vimmerby_Halmstad",
+          "predicate": "has_final_score",
+          "object": "4-3"
+        },
+        {
+          "subject": "Match_23_24_Vimmerby_Halmstad",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_Vimmerby_Halmstad",
+          "predicate": "part_of_round",
+          "object": "14"
+        }
+      ]
+    },
+    {
+      "instance_id": 99,
+      "triples": [
+        {
+          "subject": "Match_23_24_Slovan_NoveZamky",
+          "predicate": "played_by",
+          "object": "HC Slovan Bratislava"
+        },
+        {
+          "subject": "Match_23_24_Slovan_NoveZamky",
+          "predicate": "played_by",
+          "object": "HC Nové Zámky"
+        },
+        {
+          "subject": "Match_23_24_Slovan_NoveZamky",
+          "predicate": "winner",
+          "object": "HC Slovan Bratislava"
+        },
+        {
+          "subject": "Match_23_24_Slovan_NoveZamky",
+          "predicate": "has_final_score",
+          "object": "5-2"
+        },
+        {
+          "subject": "Match_23_24_Slovan_NoveZamky",
+          "predicate": "part_of_season",
+          "object": "23/24"
+        },
+        {
+          "subject": "Match_23_24_Slovan_NoveZamky",
+          "predicate": "part_of_round",
+          "object": "21"
+        }
+      ]
+    }
+  ],
+  "all_triples": [
+    {
+      "subject": "Match_NHL_23_24_CAR_CBJ",
+      "predicate": "played_by",
+      "object": "Carolina Hurricanes"
+    },
+    {
+      "subject": "Match_NHL_23_24_CAR_CBJ",
+      "predicate": "played_by",
+      "object": "Columbus Blue Jackets"
+    },
+    {
+      "subject": "Match_NHL_23_24_CAR_CBJ",
+      "predicate": "winner",
+      "object": "Carolina Hurricanes"
+    },
+    {
+      "subject": "Match_NHL_23_24_CAR_CBJ",
+      "predicate": "has_final_score",
+      "object": "3-2"
+    },
+    {
+      "subject": "Match_NHL_23_24_CAR_CBJ",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_KHL_23_24_Spartak_Avtomobilist",
+      "predicate": "played_by",
+      "object": "Spartak Moscow"
+    },
+    {
+      "subject": "Match_KHL_23_24_Spartak_Avtomobilist",
+      "predicate": "played_by",
+      "object": "Avtomobilist Yekaterinburg"
+    },
+    {
+      "subject": "Match_KHL_23_24_Spartak_Avtomobilist",
+      "predicate": "winner",
+      "object": "Spartak Moscow"
+    },
+    {
+      "subject": "Match_KHL_23_24_Spartak_Avtomobilist",
+      "predicate": "has_final_score",
+      "object": "4-1"
+    },
+    {
+      "subject": "Match_KHL_23_24_Spartak_Avtomobilist",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_KHL_23_24_Spartak_Avtomobilist",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+      "predicate": "played_by",
+      "object": "Stalnye Lisy"
+    },
+    {
+      "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+      "predicate": "played_by",
+      "object": "Irbis Kazan"
+    },
+    {
+      "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+      "predicate": "winner",
+      "object": "Stalnye Lisy"
+    },
+    {
+      "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+      "predicate": "has_final_score",
+      "object": "4-3"
+    },
+    {
+      "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_23_24_MoraIK_AlmtunaIS",
+      "predicate": "played_by",
+      "object": "Mora IK"
+    },
+    {
+      "subject": "Match_23_24_MoraIK_AlmtunaIS",
+      "predicate": "played_by",
+      "object": "Almtuna IS"
+    },
+    {
+      "subject": "Match_23_24_MoraIK_AlmtunaIS",
+      "predicate": "winner",
+      "object": "Mora IK"
+    },
+    {
+      "subject": "Match_23_24_MoraIK_AlmtunaIS",
+      "predicate": "has_final_score",
+      "object": "6-0"
+    },
+    {
+      "subject": "Match_23_24_MoraIK_AlmtunaIS",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_MoraIK_AlmtunaIS",
+      "predicate": "part_of_round",
+      "object": "19"
+    },
+    {
+      "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+      "predicate": "played_by",
+      "object": "Stalnye Lisy"
+    },
+    {
+      "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+      "predicate": "played_by",
+      "object": "Irbis Kazan"
+    },
+    {
+      "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+      "predicate": "winner",
+      "object": "Stalnye Lisy"
+    },
+    {
+      "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+      "predicate": "has_final_score",
+      "object": "5-3"
+    },
+    {
+      "subject": "Match_MHL_23_24_StalnyeLisy_IrbisKazan",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_FaluIF_MariestadsBOIS",
+      "predicate": "played_by",
+      "object": "Falu IF"
+    },
+    {
+      "subject": "Match_23_24_FaluIF_MariestadsBOIS",
+      "predicate": "played_by",
+      "object": "Mariestads BOIS"
+    },
+    {
+      "subject": "Match_23_24_FaluIF_MariestadsBOIS",
+      "predicate": "winner",
+      "object": "Falu IF"
+    },
+    {
+      "subject": "Match_23_24_FaluIF_MariestadsBOIS",
+      "predicate": "has_final_score",
+      "object": "5-4"
+    },
+    {
+      "subject": "Match_23_24_FaluIF_MariestadsBOIS",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_FaluIF_MariestadsBOIS",
+      "predicate": "part_of_round",
+      "object": "14"
+    },
+    {
+      "subject": "Match_23_24_ICEHL_Innsbruck_VSV",
+      "predicate": "played_by",
+      "object": "HC TWK Innsbruck"
+    },
+    {
+      "subject": "Match_23_24_ICEHL_Innsbruck_VSV",
+      "predicate": "played_by",
+      "object": "EC VSV"
+    },
+    {
+      "subject": "Match_23_24_ICEHL_Innsbruck_VSV",
+      "predicate": "winner",
+      "object": "HC TWK Innsbruck"
+    },
+    {
+      "subject": "Match_23_24_ICEHL_Innsbruck_VSV",
+      "predicate": "has_final_score",
+      "object": "3-2"
+    },
+    {
+      "subject": "Match_23_24_ICEHL_Innsbruck_VSV",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_ICEHL_Innsbruck_VSV",
+      "predicate": "part_of_round",
+      "object": "24"
+    },
+    {
+      "subject": "Match_23_24_GKS_Tychy_Unia_Oswiecim",
+      "predicate": "played_by",
+      "object": "GKS Tychy"
+    },
+    {
+      "subject": "Match_23_24_GKS_Tychy_Unia_Oswiecim",
+      "predicate": "played_by",
+      "object": "Unia Oświęcim"
+    },
+    {
+      "subject": "Match_23_24_GKS_Tychy_Unia_Oswiecim",
+      "predicate": "winner",
+      "object": "GKS Tychy"
+    },
+    {
+      "subject": "Match_23_24_GKS_Tychy_Unia_Oswiecim",
+      "predicate": "has_final_score",
+      "object": "5-4"
+    },
+    {
+      "subject": "Match_23_24_GKS_Tychy_Unia_Oswiecim",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_GKS_Tychy_Unia_Oswiecim",
+      "predicate": "part_of_round",
+      "object": "22"
+    },
+    {
+      "subject": "Match_23_24_Podhale_JKH",
+      "predicate": "played_by",
+      "object": "TAURON Podhale Nowy Targ"
+    },
+    {
+      "subject": "Match_23_24_Podhale_JKH",
+      "predicate": "played_by",
+      "object": "JKH GKS Jastrzębie"
+    },
+    {
+      "subject": "Match_23_24_Podhale_JKH",
+      "predicate": "winner",
+      "object": "TAURON Podhale Nowy Targ"
+    },
+    {
+      "subject": "Match_23_24_Podhale_JKH",
+      "predicate": "has_final_score",
+      "object": "10-3"
+    },
+    {
+      "subject": "Match_23_24_Podhale_JKH",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Podhale_JKH",
+      "predicate": "part_of_round",
+      "object": "22"
+    },
+    {
+      "subject": "Match_KHL_23_24_Vityaz_Barys",
+      "predicate": "played_by",
+      "object": "Vityaz Podolsk"
+    },
+    {
+      "subject": "Match_KHL_23_24_Vityaz_Barys",
+      "predicate": "played_by",
+      "object": "Barys Astana"
+    },
+    {
+      "subject": "Match_KHL_23_24_Vityaz_Barys",
+      "predicate": "winner",
+      "object": "Vityaz Podolsk"
+    },
+    {
+      "subject": "Match_KHL_23_24_Vityaz_Barys",
+      "predicate": "has_final_score",
+      "object": "5-2"
+    },
+    {
+      "subject": "Match_KHL_23_24_Vityaz_Barys",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_KHL_23_24_Vityaz_Barys",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_AHL_23_24_Bridgeport_Belleville",
+      "predicate": "played_by",
+      "object": "Bridgeport Islanders"
+    },
+    {
+      "subject": "Match_AHL_23_24_Bridgeport_Belleville",
+      "predicate": "played_by",
+      "object": "Belleville Senators"
+    },
+    {
+      "subject": "Match_AHL_23_24_Bridgeport_Belleville",
+      "predicate": "winner",
+      "object": "Bridgeport Islanders"
+    },
+    {
+      "subject": "Match_AHL_23_24_Bridgeport_Belleville",
+      "predicate": "has_final_score",
+      "object": "4-2"
+    },
+    {
+      "subject": "Match_AHL_23_24_Bridgeport_Belleville",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_AHL_23_24_Bridgeport_Belleville",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_KHL_23_24_Traktor_Torpedo",
+      "predicate": "played_by",
+      "object": "Traktor Chelyabinsk"
+    },
+    {
+      "subject": "Match_KHL_23_24_Traktor_Torpedo",
+      "predicate": "played_by",
+      "object": "Torpedo Nizhny Novgorod"
+    },
+    {
+      "subject": "Match_KHL_23_24_Traktor_Torpedo",
+      "predicate": "winner",
+      "object": "Traktor Chelyabinsk"
+    },
+    {
+      "subject": "Match_KHL_23_24_Traktor_Torpedo",
+      "predicate": "has_final_score",
+      "object": "2-1"
+    },
+    {
+      "subject": "Match_KHL_23_24_Traktor_Torpedo",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_KHL_23_24_Traktor_Torpedo",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_ICE_23_24_Graz_Vienna",
+      "predicate": "played_by",
+      "object": "Graz 99ers"
+    },
+    {
+      "subject": "Match_ICE_23_24_Graz_Vienna",
+      "predicate": "played_by",
+      "object": "Vienna Capitals"
+    },
+    {
+      "subject": "Match_ICE_23_24_Graz_Vienna",
+      "predicate": "winner",
+      "object": "Graz 99ers"
+    },
+    {
+      "subject": "Match_ICE_23_24_Graz_Vienna",
+      "predicate": "has_final_score",
+      "object": "4-3"
+    },
+    {
+      "subject": "Match_ICE_23_24_Graz_Vienna",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_ICE_23_24_Graz_Vienna",
+      "predicate": "part_of_round",
+      "object": "24"
+    },
+    {
+      "subject": "Match_SDHL_23_24_Modo_Leksands",
+      "predicate": "played_by",
+      "object": "Modo Hockey"
+    },
+    {
+      "subject": "Match_SDHL_23_24_Modo_Leksands",
+      "predicate": "played_by",
+      "object": "Leksands IF"
+    },
+    {
+      "subject": "Match_SDHL_23_24_Modo_Leksands",
+      "predicate": "winner",
+      "object": "Modo Hockey"
+    },
+    {
+      "subject": "Match_SDHL_23_24_Modo_Leksands",
+      "predicate": "has_final_score",
+      "object": "3-1"
+    },
+    {
+      "subject": "Match_SDHL_23_24_Modo_Leksands",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_SDHL_23_24_Modo_Leksands",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_23_24_Round22_Katowice_Cracovia",
+      "predicate": "played_by",
+      "object": "Tauron KH GKS Katowice"
+    },
+    {
+      "subject": "Match_23_24_Round22_Katowice_Cracovia",
+      "predicate": "played_by",
+      "object": "Comarch Cracovia"
+    },
+    {
+      "subject": "Match_23_24_Round22_Katowice_Cracovia",
+      "predicate": "winner",
+      "object": "Tauron KH GKS Katowice"
+    },
+    {
+      "subject": "Match_23_24_Round22_Katowice_Cracovia",
+      "predicate": "has_final_score",
+      "object": "7-2"
+    },
+    {
+      "subject": "Match_23_24_Round22_Katowice_Cracovia",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Round22_Katowice_Cracovia",
+      "predicate": "part_of_round",
+      "object": "22"
+    },
+    {
+      "subject": "Match_23_24_Olomouc_KometaBrno",
+      "predicate": "played_by",
+      "object": "HC Olomouc"
+    },
+    {
+      "subject": "Match_23_24_Olomouc_KometaBrno",
+      "predicate": "played_by",
+      "object": "HC Kometa Brno"
+    },
+    {
+      "subject": "Match_23_24_Olomouc_KometaBrno",
+      "predicate": "winner",
+      "object": "HC Olomouc"
+    },
+    {
+      "subject": "Match_23_24_Olomouc_KometaBrno",
+      "predicate": "has_final_score",
+      "object": "3-1"
+    },
+    {
+      "subject": "Match_23_24_Olomouc_KometaBrno",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Olomouc_KometaBrno",
+      "predicate": "part_of_round",
+      "object": "22"
+    },
+    {
+      "subject": "Match_23_24_Boston_College_Harvard",
+      "predicate": "played_by",
+      "object": "Boston College Eagles"
+    },
+    {
+      "subject": "Match_23_24_Boston_College_Harvard",
+      "predicate": "played_by",
+      "object": "Harvard University"
+    },
+    {
+      "subject": "Match_23_24_Boston_College_Harvard",
+      "predicate": "winner",
+      "object": "Boston College Eagles"
+    },
+    {
+      "subject": "Match_23_24_Boston_College_Harvard",
+      "predicate": "has_final_score",
+      "object": "4-1"
+    },
+    {
+      "subject": "Match_23_24_Boston_College_Harvard",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Frýdek-Místek_Litoměřice",
+      "predicate": "played_by",
+      "object": "HC Frýdek-Místek"
+    },
+    {
+      "subject": "Match_23_24_Frýdek-Místek_Litoměřice",
+      "predicate": "played_by",
+      "object": "HC Stadion Litoměřice"
+    },
+    {
+      "subject": "Match_23_24_Frýdek-Místek_Litoměřice",
+      "predicate": "winner",
+      "object": "HC Frýdek-Místek"
+    },
+    {
+      "subject": "Match_23_24_Frýdek-Místek_Litoměřice",
+      "predicate": "has_final_score",
+      "object": "4-0"
+    },
+    {
+      "subject": "Match_23_24_Frýdek-Místek_Litoměřice",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Frýdek-Místek_Litoměřice",
+      "predicate": "part_of_round",
+      "object": "25"
+    },
+    {
+      "subject": "Match_AHL_23_24_Abbotsford_Calgary",
+      "predicate": "played_by",
+      "object": "Abbotsford Canucks"
+    },
+    {
+      "subject": "Match_AHL_23_24_Abbotsford_Calgary",
+      "predicate": "played_by",
+      "object": "Calgary Wranglers"
+    },
+    {
+      "subject": "Match_AHL_23_24_Abbotsford_Calgary",
+      "predicate": "winner",
+      "object": "Abbotsford Canucks"
+    },
+    {
+      "subject": "Match_AHL_23_24_Abbotsford_Calgary",
+      "predicate": "has_final_score",
+      "object": "7-2"
+    },
+    {
+      "subject": "Match_AHL_23_24_Abbotsford_Calgary",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_BelfastGiants_NottinghamPanthers",
+      "predicate": "played_by",
+      "object": "Belfast Giants"
+    },
+    {
+      "subject": "Match_23_24_BelfastGiants_NottinghamPanthers",
+      "predicate": "played_by",
+      "object": "Nottingham Panthers"
+    },
+    {
+      "subject": "Match_23_24_BelfastGiants_NottinghamPanthers",
+      "predicate": "winner",
+      "object": "Belfast Giants"
+    },
+    {
+      "subject": "Match_23_24_BelfastGiants_NottinghamPanthers",
+      "predicate": "has_final_score",
+      "object": "4-2"
+    },
+    {
+      "subject": "Match_23_24_BelfastGiants_NottinghamPanthers",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_23_24_BelfastGiants_NottinghamPanthers",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Steelers_Flames",
+      "predicate": "played_by",
+      "object": "Sheffield Steelers"
+    },
+    {
+      "subject": "Match_23_24_Steelers_Flames",
+      "predicate": "played_by",
+      "object": "Guildford Flames"
+    },
+    {
+      "subject": "Match_23_24_Steelers_Flames",
+      "predicate": "winner",
+      "object": "Sheffield Steelers"
+    },
+    {
+      "subject": "Match_23_24_Steelers_Flames",
+      "predicate": "has_final_score",
+      "object": "6-2"
+    },
+    {
+      "subject": "Match_23_24_Steelers_Flames",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_DEL_23_24_Iserlohn_Berlin",
+      "predicate": "played_by",
+      "object": "Iserlohn Roosters"
+    },
+    {
+      "subject": "Match_DEL_23_24_Iserlohn_Berlin",
+      "predicate": "played_by",
+      "object": "Eisbären Berlin"
+    },
+    {
+      "subject": "Match_DEL_23_24_Iserlohn_Berlin",
+      "predicate": "winner",
+      "object": "Iserlohn Roosters"
+    },
+    {
+      "subject": "Match_DEL_23_24_Iserlohn_Berlin",
+      "predicate": "has_final_score",
+      "object": "3-0"
+    },
+    {
+      "subject": "Match_DEL_23_24_Iserlohn_Berlin",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_DEL_23_24_Iserlohn_Berlin",
+      "predicate": "part_of_round",
+      "object": "22"
+    },
+    {
+      "subject": "Match_OHL_23_24_Petes_Wolves",
+      "predicate": "played_by",
+      "object": "Peterborough Petes"
+    },
+    {
+      "subject": "Match_OHL_23_24_Petes_Wolves",
+      "predicate": "played_by",
+      "object": "Sudbury Wolves"
+    },
+    {
+      "subject": "Match_OHL_23_24_Petes_Wolves",
+      "predicate": "winner",
+      "object": "Peterborough Petes"
+    },
+    {
+      "subject": "Match_OHL_23_24_Petes_Wolves",
+      "predicate": "has_final_score",
+      "object": "5-3"
+    },
+    {
+      "subject": "Match_OHL_23_24_Petes_Wolves",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_SHL_23_24_Rogle_Malmo",
+      "predicate": "played_by",
+      "object": "Rögle BK"
+    },
+    {
+      "subject": "Match_SHL_23_24_Rogle_Malmo",
+      "predicate": "played_by",
+      "object": "Malmö Redhawks"
+    },
+    {
+      "subject": "Match_SHL_23_24_Rogle_Malmo",
+      "predicate": "winner",
+      "object": "Rögle BK"
+    },
+    {
+      "subject": "Match_SHL_23_24_Rogle_Malmo",
+      "predicate": "has_final_score",
+      "object": "4-0"
+    },
+    {
+      "subject": "Match_SHL_23_24_Rogle_Malmo",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_SHL_23_24_Rogle_Malmo",
+      "predicate": "part_of_round",
+      "object": "20"
+    },
+    {
+      "subject": "Match_NCAA_Providence_ASU",
+      "predicate": "played_by",
+      "object": "Providence Friars"
+    },
+    {
+      "subject": "Match_NCAA_Providence_ASU",
+      "predicate": "played_by",
+      "object": "Arizona State Sun Devils"
+    },
+    {
+      "subject": "Match_NCAA_Providence_ASU",
+      "predicate": "winner",
+      "object": "Providence Friars"
+    },
+    {
+      "subject": "Match_NCAA_Providence_ASU",
+      "predicate": "has_final_score",
+      "object": "2-1"
+    },
+    {
+      "subject": "Match_23_24_Erfurt_Duisburg",
+      "predicate": "played_by",
+      "object": "EHC Erfurt"
+    },
+    {
+      "subject": "Match_23_24_Erfurt_Duisburg",
+      "predicate": "played_by",
+      "object": "Fuchse Duisburg"
+    },
+    {
+      "subject": "Match_23_24_Erfurt_Duisburg",
+      "predicate": "winner",
+      "object": "EHC Erfurt"
+    },
+    {
+      "subject": "Match_23_24_Erfurt_Duisburg",
+      "predicate": "has_final_score",
+      "object": "4-3"
+    },
+    {
+      "subject": "Match_23_24_Erfurt_Duisburg",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Erfurt_Duisburg",
+      "predicate": "part_of_round",
+      "object": "18"
+    },
+    {
+      "subject": "Match_QMJHL_23_24_Halifax_Moncton",
+      "predicate": "played_by",
+      "object": "Halifax Mooseheads"
+    },
+    {
+      "subject": "Match_QMJHL_23_24_Halifax_Moncton",
+      "predicate": "played_by",
+      "object": "Moncton Wildcats"
+    },
+    {
+      "subject": "Match_QMJHL_23_24_Halifax_Moncton",
+      "predicate": "winner",
+      "object": "Halifax Mooseheads"
+    },
+    {
+      "subject": "Match_QMJHL_23_24_Halifax_Moncton",
+      "predicate": "has_final_score",
+      "object": "4-0"
+    },
+    {
+      "subject": "Match_QMJHL_23_24_Halifax_Moncton",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_HC_Motor_České_Budějovice_HC_Verva_Litvínov",
+      "predicate": "played_by",
+      "object": "HC Motor České Budějovice"
+    },
+    {
+      "subject": "Match_23_24_HC_Motor_České_Budějovice_HC_Verva_Litvínov",
+      "predicate": "played_by",
+      "object": "HC Verva Litvínov"
+    },
+    {
+      "subject": "Match_23_24_HC_Motor_České_Budějovice_HC_Verva_Litvínov",
+      "predicate": "winner",
+      "object": "HC Motor České Budějovice"
+    },
+    {
+      "subject": "Match_23_24_HC_Motor_České_Budějovice_HC_Verva_Litvínov",
+      "predicate": "has_final_score",
+      "object": "1-0"
+    },
+    {
+      "subject": "Match_23_24_HC_Motor_České_Budějovice_HC_Verva_Litvínov",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_HC_Motor_České_Budějovice_HC_Verva_Litvínov",
+      "predicate": "part_of_round",
+      "object": "22"
+    },
+    {
+      "subject": "Match_23_24_MiamiOhioRedhawks_MercyhurstLakers",
+      "predicate": "played_by",
+      "object": "Miami Ohio Redhawks"
+    },
+    {
+      "subject": "Match_23_24_MiamiOhioRedhawks_MercyhurstLakers",
+      "predicate": "played_by",
+      "object": "Mercyhurst Lakers"
+    },
+    {
+      "subject": "Match_23_24_MiamiOhioRedhawks_MercyhurstLakers",
+      "predicate": "winner",
+      "object": "Miami Ohio Redhawks"
+    },
+    {
+      "subject": "Match_23_24_MiamiOhioRedhawks_MercyhurstLakers",
+      "predicate": "has_final_score",
+      "object": "2-0"
+    },
+    {
+      "subject": "Match_23_24_MiamiOhioRedhawks_MercyhurstLakers",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_QMJHL_23_24_Voltigeurs_Cataractes",
+      "predicate": "played_by",
+      "object": "Drummondville Voltigeurs"
+    },
+    {
+      "subject": "Match_QMJHL_23_24_Voltigeurs_Cataractes",
+      "predicate": "played_by",
+      "object": "Shawinigan Cataractes"
+    },
+    {
+      "subject": "Match_QMJHL_23_24_Voltigeurs_Cataractes",
+      "predicate": "winner",
+      "object": "Drummondville Voltigeurs"
+    },
+    {
+      "subject": "Match_QMJHL_23_24_Voltigeurs_Cataractes",
+      "predicate": "has_final_score",
+      "object": "3-1"
+    },
+    {
+      "subject": "Match_QMJHL_23_24_Voltigeurs_Cataractes",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_VHL_23_24_Ryazan_Chelny",
+      "predicate": "played_by",
+      "object": "HK Ryazan"
+    },
+    {
+      "subject": "Match_VHL_23_24_Ryazan_Chelny",
+      "predicate": "played_by",
+      "object": "HC Chelny"
+    },
+    {
+      "subject": "Match_VHL_23_24_Ryazan_Chelny",
+      "predicate": "winner",
+      "object": "HK Ryazan"
+    },
+    {
+      "subject": "Match_VHL_23_24_Ryazan_Chelny",
+      "predicate": "has_final_score",
+      "object": "3-1"
+    },
+    {
+      "subject": "Match_VHL_23_24_Ryazan_Chelny",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Neman_Shakhter",
+      "predicate": "played_by",
+      "object": "Neman Grodno"
+    },
+    {
+      "subject": "Match_23_24_Neman_Shakhter",
+      "predicate": "played_by",
+      "object": "Shakhter Soligorsk"
+    },
+    {
+      "subject": "Match_23_24_Neman_Shakhter",
+      "predicate": "winner",
+      "object": "Neman Grodno"
+    },
+    {
+      "subject": "Match_23_24_Neman_Shakhter",
+      "predicate": "has_final_score",
+      "object": "3-2"
+    },
+    {
+      "subject": "Match_23_24_Neman_Shakhter",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Vitebsk_Khimik",
+      "predicate": "played_by",
+      "object": "HK Vitebsk"
+    },
+    {
+      "subject": "Match_23_24_Vitebsk_Khimik",
+      "predicate": "played_by",
+      "object": "Khimik-SKA Novopolotsk"
+    },
+    {
+      "subject": "Match_23_24_Vitebsk_Khimik",
+      "predicate": "winner",
+      "object": "HK Vitebsk"
+    },
+    {
+      "subject": "Match_23_24_Vitebsk_Khimik",
+      "predicate": "has_final_score",
+      "object": "6-1"
+    },
+    {
+      "subject": "Match_23_24_Vitebsk_Khimik",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Vitebsk_Khimik",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_23_24_ZUBR_Berani",
+      "predicate": "played_by",
+      "object": "HC ZUBR Přerov"
+    },
+    {
+      "subject": "Match_23_24_ZUBR_Berani",
+      "predicate": "played_by",
+      "object": "PSG Berani Zlín"
+    },
+    {
+      "subject": "Match_23_24_ZUBR_Berani",
+      "predicate": "winner",
+      "object": "HC ZUBR Přerov"
+    },
+    {
+      "subject": "Match_23_24_ZUBR_Berani",
+      "predicate": "has_final_score",
+      "object": "3-2"
+    },
+    {
+      "subject": "Match_23_24_ZUBR_Berani",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_BIK_Karlskoga_Ostersunds_IK",
+      "predicate": "played_by",
+      "object": "BIK Karlskoga"
+    },
+    {
+      "subject": "Match_23_24_BIK_Karlskoga_Ostersunds_IK",
+      "predicate": "played_by",
+      "object": "Östersunds IK"
+    },
+    {
+      "subject": "Match_23_24_BIK_Karlskoga_Ostersunds_IK",
+      "predicate": "winner",
+      "object": "BIK Karlskoga"
+    },
+    {
+      "subject": "Match_23_24_BIK_Karlskoga_Ostersunds_IK",
+      "predicate": "has_final_score",
+      "object": "2-1"
+    },
+    {
+      "subject": "Match_23_24_BIK_Karlskoga_Ostersunds_IK",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_BIK_Karlskoga_Ostersunds_IK",
+      "predicate": "part_of_round",
+      "object": "19"
+    },
+    {
+      "subject": "Match_OHL_23_24_Sudbury_Oshawa",
+      "predicate": "played_by",
+      "object": "Sudbury Wolves"
+    },
+    {
+      "subject": "Match_OHL_23_24_Sudbury_Oshawa",
+      "predicate": "played_by",
+      "object": "Oshawa Generals"
+    },
+    {
+      "subject": "Match_OHL_23_24_Sudbury_Oshawa",
+      "predicate": "winner",
+      "object": "Sudbury Wolves"
+    },
+    {
+      "subject": "Match_OHL_23_24_Sudbury_Oshawa",
+      "predicate": "has_final_score",
+      "object": "7-5"
+    },
+    {
+      "subject": "Match_OHL_23_24_Sudbury_Oshawa",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_VHL_23_24_MolotPerm_SKANeva",
+      "predicate": "played_by",
+      "object": "Molot Perm"
+    },
+    {
+      "subject": "Match_VHL_23_24_MolotPerm_SKANeva",
+      "predicate": "played_by",
+      "object": "SKA-Neva"
+    },
+    {
+      "subject": "Match_VHL_23_24_MolotPerm_SKANeva",
+      "predicate": "winner",
+      "object": "Molot Perm"
+    },
+    {
+      "subject": "Match_VHL_23_24_MolotPerm_SKANeva",
+      "predicate": "has_final_score",
+      "object": "2-0"
+    },
+    {
+      "subject": "Match_VHL_23_24_MolotPerm_SKANeva",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_BodensHF_HudiksvallsHC",
+      "predicate": "played_by",
+      "object": "Bodens HF"
+    },
+    {
+      "subject": "Match_23_24_BodensHF_HudiksvallsHC",
+      "predicate": "played_by",
+      "object": "Hudiksvalls HC"
+    },
+    {
+      "subject": "Match_23_24_BodensHF_HudiksvallsHC",
+      "predicate": "winner",
+      "object": "Bodens HF"
+    },
+    {
+      "subject": "Match_23_24_BodensHF_HudiksvallsHC",
+      "predicate": "has_final_score",
+      "object": "4-1"
+    },
+    {
+      "subject": "Match_23_24_BodensHF_HudiksvallsHC",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_BodensHF_HudiksvallsHC",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_23_24_RittnerBuam_EHCLustenau",
+      "predicate": "played_by",
+      "object": "Rittner Buam"
+    },
+    {
+      "subject": "Match_23_24_RittnerBuam_EHCLustenau",
+      "predicate": "played_by",
+      "object": "EHC Lustenau"
+    },
+    {
+      "subject": "Match_23_24_RittnerBuam_EHCLustenau",
+      "predicate": "winner",
+      "object": "Rittner Buam"
+    },
+    {
+      "subject": "Match_23_24_RittnerBuam_EHCLustenau",
+      "predicate": "has_final_score",
+      "object": "7-3"
+    },
+    {
+      "subject": "Match_23_24_RittnerBuam_EHCLustenau",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_RittnerBuam_EHCLustenau",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_23_24_DuklaJihlava_BanikSokolov",
+      "predicate": "played_by",
+      "object": "HC Dukla Jihlava"
+    },
+    {
+      "subject": "Match_23_24_DuklaJihlava_BanikSokolov",
+      "predicate": "played_by",
+      "object": "HC Banik Sokolov"
+    },
+    {
+      "subject": "Match_23_24_DuklaJihlava_BanikSokolov",
+      "predicate": "winner",
+      "object": "HC Dukla Jihlava"
+    },
+    {
+      "subject": "Match_23_24_DuklaJihlava_BanikSokolov",
+      "predicate": "has_final_score",
+      "object": "4-1"
+    },
+    {
+      "subject": "Match_23_24_DuklaJihlava_BanikSokolov",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_DuklaJihlava_BanikSokolov",
+      "predicate": "part_of_round",
+      "object": "25"
+    },
+    {
+      "subject": "Match_23_24_EVLandshut_BietigheimSteelers",
+      "predicate": "played_by",
+      "object": "EV Landshut"
+    },
+    {
+      "subject": "Match_23_24_EVLandshut_BietigheimSteelers",
+      "predicate": "played_by",
+      "object": "Bietigheim Steelers"
+    },
+    {
+      "subject": "Match_23_24_EVLandshut_BietigheimSteelers",
+      "predicate": "winner",
+      "object": "EV Landshut"
+    },
+    {
+      "subject": "Match_23_24_EVLandshut_BietigheimSteelers",
+      "predicate": "has_final_score",
+      "object": "4-2"
+    },
+    {
+      "subject": "Match_23_24_EVLandshut_BietigheimSteelers",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_EVLandshut_BietigheimSteelers",
+      "predicate": "part_of_round",
+      "object": "21"
+    },
+    {
+      "subject": "Match_WHL_23_24_Biryusa_Tornado",
+      "predicate": "played_by",
+      "object": "Biryusa Krasnoyarsk"
+    },
+    {
+      "subject": "Match_WHL_23_24_Biryusa_Tornado",
+      "predicate": "played_by",
+      "object": "Tornado Dmitrov"
+    },
+    {
+      "subject": "Match_WHL_23_24_Biryusa_Tornado",
+      "predicate": "winner",
+      "object": "Biryusa Krasnoyarsk"
+    },
+    {
+      "subject": "Match_WHL_23_24_Biryusa_Tornado",
+      "predicate": "has_final_score",
+      "object": "3-1"
+    },
+    {
+      "subject": "Match_WHL_23_24_Biryusa_Tornado",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_NHL_23_24_DET_MIN",
+      "predicate": "played_by",
+      "object": "Detroit Red Wings"
+    },
+    {
+      "subject": "Match_NHL_23_24_DET_MIN",
+      "predicate": "played_by",
+      "object": "Minnesota Wild"
+    },
+    {
+      "subject": "Match_NHL_23_24_DET_MIN",
+      "predicate": "winner",
+      "object": "Detroit Red Wings"
+    },
+    {
+      "subject": "Match_NHL_23_24_DET_MIN",
+      "predicate": "has_final_score",
+      "object": "4-1"
+    },
+    {
+      "subject": "Match_NHL_23_24_DET_MIN",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_MHL_23_24_Loko_Mikhailov",
+      "predicate": "played_by",
+      "object": "Loko Yaroslavl"
+    },
+    {
+      "subject": "Match_MHL_23_24_Loko_Mikhailov",
+      "predicate": "played_by",
+      "object": "Mikhailov Academy"
+    },
+    {
+      "subject": "Match_MHL_23_24_Loko_Mikhailov",
+      "predicate": "winner",
+      "object": "Loko Yaroslavl"
+    },
+    {
+      "subject": "Match_MHL_23_24_Loko_Mikhailov",
+      "predicate": "has_final_score",
+      "object": "4-0"
+    },
+    {
+      "subject": "Match_MHL_23_24_Loko_Mikhailov",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_KHL_23_24_Lokomotiv_CSKA",
+      "predicate": "played_by",
+      "object": "Lokomotiv Yaroslavl"
+    },
+    {
+      "subject": "Match_KHL_23_24_Lokomotiv_CSKA",
+      "predicate": "played_by",
+      "object": "CSKA Moscow"
+    },
+    {
+      "subject": "Match_KHL_23_24_Lokomotiv_CSKA",
+      "predicate": "winner",
+      "object": "Lokomotiv Yaroslavl"
+    },
+    {
+      "subject": "Match_KHL_23_24_Lokomotiv_CSKA",
+      "predicate": "has_final_score",
+      "object": "3-2"
+    },
+    {
+      "subject": "Match_KHL_23_24_Lokomotiv_CSKA",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_KHL_23_24_Lokomotiv_CSKA",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_23_24_Jestrabiv_Torax",
+      "predicate": "played_by",
+      "object": "LHK Jestřábi Prostějov"
+    },
+    {
+      "subject": "Match_23_24_Jestrabiv_Torax",
+      "predicate": "played_by",
+      "object": "HC RT Torax Poruba"
+    },
+    {
+      "subject": "Match_23_24_Jestrabiv_Torax",
+      "predicate": "winner",
+      "object": "LHK Jestřábi Prostějov"
+    },
+    {
+      "subject": "Match_23_24_Jestrabiv_Torax",
+      "predicate": "has_final_score",
+      "object": "5-4"
+    },
+    {
+      "subject": "Match_23_24_Jestrabiv_Torax",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Jestrabiv_Torax",
+      "predicate": "part_of_round",
+      "object": "25"
+    },
+    {
+      "subject": "Match_23_24_Heilbronner_Falken_Lindau_Islanders",
+      "predicate": "played_by",
+      "object": "Heilbronner Falken"
+    },
+    {
+      "subject": "Match_23_24_Heilbronner_Falken_Lindau_Islanders",
+      "predicate": "played_by",
+      "object": "Lindau Islanders"
+    },
+    {
+      "subject": "Match_23_24_Heilbronner_Falken_Lindau_Islanders",
+      "predicate": "winner",
+      "object": "Heilbronner Falken"
+    },
+    {
+      "subject": "Match_23_24_Heilbronner_Falken_Lindau_Islanders",
+      "predicate": "has_final_score",
+      "object": "4-1"
+    },
+    {
+      "subject": "Match_23_24_Heilbronner_Falken_Lindau_Islanders",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Heilbronner_Falken_Lindau_Islanders",
+      "predicate": "part_of_round",
+      "object": "21"
+    },
+    {
+      "subject": "Match_23_24_Poprad_Zvolen",
+      "predicate": "played_by",
+      "object": "HK Poprad"
+    },
+    {
+      "subject": "Match_23_24_Poprad_Zvolen",
+      "predicate": "played_by",
+      "object": "HKM Zvolen"
+    },
+    {
+      "subject": "Match_23_24_Poprad_Zvolen",
+      "predicate": "winner",
+      "object": "HK Poprad"
+    },
+    {
+      "subject": "Match_23_24_Poprad_Zvolen",
+      "predicate": "has_final_score",
+      "object": "5-1"
+    },
+    {
+      "subject": "Match_23_24_Poprad_Zvolen",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Poprad_Zvolen",
+      "predicate": "part_of_round",
+      "object": "21"
+    },
+    {
+      "subject": "Match_VHL_23_24_AKM_Omskie",
+      "predicate": "played_by",
+      "object": "HC AKM Tula"
+    },
+    {
+      "subject": "Match_VHL_23_24_AKM_Omskie",
+      "predicate": "played_by",
+      "object": "Omskie Kryliya"
+    },
+    {
+      "subject": "Match_VHL_23_24_AKM_Omskie",
+      "predicate": "winner",
+      "object": "HC AKM Tula"
+    },
+    {
+      "subject": "Match_VHL_23_24_AKM_Omskie",
+      "predicate": "has_final_score",
+      "object": "5-0"
+    },
+    {
+      "subject": "Match_VHL_23_24_AKM_Omskie",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_HanvikensSK_SegeltorpsIF",
+      "predicate": "played_by",
+      "object": "Hanvikens SK"
+    },
+    {
+      "subject": "Match_23_24_HanvikensSK_SegeltorpsIF",
+      "predicate": "played_by",
+      "object": "Segeltorps IF"
+    },
+    {
+      "subject": "Match_23_24_HanvikensSK_SegeltorpsIF",
+      "predicate": "winner",
+      "object": "Hanvikens SK"
+    },
+    {
+      "subject": "Match_23_24_HanvikensSK_SegeltorpsIF",
+      "predicate": "has_final_score",
+      "object": "6-2"
+    },
+    {
+      "subject": "Match_23_24_HanvikensSK_SegeltorpsIF",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_HanvikensSK_SegeltorpsIF",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_23_24_AIK_TingsrydsAIF",
+      "predicate": "played_by",
+      "object": "AIK"
+    },
+    {
+      "subject": "Match_23_24_AIK_TingsrydsAIF",
+      "predicate": "played_by",
+      "object": "Tingsryds AIF"
+    },
+    {
+      "subject": "Match_23_24_AIK_TingsrydsAIF",
+      "predicate": "winner",
+      "object": "AIK"
+    },
+    {
+      "subject": "Match_23_24_AIK_TingsrydsAIF",
+      "predicate": "has_final_score",
+      "object": "3-2"
+    },
+    {
+      "subject": "Match_23_24_AIK_TingsrydsAIF",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_AIK_TingsrydsAIF",
+      "predicate": "part_of_round",
+      "object": "19"
+    },
+    {
+      "subject": "Match_23_24_ICE_Olimpija_KAC",
+      "predicate": "played_by",
+      "object": "HK Olimpija"
+    },
+    {
+      "subject": "Match_23_24_ICE_Olimpija_KAC",
+      "predicate": "played_by",
+      "object": "KAC Klagenfurt"
+    },
+    {
+      "subject": "Match_23_24_ICE_Olimpija_KAC",
+      "predicate": "winner",
+      "object": "HK Olimpija"
+    },
+    {
+      "subject": "Match_23_24_ICE_Olimpija_KAC",
+      "predicate": "has_final_score",
+      "object": "3-2"
+    },
+    {
+      "subject": "Match_23_24_ICE_Olimpija_KAC",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_ICE_Olimpija_KAC",
+      "predicate": "part_of_round",
+      "object": "24"
+    },
+    {
+      "subject": "Match_23_24_Grenoble_Anglet",
+      "predicate": "played_by",
+      "object": "Brûleurs de Loups Grenoble"
+    },
+    {
+      "subject": "Match_23_24_Grenoble_Anglet",
+      "predicate": "played_by",
+      "object": "Anglet Hormadi Pays Basque"
+    },
+    {
+      "subject": "Match_23_24_Grenoble_Anglet",
+      "predicate": "winner",
+      "object": "Brûleurs de Loups Grenoble"
+    },
+    {
+      "subject": "Match_23_24_Grenoble_Anglet",
+      "predicate": "has_final_score",
+      "object": "5-0"
+    },
+    {
+      "subject": "Match_23_24_Grenoble_Anglet",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Grenoble_Anglet",
+      "predicate": "part_of_round",
+      "object": "20"
+    },
+    {
+      "subject": "Match_23_24_Gomel_Lida",
+      "predicate": "played_by",
+      "object": "HK Gomel"
+    },
+    {
+      "subject": "Match_23_24_Gomel_Lida",
+      "predicate": "played_by",
+      "object": "HK Lida"
+    },
+    {
+      "subject": "Match_23_24_Gomel_Lida",
+      "predicate": "winner",
+      "object": "HK Gomel"
+    },
+    {
+      "subject": "Match_23_24_Gomel_Lida",
+      "predicate": "has_final_score",
+      "object": "4-2"
+    },
+    {
+      "subject": "Match_23_24_Gomel_Lida",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Gomel_Lida",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_SuomiSarja_23_24_LeKi_Riemu",
+      "predicate": "played_by",
+      "object": "LeKi Hockey"
+    },
+    {
+      "subject": "Match_SuomiSarja_23_24_LeKi_Riemu",
+      "predicate": "played_by",
+      "object": "Riemu"
+    },
+    {
+      "subject": "Match_SuomiSarja_23_24_LeKi_Riemu",
+      "predicate": "winner",
+      "object": "LeKi Hockey"
+    },
+    {
+      "subject": "Match_SuomiSarja_23_24_LeKi_Riemu",
+      "predicate": "has_final_score",
+      "object": "5-1"
+    },
+    {
+      "subject": "Match_SuomiSarja_23_24_LeKi_Riemu",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_SuomiSarja_23_24_LeKi_Riemu",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_VHL_23_24_Neftyanik_Gornyak",
+      "predicate": "played_by",
+      "object": "Neftyanik Almetyevsk"
+    },
+    {
+      "subject": "Match_VHL_23_24_Neftyanik_Gornyak",
+      "predicate": "played_by",
+      "object": "Gornyak UMMC"
+    },
+    {
+      "subject": "Match_VHL_23_24_Neftyanik_Gornyak",
+      "predicate": "winner",
+      "object": "Neftyanik Almetyevsk"
+    },
+    {
+      "subject": "Match_VHL_23_24_Neftyanik_Gornyak",
+      "predicate": "has_final_score",
+      "object": "4-1"
+    },
+    {
+      "subject": "Match_VHL_23_24_Neftyanik_Gornyak",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_LigueMagnus_23_24_Boxers_Jokers",
+      "predicate": "played_by",
+      "object": "Boxers de Bordeaux"
+    },
+    {
+      "subject": "Match_LigueMagnus_23_24_Boxers_Jokers",
+      "predicate": "played_by",
+      "object": "Jokers de Cergy-Pontoise"
+    },
+    {
+      "subject": "Match_LigueMagnus_23_24_Boxers_Jokers",
+      "predicate": "winner",
+      "object": "Boxers de Bordeaux"
+    },
+    {
+      "subject": "Match_LigueMagnus_23_24_Boxers_Jokers",
+      "predicate": "has_final_score",
+      "object": "4-3"
+    },
+    {
+      "subject": "Match_LigueMagnus_23_24_Boxers_Jokers",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_LigueMagnus_23_24_Boxers_Jokers",
+      "predicate": "part_of_round",
+      "object": "20"
+    },
+    {
+      "subject": "Match_23_24_Corona_Brasov_UTE",
+      "predicate": "played_by",
+      "object": "Corona Brașov"
+    },
+    {
+      "subject": "Match_23_24_Corona_Brasov_UTE",
+      "predicate": "played_by",
+      "object": "UTE"
+    },
+    {
+      "subject": "Match_23_24_Corona_Brasov_UTE",
+      "predicate": "winner",
+      "object": "Corona Brașov"
+    },
+    {
+      "subject": "Match_23_24_Corona_Brasov_UTE",
+      "predicate": "has_final_score",
+      "object": "6-2"
+    },
+    {
+      "subject": "Match_23_24_Corona_Brasov_UTE",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Corona_Brasov_UTE",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_23_24_HernerEV_RostockPiranhas",
+      "predicate": "played_by",
+      "object": "Herner EV"
+    },
+    {
+      "subject": "Match_23_24_HernerEV_RostockPiranhas",
+      "predicate": "played_by",
+      "object": "Rostock Piranhas"
+    },
+    {
+      "subject": "Match_23_24_HernerEV_RostockPiranhas",
+      "predicate": "winner",
+      "object": "Herner EV"
+    },
+    {
+      "subject": "Match_23_24_HernerEV_RostockPiranhas",
+      "predicate": "has_final_score",
+      "object": "5-4"
+    },
+    {
+      "subject": "Match_23_24_HernerEV_RostockPiranhas",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_HernerEV_RostockPiranhas",
+      "predicate": "part_of_round",
+      "object": "18"
+    },
+    {
+      "subject": "Match_SDHL_23_24_SDE_AIK",
+      "predicate": "played_by",
+      "object": "SDE Hockey"
+    },
+    {
+      "subject": "Match_SDHL_23_24_SDE_AIK",
+      "predicate": "played_by",
+      "object": "AIK IF"
+    },
+    {
+      "subject": "Match_SDHL_23_24_SDE_AIK",
+      "predicate": "winner",
+      "object": "SDE Hockey"
+    },
+    {
+      "subject": "Match_SDHL_23_24_SDE_AIK",
+      "predicate": "has_final_score",
+      "object": "6-1"
+    },
+    {
+      "subject": "Match_SDHL_23_24_SDE_AIK",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_SDHL_23_24_SDE_AIK",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_NHL_23_24_Nashville_Winnipeg",
+      "predicate": "played_by",
+      "object": "Nashville Predators"
+    },
+    {
+      "subject": "Match_NHL_23_24_Nashville_Winnipeg",
+      "predicate": "played_by",
+      "object": "Winnipeg Jets"
+    },
+    {
+      "subject": "Match_NHL_23_24_Nashville_Winnipeg",
+      "predicate": "winner",
+      "object": "Nashville Predators"
+    },
+    {
+      "subject": "Match_NHL_23_24_Nashville_Winnipeg",
+      "predicate": "has_final_score",
+      "object": "3-2"
+    },
+    {
+      "subject": "Match_NHL_23_24_Nashville_Winnipeg",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_WHL_23_24_Biryusa_Tornado",
+      "predicate": "played_by",
+      "object": "Biryusa Krasnoyarsk"
+    },
+    {
+      "subject": "Match_WHL_23_24_Biryusa_Tornado",
+      "predicate": "played_by",
+      "object": "Tornado Dmitrov"
+    },
+    {
+      "subject": "Match_WHL_23_24_Biryusa_Tornado",
+      "predicate": "winner",
+      "object": "Biryusa Krasnoyarsk"
+    },
+    {
+      "subject": "Match_WHL_23_24_Biryusa_Tornado",
+      "predicate": "has_final_score",
+      "object": "8-2"
+    },
+    {
+      "subject": "Match_WHL_23_24_Biryusa_Tornado",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_NHL_23_24_CBJ_BOS",
+      "predicate": "played_by",
+      "object": "Columbus Blue Jackets"
+    },
+    {
+      "subject": "Match_NHL_23_24_CBJ_BOS",
+      "predicate": "played_by",
+      "object": "Boston Bruins"
+    },
+    {
+      "subject": "Match_NHL_23_24_CBJ_BOS",
+      "predicate": "winner",
+      "object": "Columbus Blue Jackets"
+    },
+    {
+      "subject": "Match_NHL_23_24_CBJ_BOS",
+      "predicate": "has_final_score",
+      "object": "5-2"
+    },
+    {
+      "subject": "Match_NHL_23_24_CBJ_BOS",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_FEHA19_Dunaújvárosi_Acélbikák",
+      "predicate": "played_by",
+      "object": "FEHA19"
+    },
+    {
+      "subject": "Match_23_24_FEHA19_Dunaújvárosi_Acélbikák",
+      "predicate": "played_by",
+      "object": "Dunaújvárosi Acélbikák"
+    },
+    {
+      "subject": "Match_23_24_FEHA19_Dunaújvárosi_Acélbikák",
+      "predicate": "winner",
+      "object": "FEHA19"
+    },
+    {
+      "subject": "Match_23_24_FEHA19_Dunaújvárosi_Acélbikák",
+      "predicate": "has_final_score",
+      "object": "1-0"
+    },
+    {
+      "subject": "Match_23_24_FEHA19_Dunaújvárosi_Acélbikák",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_FEHA19_Dunaújvárosi_Acélbikák",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_23_24_Amiens_Chamonix",
+      "predicate": "played_by",
+      "object": "Amiens Hockey Élite"
+    },
+    {
+      "subject": "Match_23_24_Amiens_Chamonix",
+      "predicate": "played_by",
+      "object": "Chamonix"
+    },
+    {
+      "subject": "Match_23_24_Amiens_Chamonix",
+      "predicate": "winner",
+      "object": "Amiens Hockey Élite"
+    },
+    {
+      "subject": "Match_23_24_Amiens_Chamonix",
+      "predicate": "has_final_score",
+      "object": "6-1"
+    },
+    {
+      "subject": "Match_23_24_Amiens_Chamonix",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Amiens_Chamonix",
+      "predicate": "part_of_round",
+      "object": "20"
+    },
+    {
+      "subject": "Match_23_24_Brynäs_Nybro",
+      "predicate": "played_by",
+      "object": "Brynäs IF"
+    },
+    {
+      "subject": "Match_23_24_Brynäs_Nybro",
+      "predicate": "played_by",
+      "object": "Nybro IF"
+    },
+    {
+      "subject": "Match_23_24_Brynäs_Nybro",
+      "predicate": "winner",
+      "object": "Brynäs IF"
+    },
+    {
+      "subject": "Match_23_24_Brynäs_Nybro",
+      "predicate": "has_final_score",
+      "object": "4-1"
+    },
+    {
+      "subject": "Match_23_24_Brynäs_Nybro",
+      "predicate": "part_of_round",
+      "object": "19"
+    },
+    {
+      "subject": "Match_23_24_Brynäs_Nybro",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_MHL_23_24_AmurskieTigry_SahalinskieAkuly",
+      "predicate": "played_by",
+      "object": "Amurskie Tigry"
+    },
+    {
+      "subject": "Match_MHL_23_24_AmurskieTigry_SahalinskieAkuly",
+      "predicate": "played_by",
+      "object": "Sahalinskie Akuly"
+    },
+    {
+      "subject": "Match_MHL_23_24_AmurskieTigry_SahalinskieAkuly",
+      "predicate": "winner",
+      "object": "Amurskie Tigry"
+    },
+    {
+      "subject": "Match_MHL_23_24_AmurskieTigry_SahalinskieAkuly",
+      "predicate": "has_final_score",
+      "object": "4-2"
+    },
+    {
+      "subject": "Match_MHL_23_24_AmurskieTigry_SahalinskieAkuly",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Selb_Dresden",
+      "predicate": "played_by",
+      "object": "VER Selb"
+    },
+    {
+      "subject": "Match_23_24_Selb_Dresden",
+      "predicate": "played_by",
+      "object": "Dresdner Eislöwen"
+    },
+    {
+      "subject": "Match_23_24_Selb_Dresden",
+      "predicate": "winner",
+      "object": "VER Selb"
+    },
+    {
+      "subject": "Match_23_24_Selb_Dresden",
+      "predicate": "has_final_score",
+      "object": "5-3"
+    },
+    {
+      "subject": "Match_23_24_Selb_Dresden",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Selb_Dresden",
+      "predicate": "part_of_round",
+      "object": "21"
+    },
+    {
+      "subject": "Match_WHL_23_24_WheatKings_Raiders",
+      "predicate": "played_by",
+      "object": "Brandon Wheat Kings"
+    },
+    {
+      "subject": "Match_WHL_23_24_WheatKings_Raiders",
+      "predicate": "played_by",
+      "object": "Prince Albert Raiders"
+    },
+    {
+      "subject": "Match_WHL_23_24_WheatKings_Raiders",
+      "predicate": "winner",
+      "object": "Brandon Wheat Kings"
+    },
+    {
+      "subject": "Match_WHL_23_24_WheatKings_Raiders",
+      "predicate": "has_final_score",
+      "object": "3-1"
+    },
+    {
+      "subject": "Match_WHL_23_24_WheatKings_Raiders",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_WHL_23_24_WheatKings_Raiders",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_23_24_HIFK_RoKi",
+      "predicate": "played_by",
+      "object": "HIFK Helsinki"
+    },
+    {
+      "subject": "Match_23_24_HIFK_RoKi",
+      "predicate": "played_by",
+      "object": "RoKi Hockey"
+    },
+    {
+      "subject": "Match_23_24_HIFK_RoKi",
+      "predicate": "winner",
+      "object": "HIFK Helsinki"
+    },
+    {
+      "subject": "Match_23_24_HIFK_RoKi",
+      "predicate": "has_final_score",
+      "object": "6-0"
+    },
+    {
+      "subject": "Match_23_24_HIFK_RoKi",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_HIFK_RoKi",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_23_24_Hannover_Herford",
+      "predicate": "played_by",
+      "object": "EC Hannover Indians"
+    },
+    {
+      "subject": "Match_23_24_Hannover_Herford",
+      "predicate": "played_by",
+      "object": "Herforder Ice Dragons"
+    },
+    {
+      "subject": "Match_23_24_Hannover_Herford",
+      "predicate": "winner",
+      "object": "EC Hannover Indians"
+    },
+    {
+      "subject": "Match_23_24_Hannover_Herford",
+      "predicate": "has_final_score",
+      "object": "11-4"
+    },
+    {
+      "subject": "Match_23_24_Hannover_Herford",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Hannover_Herford",
+      "predicate": "part_of_round",
+      "object": "18"
+    },
+    {
+      "subject": "Match_23_24_ESC_Halle_Saale_Bulls_Hammer_Eisbaeren",
+      "predicate": "played_by",
+      "object": "ESC Halle Saale Bulls"
+    },
+    {
+      "subject": "Match_23_24_ESC_Halle_Saale_Bulls_Hammer_Eisbaeren",
+      "predicate": "played_by",
+      "object": "Hammer Eisbären"
+    },
+    {
+      "subject": "Match_23_24_ESC_Halle_Saale_Bulls_Hammer_Eisbaeren",
+      "predicate": "winner",
+      "object": "ESC Halle Saale Bulls"
+    },
+    {
+      "subject": "Match_23_24_ESC_Halle_Saale_Bulls_Hammer_Eisbaeren",
+      "predicate": "has_final_score",
+      "object": "6-3"
+    },
+    {
+      "subject": "Match_23_24_ESC_Halle_Saale_Bulls_Hammer_Eisbaeren",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_ESC_Halle_Saale_Bulls_Hammer_Eisbaeren",
+      "predicate": "part_of_round",
+      "object": "18"
+    },
+    {
+      "subject": "Match_VHL_23_24_Khimik_Izhstal",
+      "predicate": "played_by",
+      "object": "HC Khimik Voskresensk"
+    },
+    {
+      "subject": "Match_VHL_23_24_Khimik_Izhstal",
+      "predicate": "played_by",
+      "object": "Izhstal Izhevsk"
+    },
+    {
+      "subject": "Match_VHL_23_24_Khimik_Izhstal",
+      "predicate": "winner",
+      "object": "HC Khimik Voskresensk"
+    },
+    {
+      "subject": "Match_VHL_23_24_Khimik_Izhstal",
+      "predicate": "has_final_score",
+      "object": "2-1"
+    },
+    {
+      "subject": "Match_VHL_23_24_Khimik_Izhstal",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_ICE_Bolzano_Pioneers",
+      "predicate": "played_by",
+      "object": "HC Bolzano"
+    },
+    {
+      "subject": "Match_23_24_ICE_Bolzano_Pioneers",
+      "predicate": "played_by",
+      "object": "Pioneers Vorarlberg"
+    },
+    {
+      "subject": "Match_23_24_ICE_Bolzano_Pioneers",
+      "predicate": "winner",
+      "object": "HC Bolzano"
+    },
+    {
+      "subject": "Match_23_24_ICE_Bolzano_Pioneers",
+      "predicate": "has_final_score",
+      "object": "4-1"
+    },
+    {
+      "subject": "Match_23_24_ICE_Bolzano_Pioneers",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_ICE_Bolzano_Pioneers",
+      "predicate": "part_of_round",
+      "object": "24"
+    },
+    {
+      "subject": "Match_KHL_23_24_Severstal_Sibir",
+      "predicate": "played_by",
+      "object": "Severstal Cherepovets"
+    },
+    {
+      "subject": "Match_KHL_23_24_Severstal_Sibir",
+      "predicate": "played_by",
+      "object": "Sibir Novosibirsk"
+    },
+    {
+      "subject": "Match_KHL_23_24_Severstal_Sibir",
+      "predicate": "winner",
+      "object": "Severstal Cherepovets"
+    },
+    {
+      "subject": "Match_KHL_23_24_Severstal_Sibir",
+      "predicate": "has_final_score",
+      "object": "2-1"
+    },
+    {
+      "subject": "Match_KHL_23_24_Severstal_Sibir",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_KHL_23_24_Severstal_Sibir",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_MHL_23_24_Almaz_Kapitan",
+      "predicate": "played_by",
+      "object": "Almaz Cherepovets"
+    },
+    {
+      "subject": "Match_MHL_23_24_Almaz_Kapitan",
+      "predicate": "played_by",
+      "object": "Kapitan Stupino"
+    },
+    {
+      "subject": "Match_MHL_23_24_Almaz_Kapitan",
+      "predicate": "winner",
+      "object": "Almaz Cherepovets"
+    },
+    {
+      "subject": "Match_MHL_23_24_Almaz_Kapitan",
+      "predicate": "has_final_score",
+      "object": "7-2"
+    },
+    {
+      "subject": "Match_MHL_23_24_Almaz_Kapitan",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_VisbyRoma_WingsHC",
+      "predicate": "played_by",
+      "object": "Visby/Roma HK"
+    },
+    {
+      "subject": "Match_23_24_VisbyRoma_WingsHC",
+      "predicate": "played_by",
+      "object": "Wings HC"
+    },
+    {
+      "subject": "Match_23_24_VisbyRoma_WingsHC",
+      "predicate": "winner",
+      "object": "Visby/Roma HK"
+    },
+    {
+      "subject": "Match_23_24_VisbyRoma_WingsHC",
+      "predicate": "has_final_score",
+      "object": "3-2"
+    },
+    {
+      "subject": "Match_23_24_VisbyRoma_WingsHC",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_VisbyRoma_WingsHC",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_QMJHL_23_24_Tigres_Remparts",
+      "predicate": "played_by",
+      "object": "Victoriaville Tigres"
+    },
+    {
+      "subject": "Match_QMJHL_23_24_Tigres_Remparts",
+      "predicate": "played_by",
+      "object": "Quebec Remparts"
+    },
+    {
+      "subject": "Match_QMJHL_23_24_Tigres_Remparts",
+      "predicate": "winner",
+      "object": "Victoriaville Tigres"
+    },
+    {
+      "subject": "Match_QMJHL_23_24_Tigres_Remparts",
+      "predicate": "has_final_score",
+      "object": "6-2"
+    },
+    {
+      "subject": "Match_QMJHL_23_24_Tigres_Remparts",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_BlueDevilsWeiden_HochstadtAlligators",
+      "predicate": "played_by",
+      "object": "Blue Devils Weiden"
+    },
+    {
+      "subject": "Match_23_24_BlueDevilsWeiden_HochstadtAlligators",
+      "predicate": "played_by",
+      "object": "Höchstadt Alligators"
+    },
+    {
+      "subject": "Match_23_24_BlueDevilsWeiden_HochstadtAlligators",
+      "predicate": "winner",
+      "object": "Blue Devils Weiden"
+    },
+    {
+      "subject": "Match_23_24_BlueDevilsWeiden_HochstadtAlligators",
+      "predicate": "has_final_score",
+      "object": "5-3"
+    },
+    {
+      "subject": "Match_23_24_BlueDevilsWeiden_HochstadtAlligators",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_BlueDevilsWeiden_HochstadtAlligators",
+      "predicate": "part_of_round",
+      "object": "21"
+    },
+    {
+      "subject": "Match_VHL_23_24_Zauralie_CSKVVS",
+      "predicate": "played_by",
+      "object": "Zauralie Kurgan"
+    },
+    {
+      "subject": "Match_VHL_23_24_Zauralie_CSKVVS",
+      "predicate": "played_by",
+      "object": "CSK VVS Samara"
+    },
+    {
+      "subject": "Match_VHL_23_24_Zauralie_CSKVVS",
+      "predicate": "winner",
+      "object": "Zauralie Kurgan"
+    },
+    {
+      "subject": "Match_VHL_23_24_Zauralie_CSKVVS",
+      "predicate": "has_final_score",
+      "object": "5-4"
+    },
+    {
+      "subject": "Match_VHL_23_24_Zauralie_CSKVVS",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Rødovre_Herning",
+      "predicate": "played_by",
+      "object": "Rødovre Mighty Bulls"
+    },
+    {
+      "subject": "Match_23_24_Rødovre_Herning",
+      "predicate": "played_by",
+      "object": "Herning Blue Fox"
+    },
+    {
+      "subject": "Match_23_24_Rødovre_Herning",
+      "predicate": "winner",
+      "object": "Rødovre Mighty Bulls"
+    },
+    {
+      "subject": "Match_23_24_Rødovre_Herning",
+      "predicate": "has_final_score",
+      "object": "3-2"
+    },
+    {
+      "subject": "Match_23_24_Rødovre_Herning",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Rødovre_Herning",
+      "predicate": "part_of_round",
+      "object": "opening round"
+    },
+    {
+      "subject": "Match_Extraliga_23_24_R22_Boleslav_Kladno",
+      "predicate": "played_by",
+      "object": "BK Mladá Boleslav"
+    },
+    {
+      "subject": "Match_Extraliga_23_24_R22_Boleslav_Kladno",
+      "predicate": "played_by",
+      "object": "HC Rytíři Kladno"
+    },
+    {
+      "subject": "Match_Extraliga_23_24_R22_Boleslav_Kladno",
+      "predicate": "winner",
+      "object": "BK Mladá Boleslav"
+    },
+    {
+      "subject": "Match_Extraliga_23_24_R22_Boleslav_Kladno",
+      "predicate": "has_final_score",
+      "object": "3-2"
+    },
+    {
+      "subject": "Match_Extraliga_23_24_R22_Boleslav_Kladno",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_Extraliga_23_24_R22_Boleslav_Kladno",
+      "predicate": "part_of_round",
+      "object": "22"
+    },
+    {
+      "subject": "Match_ECHL_23_24_IndyFuel_KalamazooWings",
+      "predicate": "played_by",
+      "object": "Indy Fuel"
+    },
+    {
+      "subject": "Match_ECHL_23_24_IndyFuel_KalamazooWings",
+      "predicate": "played_by",
+      "object": "Kalamazoo Wings"
+    },
+    {
+      "subject": "Match_ECHL_23_24_IndyFuel_KalamazooWings",
+      "predicate": "winner",
+      "object": "Indy Fuel"
+    },
+    {
+      "subject": "Match_ECHL_23_24_IndyFuel_KalamazooWings",
+      "predicate": "has_final_score",
+      "object": "4-2"
+    },
+    {
+      "subject": "Match_ECHL_23_24_IndyFuel_KalamazooWings",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_DeggendorferSC_SCRiessersee",
+      "predicate": "played_by",
+      "object": "Deggendorfer SC"
+    },
+    {
+      "subject": "Match_23_24_DeggendorferSC_SCRiessersee",
+      "predicate": "played_by",
+      "object": "SC Riessersee"
+    },
+    {
+      "subject": "Match_23_24_DeggendorferSC_SCRiessersee",
+      "predicate": "winner",
+      "object": "Deggendorfer SC"
+    },
+    {
+      "subject": "Match_23_24_DeggendorferSC_SCRiessersee",
+      "predicate": "has_final_score",
+      "object": "4-1"
+    },
+    {
+      "subject": "Match_23_24_DeggendorferSC_SCRiessersee",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_DeggendorferSC_SCRiessersee",
+      "predicate": "part_of_round",
+      "object": "21"
+    },
+    {
+      "subject": "Match_23_24_SaginawSpirit_NiagaraIceDogs",
+      "predicate": "played_by",
+      "object": "Saginaw Spirit"
+    },
+    {
+      "subject": "Match_23_24_SaginawSpirit_NiagaraIceDogs",
+      "predicate": "played_by",
+      "object": "Niagara IceDogs"
+    },
+    {
+      "subject": "Match_23_24_SaginawSpirit_NiagaraIceDogs",
+      "predicate": "winner",
+      "object": "Saginaw Spirit"
+    },
+    {
+      "subject": "Match_23_24_SaginawSpirit_NiagaraIceDogs",
+      "predicate": "has_final_score",
+      "object": "6-2"
+    },
+    {
+      "subject": "Match_23_24_SaginawSpirit_NiagaraIceDogs",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_SaginawSpirit_NiagaraIceDogs",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_23_24_PiteaHC_StromsbroIf",
+      "predicate": "played_by",
+      "object": "Piteå HC"
+    },
+    {
+      "subject": "Match_23_24_PiteaHC_StromsbroIf",
+      "predicate": "played_by",
+      "object": "Strömsbro If"
+    },
+    {
+      "subject": "Match_23_24_PiteaHC_StromsbroIf",
+      "predicate": "winner",
+      "object": "Piteå HC"
+    },
+    {
+      "subject": "Match_23_24_PiteaHC_StromsbroIf",
+      "predicate": "has_final_score",
+      "object": "6-1"
+    },
+    {
+      "subject": "Match_23_24_PiteaHC_StromsbroIf",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_PiteaHC_StromsbroIf",
+      "predicate": "part_of_round",
+      "object": "opening round"
+    },
+    {
+      "subject": "Match_NHL_23_24_EDM_ANA",
+      "predicate": "played_by",
+      "object": "Edmonton Oilers"
+    },
+    {
+      "subject": "Match_NHL_23_24_EDM_ANA",
+      "predicate": "played_by",
+      "object": "Anaheim Ducks"
+    },
+    {
+      "subject": "Match_NHL_23_24_EDM_ANA",
+      "predicate": "winner",
+      "object": "Edmonton Oilers"
+    },
+    {
+      "subject": "Match_NHL_23_24_EDM_ANA",
+      "predicate": "has_final_score",
+      "object": "8-2"
+    },
+    {
+      "subject": "Match_NHL_23_24_EDM_ANA",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_VHL_23_24_Sokol_Buran",
+      "predicate": "played_by",
+      "object": "Sokol Krasnoyarsk"
+    },
+    {
+      "subject": "Match_VHL_23_24_Sokol_Buran",
+      "predicate": "played_by",
+      "object": "Buran Voronezh"
+    },
+    {
+      "subject": "Match_VHL_23_24_Sokol_Buran",
+      "predicate": "winner",
+      "object": "Sokol Krasnoyarsk"
+    },
+    {
+      "subject": "Match_VHL_23_24_Sokol_Buran",
+      "predicate": "has_final_score",
+      "object": "3-2"
+    },
+    {
+      "subject": "Match_VHL_23_24_Sokol_Buran",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_AHL_23_24_Henderson_Tucson",
+      "predicate": "played_by",
+      "object": "Henderson Silver Knights"
+    },
+    {
+      "subject": "Match_AHL_23_24_Henderson_Tucson",
+      "predicate": "played_by",
+      "object": "Tucson Roadrunners"
+    },
+    {
+      "subject": "Match_AHL_23_24_Henderson_Tucson",
+      "predicate": "winner",
+      "object": "Henderson Silver Knights"
+    },
+    {
+      "subject": "Match_AHL_23_24_Henderson_Tucson",
+      "predicate": "has_final_score",
+      "object": "3-2"
+    },
+    {
+      "subject": "Match_AHL_23_24_Henderson_Tucson",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Deac_Vasas",
+      "predicate": "played_by",
+      "object": "Deac Jegkorong Akademia U20"
+    },
+    {
+      "subject": "Match_23_24_Deac_Vasas",
+      "predicate": "played_by",
+      "object": "Vasas Budapest Stars U20"
+    },
+    {
+      "subject": "Match_23_24_Deac_Vasas",
+      "predicate": "winner",
+      "object": "Deac Jegkorong Akademia U20"
+    },
+    {
+      "subject": "Match_23_24_Deac_Vasas",
+      "predicate": "has_final_score",
+      "object": "4-1"
+    },
+    {
+      "subject": "Match_23_24_Deac_Vasas",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Deac_Vasas",
+      "predicate": "part_of_round",
+      "object": "League Stage 2"
+    },
+    {
+      "subject": "Match_23_24_Lindlövens_IF_Forshaga_IF",
+      "predicate": "played_by",
+      "object": "Lindlövens IF"
+    },
+    {
+      "subject": "Match_23_24_Lindlövens_IF_Forshaga_IF",
+      "predicate": "played_by",
+      "object": "Forshaga IF"
+    },
+    {
+      "subject": "Match_23_24_Lindlövens_IF_Forshaga_IF",
+      "predicate": "winner",
+      "object": "Lindlövens IF"
+    },
+    {
+      "subject": "Match_23_24_Lindlövens_IF_Forshaga_IF",
+      "predicate": "has_final_score",
+      "object": "4-2"
+    },
+    {
+      "subject": "Match_23_24_Lindlövens_IF_Forshaga_IF",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Lindlövens_IF_Forshaga_IF",
+      "predicate": "part_of_round",
+      "object": "14"
+    },
+    {
+      "subject": "Match_23_24_CardiffDevils_FifeFlyers",
+      "predicate": "played_by",
+      "object": "Cardiff Devils"
+    },
+    {
+      "subject": "Match_23_24_CardiffDevils_FifeFlyers",
+      "predicate": "played_by",
+      "object": "Fife Flyers"
+    },
+    {
+      "subject": "Match_23_24_CardiffDevils_FifeFlyers",
+      "predicate": "winner",
+      "object": "Cardiff Devils"
+    },
+    {
+      "subject": "Match_23_24_CardiffDevils_FifeFlyers",
+      "predicate": "has_final_score",
+      "object": "6-0"
+    },
+    {
+      "subject": "Match_23_24_CardiffDevils_FifeFlyers",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_AlvestaSK_MorrumGoisIK",
+      "predicate": "played_by",
+      "object": "Alvesta SK"
+    },
+    {
+      "subject": "Match_23_24_AlvestaSK_MorrumGoisIK",
+      "predicate": "played_by",
+      "object": "Mörrum Gois IK"
+    },
+    {
+      "subject": "Match_23_24_AlvestaSK_MorrumGoisIK",
+      "predicate": "winner",
+      "object": "Alvesta SK"
+    },
+    {
+      "subject": "Match_23_24_AlvestaSK_MorrumGoisIK",
+      "predicate": "has_final_score",
+      "object": "6-2"
+    },
+    {
+      "subject": "Match_23_24_AlvestaSK_MorrumGoisIK",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_AlvestaSK_MorrumGoisIK",
+      "predicate": "part_of_round",
+      "object": "14"
+    },
+    {
+      "subject": "Match_23_24_HC_Kosice_HK_Nitra",
+      "predicate": "played_by",
+      "object": "HC Košice"
+    },
+    {
+      "subject": "Match_23_24_HC_Kosice_HK_Nitra",
+      "predicate": "played_by",
+      "object": "HK Nitra"
+    },
+    {
+      "subject": "Match_23_24_HC_Kosice_HK_Nitra",
+      "predicate": "winner",
+      "object": "HC Košice"
+    },
+    {
+      "subject": "Match_23_24_HC_Kosice_HK_Nitra",
+      "predicate": "has_final_score",
+      "object": "4-0"
+    },
+    {
+      "subject": "Match_23_24_HC_Kosice_HK_Nitra",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_HC_Kosice_HK_Nitra",
+      "predicate": "part_of_round",
+      "object": "21"
+    },
+    {
+      "subject": "Match_23_24_FTC_Gyergyoi",
+      "predicate": "played_by",
+      "object": "FTC-Telekom"
+    },
+    {
+      "subject": "Match_23_24_FTC_Gyergyoi",
+      "predicate": "played_by",
+      "object": "Gyergyói HK"
+    },
+    {
+      "subject": "Match_23_24_FTC_Gyergyoi",
+      "predicate": "winner",
+      "object": "FTC-Telekom"
+    },
+    {
+      "subject": "Match_23_24_FTC_Gyergyoi",
+      "predicate": "has_final_score",
+      "object": "4-1"
+    },
+    {
+      "subject": "Match_23_24_FTC_Gyergyoi",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_FTC_Gyergyoi",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_VHL_23_24_Chelmet_Dizel",
+      "predicate": "played_by",
+      "object": "Chelmet Chelyabinsk"
+    },
+    {
+      "subject": "Match_VHL_23_24_Chelmet_Dizel",
+      "predicate": "played_by",
+      "object": "Dizel Penza"
+    },
+    {
+      "subject": "Match_VHL_23_24_Chelmet_Dizel",
+      "predicate": "winner",
+      "object": "Chelmet Chelyabinsk"
+    },
+    {
+      "subject": "Match_VHL_23_24_Chelmet_Dizel",
+      "predicate": "has_final_score",
+      "object": "4-1"
+    },
+    {
+      "subject": "Match_VHL_23_24_Chelmet_Dizel",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_MHL_23_24_BelyeMedvedi_Chaika",
+      "predicate": "played_by",
+      "object": "Belye Medvedi"
+    },
+    {
+      "subject": "Match_MHL_23_24_BelyeMedvedi_Chaika",
+      "predicate": "played_by",
+      "object": "Chaika Nizhny Novgorod"
+    },
+    {
+      "subject": "Match_MHL_23_24_BelyeMedvedi_Chaika",
+      "predicate": "winner",
+      "object": "Belye Medvedi"
+    },
+    {
+      "subject": "Match_MHL_23_24_BelyeMedvedi_Chaika",
+      "predicate": "has_final_score",
+      "object": "4-1"
+    },
+    {
+      "subject": "Match_MHL_23_24_BelyeMedvedi_Chaika",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_MHL_23_24_BelyeMedvedi_Chaika",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_AHL_23_24_Hershey_Iowa",
+      "predicate": "played_by",
+      "object": "Hershey Bears"
+    },
+    {
+      "subject": "Match_AHL_23_24_Hershey_Iowa",
+      "predicate": "played_by",
+      "object": "Iowa Wild"
+    },
+    {
+      "subject": "Match_AHL_23_24_Hershey_Iowa",
+      "predicate": "winner",
+      "object": "Hershey Bears"
+    },
+    {
+      "subject": "Match_AHL_23_24_Hershey_Iowa",
+      "predicate": "has_final_score",
+      "object": "2-1"
+    },
+    {
+      "subject": "Match_AHL_23_24_Hershey_Iowa",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_AHL_23_24_Hershey_Iowa",
+      "predicate": "part_of_round",
+      "object": "1"
+    },
+    {
+      "subject": "Match_23_24_Vimmerby_Halmstad",
+      "predicate": "played_by",
+      "object": "Vimmerby HC"
+    },
+    {
+      "subject": "Match_23_24_Vimmerby_Halmstad",
+      "predicate": "played_by",
+      "object": "Halmstad Hammers HC"
+    },
+    {
+      "subject": "Match_23_24_Vimmerby_Halmstad",
+      "predicate": "winner",
+      "object": "Vimmerby HC"
+    },
+    {
+      "subject": "Match_23_24_Vimmerby_Halmstad",
+      "predicate": "has_final_score",
+      "object": "4-3"
+    },
+    {
+      "subject": "Match_23_24_Vimmerby_Halmstad",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Vimmerby_Halmstad",
+      "predicate": "part_of_round",
+      "object": "14"
+    },
+    {
+      "subject": "Match_23_24_Slovan_NoveZamky",
+      "predicate": "played_by",
+      "object": "HC Slovan Bratislava"
+    },
+    {
+      "subject": "Match_23_24_Slovan_NoveZamky",
+      "predicate": "played_by",
+      "object": "HC Nové Zámky"
+    },
+    {
+      "subject": "Match_23_24_Slovan_NoveZamky",
+      "predicate": "winner",
+      "object": "HC Slovan Bratislava"
+    },
+    {
+      "subject": "Match_23_24_Slovan_NoveZamky",
+      "predicate": "has_final_score",
+      "object": "5-2"
+    },
+    {
+      "subject": "Match_23_24_Slovan_NoveZamky",
+      "predicate": "part_of_season",
+      "object": "23/24"
+    },
+    {
+      "subject": "Match_23_24_Slovan_NoveZamky",
+      "predicate": "part_of_round",
+      "object": "21"
+    }
+  ]
+}

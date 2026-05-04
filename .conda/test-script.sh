@@ -4,3 +4,5 @@ SERVER_PID=$!
 
 python test-response.py
 kill "$SERVER_PID" 2>/dev/null
+
+TimeLimit=UNLIMITED

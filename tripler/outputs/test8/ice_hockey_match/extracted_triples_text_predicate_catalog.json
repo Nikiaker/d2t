@@ -1,0 +1,6029 @@
+{
+  "input_file": "/home/inf151915/d2t/tripler/inputs/ice_hockey_dev.json",
+  "instances_count": 100,
+  "triples_count": 495,
+  "unique_predicates": [
+    "defeated",
+    "score",
+    "part_of",
+    "occurred_in",
+    "four-goal performance",
+    "three goals",
+    "took lead",
+    "two goals",
+    "single response"
+  ],
+  "predicate_catalog": [
+    {
+      "predicate": "defeated",
+      "example_triple": {
+        "subject": "Carolina Hurricanes",
+        "predicate": "defeated",
+        "object": "Columbus Blue Jackets"
+      }
+    },
+    {
+      "predicate": "score",
+      "example_triple": {
+        "subject": "Carolina Hurricanes",
+        "predicate": "score",
+        "object": "3"
+      }
+    },
+    {
+      "predicate": "part_of",
+      "example_triple": {
+        "subject": "matchup",
+        "predicate": "part_of",
+        "object": "NHL 23/24 regular season"
+      }
+    },
+    {
+      "predicate": "occurred_in",
+      "example_triple": {
+        "subject": "scoring",
+        "predicate": "occurred_in",
+        "object": "third period"
+      }
+    },
+    {
+      "predicate": "four-goal performance",
+      "example_triple": {
+        "subject": "Sheffield Steelers",
+        "predicate": "four-goal performance",
+        "object": "third period"
+      }
+    },
+    {
+      "predicate": "three goals",
+      "example_triple": {
+        "subject": "HC Bolzano",
+        "predicate": "three goals",
+        "object": "third period"
+      }
+    },
+    {
+      "predicate": "took lead",
+      "example_triple": {
+        "subject": "Belye Medvedi",
+        "predicate": "took lead",
+        "object": "first period"
+      }
+    },
+    {
+      "predicate": "two goals",
+      "example_triple": {
+        "subject": "Hershey Bears",
+        "predicate": "two goals",
+        "object": "first period"
+      }
+    },
+    {
+      "predicate": "single response",
+      "example_triple": {
+        "subject": "Iowa Wild",
+        "predicate": "single response",
+        "object": "second period"
+      }
+    }
+  ],
+  "predicate_discoveries": [
+    {
+      "instance_id": 0,
+      "predicate": "defeated",
+      "example_triple": {
+        "subject": "Carolina Hurricanes",
+        "predicate": "defeated",
+        "object": "Columbus Blue Jackets"
+      }
+    },
+    {
+      "instance_id": 0,
+      "predicate": "score",
+      "example_triple": {
+        "subject": "Carolina Hurricanes",
+        "predicate": "score",
+        "object": "3"
+      }
+    },
+    {
+      "instance_id": 0,
+      "predicate": "part_of",
+      "example_triple": {
+        "subject": "matchup",
+        "predicate": "part_of",
+        "object": "NHL 23/24 regular season"
+      }
+    },
+    {
+      "instance_id": 0,
+      "predicate": "occurred_in",
+      "example_triple": {
+        "subject": "scoring",
+        "predicate": "occurred_in",
+        "object": "third period"
+      }
+    },
+    {
+      "instance_id": 20,
+      "predicate": "four-goal performance",
+      "example_triple": {
+        "subject": "Sheffield Steelers",
+        "predicate": "four-goal performance",
+        "object": "third period"
+      }
+    },
+    {
+      "instance_id": 73,
+      "predicate": "three goals",
+      "example_triple": {
+        "subject": "HC Bolzano",
+        "predicate": "three goals",
+        "object": "third period"
+      }
+    },
+    {
+      "instance_id": 96,
+      "predicate": "took lead",
+      "example_triple": {
+        "subject": "Belye Medvedi",
+        "predicate": "took lead",
+        "object": "first period"
+      }
+    },
+    {
+      "instance_id": 97,
+      "predicate": "two goals",
+      "example_triple": {
+        "subject": "Hershey Bears",
+        "predicate": "two goals",
+        "object": "first period"
+      }
+    },
+    {
+      "instance_id": 97,
+      "predicate": "single response",
+      "example_triple": {
+        "subject": "Iowa Wild",
+        "predicate": "single response",
+        "object": "second period"
+      }
+    }
+  ],
+  "generated_text_by_instance": [
+    {
+      "instance_id": 0,
+      "text": "In an NHL 23/24 regular season matchup, the Carolina Hurricanes defeated the Columbus Blue Jackets 3-2. Both teams remained scoreless through the first two periods, with all scoring occurring in the third period."
+    },
+    {
+      "instance_id": 1,
+      "text": "In a KHL 23/24 round 1 match, Spartak Moscow defeated Avtomobilist Yekaterinburg 4-1. After a scoreless first period, Spartak took control with two goals in both the second and third periods, while Avtomobilist managed only a single goal in the final period."
+    },
+    {
+      "instance_id": 2,
+      "text": "In a Russian MHL 23/24 round 1 ice hockey match, Stalnye Lisy defeated Irbis Kazan 4-3. After a 3-3 tie in regulation time, Stalnye Lisy secured the victory via a penalty shootout."
+    },
+    {
+      "instance_id": 3,
+      "text": "Mora IK dominated Almtuna IS with a 6-0 victory in round 19 of the Hockey Allsvenskan 23/24 season, scoring two goals in the second period and four in the third."
+    },
+    {
+      "instance_id": 4,
+      "text": "In the MHL 23/24 season, Stalnye Lisy defeated Irbis Kazan 5-3. Stalnye Lisy led early with 2 goals in the first period and maintained their advantage to secure the victory."
+    },
+    {
+      "instance_id": 5,
+      "text": "In round 14 of the Swedish HockeyEttan Vastra 23/24 season, Falu IF defeated Mariestads BOIS 5-4 after overtime, following a 4-4 deadlock in regulation time."
+    },
+    {
+      "instance_id": 6,
+      "text": "In round 24 of the 23/24 ICE Hockey League in Austria, HC TWK Innsbruck defeated EC VSV 3-2. After trailing 0-1 in the first period, Innsbruck rallied with two goals in the second and one in the third to secure the win."
+    },
+    {
+      "instance_id": 7,
+      "text": "In round 22 of the Polish Ekstraliga 23/24 season, GKS Tychy defeated Unia Oświęcim 5-4. After a scoreless first period and a 2-2 tie in the second, GKS Tychy secured the win with three goals in the final period."
+    },
+    {
+      "instance_id": 8,
+      "text": "In round 22 of the Polish Ekstraliga (23/24 season), TAURON Podhale Nowy Targ secured a dominant 10-3 victory over JKH GKS Jastrzębie, fueled by a massive 7-0 surge in the second period."
+    },
+    {
+      "instance_id": 9,
+      "text": "In a KHL 23/24 round 1 match, Vityaz Podolsk defeated Barys Astana 5-2, maintaining a consistent lead across all three periods."
+    },
+    {
+      "instance_id": 10,
+      "text": "In an AHL 23/24 regular season game, the Bridgeport Islanders defeated the Belleville Senators 4-2, largely driven by a strong second-period performance where they outscored the Senators 3-1."
+    },
+    {
+      "instance_id": 11,
+      "text": "Traktor Chelyabinsk defeated Torpedo Nizhny Novgorod 2-1 in a KHL 23/24 regular season match."
+    },
+    {
+      "instance_id": 12,
+      "text": "In round 24 of the ICE Hockey League 23/24, the Graz 99ers defeated the Vienna Capitals 4-3 after overtime, following a 3-3 draw in regulation time."
+    },
+    {
+      "instance_id": 13,
+      "text": "In round 1 of the SDHL 23/24 season, Modo Hockey defeated Leksands IF 3-1. After a scoreless first period and a 1-0 lead for Leksands in the second, Modo Hockey secured the victory with three goals in the final period."
+    },
+    {
+      "instance_id": 14,
+      "text": "In round 22 of the Polish Ekstraliga 23/24 season, Tauron KH GKS Katowice dominated Comarch Cracovia with a 7-2 victory, establishing a commanding lead with 5 goals in the first period."
+    },
+    {
+      "instance_id": 15,
+      "text": "In round 22 of the Czech Republic's Extraliga 23/24 ice hockey season, HC Olomouc defeated HC Kometa Brno 3-1. After a tied first period, Olomouc secured the win by scoring one goal in each of the subsequent periods."
+    },
+    {
+      "instance_id": 16,
+      "text": "In an NCAA Men's ice hockey regular season game (23/24), the Boston College Eagles defeated Harvard University 4-1, securing the win with a dominant three-goal performance in the third period."
+    },
+    {
+      "instance_id": 17,
+      "text": "In round 25 of the Czech Republic's 1st Liga (23/24 season), HC Frýdek-Místek secured a dominant 4-0 victory over HC Stadion Litoměřice, scoring consistently across all three periods."
+    },
+    {
+      "instance_id": 18,
+      "text": "The Abbotsford Canucks decisively defeated the Calgary Wranglers 7-2 in an AHL 23/24 regular season game, dominating the first two periods with 3 goals each."
+    },
+    {
+      "instance_id": 19,
+      "text": "In the opening round of the 23/24 Elite League, the Belfast Giants defeated the Nottingham Panthers 4-2. The game was tied 1-1 after the first period and remained scoreless in the second, but Belfast secured the victory with three goals in the final period."
+    },
+    {
+      "instance_id": 20,
+      "text": "In the Elite League 23/24 opening round, the Sheffield Steelers defeated the Guildford Flames 6-2, securing the win with a dominant four-goal performance in the third period."
+    },
+    {
+      "instance_id": 21,
+      "text": "In round 22 of the German DEL 23/24 ice hockey season, the Iserlohn Roosters defeated Eisbären Berlin 3-0, scoring twice in the first period and once in the third."
+    },
+    {
+      "instance_id": 22,
+      "text": "In an OHL 23/24 regular season match, the Peterborough Petes defeated the Sudbury Wolves 5-3. Peterborough maintained a lead throughout the game, scoring consistently across all three periods (2-1-2) compared to Sudbury's 1-0-2."
+    },
+    {
+      "instance_id": 23,
+      "text": "In round 20 of the SHL 23/24 season, Rögle BK defeated Malmö Redhawks 4-0, scoring two goals in the first period and one in each of the following two periods."
+    },
+    {
+      "instance_id": 24,
+      "text": "In an NCAA Men's ice hockey regular season game (23/24), the Providence Friars defeated the Arizona State Sun Devils 2-1. All scoring occurred in the second period."
+    },
+    {
+      "instance_id": 25,
+      "text": "In round 18 of the German Oberliga Nord 23/24 season, EHC Erfurt defeated Fuchse Duisburg 4-3. After trailing 1-0 in the first period and tying it 3-3 by the end of the second, Erfurt secured the win with two goals in the final period."
+    },
+    {
+      "instance_id": 26,
+      "text": "In a QMJHL 23/24 regular season game, the Halifax Mooseheads defeated the Moncton Wildcats 4-0, scoring consistently across all three periods."
+    },
+    {
+      "instance_id": 27,
+      "text": "In round 22 of the Czech Republic Ice Hockey Extraliga 23/24, HC Motor České Budějovice defeated HC Verva Litvínov 1-0. The game remained scoreless through the first two periods, with the decisive goal scored in the third period."
+    },
+    {
+      "instance_id": 28,
+      "text": "In an NCAA Men's ice hockey regular season game (23/24), the Miami Ohio Redhawks defeated the Mercyhurst Lakers 2-0, scoring one goal each in the first and third periods."
+    },
+    {
+      "instance_id": 29,
+      "text": "In a QMJHL 23/24 regular season game, the Drummondville Voltigeurs defeated the Shawinigan Cataractes 3-1. All scoring occurred in the third period after a scoreless first and second."
+    },
+    {
+      "instance_id": 30,
+      "text": "In a Russian VHL 23/24 ice hockey match, HK Ryazan defeated HC Chelny 3-1. The game remained scoreless in the first period, with Chelny scoring in the second, before Ryazan secured the victory with three goals in the final period."
+    },
+    {
+      "instance_id": 31,
+      "text": "In the Belarus Extraliga 23/24 season opener, Neman Grodno defeated Shakhter Soligorsk 3-2. After a 2-2 tie in the first period, Neman Grodno secured the win with a single goal in the second period, followed by a scoreless third."
+    },
+    {
+      "instance_id": 32,
+      "text": "In the Belarus Extraliga 23/24 season, HK Vitebsk secured a dominant 6-1 victory over Khimik-SKA Novopolotsk, with the majority of their scoring occurring in the second period."
+    },
+    {
+      "instance_id": 33,
+      "text": "In round 25 of the Czech Republic's 1st Liga (23/24 season), HC ZUBR Přerov defeated PSG Berani Zlín 3-2. The match was tied 2-2 after regulation time, with both teams scoring one goal each in the first two periods and neither scoring in the third; HC ZUBR Přerov ultimately secured the win via a penalty shootout."
+    },
+    {
+      "instance_id": 34,
+      "text": "In round 19 of the Hockey Allsvenskan 23/24 season, BIK Karlskoga defeated Östersunds IK 2-1. After Östersund took an early lead in the first period, Karlskoga rallied with a goal in both the second and third periods to secure the victory."
+    },
+    {
+      "instance_id": 35,
+      "text": "The Sudbury Wolves defeated the Oshawa Generals 7-5 in an OHL 23/24 regular season game. Despite trailing 1-0 after the first period, Sudbury surged with 7 goals across the final two periods to secure the victory."
+    },
+    {
+      "instance_id": 36,
+      "text": "In a VHL 23/24 round 1 ice hockey match, Molot Perm defeated SKA-Neva 2-0, scoring one goal in each of the second and third periods."
+    },
+    {
+      "instance_id": 37,
+      "text": "In the opening round of Sweden's HockeyEttan Norra 23/24 season, Bodens HF defeated Hudiksvalls HC 4-1, securing the win with a strong three-goal performance in the first period."
+    },
+    {
+      "instance_id": 38,
+      "text": "In the opening round of the 23/24 Alps Hockey League, Rittner Buam defeated EHC Lustenau 7-3, maintaining a consistent scoring lead across all three periods."
+    },
+    {
+      "instance_id": 39,
+      "text": "In round 25 of the Czech Republic's Chance Liga (23/24 season), HC Dukla Jihlava defeated HC Banik Sokolov with a final score of 4-1."
+    },
+    {
+      "instance_id": 40,
+      "text": "In round 21 of the Germany DEL 2 23/24 season, EV Landshut defeated the Bietigheim Steelers 4-2."
+    },
+    {
+      "instance_id": 41,
+      "text": "In the WHL 23/24 Women Championship, Biryusa Krasnoyarsk defeated Tornado Dmitrov 3-1. Biryusa took an early lead with two goals in the first period and added a final goal in the third to secure the victory."
+    },
+    {
+      "instance_id": 42,
+      "text": "In an NHL 23/24 regular season game, the Detroit Red Wings defeated the Minnesota Wild 4-1, pulling away with three goals scored across the second and third periods after a 1-1 tie in the first."
+    },
+    {
+      "instance_id": 43,
+      "text": "Loko Yaroslavl defeated Mikhailov Academy 4-0 in a Russian MHL ice hockey match during the 23/24 season, with all scoring occurring in the first two periods."
+    },
+    {
+      "instance_id": 44,
+      "text": "In a KHL 23/24 round 1 matchup, Lokomotiv Yaroslavl defeated CSKA Moscow 3-2. Lokomotiv took an early lead in the first period and sealed the win with a goal in the third, while CSKA's scoring was concentrated entirely in the second period."
+    },
+    {
+      "instance_id": 45,
+      "text": "In round 25 of the Czech Republic's Chance Liga (23/24 season), LHK Jestřábi Prostějov defeated HC RT Torax Poruba 5-4. After trailing 1-0 in the first period, Prostějov dominated the second period 3-0 and held on through a high-scoring third period to secure the win."
+    },
+    {
+      "instance_id": 46,
+      "text": "In round 21 of the German ice hockey Oberliga Sud 23/24 season, Heilbronner Falken defeated Lindau Islanders 4-1. Heilbronn secured the win with goals in the first and third periods, while Lindau only managed to score once in the opening period."
+    },
+    {
+      "instance_id": 47,
+      "text": "In round 21 of the Slovakian Ice Hockey Extraliga 23/24 season, HK Poprad decisively defeated HKM Zvolen with a final score of 5-1, driven by a strong second-period performance where they scored three goals."
+    },
+    {
+      "instance_id": 48,
+      "text": "In a Russian VHL 23/24 round 1 ice hockey match, HC AKM Tula secured a dominant 5-0 victory over Omskie Kryliya, scoring consistently across all three periods."
+    },
+    {
+      "instance_id": 49,
+      "text": "In the first round of the HockeyEttan Ostra 23/24 season, Hanvikens SK defeated Segeltorps IF 6-2, pulling away with a strong three-goal third period."
+    },
+    {
+      "instance_id": 50,
+      "text": "In Round 19 of the Swedish Hockey Allsvenskan 23/24 season, AIK defeated Tingsryds AIF 3-2 after overtime (AET), following a 2-2 draw in regulation time."
+    },
+    {
+      "instance_id": 51,
+      "text": "In round 24 of the 23/24 ICE Hockey League, HK Olimpija defeated KAC Klagenfurt 3-2, securing the win via a penalty shootout after the game ended 2-2 in normal time."
+    },
+    {
+      "instance_id": 52,
+      "text": "In round 20 of the 23/24 Ligue Magnus ice hockey season, Brûleurs de Loups Grenoble secured a dominant 5-0 victory over Anglet Hormadi Pays Basque, scoring consistently across all three periods."
+    },
+    {
+      "instance_id": 53,
+      "text": "In the Belarus Extraliga 23/24 season, HK Gomel defeated HK Lida 4-2. Gomel secured the win primarily in the first two periods, while Lida managed a goal in the first and third."
+    },
+    {
+      "instance_id": 54,
+      "text": "In the Suomi Sarja 23/24 season, LeKi Hockey defeated Riemu 5-1. LeKi dominated the third period with four goals to secure the victory."
+    },
+    {
+      "instance_id": 55,
+      "text": "In a Russian VHL 23/24 ice hockey match, Neftyanik Almetyevsk defeated Gornyak UMMC 4-1, dominating the first two periods before each team scored once in the third."
+    },
+    {
+      "instance_id": 56,
+      "text": "In a round 20 Ligue Magnus match for the 23/24 season, Boxers de Bordeaux defeated Jokers de Cergy-Pontoise 4-3 after overtime. The game was tied 3-3 at the end of regulation, with Bordeaux dominating the first half and Cergy-Pontoise fighting back in the third period."
+    },
+    {
+      "instance_id": 57,
+      "text": "In the first round of the Erste Liga 23/24 ice hockey season, Corona Brașov defeated UTE with a final score of 6-2."
+    },
+    {
+      "instance_id": 58,
+      "text": "In the Germany Oberliga Nord 23/24 season (Round 18), Herner EV defeated the Rostock Piranhas 5-4. The match ended in a 4-4 draw after regulation time, with Herner EV securing the win via a penalty shootout."
+    },
+    {
+      "instance_id": 59,
+      "text": "In the opening round of the SDHL 23/24 season, SDE Hockey secured a dominant 6-1 victory over AIK IF, scoring consistently with two goals in each of the three periods."
+    },
+    {
+      "instance_id": 60,
+      "text": "In an NHL 23/24 regular season matchup, the Nashville Predators defeated the Winnipeg Jets 3-2. Nashville secured their lead with three goals scored across the first two periods, while Winnipeg attempted a late comeback with two goals in the third period."
+    },
+    {
+      "instance_id": 61,
+      "text": "In the Russia WHL 23/24 season, Biryusa Krasnoyarsk dominated Tornado Dmitrov with an 8-2 victory, driven by a strong five-goal performance in the second period."
+    },
+    {
+      "instance_id": 62,
+      "text": "In an NHL 23/24 regular season game, the Columbus Blue Jackets defeated the Boston Bruins 5-2. Columbus took a commanding lead early, scoring five goals across three periods, while Boston was held scoreless until the third period."
+    },
+    {
+      "instance_id": 63,
+      "text": "In the first round of the Erste Liga 23/24 ice hockey season, FEHA19 defeated Dunaújvárosi Acélbikák 1-0, with the decisive goal scored in the second period."
+    },
+    {
+      "instance_id": 64,
+      "text": "In round 20 of the 23/24 Ligue Magnus, Amiens Hockey Élite secured a dominant 6-1 victory over Chamonix, with Amiens scoring three goals in both the first and third periods."
+    },
+    {
+      "instance_id": 65,
+      "text": "Brynäs IF defeated Nybro IF 4-1 in round 19 of the Hockey Allsvenskan 23/24 season, pulling away with three goals in the final two periods after a 1-1 tie in the first."
+    },
+    {
+      "instance_id": 66,
+      "text": "In the MHL 23/24 season, Amurskie Tigry defeated Sahalinskie Akuly 4-2. After a scoreless first period, Amurskie Tigry took control in the second and third periods to secure the victory."
+    },
+    {
+      "instance_id": 67,
+      "text": "In round 21 of the German DEL 2 23/24 season, VER Selb defeated Dresdner Eislöwen 5-3. Selb took an early lead in the first period, while Dresden rallied in the second, but Selb ultimately secured the victory."
+    },
+    {
+      "instance_id": 68,
+      "text": "In a WHL 23/24 regular season matchup, the Brandon Wheat Kings defeated the Prince Albert Raiders 3-1. After a scoreless first period, the Wheat Kings took control in the second with two goals, ultimately securing the win."
+    },
+    {
+      "instance_id": 69,
+      "text": "HIFK Helsinki dominated RoKi Hockey with a 6-0 shutout victory in the opening round of the 23/24 Naisten Liiga women's ice hockey season."
+    },
+    {
+      "instance_id": 70,
+      "text": "In round 18 of the German Ice Hockey Oberliga Nord 23/24 season, EC Hannover Indians secured a dominant 11-4 victory over the Herforder Ice Dragons."
+    },
+    {
+      "instance_id": 71,
+      "text": "In round 18 of the German Ice Hockey Oberliga 23/24, ESC Halle Saale Bulls defeated Hammer Eisbären 6-3. Despite Hammer Eisbären leading 2-0 after the first period, the Saale Bulls dominated the second period with 5 goals to secure the victory."
+    },
+    {
+      "instance_id": 72,
+      "text": "In a VHL 23/24 ice hockey match, HC Khimik Voskresensk defeated Izhstal Izhevsk 2-1. After a scoreless first period, Khimik took the lead in the second, and both teams scored once in the third to finalize the result."
+    },
+    {
+      "instance_id": 73,
+      "text": "In round 24 of the 23/24 ICE Hockey League, HC Bolzano defeated Pioneers Vorarlberg 4-1. After a scoreless first period and a 1-1 tie in the second, Bolzano dominated the third period with three goals to secure the victory."
+    },
+    {
+      "instance_id": 74,
+      "text": "In a KHL 23/24 round 1 match, Severstal Cherepovets defeated Sibir Novosibirsk 2-1."
+    },
+    {
+      "instance_id": 75,
+      "text": "In the MHL 23/24 season (Round 1), Almaz Cherepovets decisively defeated Kapitan Stupino 7-2. Almaz Cherepovets dominated the first two periods, scoring 5 goals, while Kapitan Stupino managed all their scoring in the third period."
+    },
+    {
+      "instance_id": 76,
+      "text": "In the first round of the HockeyEttan Ostra 23/24 season, Visby/Roma HK defeated Wings HC 3-2."
+    },
+    {
+      "instance_id": 77,
+      "text": "The Victoriaville Tigres defeated the Quebec Remparts 6-2 in a QMJHL 23/24 season game, with the Tigres dominating throughout, particularly in the second period."
+    },
+    {
+      "instance_id": 78,
+      "text": "In round 21 of the German Ice Hockey Oberliga Sud 23/24 season, Blue Devils Weiden defeated the Höchstadt Alligators 5-3."
+    },
+    {
+      "instance_id": 79,
+      "text": "In a VHL 23/24 ice hockey match, Zauralie Kurgan defeated CSK VVS Samara 5-4 after a penalty shootout, following a 4-4 draw in regulation time."
+    },
+    {
+      "instance_id": 80,
+      "text": "In the opening round of the 23/24 Metal Ligaen (Superisligaen), Rødovre Mighty Bulls defeated Herning Blue Fox 3-2, securing the win via a penalty shootout after a 2-2 draw in regulation time."
+    },
+    {
+      "instance_id": 81,
+      "text": "In round 22 of the Czech Republic's Extraliga 23/24 ice hockey season, BK Mladá Boleslav defeated HC Rytíři Kladno 3-2. After finishing regulation time tied at 2-2, BK Mladá Boleslav secured the victory via a penalty shootout."
+    },
+    {
+      "instance_id": 82,
+      "text": "In an ECHL 23/24 regular season game, the Indy Fuel defeated the Kalamazoo Wings 4-2."
+    },
+    {
+      "instance_id": 83,
+      "text": "Deggendorfer SC defeated SC Riessersee 4-1 in round 21 of the German Oberliga Sud 23/24 season, maintaining a consistent lead across all three periods."
+    },
+    {
+      "instance_id": 84,
+      "text": "In an OHL 23/24 round 1 matchup, the Saginaw Spirit defeated the Niagara IceDogs 6-2, dominating early with three goals in the first period."
+    },
+    {
+      "instance_id": 85,
+      "text": "In the opening round of the HockeyEttan Norra 23/24 season, Piteå HC secured a dominant 6-1 victory over Strömsbro If, scoring two goals in each of the three periods."
+    },
+    {
+      "instance_id": 86,
+      "text": "The Edmonton Oilers dominated the Anaheim Ducks 8-2 in an NHL 23/24 round 1 matchup, securing the win primarily with a strong four-goal performance in the first period."
+    },
+    {
+      "instance_id": 87,
+      "text": "In a VHL 23/24 ice hockey match, Sokol Krasnoyarsk defeated Buran Voronezh 3-2. After a scoreless first two periods, both teams scored two goals in the third to end regulation in a 2-2 tie; Sokol Krasnoyarsk ultimately secured the victory via a penalty shootout."
+    },
+    {
+      "instance_id": 88,
+      "text": "In an AHL 23/24 matchup, the Henderson Silver Knights defeated the Tucson Roadrunners 3-2 after overtime, following a 2-2 tie in regulation."
+    },
+    {
+      "instance_id": 89,
+      "text": "In the U20 League Stage 2 Division 2 (Young Stars League 23/24), Deac Jegkorong Akademia U20 defeated Vasas Budapest Stars U20 with a final score of 4-1. After a scoreless first period and a 1-1 tie in the second, Deac Jegkorong Akademia secured the victory with three goals in the third period."
+    },
+    {
+      "instance_id": 90,
+      "text": "Lindlövens IF defeated Forshaga IF 4-2 in round 14 of the Swedish HockeyEttan Vastra 23/24 season."
+    },
+    {
+      "instance_id": 91,
+      "text": "In round 1 of the 23/24 Elite League, the Cardiff Devils secured a dominant 6-0 victory over the Fife Flyers, with a strong 4-goal surge in the third period."
+    },
+    {
+      "instance_id": 92,
+      "text": "In round 14 of the HockeyEttan Sodra 23/24 season, Alvesta SK defeated Mörrum Gois IK 6-2, securing the win with a dominant four-goal performance in the third period."
+    },
+    {
+      "instance_id": 93,
+      "text": "In round 21 of the Slovakian Ice Hockey Extraliga 23/24 season, HC Košice defeated HK Nitra 4-0, scoring two goals in both the first and third periods."
+    },
+    {
+      "instance_id": 94,
+      "text": "In the opening round of the Erste Liga 23/24 ice hockey season, FTC-Telekom defeated Gyergyói HK 4-1, with all scoring occurring in the second period."
+    },
+    {
+      "instance_id": 95,
+      "text": "In a Russian VHL 23/24 round 1 ice hockey match, Chelmet Chelyabinsk defeated Dizel Penza 4-1. Despite Dizel Penza leading 1-0 after the first period, Chelmet Chelyabinsk secured the win with a dominant four-goal surge in the third period."
+    },
+    {
+      "instance_id": 96,
+      "text": "In the MHL 23/24 season, Belye Medvedi defeated Chaika Nizhny Novgorod 4-1. Belye Medvedi dominated the match, particularly in the first period where they took a 2-0 lead."
+    },
+    {
+      "instance_id": 97,
+      "text": "In an AHL 23/24 season matchup, the Hershey Bears defeated the Iowa Wild 2-1. Hershey secured the win early with two goals in the first period, while Iowa managed a single response in the second."
+    },
+    {
+      "instance_id": 98,
+      "text": "In round 14 of the Swedish HockeyEttan Sodra 23/24 season, Vimmerby HC defeated Halmstad Hammers HC 4-3, securing the win via a penalty shootout after a 3-3 draw in normal time."
+    },
+    {
+      "instance_id": 99,
+      "text": "In round 21 of the Slovakia Ice Hockey Extraliga 23/24 season, HC Slovan Bratislava defeated HC Nové Zámky 5-2, maintaining a consistent lead across all three periods."
+    }
+  ],
+  "triples_by_instance": [
+    {
+      "instance_id": 0,
+      "triples": [
+        {
+          "subject": "Carolina Hurricanes",
+          "predicate": "defeated",
+          "object": "Columbus Blue Jackets"
+        },
+        {
+          "subject": "Carolina Hurricanes",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "Columbus Blue Jackets",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "NHL 23/24 regular season"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 1,
+      "triples": [
+        {
+          "subject": "Spartak Moscow",
+          "predicate": "defeated",
+          "object": "Avtomobilist Yekaterinburg"
+        },
+        {
+          "subject": "Spartak Moscow",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Avtomobilist Yekaterinburg",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "match",
+          "predicate": "part_of",
+          "object": "KHL 23/24 round 1"
+        },
+        {
+          "subject": "Spartak Moscow goals",
+          "predicate": "occurred_in",
+          "object": "second period"
+        },
+        {
+          "subject": "Spartak Moscow goals",
+          "predicate": "occurred_in",
+          "object": "third period"
+        },
+        {
+          "subject": "Avtomobilist Yekaterinburg goal",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 2,
+      "triples": [
+        {
+          "subject": "Stalnye Lisy",
+          "predicate": "defeated",
+          "object": "Irbis Kazan"
+        },
+        {
+          "subject": "Stalnye Lisy",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Irbis Kazan",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "match",
+          "predicate": "part_of",
+          "object": "Russian MHL 23/24 round 1"
+        }
+      ]
+    },
+    {
+      "instance_id": 3,
+      "triples": [
+        {
+          "subject": "Mora IK",
+          "predicate": "defeated",
+          "object": "Almtuna IS"
+        },
+        {
+          "subject": "Mora IK",
+          "predicate": "score",
+          "object": "6"
+        },
+        {
+          "subject": "Almtuna IS",
+          "predicate": "score",
+          "object": "0"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Hockey Allsvenskan 23/24 season"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "round 19"
+        },
+        {
+          "subject": "two goals",
+          "predicate": "occurred_in",
+          "object": "second period"
+        },
+        {
+          "subject": "four goals",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 4,
+      "triples": [
+        {
+          "subject": "Stalnye Lisy",
+          "predicate": "defeated",
+          "object": "Irbis Kazan"
+        },
+        {
+          "subject": "Stalnye Lisy",
+          "predicate": "score",
+          "object": "5"
+        },
+        {
+          "subject": "Irbis Kazan",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "Stalnye Lisy defeated Irbis Kazan",
+          "predicate": "part_of",
+          "object": "MHL 23/24 season"
+        },
+        {
+          "subject": "2 goals",
+          "predicate": "occurred_in",
+          "object": "first period"
+        }
+      ]
+    },
+    {
+      "instance_id": 5,
+      "triples": [
+        {
+          "subject": "Falu IF",
+          "predicate": "defeated",
+          "object": "Mariestads BOIS"
+        },
+        {
+          "subject": "Falu IF",
+          "predicate": "score",
+          "object": "5"
+        },
+        {
+          "subject": "Mariestads BOIS",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Swedish HockeyEttan Vastra 23/24 season"
+        }
+      ]
+    },
+    {
+      "instance_id": 6,
+      "triples": [
+        {
+          "subject": "HC TWK Innsbruck",
+          "predicate": "defeated",
+          "object": "EC VSV"
+        },
+        {
+          "subject": "HC TWK Innsbruck",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "EC VSV",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "round 24 of the 23/24 ICE Hockey League in Austria"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "first period"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "second period"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 7,
+      "triples": [
+        {
+          "subject": "GKS Tychy",
+          "predicate": "defeated",
+          "object": "Unia Oświęcim"
+        },
+        {
+          "subject": "GKS Tychy",
+          "predicate": "score",
+          "object": "5"
+        },
+        {
+          "subject": "Unia Oświęcim",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Polish Ekstraliga 23/24 season"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "final period"
+        }
+      ]
+    },
+    {
+      "instance_id": 8,
+      "triples": [
+        {
+          "subject": "TAURON Podhale Nowy Targ",
+          "predicate": "defeated",
+          "object": "JKH GKS Jastrzębie"
+        },
+        {
+          "subject": "TAURON Podhale Nowy Targ",
+          "predicate": "score",
+          "object": "10"
+        },
+        {
+          "subject": "JKH GKS Jastrzębie",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Polish Ekstraliga (23/24 season)"
+        },
+        {
+          "subject": "7-0 surge",
+          "predicate": "occurred_in",
+          "object": "second period"
+        }
+      ]
+    },
+    {
+      "instance_id": 9,
+      "triples": [
+        {
+          "subject": "Vityaz Podolsk",
+          "predicate": "defeated",
+          "object": "Barys Astana"
+        },
+        {
+          "subject": "Vityaz Podolsk",
+          "predicate": "score",
+          "object": "5"
+        },
+        {
+          "subject": "Barys Astana",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "Vityaz Podolsk defeated Barys Astana",
+          "predicate": "part_of",
+          "object": "KHL 23/24 round 1 match"
+        }
+      ]
+    },
+    {
+      "instance_id": 10,
+      "triples": [
+        {
+          "subject": "Bridgeport Islanders",
+          "predicate": "defeated",
+          "object": "Belleville Senators"
+        },
+        {
+          "subject": "Bridgeport Islanders",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Belleville Senators",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "game",
+          "predicate": "part_of",
+          "object": "AHL 23/24 regular season"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "second-period"
+        }
+      ]
+    },
+    {
+      "instance_id": 11,
+      "triples": [
+        {
+          "subject": "Traktor Chelyabinsk",
+          "predicate": "defeated",
+          "object": "Torpedo Nizhny Novgorod"
+        },
+        {
+          "subject": "Traktor Chelyabinsk",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "Torpedo Nizhny Novgorod",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "Traktor Chelyabinsk vs Torpedo Nizhny Novgorod match",
+          "predicate": "part_of",
+          "object": "KHL 23/24 regular season"
+        }
+      ]
+    },
+    {
+      "instance_id": 12,
+      "triples": [
+        {
+          "subject": "Graz 99ers",
+          "predicate": "defeated",
+          "object": "Vienna Capitals"
+        },
+        {
+          "subject": "Graz 99ers",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Vienna Capitals",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "Graz 99ers defeated Vienna Capitals",
+          "predicate": "part_of",
+          "object": "ICE Hockey League 23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 13,
+      "triples": [
+        {
+          "subject": "Modo Hockey",
+          "predicate": "defeated",
+          "object": "Leksands IF"
+        },
+        {
+          "subject": "Modo Hockey",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "Leksands IF",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "SDHL 23/24 season"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "final period"
+        }
+      ]
+    },
+    {
+      "instance_id": 14,
+      "triples": [
+        {
+          "subject": "Tauron KH GKS Katowice",
+          "predicate": "defeated",
+          "object": "Comarch Cracovia"
+        },
+        {
+          "subject": "Tauron KH GKS Katowice",
+          "predicate": "score",
+          "object": "7"
+        },
+        {
+          "subject": "Comarch Cracovia",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "Tauron KH GKS Katowice",
+          "predicate": "score",
+          "object": "5"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "first period"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Polish Ekstraliga 23/24 season"
+        }
+      ]
+    },
+    {
+      "instance_id": 15,
+      "triples": [
+        {
+          "subject": "HC Olomouc",
+          "predicate": "defeated",
+          "object": "HC Kometa Brno"
+        },
+        {
+          "subject": "HC Olomouc",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "HC Kometa Brno",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Czech Republic's Extraliga 23/24 ice hockey season"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "second period"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 16,
+      "triples": [
+        {
+          "subject": "Boston College Eagles",
+          "predicate": "defeated",
+          "object": "Harvard University"
+        },
+        {
+          "subject": "Boston College Eagles",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Harvard University",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "game",
+          "predicate": "part_of",
+          "object": "NCAA Men's ice hockey regular season (23/24)"
+        },
+        {
+          "subject": "three-goal performance",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 17,
+      "triples": [
+        {
+          "subject": "HC Frýdek-Místek",
+          "predicate": "defeated",
+          "object": "HC Stadion Litoměřice"
+        },
+        {
+          "subject": "HC Frýdek-Místek",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "HC Stadion Litoměřice",
+          "predicate": "score",
+          "object": "0"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Czech Republic's 1st Liga (23/24 season)"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "all three periods"
+        }
+      ]
+    },
+    {
+      "instance_id": 18,
+      "triples": [
+        {
+          "subject": "Abbotsford Canucks",
+          "predicate": "defeated",
+          "object": "Calgary Wranglers"
+        },
+        {
+          "subject": "Abbotsford Canucks",
+          "predicate": "score",
+          "object": "7"
+        },
+        {
+          "subject": "Calgary Wranglers",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "game",
+          "predicate": "part_of",
+          "object": "AHL 23/24 regular season"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "first period"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "second period"
+        }
+      ]
+    },
+    {
+      "instance_id": 19,
+      "triples": [
+        {
+          "subject": "Belfast Giants",
+          "predicate": "defeated",
+          "object": "Nottingham Panthers"
+        },
+        {
+          "subject": "Belfast Giants",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Nottingham Panthers",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "23/24 Elite League"
+        },
+        {
+          "subject": "three goals",
+          "predicate": "occurred_in",
+          "object": "final period"
+        }
+      ]
+    },
+    {
+      "instance_id": 20,
+      "triples": [
+        {
+          "subject": "Sheffield Steelers",
+          "predicate": "defeated",
+          "object": "Guildford Flames"
+        },
+        {
+          "subject": "Sheffield Steelers",
+          "predicate": "score",
+          "object": "6"
+        },
+        {
+          "subject": "Guildford Flames",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "Sheffield Steelers",
+          "predicate": "four-goal performance",
+          "object": "third period"
+        },
+        {
+          "subject": "opening round",
+          "predicate": "part_of",
+          "object": "Elite League 23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 21,
+      "triples": [
+        {
+          "subject": "Iserlohn Roosters",
+          "predicate": "defeated",
+          "object": "Eisbären Berlin"
+        },
+        {
+          "subject": "Iserlohn Roosters",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "Eisbären Berlin",
+          "predicate": "score",
+          "object": "0"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "German DEL 23/24 ice hockey season"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "first period"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 22,
+      "triples": [
+        {
+          "subject": "Peterborough Petes",
+          "predicate": "defeated",
+          "object": "Sudbury Wolves"
+        },
+        {
+          "subject": "Peterborough Petes",
+          "predicate": "score",
+          "object": "5"
+        },
+        {
+          "subject": "Sudbury Wolves",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "match",
+          "predicate": "part_of",
+          "object": "OHL 23/24 regular season"
+        }
+      ]
+    },
+    {
+      "instance_id": 23,
+      "triples": [
+        {
+          "subject": "Rögle BK",
+          "predicate": "defeated",
+          "object": "Malmö Redhawks"
+        },
+        {
+          "subject": "Rögle BK",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Malmö Redhawks",
+          "predicate": "score",
+          "object": "0"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "round 20 of the SHL 23/24 season"
+        },
+        {
+          "subject": "two goals",
+          "predicate": "occurred_in",
+          "object": "first period"
+        },
+        {
+          "subject": "one goal",
+          "predicate": "occurred_in",
+          "object": "second period"
+        },
+        {
+          "subject": "one goal",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 24,
+      "triples": [
+        {
+          "subject": "Providence Friars",
+          "predicate": "defeated",
+          "object": "Arizona State Sun Devils"
+        },
+        {
+          "subject": "Providence Friars",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "Arizona State Sun Devils",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "game",
+          "predicate": "part_of",
+          "object": "NCAA Men's ice hockey regular season (23/24)"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "second period"
+        }
+      ]
+    },
+    {
+      "instance_id": 25,
+      "triples": [
+        {
+          "subject": "EHC Erfurt",
+          "predicate": "defeated",
+          "object": "Fuchse Duisburg"
+        },
+        {
+          "subject": "EHC Erfurt",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Fuchse Duisburg",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "German Oberliga Nord 23/24 season"
+        }
+      ]
+    },
+    {
+      "instance_id": 26,
+      "triples": [
+        {
+          "subject": "Halifax Mooseheads",
+          "predicate": "defeated",
+          "object": "Moncton Wildcats"
+        },
+        {
+          "subject": "Halifax Mooseheads",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Moncton Wildcats",
+          "predicate": "score",
+          "object": "0"
+        },
+        {
+          "subject": "game",
+          "predicate": "part_of",
+          "object": "QMJHL 23/24 regular season"
+        }
+      ]
+    },
+    {
+      "instance_id": 27,
+      "triples": [
+        {
+          "subject": "HC Motor České Budějovice",
+          "predicate": "defeated",
+          "object": "HC Verva Litvínov"
+        },
+        {
+          "subject": "HC Motor České Budějovice",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "HC Verva Litvínov",
+          "predicate": "score",
+          "object": "0"
+        },
+        {
+          "subject": "decisive goal",
+          "predicate": "occurred_in",
+          "object": "third period"
+        },
+        {
+          "subject": "game",
+          "predicate": "part_of",
+          "object": "Czech Republic Ice Hockey Extraliga 23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 28,
+      "triples": [
+        {
+          "subject": "Miami Ohio Redhawks",
+          "predicate": "defeated",
+          "object": "Mercyhurst Lakers"
+        },
+        {
+          "subject": "Miami Ohio Redhawks",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "Mercyhurst Lakers",
+          "predicate": "score",
+          "object": "0"
+        },
+        {
+          "subject": "game",
+          "predicate": "part_of",
+          "object": "NCAA Men's ice hockey regular season (23/24)"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "first period"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 29,
+      "triples": [
+        {
+          "subject": "Drummondville Voltigeurs",
+          "predicate": "defeated",
+          "object": "Shawinigan Cataractes"
+        },
+        {
+          "subject": "Drummondville Voltigeurs",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "Shawinigan Cataractes",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "game",
+          "predicate": "part_of",
+          "object": "QMJHL 23/24 regular season"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 30,
+      "triples": [
+        {
+          "subject": "HK Ryazan",
+          "predicate": "defeated",
+          "object": "HC Chelny"
+        },
+        {
+          "subject": "HK Ryazan",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "HC Chelny",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "match",
+          "predicate": "part_of",
+          "object": "Russian VHL 23/24"
+        },
+        {
+          "subject": "HC Chelny scoring",
+          "predicate": "occurred_in",
+          "object": "second period"
+        },
+        {
+          "subject": "HK Ryazan scoring",
+          "predicate": "occurred_in",
+          "object": "final period"
+        }
+      ]
+    },
+    {
+      "instance_id": 31,
+      "triples": [
+        {
+          "subject": "Neman Grodno",
+          "predicate": "defeated",
+          "object": "Shakhter Soligorsk"
+        },
+        {
+          "subject": "Neman Grodno",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "Shakhter Soligorsk",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Belarus Extraliga 23/24 season opener"
+        },
+        {
+          "subject": "2-2 tie",
+          "predicate": "occurred_in",
+          "object": "first period"
+        },
+        {
+          "subject": "single goal",
+          "predicate": "occurred_in",
+          "object": "second period"
+        }
+      ]
+    },
+    {
+      "instance_id": 32,
+      "triples": [
+        {
+          "subject": "HK Vitebsk",
+          "predicate": "defeated",
+          "object": "Khimik-SKA Novopolotsk"
+        },
+        {
+          "subject": "HK Vitebsk",
+          "predicate": "score",
+          "object": "6"
+        },
+        {
+          "subject": "Khimik-SKA Novopolotsk",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Belarus Extraliga 23/24 season"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "second period"
+        }
+      ]
+    },
+    {
+      "instance_id": 33,
+      "triples": [
+        {
+          "subject": "HC ZUBR Přerov",
+          "predicate": "defeated",
+          "object": "PSG Berani Zlín"
+        },
+        {
+          "subject": "HC ZUBR Přerov",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "PSG Berani Zlín",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "match",
+          "predicate": "part_of",
+          "object": "Czech Republic's 1st Liga (23/24 season)"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "first two periods"
+        }
+      ]
+    },
+    {
+      "instance_id": 34,
+      "triples": [
+        {
+          "subject": "BIK Karlskoga",
+          "predicate": "defeated",
+          "object": "Östersunds IK"
+        },
+        {
+          "subject": "BIK Karlskoga",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "Östersunds IK",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Hockey Allsvenskan 23/24 season"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "first period"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "second period"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 35,
+      "triples": [
+        {
+          "subject": "Sudbury Wolves",
+          "predicate": "defeated",
+          "object": "Oshawa Generals"
+        },
+        {
+          "subject": "Sudbury Wolves",
+          "predicate": "score",
+          "object": "7"
+        },
+        {
+          "subject": "Oshawa Generals",
+          "predicate": "score",
+          "object": "5"
+        },
+        {
+          "subject": "game",
+          "predicate": "part_of",
+          "object": "OHL 23/24 regular season"
+        }
+      ]
+    },
+    {
+      "instance_id": 36,
+      "triples": [
+        {
+          "subject": "Molot Perm",
+          "predicate": "defeated",
+          "object": "SKA-Neva"
+        },
+        {
+          "subject": "Molot Perm",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "SKA-Neva",
+          "predicate": "score",
+          "object": "0"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "second period"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "third period"
+        },
+        {
+          "subject": "match",
+          "predicate": "part_of",
+          "object": "VHL 23/24 round 1"
+        }
+      ]
+    },
+    {
+      "instance_id": 37,
+      "triples": [
+        {
+          "subject": "Bodens HF",
+          "predicate": "defeated",
+          "object": "Hudiksvalls HC"
+        },
+        {
+          "subject": "Bodens HF",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Hudiksvalls HC",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Sweden's HockeyEttan Norra 23/24 season"
+        },
+        {
+          "subject": "three-goal performance",
+          "predicate": "occurred_in",
+          "object": "first period"
+        }
+      ]
+    },
+    {
+      "instance_id": 38,
+      "triples": [
+        {
+          "subject": "Rittner Buam",
+          "predicate": "defeated",
+          "object": "EHC Lustenau"
+        },
+        {
+          "subject": "Rittner Buam",
+          "predicate": "score",
+          "object": "7"
+        },
+        {
+          "subject": "EHC Lustenau",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "Rittner Buam defeated EHC Lustenau",
+          "predicate": "part_of",
+          "object": "opening round of the 23/24 Alps Hockey League"
+        }
+      ]
+    },
+    {
+      "instance_id": 39,
+      "triples": [
+        {
+          "subject": "HC Dukla Jihlava",
+          "predicate": "defeated",
+          "object": "HC Banik Sokolov"
+        },
+        {
+          "subject": "HC Dukla Jihlava",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "HC Banik Sokolov",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "HC Dukla Jihlava vs HC Banik Sokolov",
+          "predicate": "part_of",
+          "object": "Chance Liga (23/24 season)"
+        }
+      ]
+    },
+    {
+      "instance_id": 40,
+      "triples": [
+        {
+          "subject": "EV Landshut",
+          "predicate": "defeated",
+          "object": "Bietigheim Steelers"
+        },
+        {
+          "subject": "EV Landshut",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Bietigheim Steelers",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Germany DEL 2 23/24 season"
+        }
+      ]
+    },
+    {
+      "instance_id": 41,
+      "triples": [
+        {
+          "subject": "Biryusa Krasnoyarsk",
+          "predicate": "defeated",
+          "object": "Tornado Dmitrov"
+        },
+        {
+          "subject": "Biryusa Krasnoyarsk",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "Tornado Dmitrov",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "WHL 23/24 Women Championship"
+        },
+        {
+          "subject": "two goals",
+          "predicate": "occurred_in",
+          "object": "first period"
+        },
+        {
+          "subject": "final goal",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 42,
+      "triples": [
+        {
+          "subject": "Detroit Red Wings",
+          "predicate": "defeated",
+          "object": "Minnesota Wild"
+        },
+        {
+          "subject": "Detroit Red Wings",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Minnesota Wild",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "game",
+          "predicate": "part_of",
+          "object": "NHL 23/24 regular season"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "second period"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 43,
+      "triples": [
+        {
+          "subject": "Loko Yaroslavl",
+          "predicate": "defeated",
+          "object": "Mikhailov Academy"
+        },
+        {
+          "subject": "Loko Yaroslavl",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Mikhailov Academy",
+          "predicate": "score",
+          "object": "0"
+        },
+        {
+          "subject": "Russian MHL ice hockey match",
+          "predicate": "part_of",
+          "object": "23/24 season"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "first two periods"
+        }
+      ]
+    },
+    {
+      "instance_id": 44,
+      "triples": [
+        {
+          "subject": "Lokomotiv Yaroslavl",
+          "predicate": "defeated",
+          "object": "CSKA Moscow"
+        },
+        {
+          "subject": "Lokomotiv Yaroslavl",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "CSKA Moscow",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "KHL 23/24 round 1"
+        },
+        {
+          "subject": "Lokomotiv Yaroslavl's lead",
+          "predicate": "occurred_in",
+          "object": "first period"
+        },
+        {
+          "subject": "Lokomotiv Yaroslavl's goal",
+          "predicate": "occurred_in",
+          "object": "third period"
+        },
+        {
+          "subject": "CSKA's scoring",
+          "predicate": "occurred_in",
+          "object": "second period"
+        }
+      ]
+    },
+    {
+      "instance_id": 45,
+      "triples": [
+        {
+          "subject": "LHK Jestřábi Prostějov",
+          "predicate": "defeated",
+          "object": "HC RT Torax Poruba"
+        },
+        {
+          "subject": "LHK Jestřábi Prostějov",
+          "predicate": "score",
+          "object": "5"
+        },
+        {
+          "subject": "HC RT Torax Poruba",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Chance Liga (23/24 season)"
+        }
+      ]
+    },
+    {
+      "instance_id": 46,
+      "triples": [
+        {
+          "subject": "Heilbronner Falken",
+          "predicate": "defeated",
+          "object": "Lindau Islanders"
+        },
+        {
+          "subject": "Heilbronner Falken",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Lindau Islanders",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "German ice hockey Oberliga Sud 23/24 season"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "first period"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 47,
+      "triples": [
+        {
+          "subject": "HK Poprad",
+          "predicate": "defeated",
+          "object": "HKM Zvolen"
+        },
+        {
+          "subject": "HK Poprad",
+          "predicate": "score",
+          "object": "5"
+        },
+        {
+          "subject": "HKM Zvolen",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "HK Poprad",
+          "predicate": "score",
+          "object": "three goals"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "second-period"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Slovakian Ice Hockey Extraliga 23/24 season"
+        }
+      ]
+    },
+    {
+      "instance_id": 48,
+      "triples": [
+        {
+          "subject": "HC AKM Tula",
+          "predicate": "defeated",
+          "object": "Omskie Kryliya"
+        },
+        {
+          "subject": "HC AKM Tula",
+          "predicate": "score",
+          "object": "5"
+        },
+        {
+          "subject": "Omskie Kryliya",
+          "predicate": "score",
+          "object": "0"
+        },
+        {
+          "subject": "HC AKM Tula victory over Omskie Kryliya",
+          "predicate": "part_of",
+          "object": "Russian VHL 23/24 round 1"
+        }
+      ]
+    },
+    {
+      "instance_id": 49,
+      "triples": [
+        {
+          "subject": "Hanvikens SK",
+          "predicate": "defeated",
+          "object": "Segeltorps IF"
+        },
+        {
+          "subject": "Hanvikens SK",
+          "predicate": "score",
+          "object": "6"
+        },
+        {
+          "subject": "Segeltorps IF",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "HockeyEttan Ostra 23/24 season"
+        },
+        {
+          "subject": "three-goal performance",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 50,
+      "triples": [
+        {
+          "subject": "AIK",
+          "predicate": "defeated",
+          "object": "Tingsryds AIF"
+        },
+        {
+          "subject": "AIK",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "Tingsryds AIF",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Swedish Hockey Allsvenskan 23/24 season"
+        }
+      ]
+    },
+    {
+      "instance_id": 51,
+      "triples": [
+        {
+          "subject": "HK Olimpija",
+          "predicate": "defeated",
+          "object": "KAC Klagenfurt"
+        },
+        {
+          "subject": "HK Olimpija",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "KAC Klagenfurt",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "round 24 of the 23/24 ICE Hockey League"
+        }
+      ]
+    },
+    {
+      "instance_id": 52,
+      "triples": [
+        {
+          "subject": "Brûleurs de Loups Grenoble",
+          "predicate": "defeated",
+          "object": "Anglet Hormadi Pays Basque"
+        },
+        {
+          "subject": "Brûleurs de Loups Grenoble",
+          "predicate": "score",
+          "object": "5"
+        },
+        {
+          "subject": "Anglet Hormadi Pays Basque",
+          "predicate": "score",
+          "object": "0"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "23/24 Ligue Magnus ice hockey season"
+        }
+      ]
+    },
+    {
+      "instance_id": 53,
+      "triples": [
+        {
+          "subject": "HK Gomel",
+          "predicate": "defeated",
+          "object": "HK Lida"
+        },
+        {
+          "subject": "HK Gomel",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "HK Lida",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Belarus Extraliga 23/24 season"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "first period"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "second period"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 54,
+      "triples": [
+        {
+          "subject": "LeKi Hockey",
+          "predicate": "defeated",
+          "object": "Riemu"
+        },
+        {
+          "subject": "LeKi Hockey",
+          "predicate": "score",
+          "object": "5"
+        },
+        {
+          "subject": "Riemu",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Suomi Sarja 23/24 season"
+        },
+        {
+          "subject": "LeKi Hockey",
+          "predicate": "four-goal performance",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 55,
+      "triples": [
+        {
+          "subject": "Neftyanik Almetyevsk",
+          "predicate": "defeated",
+          "object": "Gornyak UMMC"
+        },
+        {
+          "subject": "Neftyanik Almetyevsk",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Gornyak UMMC",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "Neftyanik Almetyevsk defeated Gornyak UMMC",
+          "predicate": "part_of",
+          "object": "Russian VHL 23/24 ice hockey match"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 56,
+      "triples": [
+        {
+          "subject": "Boxers de Bordeaux",
+          "predicate": "defeated",
+          "object": "Jokers de Cergy-Pontoise"
+        },
+        {
+          "subject": "Boxers de Bordeaux",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Jokers de Cergy-Pontoise",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "round 20 Ligue Magnus 23/24 season"
+        },
+        {
+          "subject": "fighting back",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 57,
+      "triples": [
+        {
+          "subject": "Corona Brașov",
+          "predicate": "defeated",
+          "object": "UTE"
+        },
+        {
+          "subject": "Corona Brașov",
+          "predicate": "score",
+          "object": "6"
+        },
+        {
+          "subject": "UTE",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Erste Liga 23/24 ice hockey season"
+        }
+      ]
+    },
+    {
+      "instance_id": 58,
+      "triples": [
+        {
+          "subject": "Herner EV",
+          "predicate": "defeated",
+          "object": "Rostock Piranhas"
+        },
+        {
+          "subject": "Herner EV",
+          "predicate": "score",
+          "object": "5"
+        },
+        {
+          "subject": "Rostock Piranhas",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "match",
+          "predicate": "part_of",
+          "object": "Germany Oberliga Nord 23/24 season"
+        }
+      ]
+    },
+    {
+      "instance_id": 59,
+      "triples": [
+        {
+          "subject": "SDE Hockey",
+          "predicate": "defeated",
+          "object": "AIK IF"
+        },
+        {
+          "subject": "SDE Hockey",
+          "predicate": "score",
+          "object": "6"
+        },
+        {
+          "subject": "AIK IF",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "SDHL 23/24 season"
+        }
+      ]
+    },
+    {
+      "instance_id": 60,
+      "triples": [
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "NHL 23/24 regular season"
+        },
+        {
+          "subject": "Nashville Predators",
+          "predicate": "defeated",
+          "object": "Winnipeg Jets"
+        },
+        {
+          "subject": "Nashville Predators",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "Winnipeg Jets",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "Nashville Predators",
+          "predicate": "score",
+          "object": "three goals"
+        },
+        {
+          "subject": "three goals",
+          "predicate": "occurred_in",
+          "object": "first two periods"
+        },
+        {
+          "subject": "Winnipeg Jets",
+          "predicate": "score",
+          "object": "two goals"
+        },
+        {
+          "subject": "two goals",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 61,
+      "triples": [
+        {
+          "subject": "Biryusa Krasnoyarsk",
+          "predicate": "defeated",
+          "object": "Tornado Dmitrov"
+        },
+        {
+          "subject": "Biryusa Krasnoyarsk",
+          "predicate": "score",
+          "object": "8"
+        },
+        {
+          "subject": "Tornado Dmitrov",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Russia WHL 23/24 season"
+        },
+        {
+          "subject": "five-goal performance",
+          "predicate": "occurred_in",
+          "object": "second period"
+        }
+      ]
+    },
+    {
+      "instance_id": 62,
+      "triples": [
+        {
+          "subject": "Columbus Blue Jackets",
+          "predicate": "defeated",
+          "object": "Boston Bruins"
+        },
+        {
+          "subject": "Columbus Blue Jackets",
+          "predicate": "score",
+          "object": "5"
+        },
+        {
+          "subject": "Boston Bruins",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "game",
+          "predicate": "part_of",
+          "object": "NHL 23/24 regular season"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 63,
+      "triples": [
+        {
+          "subject": "FEHA19",
+          "predicate": "defeated",
+          "object": "Dunaújvárosi Acélbikák"
+        },
+        {
+          "subject": "FEHA19",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "Dunaújvárosi Acélbikák",
+          "predicate": "score",
+          "object": "0"
+        },
+        {
+          "subject": "decisive goal",
+          "predicate": "occurred_in",
+          "object": "second period"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Erste Liga 23/24 ice hockey season"
+        }
+      ]
+    },
+    {
+      "instance_id": 64,
+      "triples": [
+        {
+          "subject": "Amiens Hockey Élite",
+          "predicate": "defeated",
+          "object": "Chamonix"
+        },
+        {
+          "subject": "Amiens Hockey Élite",
+          "predicate": "score",
+          "object": "6"
+        },
+        {
+          "subject": "Chamonix",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "round 20 of the 23/24 Ligue Magnus"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "first period"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 65,
+      "triples": [
+        {
+          "subject": "Brynäs IF",
+          "predicate": "defeated",
+          "object": "Nybro IF"
+        },
+        {
+          "subject": "Brynäs IF",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Nybro IF",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "round 19 of the Hockey Allsvenskan 23/24 season"
+        }
+      ]
+    },
+    {
+      "instance_id": 66,
+      "triples": [
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "MHL 23/24 season"
+        },
+        {
+          "subject": "Amurskie Tigry",
+          "predicate": "defeated",
+          "object": "Sahalinskie Akuly"
+        },
+        {
+          "subject": "Amurskie Tigry",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Sahalinskie Akuly",
+          "predicate": "score",
+          "object": "2"
+        }
+      ]
+    },
+    {
+      "instance_id": 67,
+      "triples": [
+        {
+          "subject": "VER Selb",
+          "predicate": "defeated",
+          "object": "Dresdner Eislöwen"
+        },
+        {
+          "subject": "VER Selb",
+          "predicate": "score",
+          "object": "5"
+        },
+        {
+          "subject": "Dresdner Eislöwen",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "German DEL 2 23/24 season"
+        }
+      ]
+    },
+    {
+      "instance_id": 68,
+      "triples": [
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "WHL 23/24 regular season"
+        },
+        {
+          "subject": "Brandon Wheat Kings",
+          "predicate": "defeated",
+          "object": "Prince Albert Raiders"
+        },
+        {
+          "subject": "Brandon Wheat Kings",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "Prince Albert Raiders",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "two goals",
+          "predicate": "occurred_in",
+          "object": "second period"
+        }
+      ]
+    },
+    {
+      "instance_id": 69,
+      "triples": [
+        {
+          "subject": "HIFK Helsinki",
+          "predicate": "defeated",
+          "object": "RoKi Hockey"
+        },
+        {
+          "subject": "HIFK Helsinki",
+          "predicate": "score",
+          "object": "6"
+        },
+        {
+          "subject": "RoKi Hockey",
+          "predicate": "score",
+          "object": "0"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "23/24 Naisten Liiga women's ice hockey season"
+        }
+      ]
+    },
+    {
+      "instance_id": 70,
+      "triples": [
+        {
+          "subject": "EC Hannover Indians",
+          "predicate": "defeated",
+          "object": "Herforder Ice Dragons"
+        },
+        {
+          "subject": "EC Hannover Indians",
+          "predicate": "score",
+          "object": "11"
+        },
+        {
+          "subject": "Herforder Ice Dragons",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "German Ice Hockey Oberliga Nord 23/24 season"
+        }
+      ]
+    },
+    {
+      "instance_id": 71,
+      "triples": [
+        {
+          "subject": "ESC Halle Saale Bulls",
+          "predicate": "defeated",
+          "object": "Hammer Eisbären"
+        },
+        {
+          "subject": "ESC Halle Saale Bulls",
+          "predicate": "score",
+          "object": "6"
+        },
+        {
+          "subject": "Hammer Eisbären",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "German Ice Hockey Oberliga 23/24"
+        },
+        {
+          "subject": "ESC Halle Saale Bulls",
+          "predicate": "score",
+          "object": "5"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "second period"
+        }
+      ]
+    },
+    {
+      "instance_id": 72,
+      "triples": [
+        {
+          "subject": "HC Khimik Voskresensk",
+          "predicate": "defeated",
+          "object": "Izhstal Izhevsk"
+        },
+        {
+          "subject": "HC Khimik Voskresensk",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "Izhstal Izhevsk",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "match",
+          "predicate": "part_of",
+          "object": "VHL 23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 73,
+      "triples": [
+        {
+          "subject": "HC Bolzano",
+          "predicate": "defeated",
+          "object": "Pioneers Vorarlberg"
+        },
+        {
+          "subject": "HC Bolzano",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Pioneers Vorarlberg",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "HC Bolzano",
+          "predicate": "three goals",
+          "object": "third period"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "round 24 of the 23/24 ICE Hockey League"
+        }
+      ]
+    },
+    {
+      "instance_id": 74,
+      "triples": [
+        {
+          "subject": "Severstal Cherepovets",
+          "predicate": "defeated",
+          "object": "Sibir Novosibirsk"
+        },
+        {
+          "subject": "Severstal Cherepovets",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "Sibir Novosibirsk",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "KHL 23/24 round 1 match",
+          "predicate": "part_of",
+          "object": "KHL 23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 75,
+      "triples": [
+        {
+          "subject": "Almaz Cherepovets",
+          "predicate": "defeated",
+          "object": "Kapitan Stupino"
+        },
+        {
+          "subject": "Almaz Cherepovets",
+          "predicate": "score",
+          "object": "7"
+        },
+        {
+          "subject": "Kapitan Stupino",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "MHL 23/24 season (Round 1)"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "first two periods"
+        },
+        {
+          "subject": "Almaz Cherepovets",
+          "predicate": "score",
+          "object": "5"
+        },
+        {
+          "subject": "Kapitan Stupino",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 76,
+      "triples": [
+        {
+          "subject": "Visby/Roma HK",
+          "predicate": "defeated",
+          "object": "Wings HC"
+        },
+        {
+          "subject": "Visby/Roma HK",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "Wings HC",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "Visby/Roma HK defeated Wings HC 3-2",
+          "predicate": "part_of",
+          "object": "first round of the HockeyEttan Ostra 23/24 season"
+        }
+      ]
+    },
+    {
+      "instance_id": 77,
+      "triples": [
+        {
+          "subject": "Victoriaville Tigres",
+          "predicate": "defeated",
+          "object": "Quebec Remparts"
+        },
+        {
+          "subject": "Victoriaville Tigres",
+          "predicate": "score",
+          "object": "6"
+        },
+        {
+          "subject": "Quebec Remparts",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "game",
+          "predicate": "part_of",
+          "object": "QMJHL 23/24 season"
+        }
+      ]
+    },
+    {
+      "instance_id": 78,
+      "triples": [
+        {
+          "subject": "Blue Devils Weiden",
+          "predicate": "defeated",
+          "object": "Höchstadt Alligators"
+        },
+        {
+          "subject": "Blue Devils Weiden",
+          "predicate": "score",
+          "object": "5"
+        },
+        {
+          "subject": "Höchstadt Alligators",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "Blue Devils Weiden defeated the Höchstadt Alligators",
+          "predicate": "part_of",
+          "object": "round 21 of the German Ice Hockey Oberliga Sud 23/24 season"
+        }
+      ]
+    },
+    {
+      "instance_id": 79,
+      "triples": [
+        {
+          "subject": "Zauralie Kurgan",
+          "predicate": "defeated",
+          "object": "CSK VVS Samara"
+        },
+        {
+          "subject": "Zauralie Kurgan",
+          "predicate": "score",
+          "object": "5"
+        },
+        {
+          "subject": "CSK VVS Samara",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "match",
+          "predicate": "part_of",
+          "object": "VHL 23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 80,
+      "triples": [
+        {
+          "subject": "Rødovre Mighty Bulls",
+          "predicate": "defeated",
+          "object": "Herning Blue Fox"
+        },
+        {
+          "subject": "Rødovre Mighty Bulls",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "Herning Blue Fox",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "23/24 Metal Ligaen (Superisligaen)"
+        }
+      ]
+    },
+    {
+      "instance_id": 81,
+      "triples": [
+        {
+          "subject": "BK Mladá Boleslav",
+          "predicate": "defeated",
+          "object": "HC Rytíři Kladno"
+        },
+        {
+          "subject": "BK Mladá Boleslav",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "HC Rytíři Kladno",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Extraliga 23/24 ice hockey season"
+        }
+      ]
+    },
+    {
+      "instance_id": 82,
+      "triples": [
+        {
+          "subject": "Indy Fuel",
+          "predicate": "defeated",
+          "object": "Kalamazoo Wings"
+        },
+        {
+          "subject": "Indy Fuel",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Kalamazoo Wings",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "game",
+          "predicate": "part_of",
+          "object": "ECHL 23/24 regular season"
+        }
+      ]
+    },
+    {
+      "instance_id": 83,
+      "triples": [
+        {
+          "subject": "Deggendorfer SC",
+          "predicate": "defeated",
+          "object": "SC Riessersee"
+        },
+        {
+          "subject": "Deggendorfer SC",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "SC Riessersee",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "round 21 of the German Oberliga Sud 23/24 season"
+        }
+      ]
+    },
+    {
+      "instance_id": 84,
+      "triples": [
+        {
+          "subject": "Saginaw Spirit",
+          "predicate": "defeated",
+          "object": "Niagara IceDogs"
+        },
+        {
+          "subject": "Saginaw Spirit",
+          "predicate": "score",
+          "object": "6"
+        },
+        {
+          "subject": "Niagara IceDogs",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "OHL 23/24 round 1"
+        },
+        {
+          "subject": "Saginaw Spirit",
+          "predicate": "three goals",
+          "object": "first period"
+        }
+      ]
+    },
+    {
+      "instance_id": 85,
+      "triples": [
+        {
+          "subject": "Piteå HC",
+          "predicate": "defeated",
+          "object": "Strömsbro If"
+        },
+        {
+          "subject": "Piteå HC",
+          "predicate": "score",
+          "object": "6"
+        },
+        {
+          "subject": "Strömsbro If",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "HockeyEttan Norra 23/24 season"
+        }
+      ]
+    },
+    {
+      "instance_id": 86,
+      "triples": [
+        {
+          "subject": "Edmonton Oilers",
+          "predicate": "defeated",
+          "object": "Anaheim Ducks"
+        },
+        {
+          "subject": "Edmonton Oilers",
+          "predicate": "score",
+          "object": "8"
+        },
+        {
+          "subject": "Anaheim Ducks",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "NHL 23/24 round 1"
+        },
+        {
+          "subject": "Edmonton Oilers",
+          "predicate": "four-goal performance",
+          "object": "first period"
+        }
+      ]
+    },
+    {
+      "instance_id": 87,
+      "triples": [
+        {
+          "subject": "Sokol Krasnoyarsk",
+          "predicate": "defeated",
+          "object": "Buran Voronezh"
+        },
+        {
+          "subject": "Sokol Krasnoyarsk",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "Buran Voronezh",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "match",
+          "predicate": "part_of",
+          "object": "VHL 23/24"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 88,
+      "triples": [
+        {
+          "subject": "Henderson Silver Knights",
+          "predicate": "defeated",
+          "object": "Tucson Roadrunners"
+        },
+        {
+          "subject": "Henderson Silver Knights",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "Tucson Roadrunners",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "AHL 23/24"
+        }
+      ]
+    },
+    {
+      "instance_id": 89,
+      "triples": [
+        {
+          "subject": "Deac Jegkorong Akademia U20",
+          "predicate": "defeated",
+          "object": "Vasas Budapest Stars U20"
+        },
+        {
+          "subject": "Deac Jegkorong Akademia U20",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Vasas Budapest Stars U20",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "U20 League Stage 2 Division 2 (Young Stars League 23/24)"
+        },
+        {
+          "subject": "Deac Jegkorong Akademia U20",
+          "predicate": "three goals",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 90,
+      "triples": [
+        {
+          "subject": "Lindlövens IF",
+          "predicate": "defeated",
+          "object": "Forshaga IF"
+        },
+        {
+          "subject": "Lindlövens IF",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Forshaga IF",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "Lindlövens IF defeated Forshaga IF",
+          "predicate": "part_of",
+          "object": "round 14 of the Swedish HockeyEttan Vastra 23/24 season"
+        }
+      ]
+    },
+    {
+      "instance_id": 91,
+      "triples": [
+        {
+          "subject": "Cardiff Devils",
+          "predicate": "defeated",
+          "object": "Fife Flyers"
+        },
+        {
+          "subject": "Cardiff Devils",
+          "predicate": "score",
+          "object": "6"
+        },
+        {
+          "subject": "Fife Flyers",
+          "predicate": "score",
+          "object": "0"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "round 1 of the 23/24 Elite League"
+        },
+        {
+          "subject": "Cardiff Devils",
+          "predicate": "four-goal performance",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 92,
+      "triples": [
+        {
+          "subject": "Alvesta SK",
+          "predicate": "defeated",
+          "object": "Mörrum Gois IK"
+        },
+        {
+          "subject": "Alvesta SK",
+          "predicate": "score",
+          "object": "6"
+        },
+        {
+          "subject": "Mörrum Gois IK",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "Alvesta SK",
+          "predicate": "four-goal performance",
+          "object": "third period"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "HockeyEttan Sodra 23/24 season"
+        }
+      ]
+    },
+    {
+      "instance_id": 93,
+      "triples": [
+        {
+          "subject": "HC Košice",
+          "predicate": "defeated",
+          "object": "HK Nitra"
+        },
+        {
+          "subject": "HC Košice",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "HK Nitra",
+          "predicate": "score",
+          "object": "0"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Slovakian Ice Hockey Extraliga 23/24 season"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "first period"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 94,
+      "triples": [
+        {
+          "subject": "FTC-Telekom",
+          "predicate": "defeated",
+          "object": "Gyergyói HK"
+        },
+        {
+          "subject": "FTC-Telekom",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Gyergyói HK",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "scoring",
+          "predicate": "occurred_in",
+          "object": "second period"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Erste Liga 23/24 ice hockey season"
+        }
+      ]
+    },
+    {
+      "instance_id": 95,
+      "triples": [
+        {
+          "subject": "Chelmet Chelyabinsk",
+          "predicate": "defeated",
+          "object": "Dizel Penza"
+        },
+        {
+          "subject": "Chelmet Chelyabinsk",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Dizel Penza",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "match",
+          "predicate": "part_of",
+          "object": "Russian VHL 23/24 round 1"
+        },
+        {
+          "subject": "Chelmet Chelyabinsk",
+          "predicate": "four-goal performance",
+          "object": "third period"
+        }
+      ]
+    },
+    {
+      "instance_id": 96,
+      "triples": [
+        {
+          "subject": "Belye Medvedi",
+          "predicate": "defeated",
+          "object": "Chaika Nizhny Novgorod"
+        },
+        {
+          "subject": "Belye Medvedi",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Chaika Nizhny Novgorod",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "MHL 23/24 season"
+        },
+        {
+          "subject": "Belye Medvedi",
+          "predicate": "took lead",
+          "object": "first period"
+        }
+      ]
+    },
+    {
+      "instance_id": 97,
+      "triples": [
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "AHL 23/24 season"
+        },
+        {
+          "subject": "Hershey Bears",
+          "predicate": "defeated",
+          "object": "Iowa Wild"
+        },
+        {
+          "subject": "Hershey Bears",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "Iowa Wild",
+          "predicate": "score",
+          "object": "1"
+        },
+        {
+          "subject": "Hershey Bears",
+          "predicate": "two goals",
+          "object": "first period"
+        },
+        {
+          "subject": "Iowa Wild",
+          "predicate": "single response",
+          "object": "second period"
+        }
+      ]
+    },
+    {
+      "instance_id": 98,
+      "triples": [
+        {
+          "subject": "Vimmerby HC",
+          "predicate": "defeated",
+          "object": "Halmstad Hammers HC"
+        },
+        {
+          "subject": "Vimmerby HC",
+          "predicate": "score",
+          "object": "4"
+        },
+        {
+          "subject": "Halmstad Hammers HC",
+          "predicate": "score",
+          "object": "3"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Swedish HockeyEttan Sodra 23/24 season"
+        }
+      ]
+    },
+    {
+      "instance_id": 99,
+      "triples": [
+        {
+          "subject": "HC Slovan Bratislava",
+          "predicate": "defeated",
+          "object": "HC Nové Zámky"
+        },
+        {
+          "subject": "HC Slovan Bratislava",
+          "predicate": "score",
+          "object": "5"
+        },
+        {
+          "subject": "HC Nové Zámky",
+          "predicate": "score",
+          "object": "2"
+        },
+        {
+          "subject": "matchup",
+          "predicate": "part_of",
+          "object": "Slovakia Ice Hockey Extraliga 23/24 season"
+        }
+      ]
+    }
+  ],
+  "all_triples": [
+    {
+      "subject": "Carolina Hurricanes",
+      "predicate": "defeated",
+      "object": "Columbus Blue Jackets"
+    },
+    {
+      "subject": "Carolina Hurricanes",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "Columbus Blue Jackets",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "NHL 23/24 regular season"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "Spartak Moscow",
+      "predicate": "defeated",
+      "object": "Avtomobilist Yekaterinburg"
+    },
+    {
+      "subject": "Spartak Moscow",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Avtomobilist Yekaterinburg",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "match",
+      "predicate": "part_of",
+      "object": "KHL 23/24 round 1"
+    },
+    {
+      "subject": "Spartak Moscow goals",
+      "predicate": "occurred_in",
+      "object": "second period"
+    },
+    {
+      "subject": "Spartak Moscow goals",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "Avtomobilist Yekaterinburg goal",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "Stalnye Lisy",
+      "predicate": "defeated",
+      "object": "Irbis Kazan"
+    },
+    {
+      "subject": "Stalnye Lisy",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Irbis Kazan",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "match",
+      "predicate": "part_of",
+      "object": "Russian MHL 23/24 round 1"
+    },
+    {
+      "subject": "Mora IK",
+      "predicate": "defeated",
+      "object": "Almtuna IS"
+    },
+    {
+      "subject": "Mora IK",
+      "predicate": "score",
+      "object": "6"
+    },
+    {
+      "subject": "Almtuna IS",
+      "predicate": "score",
+      "object": "0"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Hockey Allsvenskan 23/24 season"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "round 19"
+    },
+    {
+      "subject": "two goals",
+      "predicate": "occurred_in",
+      "object": "second period"
+    },
+    {
+      "subject": "four goals",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "Stalnye Lisy",
+      "predicate": "defeated",
+      "object": "Irbis Kazan"
+    },
+    {
+      "subject": "Stalnye Lisy",
+      "predicate": "score",
+      "object": "5"
+    },
+    {
+      "subject": "Irbis Kazan",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "Stalnye Lisy defeated Irbis Kazan",
+      "predicate": "part_of",
+      "object": "MHL 23/24 season"
+    },
+    {
+      "subject": "2 goals",
+      "predicate": "occurred_in",
+      "object": "first period"
+    },
+    {
+      "subject": "Falu IF",
+      "predicate": "defeated",
+      "object": "Mariestads BOIS"
+    },
+    {
+      "subject": "Falu IF",
+      "predicate": "score",
+      "object": "5"
+    },
+    {
+      "subject": "Mariestads BOIS",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Swedish HockeyEttan Vastra 23/24 season"
+    },
+    {
+      "subject": "HC TWK Innsbruck",
+      "predicate": "defeated",
+      "object": "EC VSV"
+    },
+    {
+      "subject": "HC TWK Innsbruck",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "EC VSV",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "round 24 of the 23/24 ICE Hockey League in Austria"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "first period"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "second period"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "GKS Tychy",
+      "predicate": "defeated",
+      "object": "Unia Oświęcim"
+    },
+    {
+      "subject": "GKS Tychy",
+      "predicate": "score",
+      "object": "5"
+    },
+    {
+      "subject": "Unia Oświęcim",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Polish Ekstraliga 23/24 season"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "final period"
+    },
+    {
+      "subject": "TAURON Podhale Nowy Targ",
+      "predicate": "defeated",
+      "object": "JKH GKS Jastrzębie"
+    },
+    {
+      "subject": "TAURON Podhale Nowy Targ",
+      "predicate": "score",
+      "object": "10"
+    },
+    {
+      "subject": "JKH GKS Jastrzębie",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Polish Ekstraliga (23/24 season)"
+    },
+    {
+      "subject": "7-0 surge",
+      "predicate": "occurred_in",
+      "object": "second period"
+    },
+    {
+      "subject": "Vityaz Podolsk",
+      "predicate": "defeated",
+      "object": "Barys Astana"
+    },
+    {
+      "subject": "Vityaz Podolsk",
+      "predicate": "score",
+      "object": "5"
+    },
+    {
+      "subject": "Barys Astana",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "Vityaz Podolsk defeated Barys Astana",
+      "predicate": "part_of",
+      "object": "KHL 23/24 round 1 match"
+    },
+    {
+      "subject": "Bridgeport Islanders",
+      "predicate": "defeated",
+      "object": "Belleville Senators"
+    },
+    {
+      "subject": "Bridgeport Islanders",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Belleville Senators",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "game",
+      "predicate": "part_of",
+      "object": "AHL 23/24 regular season"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "second-period"
+    },
+    {
+      "subject": "Traktor Chelyabinsk",
+      "predicate": "defeated",
+      "object": "Torpedo Nizhny Novgorod"
+    },
+    {
+      "subject": "Traktor Chelyabinsk",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "Torpedo Nizhny Novgorod",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "Traktor Chelyabinsk vs Torpedo Nizhny Novgorod match",
+      "predicate": "part_of",
+      "object": "KHL 23/24 regular season"
+    },
+    {
+      "subject": "Graz 99ers",
+      "predicate": "defeated",
+      "object": "Vienna Capitals"
+    },
+    {
+      "subject": "Graz 99ers",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Vienna Capitals",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "Graz 99ers defeated Vienna Capitals",
+      "predicate": "part_of",
+      "object": "ICE Hockey League 23/24"
+    },
+    {
+      "subject": "Modo Hockey",
+      "predicate": "defeated",
+      "object": "Leksands IF"
+    },
+    {
+      "subject": "Modo Hockey",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "Leksands IF",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "SDHL 23/24 season"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "final period"
+    },
+    {
+      "subject": "Tauron KH GKS Katowice",
+      "predicate": "defeated",
+      "object": "Comarch Cracovia"
+    },
+    {
+      "subject": "Tauron KH GKS Katowice",
+      "predicate": "score",
+      "object": "7"
+    },
+    {
+      "subject": "Comarch Cracovia",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "Tauron KH GKS Katowice",
+      "predicate": "score",
+      "object": "5"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "first period"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Polish Ekstraliga 23/24 season"
+    },
+    {
+      "subject": "HC Olomouc",
+      "predicate": "defeated",
+      "object": "HC Kometa Brno"
+    },
+    {
+      "subject": "HC Olomouc",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "HC Kometa Brno",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Czech Republic's Extraliga 23/24 ice hockey season"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "second period"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "Boston College Eagles",
+      "predicate": "defeated",
+      "object": "Harvard University"
+    },
+    {
+      "subject": "Boston College Eagles",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Harvard University",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "game",
+      "predicate": "part_of",
+      "object": "NCAA Men's ice hockey regular season (23/24)"
+    },
+    {
+      "subject": "three-goal performance",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "HC Frýdek-Místek",
+      "predicate": "defeated",
+      "object": "HC Stadion Litoměřice"
+    },
+    {
+      "subject": "HC Frýdek-Místek",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "HC Stadion Litoměřice",
+      "predicate": "score",
+      "object": "0"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Czech Republic's 1st Liga (23/24 season)"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "all three periods"
+    },
+    {
+      "subject": "Abbotsford Canucks",
+      "predicate": "defeated",
+      "object": "Calgary Wranglers"
+    },
+    {
+      "subject": "Abbotsford Canucks",
+      "predicate": "score",
+      "object": "7"
+    },
+    {
+      "subject": "Calgary Wranglers",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "game",
+      "predicate": "part_of",
+      "object": "AHL 23/24 regular season"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "first period"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "second period"
+    },
+    {
+      "subject": "Belfast Giants",
+      "predicate": "defeated",
+      "object": "Nottingham Panthers"
+    },
+    {
+      "subject": "Belfast Giants",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Nottingham Panthers",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "23/24 Elite League"
+    },
+    {
+      "subject": "three goals",
+      "predicate": "occurred_in",
+      "object": "final period"
+    },
+    {
+      "subject": "Sheffield Steelers",
+      "predicate": "defeated",
+      "object": "Guildford Flames"
+    },
+    {
+      "subject": "Sheffield Steelers",
+      "predicate": "score",
+      "object": "6"
+    },
+    {
+      "subject": "Guildford Flames",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "Sheffield Steelers",
+      "predicate": "four-goal performance",
+      "object": "third period"
+    },
+    {
+      "subject": "opening round",
+      "predicate": "part_of",
+      "object": "Elite League 23/24"
+    },
+    {
+      "subject": "Iserlohn Roosters",
+      "predicate": "defeated",
+      "object": "Eisbären Berlin"
+    },
+    {
+      "subject": "Iserlohn Roosters",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "Eisbären Berlin",
+      "predicate": "score",
+      "object": "0"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "German DEL 23/24 ice hockey season"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "first period"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "Peterborough Petes",
+      "predicate": "defeated",
+      "object": "Sudbury Wolves"
+    },
+    {
+      "subject": "Peterborough Petes",
+      "predicate": "score",
+      "object": "5"
+    },
+    {
+      "subject": "Sudbury Wolves",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "match",
+      "predicate": "part_of",
+      "object": "OHL 23/24 regular season"
+    },
+    {
+      "subject": "Rögle BK",
+      "predicate": "defeated",
+      "object": "Malmö Redhawks"
+    },
+    {
+      "subject": "Rögle BK",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Malmö Redhawks",
+      "predicate": "score",
+      "object": "0"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "round 20 of the SHL 23/24 season"
+    },
+    {
+      "subject": "two goals",
+      "predicate": "occurred_in",
+      "object": "first period"
+    },
+    {
+      "subject": "one goal",
+      "predicate": "occurred_in",
+      "object": "second period"
+    },
+    {
+      "subject": "one goal",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "Providence Friars",
+      "predicate": "defeated",
+      "object": "Arizona State Sun Devils"
+    },
+    {
+      "subject": "Providence Friars",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "Arizona State Sun Devils",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "game",
+      "predicate": "part_of",
+      "object": "NCAA Men's ice hockey regular season (23/24)"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "second period"
+    },
+    {
+      "subject": "EHC Erfurt",
+      "predicate": "defeated",
+      "object": "Fuchse Duisburg"
+    },
+    {
+      "subject": "EHC Erfurt",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Fuchse Duisburg",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "German Oberliga Nord 23/24 season"
+    },
+    {
+      "subject": "Halifax Mooseheads",
+      "predicate": "defeated",
+      "object": "Moncton Wildcats"
+    },
+    {
+      "subject": "Halifax Mooseheads",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Moncton Wildcats",
+      "predicate": "score",
+      "object": "0"
+    },
+    {
+      "subject": "game",
+      "predicate": "part_of",
+      "object": "QMJHL 23/24 regular season"
+    },
+    {
+      "subject": "HC Motor České Budějovice",
+      "predicate": "defeated",
+      "object": "HC Verva Litvínov"
+    },
+    {
+      "subject": "HC Motor České Budějovice",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "HC Verva Litvínov",
+      "predicate": "score",
+      "object": "0"
+    },
+    {
+      "subject": "decisive goal",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "game",
+      "predicate": "part_of",
+      "object": "Czech Republic Ice Hockey Extraliga 23/24"
+    },
+    {
+      "subject": "Miami Ohio Redhawks",
+      "predicate": "defeated",
+      "object": "Mercyhurst Lakers"
+    },
+    {
+      "subject": "Miami Ohio Redhawks",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "Mercyhurst Lakers",
+      "predicate": "score",
+      "object": "0"
+    },
+    {
+      "subject": "game",
+      "predicate": "part_of",
+      "object": "NCAA Men's ice hockey regular season (23/24)"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "first period"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "Drummondville Voltigeurs",
+      "predicate": "defeated",
+      "object": "Shawinigan Cataractes"
+    },
+    {
+      "subject": "Drummondville Voltigeurs",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "Shawinigan Cataractes",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "game",
+      "predicate": "part_of",
+      "object": "QMJHL 23/24 regular season"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "HK Ryazan",
+      "predicate": "defeated",
+      "object": "HC Chelny"
+    },
+    {
+      "subject": "HK Ryazan",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "HC Chelny",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "match",
+      "predicate": "part_of",
+      "object": "Russian VHL 23/24"
+    },
+    {
+      "subject": "HC Chelny scoring",
+      "predicate": "occurred_in",
+      "object": "second period"
+    },
+    {
+      "subject": "HK Ryazan scoring",
+      "predicate": "occurred_in",
+      "object": "final period"
+    },
+    {
+      "subject": "Neman Grodno",
+      "predicate": "defeated",
+      "object": "Shakhter Soligorsk"
+    },
+    {
+      "subject": "Neman Grodno",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "Shakhter Soligorsk",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Belarus Extraliga 23/24 season opener"
+    },
+    {
+      "subject": "2-2 tie",
+      "predicate": "occurred_in",
+      "object": "first period"
+    },
+    {
+      "subject": "single goal",
+      "predicate": "occurred_in",
+      "object": "second period"
+    },
+    {
+      "subject": "HK Vitebsk",
+      "predicate": "defeated",
+      "object": "Khimik-SKA Novopolotsk"
+    },
+    {
+      "subject": "HK Vitebsk",
+      "predicate": "score",
+      "object": "6"
+    },
+    {
+      "subject": "Khimik-SKA Novopolotsk",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Belarus Extraliga 23/24 season"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "second period"
+    },
+    {
+      "subject": "HC ZUBR Přerov",
+      "predicate": "defeated",
+      "object": "PSG Berani Zlín"
+    },
+    {
+      "subject": "HC ZUBR Přerov",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "PSG Berani Zlín",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "match",
+      "predicate": "part_of",
+      "object": "Czech Republic's 1st Liga (23/24 season)"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "first two periods"
+    },
+    {
+      "subject": "BIK Karlskoga",
+      "predicate": "defeated",
+      "object": "Östersunds IK"
+    },
+    {
+      "subject": "BIK Karlskoga",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "Östersunds IK",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Hockey Allsvenskan 23/24 season"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "first period"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "second period"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "Sudbury Wolves",
+      "predicate": "defeated",
+      "object": "Oshawa Generals"
+    },
+    {
+      "subject": "Sudbury Wolves",
+      "predicate": "score",
+      "object": "7"
+    },
+    {
+      "subject": "Oshawa Generals",
+      "predicate": "score",
+      "object": "5"
+    },
+    {
+      "subject": "game",
+      "predicate": "part_of",
+      "object": "OHL 23/24 regular season"
+    },
+    {
+      "subject": "Molot Perm",
+      "predicate": "defeated",
+      "object": "SKA-Neva"
+    },
+    {
+      "subject": "Molot Perm",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "SKA-Neva",
+      "predicate": "score",
+      "object": "0"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "second period"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "match",
+      "predicate": "part_of",
+      "object": "VHL 23/24 round 1"
+    },
+    {
+      "subject": "Bodens HF",
+      "predicate": "defeated",
+      "object": "Hudiksvalls HC"
+    },
+    {
+      "subject": "Bodens HF",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Hudiksvalls HC",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Sweden's HockeyEttan Norra 23/24 season"
+    },
+    {
+      "subject": "three-goal performance",
+      "predicate": "occurred_in",
+      "object": "first period"
+    },
+    {
+      "subject": "Rittner Buam",
+      "predicate": "defeated",
+      "object": "EHC Lustenau"
+    },
+    {
+      "subject": "Rittner Buam",
+      "predicate": "score",
+      "object": "7"
+    },
+    {
+      "subject": "EHC Lustenau",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "Rittner Buam defeated EHC Lustenau",
+      "predicate": "part_of",
+      "object": "opening round of the 23/24 Alps Hockey League"
+    },
+    {
+      "subject": "HC Dukla Jihlava",
+      "predicate": "defeated",
+      "object": "HC Banik Sokolov"
+    },
+    {
+      "subject": "HC Dukla Jihlava",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "HC Banik Sokolov",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "HC Dukla Jihlava vs HC Banik Sokolov",
+      "predicate": "part_of",
+      "object": "Chance Liga (23/24 season)"
+    },
+    {
+      "subject": "EV Landshut",
+      "predicate": "defeated",
+      "object": "Bietigheim Steelers"
+    },
+    {
+      "subject": "EV Landshut",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Bietigheim Steelers",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Germany DEL 2 23/24 season"
+    },
+    {
+      "subject": "Biryusa Krasnoyarsk",
+      "predicate": "defeated",
+      "object": "Tornado Dmitrov"
+    },
+    {
+      "subject": "Biryusa Krasnoyarsk",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "Tornado Dmitrov",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "WHL 23/24 Women Championship"
+    },
+    {
+      "subject": "two goals",
+      "predicate": "occurred_in",
+      "object": "first period"
+    },
+    {
+      "subject": "final goal",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "Detroit Red Wings",
+      "predicate": "defeated",
+      "object": "Minnesota Wild"
+    },
+    {
+      "subject": "Detroit Red Wings",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Minnesota Wild",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "game",
+      "predicate": "part_of",
+      "object": "NHL 23/24 regular season"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "second period"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "Loko Yaroslavl",
+      "predicate": "defeated",
+      "object": "Mikhailov Academy"
+    },
+    {
+      "subject": "Loko Yaroslavl",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Mikhailov Academy",
+      "predicate": "score",
+      "object": "0"
+    },
+    {
+      "subject": "Russian MHL ice hockey match",
+      "predicate": "part_of",
+      "object": "23/24 season"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "first two periods"
+    },
+    {
+      "subject": "Lokomotiv Yaroslavl",
+      "predicate": "defeated",
+      "object": "CSKA Moscow"
+    },
+    {
+      "subject": "Lokomotiv Yaroslavl",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "CSKA Moscow",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "KHL 23/24 round 1"
+    },
+    {
+      "subject": "Lokomotiv Yaroslavl's lead",
+      "predicate": "occurred_in",
+      "object": "first period"
+    },
+    {
+      "subject": "Lokomotiv Yaroslavl's goal",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "CSKA's scoring",
+      "predicate": "occurred_in",
+      "object": "second period"
+    },
+    {
+      "subject": "LHK Jestřábi Prostějov",
+      "predicate": "defeated",
+      "object": "HC RT Torax Poruba"
+    },
+    {
+      "subject": "LHK Jestřábi Prostějov",
+      "predicate": "score",
+      "object": "5"
+    },
+    {
+      "subject": "HC RT Torax Poruba",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Chance Liga (23/24 season)"
+    },
+    {
+      "subject": "Heilbronner Falken",
+      "predicate": "defeated",
+      "object": "Lindau Islanders"
+    },
+    {
+      "subject": "Heilbronner Falken",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Lindau Islanders",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "German ice hockey Oberliga Sud 23/24 season"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "first period"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "HK Poprad",
+      "predicate": "defeated",
+      "object": "HKM Zvolen"
+    },
+    {
+      "subject": "HK Poprad",
+      "predicate": "score",
+      "object": "5"
+    },
+    {
+      "subject": "HKM Zvolen",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "HK Poprad",
+      "predicate": "score",
+      "object": "three goals"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "second-period"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Slovakian Ice Hockey Extraliga 23/24 season"
+    },
+    {
+      "subject": "HC AKM Tula",
+      "predicate": "defeated",
+      "object": "Omskie Kryliya"
+    },
+    {
+      "subject": "HC AKM Tula",
+      "predicate": "score",
+      "object": "5"
+    },
+    {
+      "subject": "Omskie Kryliya",
+      "predicate": "score",
+      "object": "0"
+    },
+    {
+      "subject": "HC AKM Tula victory over Omskie Kryliya",
+      "predicate": "part_of",
+      "object": "Russian VHL 23/24 round 1"
+    },
+    {
+      "subject": "Hanvikens SK",
+      "predicate": "defeated",
+      "object": "Segeltorps IF"
+    },
+    {
+      "subject": "Hanvikens SK",
+      "predicate": "score",
+      "object": "6"
+    },
+    {
+      "subject": "Segeltorps IF",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "HockeyEttan Ostra 23/24 season"
+    },
+    {
+      "subject": "three-goal performance",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "AIK",
+      "predicate": "defeated",
+      "object": "Tingsryds AIF"
+    },
+    {
+      "subject": "AIK",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "Tingsryds AIF",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Swedish Hockey Allsvenskan 23/24 season"
+    },
+    {
+      "subject": "HK Olimpija",
+      "predicate": "defeated",
+      "object": "KAC Klagenfurt"
+    },
+    {
+      "subject": "HK Olimpija",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "KAC Klagenfurt",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "round 24 of the 23/24 ICE Hockey League"
+    },
+    {
+      "subject": "Brûleurs de Loups Grenoble",
+      "predicate": "defeated",
+      "object": "Anglet Hormadi Pays Basque"
+    },
+    {
+      "subject": "Brûleurs de Loups Grenoble",
+      "predicate": "score",
+      "object": "5"
+    },
+    {
+      "subject": "Anglet Hormadi Pays Basque",
+      "predicate": "score",
+      "object": "0"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "23/24 Ligue Magnus ice hockey season"
+    },
+    {
+      "subject": "HK Gomel",
+      "predicate": "defeated",
+      "object": "HK Lida"
+    },
+    {
+      "subject": "HK Gomel",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "HK Lida",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Belarus Extraliga 23/24 season"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "first period"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "second period"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "LeKi Hockey",
+      "predicate": "defeated",
+      "object": "Riemu"
+    },
+    {
+      "subject": "LeKi Hockey",
+      "predicate": "score",
+      "object": "5"
+    },
+    {
+      "subject": "Riemu",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Suomi Sarja 23/24 season"
+    },
+    {
+      "subject": "LeKi Hockey",
+      "predicate": "four-goal performance",
+      "object": "third period"
+    },
+    {
+      "subject": "Neftyanik Almetyevsk",
+      "predicate": "defeated",
+      "object": "Gornyak UMMC"
+    },
+    {
+      "subject": "Neftyanik Almetyevsk",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Gornyak UMMC",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "Neftyanik Almetyevsk defeated Gornyak UMMC",
+      "predicate": "part_of",
+      "object": "Russian VHL 23/24 ice hockey match"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "Boxers de Bordeaux",
+      "predicate": "defeated",
+      "object": "Jokers de Cergy-Pontoise"
+    },
+    {
+      "subject": "Boxers de Bordeaux",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Jokers de Cergy-Pontoise",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "round 20 Ligue Magnus 23/24 season"
+    },
+    {
+      "subject": "fighting back",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "Corona Brașov",
+      "predicate": "defeated",
+      "object": "UTE"
+    },
+    {
+      "subject": "Corona Brașov",
+      "predicate": "score",
+      "object": "6"
+    },
+    {
+      "subject": "UTE",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Erste Liga 23/24 ice hockey season"
+    },
+    {
+      "subject": "Herner EV",
+      "predicate": "defeated",
+      "object": "Rostock Piranhas"
+    },
+    {
+      "subject": "Herner EV",
+      "predicate": "score",
+      "object": "5"
+    },
+    {
+      "subject": "Rostock Piranhas",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "match",
+      "predicate": "part_of",
+      "object": "Germany Oberliga Nord 23/24 season"
+    },
+    {
+      "subject": "SDE Hockey",
+      "predicate": "defeated",
+      "object": "AIK IF"
+    },
+    {
+      "subject": "SDE Hockey",
+      "predicate": "score",
+      "object": "6"
+    },
+    {
+      "subject": "AIK IF",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "SDHL 23/24 season"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "NHL 23/24 regular season"
+    },
+    {
+      "subject": "Nashville Predators",
+      "predicate": "defeated",
+      "object": "Winnipeg Jets"
+    },
+    {
+      "subject": "Nashville Predators",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "Winnipeg Jets",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "Nashville Predators",
+      "predicate": "score",
+      "object": "three goals"
+    },
+    {
+      "subject": "three goals",
+      "predicate": "occurred_in",
+      "object": "first two periods"
+    },
+    {
+      "subject": "Winnipeg Jets",
+      "predicate": "score",
+      "object": "two goals"
+    },
+    {
+      "subject": "two goals",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "Biryusa Krasnoyarsk",
+      "predicate": "defeated",
+      "object": "Tornado Dmitrov"
+    },
+    {
+      "subject": "Biryusa Krasnoyarsk",
+      "predicate": "score",
+      "object": "8"
+    },
+    {
+      "subject": "Tornado Dmitrov",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Russia WHL 23/24 season"
+    },
+    {
+      "subject": "five-goal performance",
+      "predicate": "occurred_in",
+      "object": "second period"
+    },
+    {
+      "subject": "Columbus Blue Jackets",
+      "predicate": "defeated",
+      "object": "Boston Bruins"
+    },
+    {
+      "subject": "Columbus Blue Jackets",
+      "predicate": "score",
+      "object": "5"
+    },
+    {
+      "subject": "Boston Bruins",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "game",
+      "predicate": "part_of",
+      "object": "NHL 23/24 regular season"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "FEHA19",
+      "predicate": "defeated",
+      "object": "Dunaújvárosi Acélbikák"
+    },
+    {
+      "subject": "FEHA19",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "Dunaújvárosi Acélbikák",
+      "predicate": "score",
+      "object": "0"
+    },
+    {
+      "subject": "decisive goal",
+      "predicate": "occurred_in",
+      "object": "second period"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Erste Liga 23/24 ice hockey season"
+    },
+    {
+      "subject": "Amiens Hockey Élite",
+      "predicate": "defeated",
+      "object": "Chamonix"
+    },
+    {
+      "subject": "Amiens Hockey Élite",
+      "predicate": "score",
+      "object": "6"
+    },
+    {
+      "subject": "Chamonix",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "round 20 of the 23/24 Ligue Magnus"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "first period"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "Brynäs IF",
+      "predicate": "defeated",
+      "object": "Nybro IF"
+    },
+    {
+      "subject": "Brynäs IF",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Nybro IF",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "round 19 of the Hockey Allsvenskan 23/24 season"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "MHL 23/24 season"
+    },
+    {
+      "subject": "Amurskie Tigry",
+      "predicate": "defeated",
+      "object": "Sahalinskie Akuly"
+    },
+    {
+      "subject": "Amurskie Tigry",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Sahalinskie Akuly",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "VER Selb",
+      "predicate": "defeated",
+      "object": "Dresdner Eislöwen"
+    },
+    {
+      "subject": "VER Selb",
+      "predicate": "score",
+      "object": "5"
+    },
+    {
+      "subject": "Dresdner Eislöwen",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "German DEL 2 23/24 season"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "WHL 23/24 regular season"
+    },
+    {
+      "subject": "Brandon Wheat Kings",
+      "predicate": "defeated",
+      "object": "Prince Albert Raiders"
+    },
+    {
+      "subject": "Brandon Wheat Kings",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "Prince Albert Raiders",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "two goals",
+      "predicate": "occurred_in",
+      "object": "second period"
+    },
+    {
+      "subject": "HIFK Helsinki",
+      "predicate": "defeated",
+      "object": "RoKi Hockey"
+    },
+    {
+      "subject": "HIFK Helsinki",
+      "predicate": "score",
+      "object": "6"
+    },
+    {
+      "subject": "RoKi Hockey",
+      "predicate": "score",
+      "object": "0"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "23/24 Naisten Liiga women's ice hockey season"
+    },
+    {
+      "subject": "EC Hannover Indians",
+      "predicate": "defeated",
+      "object": "Herforder Ice Dragons"
+    },
+    {
+      "subject": "EC Hannover Indians",
+      "predicate": "score",
+      "object": "11"
+    },
+    {
+      "subject": "Herforder Ice Dragons",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "German Ice Hockey Oberliga Nord 23/24 season"
+    },
+    {
+      "subject": "ESC Halle Saale Bulls",
+      "predicate": "defeated",
+      "object": "Hammer Eisbären"
+    },
+    {
+      "subject": "ESC Halle Saale Bulls",
+      "predicate": "score",
+      "object": "6"
+    },
+    {
+      "subject": "Hammer Eisbären",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "German Ice Hockey Oberliga 23/24"
+    },
+    {
+      "subject": "ESC Halle Saale Bulls",
+      "predicate": "score",
+      "object": "5"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "second period"
+    },
+    {
+      "subject": "HC Khimik Voskresensk",
+      "predicate": "defeated",
+      "object": "Izhstal Izhevsk"
+    },
+    {
+      "subject": "HC Khimik Voskresensk",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "Izhstal Izhevsk",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "match",
+      "predicate": "part_of",
+      "object": "VHL 23/24"
+    },
+    {
+      "subject": "HC Bolzano",
+      "predicate": "defeated",
+      "object": "Pioneers Vorarlberg"
+    },
+    {
+      "subject": "HC Bolzano",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Pioneers Vorarlberg",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "HC Bolzano",
+      "predicate": "three goals",
+      "object": "third period"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "round 24 of the 23/24 ICE Hockey League"
+    },
+    {
+      "subject": "Severstal Cherepovets",
+      "predicate": "defeated",
+      "object": "Sibir Novosibirsk"
+    },
+    {
+      "subject": "Severstal Cherepovets",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "Sibir Novosibirsk",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "KHL 23/24 round 1 match",
+      "predicate": "part_of",
+      "object": "KHL 23/24"
+    },
+    {
+      "subject": "Almaz Cherepovets",
+      "predicate": "defeated",
+      "object": "Kapitan Stupino"
+    },
+    {
+      "subject": "Almaz Cherepovets",
+      "predicate": "score",
+      "object": "7"
+    },
+    {
+      "subject": "Kapitan Stupino",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "MHL 23/24 season (Round 1)"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "first two periods"
+    },
+    {
+      "subject": "Almaz Cherepovets",
+      "predicate": "score",
+      "object": "5"
+    },
+    {
+      "subject": "Kapitan Stupino",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "Visby/Roma HK",
+      "predicate": "defeated",
+      "object": "Wings HC"
+    },
+    {
+      "subject": "Visby/Roma HK",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "Wings HC",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "Visby/Roma HK defeated Wings HC 3-2",
+      "predicate": "part_of",
+      "object": "first round of the HockeyEttan Ostra 23/24 season"
+    },
+    {
+      "subject": "Victoriaville Tigres",
+      "predicate": "defeated",
+      "object": "Quebec Remparts"
+    },
+    {
+      "subject": "Victoriaville Tigres",
+      "predicate": "score",
+      "object": "6"
+    },
+    {
+      "subject": "Quebec Remparts",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "game",
+      "predicate": "part_of",
+      "object": "QMJHL 23/24 season"
+    },
+    {
+      "subject": "Blue Devils Weiden",
+      "predicate": "defeated",
+      "object": "Höchstadt Alligators"
+    },
+    {
+      "subject": "Blue Devils Weiden",
+      "predicate": "score",
+      "object": "5"
+    },
+    {
+      "subject": "Höchstadt Alligators",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "Blue Devils Weiden defeated the Höchstadt Alligators",
+      "predicate": "part_of",
+      "object": "round 21 of the German Ice Hockey Oberliga Sud 23/24 season"
+    },
+    {
+      "subject": "Zauralie Kurgan",
+      "predicate": "defeated",
+      "object": "CSK VVS Samara"
+    },
+    {
+      "subject": "Zauralie Kurgan",
+      "predicate": "score",
+      "object": "5"
+    },
+    {
+      "subject": "CSK VVS Samara",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "match",
+      "predicate": "part_of",
+      "object": "VHL 23/24"
+    },
+    {
+      "subject": "Rødovre Mighty Bulls",
+      "predicate": "defeated",
+      "object": "Herning Blue Fox"
+    },
+    {
+      "subject": "Rødovre Mighty Bulls",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "Herning Blue Fox",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "23/24 Metal Ligaen (Superisligaen)"
+    },
+    {
+      "subject": "BK Mladá Boleslav",
+      "predicate": "defeated",
+      "object": "HC Rytíři Kladno"
+    },
+    {
+      "subject": "BK Mladá Boleslav",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "HC Rytíři Kladno",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Extraliga 23/24 ice hockey season"
+    },
+    {
+      "subject": "Indy Fuel",
+      "predicate": "defeated",
+      "object": "Kalamazoo Wings"
+    },
+    {
+      "subject": "Indy Fuel",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Kalamazoo Wings",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "game",
+      "predicate": "part_of",
+      "object": "ECHL 23/24 regular season"
+    },
+    {
+      "subject": "Deggendorfer SC",
+      "predicate": "defeated",
+      "object": "SC Riessersee"
+    },
+    {
+      "subject": "Deggendorfer SC",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "SC Riessersee",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "round 21 of the German Oberliga Sud 23/24 season"
+    },
+    {
+      "subject": "Saginaw Spirit",
+      "predicate": "defeated",
+      "object": "Niagara IceDogs"
+    },
+    {
+      "subject": "Saginaw Spirit",
+      "predicate": "score",
+      "object": "6"
+    },
+    {
+      "subject": "Niagara IceDogs",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "OHL 23/24 round 1"
+    },
+    {
+      "subject": "Saginaw Spirit",
+      "predicate": "three goals",
+      "object": "first period"
+    },
+    {
+      "subject": "Piteå HC",
+      "predicate": "defeated",
+      "object": "Strömsbro If"
+    },
+    {
+      "subject": "Piteå HC",
+      "predicate": "score",
+      "object": "6"
+    },
+    {
+      "subject": "Strömsbro If",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "HockeyEttan Norra 23/24 season"
+    },
+    {
+      "subject": "Edmonton Oilers",
+      "predicate": "defeated",
+      "object": "Anaheim Ducks"
+    },
+    {
+      "subject": "Edmonton Oilers",
+      "predicate": "score",
+      "object": "8"
+    },
+    {
+      "subject": "Anaheim Ducks",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "NHL 23/24 round 1"
+    },
+    {
+      "subject": "Edmonton Oilers",
+      "predicate": "four-goal performance",
+      "object": "first period"
+    },
+    {
+      "subject": "Sokol Krasnoyarsk",
+      "predicate": "defeated",
+      "object": "Buran Voronezh"
+    },
+    {
+      "subject": "Sokol Krasnoyarsk",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "Buran Voronezh",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "match",
+      "predicate": "part_of",
+      "object": "VHL 23/24"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "Henderson Silver Knights",
+      "predicate": "defeated",
+      "object": "Tucson Roadrunners"
+    },
+    {
+      "subject": "Henderson Silver Knights",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "Tucson Roadrunners",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "AHL 23/24"
+    },
+    {
+      "subject": "Deac Jegkorong Akademia U20",
+      "predicate": "defeated",
+      "object": "Vasas Budapest Stars U20"
+    },
+    {
+      "subject": "Deac Jegkorong Akademia U20",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Vasas Budapest Stars U20",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "U20 League Stage 2 Division 2 (Young Stars League 23/24)"
+    },
+    {
+      "subject": "Deac Jegkorong Akademia U20",
+      "predicate": "three goals",
+      "object": "third period"
+    },
+    {
+      "subject": "Lindlövens IF",
+      "predicate": "defeated",
+      "object": "Forshaga IF"
+    },
+    {
+      "subject": "Lindlövens IF",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Forshaga IF",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "Lindlövens IF defeated Forshaga IF",
+      "predicate": "part_of",
+      "object": "round 14 of the Swedish HockeyEttan Vastra 23/24 season"
+    },
+    {
+      "subject": "Cardiff Devils",
+      "predicate": "defeated",
+      "object": "Fife Flyers"
+    },
+    {
+      "subject": "Cardiff Devils",
+      "predicate": "score",
+      "object": "6"
+    },
+    {
+      "subject": "Fife Flyers",
+      "predicate": "score",
+      "object": "0"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "round 1 of the 23/24 Elite League"
+    },
+    {
+      "subject": "Cardiff Devils",
+      "predicate": "four-goal performance",
+      "object": "third period"
+    },
+    {
+      "subject": "Alvesta SK",
+      "predicate": "defeated",
+      "object": "Mörrum Gois IK"
+    },
+    {
+      "subject": "Alvesta SK",
+      "predicate": "score",
+      "object": "6"
+    },
+    {
+      "subject": "Mörrum Gois IK",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "Alvesta SK",
+      "predicate": "four-goal performance",
+      "object": "third period"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "HockeyEttan Sodra 23/24 season"
+    },
+    {
+      "subject": "HC Košice",
+      "predicate": "defeated",
+      "object": "HK Nitra"
+    },
+    {
+      "subject": "HC Košice",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "HK Nitra",
+      "predicate": "score",
+      "object": "0"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Slovakian Ice Hockey Extraliga 23/24 season"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "first period"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "third period"
+    },
+    {
+      "subject": "FTC-Telekom",
+      "predicate": "defeated",
+      "object": "Gyergyói HK"
+    },
+    {
+      "subject": "FTC-Telekom",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Gyergyói HK",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "scoring",
+      "predicate": "occurred_in",
+      "object": "second period"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Erste Liga 23/24 ice hockey season"
+    },
+    {
+      "subject": "Chelmet Chelyabinsk",
+      "predicate": "defeated",
+      "object": "Dizel Penza"
+    },
+    {
+      "subject": "Chelmet Chelyabinsk",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Dizel Penza",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "match",
+      "predicate": "part_of",
+      "object": "Russian VHL 23/24 round 1"
+    },
+    {
+      "subject": "Chelmet Chelyabinsk",
+      "predicate": "four-goal performance",
+      "object": "third period"
+    },
+    {
+      "subject": "Belye Medvedi",
+      "predicate": "defeated",
+      "object": "Chaika Nizhny Novgorod"
+    },
+    {
+      "subject": "Belye Medvedi",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Chaika Nizhny Novgorod",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "MHL 23/24 season"
+    },
+    {
+      "subject": "Belye Medvedi",
+      "predicate": "took lead",
+      "object": "first period"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "AHL 23/24 season"
+    },
+    {
+      "subject": "Hershey Bears",
+      "predicate": "defeated",
+      "object": "Iowa Wild"
+    },
+    {
+      "subject": "Hershey Bears",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "Iowa Wild",
+      "predicate": "score",
+      "object": "1"
+    },
+    {
+      "subject": "Hershey Bears",
+      "predicate": "two goals",
+      "object": "first period"
+    },
+    {
+      "subject": "Iowa Wild",
+      "predicate": "single response",
+      "object": "second period"
+    },
+    {
+      "subject": "Vimmerby HC",
+      "predicate": "defeated",
+      "object": "Halmstad Hammers HC"
+    },
+    {
+      "subject": "Vimmerby HC",
+      "predicate": "score",
+      "object": "4"
+    },
+    {
+      "subject": "Halmstad Hammers HC",
+      "predicate": "score",
+      "object": "3"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Swedish HockeyEttan Sodra 23/24 season"
+    },
+    {
+      "subject": "HC Slovan Bratislava",
+      "predicate": "defeated",
+      "object": "HC Nové Zámky"
+    },
+    {
+      "subject": "HC Slovan Bratislava",
+      "predicate": "score",
+      "object": "5"
+    },
+    {
+      "subject": "HC Nové Zámky",
+      "predicate": "score",
+      "object": "2"
+    },
+    {
+      "subject": "matchup",
+      "predicate": "part_of",
+      "object": "Slovakia Ice Hockey Extraliga 23/24 season"
+    }
+  ]
+}

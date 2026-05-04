@@ -4,6 +4,7 @@
 #SBATCH -c16
 #SBATCH --gres=gpu:3
 #SBATCH -n1
+#SBATCH -t 0
 SERVER_LOG1="/home/inf151915/vllm-server1.log"
 SERVER_LOG2="/home/inf151915/vllm-server2.log"
 
@@ -41,7 +42,7 @@ conda run -n openevolve-env python ~/d2t/tripler/batch_wrapper_server.py \
 cd ~/d2t/problems/triples_to_text
 export WEBNLG_BASE_PATH="/home/inf151915/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/"
 export WEBNLG_DOMAIN={domain}
-export CONFIG_PATH="./outputs/{evolution_config}/${WEBNLG_DOMAIN}_output/config_remote.yaml"
+export CONFIG_PATH="$(pwd)/outputs/{evolution_config}/${WEBNLG_DOMAIN}_output/config_remote.yaml"
 CHECKPOINT_ROOT="./outputs/{evolution_config}/${WEBNLG_DOMAIN}_output/openevolve_output/checkpoints"
 LATEST_CHECKPOINT=""
 
