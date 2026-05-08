@@ -12,7 +12,7 @@ import json
 import io
 from openevolve.evaluation_result import EvaluationResult
 from initial_program import Triple
-from my_tests.benchmark_reader.benchmark_reader import Benchmark, Entry
+from tests.benchmark_reader.benchmark_reader import Benchmark, Entry
 from tests.benchmark_reader.benchmark_reader import select_files, select_test_file
 from nltk.translate.bleu_score import sentence_bleu
 import evaluate as ev
