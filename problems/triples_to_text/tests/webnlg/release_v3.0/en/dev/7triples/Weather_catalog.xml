@@ -1,0 +1,2034 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="Weather_catalog" eid="Id1" shape="" shape_type="" size="8">
+      <originaltripleset>
+        <otriple>Contepec | experienced | daily temperature cycle</otriple>
+        <otriple>daytime highs | reached | 18°C</otriple>
+        <otriple>nighttime lows | reached | 5-6°C</otriple>
+        <otriple>weather | was | dry</otriple>
+        <otriple>precipitation | was | none</otriple>
+        <otriple>skies | transitioned_to | broken or overcast clouds</otriple>
+        <otriple>wind speeds | were | light</otriple>
+        <otriple>occasional gusts | peaked_at | 14 m/s</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Contepec | experienced | daily temperature cycle</mtriple>
+        <mtriple>daytime highs | reached | 18°C</mtriple>
+        <mtriple>nighttime lows | reached | 5-6°C</mtriple>
+        <mtriple>weather | was | dry</mtriple>
+        <mtriple>precipitation | was | none</mtriple>
+        <mtriple>skies | transitioned_to | broken or overcast clouds</mtriple>
+        <mtriple>wind speeds | were | light</mtriple>
+        <mtriple>occasional gusts | peaked_at | 14 m/s</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id1_1">Between January 3rd and 8th, Contepec experienced a consistent daily temperature cycle, with daytime highs reaching approximately 18°C and nighttime lows dipping to around 5-6°C. The weather remained dry with no precipitation, transitioning from clear skies to periods of broken or overcast clouds, particularly toward the end of the period. Wind speeds generally remained light, though occasional gusts peaked over 14 m/s.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id2" shape="" shape_type="" size="5">
+      <originaltripleset>
+        <otriple>Anori, Brazil | experienced | unsettled weather</otriple>
+        <otriple>unsettled weather | was | characterized by frequent cloud cover and recurring rainfall</otriple>
+        <otriple>Temperatures | reached | high of 34.27°C</otriple>
+        <otriple>Temperatures | reached | low of 22.84°C</otriple>
+        <otriple>moderate rain | peaked_at | mornings of January 5 and 8</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Anori, Brazil | experienced | unsettled weather</mtriple>
+        <mtriple>unsettled weather | was | characterized by frequent cloud cover and recurring rainfall</mtriple>
+        <mtriple>Temperatures | reached | high of 34.27°C</mtriple>
+        <mtriple>Temperatures | reached | low of 22.84°C</mtriple>
+        <mtriple>moderate rain | peaked_at | mornings of January 5 and 8</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id2_1">Between January 3 and January 8, Anori, Brazil, will experience unsettled weather characterized by frequent cloud cover and recurring rainfall. Temperatures will fluctuate between a high of 34.27°C and a low of 22.84°C. The period is marked by several rainy intervals, with moderate rain peaking on the mornings of January 5 and 8.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id3" shape="" shape_type="" size="5">
+      <originaltripleset>
+        <otriple>les Salines | experienced | transition from cloudy and rainy conditions to clear skies</otriple>
+        <otriple>Temperatures | peaked_at | 17.26°C</otriple>
+        <otriple>Temperatures | dropped_to | 4.81°C</otriple>
+        <otriple>weather events | was | heavy rain on January 5 and 6</otriple>
+        <otriple>humidity | was | decreasing</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>les Salines | experienced | transition from cloudy and rainy conditions to clear skies</mtriple>
+        <mtriple>Temperatures | peaked_at | 17.26°C</mtriple>
+        <mtriple>Temperatures | dropped_to | 4.81°C</mtriple>
+        <mtriple>weather events | was | heavy rain on January 5 and 6</mtriple>
+        <mtriple>humidity | was | decreasing</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id3_1">Between January 3 and January 8, ses Salines experienced a transition from cloudy and rainy conditions to clear skies. Temperatures peaked at 17.26°C on January 4 and dropped to a low of 4.81°C by January 8. Notable weather events include heavy rain on January 5 and 6, followed by a period of consistent clear skies and decreasing humidity starting January 7.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id4" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Ohangaron, Uzbekistan | experienced | a warming trend</otriple>
+        <otriple>temperatures | dropped_to | 1.08°C</otriple>
+        <otriple>temperatures | reached | 16.64°C</otriple>
+        <otriple>The period | was | predominantly overcast</otriple>
+        <otriple>The period | transitioned_to | light and moderate rain</otriple>
+        <otriple>The period | transitioned_to | sunny skies</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ohangaron, Uzbekistan | experienced | a warming trend</mtriple>
+        <mtriple>temperatures | dropped_to | 1.08°C</mtriple>
+        <mtriple>temperatures | reached | 16.64°C</mtriple>
+        <mtriple>The period | was | predominantly overcast</mtriple>
+        <mtriple>The period | transitioned_to | light and moderate rain</mtriple>
+        <mtriple>The period | transitioned_to | sunny skies</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id4_1">From January 3 to January 8, Ohangaron, Uzbekistan, experienced a warming trend with temperatures rising from a low of 1.08°C to a peak of 16.64°C on January 6. The period was predominantly overcast, transitioning to light and moderate rain on January 7, before clearing up to sunny skies by January 8.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id5" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Jonesville | experienced | fluctuating temperatures</otriple>
+        <otriple>high temperature | reached | 9.31°C</otriple>
+        <otriple>low temperature | dropped_to | -2.15°C</otriple>
+        <otriple>skies | transitioned_to | clear conditions</otriple>
+        <otriple>weather shift | was | light snow, freezing rain, and moderate rain</otriple>
+        <otriple>humidity | was | high</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Jonesville | experienced | fluctuating temperatures</mtriple>
+        <mtriple>high temperature | reached | 9.31°C</mtriple>
+        <mtriple>low temperature | dropped_to | -2.15°C</mtriple>
+        <mtriple>skies | transitioned_to | clear conditions</mtriple>
+        <mtriple>weather shift | was | light snow, freezing rain, and moderate rain</mtriple>
+        <mtriple>humidity | was | high</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id5_1">Between January 3 and January 8, Jonesville will experience fluctuating temperatures ranging from a high of 9.31°C to a low of -2.15°C. The period starts with cloudy skies, transitioning to clear conditions by January 5, before a significant weather shift on January 6 brings light snow, freezing rain, and moderate rain with high humidity. The forecast concludes with a return to partly cloudy skies and cooling temperatures.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id6" shape="" shape_type="" size="9">
+      <originaltripleset>
+        <otriple>Agua Dulce, MX | experienced | transition from rainy, overcast conditions to clearer skies and warmer temperatures</otriple>
+        <otriple>temperatures | was | 18-21°C</otriple>
+        <otriple>weather | was | frequent light rain</otriple>
+        <otriple>warming trend | peaked_at | January 5th and 6th</otriple>
+        <otriple>maximum temperatures | reached | 26.2°C</otriple>
+        <otriple>skies | was | clear</otriple>
+        <otriple>weather | was | intermittent light rain</otriple>
+        <otriple>skies | was | overcast</otriple>
+        <otriple>temperatures | was | 19°C and 24°C</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Agua Dulce, MX | experienced | transition from rainy, overcast conditions to clearer skies and warmer temperatures</mtriple>
+        <mtriple>temperatures | was | 18-21°C</mtriple>
+        <mtriple>weather | was | frequent light rain</mtriple>
+        <mtriple>warming trend | peaked_at | January 5th and 6th</mtriple>
+        <mtriple>maximum temperatures | reached | 26.2°C</mtriple>
+        <mtriple>skies | was | clear</mtriple>
+        <mtriple>weather | was | intermittent light rain</mtriple>
+        <mtriple>skies | was | overcast</mtriple>
+        <mtriple>temperatures | was | 19°C and 24°C</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id6_1">The weather forecast for Agua Dulce, MX, from January 3rd to 8th shows a transition from rainy, overcast conditions to clearer skies and warmer temperatures. Early in the period, temperatures hovered around 18-21°C with frequent light rain. A notable warming trend peaked on January 5th and 6th, with maximum temperatures reaching 26.2°C under clear skies. The latter half of the forecast indicates a return to intermittent light rain and overcast skies, with temperatures stabilizing between 19°C and 24°C.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id7" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>weather in Kankan, Guinea | was | consistently dry</otriple>
+        <otriple>Temperatures | experienced | daily cycle</otriple>
+        <otriple>daytime highs | reached | 33°C to 37°C</otriple>
+        <otriple>Temperatures | dropped_to | 20°C to 22°C</otriple>
+        <otriple>Conditions | transitioned_to | clear skies</otriple>
+        <otriple>skies | transitioned_to | overcast skies</otriple>
+        <otriple>Humidity | was | low</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>weather in Kankan, Guinea | was | consistently dry</mtriple>
+        <mtriple>Temperatures | experienced | daily cycle</mtriple>
+        <mtriple>daytime highs | reached | 33°C to 37°C</mtriple>
+        <mtriple>Temperatures | dropped_to | 20°C to 22°C</mtriple>
+        <mtriple>Conditions | transitioned_to | clear skies</mtriple>
+        <mtriple>skies | transitioned_to | overcast skies</mtriple>
+        <mtriple>Humidity | was | low</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id7_1">In Kankan, Guinea, from January 3 to January 8, 2024, the weather was consistently dry with no precipitation. Temperatures followed a daily cycle, peaking between 33°C and 37°C in the afternoons and dropping to lows around 20°C to 22°C at night. Conditions shifted from broken and scattered clouds to clear skies, with a period of overcast skies occurring between January 6 and 8. Humidity remained low, ranging from 8% to 22%.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id8" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Bilinga | experienced | warm temperatures</otriple>
+        <otriple>warm temperatures | dropped_to | 21.35°C</otriple>
+        <otriple>warm temperatures | reached | 25.5°C</otriple>
+        <otriple>the period | was | characterized by frequent cloud cover and intermittent rain</otriple>
+        <otriple>light to moderate showers | peaked_at | January 6</otriple>
+        <otriple>Winds | were | moderate</otriple>
+        <otriple>Winds | peaked_at | 9 m/s</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Bilinga | experienced | warm temperatures</mtriple>
+        <mtriple>warm temperatures | dropped_to | 21.35°C</mtriple>
+        <mtriple>warm temperatures | reached | 25.5°C</mtriple>
+        <mtriple>the period | was | characterized by frequent cloud cover and intermittent rain</mtriple>
+        <mtriple>light to moderate showers | peaked_at | January 6</mtriple>
+        <mtriple>Winds | were | moderate</mtriple>
+        <mtriple>Winds | peaked_at | 9 m/s</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id8_1">Between January 3 and January 8, Bilinga experienced warm temperatures ranging from a low of 21.35°C to a high of 25.5°C. The period was characterized by frequent cloud cover and intermittent rain, with light to moderate showers peaking on January 6. Winds remained moderate, generally peaking around 9 m/s.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id9" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Taxiárches | experienced | transition from overcast skies and mild temperatures to a period of significant rainfall</otriple>
+        <otriple>mild temperatures | peaked_at | 16.8°C on Jan 4</otriple>
+        <otriple>Temperatures | was | fluctuated between 6.88°C and 16.8°C</otriple>
+        <otriple>most intense rain | was | occurring on January 7</otriple>
+        <otriple>January 7 | experienced | high humidity</otriple>
+        <otriple>humidity | reached | 98%</otriple>
+        <otriple>January 7 | experienced | reduced visibility</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Taxiárches | experienced | transition from overcast skies and mild temperatures to a period of significant rainfall</mtriple>
+        <mtriple>mild temperatures | peaked_at | 16.8°C on Jan 4</mtriple>
+        <mtriple>Temperatures | was | fluctuated between 6.88°C and 16.8°C</mtriple>
+        <mtriple>most intense rain | was | occurring on January 7</mtriple>
+        <mtriple>January 7 | experienced | high humidity</mtriple>
+        <mtriple>humidity | reached | 98%</mtriple>
+        <mtriple>January 7 | experienced | reduced visibility</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id9_1">Between January 3 and January 8, Taxiárches experienced a transition from overcast skies and mild temperatures (peaking at 16.8°C on Jan 4) to a period of significant rainfall from the night of January 6 through January 7. Temperatures generally fluctuated between 6.88°C and 16.8°C, with the most intense rain occurring on January 7, accompanied by high humidity (up to 98%) and reduced visibility.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id10" shape="" shape_type="" size="5">
+      <originaltripleset>
+        <otriple>Pickworth, GB | experienced | cooling trend</otriple>
+        <otriple>temperatures | dropped_to | 0.6°C</otriple>
+        <otriple>period | was | light rain and overcast skies</otriple>
+        <otriple>skies | transitioned_to | mix of cloudy conditions and intermittent light rain</otriple>
+        <otriple>period | transitioned_to | light snow and broken clouds</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Pickworth, GB | experienced | cooling trend</mtriple>
+        <mtriple>temperatures | dropped_to | 0.6°C</mtriple>
+        <mtriple>period | was | light rain and overcast skies</mtriple>
+        <mtriple>skies | transitioned_to | mix of cloudy conditions and intermittent light rain</mtriple>
+        <mtriple>period | transitioned_to | light snow and broken clouds</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id10_1">Between January 3rd and 8th, Pickworth, GB, will experience a cooling trend, with temperatures dropping from a high of 7.7°C to a low of 0.6°C. The period starts with light rain and overcast skies, transitioning into a mix of cloudy conditions and intermittent light rain, before ending with light snow and broken clouds by January 8th.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id11" shape="" shape_type="" size="8">
+      <originaltripleset>
+        <otriple>Aksu, Turkey | experienced | mostly cloudy skies</otriple>
+        <otriple>temperatures | dropped_to | 5.87°C</otriple>
+        <otriple>temperatures | reached | 11.48°C</otriple>
+        <otriple>the period | was | marked by intermittent light rain</otriple>
+        <otriple>rain | transitioned_to | moderate rain</otriple>
+        <otriple>visibility | was | significantly reduced</otriple>
+        <otriple>wind speeds | were | generally increased</otriple>
+        <otriple>gusts | peaked_at | over 20 m/s</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aksu, Turkey | experienced | mostly cloudy skies</mtriple>
+        <mtriple>temperatures | dropped_to | 5.87°C</mtriple>
+        <mtriple>temperatures | reached | 11.48°C</mtriple>
+        <mtriple>the period | was | marked by intermittent light rain</mtriple>
+        <mtriple>rain | transitioned_to | moderate rain</mtriple>
+        <mtriple>visibility | was | significantly reduced</mtriple>
+        <mtriple>wind speeds | were | generally increased</mtriple>
+        <mtriple>gusts | peaked_at | over 20 m/s</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id11_1">Between January 3 and January 8, Aksu, Turkey, experienced mostly cloudy skies with temperatures ranging from a low of 5.87°C to a peak of 11.48°C. The period was marked by intermittent light rain, becoming more persistent and intense by January 7 and 8, culminating in moderate rain and significantly reduced visibility on the final day. Wind speeds generally increased over the period, peaking with gusts over 20 m/s on the evening of January 7.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id12" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Saḩāb | experienced | a warming trend</otriple>
+        <otriple>temperatures | reached | 18.1°C</otriple>
+        <otriple>weather | transitioned_to | scattered and broken clouds</otriple>
+        <otriple>weather | transitioned_to | several clear-sky periods</otriple>
+        <otriple>weather | transitioned_to | overcast</otriple>
+        <otriple>Humidity | dropped_to | 30%</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Saḩāb | experienced | a warming trend</mtriple>
+        <mtriple>temperatures | reached | 18.1°C</mtriple>
+        <mtriple>weather | transitioned_to | scattered and broken clouds</mtriple>
+        <mtriple>weather | transitioned_to | several clear-sky periods</mtriple>
+        <mtriple>weather | transitioned_to | overcast</mtriple>
+        <mtriple>Humidity | dropped_to | 30%</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id12_1">Between January 3 and January 8, Saḩāb experienced a warming trend with temperatures rising from lows around 7.4°C to a peak of 18.1°C on January 7. The weather transitioned from scattered and broken clouds to several clear-sky periods, eventually becoming overcast by January 8. Humidity fluctuated significantly, dropping from highs of 91% to as low as 30% during the warmest period.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id13" shape="" shape_type="" size="5">
+      <originaltripleset>
+        <otriple>Nato, Philippines | experienced | consistently warm temperatures ranging from 25.58°C to 28.75°C</otriple>
+        <otriple>The period | was | characterized by predominantly cloudy skies</otriple>
+        <otriple>occasional light rain | occurred_on | January 5th, 7th, and 8th</otriple>
+        <otriple>Wind speeds | peaked_at | 10 m/s</otriple>
+        <otriple>humidity | was | high, typically between 72% and 84%</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Nato, Philippines | experienced | consistently warm temperatures ranging from 25.58°C to 28.75°C</mtriple>
+        <mtriple>The period | was | characterized by predominantly cloudy skies</mtriple>
+        <mtriple>occasional light rain | occurred_on | January 5th, 7th, and 8th</mtriple>
+        <mtriple>Wind speeds | peaked_at | 10 m/s</mtriple>
+        <mtriple>humidity | was | high, typically between 72% and 84%</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id13_1">From January 3rd to January 8th, Nato, Philippines, experienced consistently warm temperatures ranging from 25.58°C to 28.75°C. The period was characterized by predominantly cloudy skies, with occasional light rain occurring on January 5th, 7th, and 8th. Wind speeds peaked around 10 m/s, and humidity remained high, typically between 72% and 84%.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id14" shape="" shape_type="" size="9">
+      <originaltripleset>
+        <otriple>weather in Cornu Luncii | transitioned_to | cold and snowy</otriple>
+        <otriple>Temperatures | peaked_at | 10.75°C</otriple>
+        <otriple>peak temperature | occurred_on | January 4th</otriple>
+        <otriple>Temperatures | dropped_to | -9.01°C</otriple>
+        <otriple>low temperature | occurred_on | January 8th</otriple>
+        <otriple>first few days | was | overcast with moderate winds</otriple>
+        <otriple>significant shift | occurred_on | January 7th</otriple>
+        <otriple>significant shift | experienced | snow and severely reduced visibility</otriple>
+        <otriple>wind chills | dropped_to | -16.01°C</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>weather in Cornu Luncii | transitioned_to | cold and snowy</mtriple>
+        <mtriple>Temperatures | peaked_at | 10.75°C</mtriple>
+        <mtriple>peak temperature | occurred_on | January 4th</mtriple>
+        <mtriple>Temperatures | dropped_to | -9.01°C</mtriple>
+        <mtriple>low temperature | occurred_on | January 8th</mtriple>
+        <mtriple>first few days | was | overcast with moderate winds</mtriple>
+        <mtriple>significant shift | occurred_on | January 7th</mtriple>
+        <mtriple>significant shift | experienced | snow and severely reduced visibility</mtriple>
+        <mtriple>wind chills | dropped_to | -16.01°C</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id14_1">The weather in Cornu Luncii will transition from mild and cloudy to cold and snowy. Temperatures will peak around 10.75°C on January 4th before steadily declining to a low of -9.01°C by January 8th. While the first few days will be overcast with moderate winds, a significant shift occurs on January 7th, bringing snow and severely reduced visibility, with wind chills dropping as low as -16.01°C.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id15" shape="" shape_type="" size="10">
+      <originaltripleset>
+        <otriple>Mountain Brook | experienced | fluctuating weather</otriple>
+        <otriple>light rain | occurred_on | Between January 3rd and 8th</otriple>
+        <otriple>temperatures | was | around 4°C</otriple>
+        <otriple>lows | dropped_to | near 0°C</otriple>
+        <otriple>lows | occurred_on | January 4th</otriple>
+        <otriple>warming trend | peaked_at | approximately 12°C</otriple>
+        <otriple>warming trend | occurred_on | January 7th</otriple>
+        <otriple>moderate rain | occurred_on | January 6th</otriple>
+        <otriple>skies | transitioned_to | overcast</otriple>
+        <otriple>temperatures | was | around 4-7°C</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Mountain Brook | experienced | fluctuating weather</mtriple>
+        <mtriple>light rain | occurred_on | Between January 3rd and 8th</mtriple>
+        <mtriple>temperatures | was | around 4°C</mtriple>
+        <mtriple>lows | dropped_to | near 0°C</mtriple>
+        <mtriple>lows | occurred_on | January 4th</mtriple>
+        <mtriple>warming trend | peaked_at | approximately 12°C</mtriple>
+        <mtriple>warming trend | occurred_on | January 7th</mtriple>
+        <mtriple>moderate rain | occurred_on | January 6th</mtriple>
+        <mtriple>skies | transitioned_to | overcast</mtriple>
+        <mtriple>temperatures | was | around 4-7°C</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id15_1">Between January 3rd and 8th, Mountain Brook experienced fluctuating weather starting with light rain and temperatures around 4°C, followed by a clear, colder spell with lows near 0°C on January 4th. A warming trend followed, peaking at approximately 12°C on January 7th, though this was interrupted by moderate rain on January 6th. The period ended with overcast skies and temperatures returning to around 4-7°C.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id16" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Capácuaro, Mexico | experienced | clear to partly cloudy skies</otriple>
+        <otriple>Capácuaro, Mexico | was | no precipitation</otriple>
+        <otriple>Temperatures | experienced | consistent daily cycle</otriple>
+        <otriple>daytime temperatures | reached | 19-20°C</otriple>
+        <otriple>nighttime temperatures | dropped_to | 6-9°C</otriple>
+        <otriple>Winds | were | light to moderate</otriple>
+        <otriple>occasional gusts | peaked_at | 9.92 m/s</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Capácuaro, Mexico | experienced | clear to partly cloudy skies</mtriple>
+        <mtriple>Capácuaro, Mexico | was | no precipitation</mtriple>
+        <mtriple>Temperatures | experienced | consistent daily cycle</mtriple>
+        <mtriple>daytime temperatures | reached | 19-20°C</mtriple>
+        <mtriple>nighttime temperatures | dropped_to | 6-9°C</mtriple>
+        <mtriple>Winds | were | light to moderate</mtriple>
+        <mtriple>occasional gusts | peaked_at | 9.92 m/s</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id16_1">Between January 3 and January 8, Capácuaro, Mexico, experienced clear to partly cloudy skies with no precipitation. Temperatures followed a consistent daily cycle, peaking around 19-20°C during the day and dipping to lows of approximately 6-9°C at night. Winds remained light to moderate, with occasional gusts reaching up to 9.92 m/s.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id17" shape="" shape_type="" size="5">
+      <originaltripleset>
+        <otriple>Checca, Peru | experienced | consistent rainy weather</otriple>
+        <otriple>consistent rainy weather | was | primarily light rain with occasional moderate showers</otriple>
+        <otriple>Temperatures | reached | 13.42°C</otriple>
+        <otriple>Temperatures | dropped_to | 3.43°C</otriple>
+        <otriple>heaviest rainfall | occurred_on | January 8</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Checca, Peru | experienced | consistent rainy weather</mtriple>
+        <mtriple>consistent rainy weather | was | primarily light rain with occasional moderate showers</mtriple>
+        <mtriple>Temperatures | reached | 13.42°C</mtriple>
+        <mtriple>Temperatures | dropped_to | 3.43°C</mtriple>
+        <mtriple>heaviest rainfall | occurred_on | January 8</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id17_1">Between January 3 and January 8, Checca, Peru, experienced consistent rainy weather, primarily light rain with occasional moderate showers. Temperatures fluctuated between a high of 13.42°C and a low of 3.43°C, with a notable cooling trend towards the end of the period. The heaviest rainfall occurred early on January 8, coinciding with the lowest temperatures and significantly reduced visibility.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id18" shape="" shape_type="" size="8">
+      <originaltripleset>
+        <otriple>Géri, Cyprus | experienced | mild weather</otriple>
+        <otriple>temperatures | dropped_to | 12.34°C</otriple>
+        <otriple>temperatures | peaked_at | 19.36°C</otriple>
+        <otriple>period | was | characterized by varying cloud cover</otriple>
+        <otriple>cloud cover | transitioned_to | several clear intervals on January 5th</otriple>
+        <otriple>Winds | were | light to moderate</otriple>
+        <otriple>maximum gust | peaked_at | 10.62 m/s</otriple>
+        <otriple>humidity | fluctuated_between | 49% and 95%</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Géri, Cyprus | experienced | mild weather</mtriple>
+        <mtriple>temperatures | dropped_to | 12.34°C</mtriple>
+        <mtriple>temperatures | peaked_at | 19.36°C</mtriple>
+        <mtriple>period | was | characterized by varying cloud cover</mtriple>
+        <mtriple>cloud cover | transitioned_to | several clear intervals on January 5th</mtriple>
+        <mtriple>Winds | were | light to moderate</mtriple>
+        <mtriple>maximum gust | peaked_at | 10.62 m/s</mtriple>
+        <mtriple>humidity | fluctuated_between | 49% and 95%</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id18_1">Between January 3rd and January 8th, Géri, Cyprus, experienced mild weather with temperatures ranging from a low of 12.34°C to a peak of 19.36°C. The period was characterized by varying cloud cover, transitioning from overcast and broken clouds to several clear intervals on January 5th. Winds remained generally light to moderate, with a maximum gust of 10.62 m/s, and humidity fluctuated between 49% and 95%.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id19" shape="" shape_type="" size="4">
+      <originaltripleset>
+        <otriple>temperatures | fluctuated_between | 26.15°C and 29.16°C</otriple>
+        <otriple>the period | was | characterized by frequent light to moderate rain and predominantly cloudy to overcast skies</otriple>
+        <otriple>heaviest rainfall | occurred_on | January 4th</otriple>
+        <otriple>humidity levels | fluctuated_between | 15% and 70-80%</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>temperatures | fluctuated_between | 26.15°C and 29.16°C</mtriple>
+        <mtriple>the period | was | characterized by frequent light to moderate rain and predominantly cloudy to overcast skies</mtriple>
+        <mtriple>heaviest rainfall | occurred_on | January 4th</mtriple>
+        <mtriple>humidity levels | fluctuated_between | 15% and 70-80%</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id19_1">In Amahusu, Indonesia, from January 3rd to 8th, 2024, temperatures remained stable between 26.15°C and 29.16°C. The period was characterized by frequent light to moderate rain and predominantly cloudy to overcast skies, with the heaviest rainfall occurring around January 4th. Humidity levels generally increased from a low of 15% to around 70-80% as the rainy conditions persisted.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id20" shape="" shape_type="" size="5">
+      <originaltripleset>
+        <otriple>Weather in Montefano, Italy | transitioned_to | overcast and cool conditions</otriple>
+        <otriple>Weather in Montefano, Italy | transitioned_to | brief clear spell on January 4th</otriple>
+        <otriple>temperatures | peaked_at | 15.67°C</otriple>
+        <otriple>significant shift toward rain | occurred_on | January 6th and 7th</otriple>
+        <otriple>temperatures | dropped_to | 6.89°C by January 8th</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Weather in Montefano, Italy | transitioned_to | overcast and cool conditions</mtriple>
+        <mtriple>Weather in Montefano, Italy | transitioned_to | brief clear spell on January 4th</mtriple>
+        <mtriple>temperatures | peaked_at | 15.67°C</mtriple>
+        <mtriple>significant shift toward rain | occurred_on | January 6th and 7th</mtriple>
+        <mtriple>temperatures | dropped_to | 6.89°C by January 8th</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id20_1">Weather in Montefano, Italy, from January 3rd to 8th, 2024, will transition from overcast and cool conditions to a brief clear spell on January 4th, with temperatures peaking at 15.67°C. The period concludes with a significant shift toward rain between January 6th and 7th, accompanied by a cooling trend that brings temperatures down to a low of 6.89°C by January 8th.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id21" shape="" shape_type="" size="4">
+      <originaltripleset>
+        <otriple>Bintawan, PH | experienced | consistently humid weather</otriple>
+        <otriple>temperatures | fluctuated_between | 20.61°C and 26.8°C</otriple>
+        <otriple>the period | was | characterized by frequent light rain and overcast skies</otriple>
+        <otriple>skies | transitioned_to | broken or scattered clouds</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Bintawan, PH | experienced | consistently humid weather</mtriple>
+        <mtriple>temperatures | fluctuated_between | 20.61°C and 26.8°C</mtriple>
+        <mtriple>the period | was | characterized by frequent light rain and overcast skies</mtriple>
+        <mtriple>skies | transitioned_to | broken or scattered clouds</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id21_1">Between January 3 and January 8, 2024, Bintawan, PH, experienced consistently humid weather with temperatures ranging from a low of 20.61°C to a high of 26.8°C. The period was characterized by frequent light rain and overcast skies, with intermittent breaks of broken or scattered clouds.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id22" shape="" shape_type="" size="10">
+      <originaltripleset>
+        <otriple>San Bartolo Tutotepec | experienced | variable weather</otriple>
+        <otriple>San Bartolo Tutotepec | experienced | light rain</otriple>
+        <otriple>San Bartolo Tutotepec | experienced | overcast skies</otriple>
+        <otriple>temperatures | dropped_to | 13.7°C</otriple>
+        <otriple>conditions | reached | peak temperature of 25.7°C</otriple>
+        <otriple>weather | was | clear skies</otriple>
+        <otriple>overcast conditions | occurred_on | Jan 7</otriple>
+        <otriple>light rain | occurred_on | Jan 7</otriple>
+        <otriple>skies | transitioned_to | broken clouds</otriple>
+        <otriple>temperatures | was | 21.9°C</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>San Bartolo Tutotepec | experienced | variable weather</mtriple>
+        <mtriple>San Bartolo Tutotepec | experienced | light rain</mtriple>
+        <mtriple>San Bartolo Tutotepec | experienced | overcast skies</mtriple>
+        <mtriple>temperatures | dropped_to | 13.7°C</mtriple>
+        <mtriple>conditions | reached | peak temperature of 25.7°C</mtriple>
+        <mtriple>weather | was | clear skies</mtriple>
+        <mtriple>overcast conditions | occurred_on | Jan 7</mtriple>
+        <mtriple>light rain | occurred_on | Jan 7</mtriple>
+        <mtriple>skies | transitioned_to | broken clouds</mtriple>
+        <mtriple>temperatures | was | 21.9°C</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id22_1">Between January 3 and January 8, San Bartolo Tutotepec experienced variable weather, starting with light rain and overcast skies from Jan 3-4 with temperatures dipping to around 13.7°C. Conditions cleared significantly from Jan 5-6, reaching a peak temperature of 25.7°C under clear skies. The period ended with a return to overcast conditions and light rain on Jan 7, before stabilizing with broken clouds and temperatures around 21.9°C by Jan 8.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id23" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Shuidong, China | experienced | mild weather</otriple>
+        <otriple>temperatures | fluctuated_between | 15.8°C and 23.01°C</otriple>
+        <otriple>skies | was | predominantly overcast</otriple>
+        <otriple>clear spell | occurred_on | January 4 and 6</otriple>
+        <otriple>Winds | were | moderate</otriple>
+        <otriple>Winds | peaked_at | 7.8 m/s</otriple>
+        <otriple>humidity | fluctuated_between | 49% and 92%</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Shuidong, China | experienced | mild weather</mtriple>
+        <mtriple>temperatures | fluctuated_between | 15.8°C and 23.01°C</mtriple>
+        <mtriple>skies | was | predominantly overcast</mtriple>
+        <mtriple>clear spell | occurred_on | January 4 and 6</mtriple>
+        <mtriple>Winds | were | moderate</mtriple>
+        <mtriple>Winds | peaked_at | 7.8 m/s</mtriple>
+        <mtriple>humidity | fluctuated_between | 49% and 92%</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id23_1">From January 3 to January 8, 2024, Shuidong, China, experienced mild weather with temperatures ranging from a low of 15.8°C to a peak of 23.01°C. The period began and ended with predominantly overcast skies, though a notable clear spell occurred between January 4 and 6. Winds remained moderate, peaking around 7.8 m/s, with humidity fluctuating between 49% and 92%.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id24" shape="" shape_type="" size="4">
+      <originaltripleset>
+        <otriple>Ljungbyholm, SE | experienced | significant snowfall</otriple>
+        <otriple>temperatures | was | around -3°C</otriple>
+        <otriple>temperatures | dropped_to | -17.6°C</otriple>
+        <otriple>temperatures | was | around -3°C</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ljungbyholm, SE | experienced | significant snowfall</mtriple>
+        <mtriple>temperatures | was | around -3°C</mtriple>
+        <mtriple>temperatures | dropped_to | -17.6°C</mtriple>
+        <mtriple>temperatures | was | around -3°C</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id24_1">In Ljungbyholm, SE, the weather starts with significant snowfall and temperatures around -3°C through January 4th. A cooling trend follows, with temperatures dropping to a low of -17.6°C by January 6th under clear to scattered cloud conditions. The period ends with a slight warming trend and broken clouds, with temperatures recovering to around -3°C by midday on January 8th.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id25" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Weather in Tuşnad, Romania | transitioned_to | significantly colder temperatures</otriple>
+        <otriple>temperatures | dropped_to | -4.8°C</otriple>
+        <otriple>low of -4.8°C | occurred_on | January 8th</otriple>
+        <otriple>period | was | light to moderate rain and overcast skies</otriple>
+        <otriple>period | transitioned_to | brief dry spell</otriple>
+        <otriple>period | transitioned_to | light to moderate snow and freezing temperatures</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Weather in Tuşnad, Romania | transitioned_to | significantly colder temperatures</mtriple>
+        <mtriple>temperatures | dropped_to | -4.8°C</mtriple>
+        <mtriple>low of -4.8°C | occurred_on | January 8th</mtriple>
+        <mtriple>period | was | light to moderate rain and overcast skies</mtriple>
+        <mtriple>period | transitioned_to | brief dry spell</mtriple>
+        <mtriple>period | transitioned_to | light to moderate snow and freezing temperatures</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id25_1">Weather in Tuşnad, Romania, will transition from mild, rainy conditions (peaks around 8.5°C) to significantly colder temperatures, dropping to a low of -4.8°C by January 8th. The period begins with light to moderate rain and overcast skies, followed by a brief dry spell, and ends with a consistent trend of light to moderate snow and freezing temperatures.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id26" shape="" shape_type="" size="4">
+      <originaltripleset>
+        <otriple>Bayan Uula Sumu | experienced | consistently cold weather</otriple>
+        <otriple>temperatures | fluctuated_between | -10.09°C and -20.73°C</otriple>
+        <otriple>period | was | characterized by mostly clear to cloudy skies</otriple>
+        <otriple>light snow | occurred_on | the night of January 7</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Bayan Uula Sumu | experienced | consistently cold weather</mtriple>
+        <mtriple>temperatures | fluctuated_between | -10.09°C and -20.73°C</mtriple>
+        <mtriple>period | was | characterized by mostly clear to cloudy skies</mtriple>
+        <mtriple>light snow | occurred_on | the night of January 7</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id26_1">Between January 3 and January 8, Bayan Uula Sumu experienced consistently cold weather with temperatures ranging from a high of -10.09°C to a low of -20.73°C. The period was characterized by mostly clear to cloudy skies, with a notable instance of light snow occurring on the night of January 7.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id27" shape="" shape_type="" size="8">
+      <originaltripleset>
+        <otriple>Weather in Jedovnice, CZ | transitioned_to | freezing conditions</otriple>
+        <otriple>Temperatures | dropped_to | -8°C</otriple>
+        <otriple>skies | was | overcast</otriple>
+        <otriple>light rain | occurred_on | January 3rd to 5th</otriple>
+        <otriple>moderate rain and snow | occurred_on | January 6th and 7th</otriple>
+        <otriple>visibility | was | significantly reduced</otriple>
+        <otriple>skies | was | overcast (January 8th)</otriple>
+        <otriple>freezing temperatures | reached | lowest point on January 8th</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Weather in Jedovnice, CZ | transitioned_to | freezing conditions</mtriple>
+        <mtriple>Temperatures | dropped_to | -8°C</mtriple>
+        <mtriple>skies | was | overcast</mtriple>
+        <mtriple>light rain | occurred_on | January 3rd to 5th</mtriple>
+        <mtriple>moderate rain and snow | occurred_on | January 6th and 7th</mtriple>
+        <mtriple>visibility | was | significantly reduced</mtriple>
+        <mtriple>skies | was | overcast (January 8th)</mtriple>
+        <mtriple>freezing temperatures | reached | lowest point on January 8th</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id27_1">Weather in Jedovnice, CZ, from January 3rd to 8th will transition from cool and overcast to freezing conditions. Temperatures will drop from a high of roughly 7°C to a low of -8°C. The period begins with overcast skies and light rain through January 5th, followed by a shift to moderate rain and snow on January 6th and 7th, with significantly reduced visibility. The forecast concludes with overcast skies and freezing temperatures reaching their lowest point on January 8th.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id28" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Pénjamo, MX | experienced | consistent daily temperature cycle</otriple>
+        <otriple>highs | reached | 24.7°C</otriple>
+        <otriple>overnight lows | dropped_to | 7.9°C</otriple>
+        <otriple>weather | was | predominantly clear to partly cloudy</otriple>
+        <otriple>precipitation | was | none</otriple>
+        <otriple>Wind speeds | were | generally light</otriple>
+        <otriple>occasional gusts | peaked_at | 9.5 m/s</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Pénjamo, MX | experienced | consistent daily temperature cycle</mtriple>
+        <mtriple>highs | reached | 24.7°C</mtriple>
+        <mtriple>overnight lows | dropped_to | 7.9°C</mtriple>
+        <mtriple>weather | was | predominantly clear to partly cloudy</mtriple>
+        <mtriple>precipitation | was | none</mtriple>
+        <mtriple>Wind speeds | were | generally light</mtriple>
+        <mtriple>occasional gusts | peaked_at | 9.5 m/s</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id28_1">Between January 3 and January 8, Pénjamo, MX, experienced a consistent daily temperature cycle with highs reaching up to 24.7°C and overnight lows dipping as low as 7.9°C. The weather remained predominantly clear to partly cloudy with no precipitation. Wind speeds were generally light, though occasional gusts peaked around 9.5 m/s.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id29" shape="" shape_type="" size="8">
+      <originaltripleset>
+        <otriple>Escopete | experienced | transition from rainy, mild weather to cold, clear conditions</otriple>
+        <otriple>weather | was | rainy and mild</otriple>
+        <otriple>temperatures | was | 8-10°C</otriple>
+        <otriple>precipitation | peaked_at | January 4</otriple>
+        <otriple>rain | transitioned_to | clear</otriple>
+        <otriple>temperatures | dropped_to | -0.95°C</otriple>
+        <otriple>gusts | peaked_at | 13.83 m/s</otriple>
+        <otriple>strongest winds | occurred_on | January 5</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Escopete | experienced | transition from rainy, mild weather to cold, clear conditions</mtriple>
+        <mtriple>weather | was | rainy and mild</mtriple>
+        <mtriple>temperatures | was | 8-10°C</mtriple>
+        <mtriple>precipitation | peaked_at | January 4</mtriple>
+        <mtriple>rain | transitioned_to | clear</mtriple>
+        <mtriple>temperatures | dropped_to | -0.95°C</mtriple>
+        <mtriple>gusts | peaked_at | 13.83 m/s</mtriple>
+        <mtriple>strongest winds | occurred_on | January 5</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id29_1">Between January 3 and January 8, Escopete will experience a transition from rainy, mild weather to cold, clear conditions. The period starts with frequent light to moderate rain and temperatures around 8-10°C, peaking in precipitation on January 4. From January 5 onwards, the rain clears, and temperatures drop significantly, reaching a minimum of -0.95°C by January 8. Winds will be strongest on January 5, with gusts up to 13.83 m/s, before calming toward the end of the period.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id30" shape="" shape_type="" size="10">
+      <originaltripleset>
+        <otriple>Nagymaros, HU | experienced | cooling trend</otriple>
+        <otriple>temperatures | dropped_to | lows near 0°C</otriple>
+        <otriple>daytime highs | reached | around 10°C</otriple>
+        <otriple>light rain and overcast skies | occurred_on | January 3rd</otriple>
+        <otriple>clear spell | occurred_on | January 5th</otriple>
+        <otriple>consistent light rain | occurred_on | January 6th to 7th</otriple>
+        <otriple>gusts | peaked_at | 18.24 m/s</otriple>
+        <otriple>gusts | occurred_on | January 4th</otriple>
+        <otriple>weather | was | colder and drier</otriple>
+        <otriple>weather | occurred_on | January 8th</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Nagymaros, HU | experienced | cooling trend</mtriple>
+        <mtriple>temperatures | dropped_to | lows near 0°C</mtriple>
+        <mtriple>daytime highs | reached | around 10°C</mtriple>
+        <mtriple>light rain and overcast skies | occurred_on | January 3rd</mtriple>
+        <mtriple>clear spell | occurred_on | January 5th</mtriple>
+        <mtriple>consistent light rain | occurred_on | January 6th to 7th</mtriple>
+        <mtriple>gusts | peaked_at | 18.24 m/s</mtriple>
+        <mtriple>gusts | occurred_on | January 4th</mtriple>
+        <mtriple>weather | was | colder and drier</mtriple>
+        <mtriple>weather | occurred_on | January 8th</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id30_1">Forecast for Nagymaros, HU, from January 3rd to 8th shows a cooling trend, with temperatures dropping from highs around 10°C to lows near 0°C. The period begins with light rain and overcast skies, followed by a brief clear spell on January 5th, before returning to consistent light rain from January 6th to 7th. Winds peak on January 4th with gusts up to 18.24 m/s, eventually calming as the weather turns colder and drier by January 8th.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id31" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Xiropótamos, Greece | experienced | transition from cloudy skies to steady rain</otriple>
+        <otriple>Temperatures | fluctuated_between | 6°C and 15.59°C</otriple>
+        <otriple>Temperatures | reached | 15.59°C on January 6th</otriple>
+        <otriple>weather | was | mostly cloudy and dry</otriple>
+        <otriple>light to moderate rain | occurred_on | evening of January 6th through January 8th</otriple>
+        <otriple>heaviest precipitation | occurred_on | early on January 7th</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Xiropótamos, Greece | experienced | transition from cloudy skies to steady rain</mtriple>
+        <mtriple>Temperatures | fluctuated_between | 6°C and 15.59°C</mtriple>
+        <mtriple>Temperatures | reached | 15.59°C on January 6th</mtriple>
+        <mtriple>weather | was | mostly cloudy and dry</mtriple>
+        <mtriple>light to moderate rain | occurred_on | evening of January 6th through January 8th</mtriple>
+        <mtriple>heaviest precipitation | occurred_on | early on January 7th</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id31_1">The weather forecast for Xiropótamos, Greece, from January 3rd to 8th shows a transition from cloudy skies to steady rain. Temperatures will fluctuate between a low of 6°C and a peak of 15.59°C on January 6th. While the first few days remain mostly cloudy and dry, light to moderate rain begins on the evening of January 6th and persists through January 8th, with the heaviest precipitation occurring early on January 7th.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id32" shape="" shape_type="" size="5">
+      <originaltripleset>
+        <otriple>Point Clare | experienced | transition from overcast skies to periods of light rain, followed by clearing</otriple>
+        <otriple>Temperatures | reached | 32.24°C on January 8</otriple>
+        <otriple>Temperatures | dropped_to | 14.87°C on January 6</otriple>
+        <otriple>Light rain | occurred_on | January 4 and 5</otriple>
+        <otriple>humidity | peaked_at | 99%</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Point Clare | experienced | transition from overcast skies to periods of light rain, followed by clearing</mtriple>
+        <mtriple>Temperatures | reached | 32.24°C on January 8</mtriple>
+        <mtriple>Temperatures | dropped_to | 14.87°C on January 6</mtriple>
+        <mtriple>Light rain | occurred_on | January 4 and 5</mtriple>
+        <mtriple>humidity | peaked_at | 99%</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id32_1">From January 3 to January 8, Point Clare will experience a transition from overcast skies to periods of light rain, followed by clearing. Temperatures will fluctuate significantly, reaching a peak of 32.24°C on January 8 and a low of 14.87°C on January 6. Light rain is most prevalent between January 4 and 5, with humidity peaking at 99% during the cooler, cloudier intervals.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id33" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Sagopshi | experienced | predominantly cloudy skies</otriple>
+        <otriple>temperatures | fluctuated_between | 1.47°C and 10.22°C</otriple>
+        <otriple>temperatures | reached | 10.22°C on January 5th</otriple>
+        <otriple>weather | was | mostly overcast</otriple>
+        <otriple>brief periods of clear and scattered clouds | occurred_on | January 4th and 6th</otriple>
+        <otriple>Winds | were | generally light</otriple>
+        <otriple>strongest gusts | reached | 12.7 m/s on January 5th</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Sagopshi | experienced | predominantly cloudy skies</mtriple>
+        <mtriple>temperatures | fluctuated_between | 1.47°C and 10.22°C</mtriple>
+        <mtriple>temperatures | reached | 10.22°C on January 5th</mtriple>
+        <mtriple>weather | was | mostly overcast</mtriple>
+        <mtriple>brief periods of clear and scattered clouds | occurred_on | January 4th and 6th</mtriple>
+        <mtriple>Winds | were | generally light</mtriple>
+        <mtriple>strongest gusts | reached | 12.7 m/s on January 5th</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id33_1">Between January 3rd and 8th, Sagopshi experienced predominantly cloudy skies with temperatures ranging from a low of 1.47°C to a peak of 10.22°C on January 5th. The weather remained mostly overcast, though brief periods of clear and scattered clouds occurred around January 4th and 6th. Winds were generally light, with the strongest gusts reaching 12.7 m/s on January 5th.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id34" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Saint-Romain-de-Benet | experienced | cooling trend</otriple>
+        <otriple>temperatures | dropped_to | 1.7°C</otriple>
+        <otriple>frequent light to moderate rain | occurred_on | January 3rd to January 5th</otriple>
+        <otriple>overcast skies | occurred_on | January 3rd to January 5th</otriple>
+        <otriple>clear weather | occurred_on | January 6th</otriple>
+        <otriple>cloudy conditions | occurred_on | January 7th</otriple>
+        <otriple>final light rain shower | occurred_on | January 7th</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Saint-Romain-de-Benet | experienced | cooling trend</mtriple>
+        <mtriple>temperatures | dropped_to | 1.7°C</mtriple>
+        <mtriple>frequent light to moderate rain | occurred_on | January 3rd to January 5th</mtriple>
+        <mtriple>overcast skies | occurred_on | January 3rd to January 5th</mtriple>
+        <mtriple>clear weather | occurred_on | January 6th</mtriple>
+        <mtriple>cloudy conditions | occurred_on | January 7th</mtriple>
+        <mtriple>final light rain shower | occurred_on | January 7th</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id34_1">Between January 3rd and 8th, Saint-Romain-de-Benet will experience a cooling trend, with temperatures dropping from highs around 13°C to lows near 1.7°C. The period begins with frequent light to moderate rain and overcast skies through January 5th, followed by a brief window of clear weather on January 6th, before returning to cloudy conditions and a final light rain shower on January 7th.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id35" shape="" shape_type="" size="5">
+      <originaltripleset>
+        <otriple>Friedersdorf, Germany | experienced | significant cooling trend from January 3rd to January 8th</otriple>
+        <otriple>period | was | light rain and temperatures around 8°C</otriple>
+        <otriple>skies | transitioned_to | overcast skies and light snow by January 5th and 6th</otriple>
+        <otriple>Temperatures | dropped_to | -8.12°C by January 8th</otriple>
+        <otriple>conditions | transitioned_to | clear sky</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Friedersdorf, Germany | experienced | significant cooling trend from January 3rd to January 8th</mtriple>
+        <mtriple>period | was | light rain and temperatures around 8°C</mtriple>
+        <mtriple>skies | transitioned_to | overcast skies and light snow by January 5th and 6th</mtriple>
+        <mtriple>Temperatures | dropped_to | -8.12°C by January 8th</mtriple>
+        <mtriple>conditions | transitioned_to | clear sky</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id35_1">The forecast for Friedersdorf, Germany, shows a significant cooling trend from January 3rd to January 8th. The period begins with light rain and temperatures around 8°C, transitioning to overcast skies and light snow by January 5th and 6th. Temperatures will drop steadily, reaching a minimum of -8.12°C by January 8th, with conditions eventually clearing to a clear sky.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id36" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Waalwijk | experienced | significant cooling trend</otriple>
+        <otriple>temperatures | dropped_to | -1.4°C</otriple>
+        <otriple>period | was | frequent light rain and overcast skies</otriple>
+        <otriple>skies | transitioned_to | cloudy conditions</otriple>
+        <otriple>light snow | occurred_on | January 7</otriple>
+        <otriple>weather | was | cold, overcast</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Waalwijk | experienced | significant cooling trend</mtriple>
+        <mtriple>temperatures | dropped_to | -1.4°C</mtriple>
+        <mtriple>period | was | frequent light rain and overcast skies</mtriple>
+        <mtriple>skies | transitioned_to | cloudy conditions</mtriple>
+        <mtriple>light snow | occurred_on | January 7</mtriple>
+        <mtriple>weather | was | cold, overcast</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id36_1">Between January 3 and January 8, Waalwijk will experience a significant cooling trend, with temperatures dropping from highs around 9°C to lows of -1.4°C. The period begins with frequent light rain and overcast skies, transitioning to cloudy conditions and a brief instance of light snow on January 7, before ending with cold, overcast weather.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id37" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Baincthun, France | experienced | significant cooling trend</otriple>
+        <otriple>temperatures | dropped_to | 0.9°C</otriple>
+        <otriple>period | was | characterized by persistent rain and overcast skies</otriple>
+        <otriple>moderate rain | occurred_on | January 4th</otriple>
+        <otriple>weather | transitioned_to | light snow and overcast conditions by January 7th and 8th</otriple>
+        <otriple>Winds | fluctuated_between | 6 and 16 m/s</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Baincthun, France | experienced | significant cooling trend</mtriple>
+        <mtriple>temperatures | dropped_to | 0.9°C</mtriple>
+        <mtriple>period | was | characterized by persistent rain and overcast skies</mtriple>
+        <mtriple>moderate rain | occurred_on | January 4th</mtriple>
+        <mtriple>weather | transitioned_to | light snow and overcast conditions by January 7th and 8th</mtriple>
+        <mtriple>Winds | fluctuated_between | 6 and 16 m/s</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id37_1">Between January 3rd and January 8th, Baincthun, France, will experience a significant cooling trend, with temperatures dropping from highs around 10.8°C to lows near 0.9°C. The period is characterized by persistent rain and overcast skies, peaking with moderate rain on January 4th, before transitioning to light snow and overcast conditions by January 7th and 8th. Winds remain steady, generally between 6 and 16 m/s.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id38" shape="" shape_type="" size="10">
+      <originaltripleset>
+        <otriple>Fox Chase | experienced | cooling trend</otriple>
+        <otriple>temperatures | peaked_at | 5.22°C</otriple>
+        <otriple>temperatures | dropped_to | -4.03°C</otriple>
+        <otriple>weather | transitioned_to | clear skies</otriple>
+        <otriple>snow event | occurred_on | January 6th to 7th</otriple>
+        <otriple>snow event | brought | high humidity</otriple>
+        <otriple>humidity | reached | 100%</otriple>
+        <otriple>snow event | brought | severely reduced visibility</otriple>
+        <otriple>Winds | were | moderate</otriple>
+        <otriple>gusts | peaked_at | 12.6 m/s</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Fox Chase | experienced | cooling trend</mtriple>
+        <mtriple>temperatures | peaked_at | 5.22°C</mtriple>
+        <mtriple>temperatures | dropped_to | -4.03°C</mtriple>
+        <mtriple>weather | transitioned_to | clear skies</mtriple>
+        <mtriple>snow event | occurred_on | January 6th to 7th</mtriple>
+        <mtriple>snow event | brought | high humidity</mtriple>
+        <mtriple>humidity | reached | 100%</mtriple>
+        <mtriple>snow event | brought | severely reduced visibility</mtriple>
+        <mtriple>Winds | were | moderate</mtriple>
+        <mtriple>gusts | peaked_at | 12.6 m/s</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id38_1">Between January 3rd and January 8th, Fox Chase experienced a cooling trend with temperatures peaking at 5.22°C and dropping to a low of -4.03°C. The weather transitioned from broken clouds to clear skies mid-period, followed by a significant snow event from January 6th to 7th, which brought high humidity (up to 100%) and severely reduced visibility. Winds remained moderate, with gusts peaking around 12.6 m/s.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id39" shape="" shape_type="" size="9">
+      <originaltripleset>
+        <otriple>Otwock, Poland | experienced | light rain</otriple>
+        <otriple>temperatures | was | around 7°C</otriple>
+        <otriple>light rain and temperatures around 7°C | occurred_on | January 3rd</otriple>
+        <otriple>Otwock, Poland | experienced | light snow</otriple>
+        <otriple>temperatures | dropped_to | freezing</otriple>
+        <otriple>light snow | occurred_on | January 4th</otriple>
+        <otriple>temperatures | dropped_to | -9.8°C</otriple>
+        <otriple>-9.8°C | occurred_on | January 8th</otriple>
+        <otriple>skies | transitioned_to | clear conditions</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Otwock, Poland | experienced | light rain</mtriple>
+        <mtriple>temperatures | was | around 7°C</mtriple>
+        <mtriple>light rain and temperatures around 7°C | occurred_on | January 3rd</mtriple>
+        <mtriple>Otwock, Poland | experienced | light snow</mtriple>
+        <mtriple>temperatures | dropped_to | freezing</mtriple>
+        <mtriple>light snow | occurred_on | January 4th</mtriple>
+        <mtriple>temperatures | dropped_to | -9.8°C</mtriple>
+        <mtriple>-9.8°C | occurred_on | January 8th</mtriple>
+        <mtriple>skies | transitioned_to | clear conditions</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id39_1">Weather in Otwock, Poland, will shift from light rain and temperatures around 7°C starting January 3rd to light snow as temperatures drop toward freezing by January 4th. A significant cooling trend follows, with temperatures plummeting to a low of -9.8°C by January 8th, accompanied by overcast skies transitioning to clear conditions.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id40" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Almería | experienced | gradual cooling trend</otriple>
+        <otriple>temperatures | peaked_at | 17.58°C on January 4</otriple>
+        <otriple>temperatures | dropped_to | 10.74°C by January 8</otriple>
+        <otriple>skies | transitioned_to | overcast conditions</otriple>
+        <otriple>light rain | occurred_on | January 5</otriple>
+        <otriple>winds | were | light</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Almería | experienced | gradual cooling trend</mtriple>
+        <mtriple>temperatures | peaked_at | 17.58°C on January 4</mtriple>
+        <mtriple>temperatures | dropped_to | 10.74°C by January 8</mtriple>
+        <mtriple>skies | transitioned_to | overcast conditions</mtriple>
+        <mtriple>light rain | occurred_on | January 5</mtriple>
+        <mtriple>winds | were | light</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id40_1">Between January 3 and January 8, Almería experienced a gradual cooling trend, with temperatures peaking at 17.58°C on January 4 and dropping to a low of 10.74°C by January 8. The period began with clear skies, followed by a transition to overcast conditions and light rain on January 5. Weather stabilized toward the end of the period, returning to mostly clear or scattered cloud conditions with light winds.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id41" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Garches, France | experienced | temperatures steadily decline</otriple>
+        <otriple>temperatures | reached | 10.3°C on January 4th</otriple>
+        <otriple>temperatures | dropped_to | 0.34°C by January 8th</otriple>
+        <otriple>weather | was | predominantly cloudy</otriple>
+        <otriple>intermittent light rain | occurred_on | throughout the period</otriple>
+        <otriple>intermittent light rain | transitioned_to | light snow in the early hours of January 8th</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Garches, France | experienced | temperatures steadily decline</mtriple>
+        <mtriple>temperatures | reached | 10.3°C on January 4th</mtriple>
+        <mtriple>temperatures | dropped_to | 0.34°C by January 8th</mtriple>
+        <mtriple>weather | was | predominantly cloudy</mtriple>
+        <mtriple>intermittent light rain | occurred_on | throughout the period</mtriple>
+        <mtriple>intermittent light rain | transitioned_to | light snow in the early hours of January 8th</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id41_1">Over the forecast period for Garches, France, temperatures will steadily decline from a high of around 10.3°C on January 4th to a low of 0.34°C by January 8th. The weather will be predominantly cloudy, with intermittent light rain occurring throughout the period and transitioning to light snow in the early hours of January 8th as temperatures drop.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id42" shape="" shape_type="" size="10">
+      <originaltripleset>
+        <otriple>Verplanck, US | experienced | transition from cool, cloudy weather to freezing temperatures and snow</otriple>
+        <otriple>Temperatures | peaked_at | 5.83°C</otriple>
+        <otriple>Temperatures | dropped_to | -3.3°C</otriple>
+        <otriple>minimum temperature of -3.3°C | occurred_on | January 5th</otriple>
+        <otriple>clear skies | occurred_on | January 5th</otriple>
+        <otriple>significant snowfall and poor visibility | occurred_on | January 6th and 7th</otriple>
+        <otriple>humidity | reached | 100%</otriple>
+        <otriple>skies | transitioned_to | clearing skies</otriple>
+        <otriple>temperatures | fluctuated_between | -1.8°C to 1.36°C</otriple>
+        <otriple>clearing skies and temperatures around -1.8°C to 1.36°C | occurred_on | January 8th</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Verplanck, US | experienced | transition from cool, cloudy weather to freezing temperatures and snow</mtriple>
+        <mtriple>Temperatures | peaked_at | 5.83°C</mtriple>
+        <mtriple>Temperatures | dropped_to | -3.3°C</mtriple>
+        <mtriple>minimum temperature of -3.3°C | occurred_on | January 5th</mtriple>
+        <mtriple>clear skies | occurred_on | January 5th</mtriple>
+        <mtriple>significant snowfall and poor visibility | occurred_on | January 6th and 7th</mtriple>
+        <mtriple>humidity | reached | 100%</mtriple>
+        <mtriple>skies | transitioned_to | clearing skies</mtriple>
+        <mtriple>temperatures | fluctuated_between | -1.8°C to 1.36°C</mtriple>
+        <mtriple>clearing skies and temperatures around -1.8°C to 1.36°C | occurred_on | January 8th</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id42_1">In Verplanck, US, the forecast from January 3rd to 8th shows a transition from cool, cloudy weather to freezing temperatures and snow. Temperatures peak at 5.83°C early on and drop to a minimum of -3.3°C on January 5th. A period of clear skies on January 5th is followed by significant snowfall and poor visibility between January 6th and 7th, with humidity reaching 100%. The period ends with clearing skies and temperatures around -1.8°C to 1.36°C on January 8th.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id43" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Cornillon-Confoux | experienced | transition from clear and cloudy skies to a period of light to moderate rain</otriple>
+        <otriple>light to moderate rain | occurred_on | January 5th</otriple>
+        <otriple>Temperatures | peaked_at | 13.4°C</otriple>
+        <otriple>Temperatures | dropped_to | 4°C</otriple>
+        <otriple>Wind speeds | were | intensify significantly starting January 6th</otriple>
+        <otriple>gusts | reached | 23.55 m/s</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Cornillon-Confoux | experienced | transition from clear and cloudy skies to a period of light to moderate rain</mtriple>
+        <mtriple>light to moderate rain | occurred_on | January 5th</mtriple>
+        <mtriple>Temperatures | peaked_at | 13.4°C</mtriple>
+        <mtriple>Temperatures | dropped_to | 4°C</mtriple>
+        <mtriple>Wind speeds | were | intensify significantly starting January 6th</mtriple>
+        <mtriple>gusts | reached | 23.55 m/s</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id43_1">Between January 3rd and 8th, Cornillon-Confoux will experience a transition from clear and cloudy skies to a period of light to moderate rain on January 5th. Temperatures will peak at approximately 13.4°C on January 4th before cooling to a low of around 4°C by January 8th. Wind speeds will intensify significantly starting January 6th, with gusts reaching up to 23.55 m/s.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id44" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Fazeley | experienced | cooling trend</otriple>
+        <otriple>temperatures | dropped_to | 0.38°C</otriple>
+        <otriple>period | was | characterized by frequent overcast skies and intermittent light rain</otriple>
+        <otriple>Conditions | was | cleared slightly toward January 6</otriple>
+        <otriple>weather | was | cloudy and cold</otriple>
+        <otriple>atmospheric pressure | experienced | significant increase by January 8</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Fazeley | experienced | cooling trend</mtriple>
+        <mtriple>temperatures | dropped_to | 0.38°C</mtriple>
+        <mtriple>period | was | characterized by frequent overcast skies and intermittent light rain</mtriple>
+        <mtriple>Conditions | was | cleared slightly toward January 6</mtriple>
+        <mtriple>weather | was | cloudy and cold</mtriple>
+        <mtriple>atmospheric pressure | experienced | significant increase by January 8</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id44_1">Between January 3 and January 8, 2024, Fazeley experienced a cooling trend, with temperatures dropping from a high of 7.82°C to a low of 0.38°C. The period was characterized by frequent overcast skies and intermittent light rain, particularly during the first few days. Conditions cleared slightly toward January 6, before returning to cloudy and cold weather with a significant increase in atmospheric pressure by January 8.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id45" shape="" shape_type="" size="9">
+      <originaltripleset>
+        <otriple>Lamotte-Beuvron | experienced | steady decline in temperatures</otriple>
+        <otriple>temperatures | reached | 10.32°C</otriple>
+        <otriple>temperatures | dropped_to | 0.48°C</otriple>
+        <otriple>weather | transitioned_to | light rain and overcast skies</otriple>
+        <otriple>weather | transitioned_to | light snow</otriple>
+        <otriple>light snow | occurred_on | January 7th and 8th</otriple>
+        <otriple>atmospheric pressure | experienced | gradual increase</otriple>
+        <otriple>Winds | were | moderate</otriple>
+        <otriple>Winds | transitioned_to | northeasterly</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Lamotte-Beuvron | experienced | steady decline in temperatures</mtriple>
+        <mtriple>temperatures | reached | 10.32°C</mtriple>
+        <mtriple>temperatures | dropped_to | 0.48°C</mtriple>
+        <mtriple>weather | transitioned_to | light rain and overcast skies</mtriple>
+        <mtriple>weather | transitioned_to | light snow</mtriple>
+        <mtriple>light snow | occurred_on | January 7th and 8th</mtriple>
+        <mtriple>atmospheric pressure | experienced | gradual increase</mtriple>
+        <mtriple>Winds | were | moderate</mtriple>
+        <mtriple>Winds | transitioned_to | northeasterly</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id45_1">Over the period from January 3rd to 8th in Lamotte-Beuvron, temperatures show a steady decline from a high of 10.32°C to a low of 0.48°C. The weather transitions from light rain and overcast skies to light snow by January 7th and 8th, coinciding with a gradual increase in atmospheric pressure. Winds generally moderate over the period, shifting from southwesterly to northeasterly.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id46" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>temperatures | dropped_to | -9.78°C</otriple>
+        <otriple>weather | was | light rain</otriple>
+        <otriple>weather | transitioned_to | snow on January 4</otriple>
+        <otriple>weather | was | overcast clouds and light snow through January 8</otriple>
+        <otriple>wind speeds | were | strongest initially</otriple>
+        <otriple>gusts | peaked_at | 20.81 m/s</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>temperatures | dropped_to | -9.78°C</mtriple>
+        <mtriple>weather | was | light rain</mtriple>
+        <mtriple>weather | transitioned_to | snow on January 4</mtriple>
+        <mtriple>weather | was | overcast clouds and light snow through January 8</mtriple>
+        <mtriple>wind speeds | were | strongest initially</mtriple>
+        <mtriple>gusts | peaked_at | 20.81 m/s</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id46_1">Over the period from January 3 to January 8 in Churánov, temperatures trend steadily downward, starting at 4.55°C and dropping to a low of -9.78°C. The weather begins with light rain, transitions to snow on January 4, and alternates between overcast clouds and light snow through January 8. Wind speeds are strongest initially, with gusts up to 20.81 m/s, before calming significantly in the later half of the period.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id47" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Imbituva, Brazil | experienced | transition from unstable, rainy weather to clear, hot conditions</otriple>
+        <otriple>period | was | frequent light to moderate rain and cooler temperatures</otriple>
+        <otriple>lows | were | around 15-16°C</otriple>
+        <otriple>rain | ceased | January 6th</otriple>
+        <otriple>warming trend | peaked_at | January 7th and 8th</otriple>
+        <otriple>maximum temperatures | reached | approximately 33.5°C</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Imbituva, Brazil | experienced | transition from unstable, rainy weather to clear, hot conditions</mtriple>
+        <mtriple>period | was | frequent light to moderate rain and cooler temperatures</mtriple>
+        <mtriple>lows | were | around 15-16°C</mtriple>
+        <mtriple>rain | ceased | January 6th</mtriple>
+        <mtriple>warming trend | peaked_at | January 7th and 8th</mtriple>
+        <mtriple>maximum temperatures | reached | approximately 33.5°C</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id47_1">Between January 3rd and 8th, Imbituva, Brazil, experienced a transition from unstable, rainy weather to clear, hot conditions. The period began with frequent light to moderate rain and cooler temperatures (lows around 15-16°C). By January 6th, the rain ceased, leading to a significant warming trend that peaked on January 7th and 8th with maximum temperatures reaching approximately 33.5°C under clear skies.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id48" shape="" shape_type="" size="3">
+      <originaltripleset>
+        <otriple>Dragash | experienced | fluctuating weather</otriple>
+        <otriple>Temperatures | peaked_at | 9°C</otriple>
+        <otriple>Temperatures | dropped_to | -0.22°C</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Dragash | experienced | fluctuating weather</mtriple>
+        <mtriple>Temperatures | peaked_at | 9°C</mtriple>
+        <mtriple>Temperatures | dropped_to | -0.22°C</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id48_1">Between January 3 and January 8, Dragash experienced fluctuating weather, starting with overcast skies and light rain. Temperatures peaked around 9°C on January 6 before a significant cooling trend began. The period ended with a shift from rain to light snow on January 8, with temperatures dropping to a low of -0.22°C.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id49" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Weather in Slatina, Romania | transitioned_to | significant cold snap</otriple>
+        <otriple>significant cold snap | occurred_on | January 7th</otriple>
+        <otriple>significant cold snap | brought | consistent snowfall</otriple>
+        <otriple>significant cold snap | brought | sharp temperature drop</otriple>
+        <otriple>temperature | dropped_to | -9.26°C</otriple>
+        <otriple>temperature drop | occurred_on | January 8th</otriple>
+        <otriple>wind chills | reached | -15.79°C</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Weather in Slatina, Romania | transitioned_to | significant cold snap</mtriple>
+        <mtriple>significant cold snap | occurred_on | January 7th</mtriple>
+        <mtriple>significant cold snap | brought | consistent snowfall</mtriple>
+        <mtriple>significant cold snap | brought | sharp temperature drop</mtriple>
+        <mtriple>temperature | dropped_to | -9.26°C</mtriple>
+        <mtriple>temperature drop | occurred_on | January 8th</mtriple>
+        <mtriple>wind chills | reached | -15.79°C</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id49_1">Weather in Slatina, Romania, will transition from overcast and mild conditions (highs around 10°C) between January 3rd and 6th to a significant cold snap starting January 7th. This shift brings consistent snowfall and a sharp temperature drop, reaching a minimum of -9.26°C by January 8th, with wind chills making it feel as cold as -15.79°C.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id50" shape="" shape_type="" size="11">
+      <originaltripleset>
+        <otriple>Nakło nad Notecią | experienced | light rain</otriple>
+        <otriple>temperatures | peaked_at | 6.9°C</otriple>
+        <otriple>light rain and temperatures peaking around 6.9°C | occurred_on | Jan 3-4</otriple>
+        <otriple>weather conditions | transitioned_to | light snow</otriple>
+        <otriple>temperatures | dropped_to | freezing</otriple>
+        <otriple>light snow | occurred_on | Jan 4</otriple>
+        <otriple>Nakło nad Notecią | experienced | cooling trend</otriple>
+        <otriple>cooling trend | occurred_on | Jan 5 through Jan 8</otriple>
+        <otriple>skies | transitioned_to | clear conditions</otriple>
+        <otriple>temperatures | dropped_to | -8.8°C</otriple>
+        <otriple>wind gusts | peaked_at | 13.4 m/s</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Nakło nad Notecią | experienced | light rain</mtriple>
+        <mtriple>temperatures | peaked_at | 6.9°C</mtriple>
+        <mtriple>light rain and temperatures peaking around 6.9°C | occurred_on | Jan 3-4</mtriple>
+        <mtriple>weather conditions | transitioned_to | light snow</mtriple>
+        <mtriple>temperatures | dropped_to | freezing</mtriple>
+        <mtriple>light snow | occurred_on | Jan 4</mtriple>
+        <mtriple>Nakło nad Notecią | experienced | cooling trend</mtriple>
+        <mtriple>cooling trend | occurred_on | Jan 5 through Jan 8</mtriple>
+        <mtriple>skies | transitioned_to | clear conditions</mtriple>
+        <mtriple>temperatures | dropped_to | -8.8°C</mtriple>
+        <mtriple>wind gusts | peaked_at | 13.4 m/s</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id50_1">In Nakło nad Notecią, weather conditions will shift from light rain and temperatures peaking around 6.9°C (Jan 3-4) to light snow as temperatures drop toward freezing on Jan 4. From Jan 5 through Jan 8, the region will experience a cooling trend with overcast skies transitioning to clear conditions, with temperatures reaching a low of -8.8°C and wind gusts up to 13.4 m/s.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id51" shape="" shape_type="" size="9">
+      <originaltripleset>
+        <otriple>Piqueras | experienced | significant cooling trend</otriple>
+        <otriple>temperatures | dropped_to | -5.3°C</otriple>
+        <otriple>temperatures | reached | 8.3°C</otriple>
+        <otriple>period | was | overcast skies and light rain</otriple>
+        <otriple>skies | transitioned_to | snow</otriple>
+        <otriple>snow | occurred_on | January 5th and 6th</otriple>
+        <otriple>snow | brought | poor visibility</otriple>
+        <otriple>conditions | transitioned_to | clear skies</otriple>
+        <otriple>clear skies | occurred_on | January 8th</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Piqueras | experienced | significant cooling trend</mtriple>
+        <mtriple>temperatures | dropped_to | -5.3°C</mtriple>
+        <mtriple>temperatures | reached | 8.3°C</mtriple>
+        <mtriple>period | was | overcast skies and light rain</mtriple>
+        <mtriple>skies | transitioned_to | snow</mtriple>
+        <mtriple>snow | occurred_on | January 5th and 6th</mtriple>
+        <mtriple>snow | brought | poor visibility</mtriple>
+        <mtriple>conditions | transitioned_to | clear skies</mtriple>
+        <mtriple>clear skies | occurred_on | January 8th</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id51_1">Between January 3rd and 8th, Piqueras will experience a significant cooling trend, with temperatures dropping from a high of 8.3°C to a low of -5.3°C. The period begins with overcast skies and light rain, transitioning into snow on January 5th and 6th, accompanied by poor visibility. Conditions will eventually clear by January 8th, moving from cloudy and freezing to clear skies.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id52" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Val-David, CA | experienced | cold period from January 3rd to 8th</otriple>
+        <otriple>cold period | was | characterized by frequent light snow and overcast skies</otriple>
+        <otriple>Temperatures | dropped_to | -11.75°C on January 5th and 6th</otriple>
+        <otriple>wind chills | reached | -15.85°C</otriple>
+        <otriple>brief clear spell | occurred_on | January 4th and 5th</otriple>
+        <otriple>snowfall | occurred_on | January 6th and 7th</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Val-David, CA | experienced | cold period from January 3rd to 8th</mtriple>
+        <mtriple>cold period | was | characterized by frequent light snow and overcast skies</mtriple>
+        <mtriple>Temperatures | dropped_to | -11.75°C on January 5th and 6th</mtriple>
+        <mtriple>wind chills | reached | -15.85°C</mtriple>
+        <mtriple>brief clear spell | occurred_on | January 4th and 5th</mtriple>
+        <mtriple>snowfall | occurred_on | January 6th and 7th</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id52_1">In Val-David, CA, the forecast shows a cold period from January 3rd to 8th, characterized by frequent light snow and overcast skies. Temperatures will trend downward from near freezing to a minimum of -11.75°C on January 5th and 6th, with wind chills making it feel as cold as -15.85°C. A brief clear spell occurs on January 4th and 5th before snowfall returns on January 6th and 7th.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id53" shape="" shape_type="" size="8">
+      <originaltripleset>
+        <otriple>Saint-Vincent-de-Mercuze | experienced | significant cooling trend from January 3rd to 8th</otriple>
+        <otriple>temperatures | dropped_to | 0.58°C</otriple>
+        <otriple>period | was | light rain and broken clouds</otriple>
+        <otriple>weather | transitioned_to | heavier rain</otriple>
+        <otriple>weather | transitioned_to | consistent snow starting January 5th</otriple>
+        <otriple>visibility | dropped_to | 19 meters</otriple>
+        <otriple>humidity | was | high</otriple>
+        <otriple>humidity | peaked_at | 100%</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Saint-Vincent-de-Mercuze | experienced | significant cooling trend from January 3rd to 8th</mtriple>
+        <mtriple>temperatures | dropped_to | 0.58°C</mtriple>
+        <mtriple>period | was | light rain and broken clouds</mtriple>
+        <mtriple>weather | transitioned_to | heavier rain</mtriple>
+        <mtriple>weather | transitioned_to | consistent snow starting January 5th</mtriple>
+        <mtriple>visibility | dropped_to | 19 meters</mtriple>
+        <mtriple>humidity | was | high</mtriple>
+        <mtriple>humidity | peaked_at | 100%</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id53_1">The weather forecast for Saint-Vincent-de-Mercuze shows a significant cooling trend from January 3rd to 8th, with temperatures dropping from a high of 11.35°C to a low of 0.58°C. The period begins with light rain and broken clouds, transitioning into heavier rain and then consistent snow starting January 5th. Visibility decreases drastically during the snowfall, reaching extremes as low as 19 meters, while humidity remains high, peaking at 100% toward the end of the period.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id54" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Province de la Kossi | experienced | hot, dry weather</otriple>
+        <otriple>temperatures | fluctuated_between | 19.03°C and 36.72°C</otriple>
+        <otriple>period | was | characterized by low humidity (6-15%)</otriple>
+        <otriple>period | was | characterized by a mix of clear skies and varying cloud cover</otriple>
+        <otriple>overcast conditions | occurred_on | January 6</otriple>
+        <otriple>precipitation | was | none recorded</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Province de la Kossi | experienced | hot, dry weather</mtriple>
+        <mtriple>temperatures | fluctuated_between | 19.03°C and 36.72°C</mtriple>
+        <mtriple>period | was | characterized by low humidity (6-15%)</mtriple>
+        <mtriple>period | was | characterized by a mix of clear skies and varying cloud cover</mtriple>
+        <mtriple>overcast conditions | occurred_on | January 6</mtriple>
+        <mtriple>precipitation | was | none recorded</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id54_1">Between January 3 and January 8, 2024, Province de la Kossi experienced hot, dry weather with temperatures ranging from a low of 19.03°C to a peak of 36.72°C. The period was characterized by low humidity (6-15%) and a mix of clear skies and varying cloud cover, including overcast conditions on January 6. No precipitation was recorded.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id55" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Torre Pacheco | experienced | transition from clear and cloudy skies to a period of moderate rain on January 5th</otriple>
+        <otriple>moderate rain | occurred_on | January 5th</otriple>
+        <otriple>Temperatures | peaked_at | 19.82°C on January 4th</otriple>
+        <otriple>Temperatures | dropped_to | 6.14°C by January 8th</otriple>
+        <otriple>Wind speeds | intensified_significantly | January 5th and 6th</otriple>
+        <otriple>gusts | reached | 18.1 m/s</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Torre Pacheco | experienced | transition from clear and cloudy skies to a period of moderate rain on January 5th</mtriple>
+        <mtriple>moderate rain | occurred_on | January 5th</mtriple>
+        <mtriple>Temperatures | peaked_at | 19.82°C on January 4th</mtriple>
+        <mtriple>Temperatures | dropped_to | 6.14°C by January 8th</mtriple>
+        <mtriple>Wind speeds | intensified_significantly | January 5th and 6th</mtriple>
+        <mtriple>gusts | reached | 18.1 m/s</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id55_1">From January 3rd to 8th, Torre Pacheco experienced a transition from clear and cloudy skies to a period of moderate rain on January 5th, followed by a clear and windy trend. Temperatures peaked at 19.82°C on January 4th and dropped to a low of 6.14°C by January 8th. Wind speeds intensified significantly on January 5th and 6th, with gusts reaching up to 18.1 m/s.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id56" shape="" shape_type="" size="5">
+      <originaltripleset>
+        <otriple>Weather in Hatzendorf | was | clear skies and mild temperatures around 5°C</otriple>
+        <otriple>temperatures | peaked_at | 9.15°C on January 4</otriple>
+        <otriple>Conditions | transitioned_to | predominantly overcast skies</otriple>
+        <otriple>light to moderate rain | occurred_on | January 6 and 7</otriple>
+        <otriple>cooling trend | reached | minimum temperature of -1.5°C on January 8</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Weather in Hatzendorf | was | clear skies and mild temperatures around 5°C</mtriple>
+        <mtriple>temperatures | peaked_at | 9.15°C on January 4</mtriple>
+        <mtriple>Conditions | transitioned_to | predominantly overcast skies</mtriple>
+        <mtriple>light to moderate rain | occurred_on | January 6 and 7</mtriple>
+        <mtriple>cooling trend | reached | minimum temperature of -1.5°C on January 8</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id56_1">Weather in Hatzendorf from January 3 to 8, 2024, starts with clear skies and mild temperatures around 5°C, peaking at 9.15°C on January 4. Conditions transition to predominantly overcast skies, followed by a period of light to moderate rain on January 6 and 7. The period ends with a cooling trend, reaching a minimum temperature of -1.5°C on January 8 under broken clouds.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id57" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Cuetzalan, Mexico | experienced | fluctuating weather</otriple>
+        <otriple>weather | was | light rain and high humidity</otriple>
+        <otriple>Temperatures | fluctuated_between | 12.9°C and 23.6°C</otriple>
+        <otriple>Temperatures | reached | 23.6°C on January 5</otriple>
+        <otriple>January 5 | was | clearest skies of the period</otriple>
+        <otriple>forecast | was | mix of overcast conditions and intermittent light rain</otriple>
+        <otriple>temperatures | was | stabilizing around 15-18°C</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Cuetzalan, Mexico | experienced | fluctuating weather</mtriple>
+        <mtriple>weather | was | light rain and high humidity</mtriple>
+        <mtriple>Temperatures | fluctuated_between | 12.9°C and 23.6°C</mtriple>
+        <mtriple>Temperatures | reached | 23.6°C on January 5</mtriple>
+        <mtriple>January 5 | was | clearest skies of the period</mtriple>
+        <mtriple>forecast | was | mix of overcast conditions and intermittent light rain</mtriple>
+        <mtriple>temperatures | was | stabilizing around 15-18°C</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id57_1">Between January 3 and January 8, Cuetzalan, Mexico, experienced fluctuating weather starting with light rain and high humidity. Temperatures ranged from a low of 12.9°C to a peak of 23.6°C on January 5, which also saw the clearest skies of the period. The forecast concludes with a mix of overcast conditions and intermittent light rain, with temperatures stabilizing around 15-18°C.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id58" shape="" shape_type="" size="5">
+      <originaltripleset>
+        <otriple>Pedro Santana | experienced | warm temperatures</otriple>
+        <otriple>warm temperatures | fluctuated_between | 19.55°C and 32.18°C</otriple>
+        <otriple>weather | was | predominantly cloudy</otriple>
+        <otriple>light rain | occurred_on | January 3, 4, and 5</otriple>
+        <otriple>humidity | fluctuated_between | 38% and 95%</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Pedro Santana | experienced | warm temperatures</mtriple>
+        <mtriple>warm temperatures | fluctuated_between | 19.55°C and 32.18°C</mtriple>
+        <mtriple>weather | was | predominantly cloudy</mtriple>
+        <mtriple>light rain | occurred_on | January 3, 4, and 5</mtriple>
+        <mtriple>humidity | fluctuated_between | 38% and 95%</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id58_1">Between January 3 and January 8, Pedro Santana experienced warm temperatures ranging from a low of 19.55°C to a peak of 32.18°C. The weather was predominantly cloudy with periods of light rain on January 3, 4, and 5. Humidity fluctuated significantly, peaking at 95% during cooler overnight periods and dropping to 38% during the daytime highs.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id59" shape="" shape_type="" size="5">
+      <originaltripleset>
+        <otriple>San Luis Acatlan | experienced | consistent daily temperature swings</otriple>
+        <otriple>daytime temperatures | peaked_at | 32°C</otriple>
+        <otriple>nighttime temperatures | dropped_to | 20°C</otriple>
+        <otriple>weather | transitioned_to | increasingly overcast conditions</otriple>
+        <otriple>precipitation | was | none recorded</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>San Luis Acatlan | experienced | consistent daily temperature swings</mtriple>
+        <mtriple>daytime temperatures | peaked_at | 32°C</mtriple>
+        <mtriple>nighttime temperatures | dropped_to | 20°C</mtriple>
+        <mtriple>weather | transitioned_to | increasingly overcast conditions</mtriple>
+        <mtriple>precipitation | was | none recorded</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id59_1">From January 3 to January 8, 2024, San Luis Acatlan experienced consistent daily temperature swings, peaking around 32°C during the day and dipping to approximately 20°C at night. The weather transitioned from scattered clouds and clear skies in the first few days to increasingly overcast conditions by January 7, though no precipitation was recorded throughout the period.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id60" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Fargues-Saint-Hilaire | experienced | cooling trend</otriple>
+        <otriple>temperatures | dropped_to | 0.05°C</otriple>
+        <otriple>skies | was | overcast</otriple>
+        <otriple>skies | transitioned_to | light rain</otriple>
+        <otriple>light rain | occurred_on | January 4 and 5</otriple>
+        <otriple>wind | were | moderate</otriple>
+        <otriple>wind | blowing_from | northwest</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Fargues-Saint-Hilaire | experienced | cooling trend</mtriple>
+        <mtriple>temperatures | dropped_to | 0.05°C</mtriple>
+        <mtriple>skies | was | overcast</mtriple>
+        <mtriple>skies | transitioned_to | light rain</mtriple>
+        <mtriple>light rain | occurred_on | January 4 and 5</mtriple>
+        <mtriple>wind | were | moderate</mtriple>
+        <mtriple>wind | blowing_from | northwest</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id60_1">Between January 3 and January 8, Fargues-Saint-Hilaire will experience a cooling trend, with temperatures dropping from highs of 13.1°C to a low of 0.05°C. The period starts with overcast skies and transitions to light rain between January 4 and 5, followed by several clear days. Winds will generally remain moderate, primarily blowing from the northwest.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id61" shape="" shape_type="" size="5">
+      <originaltripleset>
+        <otriple>Capitólio, Brazil | experienced | predominantly overcast skies with frequent light rain</otriple>
+        <otriple>Temperatures | fluctuated_between | 19.2°C and 29.6°C</otriple>
+        <otriple>Humidity | was | high</otriple>
+        <otriple>wind speeds | were | generally light</otriple>
+        <otriple>wind speeds | peaked_at | 3.3 m/s</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Capitólio, Brazil | experienced | predominantly overcast skies with frequent light rain</mtriple>
+        <mtriple>Temperatures | fluctuated_between | 19.2°C and 29.6°C</mtriple>
+        <mtriple>Humidity | was | high</mtriple>
+        <mtriple>wind speeds | were | generally light</mtriple>
+        <mtriple>wind speeds | peaked_at | 3.3 m/s</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id61_1">Between January 3rd and 8th, Capitólio, Brazil, experienced predominantly overcast skies with frequent light rain. Temperatures fluctuated between a low of approximately 19.2°C and a peak of 29.6°C. Humidity remained high, often exceeding 90% during rainy periods, while wind speeds stayed generally light, peaking around 3.3 m/s.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id62" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Minsk City | experienced | transition from snowy to clear conditions between January 3rd and 8th</otriple>
+        <otriple>period | was | consistent light snow</otriple>
+        <otriple>temperatures | fluctuated_between | -12°C to -7°C</otriple>
+        <otriple>snow | ceased | January 5th</otriple>
+        <otriple>skies | transitioned_to | overcast and eventually clear</otriple>
+        <otriple>temperatures | dropped_to | -17°C by January 8th</otriple>
+        <otriple>wind speeds | were | decreasing over the period</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Minsk City | experienced | transition from snowy to clear conditions between January 3rd and 8th</mtriple>
+        <mtriple>period | was | consistent light snow</mtriple>
+        <mtriple>temperatures | fluctuated_between | -12°C to -7°C</mtriple>
+        <mtriple>snow | ceased | January 5th</mtriple>
+        <mtriple>skies | transitioned_to | overcast and eventually clear</mtriple>
+        <mtriple>temperatures | dropped_to | -17°C by January 8th</mtriple>
+        <mtriple>wind speeds | were | decreasing over the period</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id62_1">Minsk City will experience a transition from snowy to clear conditions between January 3rd and 8th. The period begins with consistent light snow and temperatures around -12°C to -7°C. By January 5th, the snow ceases, giving way to overcast and eventually clear skies. Temperatures will trend downward, reaching a low of approximately -17°C by January 8th, with wind speeds generally decreasing over the period.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id63" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Weather in Călăraşi, Romania | was | significant cooling trend</otriple>
+        <otriple>initial overcast conditions | was | 7-11°C</otriple>
+        <otriple>light rain | occurred_on | January 4</otriple>
+        <otriple>Călăraşi, Romania | experienced | consistent snow and light snow</otriple>
+        <otriple>consistent snow and light snow | occurred_on | January 7 and 8</otriple>
+        <otriple>temperatures | dropped_to | -7.06°C</otriple>
+        <otriple>wind speeds | were | over 8 m/s</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Weather in Călăraşi, Romania | was | significant cooling trend</mtriple>
+        <mtriple>initial overcast conditions | was | 7-11°C</mtriple>
+        <mtriple>light rain | occurred_on | January 4</mtriple>
+        <mtriple>Călăraşi, Romania | experienced | consistent snow and light snow</mtriple>
+        <mtriple>consistent snow and light snow | occurred_on | January 7 and 8</mtriple>
+        <mtriple>temperatures | dropped_to | -7.06°C</mtriple>
+        <mtriple>wind speeds | were | over 8 m/s</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id63_1">Weather in Călăraşi, Romania, from January 3 to 8, 2024, shows a significant cooling trend. Initial overcast conditions with temperatures around 7-11°C gave way to light rain on January 4, followed by a sharp decline to freezing. By January 7 and 8, the region experienced consistent snow and light snow, with temperatures plummeting to a low of -7.06°C and wind speeds increasing to over 8 m/s.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id64" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>temperatures | fluctuated_between | 19.56°C and 27.99°C</otriple>
+        <otriple>Isla Soyaltepec, MX | experienced | temperatures between 19.56°C and 27.99°C</otriple>
+        <otriple>intermittent light rain | occurred_on | January 4th and 7th</otriple>
+        <otriple>clear skies | occurred_on | January 5th and 6th</otriple>
+        <otriple>humidity | peaked_at | 96%</otriple>
+        <otriple>winds | were | light</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>temperatures | fluctuated_between | 19.56°C and 27.99°C</mtriple>
+        <mtriple>Isla Soyaltepec, MX | experienced | temperatures between 19.56°C and 27.99°C</mtriple>
+        <mtriple>intermittent light rain | occurred_on | January 4th and 7th</mtriple>
+        <mtriple>clear skies | occurred_on | January 5th and 6th</mtriple>
+        <mtriple>humidity | peaked_at | 96%</mtriple>
+        <mtriple>winds | were | light</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id64_1">In Isla Soyaltepec, MX, temperatures will fluctuate between a low of 19.56°C and a high of 27.99°C from January 3rd to 8th. The period will be characterized by frequent cloud cover and intermittent light rain, particularly around January 4th and 7th, with a brief window of clear skies on January 5th and 6th. Humidity remains high, peaking at 96%, with generally light winds.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id65" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Lohāru, India | experienced | consistently clear skies and dry conditions</otriple>
+        <otriple>weather | was | dry</otriple>
+        <otriple>Temperatures | experienced | daily cyclical pattern</otriple>
+        <otriple>nighttime lows | were | around 8-12°C</otriple>
+        <otriple>daytime highs | peaked_at | 24.38°C on January 8th</otriple>
+        <otriple>humidity | fluctuated_between | 16% and 48%</otriple>
+        <otriple>winds | were | generally light</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Lohāru, India | experienced | consistently clear skies and dry conditions</mtriple>
+        <mtriple>weather | was | dry</mtriple>
+        <mtriple>Temperatures | experienced | daily cyclical pattern</mtriple>
+        <mtriple>nighttime lows | were | around 8-12°C</mtriple>
+        <mtriple>daytime highs | peaked_at | 24.38°C on January 8th</mtriple>
+        <mtriple>humidity | fluctuated_between | 16% and 48%</mtriple>
+        <mtriple>winds | were | generally light</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id65_1">The weather forecast for Lohāru, India, from January 3rd to January 8th, 2024, is characterized by consistently clear skies and dry conditions. Temperatures show a daily cyclical pattern, with nighttime lows around 8-12°C and daytime highs peaking at 24.38°C on January 8th. Humidity remains low, ranging from 16% to 48%, and winds are generally light, though they slightly increase toward the end of the period.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id66" shape="" shape_type="" size="5">
+      <originaltripleset>
+        <otriple>Caraballeda, VE | experienced | warm temperatures</otriple>
+        <otriple>temperatures | fluctuated_between | 24.61°C and 33.06°C</otriple>
+        <otriple>weather | was | characterized by frequent light rain</otriple>
+        <otriple>skies | transitioned_to | alternating cloudy to overcast conditions</otriple>
+        <otriple>humidity | fluctuated_between | 57% and 90%</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Caraballeda, VE | experienced | warm temperatures</mtriple>
+        <mtriple>temperatures | fluctuated_between | 24.61°C and 33.06°C</mtriple>
+        <mtriple>weather | was | characterized by frequent light rain</mtriple>
+        <mtriple>skies | transitioned_to | alternating cloudy to overcast conditions</mtriple>
+        <mtriple>humidity | fluctuated_between | 57% and 90%</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id66_1">Between January 3 and January 8, Caraballeda, VE, will experience warm temperatures ranging from a low of 24.61°C to a peak of 33.06°C. The weather will be characterized by frequent light rain and alternating cloudy to overcast conditions, with humidity remaining high, typically between 57% and 90%.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id67" shape="" shape_type="" size="9">
+      <originaltripleset>
+        <otriple>Krempe, Germany | experienced | cooling trend</otriple>
+        <otriple>temperatures | dropped_to | -4.6°C</otriple>
+        <otriple>low of -4.6°C | occurred_on | January 7th</otriple>
+        <otriple>skies | was | persistent overcast</otriple>
+        <otriple>significant snowfall | occurred_on | January 5th and 6th</otriple>
+        <otriple>visibility | dropped_to | 159 meters</otriple>
+        <otriple>conditions | transitioned_to | gradually clear by January 8th</otriple>
+        <otriple>temperatures | was | stabilizing around -1°C</otriple>
+        <otriple>skies | transitioned_to | clearer</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Krempe, Germany | experienced | cooling trend</mtriple>
+        <mtriple>temperatures | dropped_to | -4.6°C</mtriple>
+        <mtriple>low of -4.6°C | occurred_on | January 7th</mtriple>
+        <mtriple>skies | was | persistent overcast</mtriple>
+        <mtriple>significant snowfall | occurred_on | January 5th and 6th</mtriple>
+        <mtriple>visibility | dropped_to | 159 meters</mtriple>
+        <mtriple>conditions | transitioned_to | gradually clear by January 8th</mtriple>
+        <mtriple>temperatures | was | stabilizing around -1°C</mtriple>
+        <mtriple>skies | transitioned_to | clearer</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id67_1">The weather forecast for Krempe, Germany, shows a cooling trend from an initial 6.9°C on January 3rd to a low of -4.6°C by January 7th. The period is characterized by persistent overcast skies and significant snowfall between January 5th and 6th, with visibility dropping as low as 159 meters. Conditions gradually clear by January 8th, with temperatures stabilizing around -1°C and skies becoming clearer.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id68" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Osek, CZ | experienced | significant cooling trend from January 3rd to 8th</otriple>
+        <otriple>period | was | light rain</otriple>
+        <otriple>temperatures | was | around 7.6°C</otriple>
+        <otriple>skies | transitioned_to | overcast skies</otriple>
+        <otriple>weather | transitioned_to | light snow by January 6th and 7th</otriple>
+        <otriple>Temperatures | dropped_to | -6.7°C by January 8th</otriple>
+        <otriple>wind chills | reached | -13.1°C</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Osek, CZ | experienced | significant cooling trend from January 3rd to 8th</mtriple>
+        <mtriple>period | was | light rain</mtriple>
+        <mtriple>temperatures | was | around 7.6°C</mtriple>
+        <mtriple>skies | transitioned_to | overcast skies</mtriple>
+        <mtriple>weather | transitioned_to | light snow by January 6th and 7th</mtriple>
+        <mtriple>Temperatures | dropped_to | -6.7°C by January 8th</mtriple>
+        <mtriple>wind chills | reached | -13.1°C</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id68_1">The weather forecast for Osek, CZ, shows a significant cooling trend from January 3rd to 8th. The period begins with light rain and temperatures around 7.6°C, transitioning to overcast skies and then to light snow by January 6th and 7th. Temperatures will drop steadily, reaching a low of approximately -6.7°C by January 8th, with wind chills making it feel as cold as -13.1°C.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id69" shape="" shape_type="" size="9">
+      <originaltripleset>
+        <otriple>Muzaffarpur | experienced | mostly clear skies</otriple>
+        <otriple>skies | transitioned_to | overcast conditions</otriple>
+        <otriple>overcast conditions | occurred_on | January 5-6</otriple>
+        <otriple>Temperatures | fluctuated_between | 13-15°C and 26.7°C</otriple>
+        <otriple>highs | peaked_at | 26.7°C</otriple>
+        <otriple>highs | occurred_on | January 8</otriple>
+        <otriple>Humidity | was | relatively low</otriple>
+        <otriple>wind speeds | were | light to moderate</otriple>
+        <otriple>wind speeds | peaked_at | 5.01 m/s</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Muzaffarpur | experienced | mostly clear skies</mtriple>
+        <mtriple>skies | transitioned_to | overcast conditions</mtriple>
+        <mtriple>overcast conditions | occurred_on | January 5-6</mtriple>
+        <mtriple>Temperatures | fluctuated_between | 13-15°C and 26.7°C</mtriple>
+        <mtriple>highs | peaked_at | 26.7°C</mtriple>
+        <mtriple>highs | occurred_on | January 8</mtriple>
+        <mtriple>Humidity | was | relatively low</mtriple>
+        <mtriple>wind speeds | were | light to moderate</mtriple>
+        <mtriple>wind speeds | peaked_at | 5.01 m/s</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id69_1">From January 3 to January 8, 2024, Muzaffarpur experienced mostly clear skies with a brief period of overcast conditions around January 5-6. Temperatures fluctuated daily, with lows around 13-15°C and highs peaking at 26.7°C on January 8. Humidity remained relatively low, and wind speeds generally stayed light to moderate, peaking at 5.01 m/s.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id70" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Meixing | experienced | volatile weather</otriple>
+        <otriple>temperatures | fluctuated_between | -3.8°C and 12.63°C</otriple>
+        <otriple>light snow | occurred_on | January 4 and 5</otriple>
+        <otriple>light rain | occurred_on | January 5</otriple>
+        <otriple>skies | was | clear</otriple>
+        <otriple>peak temperature | reached | 12.63°C</otriple>
+        <otriple>peak temperature | occurred_on | January 8</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Meixing | experienced | volatile weather</mtriple>
+        <mtriple>temperatures | fluctuated_between | -3.8°C and 12.63°C</mtriple>
+        <mtriple>light snow | occurred_on | January 4 and 5</mtriple>
+        <mtriple>light rain | occurred_on | January 5</mtriple>
+        <mtriple>skies | was | clear</mtriple>
+        <mtriple>peak temperature | reached | 12.63°C</mtriple>
+        <mtriple>peak temperature | occurred_on | January 8</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id70_1">Between January 3 and January 8, 2024, Meixing experienced volatile weather with temperatures ranging from a low of -3.8°C to a high of 12.63°C. The period was marked by several shifts in precipitation, including light snow on January 4 and 5, and light rain on January 5. The weather cleared significantly toward the end of the period, ending with clear skies and a peak temperature of 12.63°C on January 8.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id71" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Weather in Brunn an der Wild | transitioned_to | significantly colder conditions</otriple>
+        <otriple>Weather in Brunn an der Wild | was | mild and cloudy with light rain</otriple>
+        <otriple>highs | reached | 9°C</otriple>
+        <otriple>Temperatures | dropped_to | below freezing by January 7th</otriple>
+        <otriple>January 7th | experienced | snow and reduced visibility</otriple>
+        <otriple>skies | transitioned_to | overcast skies</otriple>
+        <otriple>low | reached | -8°C by January 8th</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Weather in Brunn an der Wild | transitioned_to | significantly colder conditions</mtriple>
+        <mtriple>Weather in Brunn an der Wild | was | mild and cloudy with light rain</mtriple>
+        <mtriple>highs | reached | 9°C</mtriple>
+        <mtriple>Temperatures | dropped_to | below freezing by January 7th</mtriple>
+        <mtriple>January 7th | experienced | snow and reduced visibility</mtriple>
+        <mtriple>skies | transitioned_to | overcast skies</mtriple>
+        <mtriple>low | reached | -8°C by January 8th</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id71_1">Weather in Brunn an der Wild will transition from mild and cloudy with light rain (highs around 9°C) to significantly colder conditions. Temperatures will steadily drop, falling below freezing by January 7th, with a period of snow and reduced visibility. The forecast concludes with overcast skies and a low of approximately -8°C by January 8th.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id72" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Frunzi, Romania | experienced | significant cooling trend</otriple>
+        <otriple>period | was | light to moderate rain</otriple>
+        <otriple>temperatures | was | around 6-7°C</otriple>
+        <otriple>conditions | transitioned_to | overcast but drier conditions</otriple>
+        <otriple>temperatures | dropped_to | below freezing</otriple>
+        <otriple>temperatures | reached | -2.18°C</otriple>
+        <otriple>weather | transitioned_to | consistent snowfall</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Frunzi, Romania | experienced | significant cooling trend</mtriple>
+        <mtriple>period | was | light to moderate rain</mtriple>
+        <mtriple>temperatures | was | around 6-7°C</mtriple>
+        <mtriple>conditions | transitioned_to | overcast but drier conditions</mtriple>
+        <mtriple>temperatures | dropped_to | below freezing</mtriple>
+        <mtriple>temperatures | reached | -2.18°C</mtriple>
+        <mtriple>weather | transitioned_to | consistent snowfall</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id72_1">Between January 3rd and 8th, Frunzi, Romania, will experience a significant cooling trend. The period begins with light to moderate rain and temperatures around 6-7°C, transitioning to overcast but drier conditions by January 5th and 6th. By January 8th, temperatures will drop below freezing, reaching a low of -2.18°C, with weather shifting from light rain to consistent snowfall.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id73" shape="" shape_type="" size="4">
+      <originaltripleset>
+        <otriple>Hohoe, Ghana | experienced | warm temperatures</otriple>
+        <otriple>temperatures | fluctuated_between | 25.32°C and 30.13°C</otriple>
+        <otriple>weather | transitioned_to | clearer skies</otriple>
+        <otriple>humidity | peaked_at | 86%</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Hohoe, Ghana | experienced | warm temperatures</mtriple>
+        <mtriple>temperatures | fluctuated_between | 25.32°C and 30.13°C</mtriple>
+        <mtriple>weather | transitioned_to | clearer skies</mtriple>
+        <mtriple>humidity | peaked_at | 86%</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id73_1">Between January 3 and January 8, 2024, Hohoe, Ghana, experienced warm temperatures ranging from a low of 25.32°C to a high of 30.13°C. The weather transitioned from predominantly overcast and broken clouds in the first few days to clearer skies around January 6, before returning to partly cloudy conditions. Humidity remained relatively high, peaking at 86%.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id74" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Forest Park | experienced | cold weather</otriple>
+        <otriple>temperatures | fluctuated_between | 4.48°C and -2.85°C</otriple>
+        <otriple>skies | was | clear to cloudy</otriple>
+        <otriple>light snow | occurred_on | January 6 to 7</otriple>
+        <otriple>light snow | reduced_visibility | at times</otriple>
+        <otriple>Light rain | occurred_on | January 7</otriple>
+        <otriple>weather | transitioned_to | overcast conditions</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Forest Park | experienced | cold weather</mtriple>
+        <mtriple>temperatures | fluctuated_between | 4.48°C and -2.85°C</mtriple>
+        <mtriple>skies | was | clear to cloudy</mtriple>
+        <mtriple>light snow | occurred_on | January 6 to 7</mtriple>
+        <mtriple>light snow | reduced_visibility | at times</mtriple>
+        <mtriple>Light rain | occurred_on | January 7</mtriple>
+        <mtriple>weather | transitioned_to | overcast conditions</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id74_1">Between January 3 and January 8, Forest Park experienced cold weather with temperatures ranging from a high of 4.48°C to a low of -2.85°C. The period began with clear to cloudy skies, followed by a stretch of light snow from January 6 to 7, which significantly reduced visibility at times. Light rain occurred on January 7 before the weather returned to overcast conditions by January 8.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id75" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Kisaran, Indonesia | experienced | persistent cloud cover</otriple>
+        <otriple>Kisaran, Indonesia | experienced | frequent rain</otriple>
+        <otriple>rain | was | light to moderate</otriple>
+        <otriple>Temperatures | fluctuated_between | 22.8°C and 31.1°C</otriple>
+        <otriple>humidity levels | reached | 99%</otriple>
+        <otriple>Wind speeds | were | generally low</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Kisaran, Indonesia | experienced | persistent cloud cover</mtriple>
+        <mtriple>Kisaran, Indonesia | experienced | frequent rain</mtriple>
+        <mtriple>rain | was | light to moderate</mtriple>
+        <mtriple>Temperatures | fluctuated_between | 22.8°C and 31.1°C</mtriple>
+        <mtriple>humidity levels | reached | 99%</mtriple>
+        <mtriple>Wind speeds | were | generally low</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id75_1">The weather forecast for Kisaran, Indonesia, from January 3 to January 8, 2024, is characterized by persistent cloud cover and frequent rain, ranging from light to moderate. Temperatures consistently fluctuate between a minimum of approximately 22.8°C and a peak of 31.1°C, with high humidity levels often reaching 99%. Wind speeds remain generally low, though some gusts are noted.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id76" shape="" shape_type="" size="5">
+      <originaltripleset>
+        <otriple>Azaz, Syria | experienced | transition from rainy, overcast weather to clearer skies and then back to overcast conditions</otriple>
+        <otriple>Temperatures | fluctuated_between | 7.73°C and 14.83°C</otriple>
+        <otriple>Light rain | occurred_on | through January 5</otriple>
+        <otriple>clear skies | occurred_on | January 6</otriple>
+        <otriple>cloud cover | occurred_on | through January 8</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Azaz, Syria | experienced | transition from rainy, overcast weather to clearer skies and then back to overcast conditions</mtriple>
+        <mtriple>Temperatures | fluctuated_between | 7.73°C and 14.83°C</mtriple>
+        <mtriple>Light rain | occurred_on | through January 5</mtriple>
+        <mtriple>clear skies | occurred_on | January 6</mtriple>
+        <mtriple>cloud cover | occurred_on | through January 8</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id76_1">Between January 3 and January 8, Azaz, Syria, will experience a transition from rainy, overcast weather to clearer skies and then back to overcast conditions. Temperatures will fluctuate between a low of 7.73°C and a high of 14.83°C. Light rain is expected through January 5, followed by a period of clear skies on January 6, before cloud cover returns and persists through January 8.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id77" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Sopeira | experienced | steady cooling trend</otriple>
+        <otriple>temperatures | dropped_to | -2.57°C</otriple>
+        <otriple>skies | was | overcast</otriple>
+        <otriple>skies | transitioned_to | light rain</otriple>
+        <otriple>light rain | occurred_on | Jan 4-5</otriple>
+        <otriple>light snow | occurred_on | Jan 7th</otriple>
+        <otriple>clear skies | occurred_on | Jan 7th</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Sopeira | experienced | steady cooling trend</mtriple>
+        <mtriple>temperatures | dropped_to | -2.57°C</mtriple>
+        <mtriple>skies | was | overcast</mtriple>
+        <mtriple>skies | transitioned_to | light rain</mtriple>
+        <mtriple>light rain | occurred_on | Jan 4-5</mtriple>
+        <mtriple>light snow | occurred_on | Jan 7th</mtriple>
+        <mtriple>clear skies | occurred_on | Jan 7th</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id77_1">Between January 3rd and 8th, Sopeira experienced a steady cooling trend, with temperatures dropping from highs of 11.25°C to lows of -2.57°C. The period began with overcast skies and transitioned through a phase of light rain (Jan 4-5), followed by light snow and clear skies as temperatures dipped below freezing by Jan 7th.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id78" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Methven | experienced | a cooling trend</otriple>
+        <otriple>temperatures | dropped_to | lows near 0.6°C</otriple>
+        <otriple>period | was | light rain and overcast skies</otriple>
+        <otriple>skies | transitioned_to | clearer conditions</otriple>
+        <otriple>light rain shower | occurred_on | January 7</otriple>
+        <otriple>Atmospheric pressure | rose_steadily_from | 989 hPa to 1041 hPa</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Methven | experienced | a cooling trend</mtriple>
+        <mtriple>temperatures | dropped_to | lows near 0.6°C</mtriple>
+        <mtriple>period | was | light rain and overcast skies</mtriple>
+        <mtriple>skies | transitioned_to | clearer conditions</mtriple>
+        <mtriple>light rain shower | occurred_on | January 7</mtriple>
+        <mtriple>Atmospheric pressure | rose_steadily_from | 989 hPa to 1041 hPa</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id78_1">Between January 3 and January 8, Methven experienced a cooling trend, with temperatures dropping from highs around 6.4°C to lows near 0.6°C. The period began with light rain and overcast skies, transitioning to clearer conditions by January 6, before returning to overcast skies and a brief light rain shower on January 7. Atmospheric pressure rose steadily from 989 hPa to 1041 hPa throughout the forecast.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id79" shape="" shape_type="" size="10">
+      <originaltripleset>
+        <otriple>weather conditions in Łapczyca, Poland | transitioned_to | significant cold snap</otriple>
+        <otriple>light rain | occurred_on | Jan 3-4</otriple>
+        <otriple>temperatures | was | around 8°C (Jan 3-4)</otriple>
+        <otriple>overcast skies | occurred_on | Jan 5</otriple>
+        <otriple>light snow | occurred_on | Jan 5</otriple>
+        <otriple>moderate rain and snow | occurred_on | Jan 6</otriple>
+        <otriple>visibility | reduced_visibility | sharply on Jan 6</otriple>
+        <otriple>Temperatures | dropped_to | -14.32°C by the morning of Jan 8</otriple>
+        <otriple>skies | transitioned_to | overcast to broken clouds</otriple>
+        <otriple>winds | were | calming</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>weather conditions in Łapczyca, Poland | transitioned_to | significant cold snap</mtriple>
+        <mtriple>light rain | occurred_on | Jan 3-4</mtriple>
+        <mtriple>temperatures | was | around 8°C (Jan 3-4)</mtriple>
+        <mtriple>overcast skies | occurred_on | Jan 5</mtriple>
+        <mtriple>light snow | occurred_on | Jan 5</mtriple>
+        <mtriple>moderate rain and snow | occurred_on | Jan 6</mtriple>
+        <mtriple>visibility | reduced_visibility | sharply on Jan 6</mtriple>
+        <mtriple>Temperatures | dropped_to | -14.32°C by the morning of Jan 8</mtriple>
+        <mtriple>skies | transitioned_to | overcast to broken clouds</mtriple>
+        <mtriple>winds | were | calming</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id79_1">In Łapczyca, Poland, weather conditions will transition from light rain and temperatures around 8°C (Jan 3-4) to a significant cold snap. Following a brief period of overcast skies and light snow on Jan 5, a period of moderate rain and snow occurs on Jan 6, with visibility dropping sharply. Temperatures will plummet to a low of -14.32°C by the morning of Jan 8, accompanied by overcast to broken clouds and calming winds.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id80" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Mezinovskiy, Russia | experienced | extreme cold</otriple>
+        <otriple>temperatures | fluctuated_between | -12.2°C and -29.5°C</otriple>
+        <otriple>period | was | characterized by mostly cloudy skies and high humidity (91-100%)</otriple>
+        <otriple>light snowfall | occurred_on | January 6</otriple>
+        <otriple>light snowfall | reduced_visibility | significantly</otriple>
+        <otriple>Winds | were | light to moderate</otriple>
+        <otriple>weather | was | cleared up by January 8</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Mezinovskiy, Russia | experienced | extreme cold</mtriple>
+        <mtriple>temperatures | fluctuated_between | -12.2°C and -29.5°C</mtriple>
+        <mtriple>period | was | characterized by mostly cloudy skies and high humidity (91-100%)</mtriple>
+        <mtriple>light snowfall | occurred_on | January 6</mtriple>
+        <mtriple>light snowfall | reduced_visibility | significantly</mtriple>
+        <mtriple>Winds | were | light to moderate</mtriple>
+        <mtriple>weather | was | cleared up by January 8</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id80_1">Between January 3 and January 8, Mezinovskiy, Russia, experienced extreme cold with temperatures ranging from a high of -12.2°C to a low of -29.5°C. The period was characterized by mostly cloudy skies and high humidity (91-100%), with light snowfall occurring on January 6, which significantly reduced visibility. Winds remained light to moderate, and the weather cleared up by January 8.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id81" shape="" shape_type="" size="4">
+      <originaltripleset>
+        <otriple>temperatures | fluctuated_between | 2.94°C and 17.24°C</otriple>
+        <otriple>light to moderate rain | occurred_on | January 3rd and 4th</otriple>
+        <otriple>Heavy rainfall | occurred_on | January 6th</otriple>
+        <otriple>weather | transitioned_to | predominantly overcast conditions</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>temperatures | fluctuated_between | 2.94°C and 17.24°C</mtriple>
+        <mtriple>light to moderate rain | occurred_on | January 3rd and 4th</mtriple>
+        <mtriple>Heavy rainfall | occurred_on | January 6th</mtriple>
+        <mtriple>weather | transitioned_to | predominantly overcast conditions</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id81_1">Over the next several days in Ocilla, temperatures will fluctuate between a low of 2.94°C and a high of 17.24°C. The period begins with light to moderate rain on January 3rd and 4th, followed by a stretch of clear skies. Heavy rainfall is expected on January 6th, before the weather transitions to predominantly overcast conditions through January 8th.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id82" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Kap Choeng, Thailand | experienced | consistent daily cycle of clear to partly cloudy skies</otriple>
+        <otriple>Kap Choeng, Thailand | was | no precipitation</otriple>
+        <otriple>Temperatures | fluctuated_between | 19°C and 32.6°C</otriple>
+        <otriple>daytime highs | peaked_at | 32.6°C</otriple>
+        <otriple>Humidity | fluctuated_between | 34% and 84%</otriple>
+        <otriple>wind speeds | were | light to moderate</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Kap Choeng, Thailand | experienced | consistent daily cycle of clear to partly cloudy skies</mtriple>
+        <mtriple>Kap Choeng, Thailand | was | no precipitation</mtriple>
+        <mtriple>Temperatures | fluctuated_between | 19°C and 32.6°C</mtriple>
+        <mtriple>daytime highs | peaked_at | 32.6°C</mtriple>
+        <mtriple>Humidity | fluctuated_between | 34% and 84%</mtriple>
+        <mtriple>wind speeds | were | light to moderate</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id82_1">The weather forecast for Kap Choeng, Thailand, from January 3 to January 8, 2024, shows a consistent daily cycle of clear to partly cloudy skies with no precipitation. Temperatures fluctuate between overnight lows of approximately 19°C and daytime highs peaking at 32.6°C. Humidity is highest at night (up to 84%) and lowest during the day (around 34%), with light to moderate winds throughout the period.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id83" shape="" shape_type="" size="9">
+      <originaltripleset>
+        <otriple>Weather in Cengio, Italy | transitioned_to | overcast and clear skies</otriple>
+        <otriple>peak temperature | reached | 12.36°C</otriple>
+        <otriple>peak temperature | occurred_on | January 4</otriple>
+        <otriple>conditions | transitioned_to | moderate rain</otriple>
+        <otriple>moderate rain | occurred_on | January 5</otriple>
+        <otriple>moderate rain | transitioned_to | several days of snow and light rain</otriple>
+        <otriple>temperatures | dropped_to | -0.23°C</otriple>
+        <otriple>humidity | was | very high (up to 100%)</otriple>
+        <otriple>precipitation period | brought | significantly reduced visibility</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Weather in Cengio, Italy | transitioned_to | overcast and clear skies</mtriple>
+        <mtriple>peak temperature | reached | 12.36°C</mtriple>
+        <mtriple>peak temperature | occurred_on | January 4</mtriple>
+        <mtriple>conditions | transitioned_to | moderate rain</mtriple>
+        <mtriple>moderate rain | occurred_on | January 5</mtriple>
+        <mtriple>moderate rain | transitioned_to | several days of snow and light rain</mtriple>
+        <mtriple>temperatures | dropped_to | -0.23°C</mtriple>
+        <mtriple>humidity | was | very high (up to 100%)</mtriple>
+        <mtriple>precipitation period | brought | significantly reduced visibility</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id83_1">Weather in Cengio, Italy, from January 3 to 8, 2024, will transition from overcast and clear skies with a peak temperature of 12.36°C on January 4, to a significant cooling trend. Starting January 5, conditions deteriorate with moderate rain followed by several days of snow and light rain, with temperatures dropping to a minimum of -0.23°C. Humidity will remain very high (up to 100%) during the precipitation period, accompanied by significantly reduced visibility.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id84" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Lankwitz, Germany | experienced | weather conditions shifted from mild rain to freezing temperatures</otriple>
+        <otriple>Initial temperatures | was | around 9°C</otriple>
+        <otriple>light rain | transitioned_to | light snow</otriple>
+        <otriple>light snow | occurred_on | January 4th and 5th</otriple>
+        <otriple>temperatures | dropped_to | 0°C</otriple>
+        <otriple>cooling trend | reached | low of approximately -4°C by January 8th</otriple>
+        <otriple>skies | was | overcast</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Lankwitz, Germany | experienced | weather conditions shifted from mild rain to freezing temperatures</mtriple>
+        <mtriple>Initial temperatures | was | around 9°C</mtriple>
+        <mtriple>light rain | transitioned_to | light snow</mtriple>
+        <mtriple>light snow | occurred_on | January 4th and 5th</mtriple>
+        <mtriple>temperatures | dropped_to | 0°C</mtriple>
+        <mtriple>cooling trend | reached | low of approximately -4°C by January 8th</mtriple>
+        <mtriple>skies | was | overcast</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id84_1">Over the period from January 3rd to 8th in Lankwitz, Germany, weather conditions shifted from mild rain to freezing temperatures. Initial temperatures around 9°C with light rain transitioned into light snow on January 4th and 5th as temperatures dropped toward 0°C. The forecast concludes with a cooling trend, reaching a low of approximately -4°C by January 8th, accompanied by overcast skies clearing up by the end of the period.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id85" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Skidel', Belarus | experienced | transition from snowy and unstable conditions to cold, clear weather</otriple>
+        <otriple>Initial days | experienced | consistent light snow and freezing rain</otriple>
+        <otriple>temperatures | fluctuated_between | -6°C to -2°C</otriple>
+        <otriple>precipitation | ceased | January 5th</otriple>
+        <otriple>temperatures | dropped_to | -15.44°C</otriple>
+        <otriple>low of -15.44°C | occurred_on | January 8th</otriple>
+        <otriple>period | was | clear skies and high pressure</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Skidel', Belarus | experienced | transition from snowy and unstable conditions to cold, clear weather</mtriple>
+        <mtriple>Initial days | experienced | consistent light snow and freezing rain</mtriple>
+        <mtriple>temperatures | fluctuated_between | -6°C to -2°C</mtriple>
+        <mtriple>precipitation | ceased | January 5th</mtriple>
+        <mtriple>temperatures | dropped_to | -15.44°C</mtriple>
+        <mtriple>low of -15.44°C | occurred_on | January 8th</mtriple>
+        <mtriple>period | was | clear skies and high pressure</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id85_1">The forecast for Skidel', Belarus, from January 3rd to 8th shows a transition from snowy and unstable conditions to cold, clear weather. Initial days feature consistent light snow and freezing rain with temperatures around -6°C to -2°C. By January 5th, precipitation ceases, and temperatures drop significantly, reaching a low of -15.44°C on January 8th. The period concludes with clear skies and high pressure.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id86" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Gundaroo, AU | experienced | volatile weather</otriple>
+        <otriple>frequent rain | occurred_on | Between January 3 and January 8</otriple>
+        <otriple>heavy intensity rain | occurred_on | January 4</otriple>
+        <otriple>temperatures | reached | 27.95°C</otriple>
+        <otriple>high of 27.95°C | occurred_on | January 7</otriple>
+        <otriple>moderate and light rain | occurred_on | January 8</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Gundaroo, AU | experienced | volatile weather</mtriple>
+        <mtriple>frequent rain | occurred_on | Between January 3 and January 8</mtriple>
+        <mtriple>heavy intensity rain | occurred_on | January 4</mtriple>
+        <mtriple>temperatures | reached | 27.95°C</mtriple>
+        <mtriple>high of 27.95°C | occurred_on | January 7</mtriple>
+        <mtriple>moderate and light rain | occurred_on | January 8</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id86_1">Between January 3 and January 8, Gundaroo, AU experienced volatile weather, starting with frequent rain and a peak of heavy intensity rain on January 4. Conditions cleared significantly from January 5 to 6, with several clear-sky intervals and temperatures reaching a high of 27.95°C on January 7. The period ended with a return to moderate and light rain on January 8.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id87" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Burträsk | experienced | a significant warming trend</otriple>
+        <otriple>Temperatures | dropped_to | -33.25°C</otriple>
+        <otriple>skies | was | overcast</otriple>
+        <otriple>humidity | was | 100%</otriple>
+        <otriple>Temperatures | reached | 2.62°C</otriple>
+        <otriple>skies | transitioned_to | overcast conditions</otriple>
+        <otriple>wind speeds and gusts | intensified_significantly | January 7</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Burträsk | experienced | a significant warming trend</mtriple>
+        <mtriple>Temperatures | dropped_to | -33.25°C</mtriple>
+        <mtriple>skies | was | overcast</mtriple>
+        <mtriple>humidity | was | 100%</mtriple>
+        <mtriple>Temperatures | reached | 2.62°C</mtriple>
+        <mtriple>skies | transitioned_to | overcast conditions</mtriple>
+        <mtriple>wind speeds and gusts | intensified_significantly | January 7</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id87_1">Between January 3 and January 8, Burträsk experienced a significant warming trend. Temperatures began at an extreme low of -33.25°C with overcast skies and 100% humidity, eventually rising to a high of 2.62°C by January 8. The period shifted from cloudy and clear skies to overcast conditions by the end, accompanied by a notable increase in wind speeds and gusts starting January 7.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id88" shape="" shape_type="" size="3">
+      <originaltripleset>
+        <otriple>temperatures | dropped_to | 3.85°C</otriple>
+        <otriple>moderate rainfall | occurred_on | January 4th and 5th</otriple>
+        <otriple>wind speeds | fluctuated_between | 4 and 16 m/s</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>temperatures | dropped_to | 3.85°C</mtriple>
+        <mtriple>moderate rainfall | occurred_on | January 4th and 5th</mtriple>
+        <mtriple>wind speeds | fluctuated_between | 4 and 16 m/s</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id88_1">The weather forecast for Birchington shows a cooling trend, with temperatures dropping from a high of 9.52°C on January 3rd to a low of 3.85°C by January 8th. The period is characterized by frequent rain, including moderate rainfall on January 4th and 5th, alternating with overcast and broken cloud conditions. Winds remain steady, generally ranging between 4 and 16 m/s.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id89" shape="" shape_type="" size="5">
+      <originaltripleset>
+        <otriple>Riaillé | experienced | a cooling trend</otriple>
+        <otriple>temperatures | dropped_to | lows near 1.6°C</otriple>
+        <otriple>period | was | characterized by predominantly cloudy skies and intermittent light rain</otriple>
+        <otriple>intermittent light rain | occurred_on | January 4 and 6</otriple>
+        <otriple>Wind speeds | peaked_at | early in the period</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Riaillé | experienced | a cooling trend</mtriple>
+        <mtriple>temperatures | dropped_to | lows near 1.6°C</mtriple>
+        <mtriple>period | was | characterized by predominantly cloudy skies and intermittent light rain</mtriple>
+        <mtriple>intermittent light rain | occurred_on | January 4 and 6</mtriple>
+        <mtriple>Wind speeds | peaked_at | early in the period</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id89_1">Between January 3 and January 8, 2024, Riaillé experienced a cooling trend, with temperatures dropping from highs around 12°C to lows near 1.6°C. The period was characterized by predominantly cloudy skies and intermittent light rain, particularly on January 4 and 6. Wind speeds peaked early in the period, gradually calming as temperatures decreased toward the end of the week.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id90" shape="" shape_type="" size="4">
+      <originaltripleset>
+        <otriple>weather | transitioned_to | clear and cold</otriple>
+        <otriple>Temperatures | peaked_at | 8°C</otriple>
+        <otriple>Temperatures | dropped_to | 0°C</otriple>
+        <otriple>Atmospheric pressure | rose_steadily_from | 991 hPa to 1036 hPa</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>weather | transitioned_to | clear and cold</mtriple>
+        <mtriple>Temperatures | peaked_at | 8°C</mtriple>
+        <mtriple>Temperatures | dropped_to | 0°C</mtriple>
+        <mtriple>Atmospheric pressure | rose_steadily_from | 991 hPa to 1036 hPa</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id90_1">Between January 3rd and 8th in Broughton, GB, the weather transitioned from rainy and mild to clear and cold. Temperatures peaked at approximately 8°C during the initial rainy period and dropped to a low of 0°C by January 8th. Atmospheric pressure showed a steady upward trend, rising from 991 hPa to 1036 hPa, coinciding with the shift from overcast, rainy conditions to predominantly clear skies.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id91" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Aridaea | experienced | cooling trend</otriple>
+        <otriple>temperatures | peaked_at | 15.89°C on January 4</otriple>
+        <otriple>temperatures | dropped_to | 7.59°C by January 8</otriple>
+        <otriple>period | transitioned_to | overcast conditions</otriple>
+        <otriple>rainy days | occurred_on | January 6 to January 8</otriple>
+        <otriple>moderate rain | occurred_on | night of January 6</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aridaea | experienced | cooling trend</mtriple>
+        <mtriple>temperatures | peaked_at | 15.89°C on January 4</mtriple>
+        <mtriple>temperatures | dropped_to | 7.59°C by January 8</mtriple>
+        <mtriple>period | transitioned_to | overcast conditions</mtriple>
+        <mtriple>rainy days | occurred_on | January 6 to January 8</mtriple>
+        <mtriple>moderate rain | occurred_on | night of January 6</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id91_1">Between January 3 and January 8, Aridaea experienced a cooling trend with temperatures peaking at 15.89°C on January 4 and dropping to a low of 7.59°C by January 8. The period began with scattered clouds and clear skies, transitioned into overcast conditions, and concluded with a series of rainy days from January 6 to January 8, including moderate rain on the night of January 6.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id92" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Weather in Sherwood | was | predominantly cloudy and cool</otriple>
+        <otriple>temperatures | fluctuated_between | 1.08°C and 11.12°C</otriple>
+        <otriple>temperatures | reached | 11.12°C on January 7th</otriple>
+        <otriple>Most days | experienced | overcast or broken clouds</otriple>
+        <otriple>clear skies | occurred_on | January 4th and January 7th</otriple>
+        <otriple>Light rain | occurred_on | afternoon and evening of January 5th</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Weather in Sherwood | was | predominantly cloudy and cool</mtriple>
+        <mtriple>temperatures | fluctuated_between | 1.08°C and 11.12°C</mtriple>
+        <mtriple>temperatures | reached | 11.12°C on January 7th</mtriple>
+        <mtriple>Most days | experienced | overcast or broken clouds</mtriple>
+        <mtriple>clear skies | occurred_on | January 4th and January 7th</mtriple>
+        <mtriple>Light rain | occurred_on | afternoon and evening of January 5th</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id92_1">Weather in Sherwood from January 3rd to 8th will be predominantly cloudy and cool, with temperatures ranging from a low of 1.08°C to a peak of 11.12°C on January 7th. Most days feature overcast or broken clouds, with a period of clear skies on January 4th and January 7th. Light rain is expected on the afternoon and evening of January 5th.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id93" shape="" shape_type="" size="10">
+      <originaltripleset>
+        <otriple>Saint James | experienced | clear skies</otriple>
+        <otriple>temperatures | peaked_at | 6°C</otriple>
+        <otriple>temperatures | dropped_to | -3.6°C</otriple>
+        <otriple>-3.6°C | occurred_on | January 4th</otriple>
+        <otriple>skies | transitioned_to | overcast conditions</otriple>
+        <otriple>light snow | occurred_on | January 5th and 7th</otriple>
+        <otriple>light rain | occurred_on | January 6th</otriple>
+        <otriple>Temperatures | fluctuated_between | -4°C and 7°C</otriple>
+        <otriple>highest temperature | reached | 6.99°C</otriple>
+        <otriple>6.99°C | occurred_on | January 7th</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Saint James | experienced | clear skies</mtriple>
+        <mtriple>temperatures | peaked_at | 6°C</mtriple>
+        <mtriple>temperatures | dropped_to | -3.6°C</mtriple>
+        <mtriple>-3.6°C | occurred_on | January 4th</mtriple>
+        <mtriple>skies | transitioned_to | overcast conditions</mtriple>
+        <mtriple>light snow | occurred_on | January 5th and 7th</mtriple>
+        <mtriple>light rain | occurred_on | January 6th</mtriple>
+        <mtriple>Temperatures | fluctuated_between | -4°C and 7°C</mtriple>
+        <mtriple>highest temperature | reached | 6.99°C</mtriple>
+        <mtriple>6.99°C | occurred_on | January 7th</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id93_1">Weather in Saint James from January 3rd to 8th begins with clear skies and temperatures peaking around 6°C before dropping to a low of -3.6°C on January 4th. The period is characterized by a transition to overcast conditions, with light snow on January 5th and 7th, and light rain on January 6th. Temperatures generally fluctuate between -4°C and 7°C, with the highest temperature reaching 6.99°C on January 7th.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id94" shape="" shape_type="" size="5">
+      <originaltripleset>
+        <otriple>Rio Chico | experienced | warm temperatures</otriple>
+        <otriple>warm temperatures | fluctuated_between | 23.01°C and 30.28°C</otriple>
+        <otriple>weather | was | characterized by frequent light rain and varying cloud cover</otriple>
+        <otriple>humidity | peaked_at | 95%</otriple>
+        <otriple>Winds | were | light</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Rio Chico | experienced | warm temperatures</mtriple>
+        <mtriple>warm temperatures | fluctuated_between | 23.01°C and 30.28°C</mtriple>
+        <mtriple>weather | was | characterized by frequent light rain and varying cloud cover</mtriple>
+        <mtriple>humidity | peaked_at | 95%</mtriple>
+        <mtriple>Winds | were | light</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id94_1">Between January 3 and January 8, Rio Chico experienced warm temperatures ranging from a low of 23.01°C to a high of 30.28°C. The weather was characterized by frequent light rain and varying cloud cover, with humidity peaking at 95%. Winds remained light throughout the period.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id95" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Semeljci | experienced | significant cooling trend</otriple>
+        <otriple>temperatures | dropped_to | -1.24°C</otriple>
+        <otriple>weather | transitioned_to | consistent snowfall</otriple>
+        <otriple>skies | was | overcast</otriple>
+        <otriple>light rain | occurred_on | early in the week</otriple>
+        <otriple>consistent snowfall | occurred_on | evening of January 7 and continuing through January 8</otriple>
+        <otriple>consistent snowfall | reduced_visibility | notable decrease in visibility</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Semeljci | experienced | significant cooling trend</mtriple>
+        <mtriple>temperatures | dropped_to | -1.24°C</mtriple>
+        <mtriple>weather | transitioned_to | consistent snowfall</mtriple>
+        <mtriple>skies | was | overcast</mtriple>
+        <mtriple>light rain | occurred_on | early in the week</mtriple>
+        <mtriple>consistent snowfall | occurred_on | evening of January 7 and continuing through January 8</mtriple>
+        <mtriple>consistent snowfall | reduced_visibility | notable decrease in visibility</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id95_1">Over the period from January 3 to January 8, Semeljci will experience a significant cooling trend, starting with mild temperatures around 11°C and dropping to a low of -1.24°C. The weather will transition from overcast skies and light rain early in the week to consistent snowfall starting the evening of January 7 and continuing through January 8, accompanied by a notable decrease in visibility.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id96" shape="" shape_type="" size="4">
+      <originaltripleset>
+        <otriple>temperatures | dropped_to | near-freezing levels</otriple>
+        <otriple>period | was | frequent light rain and overcast skies</otriple>
+        <otriple>skies | transitioned_to | cloudy conditions</otriple>
+        <otriple>temperatures | dropped_to | -0.34°C</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>temperatures | dropped_to | near-freezing levels</mtriple>
+        <mtriple>period | was | frequent light rain and overcast skies</mtriple>
+        <mtriple>skies | transitioned_to | cloudy conditions</mtriple>
+        <mtriple>temperatures | dropped_to | -0.34°C</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id96_1">In Betz, France, temperatures will steadily decline from around 9°C on January 3rd to near-freezing levels by January 8th. The period begins with frequent light rain and overcast skies, transitioning to cloudy conditions, and concluding with a chance of light snow as temperatures drop to a minimum of -0.34°C.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id97" shape="" shape_type="" size="6">
+      <originaltripleset>
+        <otriple>Ébano, Mexico | experienced | mild to warm weather</otriple>
+        <otriple>temperatures | fluctuated_between | 15.7°C and 28.6°C</otriple>
+        <otriple>temperatures | reached | 28.6°C on January 5</otriple>
+        <otriple>Conditions | transitioned_to | clear skies around January 5-6</otriple>
+        <otriple>Conditions | transitioned_to | overcast conditions by January 8</otriple>
+        <otriple>Humidity | fluctuated_between | 36% and 96%</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ébano, Mexico | experienced | mild to warm weather</mtriple>
+        <mtriple>temperatures | fluctuated_between | 15.7°C and 28.6°C</mtriple>
+        <mtriple>temperatures | reached | 28.6°C on January 5</mtriple>
+        <mtriple>Conditions | transitioned_to | clear skies around January 5-6</mtriple>
+        <mtriple>Conditions | transitioned_to | overcast conditions by January 8</mtriple>
+        <mtriple>Humidity | fluctuated_between | 36% and 96%</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id97_1">Between January 3 and January 8, 2024, Ébano, Mexico, experienced mild to warm weather with temperatures ranging from a low of 15.7°C to a peak of 28.6°C on January 5. Conditions transitioned from broken and overcast clouds early in the period to clear skies around January 5-6, before returning to overcast conditions by January 8. Humidity fluctuated significantly, peaking at 96% and dropping to 36% during the warmest period.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id98" shape="" shape_type="" size="7">
+      <originaltripleset>
+        <otriple>Pyhäjoki | experienced | significant warming trend</otriple>
+        <otriple>Temperatures | was | around -26°C</otriple>
+        <otriple>wind chills | reached | -33°C</otriple>
+        <otriple>Temperatures | reached | -3.66°C</otriple>
+        <otriple>period | was | characterized by consistently high humidity (91-100%)</otriple>
+        <otriple>skies | was | predominantly cloudy to overcast</otriple>
+        <otriple>wind speeds | peaked_at | 7.79 m/s</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Pyhäjoki | experienced | significant warming trend</mtriple>
+        <mtriple>Temperatures | was | around -26°C</mtriple>
+        <mtriple>wind chills | reached | -33°C</mtriple>
+        <mtriple>Temperatures | reached | -3.66°C</mtriple>
+        <mtriple>period | was | characterized by consistently high humidity (91-100%)</mtriple>
+        <mtriple>skies | was | predominantly cloudy to overcast</mtriple>
+        <mtriple>wind speeds | peaked_at | 7.79 m/s</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id98_1">Between January 3 and January 8, Pyhäjoki experienced a significant warming trend. Temperatures started extremely cold, hovering around -26°C with wind chills reaching -33°C, before steadily rising to a high of -3.66°C by January 8. The period was characterized by consistently high humidity (91-100%) and predominantly cloudy to overcast skies, with wind speeds peaking at 7.79 m/s on January 7.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id99" shape="" shape_type="" size="9">
+      <originaltripleset>
+        <otriple>Târgu Trotuş | experienced | significant temperature drop</otriple>
+        <otriple>skies | transitioned_to | heavy snowfall</otriple>
+        <otriple>Temperatures | peaked_at | 12.57°C</otriple>
+        <otriple>Temperatures | dropped_to | -7.23°C</otriple>
+        <otriple>weather | was | cloudy and dry</otriple>
+        <otriple>major snow event | occurred_on | January 7</otriple>
+        <otriple>major snow event | brought | high humidity</otriple>
+        <otriple>major snow event | brought | poor visibility</otriple>
+        <otriple>major snow event | brought | consistent snowfall</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Târgu Trotuş | experienced | significant temperature drop</mtriple>
+        <mtriple>skies | transitioned_to | heavy snowfall</mtriple>
+        <mtriple>Temperatures | peaked_at | 12.57°C</mtriple>
+        <mtriple>Temperatures | dropped_to | -7.23°C</mtriple>
+        <mtriple>weather | was | cloudy and dry</mtriple>
+        <mtriple>major snow event | occurred_on | January 7</mtriple>
+        <mtriple>major snow event | brought | high humidity</mtriple>
+        <mtriple>major snow event | brought | poor visibility</mtriple>
+        <mtriple>major snow event | brought | consistent snowfall</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id99_1">From January 3 to January 8, Târgu Trotuş will experience a significant temperature drop and a transition from overcast skies to heavy snowfall. Temperatures will peak at 12.57°C on January 4 before plummeting to a low of -7.23°C by January 8. While the first few days remain cloudy and dry, a major snow event begins on January 7, bringing high humidity, poor visibility, and consistent snowfall through January 8.</lex>
+    </entry>
+    <entry category="Weather_catalog" eid="Id100" shape="" shape_type="" size="10">
+      <originaltripleset>
+        <otriple>Weather in Nakskov, Denmark | was | moderate to light rain</otriple>
+        <otriple>temperatures | was | around 6°C</otriple>
+        <otriple>weather | transitioned_to | light snow and freezing temperatures</otriple>
+        <otriple>light snow and freezing temperatures | occurred_on | January 4th</otriple>
+        <otriple>lows | reached | approximately -2.8°C</otriple>
+        <otriple>feels-like temperatures | dropped_to | -9.2°C</otriple>
+        <otriple>weather | transitioned_to | mostly overcast and cloudy conditions</otriple>
+        <otriple>weather | transitioned_to | sunny skies</otriple>
+        <otriple>sunny skies | occurred_on | January 8th</otriple>
+        <otriple>atmospheric pressure | was | rising</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Weather in Nakskov, Denmark | was | moderate to light rain</mtriple>
+        <mtriple>temperatures | was | around 6°C</mtriple>
+        <mtriple>weather | transitioned_to | light snow and freezing temperatures</mtriple>
+        <mtriple>light snow and freezing temperatures | occurred_on | January 4th</mtriple>
+        <mtriple>lows | reached | approximately -2.8°C</mtriple>
+        <mtriple>feels-like temperatures | dropped_to | -9.2°C</mtriple>
+        <mtriple>weather | transitioned_to | mostly overcast and cloudy conditions</mtriple>
+        <mtriple>weather | transitioned_to | sunny skies</mtriple>
+        <mtriple>sunny skies | occurred_on | January 8th</mtriple>
+        <mtriple>atmospheric pressure | was | rising</mtriple>
+      </modifiedtripleset>
+      <lex comment="auto-generated" lid="Id100_1">Weather in Nakskov, Denmark, from January 3rd to 8th, 2024, starts with moderate to light rain and temperatures around 6°C, transitioning to light snow and freezing temperatures by January 4th. The period is characterized by a steady cooling trend, with lows reaching approximately -2.8°C and feels-like temperatures dipping as low as -9.2°C. Following the precipitation, the weather stabilizes into mostly overcast and cloudy conditions, eventually clearing to sunny skies by January 8th, accompanied by rising atmospheric pressure.</lex>
+    </entry>
+  </entries>
+</benchmark>
+
