@@ -47,4 +47,5 @@ conda run -n openevolve-env python ../../openevolve/openevolve-run.py initial_pr
 cd ./outputs/{evolution_config}/${WEBNLG_DOMAIN}_output
 conda run -n openevolve-env python ../../../plot_results.py
 export BEST_PROGRAM_PATH="./openevolve_output/best/best_program.py"
+export LLM_JUDGES="[{\"name\": \"themis\", \"base_url\": \"http://localhost:{port_0}/v1\", \"api_key\": \"AiIsMyLife25\"}]"
 conda run -n openevolve-env python ../../../final_test.py

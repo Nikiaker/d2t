@@ -11,21 +11,18 @@ import evaluate as ev
 import sys
 import numpy as np
 from tests.senlen import Senlen
-import yaml
 
-CONFIG_PATH = os.getenv("CONFIG_PATH", "config_remote.yaml")
-
-with open(CONFIG_PATH, "r") as f:
-    config = yaml.safe_load(f)
-
-THEMIS_NAME = config['evaluator']['themis_name']
-THEMIS_API_BASE = config['evaluator']['themis_api_base']
-THEMIS_API_KEY = config['evaluator']['themis_api_key']
+LLM_JUDGES = os.getenv(
+    "LLM_JUDGES",
+    "[{\"name\": \"themis\", \"base_url\": \"http://localhost:8010/v1\", \"api_key\": \"AiIsMyLife25\"}]",
+)
+judges_configs = json.loads(LLM_JUDGES)
 
 try:
-    themis_client = OpenAI(base_url=THEMIS_API_BASE, api_key=THEMIS_API_KEY)
+    judges_clients = {str(config['name']): OpenAI(base_url=config['base_url'], api_key=config['api_key']) for config in judges_configs}
 except Exception:
-    themis_client = None
+    print("Error initializing judges clients. Themis evaluation will be skipped.")
+    judges_clients: dict[str, OpenAI] = {}
 
 def run_with_timeout(func, args=(), kwargs={}, timeout_seconds=5):
     """
@@ -103,7 +100,7 @@ bleu_scores: list[float] = []
 meteor_scores: list[float] = []
 senlen_scores: list[float] = []
 bleurt_scores: list[float] = []
-themis_scores: list[ThemisEvaluation] = []
+themis_scores: dict[str, list[ThemisEvaluation]] = {}
 gramatic_scores: list[ThemisEvaluation] = []
 ommisions_scores: list[ThemisEvaluation] = []
 additions_scores: list[ThemisEvaluation] = []
@@ -165,7 +162,7 @@ for test_sentence in category_test_sentences:
         bleurt_scores.append(bleurt_score)
 
         # Calculate Themis score
-        if themis_client:
+        if any(judges_clients.values()):
             source = "\n".join([f"{triple.subject}, {triple.predicate}, {triple.object}" for triple in triples])
             target = generated_text
             chat_message = f"###Instruction###\nPlease act as an impartial and helpful evaluator for natural language generation (NLG), and the audience is an expert in the field.\nYour task is to evaluate the quality of text similarity strictly based on the given evaluation criterion.\nBegin the evaluation by providing your analysis concisely and accurately, and then on the next line, start with \"Rating:\" followed by your rating on a Likert scale from 1 to 5 (higher means better).\nYou MUST keep to the strict boundaries of the evaluation criterion and focus solely on the issues and errors involved; otherwise, you will be penalized.\nMake sure you read and understand these instructions, as well as the following evaluation criterion and example content, carefully.\n\n###Evaluation Criterion###\nAccuaracy and number of sentences: The generated text must accurately reference the triples. There cannot be any extra information that was not present in the triples. If possible there must be just one complex sentence instead of multiple sentences.\n\n###Data###\nThe triples in the form (subject, predicate, object):\n{source}\n\nThe generated text:\n{target}\n\n###Your Evaluation###"
@@ -185,34 +182,37 @@ for test_sentence in category_test_sentences:
 
 print("Done generating outputs")
 
-# Batch themis
-if themis_client and themis_chat_messages:
-    print(f"Running Themis evaluation for {len(themis_chat_messages)} examples...")
-    results = fetch_completion(themis_chat_messages, themis_client)
+# Batch score
+for judge_name, judge_client in judges_clients.items():
+    print(f"Running {judge_name} evaluation for {len(themis_chat_messages)} examples...")
+    results = fetch_completion(themis_chat_messages, judge_client)
     for i, result_content in enumerate(results):
         review, rating = parse_themis_response(result_content)
-        themis_scores.append(ThemisEvaluation(review=review, rating=rating))
+        themis_scores[judge_name] = ThemisEvaluation(review=review, rating=rating)
 
 # Batch gramatic
-if themis_client and gramatic_chat_messages:
+if any(judges_clients.values()) and gramatic_chat_messages:
+    judge_client = list(judges_clients.values())[0]  # Get the first available judge client
     print(f"Running Grammaticality evaluation for {len(gramatic_chat_messages)} examples...")
-    results = fetch_completion(gramatic_chat_messages, themis_client)
+    results = fetch_completion(gramatic_chat_messages, judge_client)
     for i, result_content in enumerate(results):
         review, rating = parse_themis_response(result_content)
         gramatic_scores.append(ThemisEvaluation(review=review, rating=rating))
 
 # Batch ommisions
-if themis_client and ommisions_chat_messages:
+if any(judges_clients.values()) and ommisions_chat_messages:
+    judge_client = list(judges_clients.values())[0]  # Get the first available judge client
     print(f"Running Omissions evaluation for {len(ommisions_chat_messages)} examples...")
-    results = fetch_completion(ommisions_chat_messages, themis_client)
+    results = fetch_completion(ommisions_chat_messages, judge_client)
     for i, result_content in enumerate(results):
         review, rating = parse_themis_response(result_content)
         ommisions_scores.append(ThemisEvaluation(review=review, rating=rating))
 
 # Batch additions
-if themis_client and additions_chat_messages:
+if any(judges_clients.values()) and additions_chat_messages:
+    judge_client = list(judges_clients.values())[0]  # Get the first available judge client
     print(f"Running Additions evaluation for {len(additions_chat_messages)} examples...")
-    results = fetch_completion(additions_chat_messages, themis_client)
+    results = fetch_completion(additions_chat_messages, judge_client)
     for i, result_content in enumerate(results):
         review, rating = parse_themis_response(result_content)
         additions_scores.append(ThemisEvaluation(review=review, rating=rating))
@@ -221,7 +221,13 @@ avg_bleu_score = float(np.mean(bleu_scores))
 avg_meteor_score = float(np.mean(meteor_scores))
 avg_senlen_score = float(np.mean(senlen_scores))
 avg_bleurt_score = float(np.mean(bleurt_scores))
-avg_themis_score = float(np.mean([eval.rating for eval in themis_scores])) / 5.0 if themis_scores else 0.0
+
+avg_themis_score = {
+    judge_name: float(np.mean([evaluation.rating for evaluation in evaluations])) / 5.0
+    if evaluations else 0.0
+    for judge_name, evaluations in themis_scores.items()
+}
+
 avg_gramatic_score = float(np.mean([eval.rating for eval in gramatic_scores])) if gramatic_scores else 0.0
 avg_ommisions_score = float(np.mean([eval.rating for eval in ommisions_scores])) if ommisions_scores else 0.0
 avg_additions_score = float(np.mean([eval.rating for eval in additions_scores])) if additions_scores else 0.0
@@ -231,7 +237,8 @@ print(f"Average BLEU Score: {avg_bleu_score}")
 print(f"Average METEOR Score: {avg_meteor_score}")
 print(f"Average SENLEN Score: {avg_senlen_score}")
 print(f"Average BLEURT Score: {avg_bleurt_score}")
-print(f"Average Themis Score: {avg_themis_score}")
+for judge_name, score in avg_themis_score.items():
+    print(f"Average Judge Score ({judge_name}): {score}")
 print(f"Average Grammaticality Score: {avg_gramatic_score}")
 print(f"Average Omissions Score: {avg_ommisions_score}")
 print(f"Average Additions Score: {avg_additions_score}")
@@ -245,7 +252,7 @@ results_payload = {
         "meteor": avg_meteor_score,
         "senlen": avg_senlen_score,
         "bleurt": avg_bleurt_score,
-        "themis": avg_themis_score,
+        **{judge_name: score for judge_name, score in avg_themis_score.items()},
         "gramatic": avg_gramatic_score,
         "ommisions": avg_ommisions_score,
         "additions": avg_additions_score,
