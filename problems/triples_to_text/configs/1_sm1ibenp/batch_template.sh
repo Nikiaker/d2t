@@ -2,7 +2,7 @@
 #SBATCH -w hgx1
 #SBATCH -p hgx
 #SBATCH -c16
-#SBATCH --gres=gpu:3
+#SBATCH --gres=gpu:1
 #SBATCH -n1
 SERVER_LOG1="/home/inf151915/vllm-server1.log"
 SERVER_LOG2="/home/inf151915/vllm-server2.log"
