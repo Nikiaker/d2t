@@ -1,10 +1,6 @@
-sbatch ~/d2t/problems/triples_to_text/outputs/1_sm1ibenp/Airport_output/Airport.sh
-sbatch ~/d2t/problems/triples_to_text/outputs/1_sm1ibenp/Artist_output/Artist.sh
-sbatch ~/d2t/problems/triples_to_text/outputs/1_sm1ibenp/Astronaut_output/Astronaut.sh
-sbatch ~/d2t/problems/triples_to_text/outputs/1_sm1ibenp/Athlete_output/Athlete.sh
-sbatch ~/d2t/problems/triples_to_text/outputs/1_sm1ibenp/Building_output/Building.sh
-
-sbatch ~/d2t/problems/triples_to_text/outputs/2_sm1ibeyp/Airport_output/Airport.sh
-sbatch ~/d2t/problems/triples_to_text/outputs/2_sm1ibeyp/Artist_output/Artist.sh
-sbatch ~/d2t/problems/triples_to_text/outputs/2_sm1ibeyp/MeanOfTransportation_output/MeanOfTransportation.sh
-sbatch ~/d2t/problems/triples_to_text/outputs/2_sm1ibeyp/WrittenWork_output/WrittenWork.sh
+sbatch ~/d2t/problems/triples_to_text/outputs/3_sm1ifeyp/Weather_rules_output/Weather_rules.sh
+sbatch ~/d2t/problems/triples_to_text/outputs/3_sm1ifeyp/Weather_catalog_output/Weather_catalog.sh
+sbatch ~/d2t/problems/triples_to_text/outputs/3_sm1ifeyp/Mobile_rules_output/Mobile_rules.sh
+sbatch ~/d2t/problems/triples_to_text/outputs/3_sm1ifeyp/Mobile_catalog_output/Mobile_catalog.sh
+sbatch ~/d2t/problems/triples_to_text/outputs/3_sm1ifeyp/IceHockey_rules_output/IceHockey_rules.sh
+sbatch ~/d2t/problems/triples_to_text/outputs/3_sm1ifeyp/IceHockey_catalog_output/IceHockey_catalog.sh

@@ -1,0 +1,1 @@
+sbatch ~/d2t/problems/triples_to_text/batch_evaluate_all.sh
