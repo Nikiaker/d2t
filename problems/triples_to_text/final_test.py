@@ -90,9 +90,12 @@ def build_judge_prompt(
     rating_description: str,
 ) -> str:
     if structured:
+        # Require a strict JSON object and explain the expected rating semantics
         output_format = (
             'Respond with a single JSON object with keys "review" and "rating". '
-            'The "rating" field must be numeric. Do not wrap the JSON in markdown fences or add any other text.'
+            'The "rating" field must follow the rules described below in plain numeric form and must NOT be a text label. '
+            'For example: {"review": "concise analysis", "rating": 1}. '
+            'Do not wrap the JSON in markdown fences and do not add any other text outside the JSON object.'
         )
         data_header = "Data to evaluate"
     else:
@@ -248,7 +251,7 @@ for test_sentence in category_test_sentences:
                     data_value=target,
                     generated_text=target,
                     structured=first_judge_structured,
-                    rating_description='Return 1 if the text is grammatically correct and 0 if it is not. On structured runs, the rating must be stored in the JSON field named "rating".',
+                    rating_description='Return 1 if the text is grammatically correct and 0 if it is not. The rating must be the integer 0 or 1. On structured runs, the rating must be stored in the JSON field named "rating".',
                 )
             )
 
@@ -259,7 +262,7 @@ for test_sentence in category_test_sentences:
                     data_value=source,
                     generated_text=target,
                     structured=first_judge_structured,
-                    rating_description='Return 0 if there are no omissions and 1 if there are. On structured runs, the rating must be stored in the JSON field named "rating".',
+                    rating_description='Return 0 if there are no omissions and 1 if there are. The rating must be the integer 0 or 1. On structured runs, the rating must be stored in the JSON field named "rating".',
                 )
             )
 
@@ -270,7 +273,7 @@ for test_sentence in category_test_sentences:
                     data_value=source,
                     generated_text=target,
                     structured=first_judge_structured,
-                    rating_description='Return 0 if there are no additions and 1 if there are. On structured runs, the rating must be stored in the JSON field named "rating".',
+                    rating_description='Return 0 if there are no additions and 1 if there are. The rating must be the integer 0 or 1. On structured runs, the rating must be stored in the JSON field named "rating".',
                 )
             )
 
@@ -296,7 +299,7 @@ for judge_name, judge_client in judges_clients.items():
     )
     themis_scores[judge_name] = []
     for i, result_content in enumerate(results):
-        review, rating = parse_themis_response(result_content)
+        review, rating = parse_themis_response(result_content, expected="1-5")
         themis_scores[judge_name].append(ThemisEvaluation(review=review, rating=rating))
 
 # Batch gramatic
@@ -310,7 +313,7 @@ if any(judges_clients.values()) and gramatic_chat_messages:
         structured=judges_structured.get(first_judge_name, False),
     )
     for i, result_content in enumerate(results):
-        review, rating = parse_themis_response(result_content)
+        review, rating = parse_themis_response(result_content, expected="binary")
         gramatic_scores.append(ThemisEvaluation(review=review, rating=rating))
 
 # Batch ommisions
@@ -324,7 +327,7 @@ if any(judges_clients.values()) and ommisions_chat_messages:
         structured=judges_structured.get(first_judge_name, False),
     )
     for i, result_content in enumerate(results):
-        review, rating = parse_themis_response(result_content)
+        review, rating = parse_themis_response(result_content, expected="binary")
         ommisions_scores.append(ThemisEvaluation(review=review, rating=rating))
 
 # Batch additions
@@ -338,7 +341,7 @@ if any(judges_clients.values()) and additions_chat_messages:
         structured=judges_structured.get(first_judge_name, False),
     )
     for i, result_content in enumerate(results):
-        review, rating = parse_themis_response(result_content)
+        review, rating = parse_themis_response(result_content, expected="binary")
         additions_scores.append(ThemisEvaluation(review=review, rating=rating))
 
 avg_bleu_score = float(np.mean(bleu_scores))

@@ -128,7 +128,7 @@ def safe_float(value):
         print(f"Warning: Could not convert {value} of type {type(value)} to float")
         return 0.0
     
-def parse_themis_response(content: str) -> tuple[str, float]:
+def parse_themis_response(content: str, expected: str = "1-5") -> tuple[str, float]:
     """
     Expected format:
     - Structured JSON with keys like {"review": "...", "rating": 4}
@@ -158,7 +158,27 @@ def parse_themis_response(content: str) -> tuple[str, float]:
                     review_value = payload.get("analysis", payload.get("reason", ""))
                 if not isinstance(review_value, str):
                     review_value = json.dumps(review_value, ensure_ascii=False)
-                return review_value.strip(), safe_float(rating_value)
+
+                # Normalize booleans to integers
+                if isinstance(rating_value, bool):
+                    rating_num = 1.0 if rating_value else 0.0
+                else:
+                    rating_num = safe_float(rating_value)
+
+                # If a binary score is expected, map 1-5 into 0/1 conservatively
+                if expected == "binary":
+                    try:
+                        # If already 0/1 use as-is
+                        if int(rating_num) in (0, 1) and rating_num == int(rating_num):
+                            mapped = float(int(rating_num))
+                        else:
+                            # Map 1-5 -> 0/1 using threshold 3
+                            mapped = 1.0 if rating_num >= 3.0 else 0.0
+                    except Exception:
+                        mapped = 0.0
+                    return review_value.strip(), mapped
+
+                return review_value.strip(), rating_num
 
     match = re.search(
         r"^\s*Rating\s*:\s*([0-5](?:\.\d+)?)\s*$",
@@ -171,6 +191,16 @@ def parse_themis_response(content: str) -> tuple[str, float]:
 
     review = text[:match.start()].strip()
     rating = safe_float(match.group(1))
+
+    if expected == "binary":
+        # Map 1-5 ratings to binary using threshold 3; accept exact 0/1
+        try:
+            if int(rating) in (0, 1) and rating == int(rating):
+                return review, float(int(rating))
+        except Exception:
+            pass
+        return review, (1.0 if rating >= 3.0 else 0.0)
+
     return review, rating
 
 def fetch_completion(
