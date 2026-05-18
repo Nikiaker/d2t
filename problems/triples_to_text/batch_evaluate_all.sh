@@ -43,23 +43,23 @@ conda run -n openevolve-env python ~/d2t/.conda/test-response.py --port 2995
 conda run -n openevolve-env python ~/d2t/tripler/batch_wrapper_server.py \
     --upstream-base-url http://localhost:2993 \
     --port 2996 \
-    --storage-dir ~/.batch_wrapper_data \
+    --storage-dir ~/.batch_wrapper_data1 \
 	2>&1 &
 
 conda run -n openevolve-env python ~/d2t/tripler/batch_wrapper_server.py \
     --upstream-base-url http://localhost:2994 \
     --port 2997 \
-    --storage-dir ~/.batch_wrapper_data \
+    --storage-dir ~/.batch_wrapper_data2 \
 	2>&1 &
 
 conda run -n openevolve-env python ~/d2t/tripler/batch_wrapper_server.py \
     --upstream-base-url http://localhost:2995 \
     --port 2998 \
-    --storage-dir ~/.batch_wrapper_data \
+    --storage-dir ~/.batch_wrapper_data3 \
 	2>&1 &
 
 export WEBNLG_BASE_PATH="/home/inf151915/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/"
-export LLM_JUDGES="[{\"name\": \"gemma\", \"base_url\": \"http://localhost:2996/v1\", \"api_key\": \"AiIsMyLife25\"},{\"name\": \"gpt-oss\", \"base_url\": \"http://localhost:2997/v1\", \"api_key\": \"AiIsMyLife25\"},{\"name\": \"themis\", \"base_url\": \"http://localhost:2998/v1\", \"api_key\": \"AiIsMyLife25\"}]"
+export LLM_JUDGES="[{\"name\": \"gemma\", \"structured\": true, \"base_url\": \"http://localhost:2996/v1\", \"api_key\": \"AiIsMyLife25\"},{\"name\": \"gpt-oss\", \"structured\": true, \"base_url\": \"http://localhost:2997/v1\", \"api_key\": \"AiIsMyLife25\"},{\"name\": \"themis\", \"structured\": false, \"base_url\": \"http://localhost:2998/v1\", \"api_key\": \"AiIsMyLife25\"}]"
 
 cd ~/d2t/problems/triples_to_text
 conda run -n openevolve-env python run_final_test_for_configs.py results/slurm32/outputs/ 2

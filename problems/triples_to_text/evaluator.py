@@ -131,10 +131,34 @@ def safe_float(value):
 def parse_themis_response(content: str) -> tuple[str, float]:
     """
     Expected format:
-    {review}
-    Rating: {number from 1 to 5}
+    - Structured JSON with keys like {"review": "...", "rating": 4}
+    - Or plain text ending with `Rating: {number from 1 to 5}`
     """
     text = (content or "").strip()
+
+    if text.startswith("```"):
+        lines = text.splitlines()
+        if len(lines) >= 2:
+            inner_lines = lines[1:]
+            if inner_lines and inner_lines[-1].strip().startswith("```"):
+                inner_lines = inner_lines[:-1]
+            text = "\n".join(inner_lines).strip()
+
+    if text.startswith("{") and text.endswith("}"):
+        try:
+            payload = json.loads(text)
+        except json.JSONDecodeError:
+            payload = None
+
+        if isinstance(payload, dict):
+            rating_value = payload.get("rating", payload.get("score"))
+            if rating_value is not None:
+                review_value = payload.get("review")
+                if review_value is None:
+                    review_value = payload.get("analysis", payload.get("reason", ""))
+                if not isinstance(review_value, str):
+                    review_value = json.dumps(review_value, ensure_ascii=False)
+                return review_value.strip(), safe_float(rating_value)
 
     match = re.search(
         r"^\s*Rating\s*:\s*([1-5](?:\.\d+)?)\s*$",
@@ -149,7 +173,11 @@ def parse_themis_response(content: str) -> tuple[str, float]:
     rating = safe_float(match.group(1))
     return review, rating
 
-def fetch_completion(prompts: list[str], custom_themis: OpenAI | None = None) -> list[str]:
+def fetch_completion(
+    prompts: list[str],
+    custom_themis: OpenAI | None = None,
+    structured: bool = False,
+) -> list[str]:
     client = custom_themis if custom_themis is not None else themis_client
     if client is None:
         return []
@@ -170,6 +198,9 @@ def fetch_completion(prompts: list[str], custom_themis: OpenAI | None = None) ->
                 },
             }
         )
+
+        if structured:
+            requests_payload[-1]["body"]["response_format"] = {"type": "json_object"}
 
     jsonl_content = "\n".join(json.dumps(item) for item in requests_payload) + "\n"
     batch_input_file = io.BytesIO(jsonl_content.encode("utf-8"))

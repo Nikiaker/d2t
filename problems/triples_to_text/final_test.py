@@ -1,5 +1,6 @@
 import os
 import json
+import csv
 from openai import OpenAI
 from evaluator import ThemisEvaluation, fetch_completion, parse_themis_response
 from tests.benchmark_reader.benchmark_reader import Benchmark, select_test_file
@@ -11,12 +12,14 @@ import evaluate as ev
 import sys
 import numpy as np
 from tests.senlen import Senlen
+from pathlib import Path
 
 LLM_JUDGES = os.getenv(
     "LLM_JUDGES",
     "[{\"name\": \"themis\", \"base_url\": \"http://localhost:8010/v1\", \"api_key\": \"AiIsMyLife25\"}]",
 )
 judges_configs = json.loads(LLM_JUDGES)
+judges_structured = {str(config["name"]): bool(config.get("structured", False)) for config in judges_configs}
 
 try:
     judges_clients = {str(config['name']): OpenAI(base_url=config['base_url'], api_key=config['api_key']) for config in judges_configs}
@@ -76,6 +79,56 @@ BEST_PROGRAM_PATH = os.getenv(
     "./current_program.py",
 )
 
+
+def build_judge_prompt(
+    *,
+    criterion: str,
+    data_label: str,
+    data_value: str,
+    generated_text: str,
+    structured: bool,
+    rating_description: str,
+) -> str:
+    if structured:
+        output_format = (
+            'Respond with a single JSON object with keys "review" and "rating". '
+            'The "rating" field must be numeric. Do not wrap the JSON in markdown fences or add any other text.'
+        )
+        data_header = "Data to evaluate"
+    else:
+        output_format = (
+            f"{rating_description} "
+            "You MUST keep to the strict boundaries of the evaluation criterion and focus solely on the issues and errors involved; otherwise, you will be penalized."
+        )
+        data_header = "Example"
+
+    return (
+        "###Instruction###\n"
+        "Please act as an impartial and helpful evaluator for natural language generation (NLG), and the audience is an expert in the field.\n"
+        "Your task is to evaluate the quality of text similarity strictly based on the given evaluation criterion.\n"
+        "Begin the evaluation by providing your analysis concisely and accurately, and then follow the required output format.\n"
+        f"{output_format}\n"
+        "Make sure you read and understand these instructions, as well as the following evaluation criterion and example content, carefully.\n\n"
+        f"###Evaluation Criterion###\n{criterion}\n\n"
+        f"###{data_header}###\n{data_label}:\n{data_value}\n\n"
+        f"The generated text:\n{generated_text}\n\n"
+        "###Your Evaluation###"
+    )
+
+
+def format_triples_for_csv(triples: list[Triple]) -> str:
+    return json.dumps(
+        [
+            {"subject": triple.subject, "predicate": triple.predicate, "object": triple.object}
+            for triple in triples
+        ],
+        ensure_ascii=False,
+    )
+
+
+def format_references_for_csv(references: list[str]) -> str:
+    return json.dumps(references, ensure_ascii=False)
+
 test_dir = WEBNLG_BASE_PATH + "test"
 test_file = select_test_file(test_dir, "rdf-to-text-generation-test-data-with-refs-en.xml")
 
@@ -104,8 +157,9 @@ themis_scores: dict[str, list[ThemisEvaluation]] = {}
 gramatic_scores: list[ThemisEvaluation] = []
 ommisions_scores: list[ThemisEvaluation] = []
 additions_scores: list[ThemisEvaluation] = []
+generated_rows: list[dict[str, str]] = []
 
-themis_chat_messages: list[str] = []
+themis_chat_messages_by_judge: dict[str, list[str]] = {judge_name: [] for judge_name in judges_clients}
 gramatic_chat_messages: list[str] = []
 ommisions_chat_messages: list[str] = []
 additions_chat_messages: list[str] = []
@@ -165,18 +219,61 @@ for test_sentence in category_test_sentences:
         if any(judges_clients.values()):
             source = "\n".join([f"{triple.subject}, {triple.predicate}, {triple.object}" for triple in triples])
             target = generated_text
-            chat_message = f"###Instruction###\nPlease act as an impartial and helpful evaluator for natural language generation (NLG), and the audience is an expert in the field.\nYour task is to evaluate the quality of text similarity strictly based on the given evaluation criterion.\nBegin the evaluation by providing your analysis concisely and accurately, and then on the next line, start with \"Rating:\" followed by your rating on a Likert scale from 1 to 5 (higher means better).\nYou MUST keep to the strict boundaries of the evaluation criterion and focus solely on the issues and errors involved; otherwise, you will be penalized.\nMake sure you read and understand these instructions, as well as the following evaluation criterion and example content, carefully.\n\n###Evaluation Criterion###\nAccuaracy and number of sentences: The generated text must accurately reference the triples. There cannot be any extra information that was not present in the triples. If possible there must be just one complex sentence instead of multiple sentences.\n\n###Data to evaluate###\nThe triples in the form (subject, predicate, object):\n{source}\n\nThe generated text:\n{target}\n\n###Your Evaluation### (remember to provide \"Rating:\" with a score from 1 to 5)"
+            for judge_name in judges_clients:
+                themis_chat_messages_by_judge[judge_name].append(
+                    build_judge_prompt(
+                        criterion="Accuaracy and number of sentences: The generated text must accurately reference the triples. There cannot be any extra information that was not present in the triples. If possible there must be just one complex sentence instead of multiple sentences.",
+                        data_label="The triples in the form (subject, predicate, object)",
+                        data_value=source,
+                        generated_text=target,
+                        structured=judges_structured.get(judge_name, False),
+                        rating_description='Return a rating from 1 to 5. On structured runs, the rating must be stored in the JSON field named "rating".',
+                    )
+                )
 
-            gramatic_chat_message = f"###Instruction###\nPlease act as an impartial and helpful evaluator for natural language generation (NLG), and the audience is an expert in the field.\nYour task is to evaluate the quality of text similarity strictly based on the given evaluation criterion.\nBegin the evaluation by providing your analysis concisely and accurately, and then on the next line, start with \"Rating:\" followed by your rating which is 1 if the text is grammatically correct and 0 if it is not.\nYou MUST keep to the strict boundaries of the evaluation criterion and focus solely on the issues and errors involved; otherwise, you will be penalized.\nMake sure you read and understand these instructions, as well as the following evaluation criterion and example content, carefully.\n\n###Evaluation Criterion###\nGrammatical correctness: You should assess the grammatical correctness of the resulting text. Do not take any other factors into account. Do not make assumptions or consider external knowledge not present in the provided context. Identify only errors relating to the grammaticality of the text. Do not consider aspects such as fluency, omissions or hallucinations.\n\n###Data to evaluate###\nThe generated text:\n{target}\n\n###Your Evaluation### (remember to provide \"Rating:\" with a score from 1 to 5)"
+            first_judge_name = next(iter(judges_clients.keys()))
+            first_judge_structured = judges_structured.get(first_judge_name, False)
 
-            ommisions_chat_message = f"###Instruction###\nPlease act as an impartial and helpful evaluator for natural language generation (NLG), and the audience is an expert in the field.\nYour task is to evaluate the quality of text similarity strictly based on the given evaluation criterion.\nBegin the evaluation by providing your analysis concisely and accurately, and then on the next line, start with \"Rating:\" followed by your rating which is 0 if there are no omissions and 1 if there are.\nYou MUST keep to the strict boundaries of the evaluation criterion and focus solely on the issues and errors involved; otherwise, you will be penalized.\nMake sure you read and understand these instructions, as well as the following evaluation criterion and example content, carefully.\n\n###Evaluation Criterion###\nOmissions: You should assess the omissions in the resulting text; in other words, you should check whether any of the input triples were not verbalised. You can perform the task by iterating over the input triples and checking if it is present in the output. Do not take any other factors into account. Do not make assumptions or consider external knowledge not present in the provided context. Identify only errors relating to the fluency of the text. Do not consider aspects such as grammaticality, fluency or the addition of new facts (hallucinations).\n\n###Data to evaluate###\nThe triples in the form (subject, predicate, object):\n{source}\n\nThe generated text:\n{target}\n\n###Your Evaluation### (remember to provide \"Rating:\" with a score from 1 to 5)"
+            gramatic_chat_messages.append(
+                build_judge_prompt(
+                    criterion="Grammatical correctness: You should assess the grammatical correctness of the resulting text. Do not take any other factors into account. Do not make assumptions or consider external knowledge not present in the provided context. Identify only errors relating to the grammaticality of the text. Do not consider aspects such as fluency, omissions or hallucinations.",
+                    data_label="The generated text",
+                    data_value=target,
+                    generated_text=target,
+                    structured=first_judge_structured,
+                    rating_description='Return 1 if the text is grammatically correct and 0 if it is not. On structured runs, the rating must be stored in the JSON field named "rating".',
+                )
+            )
 
-            additions_chat_message = f"###Instruction###\nPlease act as an impartial and helpful evaluator for natural language generation (NLG), and the audience is an expert in the field.\nYour task is to evaluate the quality of text similarity strictly based on the given evaluation criterion.\nBegin the evaluation by providing your analysis concisely and accurately, and then on the next line, start with \"Rating:\" followed by your rating which is 0 if there are no additions and 1 if there are.\nYou MUST keep to the strict boundaries of the evaluation criterion and focus solely on the issues and errors involved; otherwise, you will be penalized.\nMake sure you read and understand these instructions, as well as the following evaluation criterion and example content, carefully.\n\n###Evaluation Criterion###\nAdditions: You should assess the addition of new facts in the resulting text which were not present in the input triples . You can perform the task by carefully reading the text and checking if the facts mentioned are present in the input triples. Do not take any other factors into account. Do not make assumptions or consider external knowledge not present in the provided context. Identify only errors relating to the fluency of the text. Do not consider aspects such as grammaticality, fluency or the omissions of input triples.\n\n###Data to evaluate###\nThe triples in the form (subject, predicate, object):\n{source}\n\nThe generated text:\n{target}\n\n###Your Evaluation### (remember to provide \"Rating:\" with a score from 1 to 5)"
+            ommisions_chat_messages.append(
+                build_judge_prompt(
+                    criterion="Omissions: You should assess the omissions in the resulting text; in other words, you should check whether any of the input triples were not verbalised. You can perform the task by iterating over the input triples and checking if it is present in the output. Do not take any other factors into account. Do not make assumptions or consider external knowledge not present in the provided context. Identify only errors relating to the fluency of the text. Do not consider aspects such as grammaticality, fluency or the addition of new facts (hallucinations).",
+                    data_label="The triples in the form (subject, predicate, object)",
+                    data_value=source,
+                    generated_text=target,
+                    structured=first_judge_structured,
+                    rating_description='Return 0 if there are no omissions and 1 if there are. On structured runs, the rating must be stored in the JSON field named "rating".',
+                )
+            )
 
-            themis_chat_messages.append(chat_message)
-            gramatic_chat_messages.append(gramatic_chat_message)
-            ommisions_chat_messages.append(ommisions_chat_message)
-            additions_chat_messages.append(additions_chat_message)
+            additions_chat_messages.append(
+                build_judge_prompt(
+                    criterion="Additions: You should assess the addition of new facts in the resulting text which were not present in the input triples . You can perform the task by carefully reading the text and checking if the facts mentioned are present in the input triples. Do not take any other factors into account. Do not make assumptions or consider external knowledge not present in the provided context. Identify only errors relating to the fluency of the text. Do not consider aspects such as grammaticality, fluency or the omissions of input triples.",
+                    data_label="The triples in the form (subject, predicate, object)",
+                    data_value=source,
+                    generated_text=target,
+                    structured=first_judge_structured,
+                    rating_description='Return 0 if there are no additions and 1 if there are. On structured runs, the rating must be stored in the JSON field named "rating".',
+                )
+            )
+
+        generated_rows.append(
+            {
+                "input triples": format_triples_for_csv(triples),
+                "reference text": format_references_for_csv(test_sentence.example_texts),
+                "generated text": generated_text,
+            }
+        )
 
         iteration += 1
 
@@ -184,8 +281,12 @@ print("Done generating outputs")
 
 # Batch score
 for judge_name, judge_client in judges_clients.items():
-    print(f"Running {judge_name} evaluation for {len(themis_chat_messages)} examples...")
-    results = fetch_completion(themis_chat_messages, judge_client)
+    print(f"Running {judge_name} evaluation for {len(themis_chat_messages_by_judge.get(judge_name, []))} examples...")
+    results = fetch_completion(
+        themis_chat_messages_by_judge.get(judge_name, []),
+        judge_client,
+        structured=judges_structured.get(judge_name, False),
+    )
     themis_scores[judge_name] = []
     for i, result_content in enumerate(results):
         review, rating = parse_themis_response(result_content)
@@ -194,8 +295,13 @@ for judge_name, judge_client in judges_clients.items():
 # Batch gramatic
 if any(judges_clients.values()) and gramatic_chat_messages:
     judge_client = list(judges_clients.values())[0]  # Get the first available judge client
+    first_judge_name = next(iter(judges_clients.keys()))
     print(f"Running Grammaticality evaluation for {len(gramatic_chat_messages)} examples...")
-    results = fetch_completion(gramatic_chat_messages, judge_client)
+    results = fetch_completion(
+        gramatic_chat_messages,
+        judge_client,
+        structured=judges_structured.get(first_judge_name, False),
+    )
     for i, result_content in enumerate(results):
         review, rating = parse_themis_response(result_content)
         gramatic_scores.append(ThemisEvaluation(review=review, rating=rating))
@@ -203,8 +309,13 @@ if any(judges_clients.values()) and gramatic_chat_messages:
 # Batch ommisions
 if any(judges_clients.values()) and ommisions_chat_messages:
     judge_client = list(judges_clients.values())[0]  # Get the first available judge client
+    first_judge_name = next(iter(judges_clients.keys()))
     print(f"Running Omissions evaluation for {len(ommisions_chat_messages)} examples...")
-    results = fetch_completion(ommisions_chat_messages, judge_client)
+    results = fetch_completion(
+        ommisions_chat_messages,
+        judge_client,
+        structured=judges_structured.get(first_judge_name, False),
+    )
     for i, result_content in enumerate(results):
         review, rating = parse_themis_response(result_content)
         ommisions_scores.append(ThemisEvaluation(review=review, rating=rating))
@@ -212,8 +323,13 @@ if any(judges_clients.values()) and ommisions_chat_messages:
 # Batch additions
 if any(judges_clients.values()) and additions_chat_messages:
     judge_client = list(judges_clients.values())[0]  # Get the first available judge client
+    first_judge_name = next(iter(judges_clients.keys()))
     print(f"Running Additions evaluation for {len(additions_chat_messages)} examples...")
-    results = fetch_completion(additions_chat_messages, judge_client)
+    results = fetch_completion(
+        additions_chat_messages,
+        judge_client,
+        structured=judges_structured.get(first_judge_name, False),
+    )
     for i, result_content in enumerate(results):
         review, rating = parse_themis_response(result_content)
         additions_scores.append(ThemisEvaluation(review=review, rating=rating))
@@ -246,6 +362,7 @@ print(f"Average Additions Score: {avg_additions_score}")
 
 
 output_path = "./scores.json"
+generated_text_output_path = Path("./generated_text.csv")
 results_payload = {
     "domain": WEBNLG_DOMAIN,
     "metrics": {
@@ -263,3 +380,13 @@ results_payload = {
 with open(output_path, "w", encoding="utf-8") as f:
     json.dump(results_payload, f, indent=2, ensure_ascii=False)
     f.write("\n")
+
+with generated_text_output_path.open("w", encoding="utf-8", newline="") as f:
+    writer = csv.DictWriter(
+        f,
+        fieldnames=["input triples", "reference text", "generated text"],
+        extrasaction="ignore",
+    )
+    writer.writeheader()
+    for row in generated_rows:
+        writer.writerow(row)
