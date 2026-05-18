@@ -96,6 +96,7 @@ def build_judge_prompt(
             'The "rating" field must follow the rules described below in plain numeric form and must NOT be a text label. '
             'For example: {"review": "concise analysis", "rating": 1}. '
             'Do not wrap the JSON in markdown fences and do not add any other text outside the JSON object.'
+            f"{rating_description}"
         )
         data_header = "Data to evaluate"
     else:
@@ -237,7 +238,7 @@ for test_sentence in category_test_sentences:
                         data_value=source,
                         generated_text=target,
                         structured=judges_structured.get(judge_name, False),
-                        rating_description='Return a rating from 1 to 5. On structured runs, the rating must be stored in the JSON field named "rating".',
+                        rating_description='Return a rating from 1 to 5.".',
                     )
                 )
 
@@ -251,7 +252,7 @@ for test_sentence in category_test_sentences:
                     data_value=target,
                     generated_text=target,
                     structured=first_judge_structured,
-                    rating_description='Return 1 if the text is grammatically correct and 0 if it is not. The rating must be the integer 0 or 1. On structured runs, the rating must be stored in the JSON field named "rating".',
+                    rating_description='Return 1 if the text is grammatically correct and 0 if it is not. The rating must be the integer 0 or 1.',
                 )
             )
 
@@ -262,7 +263,7 @@ for test_sentence in category_test_sentences:
                     data_value=source,
                     generated_text=target,
                     structured=first_judge_structured,
-                    rating_description='Return 0 if there are no omissions and 1 if there are. The rating must be the integer 0 or 1. On structured runs, the rating must be stored in the JSON field named "rating".',
+                    rating_description='Return 0 if there are no omissions and 1 if there are. The rating must be the integer 0 or 1.',
                 )
             )
 
@@ -273,7 +274,7 @@ for test_sentence in category_test_sentences:
                     data_value=source,
                     generated_text=target,
                     structured=first_judge_structured,
-                    rating_description='Return 0 if there are no additions and 1 if there are. The rating must be the integer 0 or 1. On structured runs, the rating must be stored in the JSON field named "rating".',
+                    rating_description='Return 0 if there are no additions and 1 if there are. The rating must be the integer 0 or 1.',
                 )
             )
 
