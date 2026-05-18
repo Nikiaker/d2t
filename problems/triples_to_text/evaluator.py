@@ -172,8 +172,8 @@ def parse_themis_response(content: str, expected: str = "1-5") -> tuple[str, flo
                         if int(rating_num) in (0, 1) and rating_num == int(rating_num):
                             mapped = float(int(rating_num))
                         else:
-                            # Map 1-5 -> 0/1 using threshold 3
-                            mapped = 1.0 if rating_num >= 3.0 else 0.0
+                            # Map 1-5 -> 0/1 using threshold 5
+                            mapped = 1.0 if rating_num >= 5.0 else 0.0
                     except Exception:
                         mapped = 0.0
                     return review_value.strip(), mapped
@@ -193,13 +193,13 @@ def parse_themis_response(content: str, expected: str = "1-5") -> tuple[str, flo
     rating = safe_float(match.group(1))
 
     if expected == "binary":
-        # Map 1-5 ratings to binary using threshold 3; accept exact 0/1
+        # Map 1-5 ratings to binary using threshold 5; accept exact 0/1
         try:
             if int(rating) in (0, 1) and rating == int(rating):
                 return review, float(int(rating))
         except Exception:
             pass
-        return review, (1.0 if rating >= 3.0 else 0.0)
+        return review, (1.0 if rating >= 5.0 else 0.0)
 
     return review, rating
 
@@ -207,10 +207,13 @@ def fetch_completion(
     prompts: list[str],
     custom_themis: OpenAI | None = None,
     structured: bool = False,
+    model_name: str | None = None,
 ) -> list[str]:
     client = custom_themis if custom_themis is not None else themis_client
     if client is None:
         return []
+
+    effective_model_name = model_name or THEMIS_NAME
 
     requests_payload: list[dict] = []
     for i, prompt in enumerate(prompts):
@@ -220,7 +223,7 @@ def fetch_completion(
                 "method": "POST",
                 "url": "/v1/chat/completions",
                 "body": {
-                    "model": THEMIS_NAME,
+                    "model": effective_model_name,
                     "messages": [
                         {"role": "user", "content": prompt},
                     ],

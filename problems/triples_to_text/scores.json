@@ -1,10 +1,15 @@
 {
-  "domain": "Airport",
+  "domain": "Building",
   "metrics": {
-    "bleu": 0.4344843486937407,
-    "meteor": 0.7262994219959475,
-    "senlen": 0.40877192982456134,
-    "bleurt": 0.3700576651514622,
-    "themis": 0.9747368421052631
+    "bleu": 0.42202228635616323,
+    "meteor": 0.6244517177897094,
+    "senlen": 0.8043478260869567,
+    "bleurt": 0.038134676269323056,
+    "google/gemma-4-31B-it": 1.0,
+    "openai/gpt-oss-120b": 0.0,
+    "PKU-ONELab/Themis": 0.9347826086956521,
+    "gramatic": 0.5652173913043478,
+    "ommisions": 1.0,
+    "additions": 1.0
   }
 }

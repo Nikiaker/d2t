@@ -296,6 +296,7 @@ for judge_name, judge_client in judges_clients.items():
         themis_chat_messages_by_judge.get(judge_name, []),
         judge_client,
         structured=judges_structured.get(judge_name, False),
+        model_name=judge_name,
     )
     themis_scores[judge_name] = []
     for i, result_content in enumerate(results):
@@ -311,6 +312,7 @@ if any(judges_clients.values()) and gramatic_chat_messages:
         gramatic_chat_messages,
         judge_client,
         structured=judges_structured.get(first_judge_name, False),
+        model_name=first_judge_name,
     )
     for i, result_content in enumerate(results):
         review, rating = parse_themis_response(result_content, expected="binary")
@@ -325,6 +327,7 @@ if any(judges_clients.values()) and ommisions_chat_messages:
         ommisions_chat_messages,
         judge_client,
         structured=judges_structured.get(first_judge_name, False),
+        model_name=first_judge_name,
     )
     for i, result_content in enumerate(results):
         review, rating = parse_themis_response(result_content, expected="binary")
@@ -339,6 +342,7 @@ if any(judges_clients.values()) and additions_chat_messages:
         additions_chat_messages,
         judge_client,
         structured=judges_structured.get(first_judge_name, False),
+        model_name=first_judge_name,
     )
     for i, result_content in enumerate(results):
         review, rating = parse_themis_response(result_content, expected="binary")

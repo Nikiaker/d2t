@@ -40,7 +40,8 @@
             "env": {
                 "CONFIG_PATH": "/home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/results/slurm32/outputs/2_sm1ibeyp/Building_output/config_remote.yaml",
                 "WEBNLG_DOMAIN": "Building",
-                "BEST_PROGRAM_PATH": "/home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/results/slurm32/outputs/2_sm1ibeyp/Building_output/openevolve_output/best/best_program.py"
+                "BEST_PROGRAM_PATH": "/home/nikiaker/Projects/studia/stop2/magisterka/d2t/problems/triples_to_text/results/slurm32/outputs/2_sm1ibeyp/Building_output/openevolve_output/best/best_program.py",
+                "LLM_JUDGES": "[{\"name\": \"google/gemma-4-31B-it\", \"structured\": true, \"base_url\": \"http://localhost:2996/v1\", \"api_key\": \"AiIsMyLife25\"},{\"name\": \"openai/gpt-oss-120b\", \"structured\": true, \"base_url\": \"http://localhost:2997/v1\", \"api_key\": \"AiIsMyLife25\"},{\"name\": \"PKU-ONELab/Themis\", \"structured\": false, \"base_url\": \"http://localhost:2998/v1\", \"api_key\": \"AiIsMyLife25\"}]"
             }
         }
     ]

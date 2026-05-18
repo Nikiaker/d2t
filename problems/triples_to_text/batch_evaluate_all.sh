@@ -59,7 +59,7 @@ conda run -n openevolve-env python ~/d2t/tripler/batch_wrapper_server.py \
 	2>&1 &
 
 export WEBNLG_BASE_PATH="/home/inf151915/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/"
-export LLM_JUDGES="[{\"name\": \"gemma\", \"structured\": true, \"base_url\": \"http://localhost:2996/v1\", \"api_key\": \"AiIsMyLife25\"},{\"name\": \"gpt-oss\", \"structured\": true, \"base_url\": \"http://localhost:2997/v1\", \"api_key\": \"AiIsMyLife25\"},{\"name\": \"themis\", \"structured\": false, \"base_url\": \"http://localhost:2998/v1\", \"api_key\": \"AiIsMyLife25\"}]"
+export LLM_JUDGES="[{\"name\": \"google/gemma-4-31B-it\", \"structured\": true, \"base_url\": \"http://localhost:2996/v1\", \"api_key\": \"AiIsMyLife25\"},{\"name\": \"openai/gpt-oss-120b\", \"structured\": true, \"base_url\": \"http://localhost:2997/v1\", \"api_key\": \"AiIsMyLife25\"},{\"name\": \"PKU-ONELab/Themis\", \"structured\": false, \"base_url\": \"http://localhost:2998/v1\", \"api_key\": \"AiIsMyLife25\"}]"
 
 cd ~/d2t/problems/triples_to_text
 conda run -n openevolve-env python run_final_test_for_configs.py results/slurm32/outputs/ 2
