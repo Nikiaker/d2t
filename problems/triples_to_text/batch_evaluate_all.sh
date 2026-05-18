@@ -12,6 +12,7 @@ export CUDA_HOME=/usr/local/cuda
 export PATH="$CUDA_HOME/bin:$PATH"
 export CPATH="$CUDA_HOME/include:$CPATH"
 export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
 
 CUDA_VISIBLE_DEVICES=0 \
 conda run -n vllm-env vllm serve \
@@ -26,12 +27,11 @@ conda run -n openevolve-env python ~/d2t/.conda/test-response.py --port 2993
 
 CUDA_VISIBLE_DEVICES=1 \
 conda run -n vllm-env vllm serve \
-	openai/gpt-oss-120b \
+	Qwen/Qwen3.6-35B-A3B-FP8 \
     --port 2994 \
     --max-model-len 32K \
-    --guided-decoding-backend xgrammar \
-    --reasoning-parser gptoss \
-    --chat-template ~/d2t/jinja/gpt-oss.jinja \
+    --reasoning-parser qwen3 \
+    --language-model-only \
     > "$SERVER_LOG2" 2>&1 &
 SERVER_PID2=$!
 
@@ -66,7 +66,7 @@ conda run -n openevolve-env python ~/d2t/tripler/batch_wrapper_server.py \
 	2>&1 &
 
 export WEBNLG_BASE_PATH="/home/inf151915/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/"
-export LLM_JUDGES="[{\"name\": \"google/gemma-4-31B-it\", \"structured\": true, \"base_url\": \"http://localhost:2996/v1\", \"api_key\": \"AiIsMyLife25\"},{\"name\": \"openai/gpt-oss-120b\", \"structured\": true, \"base_url\": \"http://localhost:2997/v1\", \"api_key\": \"AiIsMyLife25\"},{\"name\": \"PKU-ONELab/Themis\", \"structured\": false, \"base_url\": \"http://localhost:2998/v1\", \"api_key\": \"AiIsMyLife25\"}]"
+export LLM_JUDGES="[{\"name\": \"google/gemma-4-31B-it\", \"structured\": true, \"base_url\": \"http://localhost:2996/v1\", \"api_key\": \"AiIsMyLife25\"},{\"name\": \"Qwen/Qwen3.6-35B-A3B-FP8\", \"structured\": true, \"base_url\": \"http://localhost:2997/v1\", \"api_key\": \"AiIsMyLife25\"},{\"name\": \"PKU-ONELab/Themis\", \"structured\": false, \"base_url\": \"http://localhost:2998/v1\", \"api_key\": \"AiIsMyLife25\"}]"
 
 cd ~/d2t/problems/triples_to_text
 conda run -n openevolve-env python run_final_test_for_configs.py results/slurm32/outputs/ 2
