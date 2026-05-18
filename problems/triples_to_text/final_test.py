@@ -117,17 +117,23 @@ def build_judge_prompt(
 
 
 def format_triples_for_csv(triples: list[Triple]) -> str:
-    return json.dumps(
-        [
-            {"subject": triple.subject, "predicate": triple.predicate, "object": triple.object}
-            for triple in triples
-        ],
-        ensure_ascii=False,
-    )
+    # Format as: (sub,pred,obj);(sub2,pred2,obj2)
+    parts = []
+    for t in triples:
+        subj = t.subject.replace(';', ',')
+        pred = t.predicate.replace(';', ',')
+        obj = t.object.replace(';', ',')
+        parts.append(f"({subj},{pred},{obj})")
+    return ";".join(parts)
 
 
 def format_references_for_csv(references: list[str]) -> str:
-    return json.dumps(references, ensure_ascii=False)
+    # Format as: "Ref text1";"Ref text2"
+    parts = []
+    for r in references:
+        safe = r.replace('"', '""')
+        parts.append(f'"{safe}"')
+    return ";".join(parts)
 
 test_dir = WEBNLG_BASE_PATH + "test"
 test_file = select_test_file(test_dir, "rdf-to-text-generation-test-data-with-refs-en.xml")
@@ -166,15 +172,16 @@ additions_chat_messages: list[str] = []
 
 iteration = 0
 
+print("Starting evaluation loop...")
 for test_sentence in category_test_sentences:
-#    print(f"Current iteration: {iteration}/{len(category_test_sentences)}")
-#    print(f"Test sentence triples: {[str(triple) for triple in test_sentence.triples]}")
+    #print(f"Current iteration: {iteration}/{len(category_test_sentences)}")
+    #print(f"Test sentence triples: {[str(triple) for triple in test_sentence.triples]}")
     triples = [Triple(test_triple.subject, test_triple.predicate, test_triple.object) for test_triple in test_sentence.triples]
 
     # Run with timeout
     result = run_with_timeout(program.predict, args=(triples,), timeout_seconds=5)
 
- #   print(f"Generated text: {result}")
+    #print(f"Generated text: {result}")
 
     # Handle different result formats
     if isinstance(result, str):
@@ -189,25 +196,25 @@ for test_sentence in category_test_sentences:
         bleurt_score = 0.0
     else:
         # Calculate BLEU score with weights
-#        print("Calulating BLEU score...")
+        #print("Calulating BLEU score...")
         bleu_results = bleu.compute(predictions=[generated_text], references=[test_sentence.example_texts])
         bleu_score = float(bleu_results['bleu'])
         bleu_scores.append(bleu_score)
 
         # Calculate METEOR score
-#        print("Calculating METEOR score...")
+        #print("Calculating METEOR score...")
         meteor_results = meteor.compute(predictions=[generated_text], references=[test_sentence.example_texts])
         meteor_score = float(meteor_results['meteor'])
         meteor_scores.append(meteor_score)
 
         # Calculate SENLEN score
-#        print("Calculating SENLEN score...")
+        #print("Calculating SENLEN score...")
         senlen_results = senlen.compute(predictions=[generated_text], references=[test_sentence.example_texts])
         senlen_score = float(senlen_results['senlen'])
         senlen_scores.append(senlen_score)
 
         # Calculate BLEURT score
-        print("Calculating BLEURT score...")
+        #print("Calculating BLEURT score...")
         bleurt_individual_scores = []
         for ref in test_sentence.example_texts:
             bleurt_results = bleurt.compute(predictions=[generated_text], references=[ref])

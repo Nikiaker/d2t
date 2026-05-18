@@ -161,7 +161,7 @@ def parse_themis_response(content: str) -> tuple[str, float]:
                 return review_value.strip(), safe_float(rating_value)
 
     match = re.search(
-        r"^\s*Rating\s*:\s*([1-5](?:\.\d+)?)\s*$",
+        r"^\s*Rating\s*:\s*([0-5](?:\.\d+)?)\s*$",
         text,
         flags=re.IGNORECASE | re.MULTILINE,
     )
