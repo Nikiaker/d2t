@@ -1,0 +1,162 @@
+/tmp/tmpklqxu50s: line 1: /home/inf151915/miniconda3/bin/conda: Cannot send after transport endpoint shutdown
+/tmp/tmpklqxu50s: line 2: /home/inf151915/miniconda3/condabin/conda: Cannot send after transport endpoint shutdown
+/tmp/tmpklqxu50s: line 3: python: command not found
+
+ERROR conda.cli.main_run:execute(127): `conda run python /home/inf151915/d2t/.conda/test-response.py --port 3002` failed. (See above for error)
+
+DirectoryNotACondaEnvironmentError: The target directory exists, but it is not a conda environment.
+Use 'conda create' to convert the directory to a conda environment.
+  target directory: /home/inf151915/miniconda3/envs/openevolve-env
+
+
+Error loading anaconda-anon-usage: cannot import name 'patch' from 'anaconda_anon_usage' (/home/inf151915/miniconda3/lib/python3.13/site-packages/anaconda_anon_usage/__init__.py)
+KeyError('active_prefix_name')
+Traceback (most recent call last):
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/exception_handler.py", line 28, in __call__
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/cli/main.py", line 54, in main_subshell
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/base/context.py", line 549, in __init__
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/common/configuration.py", line 1457, in _set_search_path
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/common/configuration.py", line 1446, in _load_search_path
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/common/configuration.py", line 394, in make_raw_parameters_from_file
+BrokenPipeError: [Errno 108] Cannot send after transport endpoint shutdown: '/home/inf151915/miniconda3/.condarc'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/exception_handler.py", line 189, in print_unexpected_error_report
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/cli/main_info.py", line 403, in get_main_info_str
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/cli/main_info.py", line 393, in get_main_info_display
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/cli/main_info.py", line 353, in builder
+KeyError: 'active_prefix_name'
+
+# >>>>>>>>>>>>>>>>>>>>>> ERROR REPORT <<<<<<<<<<<<<<<<<<<<<<
+
+    Traceback (most recent call last):
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/exception_handler.py", line 28, in __call__
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/cli/main.py", line 54, in main_subshell
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/base/context.py", line 549, in __init__
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/common/configuration.py", line 1457, in _set_search_path
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/common/configuration.py", line 1446, in _load_search_path
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/common/configuration.py", line 394, in make_raw_parameters_from_file
+    BrokenPipeError: [Errno 108] Cannot send after transport endpoint shutdown: '/home/inf151915/miniconda3/.condarc'
+
+`$ /home/inf151915/miniconda3/condabin/conda run -n openevolve-env python ../../openevolve/openevolve-run.py initial_program.py evaluator.py --config /home/inf151915/d2t/problems/triples_to_text/outputs/3_sm1ifeyp/SportsTeam_output/config_remote.yaml --output ./outputs/3_sm1ifeyp/SportsTeam_output/openevolve_output`
+
+  environment variables:
+conda info could not be constructed.
+KeyError('active_prefix_name')
+
+An unexpected error has occurred. Conda has prepared the above report.
+If you suspect this error is being caused by a malfunctioning plugin,
+consider using the --no-plugins option to turn off plugins.
+
+Example: conda --no-plugins install <package>
+
+Alternatively, you can set the CONDA_NO_PLUGINS environment variable on
+the command line to run the command without plugins enabled.
+
+Example: CONDA_NO_PLUGINS=true conda install <package>
+
+/var/spool/slurmd/job913484/slurm_script: line 52: 1012089 Bus error               (core dumped) CUDA_VISIBLE_DEVICES=0 conda run -n vllm-env vllm serve google/gemma-4-31B-it --port 3002 --max-model-len 100K --reasoning-parser gemma4 --default-chat-template-kwargs '{"enable_thinking": false}' --max-num-batched-tokens 4096 > "$SERVER_LOG1" 2>&1
+ERROR conda.cli.main_info:get_info_dict(223): Error importing conda-build: [Errno 108] Cannot send after transport endpoint shutdown: '/home/inf151915/miniconda3/condabin'
+WARNING conda.exception_handler:print_unexpected_error_report(192): KeyError('user_agent')
+Traceback (most recent call last):
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/exception_handler.py", line 28, in __call__
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/cli/main.py", line 61, in main_subshell
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/cli/conda_argparse.py", line 205, in do_call
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/cli/main_run.py", line 109, in execute
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/gateways/subprocess.py", line 108, in subprocess_call
+  File "/home/inf151915/miniconda3/lib/python3.13/subprocess.py", line 1039, in __init__
+  File "/home/inf151915/miniconda3/lib/python3.13/subprocess.py", line 1972, in _execute_child
+BrokenPipeError: [Errno 108] Cannot send after transport endpoint shutdown: '/home/inf151915/d2t/problems/triples_to_text/outputs/3_sm1ifeyp/SportsTeam_output'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/exception_handler.py", line 189, in print_unexpected_error_report
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/cli/main_info.py", line 403, in get_main_info_str
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/anaconda_anon_usage/patch.py", line 42, in _new_get_main_info_str
+KeyError: 'user_agent'
+
+# >>>>>>>>>>>>>>>>>>>>>> ERROR REPORT <<<<<<<<<<<<<<<<<<<<<<
+
+    Traceback (most recent call last):
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/exception_handler.py", line 28, in __call__
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/cli/main.py", line 61, in main_subshell
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/cli/conda_argparse.py", line 205, in do_call
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/cli/main_run.py", line 109, in execute
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/gateways/subprocess.py", line 108, in subprocess_call
+      File "/home/inf151915/miniconda3/lib/python3.13/subprocess.py", line 1039, in __init__
+      File "/home/inf151915/miniconda3/lib/python3.13/subprocess.py", line 1972, in _execute_child
+    BrokenPipeError: [Errno 108] Cannot send after transport endpoint shutdown: '/home/inf151915/d2t/problems/triples_to_text/outputs/3_sm1ifeyp/SportsTeam_output'
+
+`$ /home/inf151915/miniconda3/condabin/conda run -n openevolve-env python ../../../plot_results.py`
+
+  environment variables:
+conda info could not be constructed.
+KeyError('user_agent')
+
+An unexpected error has occurred. Conda has prepared the above report.
+If you suspect this error is being caused by a malfunctioning plugin,
+consider using the --no-plugins option to turn off plugins.
+
+Example: conda --no-plugins install <package>
+
+Alternatively, you can set the CONDA_NO_PLUGINS environment variable on
+the command line to run the command without plugins enabled.
+
+Example: CONDA_NO_PLUGINS=true conda install <package>
+
+KeyError('active_prefix_name')
+Traceback (most recent call last):
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/exception_handler.py", line 28, in __call__
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/cli/main.py", line 54, in main_subshell
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/base/context.py", line 549, in __init__
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/common/configuration.py", line 1455, in _set_search_path
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/boltons/setutils.py", line 118, in __init__
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/boltons/setutils.py", line 351, in update
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/common/configuration.py", line 1428, in _expand_search_path
+  File "/home/inf151915/miniconda3/lib/python3.13/pathlib/_abc.py", line 482, in is_file
+  File "/home/inf151915/miniconda3/lib/python3.13/pathlib/_local.py", line 515, in stat
+BrokenPipeError: [Errno 108] Cannot send after transport endpoint shutdown: '$XDG_CONFIG_HOME/conda/.condarc'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/exception_handler.py", line 189, in print_unexpected_error_report
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/cli/main_info.py", line 403, in get_main_info_str
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/cli/main_info.py", line 393, in get_main_info_display
+  File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/cli/main_info.py", line 353, in builder
+KeyError: 'active_prefix_name'
+
+# >>>>>>>>>>>>>>>>>>>>>> ERROR REPORT <<<<<<<<<<<<<<<<<<<<<<
+
+    Traceback (most recent call last):
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/exception_handler.py", line 28, in __call__
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/cli/main.py", line 54, in main_subshell
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/base/context.py", line 549, in __init__
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/common/configuration.py", line 1455, in _set_search_path
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/boltons/setutils.py", line 118, in __init__
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/boltons/setutils.py", line 351, in update
+      File "/home/inf151915/miniconda3/lib/python3.13/site-packages/conda/common/configuration.py", line 1428, in _expand_search_path
+      File "/home/inf151915/miniconda3/lib/python3.13/pathlib/_abc.py", line 482, in is_file
+      File "/home/inf151915/miniconda3/lib/python3.13/pathlib/_local.py", line 515, in stat
+    BrokenPipeError: [Errno 108] Cannot send after transport endpoint shutdown: '$XDG_CONFIG_HOME/conda/.condarc'
+
+`$ /home/inf151915/miniconda3/condabin/conda run -n openevolve-env python ../../../final_test.py`
+
+  environment variables:
+conda info could not be constructed.
+KeyError('active_prefix_name')
+
+An unexpected error has occurred. Conda has prepared the above report.
+If you suspect this error is being caused by a malfunctioning plugin,
+consider using the --no-plugins option to turn off plugins.
+
+Example: conda --no-plugins install <package>
+
+Alternatively, you can set the CONDA_NO_PLUGINS environment variable on
+the command line to run the command without plugins enabled.
+
+Example: CONDA_NO_PLUGINS=true conda install <package>
+

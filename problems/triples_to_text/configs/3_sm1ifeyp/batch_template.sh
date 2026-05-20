@@ -8,13 +8,20 @@
 SERVER_LOG1="/home/inf151915/vllm-server1.log"
 SERVER_LOG2="/home/inf151915/vllm-server2.log"
 
+export CUDA_HOME=/usr/local/cuda
+export PATH="$CUDA_HOME/bin:$PATH"
+export CPATH="$CUDA_HOME/include:$CPATH"
+export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH"
 export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
 
 CUDA_VISIBLE_DEVICES=0 \
 conda run -n vllm-env vllm serve \
 	google/gemma-4-31B-it \
     --port {port_1} \
-    --max-model-len 32K \
+    --max-model-len 100K \
+    --reasoning-parser gemma4 \
+    --default-chat-template-kwargs '{"enable_thinking": false}' \
+    --max-num-batched-tokens 4096 \
     > "$SERVER_LOG1" 2>&1 &
 SERVER_PID1=$!
 

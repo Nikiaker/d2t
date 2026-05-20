@@ -18,7 +18,9 @@ CUDA_VISIBLE_DEVICES=0 \
 conda run -n vllm-env vllm serve \
 	google/gemma-4-31B-it \
     --port 2993 \
-    --max-model-len 32K \
+    --max-model-len 100K \
+    --reasoning-parser gemma4 \
+    --default-chat-template-kwargs '{"enable_thinking": false}' \
     --max-num-batched-tokens 4096 \
     > "$SERVER_LOG1" 2>&1 &
 SERVER_PID1=$!
@@ -29,8 +31,9 @@ CUDA_VISIBLE_DEVICES=1 \
 conda run -n vllm-env vllm serve \
 	Qwen/Qwen3.6-35B-A3B-FP8 \
     --port 2994 \
-    --max-model-len 32K \
+    --max-model-len 100K \
     --reasoning-parser qwen3 \
+    --default-chat-template-kwargs '{"enable_thinking": false}' \
     --language-model-only \
     > "$SERVER_LOG2" 2>&1 &
 SERVER_PID2=$!
