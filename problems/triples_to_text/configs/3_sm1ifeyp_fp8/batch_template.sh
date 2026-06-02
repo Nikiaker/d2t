@@ -4,45 +4,35 @@
 #SBATCH -n 1
 #SBATCH -N 1
 #SBATCH -c16
-#SBATCH --mem=128G
-#SBATCH --gres=gpu:3
+#SBATCH --mem=64G
+#SBATCH --gres=gpu:2
 #SBATCH --time=48:00:00
 SERVER_LOG1="$HOME/vllm-server1.log"
-SERVER_LOG2="$HOME/vllm-server2.log"
 
 module load CUDA/12.8.0
 module load Miniconda3
 eval "$(conda shell.bash hook)"
 export PYTHONPATH=$D2TPATH/openevolve/:$D2TPATH/problems/triples_to_text/tests/benchmark_reader/:$D2TPATH/problems/triples_to_text/:$PYTHONPATH
 
-CUDA_VISIBLE_DEVICES=0 \
+#export CUDA_HOME=/usr/local/cuda
+#export PATH="$CUDA_HOME/bin:$PATH"
+#export CPATH="$CUDA_HOME/include:$CPATH"
+#export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH"
+#export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
+
 conda run -n vllm-env vllm serve \
-	RedHatAI/gemma-4-31B-it-NVFP4 \
+	RedHatAI/gemma-4-31B-it-FP8-block \
     --port {port_1} \
     --max-model-len 60K \
     --reasoning-parser gemma4 \
     --default-chat-template-kwargs '{"enable_thinking": false}' \
     --max-num-batched-tokens 4096 \
+    --tensor-parallel-size 2 \
     --gpu-memory-utilization 0.95 \
     > "$SERVER_LOG1" 2>&1 &
 SERVER_PID1=$!
 
 conda run -n openevolve-env python $D2TPATH/.conda/test-response.py --port {port_1}
-
-CUDA_VISIBLE_DEVICES=1,2 \
-conda run -n vllm-env vllm serve \
-	Qwen/Qwen3.6-35B-A3B-FP8 \
-    --port {port_2} \
-    --max-model-len 30K \
-    --reasoning-parser qwen3 \
-    --default-chat-template-kwargs '{"enable_thinking": false}' \
-    --language-model-only \
-    --tensor-parallel-size 2 \
-    --gpu-memory-utilization 0.95 \
-    > "$SERVER_LOG2" 2>&1 &
-SERVER_PID2=$!
-
-conda run -n openevolve-env python $D2TPATH/.conda/test-response.py --port {port_2}
 
 conda run -n openevolve-env python $D2TPATH/tripler/batch_wrapper_server.py \
     --upstream-base-url http://localhost:{port_1} \
@@ -71,5 +61,5 @@ conda run -n openevolve-env python ../../openevolve/openevolve-run.py initial_pr
 cd ./outputs/{evolution_config}/${WEBNLG_DOMAIN}_output
 conda run -n openevolve-env python ../../../plot_results.py
 export BEST_PROGRAM_PATH="./openevolve_output/best/best_program.py"
-export LLM_JUDGES="[{\"name\": \"themis\", \"base_url\": \"http://localhost:{port_0}/v1\", \"api_key\": \"AiIsMyLife25\"}]"
+export LLM_JUDGES="[{\"name\": \"themis\", \"structured\": true, \"base_url\": \"http://localhost:{port_0}/v1\", \"api_key\": \"AiIsMyLife25\"}]"
 conda run -n openevolve-env python ../../../final_test.py
