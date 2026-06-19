@@ -9,6 +9,9 @@
 #SBATCH --time=48:00:00
 SERVER_LOG1="$HOME/vllm-server1.log"
 SERVER_LOG2="$HOME/vllm-server2.log"
+SERVER_PID1=""
+SERVER_PID2=""
+trap 'kill $SERVER_PID1 $SERVER_PID2 2>/dev/null' EXIT
 
 module load CUDA/12.8.0
 module load Miniconda3
@@ -27,7 +30,11 @@ conda run -n vllm-env vllm serve \
     > "$SERVER_LOG1" 2>&1 &
 SERVER_PID1=$!
 
-conda run -n openevolve-env python $D2TPATH/.conda/test-response.py --port {port_1}
+conda run -n openevolve-env python $D2TPATH/.conda/test-response.py --port {port_1} --timeout 300
+if [ $? -ne 0 ]; then
+    echo "ERROR: vLLM server 1 (gemma) did not start within 5 minutes. Canceling." >&2
+    exit 1
+fi
 
 CUDA_VISIBLE_DEVICES=1 \
 conda run -n vllm-env vllm serve \
@@ -38,7 +45,11 @@ conda run -n vllm-env vllm serve \
     > "$SERVER_LOG2" 2>&1 &
 SERVER_PID2=$!
 
-conda run -n openevolve-env python $D2TPATH/.conda/test-response.py --port {port_2}
+conda run -n openevolve-env python $D2TPATH/.conda/test-response.py --port {port_2} --timeout 300
+if [ $? -ne 0 ]; then
+    echo "ERROR: vLLM server 2 (Themis) did not start within 5 minutes. Canceling." >&2
+    exit 1
+fi
 
 conda run -n openevolve-env python $D2TPATH/tripler/batch_wrapper_server.py \
     --upstream-base-url http://localhost:{port_2} \

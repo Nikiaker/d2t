@@ -1,3 +1,4 @@
+import sys
 import time
 
 import urllib.request
@@ -11,11 +12,16 @@ TIMEOUT_SECONDS = 30
 def main():
     parser = argparse.ArgumentParser(description="test server response")
     parser.add_argument("--port", type=int, default=2993, help="Port number of the server to test")
+    parser.add_argument("--timeout", type=int, default=0, help="Maximum seconds to wait for the server (0 = wait forever)")
     args = parser.parse_args()
 
     url = f"http://localhost:{args.port}/v1/models"
+    start_time = time.time()
 
     while True:
+        if args.timeout > 0 and (time.time() - start_time) >= args.timeout:
+            print(f"Timed out after {args.timeout}s waiting for server on port {args.port}", file=sys.stderr)
+            sys.exit(1)
         try:
             with urllib.request.urlopen(url, timeout=TIMEOUT_SECONDS) as resp:
                 # Any HTTP response means the connection succeeded
