@@ -12,141 +12,130 @@ def predict(triples: list[Triple]) -> str:
     if not triples:
         return ""
 
-    from collections import defaultdict
-
-    predicate_templates = {
-        "cityServed": lambda s, o: f"{s} serves the city of {o}",
-        "elevationAboveTheSeaLevel": lambda s, o: f"is {o} metres above sea level",
-        "elevationAboveTheSeaLevelInFeet": lambda s, o: f"is {o} feet above sea level",
-        "elevationAboveTheSeaLevelInMetres": lambda s, o: f"is {o} metres above sea level",
-        "location": lambda s, o: f"is located in {o}",
-        "operatingOrganisation": lambda s, o: f"is operated by {o}",
-        "runwayLength": lambda s, o: f"has a runway length of {o}",
-        "runwayName": lambda s, o: f"has a runway name of {o}",
-        "country": lambda s, o: f"is in {o}",
-        "isPartOf": lambda s, o: f"is part of {o}",
-        "1stRunwayLengthFeet": lambda s, o: f"has a first runway length of {o} feet",
-        "1stRunwayLengthMetre": lambda s, o: f"has a first runway length of {o} metres",
-        "1stRunwaySurfaceType": lambda s, o: f"has a first runway surface of {o}",
-        "1stRunwayNumber": lambda s, o: f"has a first runway number of {o}",
-        "2ndRunwaySurfaceType": lambda s, o: f"has a second runway surface of {o}",
-        "3rdRunwayLengthFeet": lambda s, o: f"has a third runway length of {o} feet",
-        "3rdRunwaySurfaceType": lambda s, o: f"has a third runway surface of {o}",
-        "4thRunwayLengthFeet": lambda s, o: f"has a fourth runway length of {o} feet",
-        "4thRunwaySurfaceType": lambda s, o: f"has a fourth runway surface of {o}",
-        "5thRunwayNumber": lambda s, o: f"has a fifth runway number of {o}",
-        "5thRunwaySurfaceType": lambda s, o: f"has a fifth runway surface of {o}",
-        "icaoLocationIdentifier": lambda s, o: f"has the ICAO identifier {o}",
-        "iataLocationIdentifier": lambda s, o: f"has the IATA identifier {o}",
-        "locationIdentifier": lambda s, o: f"has the location identifier {o}",
-        "nativeName": lambda s, o: f"is natively known as {o}",
-        "leaderParty": lambda s, o: f"is led by the {o}",
-        "capital": lambda s, o: f"the capital of {s} is {o}",
-        "language": lambda s, o: f"{o.replace(' language', '')} is a language spoken in {s}",
-        "officialLanguage": lambda s, o: f"the official language of {s} is {o}",
-        "leader": lambda s, o: f"is led by {o}",
-        "owner": lambda s, o: f"is owned by {o}",
-        "largestCity": lambda s, o: f"the largest city of {s} is {o}",
-        "countySeat": lambda s, o: f"the county seat of {s} is {o}",
-        "administrativeArrondissement": lambda s, o: f"is in the administrative arrondissement of {o}",
-        "mayor": lambda s, o: f"the mayor of {s} is {o}",
-        "runwaySurfaceType": lambda s, o: f"has a runway surface of {o}",
-        "city": lambda s, o: f"is in the city of {o}",
-        "jurisdiction": lambda s, o: f"has jurisdiction over {o}",
-        "demonym": lambda s, o: f"people from {s} are called {o}",
-        "aircraftHelicopter": lambda s, o: f"operates the {o} helicopter",
-        "transportAircraft": lambda s, o: f"uses {o} as a transport aircraft",
-        "currency": lambda s, o: f"the currency of {s} is the {o}",
-        "headquarter": lambda s, o: f"is headquartered at {o}",
-        "class": lambda s, o: f"belongs to the class {o}",
-        "division": lambda s, o: f"belongs to the division {o}",
-        "order": lambda s, o: f"belongs to the order {o}",
-        "regionServed": lambda s, o: f"serves the region of {o}",
-        "leaderTitle": lambda s, o: f"the leader title of {s} is {o}",
-        "hubAirport": lambda s, o: f"uses {o} as its hub airport",
-        "aircraftFighter": lambda s, o: f"operates the {o} fighter aircraft",
-        "attackAircraft": lambda s, o: f"uses the {o} as an attack aircraft",
-        "battle": lambda s, o: f"participated in the {o}",
-        "chief": lambda s, o: f"the chief of {s} is {o}",
-        "foundedBy": lambda s, o: f"was founded by {o}",
-        "postalCode": lambda s, o: f"has the postal code {o}",
-        "areaCode": lambda s, o: f"has the area code {o}",
-        "foundingYear": lambda s, o: f"was founded in {o}",
-        "ceremonialCounty": lambda s, o: f"is in the ceremonial county of {o}",
+    pred_map = {
+        "architecturalStyle": "is designed in the {obj} style",
+        "buildingStartDate": "started construction in {obj}",
+        "completionDate": "was completed in {obj}",
+        "floorCount": "has {obj} floors",
+        "location": "is located in {obj}",
+        "cost": "cost {obj}",
+        "floorArea": "has a floor area of {obj}",
+        "architect": "was designed by {obj}",
+        "owner": "is owned by {obj}",
+        "formerName": "was formerly known as {obj}",
+        "height": "has a height of {obj}",
+        "buildingType": "is a {obj}",
+        "developer": "was developed by {obj}",
+        "tenant": "is tenanted by {obj}",
+        "isPartOf": "is part of {obj}",
+        "country": "is in {obj}",
+        "currentTenants": "is currently tenanted by {obj}",
+        "address": "is located at {obj}",
+        "inaugurationDate": "was inaugurated on {obj}",
+        "birthPlace": "was born in {obj}",
+        "deathPlace": "died in {obj}",
+        "bedCount": "has {obj} beds",
+        "region": "is in the {obj} region",
+        "state": "is in the state of {obj}",
+        "website": "can be found at {obj}",
+        "yearOfConstruction": "was constructed in {obj}",
+        "NationalRegisterOfHistoricPlacesReferenceNumber": "has the NRHP reference number {obj}",
+        "addedToTheNationalRegisterOfHistoricPlaces": "was added to the National Register of Historic Places on {obj}",
+        "significantBuilding": "designed the significant building {obj}",
+        "governingBody": "is governed by {obj}",
+        "leader": "is led by {obj}",
+        "chancellor": "has {obj} as chancellor",
+        "governmentType": "is governed by {obj}",
+        "capital": "has {obj} as its capital",
+        "language": "has {obj} as its language",
+        "leaderTitle": "is led by the {obj}",
+        "currency": "uses the {obj} as currency",
+        "ethnicGroup": "is home to the {obj}",
+        "origin": "originates from {obj}",
+        "significantProject": "is known for the project {obj}",
+        "foundationPlace": "was founded in {obj}",
+        "demonym": "is known as {obj}",
+        "numberOfRooms": "has {obj} rooms",
+        "keyPerson": "has {obj} as a key person",
+        "architecture": "features {obj} architecture",
+        "postalCode": "has the postal code {obj}"
     }
 
-    # Standalone predicates that form their own sentence with full subject
-    standalone_predicates = {
-        "capital", "officialLanguage", "largestCity", "countySeat",
-        "mayor", "currency", "chief", "leaderTitle", "demonym", "language"
-    }
+    subjects = {}
+    for t in triples:
+        subjects.setdefault(t.subject, []).append(t)
 
-    # Group triples by subject
-    subject_groups = defaultdict(list)
-    for triple in triples:
-        subject_groups[triple.subject].append(triple)
+    entity_sentences = []
+    # Keep track of which entities have been processed to handle chaining
+    processed_subjects = set()
 
-    # Determine main subject priority: prefer airport, then first triple's subject
-    def subject_priority(subj):
-        sl = subj.lower()
-        if "airport" in sl:
-            return 0
-        return 1
+    # Order subjects to try and create chains (subject -> object -> subject)
+    sorted_subjects = sorted(subjects.keys())
 
-    subjects_ordered = sorted(subject_groups.keys(), key=subject_priority)
-    main_subject = subjects_ordered[0]
+    for subject in sorted_subjects:
+        if subject in processed_subjects:
+            continue
 
-    # Build sentence parts grouped by subject
-    sentence_parts = []
+        t_list = subjects[subject]
+        clauses = []
+        for t in t_list:
+            obj = t.object.strip('"').strip("'")
+            phrase = pred_map.get(t.predicate, f"{t.predicate} {obj}").format(obj=obj)
+            clauses.append(phrase)
 
-    for subj in subjects_ordered:
-        group = subject_groups[subj]
-        subj_phrases = []
-        standalone_phrases = []
+        if len(clauses) > 1:
+            sentence = f"{subject} {', '.join(clauses[:-1])}, and {clauses[-1]}"
+        elif clauses:
+            sentence = f"{subject} {clauses[0]}"
+        else:
+            sentence = subject
 
-        for triple in group:
-            pred = triple.predicate
-            obj = triple.object
-            if pred in predicate_templates:
-                phrase = predicate_templates[pred](subj, obj)
-            else:
-                phrase = f"the {pred} of {subj} is {obj}"
+        entity_sentences.append(sentence)
+        processed_subjects.add(subject)
 
-            # Check if this predicate needs standalone sentence
-            if pred in standalone_predicates:
-                standalone_phrases.append(phrase)
-            elif phrase.startswith(subj) or (len(phrase) > 1 and phrase[0].isupper() and not phrase.startswith(subj)):
-                standalone_phrases.append(phrase)
-            else:
-                subj_phrases.append(phrase)
-
-        if subj_phrases:
-            # Combine subject-relative phrases
-            if len(subj_phrases) == 1:
-                combined = f"{subj} {subj_phrases[0]}"
-            elif len(subj_phrases) == 2:
-                combined = f"{subj} {subj_phrases[0]} and {subj_phrases[1]}"
-            else:
-                combined = f"{subj} {', '.join(subj_phrases[:-1])}, and {subj_phrases[-1]}"
-            sentence_parts.append(combined)
-
-        for sp in standalone_phrases:
-            sentence_parts.append(sp)
-
-    if not sentence_parts:
+    if not entity_sentences:
         return ""
 
-    # Capitalize first letter of the whole sentence
-    if len(sentence_parts) == 1:
-        result = sentence_parts[0]
-    elif len(sentence_parts) == 2:
-        result = sentence_parts[0] + ", and " + sentence_parts[1]
-    else:
-        result = ", ".join(sentence_parts[:-1]) + ", and " + sentence_parts[-1]
+    # Attempt to chain entities using relative clauses for complex sentences
+    # If entity B is the object of a triple of entity A, use "which is" or "who is"
+    final_text = ""
+    if not entity_sentences:
+        return ""
 
-    result = result[0].upper() + result[1:]
-    if not result.endswith("."):
-        result += "."
-    return result
+    # Simplified chaining: if the next entity starts with something that was an object in the previous
+    # For this specific task, we'll use a more robust relative clause connector
+    result = entity_sentences[0]
+    for i in range(1, len(entity_sentences)):
+        current_entity = entity_sentences[i]
+        # Find the subject of the current entity sentence
+        subj = sorted_subjects[i] if i < len(sorted_subjects) else ""
+
+        # Check if this subject was an object in any previous triple
+        is_linked = False
+        for prev_subj in sorted_subjects[:i]:
+            for t in subjects.get(prev_subj, []):
+                if t.object.strip('"').strip("'") == subj:
+                    is_linked = True
+                    break
+
+        if is_linked:
+            # Use relative clause: "which is located in X, which is in Y"
+            # We strip the subject from the current entity sentence
+            content = current_entity.replace(subj, "").strip()
+            if content.startswith(" is"):
+                connector = ", which"
+            elif content.startswith(" was"):
+                connector = ", which"
+            else:
+                connector = ", and"
+
+            # Remove leading space and potentially "is" if we use "which is"
+            # But the pred_map already includes "is", so we just need the connector
+            result += f"{connector}{content}"
+        else:
+            connector = ", and " if i == 1 else ", while "
+            result += f"{connector}{current_entity}"
+
+    return result.strip() + "."
 
 # EVOLVE-BLOCK-END

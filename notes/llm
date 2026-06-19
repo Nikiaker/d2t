@@ -1,3 +1,10 @@
 70b
 max len: 131072
 0,31MB ~= 1 token
+
+
+THEMIS (16,14 GiB non-KV cache):
+Free memory on device (39.26/39.67 GiB) on startup. Desired GPU memory utilization is (0.92, 36.5 GiB). Actual usage is 14.96 GiB for weight, 0.51 GiB for peak activation, 0.13 GiB for non-torch memory, and 0.54 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=21709186581` (20.22 GiB) to fit into requested memory, or `--kv-cache-memory=24676153344` (22.98 GiB) to fully utilize gpu memory. Current kv cache memory in use is 20.38 GiB.
+
+GEMMA (23,42 GiB non-KV cache):
+Free memory on device (39.26/39.67 GiB) on startup. Desired GPU memory utilization is (0.92, 36.5 GiB). Actual usage is 19.79 GiB for weight, 2.49 GiB for peak activation, 0.15 GiB for non-torch memory, and 0.98 GiB for CUDAGraph memory. Replace gpu_memory_utilization config with `--kv-cache-memory=13906499093` (12.95 GiB) to fit into requested memory, or `--kv-cache-memory=16873465856` (15.71 GiB) to fully utilize gpu memory. Current kv cache memory in use is 12.96 GiB.

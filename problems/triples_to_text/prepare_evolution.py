@@ -97,7 +97,7 @@ if __name__ == "__main__":
                 f.write(config_content)
 
             run_all.append(
-                f"sbatch ~/d2t/problems/triples_to_text/outputs/{evolution_config}/{domain}_output/{domain}.sh"
+                f"sbatch $D2TPATH/problems/triples_to_text/outputs/{evolution_config}/{domain}_output/{domain}.sh"
             )
 
     with open("./run_all.sh", "w") as f:

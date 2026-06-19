@@ -33,7 +33,6 @@ CUDA_VISIBLE_DEVICES=1 \
 conda run -n vllm-env vllm serve \
 	PKU-ONELab/Themis \
     --port {port_2} \
-    --max-model-len 10K \
     --gpu-memory-utilization 0.95 \
     --chat-template $D2TPATH/jinja/llama.jinja
     > "$SERVER_LOG2" 2>&1 &

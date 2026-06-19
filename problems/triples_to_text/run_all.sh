@@ -1,1 +1,1 @@
-sbatch $D2TPATH/problems/triples_to_text/outputs/3_sm1ifeyp_qwen/Building_output/Building.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p1themis/Building_output/Building.sh
