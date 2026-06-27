@@ -5,11 +5,11 @@ Evaluator for the function minimization example
 import importlib.util
 import numpy as np
 import time
-import concurrent.futures
 import traceback
 import signal
 import json
 import io
+import pickle
 from openevolve.evaluation_result import EvaluationResult
 from initial_program import Triple
 from tests.benchmark_reader.benchmark_reader import Benchmark, Entry
@@ -100,7 +100,13 @@ category_test_sentences = [TestSentence([TestTriple(*triple) for triple in e.get
 
 def run_with_timeout(func, args=(), kwargs={}, timeout_seconds=5):
     """
-    Run a function with a timeout using concurrent.futures
+    Run a function with a hard timeout using a forked child process.
+
+    Unlike a thread-based timeout, the child process can be killed on timeout,
+    so a stuck/infinite-loop function cannot hang the evaluator. This lets the
+    evaluator reach its combined_score=0 return path instead of being killed
+    by the framework timeout (which would otherwise yield a misleading 0.5
+    fallback score).
 
     Args:
         func: Function to run
@@ -111,13 +117,49 @@ def run_with_timeout(func, args=(), kwargs={}, timeout_seconds=5):
     Returns:
         Result of the function or raises TimeoutError
     """
-    with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
-        future = executor.submit(func, *args, **kwargs)
+    read_fd, write_fd = os.pipe()
+    pid = os.fork()
+    if pid == 0:
+        os.close(read_fd)
         try:
-            result = future.result(timeout=timeout_seconds)
-            return result
-        except concurrent.futures.TimeoutError:
-            raise TimeoutError(f"Function timed out after {timeout_seconds} seconds")
+            payload = pickle.dumps(("ok", func(*args, **kwargs)))
+        except BaseException as e:
+            payload = pickle.dumps(("err", e))
+        try:
+            os.write(write_fd, payload)
+        finally:
+            os.close(write_fd)
+            os._exit(0)
+
+    os.close(write_fd)
+    deadline = time.time() + timeout_seconds
+    timed_out = False
+    while True:
+        done, _ = os.waitpid(pid, os.WNOHANG)
+        if done == pid:
+            break
+        if time.time() >= deadline:
+            timed_out = True
+            break
+        time.sleep(0.05)
+
+    if timed_out:
+        os.kill(pid, signal.SIGKILL)
+        os.waitpid(pid, 0)
+        os.close(read_fd)
+        raise TimeoutError(f"Function timed out after {timeout_seconds} seconds")
+
+    chunks = []
+    while True:
+        chunk = os.read(read_fd, 65536)
+        if not chunk:
+            break
+        chunks.append(chunk)
+    os.close(read_fd)
+    status, value = pickle.loads(b"".join(chunks))
+    if status == "ok":
+        return value
+    raise value
 
 
 def safe_float(value):
