@@ -41,7 +41,7 @@ conda run -n vllm-env vllm serve \
 	PKU-ONELab/Themis \
     --port {port_2} \
     --gpu-memory-utilization 0.95 \
-    --chat-template $D2TPATH/jinja/llama.jinja
+    --chat-template $D2TPATH/jinja/llama.jinja \
     > "$SERVER_LOG2" 2>&1 &
 SERVER_PID2=$!
 

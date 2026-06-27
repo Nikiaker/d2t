@@ -6,3 +6,8 @@ python app_domain_predicates.py --input inputs/input_data_weather_dev_full.json 
 
 sbatch ~/d2t/tripler/outputs/test5/batch_triples.sh
 sbatch ~/d2t/tripler/outputs/test7/batch_triples.sh
+
+sbatch $D2TPATH/tripler/outputs/test9/batch_forecast.sh
+sbatch $D2TPATH/tripler/outputs/test9/batch_gsmarena.sh
+sbatch $D2TPATH/tripler/outputs/test9/batch_ice_hockey.sh
+sbatch $D2TPATH/tripler/outputs/test9/batch_wikidata.sh
