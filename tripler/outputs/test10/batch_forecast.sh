@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -w hgx2
+#SBATCH -w hgx1
 #SBATCH -p hgx
 #SBATCH -c16
 #SBATCH --gres=gpu:1
@@ -15,7 +15,11 @@ CUDA_VISIBLE_DEVICES=0 \
 conda run -n vllm-env vllm serve \
 	google/gemma-4-31B-it \
     --port 3009 \
-    --max-model-len 32K \
+    --max-model-len 30K \
+    --reasoning-parser gemma4 \
+    --default-chat-template-kwargs '{"enable_thinking": false}' \
+    --max-num-batched-tokens 4096 \
+    --gpu-memory-utilization 0.95 \
     > "$SERVER_LOG1" 2>&1 &
 SERVER_PID1=$!
 
