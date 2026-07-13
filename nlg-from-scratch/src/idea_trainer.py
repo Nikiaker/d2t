@@ -140,6 +140,75 @@ class OpenAILM(LanguageModel):
                 
         return response
     
+class VLLMLM(LanguageModel):
+    """Backend for an OpenAI-compatible vLLM server (e.g. `vllm serve`).
+
+    Replaces the Ollama client used by `LanguageModel` while preserving the
+    response shape (``{"message": {"content": ...}}``) the rest of the
+    pipeline expects. Ollama-native features are translated to vLLM guided
+    decoding via `extra_body`:
+      - options["grammar"] (EBNF)  -> guided_grammar
+      - format (pydantic schema)   -> guided_json
+      - options["num_predict"]     -> max_tokens
+      - options["top_k"]           -> extra_body["top_k"]
+      - options["num_ctx"]         -> ignored (server-side --max-model-len)
+    """
+
+    def __init__(self, model_name="RedHatAI/gemma-4-31B-it-NVFP4", log_file=None,
+                 base_url="http://localhost:8000/v1", api_key="AiIsMyLife25", use_num_ctx=False):
+        self.model_name = model_name
+        self.log_file = log_file
+        self.use_num_ctx = use_num_ctx
+        from openai import OpenAI
+        self.client = OpenAI(base_url=base_url, api_key=api_key)
+
+    def query(self, messages, temperature=0.1, seed=None, options=None, format=None):
+        kwargs = {
+            "model": self.model_name,
+            "messages": messages,
+            "temperature": temperature,
+        }
+        if seed is not None:
+            kwargs["seed"] = seed
+
+        extra_body = {}
+        if options is not None:
+            if "num_predict" in options:
+                kwargs["max_tokens"] = options["num_predict"]
+            if "top_p" in options:
+                kwargs["top_p"] = options["top_p"]
+            if "top_k" in options:
+                extra_body["top_k"] = options["top_k"]
+            # num_ctx is enforced server-side via --max-model-len; ignore here.
+
+        if format is not None:
+            schema = format.model_json_schema() if hasattr(format, "model_json_schema") else format
+            extra_body["guided_json"] = schema
+
+        if options is not None and "grammar" in options:
+            extra_body["guided_grammar"] = options["grammar"]
+
+        if extra_body:
+            kwargs["extra_body"] = extra_body
+
+        logger.info(f"Prompting {self.model_name} (vllm) with {kwargs}")
+        response_openai = self.client.chat.completions.create(**kwargs)
+        content = response_openai.choices[0].message.content
+        response = {"message": {"content": content}}
+
+        if self.log_file is not None:
+            with open(self.log_file, "a", encoding="utf-8") as file:
+                file.write(f"Prompt: \n")
+                for m in messages:
+                    file.write(f'{m["content"]}')
+                file.write(f'Response: {content}\n')
+                file.write("-----------\n")
+                for m in messages:
+                    logger.info(m["content"])
+                logger.info(f'LM Response: {content}\n')
+        return response
+
+
 class Evaluator:
     ERROR_TEMPLATE = '''
     Input: {input}
@@ -916,6 +985,10 @@ def parse_args():
     parser.add_argument("--maxiter", type=int, help="Max number of iterations", default=25)
     parser.add_argument("--ip", type=str, help="IP of ollama with LLM model. Set to 'gpt' for OpenAI models", default="10.10.25.66")
     parser.add_argument("--ipeval", type=str, help="IP with ollama LLM model used for evaluation", default="localhost")
+    parser.add_argument("--backend", type=str, choices=["ollama", "vllm"], default="ollama", help="LLM backend: 'ollama' (default, uses --ip/--ipeval) or 'vllm' (OpenAI-compatible /v1 server, uses --base-url/--base-url-eval)")
+    parser.add_argument("--base-url", type=str, help="Base URL for vllm backend (main LM), e.g. http://localhost:8881/v1", default="http://localhost:8881/v1")
+    parser.add_argument("--base-url-eval", type=str, help="Base URL for vllm backend (eval LM)", default="http://localhost:8881/v1")
+    parser.add_argument("--api-key", type=str, help="API key for vllm backend", default="AiIsMyLife25")
     #bool argument full, default false
     parser.add_argument("--full", action='store_true', help="Full evaluation")
     parser.add_argument("--dataset", type=str, help="Specify file with dataset", default=None)
@@ -928,13 +1001,20 @@ if __name__ == '__main__':
     MAX_ITER = args.maxiter
     logging.basicConfig(filename=args.log_file, encoding='utf-8', level=logging.INFO)
     script_path = os.path.dirname(os.path.realpath(__file__))
-    lm_eval = LanguageModel( ip=f"{args.ipeval}:8891")
-    if args.ip == "gpt":
-        lm = OpenAILM(log_file="gpt.log")
-    else:
-        lm = LanguageModel(model_name=args.model,  ip=f"{args.ip}:8889")
-    if lm.model_name == lm_eval.model_name:
+    if args.backend == "vllm":
+        lm = VLLMLM(model_name=args.model, base_url=args.base_url, api_key=args.api_key)
+        lm_eval = VLLMLM(model_name=args.model, base_url=args.base_url_eval, api_key=args.api_key)
         lm_eval.use_num_ctx = True
+    elif args.ip == "gpt":
+        lm = OpenAILM(log_file="gpt.log")
+        lm_eval = LanguageModel( ip=f"{args.ipeval}:8891")
+        if lm.model_name == lm_eval.model_name:
+            lm_eval.use_num_ctx = True
+    else:
+        lm_eval = LanguageModel( ip=f"{args.ipeval}:8891")
+        lm = LanguageModel(model_name=args.model,  ip=f"{args.ip}:8889")
+        if lm.model_name == lm_eval.model_name:
+            lm_eval.use_num_ctx = True
     trainer = IdeaProgramTrainer(lm, lm_eval, max_interations=MAX_ITER)
     if args.config == 1:
         trainer = IdeaProgramTrainer(lm, lm_eval, max_interations=MAX_ITER, dec_constructor=ListDecider, eng_costructor=ListEngineer, archi_constructor=ListArchitect)
