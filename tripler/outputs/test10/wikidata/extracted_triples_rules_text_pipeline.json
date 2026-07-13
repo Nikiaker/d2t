@@ -1,0 +1,5670 @@
+{
+  "input_file": "/home/inf151915/d2t/tripler/inputs/wikidata_dev.json",
+  "problem_domain": "wikidata",
+  "instances_count": 100,
+  "rules_initial": {
+    "predicates": [
+      "instance of",
+      "subclass of",
+      "label",
+      "country of origin",
+      "date of birth",
+      "occupation"
+    ],
+    "example_triples": [
+      {
+        "subject": "Albert Einstein",
+        "predicate": "instance of",
+        "object": "human"
+      },
+      {
+        "subject": "Albert Einstein",
+        "predicate": "occupation",
+        "object": "physicist"
+      },
+      {
+        "subject": "Albert Einstein",
+        "predicate": "country of origin",
+        "object": "Germany"
+      },
+      {
+        "subject": "Physics",
+        "predicate": "instance of",
+        "object": "science"
+      },
+      {
+        "subject": "Quantum Mechanics",
+        "predicate": "subclass of",
+        "object": "Physics"
+      }
+    ],
+    "example_text": "Albert Einstein was a physicist born in Germany. He was a human being who contributed to Physics, a branch of science. Quantum Mechanics is a subclass of Physics.",
+    "guidelines": [
+      "Map entities to their most specific Wikidata class using 'instance of'.",
+      "Use 'subclass of' only for taxonomic relationships between concepts, not for individuals.",
+      "Ensure 'country of origin' refers to the geopolitical entity of birth or nationality.",
+      "Extract dates in ISO 8601 format where possible.",
+      "Normalize labels to their standard canonical form (e.g., 'Physicist' to 'physicist')."
+    ]
+  },
+  "rules_final": {
+    "predicates": [
+      "instance of",
+      "subclass of",
+      "label",
+      "country of origin",
+      "date of birth",
+      "place of birth",
+      "occupation",
+      "capital",
+      "head of state",
+      "member of",
+      "language",
+      "genre",
+      "distributed by",
+      "cast member",
+      "filming location",
+      "setting",
+      "content rating",
+      "directed by",
+      "written by",
+      "music by",
+      "produced by",
+      "located in",
+      "heritage status",
+      "headquarters location",
+      "industry",
+      "competitor",
+      "edited by",
+      "citizenship",
+      "participant in",
+      "position held",
+      "military unit",
+      "award received",
+      "place of death",
+      "burial place",
+      "spouse",
+      "anthem",
+      "educated at",
+      "employer",
+      "founder",
+      "owned by",
+      "head of government",
+      "currency",
+      "bordering country",
+      "governing body",
+      "administrative territorial entity",
+      "diplomatic relation",
+      "lowest point"
+    ],
+    "example_triples": [
+      {
+        "subject": "Albert Einstein",
+        "predicate": "instance of",
+        "object": "human"
+      },
+      {
+        "subject": "Vanuatu",
+        "predicate": "capital",
+        "object": "Port Vila"
+      },
+      {
+        "subject": "Vanuatu",
+        "predicate": "member of",
+        "object": "UNESCO"
+      },
+      {
+        "subject": "Vanuatu",
+        "predicate": "head of government",
+        "object": "Charlot Salwai"
+      },
+      {
+        "subject": "Vanuatu",
+        "predicate": "language",
+        "object": "Letemboi"
+      },
+      {
+        "subject": "Vanuatu",
+        "predicate": "language",
+        "object": "Litzlitz"
+      },
+      {
+        "subject": "Democratic Federal Yugoslavia",
+        "predicate": "instance of",
+        "object": "sovereign state"
+      },
+      {
+        "subject": "Democratic Federal Yugoslavia",
+        "predicate": "capital",
+        "object": "Belgrade"
+      },
+      {
+        "subject": "Democratic Federal Yugoslavia",
+        "predicate": "head of state",
+        "object": "Peter II"
+      },
+      {
+        "subject": "Democratic Federal Yugoslavia",
+        "predicate": "head of government",
+        "object": "Josip Broz Tito"
+      },
+      {
+        "subject": "Democratic Federal Yugoslavia",
+        "predicate": "bordering country",
+        "object": "Albania"
+      },
+      {
+        "subject": "Democratic Federal Yugoslavia",
+        "predicate": "currency",
+        "object": "Yugoslav dinar"
+      },
+      {
+        "subject": "Democratic Federal Yugoslavia",
+        "predicate": "language",
+        "object": "Serbo-Croatian"
+      },
+      {
+        "subject": "Democratic Federal Yugoslavia",
+        "predicate": "governing body",
+        "object": "Anti-Fascist Council of the People's Liberation of Yugoslavia"
+      },
+      {
+        "subject": "OctetString",
+        "predicate": "instance of",
+        "object": "business"
+      },
+      {
+        "subject": "OctetString",
+        "predicate": "located in",
+        "object": "United States"
+      },
+      {
+        "subject": "OctetString",
+        "predicate": "industry",
+        "object": "software"
+      },
+      {
+        "subject": "OctetString",
+        "predicate": "competitor",
+        "object": "Oracle Corporation"
+      },
+      {
+        "subject": "Ireland",
+        "predicate": "instance of",
+        "object": "sovereign state"
+      },
+      {
+        "subject": "Ireland",
+        "predicate": "member of",
+        "object": "European Union"
+      },
+      {
+        "subject": "Ireland",
+        "predicate": "member of",
+        "object": "World Trade Organization"
+      },
+      {
+        "subject": "Ireland",
+        "predicate": "diplomatic relation",
+        "object": "Holy See"
+      },
+      {
+        "subject": "Ireland",
+        "predicate": "administrative territorial entity",
+        "object": "County Limerick"
+      },
+      {
+        "subject": "Ireland",
+        "predicate": "administrative territorial entity",
+        "object": "Meath"
+      },
+      {
+        "subject": "Ireland",
+        "predicate": "administrative territorial entity",
+        "object": "Kerry"
+      },
+      {
+        "subject": "Ireland",
+        "predicate": "language",
+        "object": "Irish Sign Language"
+      },
+      {
+        "subject": "Malawi",
+        "predicate": "member of",
+        "object": "African Union"
+      },
+      {
+        "subject": "Malawi",
+        "predicate": "language",
+        "object": "Nyakyusa"
+      },
+      {
+        "subject": "Malawi",
+        "predicate": "anthem",
+        "object": "Mulungu dalitsa Malaŵi"
+      },
+      {
+        "subject": "Malawi",
+        "predicate": "lowest point",
+        "object": "Shire River"
+      }
+    ],
+    "example_text": "Albert Einstein was a physicist. Vanuatu, a UNESCO member with its capital in Port Vila and led by Charlot Salwai, is a linguistically diverse nation with languages including Letemboi and Litzlitz. Democratic Federal Yugoslavia was a historical sovereign state with its capital in Belgrade, governed by head of state Peter II and head of government Josip Broz Tito. A monarchy that shared a border with Albania, it utilized the Yugoslav dinar, recognized Serbo-Croatian as its official language, and was governed legislatively by the Anti-Fascist Council of the People's Liberation of Yugoslavia. OctetString is a US-based business that produces software and is followed by Oracle Corporation. Ireland is a sovereign state and member of the European Union and World Trade Organization, with diplomatic relations with the Holy See. It includes administrative entities such as County Limerick, Meath, and Kerry, and utilizes Irish Sign Language. Malawi is a member of the African Union, WTO, and ICSID, led by a President. Its cultural identity includes the Nyakyusa and Nyika languages, the national anthem 'Mulungu dalitsa Malaŵi', and the Shire River as its lowest point.",
+    "guidelines": [
+      "Map entities to their most specific Wikidata class using 'instance of'.",
+      "Use 'capital' to link a country to its seat of government.",
+      "Use 'head of state' or 'head of government' for the political leader of a nation; map phrases like 'led by' to the most appropriate of these two based on context.",
+      "Use 'member of' to associate an entity with an organization it belongs to.",
+      "Use 'bordering country' to link a state to its adjacent neighbors.",
+      "Use 'currency' to identify the official monetary unit used by a state.",
+      "Use 'language' to associate a region or entity with its official or spoken languages. When multiple languages are listed, create a separate triple for each language.",
+      "Use 'governing body' to identify the legislative or administrative organization that governs an entity.",
+      "Use 'located in' to specify the geographical location, city, or region where an entity is situated; map terms like '[Country]-based' to the corresponding country.",
+      "Use 'citizenship' to link an individual to the state or empire they are a citizen of.",
+      "Extract dates in ISO 8601 format where possible.",
+      "Normalize labels to their standard canonical form.",
+      "Use 'industry' to describe the sector a business operates in (e.g., 'produces software' maps to 'software').",
+      "Use 'competitor' to represent business rivalry or market positioning; map phrases like 'followed by' in a business context to 'competitor'.",
+      "Use 'administrative territorial entity' to link a country or larger region to its subdivisions (e.g., counties, states, provinces).",
+      "Use 'diplomatic relation' to link two sovereign entities that maintain official diplomatic ties.",
+      "Use 'anthem' to associate a country with its national anthem.",
+      "Use 'lowest point' to link a geographical entity to its point of minimum elevation."
+    ]
+  },
+  "rules_validated_all_texts": false,
+  "rules_validation_rounds": [
+    {
+      "round": 1,
+      "checked_instances": 1,
+      "failed_instance_id": 0
+    },
+    {
+      "round": 2,
+      "checked_instances": 2,
+      "failed_instance_id": 1
+    },
+    {
+      "round": 3,
+      "checked_instances": 4,
+      "failed_instance_id": 3
+    },
+    {
+      "round": 4,
+      "checked_instances": 8,
+      "failed_instance_id": 7
+    },
+    {
+      "round": 5,
+      "checked_instances": 11,
+      "failed_instance_id": 10
+    },
+    {
+      "round": 6,
+      "checked_instances": 15,
+      "failed_instance_id": 14
+    },
+    {
+      "round": 7,
+      "checked_instances": 9,
+      "failed_instance_id": 8
+    },
+    {
+      "round": 8,
+      "checked_instances": 28,
+      "failed_instance_id": 27
+    },
+    {
+      "round": 9,
+      "checked_instances": 30,
+      "failed_instance_id": 29
+    },
+    {
+      "round": 10,
+      "checked_instances": 31,
+      "failed_instance_id": 30
+    },
+    {
+      "round": 11,
+      "checked_instances": 34,
+      "failed_instance_id": 33
+    },
+    {
+      "round": 12,
+      "checked_instances": 35,
+      "failed_instance_id": 34
+    },
+    {
+      "round": 13,
+      "checked_instances": 37,
+      "failed_instance_id": 36
+    },
+    {
+      "round": 14,
+      "checked_instances": 43,
+      "failed_instance_id": 42
+    },
+    {
+      "round": 15,
+      "checked_instances": 56,
+      "failed_instance_id": 55
+    },
+    {
+      "round": 16,
+      "checked_instances": 61,
+      "failed_instance_id": 60
+    },
+    {
+      "round": 17,
+      "checked_instances": 1,
+      "failed_instance_id": 0
+    },
+    {
+      "round": 18,
+      "checked_instances": 11,
+      "failed_instance_id": 10
+    },
+    {
+      "round": 19,
+      "checked_instances": 42,
+      "failed_instance_id": 41
+    },
+    {
+      "round": 20,
+      "checked_instances": 48,
+      "failed_instance_id": 47
+    }
+  ],
+  "rules_revision_history": [
+    {
+      "round": 1,
+      "failed_instance_id": 0,
+      "reason": "The provided rules are tailored for individuals and scientific concepts, whereas the text describes a country, its capital, its leader, and its languages.",
+      "rule_gaps": [
+        "Missing predicate for capital city (e.g., 'capital')",
+        "Missing predicate for political leadership (e.g., 'head of state' or 'led by')",
+        "Missing predicate for membership/affiliation (e.g., 'member of')",
+        "Missing predicate for spoken languages (e.g., 'language')",
+        "Missing predicate for geopolitical status (e.g., 'instance of country/nation')"
+      ]
+    },
+    {
+      "round": 2,
+      "failed_instance_id": 1,
+      "reason": "The text describes a movie, its genre, distributor, cast, filming locations, and rating, but the provided predicates are focused on people, countries, and general taxonomy. There are no predicates to capture film-specific relationships.",
+      "rule_gaps": [
+        "genre",
+        "distributed by",
+        "stars/cast member",
+        "filming location",
+        "setting",
+        "content rating"
+      ]
+    },
+    {
+      "round": 3,
+      "failed_instance_id": 3,
+      "reason": "The text contains several key relationships (director, writer, composer/music by, producer) that are not covered by the provided predicates list.",
+      "rule_gaps": [
+        "directed by",
+        "written by",
+        "music by",
+        "produced by"
+      ]
+    },
+    {
+      "round": 4,
+      "failed_instance_id": 7,
+      "reason": "The text contains spatial and status information ('located in' and 'heritage-protected') that cannot be captured by the provided predicates.",
+      "rule_gaps": [
+        "location/situated in",
+        "heritage status/protection status"
+      ]
+    },
+    {
+      "round": 5,
+      "failed_instance_id": 10,
+      "reason": "The text contains relationships ('US-based', 'produces software', 'followed by') that are not covered by the provided predicates.",
+      "rule_gaps": [
+        "predicate for business headquarters or base of operations",
+        "predicate for product/industry (e.g., 'produces software')",
+        "predicate for corporate competition or followership (e.g., 'followed by')"
+      ]
+    },
+    {
+      "round": 6,
+      "failed_instance_id": 14,
+      "reason": "The text contains information about the film's editor ('edited by'), but the provided predicates and guidelines do not include a predicate for editors.",
+      "rule_gaps": [
+        "edited by"
+      ]
+    },
+    {
+      "round": 7,
+      "failed_instance_id": 8,
+      "reason": "The text contains a citizenship/nationality relationship ('citizen of'), but the provided predicates do not include a specific predicate for citizenship or nationality. While 'member of' or 'country of origin' might be attempted, the guidelines for 'member of' refer to organizational affiliations and 'country of origin' refers to birth/nationality, but neither is explicitly mapped to the 'citizen of' relationship in the examples or rules.",
+      "rule_gaps": [
+        "predicate for citizenship or nationality"
+      ]
+    },
+    {
+      "round": 8,
+      "failed_instance_id": 27,
+      "reason": "The text contains information regarding the subject's birth place ('New York City') and participation in a historical event ('World War I'), but there are no predicates provided in the rules to capture 'place of birth' or 'participant in'.",
+      "rule_gaps": [
+        "place of birth",
+        "participant in"
+      ]
+    },
+    {
+      "round": 9,
+      "failed_instance_id": 29,
+      "reason": "The provided rules and predicates are insufficient to capture key information in the text. Specifically, there are no predicates to handle professional roles/ranks (e.g., 'cavalry master'), military unit affiliations (e.g., 'Husarenregiment'), awards/honors (e.g., 'Hanoverian Waterloo Medal'), death location, or burial site.",
+      "rule_gaps": [
+        "predicate for military rank or specific role (e.g., 'position held')",
+        "predicate for military unit or organization affiliation",
+        "predicate for awards/honors received",
+        "predicate for place of death",
+        "predicate for burial place"
+      ]
+    },
+    {
+      "round": 10,
+      "failed_instance_id": 30,
+      "reason": "The text contains a familial relationship ('wife of') which is not covered by the provided predicates or guidelines.",
+      "rule_gaps": [
+        "spouse/wife of"
+      ]
+    },
+    {
+      "round": 11,
+      "failed_instance_id": 33,
+      "reason": "The text contains information about a national anthem ('featuring the Brazilian National Anthem as its anthem'), but there is no predicate provided in the rules to extract the anthem of a state or entity.",
+      "rule_gaps": [
+        "anthem"
+      ]
+    },
+    {
+      "round": 12,
+      "failed_instance_id": 34,
+      "reason": "The text contains information about an individual's education ('educated at'), but there is no predicate in the provided rules to capture educational institutions or alumni relationships.",
+      "rule_gaps": [
+        "educated at"
+      ]
+    },
+    {
+      "round": 13,
+      "failed_instance_id": 36,
+      "reason": "The text contains an employment relationship ('employed by'), but the rules do not provide a predicate to extract this specific relationship.",
+      "rule_gaps": [
+        "employer",
+        "employed by"
+      ]
+    },
+    {
+      "round": 14,
+      "failed_instance_id": 42,
+      "reason": "The provided rules lack a predicate to capture the founder of a business, which is a key relationship in the text ('founded by Emili Riu i Periquet').",
+      "rule_gaps": [
+        "founder / founded by"
+      ]
+    },
+    {
+      "round": 15,
+      "failed_instance_id": 55,
+      "reason": "The text contains information about ownership ('owned by'), which is not covered by the provided predicates list.",
+      "rule_gaps": [
+        "owned by"
+      ]
+    },
+    {
+      "round": 16,
+      "failed_instance_id": 60,
+      "reason": "The provided rules lack predicates to extract the head of government, currency, bordering countries, and legislative body mentioned in the text.",
+      "rule_gaps": [
+        "head of government",
+        "currency",
+        "bordering country",
+        "governing body"
+      ]
+    },
+    {
+      "round": 17,
+      "failed_instance_id": 0,
+      "reason": "The text mentions that Vanuatu is 'led by Charlot Salwai', which requires a predicate for political leadership (e.g., 'head of state' or 'head of government'), but the provided guidelines do not explicitly map the general term 'led by' to those specific predicates for this context, and more importantly, there is no explicit rule or example for extracting a list of multiple languages for a single entity.",
+      "rule_gaps": [
+        "Missing explicit mapping for 'led by' to 'head of state' or 'head of government' in the provided text context.",
+        "No guidance on handling one-to-many relationships for the 'language' predicate when multiple languages are listed."
+      ]
+    },
+    {
+      "round": 18,
+      "failed_instance_id": 10,
+      "reason": "The text contains information about a company's location ('US-based') and a competitive/adversarial relationship ('followed by' in a business context, likely implying a competitor), but the rules lack a predicate to capture the relationship of being 'followed by' or 'competitor' in a way that fits the specific phrasing, and while 'industry' and 'competitor' exist in the predicate list, there is no guideline on how to map 'followed by' to 'competitor'. More importantly, 'US-based' requires 'located in' or 'country of origin', but the specific relation of a company being 'followed by' another is not explicitly covered by the mapping guidelines.",
+      "rule_gaps": [
+        "No guideline for mapping 'followed by' to the 'competitor' predicate.",
+        "No specific guideline for extracting company headquarters/base using 'located in' or 'country of origin' for businesses."
+      ]
+    },
+    {
+      "round": 19,
+      "failed_instance_id": 41,
+      "reason": "The text contains information about administrative subdivisions (Counties) and diplomatic relations, but the provided predicates and guidelines do not include rules for extracting these specific relationships.",
+      "rule_gaps": [
+        "predicate for administrative subdivisions (e.g., 'contains administrative entity' or 'part of')",
+        "predicate for diplomatic relations"
+      ]
+    },
+    {
+      "round": 20,
+      "failed_instance_id": 47,
+      "reason": "The rules lack a predicate to extract the 'lowest point' (Shire River) and do not provide a specific predicate for the 'President' role if a specific name is not provided, although 'head of state' exists. Most importantly, there is no predicate for 'lowest point' or similar geographic features mentioned in the text.",
+      "rule_gaps": [
+        "predicate for geographic features like 'lowest point'"
+      ]
+    }
+  ],
+  "triples_count": 415,
+  "unique_predicates": [
+    "member of",
+    "capital",
+    "head of government",
+    "language",
+    "genre",
+    "distributed by",
+    "cast member",
+    "filming location",
+    "setting",
+    "content rating",
+    "instance of",
+    "located in",
+    "directed by",
+    "written by",
+    "music by",
+    "produced by",
+    "country of origin",
+    "occupation",
+    "heritage status",
+    "citizenship",
+    "industry",
+    "competitor",
+    "headquarters location",
+    "head of state",
+    "participant in",
+    "edited by",
+    "place of birth",
+    "military unit",
+    "award received",
+    "place of death",
+    "burial place",
+    "spouse",
+    "label",
+    "anthem",
+    "educated at",
+    "employer",
+    "diplomatic relation",
+    "administrative territorial entity",
+    "founder",
+    "lowest point",
+    "position held",
+    "owned by",
+    "bordering country",
+    "currency",
+    "governing body"
+  ],
+  "generated_text_by_instance": [
+    {
+      "instance_id": 0,
+      "text": "Vanuatu, a UNESCO member with its capital in Port Vila and led by Charlot Salwai, is a linguistically diverse nation with languages including Letemboi, Litzlitz, Port Sandwich, Maragus, West Ambae, and Polonombauk."
+    },
+    {
+      "instance_id": 1,
+      "text": "'Lay the Favorite' is a comedy film distributed by Cheetah Vision, starring Joshua Jackson and Laura Prepon. Filmed in the Las Vegas Valley and set in Las Vegas and New York, the movie is rated not recommended for children under 12."
+    },
+    {
+      "instance_id": 2,
+      "text": "The Duchy of Savoy was a historical state within the Holy Roman Empire, with its capital in Turin and official languages including French, Latin, and Franco-Provençal."
+    },
+    {
+      "instance_id": 3,
+      "text": "Drishyam is a Malayalam-language drama film set in India, directed by Nishikant Kamat and Jeethu Joseph, written by Jeethu Joseph, and featuring music by Vishal Bhardwaj, produced by Panorama Studios."
+    },
+    {
+      "instance_id": 4,
+      "text": "Cirkus Fjollinski is a public domain Swedish silent comedy film directed by Victor Bergdahl and distributed by Svenska Biografteatern, presented in black-and-white."
+    },
+    {
+      "instance_id": 5,
+      "text": "Anne One Hundred is a British black-and-white drama film directed by Henry Edwards and written by Sewell Collins, starring Betty Stockfeld and distributed by Paramount Pictures."
+    },
+    {
+      "instance_id": 6,
+      "text": "Povilas Šilas is a male police officer."
+    },
+    {
+      "instance_id": 7,
+      "text": "The Anzengruberstüberl des ehem. Gasthauses Anzengruberhof is a heritage-protected gasthaus located in Wolkersdorf im Weinviertel, Austria."
+    },
+    {
+      "instance_id": 8,
+      "text": "Yang Pengnan was a male citizen of the Yuan Empire."
+    },
+    {
+      "instance_id": 9,
+      "text": "The Kingdom of Janjero was a historical pagan country with its capital in Fofa, Ethiopia, and was distinct from the Yem people."
+    },
+    {
+      "instance_id": 10,
+      "text": "OctetString is a US-based business that produces software and is followed by Oracle Corporation."
+    },
+    {
+      "instance_id": 11,
+      "text": "The Arab Kingdom of Syria was a historical constitutional monarchy in Asia, headquartered in Damascus with Faisal I of Iraq as head of state. It replaced the Occupied Enemy Territory Administration and had Arabic as its official language."
+    },
+    {
+      "instance_id": 12,
+      "text": "The Vermont Republic was an English-speaking proto-state and participant in the American Revolutionary War that replaced the provinces of New Hampshire and New York before being succeeded by Vermont. Its capital was Windsor."
+    },
+    {
+      "instance_id": 13,
+      "text": "iMoney.my is a financial services business headquartered in Kuala Lumpur."
+    },
+    {
+      "instance_id": 14,
+      "text": "Matri-Phony is an English-language black-and-white film directed by Harry Edwards and edited by Paul Borofsky, featuring a cast that includes Larry Fine, Marjorie Deanne, Monte Collins, Max Wagner, and Eddy Chandler."
+    },
+    {
+      "instance_id": 15,
+      "text": "'Eine Robbe zum Verlieben' is a German television film written by Christos Yiannopoulos and composed by Robert Schulte-Hemming."
+    },
+    {
+      "instance_id": 16,
+      "text": "Gayniggers from Outer Space is a Danish science fiction comedy and parody film directed by Per Kristensen and Morten Lindberg, who also served as screenwriter."
+    },
+    {
+      "instance_id": 17,
+      "text": "The Emirate of Dhala was a historical emirate with its capital at Ad Dali'."
+    },
+    {
+      "instance_id": 18,
+      "text": "Chris Ekiyor is a Nigerian male who is both a politician and a dentist."
+    },
+    {
+      "instance_id": 19,
+      "text": "Bonai State was a historical country and a princely state of the British Raj, distinct from Bonai."
+    },
+    {
+      "instance_id": 20,
+      "text": "Forlagshuset Vigmostad & Bjørke is a publisher based in Norway."
+    },
+    {
+      "instance_id": 21,
+      "text": "'We Are Human After All' is a Danish short film featuring cast member Youssef Wayne Hvidtfeldt."
+    },
+    {
+      "instance_id": 22,
+      "text": "The Iron Ring is a public domain silent film from the United States, directed by George Archainbaud and presented in black-and-white."
+    },
+    {
+      "instance_id": 23,
+      "text": "'Portrait of Jason' is an English-language LGBT-related film directed and edited by Shirley Clarke, featuring Carl Lee and Clarke. Distributed by Milestone Films, it is recognized in the National Film Registry and carries no age restriction in France."
+    },
+    {
+      "instance_id": 24,
+      "text": "The Southern Qi was a historical Chinese dynasty based in Asia with its capital at Jiankang."
+    },
+    {
+      "instance_id": 25,
+      "text": "The Legend of Frenchie King features a score by Francis Lai and a cast including Michael J. Pollard, Micheline Presle, and Teresa Rabal."
+    },
+    {
+      "instance_id": 26,
+      "text": "Black Deep Throat is an Italian erotic film directed by Guido Zurli and written by Vito Bruschini, featuring a cast that includes Attilio Dottesio, Ivano Staccioli, and Ajita Wilson."
+    },
+    {
+      "instance_id": 27,
+      "text": "Herman Rottger was a male American actor born in New York City who was involved in World War I."
+    },
+    {
+      "instance_id": 28,
+      "text": "Roter Tod is a German-language production by Maran Film GmbH, commissioned by Südwestrundfunk and edited by Olga Barthel, featuring a cast that includes Sesede Terziyan, Ulrike Folkerts, and Andreas Hoppe."
+    },
+    {
+      "instance_id": 29,
+      "text": "Christian Friedrich Schultz was a male military officer and diplomat who served as a cavalry master in the Husarenregiment. A recipient of the Hanoverian Waterloo Medal, he died in Hanover and is buried at Lent-Kaserne."
+    },
+    {
+      "instance_id": 30,
+      "text": "Wu Shi is a female human with the family name Wu and is the wife of Zhou Jing."
+    },
+    {
+      "instance_id": 31,
+      "text": "Evraz is a Russian business entity."
+    },
+    {
+      "instance_id": 32,
+      "text": "The League of Corinth was a historical country and a koinon."
+    },
+    {
+      "instance_id": 33,
+      "text": "The First Brazilian Republic (República Velha) was a historical republic with capitals in São Carlos and Rio de Janeiro, featuring the Brazilian National Anthem as its anthem."
+    },
+    {
+      "instance_id": 34,
+      "text": "Imtiaz Sifat is a person who was educated at the International Islamic University Malaysia."
+    },
+    {
+      "instance_id": 35,
+      "text": "Directed and produced by Erich Waschneck and distributed by Universum Film AG, 'Uncle Bräsig' features a cast including Heinrich Schroth, Kristina Söderbaum, and Elga Brink."
+    },
+    {
+      "instance_id": 36,
+      "text": "Memet Varol is a person educated at Fırat University who is employed by Malatya Turgut Özal University."
+    },
+    {
+      "instance_id": 37,
+      "text": "Producers Library Service is a business headquartered in North Hollywood."
+    },
+    {
+      "instance_id": 38,
+      "text": "Novedades Acapulco is a Spanish-language news website and newspaper based in Mexico, primarily focusing on the state of Guerrero."
+    },
+    {
+      "instance_id": 39,
+      "text": "Steel Frontier is an American post-apocalyptic action Western film distributed by Madacy Entertainment, featuring cast members Kane Hodder, Billy L. Sullivan, and Gordon Benson."
+    },
+    {
+      "instance_id": 40,
+      "text": "Frances Elizabeth Blacklock is a female human."
+    },
+    {
+      "instance_id": 41,
+      "text": "Ireland is a sovereign state and member of the European Union and World Trade Organization, with diplomatic relations with the Holy See. It includes administrative entities such as County Limerick, Meath, and Kerry, and utilizes Irish Sign Language."
+    },
+    {
+      "instance_id": 42,
+      "text": "Sociedad Productora de Fuerzas Motrices is a Barcelona-based hydroelectric enterprise (S.A.) founded by Emili Riu i Periquet, operating within Catalonia."
+    },
+    {
+      "instance_id": 43,
+      "text": "'Sådan er søskende - Jennis storesøster' is a Danish film directed and shot by Max Kestner, edited by Per K. Kirkegaard, and rated suitable for a general audience as part of the 'Sådan er søskende' series."
+    },
+    {
+      "instance_id": 44,
+      "text": "'Ai que Vida!' is a Brazilian comedy-drama film directed by Cícero Filho and presented in Portuguese."
+    },
+    {
+      "instance_id": 45,
+      "text": "AT&T Corporation is a US-based telecommunications enterprise founded by Alexander Graham Bell, headquartered in Bedminster, and operating as a privately held company and member of the Wi-Fi Alliance."
+    },
+    {
+      "instance_id": 46,
+      "text": "'Kinas kvinder bærer den halve himmel' is a Danish documentary film."
+    },
+    {
+      "instance_id": 47,
+      "text": "Malawi is a member of the African Union, WTO, and ICSID, led by a President. Its cultural identity includes the Nyakyusa and Nyika languages, the national anthem 'Mulungu dalitsa Malaŵi', and the Shire River as its lowest point."
+    },
+    {
+      "instance_id": 48,
+      "text": "Rivière aux cerises is a Canadian film directed by Chantal duPont."
+    },
+    {
+      "instance_id": 49,
+      "text": "TaurusMediaTechnik is a German business organized as a GmbH, headquartered in Unterföhring."
+    },
+    {
+      "instance_id": 50,
+      "text": "Theo Vondano was a German politician from the Christian Democratic Union who served as a Member of the Landtag of Rhineland-Palatinate in Mainz. Born and deceased in Kaiserslautern, he was honored with the Cross of the Order of Merit of the Federal Republic of Germany."
+    },
+    {
+      "instance_id": 51,
+      "text": "Gesundheit! Institute is a US-based business headquartered in Hillsboro."
+    },
+    {
+      "instance_id": 52,
+      "text": "Tohfa Mohabbat Ka is a Hindi-language film from India, featuring a cast that includes Hema Malini, Kimi Katkar, and Govinda, with music composed by Anup Jalota."
+    },
+    {
+      "instance_id": 53,
+      "text": "Seerestaurant Belvédère is a Michelin-starred restaurant located in Hergiswil, Switzerland."
+    },
+    {
+      "instance_id": 54,
+      "text": "The Baku Khanate was a historical absolute monarchy located in Eurasia, with its capital in Baku and governed by the Khan of the Baku Khanate."
+    },
+    {
+      "instance_id": 55,
+      "text": "The Evening Gazette is a daily newspaper owned by Reach plc."
+    },
+    {
+      "instance_id": 56,
+      "text": "Qilakitsoq - De grønlandske mumier is a Danish documentary film."
+    },
+    {
+      "instance_id": 57,
+      "text": "McClatchey Broadcasting is a privately held broadcasting enterprise based in Raleigh, United States."
+    },
+    {
+      "instance_id": 58,
+      "text": "Directed by Claude Boissol and shot by Roger Fellous, the French-language production 'Napoléon II l'Aiglon' features a cast including Jean Marais, Marianne Koch, and Sabine Sinjen."
+    },
+    {
+      "instance_id": 59,
+      "text": "Federico Orcajo Acuña is a male Uruguayan painter and writer."
+    },
+    {
+      "instance_id": 60,
+      "text": "Democratic Federal Yugoslavia was a historical sovereign state with its capital in Belgrade, governed by head of state Peter II and head of government Josip Broz Tito. A monarchy that shared a border with Albania, it utilized the Yugoslav dinar, recognized Serbo-Croatian as its official language, and was governed legislatively by the Anti-Fascist Council of the People's Liberation of Yugoslavia."
+    },
+    {
+      "instance_id": 61,
+      "text": "The Netherlands Antilles was a historical constitutional monarchy in the Caribbean and a country within the Kingdom of the Netherlands, featuring Papiamento as its official language and including Sint Eustatius as an administrative entity."
+    },
+    {
+      "instance_id": 62,
+      "text": "Elizabeth Rosalind Buxton is a female human."
+    },
+    {
+      "instance_id": 63,
+      "text": "Hubert de Tombeur is a male judge."
+    },
+    {
+      "instance_id": 64,
+      "text": "The Old Swan Inn is a Grade II listed pub and inn located in the United Kingdom, specifically within the City of Wolverhampton."
+    },
+    {
+      "instance_id": 65,
+      "text": "Kasuga Apiary is a business headquartered in Gifu Prefecture."
+    },
+    {
+      "instance_id": 66,
+      "text": "Rajpipla State was a historical princely state of the British Raj with its capital at Rajpipla."
+    },
+    {
+      "instance_id": 67,
+      "text": "The Canadian Centre for Studies in Publishing is a Canadian open-access publisher."
+    },
+    {
+      "instance_id": 68,
+      "text": "The Autonomous Albanian Republic of Korçë was a historical republic with its capital in Korçë."
+    },
+    {
+      "instance_id": 69,
+      "text": "The Angarrack Inn is a Grade II listed inn located in Hayle, United Kingdom."
+    },
+    {
+      "instance_id": 70,
+      "text": "'The Past-Master at the Seaside' is a film from the People's Republic of Bulgaria."
+    },
+    {
+      "instance_id": 71,
+      "text": "\"Where No One Knows Us\" is an Austrian film written by Arash T. Riahi and produced by Veit Heiduschka and Michael Katz, featuring a cast that includes Rainer Wöss, Christine Ostermayer, and Sonja Romei."
+    },
+    {
+      "instance_id": 72,
+      "text": "Henry J. Call is a male human."
+    },
+    {
+      "instance_id": 73,
+      "text": "Becky Wragg Sykes is a female archaeologist and writer who is a member of the TrowelBlazers."
+    },
+    {
+      "instance_id": 74,
+      "text": "The Kingdom of the Lombards was a historical European kingdom and elective monarchy based in Pavia, which used Latin as its official language, Vulgar Latin for daily communication, and the Tremissis as currency."
+    },
+    {
+      "instance_id": 75,
+      "text": "Lockende Sterne is a German black-and-white drama film directed by Hans Müller and set in Hamburg, featuring music by Friedrich Schröder and a FSK 12 rating."
+    },
+    {
+      "instance_id": 76,
+      "text": "Julian Patrick Lucas is a human male."
+    },
+    {
+      "instance_id": 77,
+      "text": "'Pork and Milk' is a French documentary film written and directed by Valérie Mréjen, featuring Hebrew as its original language and a 'no age restriction' rating in France."
+    },
+    {
+      "instance_id": 78,
+      "text": "'A False Suspicion' is a public domain American silent short drama produced by Essanay Studios, featuring a cast that includes Francis X. Bushman, Bryant Washburn, Dorothy Phillips, and Dolores Cassinelli."
+    },
+    {
+      "instance_id": 79,
+      "text": "Petru Tămăian was a Romanian priest who participated in the Great National Assembly of Alba Iulia."
+    },
+    {
+      "instance_id": 80,
+      "text": "The Hausa Kingdoms were historical countries located in Africa."
+    },
+    {
+      "instance_id": 81,
+      "text": "Sébastien Populaire is a French engineer and politician who serves as the Mayor and municipal councillor of Touillon-et-Loutelet."
+    },
+    {
+      "instance_id": 82,
+      "text": "Terminal Virus is an English-language post-apocalyptic film from the United States, produced by Roger Corman, distributed by New Concorde, and starring James Brolin."
+    },
+    {
+      "instance_id": 83,
+      "text": "Jan František Štyvar was a male writer and parson born in Příbor who died by homicide in Uherský Brod."
+    },
+    {
+      "instance_id": 84,
+      "text": "Based on the Brockhaus and Efron Encyclopedic Dictionary, Francia replaced Germania Secunda, utilizing Latin and Frankish as languages and adhering to Christianity via the Catholic Church; its capitals included Aachen and Tournai."
+    },
+    {
+      "instance_id": 85,
+      "text": "Dʿmt was a historical monarchy and kingdom located in Africa, with its capital at Yeha."
+    },
+    {
+      "instance_id": 86,
+      "text": "Directed by Charles Brabin and produced by Edison Studios, 'A Concerto for the Violin' is a public domain black-and-white short film from the United States with a 3:1 aspect ratio."
+    },
+    {
+      "instance_id": 87,
+      "text": "Sui was an ancient Chinese state."
+    },
+    {
+      "instance_id": 88,
+      "text": "HSBC (Midland Bank) is a Grade II listed bank building located in the Vale of Glamorgan, United Kingdom."
+    },
+    {
+      "instance_id": 89,
+      "text": "Champaner is a village and historical country located in Halol Taluka, India, within time zone 30."
+    },
+    {
+      "instance_id": 90,
+      "text": "Unión Aérea Española is a Spanish transport company."
+    },
+    {
+      "instance_id": 91,
+      "text": "Fonko is a documentary film directed and edited by Göran Olsson, Lars Lovén, and Lamin Daniel Jadama."
+    },
+    {
+      "instance_id": 92,
+      "text": "Western Chu was a historical country headed by Xiang Yu."
+    },
+    {
+      "instance_id": 93,
+      "text": "Mikel Mendizabal is a male Spanish bertsolari from Itsasondo who speaks Basque."
+    },
+    {
+      "instance_id": 94,
+      "text": "Le K Benzema is a French-language documentary television film about Karim Benzema, originally broadcast on Canal+ in France."
+    },
+    {
+      "instance_id": 95,
+      "text": "Vincent Manago was a French male painter associated with the Orientalism movement, born in Catania and educated at the Académie Julian, who died in Paris."
+    },
+    {
+      "instance_id": 96,
+      "text": "Oxborrows Hotel is a Grade II listed hotel located in Ipswich, United Kingdom."
+    },
+    {
+      "instance_id": 97,
+      "text": "Gilbert Sissons was a male minister educated at Pembroke College."
+    },
+    {
+      "instance_id": 98,
+      "text": "The kerajaan Pananjung was a historical country located in Pangandaran, West Java."
+    },
+    {
+      "instance_id": 99,
+      "text": "Keith Joubert is a South African male explorer and painter."
+    }
+  ],
+  "triples_by_instance": [
+    {
+      "instance_id": 0,
+      "triples": [
+        {
+          "subject": "Vanuatu",
+          "predicate": "member of",
+          "object": "UNESCO"
+        },
+        {
+          "subject": "Vanuatu",
+          "predicate": "capital",
+          "object": "Port Vila"
+        },
+        {
+          "subject": "Vanuatu",
+          "predicate": "head of government",
+          "object": "Charlot Salwai"
+        },
+        {
+          "subject": "Vanuatu",
+          "predicate": "language",
+          "object": "Letemboi"
+        },
+        {
+          "subject": "Vanuatu",
+          "predicate": "language",
+          "object": "Litzlitz"
+        },
+        {
+          "subject": "Vanuatu",
+          "predicate": "language",
+          "object": "Port Sandwich"
+        },
+        {
+          "subject": "Vanuatu",
+          "predicate": "language",
+          "object": "Maragus"
+        },
+        {
+          "subject": "Vanuatu",
+          "predicate": "language",
+          "object": "West Ambae"
+        },
+        {
+          "subject": "Vanuatu",
+          "predicate": "language",
+          "object": "Polonombauk"
+        }
+      ]
+    },
+    {
+      "instance_id": 1,
+      "triples": [
+        {
+          "subject": "Lay the Favorite",
+          "predicate": "genre",
+          "object": "comedy"
+        },
+        {
+          "subject": "Lay the Favorite",
+          "predicate": "distributed by",
+          "object": "Cheetah Vision"
+        },
+        {
+          "subject": "Lay the Favorite",
+          "predicate": "cast member",
+          "object": "Joshua Jackson"
+        },
+        {
+          "subject": "Lay the Favorite",
+          "predicate": "cast member",
+          "object": "Laura Prepon"
+        },
+        {
+          "subject": "Lay the Favorite",
+          "predicate": "filming location",
+          "object": "Las Vegas Valley"
+        },
+        {
+          "subject": "Lay the Favorite",
+          "predicate": "setting",
+          "object": "Las Vegas"
+        },
+        {
+          "subject": "Lay the Favorite",
+          "predicate": "setting",
+          "object": "New York"
+        },
+        {
+          "subject": "Lay the Favorite",
+          "predicate": "content rating",
+          "object": "not recommended for children under 12"
+        }
+      ]
+    },
+    {
+      "instance_id": 2,
+      "triples": [
+        {
+          "subject": "Duchy of Savoy",
+          "predicate": "instance of",
+          "object": "sovereign state"
+        },
+        {
+          "subject": "Duchy of Savoy",
+          "predicate": "located in",
+          "object": "Holy Roman Empire"
+        },
+        {
+          "subject": "Duchy of Savoy",
+          "predicate": "capital",
+          "object": "Turin"
+        },
+        {
+          "subject": "Duchy of Savoy",
+          "predicate": "language",
+          "object": "French"
+        },
+        {
+          "subject": "Duchy of Savoy",
+          "predicate": "language",
+          "object": "Latin"
+        },
+        {
+          "subject": "Duchy of Savoy",
+          "predicate": "language",
+          "object": "Franco-Provençal"
+        }
+      ]
+    },
+    {
+      "instance_id": 3,
+      "triples": [
+        {
+          "subject": "Drishyam",
+          "predicate": "genre",
+          "object": "drama film"
+        },
+        {
+          "subject": "Drishyam",
+          "predicate": "language",
+          "object": "Malayalam"
+        },
+        {
+          "subject": "Drishyam",
+          "predicate": "setting",
+          "object": "India"
+        },
+        {
+          "subject": "Drishyam",
+          "predicate": "directed by",
+          "object": "Nishikant Kamat"
+        },
+        {
+          "subject": "Drishyam",
+          "predicate": "directed by",
+          "object": "Jeethu Joseph"
+        },
+        {
+          "subject": "Drishyam",
+          "predicate": "written by",
+          "object": "Jeethu Joseph"
+        },
+        {
+          "subject": "Drishyam",
+          "predicate": "music by",
+          "object": "Vishal Bhardwaj"
+        },
+        {
+          "subject": "Drishyam",
+          "predicate": "produced by",
+          "object": "Panorama Studios"
+        }
+      ]
+    },
+    {
+      "instance_id": 4,
+      "triples": [
+        {
+          "subject": "Cirkus Fjollinski",
+          "predicate": "instance of",
+          "object": "film"
+        },
+        {
+          "subject": "Cirkus Fjollinski",
+          "predicate": "genre",
+          "object": "silent comedy"
+        },
+        {
+          "subject": "Cirkus Fjollinski",
+          "predicate": "directed by",
+          "object": "Victor Bergdahl"
+        },
+        {
+          "subject": "Cirkus Fjollinski",
+          "predicate": "distributed by",
+          "object": "Svenska Biografteatern"
+        },
+        {
+          "subject": "Cirkus Fjollinski",
+          "predicate": "country of origin",
+          "object": "Sweden"
+        }
+      ]
+    },
+    {
+      "instance_id": 5,
+      "triples": [
+        {
+          "subject": "Anne One Hundred",
+          "predicate": "instance of",
+          "object": "film"
+        },
+        {
+          "subject": "Anne One Hundred",
+          "predicate": "genre",
+          "object": "drama"
+        },
+        {
+          "subject": "Anne One Hundred",
+          "predicate": "directed by",
+          "object": "Henry Edwards"
+        },
+        {
+          "subject": "Anne One Hundred",
+          "predicate": "written by",
+          "object": "Sewell Collins"
+        },
+        {
+          "subject": "Anne One Hundred",
+          "predicate": "cast member",
+          "object": "Betty Stockfeld"
+        },
+        {
+          "subject": "Anne One Hundred",
+          "predicate": "distributed by",
+          "object": "Paramount Pictures"
+        },
+        {
+          "subject": "Anne One Hundred",
+          "predicate": "country of origin",
+          "object": "United Kingdom"
+        }
+      ]
+    },
+    {
+      "instance_id": 6,
+      "triples": [
+        {
+          "subject": "Povilas Šilas",
+          "predicate": "occupation",
+          "object": "police officer"
+        }
+      ]
+    },
+    {
+      "instance_id": 7,
+      "triples": [
+        {
+          "subject": "Anzengruberstüberl des ehem. Gasthauses Anzengruberhof",
+          "predicate": "instance of",
+          "object": "gasthaus"
+        },
+        {
+          "subject": "Anzengruberstüberl des ehem. Gasthauses Anzengruberhof",
+          "predicate": "heritage status",
+          "object": "heritage-protected"
+        },
+        {
+          "subject": "Anzengruberstüberl des ehem. Gasthauses Anzengruberhof",
+          "predicate": "located in",
+          "object": "Wolkersdorf im Weinviertel"
+        },
+        {
+          "subject": "Anzengruberstüberl des ehem. Gasthauses Anzengruberhof",
+          "predicate": "located in",
+          "object": "Austria"
+        }
+      ]
+    },
+    {
+      "instance_id": 8,
+      "triples": [
+        {
+          "subject": "Yang Pengnan",
+          "predicate": "citizenship",
+          "object": "Yuan Empire"
+        }
+      ]
+    },
+    {
+      "instance_id": 9,
+      "triples": [
+        {
+          "subject": "Kingdom of Janjero",
+          "predicate": "instance of",
+          "object": "sovereign state"
+        },
+        {
+          "subject": "Kingdom of Janjero",
+          "predicate": "capital",
+          "object": "Fofa"
+        },
+        {
+          "subject": "Kingdom of Janjero",
+          "predicate": "located in",
+          "object": "Ethiopia"
+        }
+      ]
+    },
+    {
+      "instance_id": 10,
+      "triples": [
+        {
+          "subject": "OctetString",
+          "predicate": "instance of",
+          "object": "business"
+        },
+        {
+          "subject": "OctetString",
+          "predicate": "located in",
+          "object": "United States"
+        },
+        {
+          "subject": "OctetString",
+          "predicate": "industry",
+          "object": "software"
+        },
+        {
+          "subject": "OctetString",
+          "predicate": "competitor",
+          "object": "Oracle Corporation"
+        }
+      ]
+    },
+    {
+      "instance_id": 11,
+      "triples": [
+        {
+          "subject": "Arab Kingdom of Syria",
+          "predicate": "instance of",
+          "object": "constitutional monarchy"
+        },
+        {
+          "subject": "Arab Kingdom of Syria",
+          "predicate": "located in",
+          "object": "Asia"
+        },
+        {
+          "subject": "Arab Kingdom of Syria",
+          "predicate": "headquarters location",
+          "object": "Damascus"
+        },
+        {
+          "subject": "Arab Kingdom of Syria",
+          "predicate": "head of state",
+          "object": "Faisal I of Iraq"
+        },
+        {
+          "subject": "Arab Kingdom of Syria",
+          "predicate": "language",
+          "object": "Arabic"
+        }
+      ]
+    },
+    {
+      "instance_id": 12,
+      "triples": [
+        {
+          "subject": "Vermont Republic",
+          "predicate": "language",
+          "object": "English"
+        },
+        {
+          "subject": "Vermont Republic",
+          "predicate": "participant in",
+          "object": "American Revolutionary War"
+        },
+        {
+          "subject": "Vermont Republic",
+          "predicate": "capital",
+          "object": "Windsor"
+        }
+      ]
+    },
+    {
+      "instance_id": 13,
+      "triples": [
+        {
+          "subject": "iMoney.my",
+          "predicate": "instance of",
+          "object": "business"
+        },
+        {
+          "subject": "iMoney.my",
+          "predicate": "industry",
+          "object": "financial services"
+        },
+        {
+          "subject": "iMoney.my",
+          "predicate": "headquarters location",
+          "object": "Kuala Lumpur"
+        }
+      ]
+    },
+    {
+      "instance_id": 14,
+      "triples": [
+        {
+          "subject": "Matri-Phony",
+          "predicate": "instance of",
+          "object": "film"
+        },
+        {
+          "subject": "Matri-Phony",
+          "predicate": "language",
+          "object": "English"
+        },
+        {
+          "subject": "Matri-Phony",
+          "predicate": "directed by",
+          "object": "Harry Edwards"
+        },
+        {
+          "subject": "Matri-Phony",
+          "predicate": "edited by",
+          "object": "Paul Borofsky"
+        },
+        {
+          "subject": "Matri-Phony",
+          "predicate": "cast member",
+          "object": "Larry Fine"
+        },
+        {
+          "subject": "Matri-Phony",
+          "predicate": "cast member",
+          "object": "Marjorie Deanne"
+        },
+        {
+          "subject": "Matri-Phony",
+          "predicate": "cast member",
+          "object": "Monte Collins"
+        },
+        {
+          "subject": "Matri-Phony",
+          "predicate": "cast member",
+          "object": "Max Wagner"
+        },
+        {
+          "subject": "Matri-Phony",
+          "predicate": "cast member",
+          "object": "Eddy Chandler"
+        }
+      ]
+    },
+    {
+      "instance_id": 15,
+      "triples": [
+        {
+          "subject": "Eine Robbe zum Verlieben",
+          "predicate": "instance of",
+          "object": "television film"
+        },
+        {
+          "subject": "Eine Robbe zum Verlieben",
+          "predicate": "language",
+          "object": "German"
+        },
+        {
+          "subject": "Eine Robbe zum Verlieben",
+          "predicate": "written by",
+          "object": "Christos Yiannopoulos"
+        },
+        {
+          "subject": "Eine Robbe zum Verlieben",
+          "predicate": "music by",
+          "object": "Robert Schulte-Hemming"
+        }
+      ]
+    },
+    {
+      "instance_id": 16,
+      "triples": [
+        {
+          "subject": "Gayniggers from Outer Space",
+          "predicate": "instance of",
+          "object": "film"
+        },
+        {
+          "subject": "Gayniggers from Outer Space",
+          "predicate": "genre",
+          "object": "science fiction"
+        },
+        {
+          "subject": "Gayniggers from Outer Space",
+          "predicate": "genre",
+          "object": "comedy"
+        },
+        {
+          "subject": "Gayniggers from Outer Space",
+          "predicate": "genre",
+          "object": "parody"
+        },
+        {
+          "subject": "Gayniggers from Outer Space",
+          "predicate": "country of origin",
+          "object": "Denmark"
+        },
+        {
+          "subject": "Gayniggers from Outer Space",
+          "predicate": "directed by",
+          "object": "Per Kristensen"
+        },
+        {
+          "subject": "Gayniggers from Outer Space",
+          "predicate": "directed by",
+          "object": "Morten Lindberg"
+        },
+        {
+          "subject": "Gayniggers from Outer Space",
+          "predicate": "written by",
+          "object": "Morten Lindberg"
+        }
+      ]
+    },
+    {
+      "instance_id": 17,
+      "triples": [
+        {
+          "subject": "Emirate of Dhala",
+          "predicate": "instance of",
+          "object": "emirate"
+        },
+        {
+          "subject": "Emirate of Dhala",
+          "predicate": "capital",
+          "object": "Ad Dali'"
+        }
+      ]
+    },
+    {
+      "instance_id": 18,
+      "triples": [
+        {
+          "subject": "Chris Ekiyor",
+          "predicate": "citizenship",
+          "object": "Nigeria"
+        },
+        {
+          "subject": "Chris Ekiyor",
+          "predicate": "occupation",
+          "object": "politician"
+        },
+        {
+          "subject": "Chris Ekiyor",
+          "predicate": "occupation",
+          "object": "dentist"
+        }
+      ]
+    },
+    {
+      "instance_id": 19,
+      "triples": [
+        {
+          "subject": "Bonai State",
+          "predicate": "instance of",
+          "object": "country"
+        },
+        {
+          "subject": "Bonai State",
+          "predicate": "instance of",
+          "object": "princely state"
+        },
+        {
+          "subject": "Bonai State",
+          "predicate": "member of",
+          "object": "British Raj"
+        }
+      ]
+    },
+    {
+      "instance_id": 20,
+      "triples": [
+        {
+          "subject": "Forlagshuset Vigmostad & Bjørke",
+          "predicate": "instance of",
+          "object": "publisher"
+        },
+        {
+          "subject": "Forlagshuset Vigmostad & Bjørke",
+          "predicate": "located in",
+          "object": "Norway"
+        }
+      ]
+    },
+    {
+      "instance_id": 21,
+      "triples": [
+        {
+          "subject": "We Are Human After All",
+          "predicate": "instance of",
+          "object": "short film"
+        },
+        {
+          "subject": "We Are Human After All",
+          "predicate": "country of origin",
+          "object": "Denmark"
+        },
+        {
+          "subject": "We Are Human After All",
+          "predicate": "cast member",
+          "object": "Youssef Wayne Hvidtfeldt"
+        }
+      ]
+    },
+    {
+      "instance_id": 22,
+      "triples": [
+        {
+          "subject": "The Iron Ring",
+          "predicate": "instance of",
+          "object": "silent film"
+        },
+        {
+          "subject": "The Iron Ring",
+          "predicate": "country of origin",
+          "object": "United States"
+        },
+        {
+          "subject": "The Iron Ring",
+          "predicate": "directed by",
+          "object": "George Archainbaud"
+        }
+      ]
+    },
+    {
+      "instance_id": 23,
+      "triples": [
+        {
+          "subject": "Portrait of Jason",
+          "predicate": "instance of",
+          "object": "film"
+        },
+        {
+          "subject": "Portrait of Jason",
+          "predicate": "language",
+          "object": "English"
+        },
+        {
+          "subject": "Portrait of Jason",
+          "predicate": "genre",
+          "object": "LGBT-related film"
+        },
+        {
+          "subject": "Portrait of Jason",
+          "predicate": "directed by",
+          "object": "Shirley Clarke"
+        },
+        {
+          "subject": "Portrait of Jason",
+          "predicate": "edited by",
+          "object": "Shirley Clarke"
+        },
+        {
+          "subject": "Portrait of Jason",
+          "predicate": "cast member",
+          "object": "Carl Lee"
+        },
+        {
+          "subject": "Portrait of Jason",
+          "predicate": "cast member",
+          "object": "Shirley Clarke"
+        },
+        {
+          "subject": "Portrait of Jason",
+          "predicate": "distributed by",
+          "object": "Milestone Films"
+        }
+      ]
+    },
+    {
+      "instance_id": 24,
+      "triples": [
+        {
+          "subject": "Southern Qi",
+          "predicate": "instance of",
+          "object": "dynasty"
+        },
+        {
+          "subject": "Southern Qi",
+          "predicate": "located in",
+          "object": "Asia"
+        },
+        {
+          "subject": "Southern Qi",
+          "predicate": "capital",
+          "object": "Jiankang"
+        }
+      ]
+    },
+    {
+      "instance_id": 25,
+      "triples": [
+        {
+          "subject": "The Legend of Frenchie King",
+          "predicate": "music by",
+          "object": "Francis Lai"
+        },
+        {
+          "subject": "The Legend of Frenchie King",
+          "predicate": "cast member",
+          "object": "Michael J. Pollard"
+        },
+        {
+          "subject": "The Legend of Frenchie King",
+          "predicate": "cast member",
+          "object": "Micheline Presle"
+        },
+        {
+          "subject": "The Legend of Frenchie King",
+          "predicate": "cast member",
+          "object": "Teresa Rabal"
+        }
+      ]
+    },
+    {
+      "instance_id": 26,
+      "triples": [
+        {
+          "subject": "Black Deep Throat",
+          "predicate": "instance of",
+          "object": "film"
+        },
+        {
+          "subject": "Black Deep Throat",
+          "predicate": "genre",
+          "object": "erotic film"
+        },
+        {
+          "subject": "Black Deep Throat",
+          "predicate": "country of origin",
+          "object": "Italy"
+        },
+        {
+          "subject": "Black Deep Throat",
+          "predicate": "directed by",
+          "object": "Guido Zurli"
+        },
+        {
+          "subject": "Black Deep Throat",
+          "predicate": "written by",
+          "object": "Vito Bruschini"
+        },
+        {
+          "subject": "Black Deep Throat",
+          "predicate": "cast member",
+          "object": "Attilio Dottesio"
+        },
+        {
+          "subject": "Black Deep Throat",
+          "predicate": "cast member",
+          "object": "Ivano Staccioli"
+        },
+        {
+          "subject": "Black Deep Throat",
+          "predicate": "cast member",
+          "object": "Ajita Wilson"
+        }
+      ]
+    },
+    {
+      "instance_id": 27,
+      "triples": [
+        {
+          "subject": "Herman Rottger",
+          "predicate": "instance of",
+          "object": "human"
+        },
+        {
+          "subject": "Herman Rottger",
+          "predicate": "occupation",
+          "object": "actor"
+        },
+        {
+          "subject": "Herman Rottger",
+          "predicate": "citizenship",
+          "object": "United States"
+        },
+        {
+          "subject": "Herman Rottger",
+          "predicate": "place of birth",
+          "object": "New York City"
+        },
+        {
+          "subject": "Herman Rottger",
+          "predicate": "participant in",
+          "object": "World War I"
+        }
+      ]
+    },
+    {
+      "instance_id": 28,
+      "triples": [
+        {
+          "subject": "Roter Tod",
+          "predicate": "language",
+          "object": "German"
+        },
+        {
+          "subject": "Roter Tod",
+          "predicate": "produced by",
+          "object": "Maran Film GmbH"
+        },
+        {
+          "subject": "Roter Tod",
+          "predicate": "edited by",
+          "object": "Olga Barthel"
+        },
+        {
+          "subject": "Roter Tod",
+          "predicate": "cast member",
+          "object": "Sesede Terziyan"
+        },
+        {
+          "subject": "Roter Tod",
+          "predicate": "cast member",
+          "object": "Ulrike Folkerts"
+        },
+        {
+          "subject": "Roter Tod",
+          "predicate": "cast member",
+          "object": "Andreas Hoppe"
+        }
+      ]
+    },
+    {
+      "instance_id": 29,
+      "triples": [
+        {
+          "subject": "Christian Friedrich Schultz",
+          "predicate": "occupation",
+          "object": "military officer"
+        },
+        {
+          "subject": "Christian Friedrich Schultz",
+          "predicate": "occupation",
+          "object": "diplomat"
+        },
+        {
+          "subject": "Christian Friedrich Schultz",
+          "predicate": "military unit",
+          "object": "Husarenregiment"
+        },
+        {
+          "subject": "Christian Friedrich Schultz",
+          "predicate": "award received",
+          "object": "Hanoverian Waterloo Medal"
+        },
+        {
+          "subject": "Christian Friedrich Schultz",
+          "predicate": "place of death",
+          "object": "Hanover"
+        },
+        {
+          "subject": "Christian Friedrich Schultz",
+          "predicate": "burial place",
+          "object": "Lent-Kaserne"
+        }
+      ]
+    },
+    {
+      "instance_id": 30,
+      "triples": [
+        {
+          "subject": "Wu Shi",
+          "predicate": "instance of",
+          "object": "human"
+        },
+        {
+          "subject": "Wu Shi",
+          "predicate": "spouse",
+          "object": "Zhou Jing"
+        }
+      ]
+    },
+    {
+      "instance_id": 31,
+      "triples": [
+        {
+          "subject": "Evraz",
+          "predicate": "instance of",
+          "object": "business"
+        },
+        {
+          "subject": "Evraz",
+          "predicate": "located in",
+          "object": "Russia"
+        }
+      ]
+    },
+    {
+      "instance_id": 32,
+      "triples": [
+        {
+          "subject": "League of Corinth",
+          "predicate": "instance of",
+          "object": "country"
+        },
+        {
+          "subject": "League of Corinth",
+          "predicate": "instance of",
+          "object": "koinon"
+        }
+      ]
+    },
+    {
+      "instance_id": 33,
+      "triples": [
+        {
+          "subject": "The First Brazilian Republic",
+          "predicate": "instance of",
+          "object": "republic"
+        },
+        {
+          "subject": "The First Brazilian Republic",
+          "predicate": "label",
+          "object": "República Velha"
+        },
+        {
+          "subject": "The First Brazilian Republic",
+          "predicate": "capital",
+          "object": "São Carlos"
+        },
+        {
+          "subject": "The First Brazilian Republic",
+          "predicate": "capital",
+          "object": "Rio de Janeiro"
+        },
+        {
+          "subject": "The First Brazilian Republic",
+          "predicate": "anthem",
+          "object": "Brazilian National Anthem"
+        }
+      ]
+    },
+    {
+      "instance_id": 34,
+      "triples": [
+        {
+          "subject": "Imtiaz Sifat",
+          "predicate": "instance of",
+          "object": "human"
+        },
+        {
+          "subject": "Imtiaz Sifat",
+          "predicate": "educated at",
+          "object": "International Islamic University Malaysia"
+        }
+      ]
+    },
+    {
+      "instance_id": 35,
+      "triples": [
+        {
+          "subject": "Uncle Bräsig",
+          "predicate": "directed by",
+          "object": "Erich Waschneck"
+        },
+        {
+          "subject": "Uncle Bräsig",
+          "predicate": "produced by",
+          "object": "Erich Waschneck"
+        },
+        {
+          "subject": "Uncle Bräsig",
+          "predicate": "distributed by",
+          "object": "Universum Film AG"
+        },
+        {
+          "subject": "Uncle Bräsig",
+          "predicate": "cast member",
+          "object": "Heinrich Schroth"
+        },
+        {
+          "subject": "Uncle Bräsig",
+          "predicate": "cast member",
+          "object": "Kristina Söderbaum"
+        },
+        {
+          "subject": "Uncle Bräsig",
+          "predicate": "cast member",
+          "object": "Elga Brink"
+        }
+      ]
+    },
+    {
+      "instance_id": 36,
+      "triples": [
+        {
+          "subject": "Memet Varol",
+          "predicate": "instance of",
+          "object": "human"
+        },
+        {
+          "subject": "Memet Varol",
+          "predicate": "educated at",
+          "object": "Fırat University"
+        },
+        {
+          "subject": "Memet Varol",
+          "predicate": "employer",
+          "object": "Malatya Turgut Özal University"
+        }
+      ]
+    },
+    {
+      "instance_id": 37,
+      "triples": [
+        {
+          "subject": "Producers Library Service",
+          "predicate": "instance of",
+          "object": "business"
+        },
+        {
+          "subject": "Producers Library Service",
+          "predicate": "headquarters location",
+          "object": "North Hollywood"
+        }
+      ]
+    },
+    {
+      "instance_id": 38,
+      "triples": [
+        {
+          "subject": "Novedades Acapulco",
+          "predicate": "instance of",
+          "object": "news website"
+        },
+        {
+          "subject": "Novedades Acapulco",
+          "predicate": "instance of",
+          "object": "newspaper"
+        },
+        {
+          "subject": "Novedades Acapulco",
+          "predicate": "language",
+          "object": "Spanish"
+        },
+        {
+          "subject": "Novedades Acapulco",
+          "predicate": "located in",
+          "object": "Mexico"
+        },
+        {
+          "subject": "Novedades Acapulco",
+          "predicate": "setting",
+          "object": "Guerrero"
+        }
+      ]
+    },
+    {
+      "instance_id": 39,
+      "triples": [
+        {
+          "subject": "Steel Frontier",
+          "predicate": "instance of",
+          "object": "film"
+        },
+        {
+          "subject": "Steel Frontier",
+          "predicate": "genre",
+          "object": "post-apocalyptic action Western"
+        },
+        {
+          "subject": "Steel Frontier",
+          "predicate": "country of origin",
+          "object": "United States"
+        },
+        {
+          "subject": "Steel Frontier",
+          "predicate": "distributed by",
+          "object": "Madacy Entertainment"
+        },
+        {
+          "subject": "Steel Frontier",
+          "predicate": "cast member",
+          "object": "Kane Hodder"
+        },
+        {
+          "subject": "Steel Frontier",
+          "predicate": "cast member",
+          "object": "Billy L. Sullivan"
+        },
+        {
+          "subject": "Steel Frontier",
+          "predicate": "cast member",
+          "object": "Gordon Benson"
+        }
+      ]
+    },
+    {
+      "instance_id": 40,
+      "triples": [
+        {
+          "subject": "Frances Elizabeth Blacklock",
+          "predicate": "instance of",
+          "object": "human"
+        }
+      ]
+    },
+    {
+      "instance_id": 41,
+      "triples": [
+        {
+          "subject": "Ireland",
+          "predicate": "instance of",
+          "object": "sovereign state"
+        },
+        {
+          "subject": "Ireland",
+          "predicate": "member of",
+          "object": "European Union"
+        },
+        {
+          "subject": "Ireland",
+          "predicate": "member of",
+          "object": "World Trade Organization"
+        },
+        {
+          "subject": "Ireland",
+          "predicate": "diplomatic relation",
+          "object": "Holy See"
+        },
+        {
+          "subject": "Ireland",
+          "predicate": "administrative territorial entity",
+          "object": "County Limerick"
+        },
+        {
+          "subject": "Ireland",
+          "predicate": "administrative territorial entity",
+          "object": "Meath"
+        },
+        {
+          "subject": "Ireland",
+          "predicate": "administrative territorial entity",
+          "object": "Kerry"
+        },
+        {
+          "subject": "Ireland",
+          "predicate": "language",
+          "object": "Irish Sign Language"
+        }
+      ]
+    },
+    {
+      "instance_id": 42,
+      "triples": [
+        {
+          "subject": "Sociedad Productora de Fuerzas Motrices",
+          "predicate": "instance of",
+          "object": "business"
+        },
+        {
+          "subject": "Sociedad Productora de Fuerzas Motrices",
+          "predicate": "located in",
+          "object": "Barcelona"
+        },
+        {
+          "subject": "Sociedad Productora de Fuerzas Motrices",
+          "predicate": "industry",
+          "object": "hydroelectric"
+        },
+        {
+          "subject": "Sociedad Productora de Fuerzas Motrices",
+          "predicate": "founder",
+          "object": "Emili Riu i Periquet"
+        },
+        {
+          "subject": "Sociedad Productora de Fuerzas Motrices",
+          "predicate": "located in",
+          "object": "Catalonia"
+        }
+      ]
+    },
+    {
+      "instance_id": 43,
+      "triples": [
+        {
+          "subject": "Sådan er søskende - Jennis storesøster",
+          "predicate": "instance of",
+          "object": "film"
+        },
+        {
+          "subject": "Sådan er søskende - Jennis storesøster",
+          "predicate": "language",
+          "object": "Danish"
+        },
+        {
+          "subject": "Sådan er søskende - Jennis storesøster",
+          "predicate": "directed by",
+          "object": "Max Kestner"
+        },
+        {
+          "subject": "Sådan er søskende - Jennis storesøster",
+          "predicate": "edited by",
+          "object": "Per K. Kirkegaard"
+        },
+        {
+          "subject": "Sådan er søskende - Jennis storesøster",
+          "predicate": "content rating",
+          "object": "general audience"
+        }
+      ]
+    },
+    {
+      "instance_id": 44,
+      "triples": [
+        {
+          "subject": "Ai que Vida!",
+          "predicate": "instance of",
+          "object": "film"
+        },
+        {
+          "subject": "Ai que Vida!",
+          "predicate": "genre",
+          "object": "comedy-drama"
+        },
+        {
+          "subject": "Ai que Vida!",
+          "predicate": "country of origin",
+          "object": "Brazil"
+        },
+        {
+          "subject": "Ai que Vida!",
+          "predicate": "directed by",
+          "object": "Cícero Filho"
+        },
+        {
+          "subject": "Ai que Vida!",
+          "predicate": "language",
+          "object": "Portuguese"
+        }
+      ]
+    },
+    {
+      "instance_id": 45,
+      "triples": [
+        {
+          "subject": "AT&T Corporation",
+          "predicate": "instance of",
+          "object": "business"
+        },
+        {
+          "subject": "AT&T Corporation",
+          "predicate": "located in",
+          "object": "United States"
+        },
+        {
+          "subject": "AT&T Corporation",
+          "predicate": "industry",
+          "object": "telecommunications"
+        },
+        {
+          "subject": "AT&T Corporation",
+          "predicate": "founder",
+          "object": "Alexander Graham Bell"
+        },
+        {
+          "subject": "AT&T Corporation",
+          "predicate": "headquarters location",
+          "object": "Bedminster"
+        },
+        {
+          "subject": "AT&T Corporation",
+          "predicate": "member of",
+          "object": "Wi-Fi Alliance"
+        }
+      ]
+    },
+    {
+      "instance_id": 46,
+      "triples": [
+        {
+          "subject": "Kinas kvinder bærer den halve himmel",
+          "predicate": "instance of",
+          "object": "documentary film"
+        },
+        {
+          "subject": "Kinas kvinder bærer den halve himmel",
+          "predicate": "language",
+          "object": "Danish"
+        }
+      ]
+    },
+    {
+      "instance_id": 47,
+      "triples": [
+        {
+          "subject": "Malawi",
+          "predicate": "member of",
+          "object": "African Union"
+        },
+        {
+          "subject": "Malawi",
+          "predicate": "member of",
+          "object": "WTO"
+        },
+        {
+          "subject": "Malawi",
+          "predicate": "member of",
+          "object": "ICSID"
+        },
+        {
+          "subject": "Malawi",
+          "predicate": "language",
+          "object": "Nyakyusa"
+        },
+        {
+          "subject": "Malawi",
+          "predicate": "language",
+          "object": "Nyika"
+        },
+        {
+          "subject": "Malawi",
+          "predicate": "anthem",
+          "object": "Mulungu dalitsa Malaŵi"
+        },
+        {
+          "subject": "Malawi",
+          "predicate": "lowest point",
+          "object": "Shire River"
+        }
+      ]
+    },
+    {
+      "instance_id": 48,
+      "triples": [
+        {
+          "subject": "Rivière aux cerises",
+          "predicate": "instance of",
+          "object": "film"
+        },
+        {
+          "subject": "Rivière aux cerises",
+          "predicate": "country of origin",
+          "object": "Canada"
+        },
+        {
+          "subject": "Rivière aux cerises",
+          "predicate": "directed by",
+          "object": "Chantal duPont"
+        }
+      ]
+    },
+    {
+      "instance_id": 49,
+      "triples": [
+        {
+          "subject": "TaurusMediaTechnik",
+          "predicate": "instance of",
+          "object": "business"
+        },
+        {
+          "subject": "TaurusMediaTechnik",
+          "predicate": "located in",
+          "object": "Germany"
+        },
+        {
+          "subject": "TaurusMediaTechnik",
+          "predicate": "headquarters location",
+          "object": "Unterföhring"
+        }
+      ]
+    },
+    {
+      "instance_id": 50,
+      "triples": [
+        {
+          "subject": "Theo Vondano",
+          "predicate": "occupation",
+          "object": "politician"
+        },
+        {
+          "subject": "Theo Vondano",
+          "predicate": "citizenship",
+          "object": "Germany"
+        },
+        {
+          "subject": "Theo Vondano",
+          "predicate": "member of",
+          "object": "Christian Democratic Union"
+        },
+        {
+          "subject": "Theo Vondano",
+          "predicate": "position held",
+          "object": "Member of the Landtag of Rhineland-Palatinate"
+        },
+        {
+          "subject": "Theo Vondano",
+          "predicate": "place of birth",
+          "object": "Kaiserslautern"
+        },
+        {
+          "subject": "Theo Vondano",
+          "predicate": "place of death",
+          "object": "Kaiserslautern"
+        },
+        {
+          "subject": "Theo Vondano",
+          "predicate": "award received",
+          "object": "Cross of the Order of Merit of the Federal Republic of Germany"
+        }
+      ]
+    },
+    {
+      "instance_id": 51,
+      "triples": [
+        {
+          "subject": "Gesundheit! Institute",
+          "predicate": "instance of",
+          "object": "business"
+        },
+        {
+          "subject": "Gesundheit! Institute",
+          "predicate": "located in",
+          "object": "United States"
+        },
+        {
+          "subject": "Gesundheit! Institute",
+          "predicate": "headquarters location",
+          "object": "Hillsboro"
+        }
+      ]
+    },
+    {
+      "instance_id": 52,
+      "triples": [
+        {
+          "subject": "Tohfa Mohabbat Ka",
+          "predicate": "instance of",
+          "object": "film"
+        },
+        {
+          "subject": "Tohfa Mohabbat Ka",
+          "predicate": "language",
+          "object": "Hindi"
+        },
+        {
+          "subject": "Tohfa Mohabbat Ka",
+          "predicate": "country of origin",
+          "object": "India"
+        },
+        {
+          "subject": "Tohfa Mohabbat Ka",
+          "predicate": "cast member",
+          "object": "Hema Malini"
+        },
+        {
+          "subject": "Tohfa Mohabbat Ka",
+          "predicate": "cast member",
+          "object": "Kimi Katkar"
+        },
+        {
+          "subject": "Tohfa Mohabbat Ka",
+          "predicate": "cast member",
+          "object": "Govinda"
+        },
+        {
+          "subject": "Tohfa Mohabbat Ka",
+          "predicate": "music by",
+          "object": "Anup Jalota"
+        }
+      ]
+    },
+    {
+      "instance_id": 53,
+      "triples": [
+        {
+          "subject": "Seerestaurant Belvédère",
+          "predicate": "instance of",
+          "object": "restaurant"
+        },
+        {
+          "subject": "Seerestaurant Belvédère",
+          "predicate": "located in",
+          "object": "Hergiswil"
+        },
+        {
+          "subject": "Seerestaurant Belvédère",
+          "predicate": "located in",
+          "object": "Switzerland"
+        }
+      ]
+    },
+    {
+      "instance_id": 54,
+      "triples": [
+        {
+          "subject": "Baku Khanate",
+          "predicate": "instance of",
+          "object": "absolute monarchy"
+        },
+        {
+          "subject": "Baku Khanate",
+          "predicate": "located in",
+          "object": "Eurasia"
+        },
+        {
+          "subject": "Baku Khanate",
+          "predicate": "capital",
+          "object": "Baku"
+        },
+        {
+          "subject": "Baku Khanate",
+          "predicate": "head of government",
+          "object": "Khan of the Baku Khanate"
+        }
+      ]
+    },
+    {
+      "instance_id": 55,
+      "triples": [
+        {
+          "subject": "The Evening Gazette",
+          "predicate": "owned by",
+          "object": "Reach plc"
+        }
+      ]
+    },
+    {
+      "instance_id": 56,
+      "triples": [
+        {
+          "subject": "Qilakitsoq - De grønlandske mumier",
+          "predicate": "instance of",
+          "object": "documentary film"
+        },
+        {
+          "subject": "Qilakitsoq - De grønlandske mumier",
+          "predicate": "country of origin",
+          "object": "Denmark"
+        }
+      ]
+    },
+    {
+      "instance_id": 57,
+      "triples": [
+        {
+          "subject": "McClatchey Broadcasting",
+          "predicate": "instance of",
+          "object": "business"
+        },
+        {
+          "subject": "McClatchey Broadcasting",
+          "predicate": "industry",
+          "object": "broadcasting"
+        },
+        {
+          "subject": "McClatchey Broadcasting",
+          "predicate": "located in",
+          "object": "Raleigh"
+        },
+        {
+          "subject": "McClatchey Broadcasting",
+          "predicate": "located in",
+          "object": "United States"
+        }
+      ]
+    },
+    {
+      "instance_id": 58,
+      "triples": [
+        {
+          "subject": "Napoléon II l'Aiglon",
+          "predicate": "directed by",
+          "object": "Claude Boissol"
+        },
+        {
+          "subject": "Napoléon II l'Aiglon",
+          "predicate": "language",
+          "object": "French"
+        },
+        {
+          "subject": "Napoléon II l'Aiglon",
+          "predicate": "cast member",
+          "object": "Jean Marais"
+        },
+        {
+          "subject": "Napoléon II l'Aiglon",
+          "predicate": "cast member",
+          "object": "Marianne Koch"
+        },
+        {
+          "subject": "Napoléon II l'Aiglon",
+          "predicate": "cast member",
+          "object": "Sabine Sinjen"
+        }
+      ]
+    },
+    {
+      "instance_id": 59,
+      "triples": [
+        {
+          "subject": "Federico Orcajo Acuña",
+          "predicate": "occupation",
+          "object": "painter"
+        },
+        {
+          "subject": "Federico Orcajo Acuña",
+          "predicate": "occupation",
+          "object": "writer"
+        },
+        {
+          "subject": "Federico Orcajo Acuña",
+          "predicate": "citizenship",
+          "object": "Uruguay"
+        }
+      ]
+    },
+    {
+      "instance_id": 60,
+      "triples": [
+        {
+          "subject": "Democratic Federal Yugoslavia",
+          "predicate": "instance of",
+          "object": "sovereign state"
+        },
+        {
+          "subject": "Democratic Federal Yugoslavia",
+          "predicate": "capital",
+          "object": "Belgrade"
+        },
+        {
+          "subject": "Democratic Federal Yugoslavia",
+          "predicate": "head of state",
+          "object": "Peter II"
+        },
+        {
+          "subject": "Democratic Federal Yugoslavia",
+          "predicate": "head of government",
+          "object": "Josip Broz Tito"
+        },
+        {
+          "subject": "Democratic Federal Yugoslavia",
+          "predicate": "bordering country",
+          "object": "Albania"
+        },
+        {
+          "subject": "Democratic Federal Yugoslavia",
+          "predicate": "currency",
+          "object": "Yugoslav dinar"
+        },
+        {
+          "subject": "Democratic Federal Yugoslavia",
+          "predicate": "language",
+          "object": "Serbo-Croatian"
+        },
+        {
+          "subject": "Democratic Federal Yugoslavia",
+          "predicate": "governing body",
+          "object": "Anti-Fascist Council of the People's Liberation of Yugoslavia"
+        }
+      ]
+    },
+    {
+      "instance_id": 61,
+      "triples": [
+        {
+          "subject": "Netherlands Antilles",
+          "predicate": "instance of",
+          "object": "constitutional monarchy"
+        },
+        {
+          "subject": "Netherlands Antilles",
+          "predicate": "located in",
+          "object": "Caribbean"
+        },
+        {
+          "subject": "Netherlands Antilles",
+          "predicate": "member of",
+          "object": "Kingdom of the Netherlands"
+        },
+        {
+          "subject": "Netherlands Antilles",
+          "predicate": "language",
+          "object": "Papiamento"
+        },
+        {
+          "subject": "Netherlands Antilles",
+          "predicate": "administrative territorial entity",
+          "object": "Sint Eustatius"
+        }
+      ]
+    },
+    {
+      "instance_id": 62,
+      "triples": [
+        {
+          "subject": "Elizabeth Rosalind Buxton",
+          "predicate": "instance of",
+          "object": "human"
+        }
+      ]
+    },
+    {
+      "instance_id": 63,
+      "triples": [
+        {
+          "subject": "Hubert de Tombeur",
+          "predicate": "occupation",
+          "object": "judge"
+        }
+      ]
+    },
+    {
+      "instance_id": 64,
+      "triples": [
+        {
+          "subject": "The Old Swan Inn",
+          "predicate": "instance of",
+          "object": "pub"
+        },
+        {
+          "subject": "The Old Swan Inn",
+          "predicate": "instance of",
+          "object": "inn"
+        },
+        {
+          "subject": "The Old Swan Inn",
+          "predicate": "located in",
+          "object": "United Kingdom"
+        },
+        {
+          "subject": "The Old Swan Inn",
+          "predicate": "located in",
+          "object": "City of Wolverhampton"
+        }
+      ]
+    },
+    {
+      "instance_id": 65,
+      "triples": [
+        {
+          "subject": "Kasuga Apiary",
+          "predicate": "instance of",
+          "object": "business"
+        },
+        {
+          "subject": "Kasuga Apiary",
+          "predicate": "headquarters location",
+          "object": "Gifu Prefecture"
+        }
+      ]
+    },
+    {
+      "instance_id": 66,
+      "triples": [
+        {
+          "subject": "Rajpipla State",
+          "predicate": "instance of",
+          "object": "princely state"
+        },
+        {
+          "subject": "Rajpipla State",
+          "predicate": "located in",
+          "object": "British Raj"
+        },
+        {
+          "subject": "Rajpipla State",
+          "predicate": "capital",
+          "object": "Rajpipla"
+        }
+      ]
+    },
+    {
+      "instance_id": 67,
+      "triples": [
+        {
+          "subject": "Canadian Centre for Studies in Publishing",
+          "predicate": "instance of",
+          "object": "publisher"
+        },
+        {
+          "subject": "Canadian Centre for Studies in Publishing",
+          "predicate": "located in",
+          "object": "Canada"
+        }
+      ]
+    },
+    {
+      "instance_id": 68,
+      "triples": [
+        {
+          "subject": "Autonomous Albanian Republic of Korçë",
+          "predicate": "instance of",
+          "object": "republic"
+        },
+        {
+          "subject": "Autonomous Albanian Republic of Korçë",
+          "predicate": "capital",
+          "object": "Korçë"
+        }
+      ]
+    },
+    {
+      "instance_id": 69,
+      "triples": [
+        {
+          "subject": "Angarrack Inn",
+          "predicate": "instance of",
+          "object": "inn"
+        },
+        {
+          "subject": "Angarrack Inn",
+          "predicate": "located in",
+          "object": "Hayle"
+        },
+        {
+          "subject": "Angarrack Inn",
+          "predicate": "located in",
+          "object": "United Kingdom"
+        },
+        {
+          "subject": "Angarrack Inn",
+          "predicate": "heritage status",
+          "object": "Grade II listed"
+        }
+      ]
+    },
+    {
+      "instance_id": 70,
+      "triples": [
+        {
+          "subject": "The Past-Master at the Seaside",
+          "predicate": "instance of",
+          "object": "film"
+        },
+        {
+          "subject": "The Past-Master at the Seaside",
+          "predicate": "country of origin",
+          "object": "People's Republic of Bulgaria"
+        }
+      ]
+    },
+    {
+      "instance_id": 71,
+      "triples": [
+        {
+          "subject": "Where No One Knows Us",
+          "predicate": "instance of",
+          "object": "film"
+        },
+        {
+          "subject": "Where No One Knows Us",
+          "predicate": "country of origin",
+          "object": "Austria"
+        },
+        {
+          "subject": "Where No One Knows Us",
+          "predicate": "written by",
+          "object": "Arash T. Riahi"
+        },
+        {
+          "subject": "Where No One Knows Us",
+          "predicate": "produced by",
+          "object": "Veit Heiduschka"
+        },
+        {
+          "subject": "Where No One Knows Us",
+          "predicate": "produced by",
+          "object": "Michael Katz"
+        },
+        {
+          "subject": "Where No One Knows Us",
+          "predicate": "cast member",
+          "object": "Rainer Wöss"
+        },
+        {
+          "subject": "Where No One Knows Us",
+          "predicate": "cast member",
+          "object": "Christine Ostermayer"
+        },
+        {
+          "subject": "Where No One Knows Us",
+          "predicate": "cast member",
+          "object": "Sonja Romei"
+        }
+      ]
+    },
+    {
+      "instance_id": 72,
+      "triples": [
+        {
+          "subject": "Henry J. Call",
+          "predicate": "instance of",
+          "object": "human"
+        }
+      ]
+    },
+    {
+      "instance_id": 73,
+      "triples": [
+        {
+          "subject": "Becky Wragg Sykes",
+          "predicate": "occupation",
+          "object": "archaeologist"
+        },
+        {
+          "subject": "Becky Wragg Sykes",
+          "predicate": "occupation",
+          "object": "writer"
+        },
+        {
+          "subject": "Becky Wragg Sykes",
+          "predicate": "member of",
+          "object": "TrowelBlazers"
+        }
+      ]
+    },
+    {
+      "instance_id": 74,
+      "triples": [
+        {
+          "subject": "Kingdom of the Lombards",
+          "predicate": "instance of",
+          "object": "sovereign state"
+        },
+        {
+          "subject": "Kingdom of the Lombards",
+          "predicate": "located in",
+          "object": "Pavia"
+        },
+        {
+          "subject": "Kingdom of the Lombards",
+          "predicate": "language",
+          "object": "Latin"
+        },
+        {
+          "subject": "Kingdom of the Lombards",
+          "predicate": "language",
+          "object": "Vulgar Latin"
+        },
+        {
+          "subject": "Kingdom of the Lombards",
+          "predicate": "currency",
+          "object": "Tremissis"
+        }
+      ]
+    },
+    {
+      "instance_id": 75,
+      "triples": [
+        {
+          "subject": "Lockende Sterne",
+          "predicate": "instance of",
+          "object": "film"
+        },
+        {
+          "subject": "Lockende Sterne",
+          "predicate": "genre",
+          "object": "drama"
+        },
+        {
+          "subject": "Lockende Sterne",
+          "predicate": "directed by",
+          "object": "Hans Müller"
+        },
+        {
+          "subject": "Lockende Sterne",
+          "predicate": "setting",
+          "object": "Hamburg"
+        },
+        {
+          "subject": "Lockende Sterne",
+          "predicate": "music by",
+          "object": "Friedrich Schröder"
+        },
+        {
+          "subject": "Lockende Sterne",
+          "predicate": "content rating",
+          "object": "FSK 12"
+        }
+      ]
+    },
+    {
+      "instance_id": 76,
+      "triples": [
+        {
+          "subject": "Julian Patrick Lucas",
+          "predicate": "instance of",
+          "object": "human"
+        }
+      ]
+    },
+    {
+      "instance_id": 77,
+      "triples": [
+        {
+          "subject": "Pork and Milk",
+          "predicate": "genre",
+          "object": "documentary film"
+        },
+        {
+          "subject": "Pork and Milk",
+          "predicate": "country of origin",
+          "object": "France"
+        },
+        {
+          "subject": "Pork and Milk",
+          "predicate": "written by",
+          "object": "Valérie Mréjen"
+        },
+        {
+          "subject": "Pork and Milk",
+          "predicate": "directed by",
+          "object": "Valérie Mréjen"
+        },
+        {
+          "subject": "Pork and Milk",
+          "predicate": "language",
+          "object": "Hebrew"
+        },
+        {
+          "subject": "Pork and Milk",
+          "predicate": "content rating",
+          "object": "no age restriction"
+        }
+      ]
+    },
+    {
+      "instance_id": 78,
+      "triples": [
+        {
+          "subject": "A False Suspicion",
+          "predicate": "instance of",
+          "object": "silent short drama"
+        },
+        {
+          "subject": "A False Suspicion",
+          "predicate": "country of origin",
+          "object": "United States"
+        },
+        {
+          "subject": "A False Suspicion",
+          "predicate": "genre",
+          "object": "drama"
+        },
+        {
+          "subject": "A False Suspicion",
+          "predicate": "produced by",
+          "object": "Essanay Studios"
+        },
+        {
+          "subject": "A False Suspicion",
+          "predicate": "cast member",
+          "object": "Francis X. Bushman"
+        },
+        {
+          "subject": "A False Suspicion",
+          "predicate": "cast member",
+          "object": "Bryant Washburn"
+        },
+        {
+          "subject": "A False Suspicion",
+          "predicate": "cast member",
+          "object": "Dorothy Phillips"
+        },
+        {
+          "subject": "A False Suspicion",
+          "predicate": "cast member",
+          "object": "Dolores Cassinelli"
+        }
+      ]
+    },
+    {
+      "instance_id": 79,
+      "triples": [
+        {
+          "subject": "Petru Tămăian",
+          "predicate": "occupation",
+          "object": "priest"
+        },
+        {
+          "subject": "Petru Tămăian",
+          "predicate": "citizenship",
+          "object": "Romania"
+        },
+        {
+          "subject": "Petru Tămăian",
+          "predicate": "participant in",
+          "object": "Great National Assembly of Alba Iulia"
+        }
+      ]
+    },
+    {
+      "instance_id": 80,
+      "triples": [
+        {
+          "subject": "Hausa Kingdoms",
+          "predicate": "instance of",
+          "object": "country"
+        },
+        {
+          "subject": "Hausa Kingdoms",
+          "predicate": "located in",
+          "object": "Africa"
+        }
+      ]
+    },
+    {
+      "instance_id": 81,
+      "triples": [
+        {
+          "subject": "Sébastien Populaire",
+          "predicate": "occupation",
+          "object": "engineer"
+        },
+        {
+          "subject": "Sébastien Populaire",
+          "predicate": "occupation",
+          "object": "politician"
+        },
+        {
+          "subject": "Sébastien Populaire",
+          "predicate": "citizenship",
+          "object": "France"
+        },
+        {
+          "subject": "Sébastien Populaire",
+          "predicate": "position held",
+          "object": "Mayor of Touillon-et-Loutelet"
+        },
+        {
+          "subject": "Sébastien Populaire",
+          "predicate": "position held",
+          "object": "municipal councillor of Touillon-et-Loutelet"
+        }
+      ]
+    },
+    {
+      "instance_id": 82,
+      "triples": [
+        {
+          "subject": "Terminal Virus",
+          "predicate": "instance of",
+          "object": "film"
+        },
+        {
+          "subject": "Terminal Virus",
+          "predicate": "language",
+          "object": "English"
+        },
+        {
+          "subject": "Terminal Virus",
+          "predicate": "genre",
+          "object": "post-apocalyptic"
+        },
+        {
+          "subject": "Terminal Virus",
+          "predicate": "country of origin",
+          "object": "United States"
+        },
+        {
+          "subject": "Terminal Virus",
+          "predicate": "produced by",
+          "object": "Roger Corman"
+        },
+        {
+          "subject": "Terminal Virus",
+          "predicate": "distributed by",
+          "object": "New Concorde"
+        },
+        {
+          "subject": "Terminal Virus",
+          "predicate": "cast member",
+          "object": "James Brolin"
+        }
+      ]
+    },
+    {
+      "instance_id": 83,
+      "triples": [
+        {
+          "subject": "Jan František Štyvar",
+          "predicate": "occupation",
+          "object": "writer"
+        },
+        {
+          "subject": "Jan František Štyvar",
+          "predicate": "occupation",
+          "object": "parson"
+        },
+        {
+          "subject": "Jan František Štyvar",
+          "predicate": "place of birth",
+          "object": "Příbor"
+        },
+        {
+          "subject": "Jan František Štyvar",
+          "predicate": "place of death",
+          "object": "Uherský Brod"
+        }
+      ]
+    },
+    {
+      "instance_id": 84,
+      "triples": [
+        {
+          "subject": "Francia",
+          "predicate": "language",
+          "object": "Latin"
+        },
+        {
+          "subject": "Francia",
+          "predicate": "language",
+          "object": "Frankish"
+        },
+        {
+          "subject": "Francia",
+          "predicate": "capital",
+          "object": "Aachen"
+        },
+        {
+          "subject": "Francia",
+          "predicate": "capital",
+          "object": "Tournai"
+        }
+      ]
+    },
+    {
+      "instance_id": 85,
+      "triples": [
+        {
+          "subject": "Dʿmt",
+          "predicate": "instance of",
+          "object": "monarchy"
+        },
+        {
+          "subject": "Dʿmt",
+          "predicate": "instance of",
+          "object": "kingdom"
+        },
+        {
+          "subject": "Dʿmt",
+          "predicate": "located in",
+          "object": "Africa"
+        },
+        {
+          "subject": "Dʿmt",
+          "predicate": "capital",
+          "object": "Yeha"
+        }
+      ]
+    },
+    {
+      "instance_id": 86,
+      "triples": [
+        {
+          "subject": "A Concerto for the Violin",
+          "predicate": "directed by",
+          "object": "Charles Brabin"
+        },
+        {
+          "subject": "A Concerto for the Violin",
+          "predicate": "produced by",
+          "object": "Edison Studios"
+        },
+        {
+          "subject": "A Concerto for the Violin",
+          "predicate": "instance of",
+          "object": "short film"
+        },
+        {
+          "subject": "A Concerto for the Violin",
+          "predicate": "country of origin",
+          "object": "United States"
+        }
+      ]
+    },
+    {
+      "instance_id": 87,
+      "triples": [
+        {
+          "subject": "Sui",
+          "predicate": "instance of",
+          "object": "state"
+        },
+        {
+          "subject": "Sui",
+          "predicate": "located in",
+          "object": "China"
+        }
+      ]
+    },
+    {
+      "instance_id": 88,
+      "triples": [
+        {
+          "subject": "HSBC (Midland Bank)",
+          "predicate": "instance of",
+          "object": "bank building"
+        },
+        {
+          "subject": "HSBC (Midland Bank)",
+          "predicate": "located in",
+          "object": "Vale of Glamorgan"
+        },
+        {
+          "subject": "HSBC (Midland Bank)",
+          "predicate": "located in",
+          "object": "United Kingdom"
+        }
+      ]
+    },
+    {
+      "instance_id": 89,
+      "triples": [
+        {
+          "subject": "Champaner",
+          "predicate": "instance of",
+          "object": "village"
+        },
+        {
+          "subject": "Champaner",
+          "predicate": "instance of",
+          "object": "country"
+        },
+        {
+          "subject": "Champaner",
+          "predicate": "located in",
+          "object": "Halol Taluka"
+        },
+        {
+          "subject": "Champaner",
+          "predicate": "located in",
+          "object": "India"
+        }
+      ]
+    },
+    {
+      "instance_id": 90,
+      "triples": [
+        {
+          "subject": "Unión Aérea Española",
+          "predicate": "instance of",
+          "object": "business"
+        },
+        {
+          "subject": "Unión Aérea Española",
+          "predicate": "located in",
+          "object": "Spain"
+        },
+        {
+          "subject": "Unión Aérea Española",
+          "predicate": "industry",
+          "object": "transport"
+        }
+      ]
+    },
+    {
+      "instance_id": 91,
+      "triples": [
+        {
+          "subject": "Fonko",
+          "predicate": "genre",
+          "object": "documentary film"
+        },
+        {
+          "subject": "Fonko",
+          "predicate": "directed by",
+          "object": "Göran Olsson"
+        },
+        {
+          "subject": "Fonko",
+          "predicate": "directed by",
+          "object": "Lars Lovén"
+        },
+        {
+          "subject": "Fonko",
+          "predicate": "directed by",
+          "object": "Lamin Daniel Jadama"
+        },
+        {
+          "subject": "Fonko",
+          "predicate": "edited by",
+          "object": "Göran Olsson"
+        },
+        {
+          "subject": "Fonko",
+          "predicate": "edited by",
+          "object": "Lars Lovén"
+        },
+        {
+          "subject": "Fonko",
+          "predicate": "edited by",
+          "object": "Lamin Daniel Jadama"
+        }
+      ]
+    },
+    {
+      "instance_id": 92,
+      "triples": [
+        {
+          "subject": "Western Chu",
+          "predicate": "instance of",
+          "object": "country"
+        },
+        {
+          "subject": "Western Chu",
+          "predicate": "head of state",
+          "object": "Xiang Yu"
+        }
+      ]
+    },
+    {
+      "instance_id": 93,
+      "triples": [
+        {
+          "subject": "Mikel Mendizabal",
+          "predicate": "instance of",
+          "object": "human"
+        },
+        {
+          "subject": "Mikel Mendizabal",
+          "predicate": "citizenship",
+          "object": "Spain"
+        },
+        {
+          "subject": "Mikel Mendizabal",
+          "predicate": "occupation",
+          "object": "bertsolari"
+        },
+        {
+          "subject": "Mikel Mendizabal",
+          "predicate": "located in",
+          "object": "Itsasondo"
+        },
+        {
+          "subject": "Mikel Mendizabal",
+          "predicate": "language",
+          "object": "Basque"
+        }
+      ]
+    },
+    {
+      "instance_id": 94,
+      "triples": [
+        {
+          "subject": "Le K Benzema",
+          "predicate": "instance of",
+          "object": "documentary television film"
+        },
+        {
+          "subject": "Le K Benzema",
+          "predicate": "language",
+          "object": "French"
+        },
+        {
+          "subject": "Le K Benzema",
+          "predicate": "distributed by",
+          "object": "Canal+"
+        },
+        {
+          "subject": "Le K Benzema",
+          "predicate": "located in",
+          "object": "France"
+        }
+      ]
+    },
+    {
+      "instance_id": 95,
+      "triples": [
+        {
+          "subject": "Vincent Manago",
+          "predicate": "occupation",
+          "object": "painter"
+        },
+        {
+          "subject": "Vincent Manago",
+          "predicate": "citizenship",
+          "object": "France"
+        },
+        {
+          "subject": "Vincent Manago",
+          "predicate": "place of birth",
+          "object": "Catania"
+        },
+        {
+          "subject": "Vincent Manago",
+          "predicate": "educated at",
+          "object": "Académie Julian"
+        },
+        {
+          "subject": "Vincent Manago",
+          "predicate": "place of death",
+          "object": "Paris"
+        }
+      ]
+    },
+    {
+      "instance_id": 96,
+      "triples": [
+        {
+          "subject": "Oxborrows Hotel",
+          "predicate": "instance of",
+          "object": "hotel"
+        },
+        {
+          "subject": "Oxborrows Hotel",
+          "predicate": "located in",
+          "object": "Ipswich"
+        },
+        {
+          "subject": "Oxborrows Hotel",
+          "predicate": "located in",
+          "object": "United Kingdom"
+        }
+      ]
+    },
+    {
+      "instance_id": 97,
+      "triples": [
+        {
+          "subject": "Gilbert Sissons",
+          "predicate": "occupation",
+          "object": "minister"
+        },
+        {
+          "subject": "Gilbert Sissons",
+          "predicate": "educated at",
+          "object": "Pembroke College"
+        }
+      ]
+    },
+    {
+      "instance_id": 98,
+      "triples": [
+        {
+          "subject": "kerajaan Pananjung",
+          "predicate": "instance of",
+          "object": "country"
+        },
+        {
+          "subject": "kerajaan Pananjung",
+          "predicate": "located in",
+          "object": "Pangandaran"
+        },
+        {
+          "subject": "kerajaan Pananjung",
+          "predicate": "located in",
+          "object": "West Java"
+        }
+      ]
+    },
+    {
+      "instance_id": 99,
+      "triples": [
+        {
+          "subject": "Keith Joubert",
+          "predicate": "occupation",
+          "object": "explorer"
+        },
+        {
+          "subject": "Keith Joubert",
+          "predicate": "occupation",
+          "object": "painter"
+        },
+        {
+          "subject": "Keith Joubert",
+          "predicate": "citizenship",
+          "object": "South Africa"
+        }
+      ]
+    }
+  ],
+  "all_triples": [
+    {
+      "subject": "Vanuatu",
+      "predicate": "member of",
+      "object": "UNESCO"
+    },
+    {
+      "subject": "Vanuatu",
+      "predicate": "capital",
+      "object": "Port Vila"
+    },
+    {
+      "subject": "Vanuatu",
+      "predicate": "head of government",
+      "object": "Charlot Salwai"
+    },
+    {
+      "subject": "Vanuatu",
+      "predicate": "language",
+      "object": "Letemboi"
+    },
+    {
+      "subject": "Vanuatu",
+      "predicate": "language",
+      "object": "Litzlitz"
+    },
+    {
+      "subject": "Vanuatu",
+      "predicate": "language",
+      "object": "Port Sandwich"
+    },
+    {
+      "subject": "Vanuatu",
+      "predicate": "language",
+      "object": "Maragus"
+    },
+    {
+      "subject": "Vanuatu",
+      "predicate": "language",
+      "object": "West Ambae"
+    },
+    {
+      "subject": "Vanuatu",
+      "predicate": "language",
+      "object": "Polonombauk"
+    },
+    {
+      "subject": "Lay the Favorite",
+      "predicate": "genre",
+      "object": "comedy"
+    },
+    {
+      "subject": "Lay the Favorite",
+      "predicate": "distributed by",
+      "object": "Cheetah Vision"
+    },
+    {
+      "subject": "Lay the Favorite",
+      "predicate": "cast member",
+      "object": "Joshua Jackson"
+    },
+    {
+      "subject": "Lay the Favorite",
+      "predicate": "cast member",
+      "object": "Laura Prepon"
+    },
+    {
+      "subject": "Lay the Favorite",
+      "predicate": "filming location",
+      "object": "Las Vegas Valley"
+    },
+    {
+      "subject": "Lay the Favorite",
+      "predicate": "setting",
+      "object": "Las Vegas"
+    },
+    {
+      "subject": "Lay the Favorite",
+      "predicate": "setting",
+      "object": "New York"
+    },
+    {
+      "subject": "Lay the Favorite",
+      "predicate": "content rating",
+      "object": "not recommended for children under 12"
+    },
+    {
+      "subject": "Duchy of Savoy",
+      "predicate": "instance of",
+      "object": "sovereign state"
+    },
+    {
+      "subject": "Duchy of Savoy",
+      "predicate": "located in",
+      "object": "Holy Roman Empire"
+    },
+    {
+      "subject": "Duchy of Savoy",
+      "predicate": "capital",
+      "object": "Turin"
+    },
+    {
+      "subject": "Duchy of Savoy",
+      "predicate": "language",
+      "object": "French"
+    },
+    {
+      "subject": "Duchy of Savoy",
+      "predicate": "language",
+      "object": "Latin"
+    },
+    {
+      "subject": "Duchy of Savoy",
+      "predicate": "language",
+      "object": "Franco-Provençal"
+    },
+    {
+      "subject": "Drishyam",
+      "predicate": "genre",
+      "object": "drama film"
+    },
+    {
+      "subject": "Drishyam",
+      "predicate": "language",
+      "object": "Malayalam"
+    },
+    {
+      "subject": "Drishyam",
+      "predicate": "setting",
+      "object": "India"
+    },
+    {
+      "subject": "Drishyam",
+      "predicate": "directed by",
+      "object": "Nishikant Kamat"
+    },
+    {
+      "subject": "Drishyam",
+      "predicate": "directed by",
+      "object": "Jeethu Joseph"
+    },
+    {
+      "subject": "Drishyam",
+      "predicate": "written by",
+      "object": "Jeethu Joseph"
+    },
+    {
+      "subject": "Drishyam",
+      "predicate": "music by",
+      "object": "Vishal Bhardwaj"
+    },
+    {
+      "subject": "Drishyam",
+      "predicate": "produced by",
+      "object": "Panorama Studios"
+    },
+    {
+      "subject": "Cirkus Fjollinski",
+      "predicate": "instance of",
+      "object": "film"
+    },
+    {
+      "subject": "Cirkus Fjollinski",
+      "predicate": "genre",
+      "object": "silent comedy"
+    },
+    {
+      "subject": "Cirkus Fjollinski",
+      "predicate": "directed by",
+      "object": "Victor Bergdahl"
+    },
+    {
+      "subject": "Cirkus Fjollinski",
+      "predicate": "distributed by",
+      "object": "Svenska Biografteatern"
+    },
+    {
+      "subject": "Cirkus Fjollinski",
+      "predicate": "country of origin",
+      "object": "Sweden"
+    },
+    {
+      "subject": "Anne One Hundred",
+      "predicate": "instance of",
+      "object": "film"
+    },
+    {
+      "subject": "Anne One Hundred",
+      "predicate": "genre",
+      "object": "drama"
+    },
+    {
+      "subject": "Anne One Hundred",
+      "predicate": "directed by",
+      "object": "Henry Edwards"
+    },
+    {
+      "subject": "Anne One Hundred",
+      "predicate": "written by",
+      "object": "Sewell Collins"
+    },
+    {
+      "subject": "Anne One Hundred",
+      "predicate": "cast member",
+      "object": "Betty Stockfeld"
+    },
+    {
+      "subject": "Anne One Hundred",
+      "predicate": "distributed by",
+      "object": "Paramount Pictures"
+    },
+    {
+      "subject": "Anne One Hundred",
+      "predicate": "country of origin",
+      "object": "United Kingdom"
+    },
+    {
+      "subject": "Povilas Šilas",
+      "predicate": "occupation",
+      "object": "police officer"
+    },
+    {
+      "subject": "Anzengruberstüberl des ehem. Gasthauses Anzengruberhof",
+      "predicate": "instance of",
+      "object": "gasthaus"
+    },
+    {
+      "subject": "Anzengruberstüberl des ehem. Gasthauses Anzengruberhof",
+      "predicate": "heritage status",
+      "object": "heritage-protected"
+    },
+    {
+      "subject": "Anzengruberstüberl des ehem. Gasthauses Anzengruberhof",
+      "predicate": "located in",
+      "object": "Wolkersdorf im Weinviertel"
+    },
+    {
+      "subject": "Anzengruberstüberl des ehem. Gasthauses Anzengruberhof",
+      "predicate": "located in",
+      "object": "Austria"
+    },
+    {
+      "subject": "Yang Pengnan",
+      "predicate": "citizenship",
+      "object": "Yuan Empire"
+    },
+    {
+      "subject": "Kingdom of Janjero",
+      "predicate": "instance of",
+      "object": "sovereign state"
+    },
+    {
+      "subject": "Kingdom of Janjero",
+      "predicate": "capital",
+      "object": "Fofa"
+    },
+    {
+      "subject": "Kingdom of Janjero",
+      "predicate": "located in",
+      "object": "Ethiopia"
+    },
+    {
+      "subject": "OctetString",
+      "predicate": "instance of",
+      "object": "business"
+    },
+    {
+      "subject": "OctetString",
+      "predicate": "located in",
+      "object": "United States"
+    },
+    {
+      "subject": "OctetString",
+      "predicate": "industry",
+      "object": "software"
+    },
+    {
+      "subject": "OctetString",
+      "predicate": "competitor",
+      "object": "Oracle Corporation"
+    },
+    {
+      "subject": "Arab Kingdom of Syria",
+      "predicate": "instance of",
+      "object": "constitutional monarchy"
+    },
+    {
+      "subject": "Arab Kingdom of Syria",
+      "predicate": "located in",
+      "object": "Asia"
+    },
+    {
+      "subject": "Arab Kingdom of Syria",
+      "predicate": "headquarters location",
+      "object": "Damascus"
+    },
+    {
+      "subject": "Arab Kingdom of Syria",
+      "predicate": "head of state",
+      "object": "Faisal I of Iraq"
+    },
+    {
+      "subject": "Arab Kingdom of Syria",
+      "predicate": "language",
+      "object": "Arabic"
+    },
+    {
+      "subject": "Vermont Republic",
+      "predicate": "language",
+      "object": "English"
+    },
+    {
+      "subject": "Vermont Republic",
+      "predicate": "participant in",
+      "object": "American Revolutionary War"
+    },
+    {
+      "subject": "Vermont Republic",
+      "predicate": "capital",
+      "object": "Windsor"
+    },
+    {
+      "subject": "iMoney.my",
+      "predicate": "instance of",
+      "object": "business"
+    },
+    {
+      "subject": "iMoney.my",
+      "predicate": "industry",
+      "object": "financial services"
+    },
+    {
+      "subject": "iMoney.my",
+      "predicate": "headquarters location",
+      "object": "Kuala Lumpur"
+    },
+    {
+      "subject": "Matri-Phony",
+      "predicate": "instance of",
+      "object": "film"
+    },
+    {
+      "subject": "Matri-Phony",
+      "predicate": "language",
+      "object": "English"
+    },
+    {
+      "subject": "Matri-Phony",
+      "predicate": "directed by",
+      "object": "Harry Edwards"
+    },
+    {
+      "subject": "Matri-Phony",
+      "predicate": "edited by",
+      "object": "Paul Borofsky"
+    },
+    {
+      "subject": "Matri-Phony",
+      "predicate": "cast member",
+      "object": "Larry Fine"
+    },
+    {
+      "subject": "Matri-Phony",
+      "predicate": "cast member",
+      "object": "Marjorie Deanne"
+    },
+    {
+      "subject": "Matri-Phony",
+      "predicate": "cast member",
+      "object": "Monte Collins"
+    },
+    {
+      "subject": "Matri-Phony",
+      "predicate": "cast member",
+      "object": "Max Wagner"
+    },
+    {
+      "subject": "Matri-Phony",
+      "predicate": "cast member",
+      "object": "Eddy Chandler"
+    },
+    {
+      "subject": "Eine Robbe zum Verlieben",
+      "predicate": "instance of",
+      "object": "television film"
+    },
+    {
+      "subject": "Eine Robbe zum Verlieben",
+      "predicate": "language",
+      "object": "German"
+    },
+    {
+      "subject": "Eine Robbe zum Verlieben",
+      "predicate": "written by",
+      "object": "Christos Yiannopoulos"
+    },
+    {
+      "subject": "Eine Robbe zum Verlieben",
+      "predicate": "music by",
+      "object": "Robert Schulte-Hemming"
+    },
+    {
+      "subject": "Gayniggers from Outer Space",
+      "predicate": "instance of",
+      "object": "film"
+    },
+    {
+      "subject": "Gayniggers from Outer Space",
+      "predicate": "genre",
+      "object": "science fiction"
+    },
+    {
+      "subject": "Gayniggers from Outer Space",
+      "predicate": "genre",
+      "object": "comedy"
+    },
+    {
+      "subject": "Gayniggers from Outer Space",
+      "predicate": "genre",
+      "object": "parody"
+    },
+    {
+      "subject": "Gayniggers from Outer Space",
+      "predicate": "country of origin",
+      "object": "Denmark"
+    },
+    {
+      "subject": "Gayniggers from Outer Space",
+      "predicate": "directed by",
+      "object": "Per Kristensen"
+    },
+    {
+      "subject": "Gayniggers from Outer Space",
+      "predicate": "directed by",
+      "object": "Morten Lindberg"
+    },
+    {
+      "subject": "Gayniggers from Outer Space",
+      "predicate": "written by",
+      "object": "Morten Lindberg"
+    },
+    {
+      "subject": "Emirate of Dhala",
+      "predicate": "instance of",
+      "object": "emirate"
+    },
+    {
+      "subject": "Emirate of Dhala",
+      "predicate": "capital",
+      "object": "Ad Dali'"
+    },
+    {
+      "subject": "Chris Ekiyor",
+      "predicate": "citizenship",
+      "object": "Nigeria"
+    },
+    {
+      "subject": "Chris Ekiyor",
+      "predicate": "occupation",
+      "object": "politician"
+    },
+    {
+      "subject": "Chris Ekiyor",
+      "predicate": "occupation",
+      "object": "dentist"
+    },
+    {
+      "subject": "Bonai State",
+      "predicate": "instance of",
+      "object": "country"
+    },
+    {
+      "subject": "Bonai State",
+      "predicate": "instance of",
+      "object": "princely state"
+    },
+    {
+      "subject": "Bonai State",
+      "predicate": "member of",
+      "object": "British Raj"
+    },
+    {
+      "subject": "Forlagshuset Vigmostad & Bjørke",
+      "predicate": "instance of",
+      "object": "publisher"
+    },
+    {
+      "subject": "Forlagshuset Vigmostad & Bjørke",
+      "predicate": "located in",
+      "object": "Norway"
+    },
+    {
+      "subject": "We Are Human After All",
+      "predicate": "instance of",
+      "object": "short film"
+    },
+    {
+      "subject": "We Are Human After All",
+      "predicate": "country of origin",
+      "object": "Denmark"
+    },
+    {
+      "subject": "We Are Human After All",
+      "predicate": "cast member",
+      "object": "Youssef Wayne Hvidtfeldt"
+    },
+    {
+      "subject": "The Iron Ring",
+      "predicate": "instance of",
+      "object": "silent film"
+    },
+    {
+      "subject": "The Iron Ring",
+      "predicate": "country of origin",
+      "object": "United States"
+    },
+    {
+      "subject": "The Iron Ring",
+      "predicate": "directed by",
+      "object": "George Archainbaud"
+    },
+    {
+      "subject": "Portrait of Jason",
+      "predicate": "instance of",
+      "object": "film"
+    },
+    {
+      "subject": "Portrait of Jason",
+      "predicate": "language",
+      "object": "English"
+    },
+    {
+      "subject": "Portrait of Jason",
+      "predicate": "genre",
+      "object": "LGBT-related film"
+    },
+    {
+      "subject": "Portrait of Jason",
+      "predicate": "directed by",
+      "object": "Shirley Clarke"
+    },
+    {
+      "subject": "Portrait of Jason",
+      "predicate": "edited by",
+      "object": "Shirley Clarke"
+    },
+    {
+      "subject": "Portrait of Jason",
+      "predicate": "cast member",
+      "object": "Carl Lee"
+    },
+    {
+      "subject": "Portrait of Jason",
+      "predicate": "cast member",
+      "object": "Shirley Clarke"
+    },
+    {
+      "subject": "Portrait of Jason",
+      "predicate": "distributed by",
+      "object": "Milestone Films"
+    },
+    {
+      "subject": "Southern Qi",
+      "predicate": "instance of",
+      "object": "dynasty"
+    },
+    {
+      "subject": "Southern Qi",
+      "predicate": "located in",
+      "object": "Asia"
+    },
+    {
+      "subject": "Southern Qi",
+      "predicate": "capital",
+      "object": "Jiankang"
+    },
+    {
+      "subject": "The Legend of Frenchie King",
+      "predicate": "music by",
+      "object": "Francis Lai"
+    },
+    {
+      "subject": "The Legend of Frenchie King",
+      "predicate": "cast member",
+      "object": "Michael J. Pollard"
+    },
+    {
+      "subject": "The Legend of Frenchie King",
+      "predicate": "cast member",
+      "object": "Micheline Presle"
+    },
+    {
+      "subject": "The Legend of Frenchie King",
+      "predicate": "cast member",
+      "object": "Teresa Rabal"
+    },
+    {
+      "subject": "Black Deep Throat",
+      "predicate": "instance of",
+      "object": "film"
+    },
+    {
+      "subject": "Black Deep Throat",
+      "predicate": "genre",
+      "object": "erotic film"
+    },
+    {
+      "subject": "Black Deep Throat",
+      "predicate": "country of origin",
+      "object": "Italy"
+    },
+    {
+      "subject": "Black Deep Throat",
+      "predicate": "directed by",
+      "object": "Guido Zurli"
+    },
+    {
+      "subject": "Black Deep Throat",
+      "predicate": "written by",
+      "object": "Vito Bruschini"
+    },
+    {
+      "subject": "Black Deep Throat",
+      "predicate": "cast member",
+      "object": "Attilio Dottesio"
+    },
+    {
+      "subject": "Black Deep Throat",
+      "predicate": "cast member",
+      "object": "Ivano Staccioli"
+    },
+    {
+      "subject": "Black Deep Throat",
+      "predicate": "cast member",
+      "object": "Ajita Wilson"
+    },
+    {
+      "subject": "Herman Rottger",
+      "predicate": "instance of",
+      "object": "human"
+    },
+    {
+      "subject": "Herman Rottger",
+      "predicate": "occupation",
+      "object": "actor"
+    },
+    {
+      "subject": "Herman Rottger",
+      "predicate": "citizenship",
+      "object": "United States"
+    },
+    {
+      "subject": "Herman Rottger",
+      "predicate": "place of birth",
+      "object": "New York City"
+    },
+    {
+      "subject": "Herman Rottger",
+      "predicate": "participant in",
+      "object": "World War I"
+    },
+    {
+      "subject": "Roter Tod",
+      "predicate": "language",
+      "object": "German"
+    },
+    {
+      "subject": "Roter Tod",
+      "predicate": "produced by",
+      "object": "Maran Film GmbH"
+    },
+    {
+      "subject": "Roter Tod",
+      "predicate": "edited by",
+      "object": "Olga Barthel"
+    },
+    {
+      "subject": "Roter Tod",
+      "predicate": "cast member",
+      "object": "Sesede Terziyan"
+    },
+    {
+      "subject": "Roter Tod",
+      "predicate": "cast member",
+      "object": "Ulrike Folkerts"
+    },
+    {
+      "subject": "Roter Tod",
+      "predicate": "cast member",
+      "object": "Andreas Hoppe"
+    },
+    {
+      "subject": "Christian Friedrich Schultz",
+      "predicate": "occupation",
+      "object": "military officer"
+    },
+    {
+      "subject": "Christian Friedrich Schultz",
+      "predicate": "occupation",
+      "object": "diplomat"
+    },
+    {
+      "subject": "Christian Friedrich Schultz",
+      "predicate": "military unit",
+      "object": "Husarenregiment"
+    },
+    {
+      "subject": "Christian Friedrich Schultz",
+      "predicate": "award received",
+      "object": "Hanoverian Waterloo Medal"
+    },
+    {
+      "subject": "Christian Friedrich Schultz",
+      "predicate": "place of death",
+      "object": "Hanover"
+    },
+    {
+      "subject": "Christian Friedrich Schultz",
+      "predicate": "burial place",
+      "object": "Lent-Kaserne"
+    },
+    {
+      "subject": "Wu Shi",
+      "predicate": "instance of",
+      "object": "human"
+    },
+    {
+      "subject": "Wu Shi",
+      "predicate": "spouse",
+      "object": "Zhou Jing"
+    },
+    {
+      "subject": "Evraz",
+      "predicate": "instance of",
+      "object": "business"
+    },
+    {
+      "subject": "Evraz",
+      "predicate": "located in",
+      "object": "Russia"
+    },
+    {
+      "subject": "League of Corinth",
+      "predicate": "instance of",
+      "object": "country"
+    },
+    {
+      "subject": "League of Corinth",
+      "predicate": "instance of",
+      "object": "koinon"
+    },
+    {
+      "subject": "The First Brazilian Republic",
+      "predicate": "instance of",
+      "object": "republic"
+    },
+    {
+      "subject": "The First Brazilian Republic",
+      "predicate": "label",
+      "object": "República Velha"
+    },
+    {
+      "subject": "The First Brazilian Republic",
+      "predicate": "capital",
+      "object": "São Carlos"
+    },
+    {
+      "subject": "The First Brazilian Republic",
+      "predicate": "capital",
+      "object": "Rio de Janeiro"
+    },
+    {
+      "subject": "The First Brazilian Republic",
+      "predicate": "anthem",
+      "object": "Brazilian National Anthem"
+    },
+    {
+      "subject": "Imtiaz Sifat",
+      "predicate": "instance of",
+      "object": "human"
+    },
+    {
+      "subject": "Imtiaz Sifat",
+      "predicate": "educated at",
+      "object": "International Islamic University Malaysia"
+    },
+    {
+      "subject": "Uncle Bräsig",
+      "predicate": "directed by",
+      "object": "Erich Waschneck"
+    },
+    {
+      "subject": "Uncle Bräsig",
+      "predicate": "produced by",
+      "object": "Erich Waschneck"
+    },
+    {
+      "subject": "Uncle Bräsig",
+      "predicate": "distributed by",
+      "object": "Universum Film AG"
+    },
+    {
+      "subject": "Uncle Bräsig",
+      "predicate": "cast member",
+      "object": "Heinrich Schroth"
+    },
+    {
+      "subject": "Uncle Bräsig",
+      "predicate": "cast member",
+      "object": "Kristina Söderbaum"
+    },
+    {
+      "subject": "Uncle Bräsig",
+      "predicate": "cast member",
+      "object": "Elga Brink"
+    },
+    {
+      "subject": "Memet Varol",
+      "predicate": "instance of",
+      "object": "human"
+    },
+    {
+      "subject": "Memet Varol",
+      "predicate": "educated at",
+      "object": "Fırat University"
+    },
+    {
+      "subject": "Memet Varol",
+      "predicate": "employer",
+      "object": "Malatya Turgut Özal University"
+    },
+    {
+      "subject": "Producers Library Service",
+      "predicate": "instance of",
+      "object": "business"
+    },
+    {
+      "subject": "Producers Library Service",
+      "predicate": "headquarters location",
+      "object": "North Hollywood"
+    },
+    {
+      "subject": "Novedades Acapulco",
+      "predicate": "instance of",
+      "object": "news website"
+    },
+    {
+      "subject": "Novedades Acapulco",
+      "predicate": "instance of",
+      "object": "newspaper"
+    },
+    {
+      "subject": "Novedades Acapulco",
+      "predicate": "language",
+      "object": "Spanish"
+    },
+    {
+      "subject": "Novedades Acapulco",
+      "predicate": "located in",
+      "object": "Mexico"
+    },
+    {
+      "subject": "Novedades Acapulco",
+      "predicate": "setting",
+      "object": "Guerrero"
+    },
+    {
+      "subject": "Steel Frontier",
+      "predicate": "instance of",
+      "object": "film"
+    },
+    {
+      "subject": "Steel Frontier",
+      "predicate": "genre",
+      "object": "post-apocalyptic action Western"
+    },
+    {
+      "subject": "Steel Frontier",
+      "predicate": "country of origin",
+      "object": "United States"
+    },
+    {
+      "subject": "Steel Frontier",
+      "predicate": "distributed by",
+      "object": "Madacy Entertainment"
+    },
+    {
+      "subject": "Steel Frontier",
+      "predicate": "cast member",
+      "object": "Kane Hodder"
+    },
+    {
+      "subject": "Steel Frontier",
+      "predicate": "cast member",
+      "object": "Billy L. Sullivan"
+    },
+    {
+      "subject": "Steel Frontier",
+      "predicate": "cast member",
+      "object": "Gordon Benson"
+    },
+    {
+      "subject": "Frances Elizabeth Blacklock",
+      "predicate": "instance of",
+      "object": "human"
+    },
+    {
+      "subject": "Ireland",
+      "predicate": "instance of",
+      "object": "sovereign state"
+    },
+    {
+      "subject": "Ireland",
+      "predicate": "member of",
+      "object": "European Union"
+    },
+    {
+      "subject": "Ireland",
+      "predicate": "member of",
+      "object": "World Trade Organization"
+    },
+    {
+      "subject": "Ireland",
+      "predicate": "diplomatic relation",
+      "object": "Holy See"
+    },
+    {
+      "subject": "Ireland",
+      "predicate": "administrative territorial entity",
+      "object": "County Limerick"
+    },
+    {
+      "subject": "Ireland",
+      "predicate": "administrative territorial entity",
+      "object": "Meath"
+    },
+    {
+      "subject": "Ireland",
+      "predicate": "administrative territorial entity",
+      "object": "Kerry"
+    },
+    {
+      "subject": "Ireland",
+      "predicate": "language",
+      "object": "Irish Sign Language"
+    },
+    {
+      "subject": "Sociedad Productora de Fuerzas Motrices",
+      "predicate": "instance of",
+      "object": "business"
+    },
+    {
+      "subject": "Sociedad Productora de Fuerzas Motrices",
+      "predicate": "located in",
+      "object": "Barcelona"
+    },
+    {
+      "subject": "Sociedad Productora de Fuerzas Motrices",
+      "predicate": "industry",
+      "object": "hydroelectric"
+    },
+    {
+      "subject": "Sociedad Productora de Fuerzas Motrices",
+      "predicate": "founder",
+      "object": "Emili Riu i Periquet"
+    },
+    {
+      "subject": "Sociedad Productora de Fuerzas Motrices",
+      "predicate": "located in",
+      "object": "Catalonia"
+    },
+    {
+      "subject": "Sådan er søskende - Jennis storesøster",
+      "predicate": "instance of",
+      "object": "film"
+    },
+    {
+      "subject": "Sådan er søskende - Jennis storesøster",
+      "predicate": "language",
+      "object": "Danish"
+    },
+    {
+      "subject": "Sådan er søskende - Jennis storesøster",
+      "predicate": "directed by",
+      "object": "Max Kestner"
+    },
+    {
+      "subject": "Sådan er søskende - Jennis storesøster",
+      "predicate": "edited by",
+      "object": "Per K. Kirkegaard"
+    },
+    {
+      "subject": "Sådan er søskende - Jennis storesøster",
+      "predicate": "content rating",
+      "object": "general audience"
+    },
+    {
+      "subject": "Ai que Vida!",
+      "predicate": "instance of",
+      "object": "film"
+    },
+    {
+      "subject": "Ai que Vida!",
+      "predicate": "genre",
+      "object": "comedy-drama"
+    },
+    {
+      "subject": "Ai que Vida!",
+      "predicate": "country of origin",
+      "object": "Brazil"
+    },
+    {
+      "subject": "Ai que Vida!",
+      "predicate": "directed by",
+      "object": "Cícero Filho"
+    },
+    {
+      "subject": "Ai que Vida!",
+      "predicate": "language",
+      "object": "Portuguese"
+    },
+    {
+      "subject": "AT&T Corporation",
+      "predicate": "instance of",
+      "object": "business"
+    },
+    {
+      "subject": "AT&T Corporation",
+      "predicate": "located in",
+      "object": "United States"
+    },
+    {
+      "subject": "AT&T Corporation",
+      "predicate": "industry",
+      "object": "telecommunications"
+    },
+    {
+      "subject": "AT&T Corporation",
+      "predicate": "founder",
+      "object": "Alexander Graham Bell"
+    },
+    {
+      "subject": "AT&T Corporation",
+      "predicate": "headquarters location",
+      "object": "Bedminster"
+    },
+    {
+      "subject": "AT&T Corporation",
+      "predicate": "member of",
+      "object": "Wi-Fi Alliance"
+    },
+    {
+      "subject": "Kinas kvinder bærer den halve himmel",
+      "predicate": "instance of",
+      "object": "documentary film"
+    },
+    {
+      "subject": "Kinas kvinder bærer den halve himmel",
+      "predicate": "language",
+      "object": "Danish"
+    },
+    {
+      "subject": "Malawi",
+      "predicate": "member of",
+      "object": "African Union"
+    },
+    {
+      "subject": "Malawi",
+      "predicate": "member of",
+      "object": "WTO"
+    },
+    {
+      "subject": "Malawi",
+      "predicate": "member of",
+      "object": "ICSID"
+    },
+    {
+      "subject": "Malawi",
+      "predicate": "language",
+      "object": "Nyakyusa"
+    },
+    {
+      "subject": "Malawi",
+      "predicate": "language",
+      "object": "Nyika"
+    },
+    {
+      "subject": "Malawi",
+      "predicate": "anthem",
+      "object": "Mulungu dalitsa Malaŵi"
+    },
+    {
+      "subject": "Malawi",
+      "predicate": "lowest point",
+      "object": "Shire River"
+    },
+    {
+      "subject": "Rivière aux cerises",
+      "predicate": "instance of",
+      "object": "film"
+    },
+    {
+      "subject": "Rivière aux cerises",
+      "predicate": "country of origin",
+      "object": "Canada"
+    },
+    {
+      "subject": "Rivière aux cerises",
+      "predicate": "directed by",
+      "object": "Chantal duPont"
+    },
+    {
+      "subject": "TaurusMediaTechnik",
+      "predicate": "instance of",
+      "object": "business"
+    },
+    {
+      "subject": "TaurusMediaTechnik",
+      "predicate": "located in",
+      "object": "Germany"
+    },
+    {
+      "subject": "TaurusMediaTechnik",
+      "predicate": "headquarters location",
+      "object": "Unterföhring"
+    },
+    {
+      "subject": "Theo Vondano",
+      "predicate": "occupation",
+      "object": "politician"
+    },
+    {
+      "subject": "Theo Vondano",
+      "predicate": "citizenship",
+      "object": "Germany"
+    },
+    {
+      "subject": "Theo Vondano",
+      "predicate": "member of",
+      "object": "Christian Democratic Union"
+    },
+    {
+      "subject": "Theo Vondano",
+      "predicate": "position held",
+      "object": "Member of the Landtag of Rhineland-Palatinate"
+    },
+    {
+      "subject": "Theo Vondano",
+      "predicate": "place of birth",
+      "object": "Kaiserslautern"
+    },
+    {
+      "subject": "Theo Vondano",
+      "predicate": "place of death",
+      "object": "Kaiserslautern"
+    },
+    {
+      "subject": "Theo Vondano",
+      "predicate": "award received",
+      "object": "Cross of the Order of Merit of the Federal Republic of Germany"
+    },
+    {
+      "subject": "Gesundheit! Institute",
+      "predicate": "instance of",
+      "object": "business"
+    },
+    {
+      "subject": "Gesundheit! Institute",
+      "predicate": "located in",
+      "object": "United States"
+    },
+    {
+      "subject": "Gesundheit! Institute",
+      "predicate": "headquarters location",
+      "object": "Hillsboro"
+    },
+    {
+      "subject": "Tohfa Mohabbat Ka",
+      "predicate": "instance of",
+      "object": "film"
+    },
+    {
+      "subject": "Tohfa Mohabbat Ka",
+      "predicate": "language",
+      "object": "Hindi"
+    },
+    {
+      "subject": "Tohfa Mohabbat Ka",
+      "predicate": "country of origin",
+      "object": "India"
+    },
+    {
+      "subject": "Tohfa Mohabbat Ka",
+      "predicate": "cast member",
+      "object": "Hema Malini"
+    },
+    {
+      "subject": "Tohfa Mohabbat Ka",
+      "predicate": "cast member",
+      "object": "Kimi Katkar"
+    },
+    {
+      "subject": "Tohfa Mohabbat Ka",
+      "predicate": "cast member",
+      "object": "Govinda"
+    },
+    {
+      "subject": "Tohfa Mohabbat Ka",
+      "predicate": "music by",
+      "object": "Anup Jalota"
+    },
+    {
+      "subject": "Seerestaurant Belvédère",
+      "predicate": "instance of",
+      "object": "restaurant"
+    },
+    {
+      "subject": "Seerestaurant Belvédère",
+      "predicate": "located in",
+      "object": "Hergiswil"
+    },
+    {
+      "subject": "Seerestaurant Belvédère",
+      "predicate": "located in",
+      "object": "Switzerland"
+    },
+    {
+      "subject": "Baku Khanate",
+      "predicate": "instance of",
+      "object": "absolute monarchy"
+    },
+    {
+      "subject": "Baku Khanate",
+      "predicate": "located in",
+      "object": "Eurasia"
+    },
+    {
+      "subject": "Baku Khanate",
+      "predicate": "capital",
+      "object": "Baku"
+    },
+    {
+      "subject": "Baku Khanate",
+      "predicate": "head of government",
+      "object": "Khan of the Baku Khanate"
+    },
+    {
+      "subject": "The Evening Gazette",
+      "predicate": "owned by",
+      "object": "Reach plc"
+    },
+    {
+      "subject": "Qilakitsoq - De grønlandske mumier",
+      "predicate": "instance of",
+      "object": "documentary film"
+    },
+    {
+      "subject": "Qilakitsoq - De grønlandske mumier",
+      "predicate": "country of origin",
+      "object": "Denmark"
+    },
+    {
+      "subject": "McClatchey Broadcasting",
+      "predicate": "instance of",
+      "object": "business"
+    },
+    {
+      "subject": "McClatchey Broadcasting",
+      "predicate": "industry",
+      "object": "broadcasting"
+    },
+    {
+      "subject": "McClatchey Broadcasting",
+      "predicate": "located in",
+      "object": "Raleigh"
+    },
+    {
+      "subject": "McClatchey Broadcasting",
+      "predicate": "located in",
+      "object": "United States"
+    },
+    {
+      "subject": "Napoléon II l'Aiglon",
+      "predicate": "directed by",
+      "object": "Claude Boissol"
+    },
+    {
+      "subject": "Napoléon II l'Aiglon",
+      "predicate": "language",
+      "object": "French"
+    },
+    {
+      "subject": "Napoléon II l'Aiglon",
+      "predicate": "cast member",
+      "object": "Jean Marais"
+    },
+    {
+      "subject": "Napoléon II l'Aiglon",
+      "predicate": "cast member",
+      "object": "Marianne Koch"
+    },
+    {
+      "subject": "Napoléon II l'Aiglon",
+      "predicate": "cast member",
+      "object": "Sabine Sinjen"
+    },
+    {
+      "subject": "Federico Orcajo Acuña",
+      "predicate": "occupation",
+      "object": "painter"
+    },
+    {
+      "subject": "Federico Orcajo Acuña",
+      "predicate": "occupation",
+      "object": "writer"
+    },
+    {
+      "subject": "Federico Orcajo Acuña",
+      "predicate": "citizenship",
+      "object": "Uruguay"
+    },
+    {
+      "subject": "Democratic Federal Yugoslavia",
+      "predicate": "instance of",
+      "object": "sovereign state"
+    },
+    {
+      "subject": "Democratic Federal Yugoslavia",
+      "predicate": "capital",
+      "object": "Belgrade"
+    },
+    {
+      "subject": "Democratic Federal Yugoslavia",
+      "predicate": "head of state",
+      "object": "Peter II"
+    },
+    {
+      "subject": "Democratic Federal Yugoslavia",
+      "predicate": "head of government",
+      "object": "Josip Broz Tito"
+    },
+    {
+      "subject": "Democratic Federal Yugoslavia",
+      "predicate": "bordering country",
+      "object": "Albania"
+    },
+    {
+      "subject": "Democratic Federal Yugoslavia",
+      "predicate": "currency",
+      "object": "Yugoslav dinar"
+    },
+    {
+      "subject": "Democratic Federal Yugoslavia",
+      "predicate": "language",
+      "object": "Serbo-Croatian"
+    },
+    {
+      "subject": "Democratic Federal Yugoslavia",
+      "predicate": "governing body",
+      "object": "Anti-Fascist Council of the People's Liberation of Yugoslavia"
+    },
+    {
+      "subject": "Netherlands Antilles",
+      "predicate": "instance of",
+      "object": "constitutional monarchy"
+    },
+    {
+      "subject": "Netherlands Antilles",
+      "predicate": "located in",
+      "object": "Caribbean"
+    },
+    {
+      "subject": "Netherlands Antilles",
+      "predicate": "member of",
+      "object": "Kingdom of the Netherlands"
+    },
+    {
+      "subject": "Netherlands Antilles",
+      "predicate": "language",
+      "object": "Papiamento"
+    },
+    {
+      "subject": "Netherlands Antilles",
+      "predicate": "administrative territorial entity",
+      "object": "Sint Eustatius"
+    },
+    {
+      "subject": "Elizabeth Rosalind Buxton",
+      "predicate": "instance of",
+      "object": "human"
+    },
+    {
+      "subject": "Hubert de Tombeur",
+      "predicate": "occupation",
+      "object": "judge"
+    },
+    {
+      "subject": "The Old Swan Inn",
+      "predicate": "instance of",
+      "object": "pub"
+    },
+    {
+      "subject": "The Old Swan Inn",
+      "predicate": "instance of",
+      "object": "inn"
+    },
+    {
+      "subject": "The Old Swan Inn",
+      "predicate": "located in",
+      "object": "United Kingdom"
+    },
+    {
+      "subject": "The Old Swan Inn",
+      "predicate": "located in",
+      "object": "City of Wolverhampton"
+    },
+    {
+      "subject": "Kasuga Apiary",
+      "predicate": "instance of",
+      "object": "business"
+    },
+    {
+      "subject": "Kasuga Apiary",
+      "predicate": "headquarters location",
+      "object": "Gifu Prefecture"
+    },
+    {
+      "subject": "Rajpipla State",
+      "predicate": "instance of",
+      "object": "princely state"
+    },
+    {
+      "subject": "Rajpipla State",
+      "predicate": "located in",
+      "object": "British Raj"
+    },
+    {
+      "subject": "Rajpipla State",
+      "predicate": "capital",
+      "object": "Rajpipla"
+    },
+    {
+      "subject": "Canadian Centre for Studies in Publishing",
+      "predicate": "instance of",
+      "object": "publisher"
+    },
+    {
+      "subject": "Canadian Centre for Studies in Publishing",
+      "predicate": "located in",
+      "object": "Canada"
+    },
+    {
+      "subject": "Autonomous Albanian Republic of Korçë",
+      "predicate": "instance of",
+      "object": "republic"
+    },
+    {
+      "subject": "Autonomous Albanian Republic of Korçë",
+      "predicate": "capital",
+      "object": "Korçë"
+    },
+    {
+      "subject": "Angarrack Inn",
+      "predicate": "instance of",
+      "object": "inn"
+    },
+    {
+      "subject": "Angarrack Inn",
+      "predicate": "located in",
+      "object": "Hayle"
+    },
+    {
+      "subject": "Angarrack Inn",
+      "predicate": "located in",
+      "object": "United Kingdom"
+    },
+    {
+      "subject": "Angarrack Inn",
+      "predicate": "heritage status",
+      "object": "Grade II listed"
+    },
+    {
+      "subject": "The Past-Master at the Seaside",
+      "predicate": "instance of",
+      "object": "film"
+    },
+    {
+      "subject": "The Past-Master at the Seaside",
+      "predicate": "country of origin",
+      "object": "People's Republic of Bulgaria"
+    },
+    {
+      "subject": "Where No One Knows Us",
+      "predicate": "instance of",
+      "object": "film"
+    },
+    {
+      "subject": "Where No One Knows Us",
+      "predicate": "country of origin",
+      "object": "Austria"
+    },
+    {
+      "subject": "Where No One Knows Us",
+      "predicate": "written by",
+      "object": "Arash T. Riahi"
+    },
+    {
+      "subject": "Where No One Knows Us",
+      "predicate": "produced by",
+      "object": "Veit Heiduschka"
+    },
+    {
+      "subject": "Where No One Knows Us",
+      "predicate": "produced by",
+      "object": "Michael Katz"
+    },
+    {
+      "subject": "Where No One Knows Us",
+      "predicate": "cast member",
+      "object": "Rainer Wöss"
+    },
+    {
+      "subject": "Where No One Knows Us",
+      "predicate": "cast member",
+      "object": "Christine Ostermayer"
+    },
+    {
+      "subject": "Where No One Knows Us",
+      "predicate": "cast member",
+      "object": "Sonja Romei"
+    },
+    {
+      "subject": "Henry J. Call",
+      "predicate": "instance of",
+      "object": "human"
+    },
+    {
+      "subject": "Becky Wragg Sykes",
+      "predicate": "occupation",
+      "object": "archaeologist"
+    },
+    {
+      "subject": "Becky Wragg Sykes",
+      "predicate": "occupation",
+      "object": "writer"
+    },
+    {
+      "subject": "Becky Wragg Sykes",
+      "predicate": "member of",
+      "object": "TrowelBlazers"
+    },
+    {
+      "subject": "Kingdom of the Lombards",
+      "predicate": "instance of",
+      "object": "sovereign state"
+    },
+    {
+      "subject": "Kingdom of the Lombards",
+      "predicate": "located in",
+      "object": "Pavia"
+    },
+    {
+      "subject": "Kingdom of the Lombards",
+      "predicate": "language",
+      "object": "Latin"
+    },
+    {
+      "subject": "Kingdom of the Lombards",
+      "predicate": "language",
+      "object": "Vulgar Latin"
+    },
+    {
+      "subject": "Kingdom of the Lombards",
+      "predicate": "currency",
+      "object": "Tremissis"
+    },
+    {
+      "subject": "Lockende Sterne",
+      "predicate": "instance of",
+      "object": "film"
+    },
+    {
+      "subject": "Lockende Sterne",
+      "predicate": "genre",
+      "object": "drama"
+    },
+    {
+      "subject": "Lockende Sterne",
+      "predicate": "directed by",
+      "object": "Hans Müller"
+    },
+    {
+      "subject": "Lockende Sterne",
+      "predicate": "setting",
+      "object": "Hamburg"
+    },
+    {
+      "subject": "Lockende Sterne",
+      "predicate": "music by",
+      "object": "Friedrich Schröder"
+    },
+    {
+      "subject": "Lockende Sterne",
+      "predicate": "content rating",
+      "object": "FSK 12"
+    },
+    {
+      "subject": "Julian Patrick Lucas",
+      "predicate": "instance of",
+      "object": "human"
+    },
+    {
+      "subject": "Pork and Milk",
+      "predicate": "genre",
+      "object": "documentary film"
+    },
+    {
+      "subject": "Pork and Milk",
+      "predicate": "country of origin",
+      "object": "France"
+    },
+    {
+      "subject": "Pork and Milk",
+      "predicate": "written by",
+      "object": "Valérie Mréjen"
+    },
+    {
+      "subject": "Pork and Milk",
+      "predicate": "directed by",
+      "object": "Valérie Mréjen"
+    },
+    {
+      "subject": "Pork and Milk",
+      "predicate": "language",
+      "object": "Hebrew"
+    },
+    {
+      "subject": "Pork and Milk",
+      "predicate": "content rating",
+      "object": "no age restriction"
+    },
+    {
+      "subject": "A False Suspicion",
+      "predicate": "instance of",
+      "object": "silent short drama"
+    },
+    {
+      "subject": "A False Suspicion",
+      "predicate": "country of origin",
+      "object": "United States"
+    },
+    {
+      "subject": "A False Suspicion",
+      "predicate": "genre",
+      "object": "drama"
+    },
+    {
+      "subject": "A False Suspicion",
+      "predicate": "produced by",
+      "object": "Essanay Studios"
+    },
+    {
+      "subject": "A False Suspicion",
+      "predicate": "cast member",
+      "object": "Francis X. Bushman"
+    },
+    {
+      "subject": "A False Suspicion",
+      "predicate": "cast member",
+      "object": "Bryant Washburn"
+    },
+    {
+      "subject": "A False Suspicion",
+      "predicate": "cast member",
+      "object": "Dorothy Phillips"
+    },
+    {
+      "subject": "A False Suspicion",
+      "predicate": "cast member",
+      "object": "Dolores Cassinelli"
+    },
+    {
+      "subject": "Petru Tămăian",
+      "predicate": "occupation",
+      "object": "priest"
+    },
+    {
+      "subject": "Petru Tămăian",
+      "predicate": "citizenship",
+      "object": "Romania"
+    },
+    {
+      "subject": "Petru Tămăian",
+      "predicate": "participant in",
+      "object": "Great National Assembly of Alba Iulia"
+    },
+    {
+      "subject": "Hausa Kingdoms",
+      "predicate": "instance of",
+      "object": "country"
+    },
+    {
+      "subject": "Hausa Kingdoms",
+      "predicate": "located in",
+      "object": "Africa"
+    },
+    {
+      "subject": "Sébastien Populaire",
+      "predicate": "occupation",
+      "object": "engineer"
+    },
+    {
+      "subject": "Sébastien Populaire",
+      "predicate": "occupation",
+      "object": "politician"
+    },
+    {
+      "subject": "Sébastien Populaire",
+      "predicate": "citizenship",
+      "object": "France"
+    },
+    {
+      "subject": "Sébastien Populaire",
+      "predicate": "position held",
+      "object": "Mayor of Touillon-et-Loutelet"
+    },
+    {
+      "subject": "Sébastien Populaire",
+      "predicate": "position held",
+      "object": "municipal councillor of Touillon-et-Loutelet"
+    },
+    {
+      "subject": "Terminal Virus",
+      "predicate": "instance of",
+      "object": "film"
+    },
+    {
+      "subject": "Terminal Virus",
+      "predicate": "language",
+      "object": "English"
+    },
+    {
+      "subject": "Terminal Virus",
+      "predicate": "genre",
+      "object": "post-apocalyptic"
+    },
+    {
+      "subject": "Terminal Virus",
+      "predicate": "country of origin",
+      "object": "United States"
+    },
+    {
+      "subject": "Terminal Virus",
+      "predicate": "produced by",
+      "object": "Roger Corman"
+    },
+    {
+      "subject": "Terminal Virus",
+      "predicate": "distributed by",
+      "object": "New Concorde"
+    },
+    {
+      "subject": "Terminal Virus",
+      "predicate": "cast member",
+      "object": "James Brolin"
+    },
+    {
+      "subject": "Jan František Štyvar",
+      "predicate": "occupation",
+      "object": "writer"
+    },
+    {
+      "subject": "Jan František Štyvar",
+      "predicate": "occupation",
+      "object": "parson"
+    },
+    {
+      "subject": "Jan František Štyvar",
+      "predicate": "place of birth",
+      "object": "Příbor"
+    },
+    {
+      "subject": "Jan František Štyvar",
+      "predicate": "place of death",
+      "object": "Uherský Brod"
+    },
+    {
+      "subject": "Francia",
+      "predicate": "language",
+      "object": "Latin"
+    },
+    {
+      "subject": "Francia",
+      "predicate": "language",
+      "object": "Frankish"
+    },
+    {
+      "subject": "Francia",
+      "predicate": "capital",
+      "object": "Aachen"
+    },
+    {
+      "subject": "Francia",
+      "predicate": "capital",
+      "object": "Tournai"
+    },
+    {
+      "subject": "Dʿmt",
+      "predicate": "instance of",
+      "object": "monarchy"
+    },
+    {
+      "subject": "Dʿmt",
+      "predicate": "instance of",
+      "object": "kingdom"
+    },
+    {
+      "subject": "Dʿmt",
+      "predicate": "located in",
+      "object": "Africa"
+    },
+    {
+      "subject": "Dʿmt",
+      "predicate": "capital",
+      "object": "Yeha"
+    },
+    {
+      "subject": "A Concerto for the Violin",
+      "predicate": "directed by",
+      "object": "Charles Brabin"
+    },
+    {
+      "subject": "A Concerto for the Violin",
+      "predicate": "produced by",
+      "object": "Edison Studios"
+    },
+    {
+      "subject": "A Concerto for the Violin",
+      "predicate": "instance of",
+      "object": "short film"
+    },
+    {
+      "subject": "A Concerto for the Violin",
+      "predicate": "country of origin",
+      "object": "United States"
+    },
+    {
+      "subject": "Sui",
+      "predicate": "instance of",
+      "object": "state"
+    },
+    {
+      "subject": "Sui",
+      "predicate": "located in",
+      "object": "China"
+    },
+    {
+      "subject": "HSBC (Midland Bank)",
+      "predicate": "instance of",
+      "object": "bank building"
+    },
+    {
+      "subject": "HSBC (Midland Bank)",
+      "predicate": "located in",
+      "object": "Vale of Glamorgan"
+    },
+    {
+      "subject": "HSBC (Midland Bank)",
+      "predicate": "located in",
+      "object": "United Kingdom"
+    },
+    {
+      "subject": "Champaner",
+      "predicate": "instance of",
+      "object": "village"
+    },
+    {
+      "subject": "Champaner",
+      "predicate": "instance of",
+      "object": "country"
+    },
+    {
+      "subject": "Champaner",
+      "predicate": "located in",
+      "object": "Halol Taluka"
+    },
+    {
+      "subject": "Champaner",
+      "predicate": "located in",
+      "object": "India"
+    },
+    {
+      "subject": "Unión Aérea Española",
+      "predicate": "instance of",
+      "object": "business"
+    },
+    {
+      "subject": "Unión Aérea Española",
+      "predicate": "located in",
+      "object": "Spain"
+    },
+    {
+      "subject": "Unión Aérea Española",
+      "predicate": "industry",
+      "object": "transport"
+    },
+    {
+      "subject": "Fonko",
+      "predicate": "genre",
+      "object": "documentary film"
+    },
+    {
+      "subject": "Fonko",
+      "predicate": "directed by",
+      "object": "Göran Olsson"
+    },
+    {
+      "subject": "Fonko",
+      "predicate": "directed by",
+      "object": "Lars Lovén"
+    },
+    {
+      "subject": "Fonko",
+      "predicate": "directed by",
+      "object": "Lamin Daniel Jadama"
+    },
+    {
+      "subject": "Fonko",
+      "predicate": "edited by",
+      "object": "Göran Olsson"
+    },
+    {
+      "subject": "Fonko",
+      "predicate": "edited by",
+      "object": "Lars Lovén"
+    },
+    {
+      "subject": "Fonko",
+      "predicate": "edited by",
+      "object": "Lamin Daniel Jadama"
+    },
+    {
+      "subject": "Western Chu",
+      "predicate": "instance of",
+      "object": "country"
+    },
+    {
+      "subject": "Western Chu",
+      "predicate": "head of state",
+      "object": "Xiang Yu"
+    },
+    {
+      "subject": "Mikel Mendizabal",
+      "predicate": "instance of",
+      "object": "human"
+    },
+    {
+      "subject": "Mikel Mendizabal",
+      "predicate": "citizenship",
+      "object": "Spain"
+    },
+    {
+      "subject": "Mikel Mendizabal",
+      "predicate": "occupation",
+      "object": "bertsolari"
+    },
+    {
+      "subject": "Mikel Mendizabal",
+      "predicate": "located in",
+      "object": "Itsasondo"
+    },
+    {
+      "subject": "Mikel Mendizabal",
+      "predicate": "language",
+      "object": "Basque"
+    },
+    {
+      "subject": "Le K Benzema",
+      "predicate": "instance of",
+      "object": "documentary television film"
+    },
+    {
+      "subject": "Le K Benzema",
+      "predicate": "language",
+      "object": "French"
+    },
+    {
+      "subject": "Le K Benzema",
+      "predicate": "distributed by",
+      "object": "Canal+"
+    },
+    {
+      "subject": "Le K Benzema",
+      "predicate": "located in",
+      "object": "France"
+    },
+    {
+      "subject": "Vincent Manago",
+      "predicate": "occupation",
+      "object": "painter"
+    },
+    {
+      "subject": "Vincent Manago",
+      "predicate": "citizenship",
+      "object": "France"
+    },
+    {
+      "subject": "Vincent Manago",
+      "predicate": "place of birth",
+      "object": "Catania"
+    },
+    {
+      "subject": "Vincent Manago",
+      "predicate": "educated at",
+      "object": "Académie Julian"
+    },
+    {
+      "subject": "Vincent Manago",
+      "predicate": "place of death",
+      "object": "Paris"
+    },
+    {
+      "subject": "Oxborrows Hotel",
+      "predicate": "instance of",
+      "object": "hotel"
+    },
+    {
+      "subject": "Oxborrows Hotel",
+      "predicate": "located in",
+      "object": "Ipswich"
+    },
+    {
+      "subject": "Oxborrows Hotel",
+      "predicate": "located in",
+      "object": "United Kingdom"
+    },
+    {
+      "subject": "Gilbert Sissons",
+      "predicate": "occupation",
+      "object": "minister"
+    },
+    {
+      "subject": "Gilbert Sissons",
+      "predicate": "educated at",
+      "object": "Pembroke College"
+    },
+    {
+      "subject": "kerajaan Pananjung",
+      "predicate": "instance of",
+      "object": "country"
+    },
+    {
+      "subject": "kerajaan Pananjung",
+      "predicate": "located in",
+      "object": "Pangandaran"
+    },
+    {
+      "subject": "kerajaan Pananjung",
+      "predicate": "located in",
+      "object": "West Java"
+    },
+    {
+      "subject": "Keith Joubert",
+      "predicate": "occupation",
+      "object": "explorer"
+    },
+    {
+      "subject": "Keith Joubert",
+      "predicate": "occupation",
+      "object": "painter"
+    },
+    {
+      "subject": "Keith Joubert",
+      "predicate": "citizenship",
+      "object": "South Africa"
+    }
+  ]
+}

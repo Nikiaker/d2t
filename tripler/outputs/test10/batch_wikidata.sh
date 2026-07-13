@@ -34,7 +34,7 @@ fi
 conda run -n openevolve-env python $D2TPATH/tripler/batch_wrapper_server.py \
     --upstream-base-url http://localhost:3013 \
     --port 3012 \
-    --storage-dir $SCRATCH/.batch_wrapper_data10 \
+    --storage-dir $HOME/.batch_wrapper_data10 \
 	2>&1 &
 
 cd $D2TPATH/tripler/
