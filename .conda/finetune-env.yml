@@ -1,0 +1,24 @@
+name: finetune-env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.13
+  - pip
+  - numpy
+  - scipy
+  - nltk
+  - evaluate
+  - openai
+  - pip:
+      - torch
+      - transformers
+      - trl
+      - peft
+      - bitsandbytes
+      - accelerate
+      - datasets
+      - flash-attn
+      - vllm
+      - sacrebleu
+      - sacremoses
