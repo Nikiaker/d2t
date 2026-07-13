@@ -37,7 +37,8 @@ conda run -n openevolve-env python $D2TPATH/tripler/batch_wrapper_server.py \
 cd $D2TPATH/tripler/
 
 conda run -n openevolve-env python make_scoring_table.py \
-  --test-dir outputs/test10
+  --test-dir outputs/test10 \
+  --tripler-dir $D2TPATH/tripler
 
 conda run -n openevolve-env python judge_scoring_batch.py \
   --model google/gemma-4-31B-it \
