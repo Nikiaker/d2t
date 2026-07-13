@@ -1,15 +1,15 @@
 # app_text_pipeline.py
-## Two-Batch Text-First Extraction with Optional Normalization
+## Text-First Extraction with Normalization
 ### The simplest text-first two-batch pipeline, plus optional normalization.
 Step 1 (batch): JSON → references via TEXT_GENERATION_SYSTEM_PROMPT (with enable_thinking:false). Step 2 (batch): references → triples via TRIPLES_FROM_TEXT_SYSTEM_PROMPT, a plain text-to-triples extraction with no catalog/inventory/rules. Two parallel batches, no sequential per-instance calls. Optional normalize subcommand reuses the same Union-Find predicate normalization as method #1. Clean separation: JSON → text → triples → (normalize).
 
 # app_rules_text_pipeline.py
-## Rules-Iterative Refinement Text-to-Triples
+## Rules-Iterative Refinement
 ### Rules-driven pipeline with iterative rule refinement
 Step 1: LLM generates initial domain rules {predicates, example_triples, example_text, guidelines} (RULE_CREATION_SYSTEM_PROMPT). Step 2 (batch): JSON → references (same text-generation batch). Step 3 (iterative loop, up to --max-rules-revision-rounds): for each instance text, the LLM checks rule feasibility (RULE_FEASIBILITY_SYSTEM_PROMPT → possible/reason/rule_gaps); on the first failing text, the rules are revised (RULE_REVISION_SYSTEM_PROMPT, keeping good rules, adding to cover the gap) and instance checking restarts; stops when all texts pass or the round cap is hit. Step 4 (batch): all texts → triples in one batch using the final rules (TRIPLES_FROM_TEXT_WITH_RULES_SYSTEM_PROMPT), preferring rule predicates and mimicking example-triple formatting. Output includes initial/final rules and revision history.
 
 # app_text_predicate_catalog_stable.py
-## Text-First Evolving Catalog with Stable-Window Handoff to Batch
+## Evolving Catalog
 ### Text-first pipeline that also builds an evolving predicate catalog with a stable-window heuristic
 Step 1 (batch): all instances → natural-language references via TEXT_GENERATION_SYSTEM_PROMPT. Step 2 (sequential): instance 0 triples are free-extracted from its text; every later instance's triples are extracted with CATALOG_GUIDED_TRIPLES_SYSTEM_PROMPT, receiving the current predicate catalog (name + one example triple per predicate). The model reuses catalog predicates or invents a new one only when necessary; new predicates are added to the catalog with an example triple, so it evolves instance-by-instance. Fully sequential in the triple step (no batch). No normalization step. Same as #3 for text generation (batch) and the initial sequential catalog-building triple extraction. A stability counter tracks consecutive instances that introduce no new predicate; when it reaches --stable-window (default 20), the catalog is frozen and the loop breaks. All remaining instances are then extracted in a single OpenAI Batch with the frozen catalog (extract_catalog_guided_triples_batch); predicates discovered in this batch are intentionally NOT added back to the catalog. Output records whether/where stability was reached and the sequential-vs-batched split.
 
