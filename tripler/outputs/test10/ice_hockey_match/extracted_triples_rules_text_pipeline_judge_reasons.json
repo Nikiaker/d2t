@@ -1,0 +1,602 @@
+{
+  "0": {
+    "summary": "The text is accurate and concise, but the triples contain a logical error in the final relation ('Carolina Hurricanes --won_by-> Match_1').",
+    "completeness": "The text and triples capture all key relevant information including teams, final score, tournament, season, and the period-specific scoring detail.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the final score, teams, competition, and period-specific scoring.",
+    "omissions": "All key information including teams, final score, tournament, season, and the specific scoring period is captured across the text and triples."
+  },
+  "1": {
+    "summary": "The text is excellent and detailed, but the triples contain a semantic error: 'Spartak Moscow --won_by-> Match_1' is logically inverted.",
+    "completeness": "The text and triples combined cover all key entities, the tournament, the season, the final score, and the period-by-period scoring breakdown.",
+    "faithfulness": "The text and triples accurately reflect the match outcome, scores, period breakdown, and tournament details provided in the JSON.",
+    "omissions": "All key information including teams, final score, tournament season, and period-by-period scoring breakdown is accurately captured."
+  },
+  "2": {
+    "summary": "The text and triples accurately and concisely capture all key details, including the teams, score, competition, round, and the penalty shootout result.",
+    "completeness": "All key information including teams, score, tournament, season, round, and the specific method of victory (penalties) is captured.",
+    "faithfulness": "The text and triples accurately reflect the scores, teams, competition, and the fact that the match was decided by penalties.",
+    "omissions": "The text and triples combined capture all key entities, the final score, the competition details, and the specific method of victory (penalty shootout)."
+  },
+  "3": {
+    "summary": "Both the text and triples accurately and concisely capture all key details including teams, score, round, competition, and scoring breakdown.",
+    "completeness": "All key information including teams, final score, tournament, season, round, and period-specific scoring is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data without any hallucinations.",
+    "omissions": "The text and triples combined capture all key information: teams, final score, tournament, season, round, and period-specific scoring."
+  },
+  "4": {
+    "summary": "The text is excellent and captures all key details, but the triples contain a semantic error ('Stalnye Lisy --won_by-> Match_1' should be 'won').",
+    "completeness": "All relevant match details, including teams, tournament, final score, and period-by-period breakdowns, are captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the scores, teams, and tournament details provided in the input data.",
+    "omissions": "The text and triples combined capture all essential information, including the tournament, season, teams, final score, and period-by-period breakdown."
+  },
+  "5": {
+    "summary": "The text and triples accurately and concisely capture all key data points, including teams, score, overtime result, round, and competition.",
+    "completeness": "All primary entities, scores, round information, competition details, and the overtime outcome are accurately captured in the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the score, overtime result, round, and tournament details.",
+    "omissions": "All key information including teams, final score, overtime status, round, tournament, and season are accurately captured."
+  },
+  "6": {
+    "summary": "The text and triples accurately capture all key information including the tournament, round, teams, final score, and period-by-period progression.",
+    "completeness": "All relevant details including teams, score, round, season, league, location, and period-by-period breakdown are captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the score, round, competition, and period-by-period breakdown.",
+    "omissions": "All key information including teams, final score, round, season, league, and period-by-period progression is captured across the text and triples."
+  },
+  "7": {
+    "summary": "Both the text and triples accurately capture all key event details, including teams, score, round, and competition.",
+    "completeness": "The text and triples collectively cover all key information: teams, final score, tournament, season, round, and the period-by-period progression.",
+    "faithfulness": "The text and triples accurately reflect the input data without any fabrications.",
+    "omissions": "The text and triples combined capture all key information including teams, score, tournament, season, and round."
+  },
+  "8": {
+    "summary": "The text and triples accurately and concisely capture all key match details, including the teams, score, round, and competition.",
+    "completeness": "All key information including teams, final score, round, season, tournament, and specific period performance is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the score, round, teams, and period-specific performance.",
+    "omissions": "All key information including teams, final score, round, competition, and season is present in both the text and triples."
+  },
+  "9": {
+    "summary": "The text and triples accurately capture the winner, score, and competition, though the triples contain a minor semantic error ('Vityaz Podolsk --won_by-> Match_1').",
+    "completeness": "The core entities, match outcome, final score, and competition are present, but period-specific scores from the input are omitted.",
+    "faithfulness": "The text and triples accurately reflect the teams, final score, competition, and period-by-period lead indicated in the data.",
+    "omissions": "All key information including teams, final score, competition, and outcome is accurately captured in the text and triples."
+  },
+  "10": {
+    "summary": "The text and triples accurately and concisely capture the winner, the score, the teams, and the competition.",
+    "completeness": "All critical information including teams, final score, competition, season, and period-by-period breakdown is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the score, teams, tournament, and period-by-period breakdown provided in the input.",
+    "omissions": "All key entities, the final score, the winner, and the tournament details are accurately captured across the text and triples."
+  },
+  "11": {
+    "summary": "The text and triples accurately and concisely capture all key match details, including teams, league, round, final score, and period breakdown.",
+    "completeness": "All key relevant information including teams, tournament, season, round, final score, and period-by-period breakdown is captured.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the final score, period breakdowns, tournament, and round.",
+    "omissions": "All key information including teams, competition, season, round, final score, and period-by-period breakdown is accurately captured."
+  },
+  "12": {
+    "summary": "The text and triples accurately and concisely capture all key information, including the teams, score, round, competition, and the overtime result.",
+    "completeness": "All key relevant information including teams, final score, tournament, season, round, and the overtime nature of the result is captured.",
+    "faithfulness": "The text and triples accurately reflect the match details, scores, round, and outcome provided in the input data.",
+    "omissions": "All key information including teams, final score, competition, round, and the overtime victory is accurately captured in both the text and triples."
+  },
+  "13": {
+    "summary": "The text and triples accurately and concisely capture all key match details, including teams, score, round, and competition.",
+    "completeness": "All key relevant information including teams, final score, round, tournament, season, and the specific scoring detail from the third period is captured.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the score, teams, round, season, and the specific timing of Modo's goals.",
+    "omissions": "All key information including teams, final score, round, and competition are captured in both the text and triples."
+  },
+  "14": {
+    "summary": "The text and triples accurately and concisely capture all key match details, including teams, score, round, and competition.",
+    "completeness": "All key information including teams, final score, round, tournament, season, and period breakdown is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the scores, teams, round, and tournament provided in the input data.",
+    "omissions": "All key information including teams, final score, round, tournament, season, and the first period lead is captured across the text and triples."
+  },
+  "15": {
+    "summary": "The text and triples accurately and concisely capture all key match details, including teams, score, round, and competition.",
+    "completeness": "All key information including teams, score, round, tournament, season, and period breakdown is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data without any hallucinations.",
+    "omissions": "All key information including teams, final score, round, tournament, and period-by-period progression is captured across the text and triples."
+  },
+  "16": {
+    "summary": "The text and triples accurately capture the teams, the final score, the winner, and the specific competition.",
+    "completeness": "The text and triples capture all primary relevant information including teams, final score, competition, and specific period performance.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the final score, the teams, the competition, and the specific scoring breakdown of the third period.",
+    "omissions": "All key information including teams, final score, competition, and specific game details are accurately captured across the text and triples."
+  },
+  "17": {
+    "summary": "Both the text and triples accurately and concisely capture all key event details, including teams, score, round, and competition.",
+    "completeness": "All primary and relevant data points including teams, score, round, league, season, and result are captured in the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the scores, teams, round, and competition provided in the input data.",
+    "omissions": "All key information including teams, score, round, league, and season is captured in both the text and triples."
+  },
+  "18": {
+    "summary": "The text is accurate, but the triples contain a logical error in the final relation ('Abbotsford Canucks --won_by-> Match_1').",
+    "completeness": "The main entities, final score, and competition are present, though specific period-by-period breakdowns for the home team are omitted.",
+    "faithfulness": "The text and triples accurately reflect the match result, score, and competition provided in the input data.",
+    "omissions": "The text and triples combined capture all key entities, the final score, the winner, and the competition."
+  },
+  "19": {
+    "summary": "The text and triples accurately and concisely capture all key data points, including teams, scores, period breakdown, and competition.",
+    "completeness": "All key information including teams, tournament, season, final score, and period-by-period breakdown is accurately captured across the text and triples.",
+    "faithfulness": "The text is perfectly grounded, but the triples contain a logical error in 'Belfast Giants --won_by-> Match_1' (the team won the match, not the other way around).",
+    "omissions": "All key information including teams, final score, period breakdowns, and tournament details are accurately captured in the text and triples."
+  },
+  "20": {
+    "summary": "The text and triples accurately and concisely capture all key information including teams, score, competition, round, and the specific game flow.",
+    "completeness": "All key relevant information including teams, score, competition, season, round, and period-specific detail is captured across the text and triples.",
+    "faithfulness": "Both the text and triples are fully grounded in the input data, accurately reflecting the teams, score, round, and period breakdown.",
+    "omissions": "All key information including teams, final score, competition, season, round, and the specific period detail is present across the text and triples."
+  },
+  "21": {
+    "summary": "The text and triples accurately capture all key information, including teams, score, competition, round, and scoring breakdown.",
+    "completeness": "The text and triples combined cover all key information, including teams, final score, round, season, league, and period-specific scoring.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the final score, round, season, and period-by-period scoring.",
+    "omissions": "The text and triples accurately capture all key information including the teams, final score, round, season, and period-specific scoring."
+  },
+  "22": {
+    "summary": "The text and triples accurately capture all key details, including the teams, competition, final score, and period-by-period progression.",
+    "completeness": "All key information including teams, final score, competition, and period breakdown is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data without any hallucinations.",
+    "omissions": "All key information including teams, final score, tournament, season, and period-by-period progress is captured across the text and triples."
+  },
+  "23": {
+    "summary": "The text and triples accurately capture all key details including teams, score, competition, season, round, and period breakdown.",
+    "completeness": "The text and triples collectively capture all primary and secondary relevant facts, including teams, final score, period-by-period scoring, tournament, season, and round.",
+    "faithfulness": "The text and triples accurately reflect the scores, teams, round, season, and competition provided in the input data.",
+    "omissions": "All key information including teams, final score, round, league, season, and period breakdown is accurately captured."
+  },
+  "24": {
+    "summary": "The text and triples accurately capture the main event and score, though the triples contain a slightly awkward 'won_by' relation.",
+    "completeness": "All key information including teams, final score, competition, season, and period-specific scoring is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the team names, final score, tournament, and period-by-period scoring found in the input data.",
+    "omissions": "The text and triples combined capture all key entities, the final score, the specific competition, and the period-by-period scoring details."
+  },
+  "25": {
+    "summary": "The text and triples accurately capture all key details including the teams, final score, round, competition, and the match progression.",
+    "completeness": "All key information including teams, final score, round, tournament, season, and period-by-period progression is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the final score, round, tournament, and period-by-period progression.",
+    "omissions": "All key information including teams, final score, round, tournament, and period-by-period progression is captured across the text and triples."
+  },
+  "26": {
+    "summary": "The text and triples accurately capture the winner, score, and league, though the triples contain a slightly odd relation 'won_by'.",
+    "completeness": "All key information including teams, final score, competition, and period-by-period consistency is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the teams, score, and competition provided in the input data.",
+    "omissions": "All key information including teams, final score, competition, and winner is accurately captured in both the text and triples."
+  },
+  "27": {
+    "summary": "The text and triples accurately and concisely capture all key information from the input data, including teams, score, round, and competition.",
+    "completeness": "All key entities, scores, round, competition, and the specific period of the goal are accurately captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data without any fabrications.",
+    "omissions": "All key information including teams, score, round, tournament, season, and the timing of the goal is accurately captured in both the text and triples."
+  },
+  "28": {
+    "summary": "The text is excellent, but the triples contain a logic error ('Miami Ohio Redhawks --won_by-> Match_1').",
+    "completeness": "The text and triples combined capture all key information: teams, final score, period breakdown, tournament, season, and the winner.",
+    "faithfulness": "The text and triples accurately reflect the input data without any hallucinations or distortions.",
+    "omissions": "All key information including teams, final score, competition details, and period-specific scoring is captured across the text and triples."
+  },
+  "29": {
+    "summary": "The text and triples accurately capture the teams, tournament, final score, and the specific detail about scoring periods.",
+    "completeness": "The text and triples capture all key information, including teams, final score, competition, and the specific period details.",
+    "faithfulness": "The text and triples accurately reflect the teams, score, competition, and period-specific scoring provided in the data.",
+    "omissions": "The text and triples accurately capture all key information including teams, competition, final score, and the specific scoring period."
+  },
+  "30": {
+    "summary": "The text and triples capture all key facts, though the triples contain a slightly awkward relation 'HK Ryazan --won_by-> Match_1'.",
+    "completeness": "All primary and secondary relevant information, including teams, scores, league, season, sport, and the specific period breakdown, is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the score, teams, competition, and the specific timing of the away team's goals.",
+    "omissions": "All key entities, the final score, the competition, and the specific scoring detail are accurately captured across the text and triples."
+  },
+  "31": {
+    "summary": "The text and triples accurately capture all key details including teams, score, competition, season, round, and period progression.",
+    "completeness": "The text and triples capture all relevant factual data including teams, score, period breakdown, tournament, season, and round.",
+    "faithfulness": "The text and triples accurately reflect the game result, teams, score, and tournament details provided in the input data.",
+    "omissions": "All key information including teams, final score, competition, season, round, and period-by-period progression is captured across the text and triples."
+  },
+  "32": {
+    "summary": "The text and triples accurately and concisely capture all key match details, including the tournament, teams, final score, and winner.",
+    "completeness": "All core entities, the final score, the competition, the season, and the match outcome are correctly represented in the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the teams, the final score, the competition, and the scoring trend.",
+    "omissions": "The text and triples combined capture all essential information: teams, competition, season, final score, and the outcome."
+  },
+  "33": {
+    "summary": "Both the text and triples accurately capture the teams, final score, competition, round, and the specific method of victory (penalty shootout) from the input data.",
+    "completeness": "The text and triples capture all key information, including teams, score, competition, round, season, and the specific method of victory (penalties).",
+    "faithfulness": "The text and triples accurately reflect all data points, including the final score, tournament names, round, and the fact that the game was decided by penalties.",
+    "omissions": "All key information including teams, score, competition, season, round, and the method of victory is accurately captured."
+  },
+  "34": {
+    "summary": "The text and triples accurately and concisely capture all key match details, including the final score, round, season, and period-by-period progression.",
+    "completeness": "All relevant match details including teams, scores, round, competition, and period-by-period progression are captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the scores, teams, round, and tournament provided in the input data.",
+    "omissions": "All key information including teams, final score, round, tournament, season, and period-by-period progression is accurately captured."
+  },
+  "35": {
+    "summary": "The text and triples accurately and concisely capture the teams, final score, winner, and league from the input data.",
+    "completeness": "All key information including teams, final score, tournament, season, and period-by-period progression is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the teams, final score, period breakdown, and tournament name provided in the input.",
+    "omissions": "All key information including teams, final score, tournament, season, and period-by-period progression is captured across the text and triples."
+  },
+  "36": {
+    "summary": "The text and triples accurately and concisely capture all key information from the input data, including the teams, score, competition, and round.",
+    "completeness": "All key information including teams, final score, tournament, season, round, and period-specific scoring is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the match result, score, period breakdown, competition, and round provided in the input data.",
+    "omissions": "All key information including teams, score, competition, season, round, and period breakdown is captured across the text and triples."
+  },
+  "37": {
+    "summary": "Both the text and triples accurately and concisely capture all key details including teams, score, tournament, season, and round.",
+    "completeness": "All key information including teams, scores, tournament, season, round, and outcome is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the match result, teams, tournament, season, and round provided in the input data.",
+    "omissions": "All key information including teams, final score, tournament, season, and round are captured in both the text and triples."
+  },
+  "38": {
+    "summary": "The text and triples accurately and concisely capture all key information, including the teams, the score, the tournament, and the round.",
+    "completeness": "All key information including teams, competition, season, round, final score, and period trends is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the score, teams, competition, and period-by-period results.",
+    "omissions": "All key entities, the final score, the competition, the round, and the outcome are accurately captured in both the text and triples."
+  },
+  "39": {
+    "summary": "The text and triples accurately capture all key details including teams, competition, round, season, and final score.",
+    "completeness": "All key information including teams, score, competition, season, round, and period breakdown is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the teams, score, round, and competition.",
+    "omissions": "All key information including teams, score, tournament, season, and round are accurately captured in both the text and triples."
+  },
+  "40": {
+    "summary": "The text and triples accurately capture all key match details, though the triple 'EV Landshut --won_by-> Match_1' is phrased awkwardly.",
+    "completeness": "All primary match details, including teams, final score, competition, season, and round, are captured in both the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the match outcome, teams, tournament, round, and season provided in the input data.",
+    "omissions": "All key information including teams, final score, tournament, season, and round are captured in the text and triples."
+  },
+  "41": {
+    "summary": "Both the text and triples accurately and concisely capture the key match details, including teams, scores, competition, and period breakdown.",
+    "completeness": "All key information including teams, competition, final score, and period-by-period breakdown is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the scores, teams, and competition details provided in the input data.",
+    "omissions": "All key information including the tournament, teams, final score, and period breakdown is accurately captured in the text and triples."
+  },
+  "42": {
+    "summary": "The text and triples accurately and concisely capture the teams, final score, winner, and competition from the input data.",
+    "completeness": "The main entities, final score, and competition are captured, though specific period-by-period scores from the input are summarized rather than explicitly listed.",
+    "faithfulness": "The text and triples accurately reflect the teams, final score, competition, and outcome provided in the data.",
+    "omissions": "All key information including teams, final score, competition, and season are accurately captured in both the text and triples."
+  },
+  "43": {
+    "summary": "The text and triples accurately and concisely capture all key information including teams, score, competition, and season.",
+    "completeness": "All primary information including teams, score, competition, season, and period distribution is accurately captured in the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data without any hallucinations.",
+    "omissions": "All key entities, the final score, the competition, the season, and the outcome are accurately captured in both the text and triples."
+  },
+  "44": {
+    "summary": "The text and triples accurately capture the winner, final score, competition, and period-by-period scoring dynamics from the input data.",
+    "completeness": "All key information including teams, final score, tournament, season, and period-by-period scoring breakdown is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the scores, teams, tournament, and period-by-period breakdown provided in the data.",
+    "omissions": "All key information including teams, final score, competition, and period-by-period scoring trends are accurately captured."
+  },
+  "45": {
+    "summary": "The text and triples accurately capture all key details including teams, score, competition, round, and period-by-period progression.",
+    "completeness": "All primary entities, the final score, period-by-period breakdown, tournament details, and round information are accurately captured.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the final score, period breakdowns, and competition details.",
+    "omissions": "All key information including teams, scores, tournament, round, and period-specific progression is captured across the text and triples."
+  },
+  "46": {
+    "summary": "Both the text and triples accurately and concisely capture all key details including teams, score, round, competition, and period breakdown.",
+    "completeness": "The text and triples together capture all key information including teams, tournament, season, round, final score, and period-by-period scoring breakdown.",
+    "faithfulness": "The text and triples accurately reflect the input data without any fabrications.",
+    "omissions": "All key information including teams, score, round, season, league, and period breakdowns are accurately captured in the text and triples."
+  },
+  "47": {
+    "summary": "The text is accurate and concise; however, the triples contain a logical error in the final triple ('HK Poprad --won_by-> Match_1').",
+    "completeness": "The text and triples together capture all key relevant data: teams, final score, tournament, season, and round.",
+    "faithfulness": "The text and triples accurately reflect the input data without any hallucinations.",
+    "omissions": "All key information including teams, final score, tournament, season, and round is accurately captured in both the text and triples."
+  },
+  "48": {
+    "summary": "Both the text and triples accurately and concisely capture all key details including teams, score, competition, round, and period breakdown.",
+    "completeness": "All relevant information including teams, score, period breakdown, tournament, season, and round is captured in the text and triples.",
+    "faithfulness": "The text and triples are fully grounded in the provided JSON data.",
+    "omissions": "All key information including teams, competition, season, round, final score, and period breakdown is captured in the text and triples."
+  },
+  "49": {
+    "summary": "The text and triples accurately and concisely capture the winner, score, teams, tournament, and specific match details.",
+    "completeness": "The text and triples collectively capture all key relevant data: teams, final score, competition, season, round, and the specific period breakdown.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the final score, teams, tournament, round, and period-specific scoring.",
+    "omissions": "All key information including teams, score, tournament, season, round, and period details are present across the text and triples."
+  },
+  "50": {
+    "summary": "Both the text and triples accurately and concisely capture all key match details, including the score, round, competition, and the overtime result.",
+    "completeness": "The text and triples collectively capture all key details: teams, final score, regulation score, round, competition, and the overtime result.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the score, round, competition, and the overtime result.",
+    "omissions": "All key match details, including teams, score, round, tournament, and overtime result, are accurately captured in both the text and triples."
+  },
+  "51": {
+    "summary": "Both the text and triples accurately and concisely capture all key match details, including the score, competition, round, and method of victory.",
+    "completeness": "All key information including teams, score, tournament, season, round, and the specific outcome (penalty shootout) is accurately captured in both the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the scores, round, competition, and the fact that the game was decided by penalties.",
+    "omissions": "All critical match details, including teams, score, round, competition, and the penalty shootout outcome, are accurately captured."
+  },
+  "52": {
+    "summary": "The text and triples accurately and concisely capture all key match details, including the competition, round, teams, and final score.",
+    "completeness": "The text and triples combined cover all primary data points including the tournament, season, round, teams, final score, and period-by-period breakdown.",
+    "faithfulness": "The text and triples accurately reflect all data points provided in the JSON input without any hallucinations.",
+    "omissions": "All key information including teams, final score, period scores, round, and competition is present in the text and triples."
+  },
+  "53": {
+    "summary": "Both the text and triples accurately capture all key details including teams, score, season, and round.",
+    "completeness": "All key information including tournament, season, round, teams, final score, and period-by-period scoring is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the match result, teams, competition, and period scores provided in the input data.",
+    "omissions": "All key information including teams, final score, competition, season, round, and period breakdown is captured across the text and triples."
+  },
+  "54": {
+    "summary": "The text and triples accurately and concisely capture all key information from the input data, including teams, score, round, and competition.",
+    "completeness": "All primary entities, the final score, period-specific details, and tournament context are captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data without any hallucinations.",
+    "omissions": "All key information including teams, score, round, tournament, and season is accurately captured in both the text and triples."
+  },
+  "55": {
+    "summary": "The text and triples accurately and concisely capture the teams, final score, winner, and competition from the input data.",
+    "completeness": "The primary entities, final score, and competition are present, but the specific period-by-period score breakdown is only partially summarized in the text.",
+    "faithfulness": "The text and triples accurately reflect the input data, including teams, scores, and league information.",
+    "omissions": "All key entities, the final score, the competition, and the outcome are accurately captured in the text and triples."
+  },
+  "56": {
+    "summary": "Both the text and triples accurately and concisely capture all key data including teams, score, competition, round, and the overtime outcome.",
+    "completeness": "All key information including tournament, season, round, teams, final score, normal time result, and overtime outcome is captured.",
+    "faithfulness": "The text and triples accurately reflect all data provided in the input JSON without any hallucinations.",
+    "omissions": "All key information including teams, final score, competition, round, and the overtime result is accurately captured in both the text and triples."
+  },
+  "57": {
+    "summary": "The text is accurate and concise, but the triples contain a logical error ('Corona Brașov --won_by-> Match_1' should be the other way around).",
+    "completeness": "The primary entities, final score, and competition are present, but period-by-period scoring details for UTE and specific round information are omitted.",
+    "faithfulness": "The text and triples are fully grounded in the input data, accurately reflecting the final score, the teams, and the competition.",
+    "omissions": "All key information including teams, final score, tournament, season, sport, and period details are captured across the text and triples."
+  },
+  "58": {
+    "summary": "Both the text and triples accurately capture all key details including teams, score, competition, round, and the penalty shootout outcome.",
+    "completeness": "All key information including teams, score, tournament, round, and the specific nature of the victory (penalties) is captured.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the final score, the regulation score (4-4), the winner, and the penalty shootout outcome.",
+    "omissions": "All key information including teams, score, tournament, round, and the penalty shootout outcome is accurately captured in both the text and triples."
+  },
+  "59": {
+    "summary": "The text and triples accurately capture all key details, including the teams, score, round, season, and period-by-period scoring breakdown.",
+    "completeness": "The text and triples capture all key information including teams, final score, period-by-period breakdown, round, and season.",
+    "faithfulness": "The text and triples accurately reflect the home/away teams, the final score, the round, the season, and the period-by-period scoring provided in the data.",
+    "omissions": "All key information including teams, final score, tournament, season, round, and period-by-period scoring is captured across the text and triples."
+  },
+  "60": {
+    "summary": "The text and triples accurately capture the winner, score, and competition, though the triples are slightly inconsistent in their entity naming.",
+    "completeness": "The text and triples combined cover all key information: teams, final score, league/season, and the period-by-period scoring breakdown.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the final score and the period-by-period scoring breakdown.",
+    "omissions": "All key information including teams, final score, competition, and the progression of scoring is present across the text and triples."
+  },
+  "61": {
+    "summary": "Both the text and triples accurately capture all key details including teams, score, competition, season, and round.",
+    "completeness": "All key information including teams, scores, tournament, season, round, and period-specific highlights are captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data without any hallucinations.",
+    "omissions": "All key information including teams, final score, competition, season, round, and a specific period detail is captured across the text and triples."
+  },
+  "62": {
+    "summary": "The text is excellent, but the triples contain a logical error ('Columbus Blue Jackets --won_by-> Match_1') and introduce an undefined entity 'Match_1'.",
+    "completeness": "All key information including teams, final score, competition, season, and period-by-period progression is captured across the text and triples.",
+    "faithfulness": "The text and triples are mostly grounded, though the term 'regular season' is an inference as the data only lists 'round: 1'.",
+    "omissions": "All key information including teams, final score, competition, and the progression of the game is captured across the text and triples."
+  },
+  "63": {
+    "summary": "The text and triples accurately capture all key details including the tournament, round, teams, final score, and the specific period of the goal.",
+    "completeness": "All primary and relevant details including teams, score, tournament, season, round, and period-specific scoring are captured in the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the score, teams, competition, round, and the timing of the goal.",
+    "omissions": "All key information including teams, score, tournament, season, round, and period of the goal is captured in both the text and triples."
+  },
+  "64": {
+    "summary": "The text and triples accurately and concisely capture all key information including teams, score, competition, round, and period details.",
+    "completeness": "All key information including teams, tournament, season, round, final score, and period breakdown is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data without any fabrications.",
+    "omissions": "All key information including teams, score, competition, season, round, and period details are captured across the text and triples."
+  },
+  "65": {
+    "summary": "Both the text and triples accurately and concisely capture all key event details, including teams, score, competition, and round.",
+    "completeness": "The text and triples combined capture all key information: teams, tournament, season, round, final score, and period-by-period breakdown.",
+    "faithfulness": "The text and triples accurately reflect the scores, teams, round, and competition provided in the input data.",
+    "omissions": "All key information including teams, score, round, competition, and period-by-period breakdown is captured across the text and triples."
+  },
+  "66": {
+    "summary": "The text and triples accurately capture all essential data points including teams, score, competition, season, and round.",
+    "completeness": "All relevant information including teams, final score, competition, season, round, and period-by-period progression is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data without any fabrications.",
+    "omissions": "All key information including teams, final score, tournament, season, round, and period progression is captured across the text and triples."
+  },
+  "67": {
+    "summary": "The text and triples accurately and concisely capture all key details including teams, score, round, and competition.",
+    "completeness": "All relevant match details, including teams, score, round, competition, and season, are captured in the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the teams, score, round, and competition.",
+    "omissions": "All key information including teams, final score, round, competition, and outcome is present in both the text and triples."
+  },
+  "68": {
+    "summary": "The text is excellent and captures all details, but the triples contain a logical error in the final relation ('Brandon Wheat Kings --won_by-> Match_1').",
+    "completeness": "The text and triples combined capture all key information: teams, final score, competition, season, round, sport, and the period-by-period scoring breakdown.",
+    "faithfulness": "The text and triples accurately reflect the scores, teams, tournament, and period-by-period progression provided in the data.",
+    "omissions": "All key information including teams, score, tournament, season, round, and period-by-period breakdown is captured across the text and triples."
+  },
+  "69": {
+    "summary": "Both the text and triples accurately and comprehensively capture the teams, final score, period breakdown, round, and competition details.",
+    "completeness": "The text and triples together capture all key details: teams, final score, period-by-period breakdown, round, season, and competition.",
+    "faithfulness": "The text and triples accurately reflect the input data without any hallucinations.",
+    "omissions": "All key information including teams, final score, period breakdowns, round, and tournament details are present in the text and triples."
+  },
+  "70": {
+    "summary": "The text and triples accurately and concisely capture all key information including teams, score, round, and competition.",
+    "completeness": "The main entities, final score, round, and tournament are captured, but period-by-period scoring details are missing.",
+    "faithfulness": "The text and triples accurately reflect the input data without any hallucinations.",
+    "omissions": "All key information including teams, final score, tournament, season, and round are present in both the text and triples."
+  },
+  "71": {
+    "summary": "The text and triples accurately capture all key match details, including the final score, round, competition, and specific period dynamics.",
+    "completeness": "All relevant match details including teams, final score, round, competition, season, and period-specific scoring are captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the final score, round, teams, and period-by-period breakdown.",
+    "omissions": "All key information including teams, final score, round, competition, and period breakdown is captured across the text and triples."
+  },
+  "72": {
+    "summary": "The text is excellent, but the triples contain a semantic error in the last relation ('won_by' is reversed).",
+    "completeness": "The text and triples combined cover all key entities, the final score, the period-by-period breakdown, the league, and the outcome.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the final score, period-by-period breakdown, and competition details.",
+    "omissions": "All key entities, final scores, competition details, and period-by-period progression are accurately captured across the text and triples."
+  },
+  "73": {
+    "summary": "The text and triples accurately and concisely capture all key information from the data, including teams, score, round, and competition.",
+    "completeness": "All relevant match details, including teams, score, round, season, and period-by-period breakdown, are captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the match details, scores, round, and competition found in the input data.",
+    "omissions": "The text and triples combined capture all key entities, the score, the round, the competition, and the period-by-period breakdown."
+  },
+  "74": {
+    "summary": "The text is accurate and concise, but the triples contain a semantic error in the 'won_by' relation.",
+    "completeness": "The core match details, teams, scores, and period-specific scoring are captured, though some secondary metadata like the sport (Ice hockey) is omitted.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the score, teams, competition, and period breakdown.",
+    "omissions": "All key information including teams, final score, tournament, season, and period-specific scoring is captured across the text and triples."
+  },
+  "75": {
+    "summary": "The text and triples accurately capture the teams, final score, competition, and key period performance from the input data.",
+    "completeness": "All critical information including teams, competition, final score, and specific period performance is captured across the text and triples.",
+    "faithfulness": "Both the text and triples are fully grounded in the input data, accurately reflecting the teams, score, competition, and period breakdown.",
+    "omissions": "All key information including teams, tournament, season, final score, and period-specific highlights are captured across the text and triples."
+  },
+  "76": {
+    "summary": "The text is excellent and captures the period-by-period dynamics, but the triples contain a logic error in 'Visby/Roma HK --won_by-> Match_1'.",
+    "completeness": "All key information including teams, final score, round, tournament, season, and period-by-period progression is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the match result, score, round, and competition provided in the input data.",
+    "omissions": "All key information including teams, final score, competition, season, round, and period-specific scoring trends are captured across the text and triples."
+  },
+  "77": {
+    "summary": "The text and triples capture all main facts, though the triple 'Victoriaville Tigres --won_by-> Match_1' is phrased awkwardly.",
+    "completeness": "All key entities, the final score, the competition, the season, and the round are captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data without any hallucinations.",
+    "omissions": "All key information including teams, final score, league, season, and round are present in the text and triples."
+  },
+  "78": {
+    "summary": "The text and triples accurately capture all key event details including teams, score, tournament, season, and round.",
+    "completeness": "All key information including teams, final score, tournament, season, and round are captured in both the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data without any hallucinations.",
+    "omissions": "All key information including teams, score, round, competition, and season is accurately captured in both the text and triples."
+  },
+  "79": {
+    "summary": "The text and triples accurately capture all key match details, including the teams, competition, final score, and the penalty shootout outcome.",
+    "completeness": "The text and triples together capture all key information, including the teams, final score, competition, season, and the specific manner of victory (penalty shootout after a draw).",
+    "faithfulness": "The text and triples accurately reflect the scores, winner, competition, and the fact that the game was decided by penalties after a normal time draw.",
+    "omissions": "The text and triples accurately capture all key information, including teams, final score, competition, and the specific method of victory."
+  },
+  "80": {
+    "summary": "The text and triples accurately and concisely capture all key details including teams, score, competition, round, and the method of victory.",
+    "completeness": "All key information including teams, score, competition, round, and the specific method of victory (penalties) is captured in both the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the scores, tournament name, round, and the fact that the game was decided by penalties.",
+    "omissions": "All key information including teams, score, competition, round, and the penalty shootout outcome is present in both the text and triples."
+  },
+  "81": {
+    "summary": "The text and triples accurately capture the teams, final score, competition, round, and the specific method of victory (penalties).",
+    "completeness": "All key information including teams, score, tournament, round, and the specific method of victory (penalties) is captured in the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the final score, the regulation score, the round, and the method of victory.",
+    "omissions": "All key information including teams, score, competition, round, and the specific manner of victory (penalties) is accurately captured."
+  },
+  "82": {
+    "summary": "The text and triples accurately and concisely capture all key data points, including the teams, score, winner, and competition.",
+    "completeness": "The text and triples collectively cover all key information including teams, competition, season, final score, and period-by-period scoring breakdowns.",
+    "faithfulness": "The text and triples accurately reflect the scores, teams, competition, and period-by-period scoring provided in the input data.",
+    "omissions": "All key information including teams, final score, competition, season, and period-by-period scoring trends are captured across the text and triples."
+  },
+  "83": {
+    "summary": "The text and triples accurately capture all key match details, including the tournament, round, teams, final score, and winner.",
+    "completeness": "All key information including teams, final score, round, competition, season, and the period-by-period outcome is captured across the text and triples.",
+    "faithfulness": "The text and triples are fully grounded in the provided data, accurately reflecting the teams, score, round, and competition.",
+    "omissions": "All key information including teams, scores, round, season, and competition are accurately captured in both the text and triples."
+  },
+  "84": {
+    "summary": "The text and triples accurately capture the main outcome and competition, though the triples use an undefined 'Match_1' entity.",
+    "completeness": "The core facts (teams, final score, league, and period 1 dominance) are captured, but specific period-by-period scoring for both teams is missing from the triples.",
+    "faithfulness": "The text and triples accurately reflect the input data without any hallucinations.",
+    "omissions": "All key entities, the final score, the competition, and specific period highlights are captured across the text and triples."
+  },
+  "85": {
+    "summary": "The text and triples accurately and concisely capture all key details including teams, score, competition, season, and round.",
+    "completeness": "All key information including teams, final score, period breakdown, round, tournament, and season is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the scores, teams, round, and tournament specified in the input data.",
+    "omissions": "All key entities, the final score, the round, the tournament, and the period-by-period scoring details are accurately captured."
+  },
+  "86": {
+    "summary": "The text is excellent, and the triples capture the core facts, though 'won_by' is phrased awkwardly.",
+    "completeness": "All key information including teams, tournament, season, final score, and period-by-period scoring is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the final score, period breakdown, and tournament details.",
+    "omissions": "All key information including teams, final score, period breakdown, and competition is accurately captured across the text and triples."
+  },
+  "87": {
+    "summary": "The text and triples accurately and concisely capture all key details, including the teams, final score, competition, and the specific method of victory.",
+    "completeness": "All relevant match details, including teams, final score, league, season, scoring progression, and the penalty shootout outcome, are accurately captured.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the final score, the competition, and the penalty shootout result.",
+    "omissions": "All key information including teams, final score, tournament, season, and the specific method of victory (penalties) is accurately captured."
+  },
+  "88": {
+    "summary": "Both the text and triples accurately capture the teams, the final score, the competition, and the specific win condition (AET).",
+    "completeness": "The text and triples together capture all relevant game details, including teams, scores, competition, season, and the overtime victory condition.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the final score, the AET status, and the league/season.",
+    "omissions": "All primary information including teams, final score, competition, season, and the overtime nature of the result is captured."
+  },
+  "89": {
+    "summary": "The text is excellent and captures all period-by-period details, but the triples contain a logical error ('Deac Jegkorong Akademia U20 --won_by-> Match_1').",
+    "completeness": "All relevant information including teams, scores, tournament details, and period-by-period scoring is captured across the text and triples.",
+    "faithfulness": "The text is perfectly faithful, but the triples contain a semantic error in the last relation: 'Deac Jegkorong Akademia U20 --won_by-> Match_1' is logically inverted.",
+    "omissions": "All key information including teams, competition, season, final score, and period-by-period breakdown is accurately captured across the text and triples."
+  },
+  "90": {
+    "summary": "The text is perfect, but the triples contain a logical error in the final relation ('Lindlövens IF --won_by-> Match_1').",
+    "completeness": "All key relevant information including teams, score, round, tournament, and season are captured in both the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the match result, teams, round, and competition specified in the input data.",
+    "omissions": "All key information including teams, score, round, tournament, and season are captured in both the text and triples."
+  },
+  "91": {
+    "summary": "The text and triples accurately capture the teams, competition, round, final score, and period-by-period progression.",
+    "completeness": "All key information including teams, competition, round, final score, and period-by-period breakdown is captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the scores, teams, round, and competition specified in the input data.",
+    "omissions": "All key entities, the final score, the tournament details, the round, and the period-by-period breakdown are accurately captured across the text and triples."
+  },
+  "92": {
+    "summary": "Both the text and triples accurately and concisely capture the essential match details, including teams, score, round, and competition.",
+    "completeness": "All key information including teams, final score, round, tournament, and specific period performance is captured across the text and triples.",
+    "faithfulness": "The text and triples are fully grounded in the input data, accurately reflecting the round, competition, teams, final score, and period details.",
+    "omissions": "All key information including teams, score, round, competition, and specific period performance is captured across the text and triples."
+  },
+  "93": {
+    "summary": "The text is excellent, but the triples contain a logical error in the final relation 'HC Košice --won_by-> Match_1'.",
+    "completeness": "All key information including the teams, final score, period breakdowns, round, league, and season are captured in the text and triples.",
+    "faithfulness": "The text and triples are fully grounded in the input data, accurately reporting the score, round, competition, and period breakdown.",
+    "omissions": "All key information including teams, score, round, competition, season, and period breakdown is accurately captured in the text and triples."
+  },
+  "94": {
+    "summary": "The text and triples accurately and concisely capture all key details including the teams, score, tournament, round, and specific scoring period.",
+    "completeness": "All key information including teams, score, tournament, season, round, and period-specific scoring details are captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the score, teams, tournament, round, and period-specific scoring.",
+    "omissions": "The text and triples combined capture all key entities, the final score, the competition, the round, and the specific period of scoring."
+  },
+  "95": {
+    "summary": "Both the text and triples accurately capture the teams, final score, competition, round, and period-specific scoring patterns.",
+    "completeness": "All key information including teams, final score, tournament, season, round, and period-specific scoring details are captured across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the scores, teams, tournament, and period-by-period scoring progression provided in the data.",
+    "omissions": "The text and triples combined capture all key information including the league, season, round, teams, final score, and period-by-period progression."
+  },
+  "96": {
+    "summary": "The text and triples accurately and concisely capture all key match details, including the teams, score, competition, and period-wise progress.",
+    "completeness": "All primary and secondary relevant data points, including teams, score, season, and period-by-period scoring, are represented in the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data without any hallucinations.",
+    "omissions": "All key information including teams, competition, final score, and period breakdown is captured across the text and triples."
+  },
+  "97": {
+    "summary": "The text and triples accurately capture all key details including teams, final score, tournament, round, and the period-by-period scoring breakdown.",
+    "completeness": "All primary and secondary data points including teams, final score, tournament, season, round, and period-by-period scoring are captured.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the final score, period-by-period scoring, and tournament details.",
+    "omissions": "All key information including teams, final score, competition, round, and period-specific scoring details are present across the text and triples."
+  },
+  "98": {
+    "summary": "The text and triples accurately capture all key details including the teams, final score, round, competition, and the specific method of victory.",
+    "completeness": "All key information including teams, final score, regulation score, round, tournament, and the penalty shootout outcome is captured.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the final score, round, competition, and the fact that it was decided by penalties after a 3-3 regulation tie.",
+    "omissions": "All key information including teams, score, round, competition, and the penalty shootout result is present in both the text and triples."
+  },
+  "99": {
+    "summary": "The text and triples accurately and concisely capture all key information, including teams, score, round, and competition.",
+    "completeness": "All key information including teams, score, tournament, season, and round is captured in the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data without any hallucinations.",
+    "omissions": "All key information including the tournament, season, round, teams, final score, and outcome is captured in both the text and triples."
+  }
+}
