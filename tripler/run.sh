@@ -7,8 +7,12 @@ python app_domain_predicates.py --input inputs/input_data_weather_dev_full.json 
 sbatch ~/d2t/tripler/outputs/test5/batch_triples.sh
 sbatch ~/d2t/tripler/outputs/test7/batch_triples.sh
 
+# run pipelines
 sbatch $D2TPATH/tripler/outputs/test10/batch_forecast.sh
 sbatch $D2TPATH/tripler/outputs/test10/batch_gsmarena.sh
 sbatch $D2TPATH/tripler/outputs/test10/batch_ice_hockey.sh
 sbatch $D2TPATH/tripler/outputs/test10/batch_wikidata.sh
 sbatch $D2TPATH/tripler/outputs/test10/batch_owid.sh
+
+# llm as a judge
+sbatch $D2TPATH/tripler/outputs/test10/batch_judge.sh
