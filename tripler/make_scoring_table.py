@@ -3,9 +3,13 @@
 For every extracted_triples_*.json under a test output directory (e.g.
 tripler/outputs/test8), emit a CSV with one row per instance containing:
   instance_id, domain, input_data, generated_text, generated_triples,
-  summary, completeness, faithfulness, omissions
+  text_summary, text_completeness, text_faithfulness, text_omissions,
+  triples_summary, triples_completeness, triples_faithfulness, triples_omissions
 
-The last four columns are left empty for manual scoring (1-5).
+The last eight columns are left empty for manual scoring (1-5). The scores are
+split into two independent tasks:
+  - text_*  : judge the data -> reference text conversion
+  - triples_*: judge the reference text -> triples conversion
 """
 
 import argparse
@@ -15,7 +19,14 @@ import re
 from pathlib import Path
 from typing import Any
 
-SCORE_COLUMNS = ["summary", "completeness", "faithfulness", "omissions"]
+SCORE_COLUMNS = [
+    "text_summary", "text_completeness", "text_faithfulness", "text_omissions",
+    "triples_summary", "triples_completeness", "triples_faithfulness", "triples_omissions",
+]
+STAT_COLUMNS = [
+    "json_elements", "ref_words", "ref_sentences", "ref_subsentences",
+    "num_triples", "unique_predicates",
+]
 TRIPLE_SEP = " ; "
 TRIPLE_FMT = "{subject} --{predicate}-> {object}"
 
@@ -82,7 +93,9 @@ def rows_for_output(output_path: Path, tripler_dir: Path) -> list[list[str]]:
         text = text_by_id.get(iid, "")
         triples = format_triples(triples_by_id.get(iid, []))
         rows.append([
-            str(iid), domain, input_data, text, triples, "", "", "", "",
+            str(iid), domain, input_data, text, triples,
+            "", "", "", "", "", "", "", "",  # score columns
+            "", "", "", "", "", "",  # stat columns
         ])
     return rows
 
@@ -90,7 +103,7 @@ def rows_for_output(output_path: Path, tripler_dir: Path) -> list[list[str]]:
 def process_output(output_path: Path, tripler_dir: Path) -> Path:
     out_name = output_path.stem + "_scoring.csv"
     out_path = output_path.parent / out_name
-    header = ["instance_id", "domain", "input_data", "generated_text", "generated_triples"] + SCORE_COLUMNS
+    header = ["instance_id", "domain", "input_data", "generated_text", "generated_triples"] + SCORE_COLUMNS + STAT_COLUMNS
     rows = rows_for_output(output_path, tripler_dir)
     with out_path.open("w", encoding="utf-8-sig", newline="") as f:
         writer = csv.writer(f, quoting=csv.QUOTE_ALL)
@@ -126,7 +139,10 @@ def main() -> None:
             continue
         if domain_filter and domain_dir.name not in domain_filter:
             continue
-        output_files = sorted(domain_dir.glob("extracted_triples_*.json"))
+        output_files = sorted(
+            p for p in domain_dir.glob("extracted_triples_*.json")
+            if "judge_reasons" not in p.name and "_scoring" not in p.name and "_scored" not in p.name and "_averages" not in p.name
+        )
         if not output_files:
             continue
         for output_file in output_files:

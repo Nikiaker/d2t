@@ -1,10 +1,20 @@
 """LLM-as-a-judge batch scorer for the scoring CSVs.
 
 Reads every *_scoring.csv under a test output directory, builds ONE combined
-OpenAI Batch with 4 judge requests per row (one per criterion: summary,
-completeness, faithfulness, omissions), submits it, waits for completion, and
-writes <stem>_scored.csv next to each input CSV with the four score columns
-filled in, plus a <stem>_judge_reasons.json sidecar with the judge's reasons.
+OpenAI Batch with 8 judge requests per row (two independent tasks x four
+criteria), submits it, waits for completion, and writes <stem>_scored.csv next
+to each input CSV with the eight score columns filled in, plus a
+<stem>_judge_reasons.json sidecar with the judge's reasons.
+
+Two independent judge tasks per instance (to reduce bias):
+  - text   : data -> reference text    (sees INPUT DATA + GENERATED TEXT)
+  - triples: reference text -> triples (sees GENERATED TEXT + GENERATED TRIPLES)
+
+Each task uses the same four criteria (summary, completeness, faithfulness,
+omissions) but with task-specific prompt wording scoped to the task's own
+input. So each instance produces eight scores:
+  text_summary, text_completeness, text_faithfulness, text_omissions,
+  triples_summary, triples_completeness, triples_faithfulness, triples_omissions
 
 python3 tripler/judge_scoring_batch.py \
   --model google/gemma-4-31B-it \
@@ -32,61 +42,121 @@ from app import (
     read_openai_file_text,
     wait_for_batch_completion,
 )
+from compute_instance_stats import process_dir as compute_stats_dir
 
 logger = logging.getLogger(__name__)
 
 CRITERIA = ["summary", "completeness", "faithfulness", "omissions"]
-SCORE_COLUMNS = CRITERIA
-HEADER = ["instance_id", "domain", "input_data", "generated_text", "generated_triples"] + CRITERIA
+TASKS = ["text", "triples"]
+SCORE_COLUMNS = [f"{task}_{c}" for task in TASKS for c in CRITERIA]
+STAT_COLUMNS = [
+    "json_elements", "ref_words", "ref_sentences", "ref_subsentences",
+    "num_triples", "unique_predicates",
+]
+HEADER = ["instance_id", "domain", "input_data", "generated_text", "generated_triples"] + SCORE_COLUMNS + STAT_COLUMNS
 STATE_FILENAME = "_judge_batch_state.json"
 TRIPLE_SEP = " ; "
 
 
-JUDGE_SYSTEM_PROMPTS: dict[str, str] = {
+JUDGE_SYSTEM_PROMPTS_TEXT: dict[str, str] = {
     "summary": (
-        "You are a strict judge evaluating a data-to-text and data-to-triples conversion. "
-        "You will see: (1) the original structured data instance, (2) the natural-language text "
-        "generated from it, and (3) the semantic triples generated from it. "
-        "Rate how well the text AND triples JOINTLY summarize the input on a 1-5 scale. "
-        "5 = all key information is captured concisely and correctly in both the text and the triples. "
+        "You are a strict judge evaluating a data-to-text conversion. "
+        "You will see: (1) the original structured data instance, and (2) the natural-language text "
+        "generated from it. You will NOT see the triples. "
+        "Rate how well the text summarizes the input on a 1-5 scale. "
+        "5 = all key information is captured concisely and correctly in the text. "
         "3 = the most important aspects are captured but with notable gaps or verbosity. "
-        "1 = essentially nothing of the input is represented. "
+        "1 = essentially nothing of the input is represented in the text. "
         "Return ONLY JSON with this exact schema: "
         '{"score": <integer 1-5>, "reason": "<one short sentence>"}'
     ),
     "completeness": (
-        "You are a strict judge evaluating a data-to-text and data-to-triples conversion. "
-        "You will see: (1) the original structured data instance, (2) the natural-language text "
-        "generated from it, and (3) the semantic triples generated from it. "
-        "Rate what fraction of the RELEVANT input information is represented in the text and/or the triples, on a 1-5 scale. "
-        "5 = every relevant attribute, entity, value, and relationship from the input appears in at least one of the two representations. "
+        "You are a strict judge evaluating a data-to-text conversion. "
+        "You will see: (1) the original structured data instance, and (2) the natural-language text "
+        "generated from it. You will NOT see the triples. "
+        "Rate what fraction of the RELEVANT input information is represented in the text, on a 1-5 scale. "
+        "5 = every relevant attribute, entity, value, and relationship from the input appears in the text. "
         "3 = the main entities and the primary facts are present, but several secondary attributes are missing. "
-        "1 = almost no relevant information is present. "
+        "1 = almost no relevant information is present in the text. "
         "Return ONLY JSON with this exact schema: "
         '{"score": <integer 1-5>, "reason": "<one short sentence>"}'
     ),
     "faithfulness": (
-        "You are a strict judge evaluating a data-to-text and data-to-triples conversion. "
-        "You will see: (1) the original structured data instance, (2) the natural-language text "
-        "generated from it, and (3) the semantic triples generated from it. "
-        "Rate whether the text and the triples are FAITHFUL to the input, i.e. every claim they make is directly grounded in the input with NO fabrication or distortion, on a 1-5 scale. "
-        "5 = fully grounded; nothing in the text or triples contradicts or extends the input. "
+        "You are a strict judge evaluating a data-to-text conversion. "
+        "You will see: (1) the original structured data instance, and (2) the natural-language text "
+        "generated from it. You will NOT see the triples. "
+        "Rate whether the text is FAITHFUL to the input, i.e. every claim in the text is directly grounded "
+        "in the input data with NO fabrication or distortion, on a 1-5 scale. "
+        "5 = fully grounded; nothing in the text contradicts or extends the input. "
         "3 = mostly grounded but with one or two unsupported or slightly distorted claims. "
-        "1 = major hallucinations or contradictions relative to the input. "
+        "1 = major hallucinations or contradictions in the text relative to the input. "
         "Return ONLY JSON with this exact schema: "
         '{"score": <integer 1-5>, "reason": "<one short sentence>"}'
     ),
     "omissions": (
-        "You are a strict judge evaluating a data-to-text and data-to-triples conversion. "
-        "You will see: (1) the original structured data instance, (2) the natural-language text "
-        "generated from it, and (3) the semantic triples generated from it. "
-        "Rate how FEW important pieces of information are missing from the text and the triples combined, on an inverted 1-5 scale. "
-        "5 = no significant omission; all key fields, entities, values, and relationships are present. "
+        "You are a strict judge evaluating a data-to-text conversion. "
+        "You will see: (1) the original structured data instance, and (2) the natural-language text "
+        "generated from it. You will NOT see the triples. "
+        "Rate how FEW important pieces of information are missing from the text, on an inverted 1-5 scale. "
+        "5 = no significant omission; all key fields, entities, values, and relationships from the input are present in the text. "
         "3 = some important but non-central information is missing. "
-        "1 = most key fields or entities are omitted. "
+        "1 = most key fields or entities are omitted from the text. "
         "Return ONLY JSON with this exact schema: "
         '{"score": <integer 1-5>, "reason": "<one short sentence>"}'
     ),
+}
+
+JUDGE_SYSTEM_PROMPTS_TRIPLES: dict[str, str] = {
+    "summary": (
+        "You are a strict judge evaluating a text-to-triples conversion. "
+        "You will see: (1) the natural-language reference text, and (2) the semantic triples "
+        "generated from it. You will NOT see the original structured data. "
+        "Rate how well the triples summarize the text on a 1-5 scale. "
+        "5 = all key information in the text is captured concisely and correctly in the triples. "
+        "3 = the most important aspects of the text are captured but with notable gaps. "
+        "1 = essentially nothing of the text is represented in the triples. "
+        "Return ONLY JSON with this exact schema: "
+        '{"score": <integer 1-5>, "reason": "<one short sentence>"}'
+    ),
+    "completeness": (
+        "You are a strict judge evaluating a text-to-triples conversion. "
+        "You will see: (1) the natural-language reference text, and (2) the semantic triples "
+        "generated from it. You will NOT see the original structured data. "
+        "Rate what fraction of the RELEVANT information in the text is represented in the triples, on a 1-5 scale. "
+        "5 = every relevant entity, value, and relationship mentioned in the text appears in the triples. "
+        "3 = the main entities and the primary facts from the text are present, but several secondary attributes are missing. "
+        "1 = almost no relevant information from the text is present in the triples. "
+        "Return ONLY JSON with this exact schema: "
+        '{"score": <integer 1-5>, "reason": "<one short sentence>"}'
+    ),
+    "faithfulness": (
+        "You are a strict judge evaluating a text-to-triples conversion. "
+        "You will see: (1) the natural-language reference text, and (2) the semantic triples "
+        "generated from it. You will NOT see the original structured data. "
+        "Rate whether the triples are FAITHFUL to the text, i.e. every triple is directly grounded "
+        "in the text with NO fabrication or distortion, on a 1-5 scale. "
+        "5 = fully grounded; nothing in the triples contradicts or extends the text. "
+        "3 = mostly grounded but with one or two unsupported or slightly distorted triples. "
+        "1 = major hallucinations or contradictions in the triples relative to the text. "
+        "Return ONLY JSON with this exact schema: "
+        '{"score": <integer 1-5>, "reason": "<one short sentence>"}'
+    ),
+    "omissions": (
+        "You are a strict judge evaluating a text-to-triples conversion. "
+        "You will see: (1) the natural-language reference text, and (2) the semantic triples "
+        "generated from it. You will NOT see the original structured data. "
+        "Rate how FEW important pieces of information from the text are missing from the triples, on an inverted 1-5 scale. "
+        "5 = no significant omission; all key entities, values, and relationships from the text are present in the triples. "
+        "3 = some important but non-central information from the text is missing. "
+        "1 = most key elements of the text are omitted from the triples. "
+        "Return ONLY JSON with this exact schema: "
+        '{"score": <integer 1-5>, "reason": "<one short sentence>"}'
+    ),
+}
+
+JUDGE_SYSTEM_PROMPTS_BY_TASK: dict[str, dict[str, str]] = {
+    "text": JUDGE_SYSTEM_PROMPTS_TEXT,
+    "triples": JUDGE_SYSTEM_PROMPTS_TRIPLES,
 }
 
 JUDGE_RESPONSE_FORMAT: dict[str, Any] = {
@@ -137,33 +207,43 @@ def build_judge_batch_jsonl(
             input_data = row.get("input_data", "")
             generated_text = row.get("generated_text", "")
             generated_triples = row.get("generated_triples", "")
-            user_prompt = (
-                "Judge this single conversion.\n\n"
+
+            text_user_prompt = (
+                "Judge this single data-to-text conversion.\n\n"
                 f"instance_id={instance_id}\n\n"
                 "=== INPUT DATA (JSON) ===\n"
                 f"{input_data}\n\n"
                 "=== GENERATED TEXT ===\n"
                 f"{generated_text}\n\n"
+                "Return JSON only."
+            )
+            triples_user_prompt = (
+                "Judge this single text-to-triples conversion.\n\n"
+                f"instance_id={instance_id}\n\n"
+                "=== REFERENCE TEXT ===\n"
+                f"{generated_text}\n\n"
                 "=== GENERATED TRIPLES ===\n"
                 f"{generated_triples}\n\n"
                 "Return JSON only."
             )
-            for criterion in CRITERIA:
-                custom_id = f"{csv_idx}:{instance_id}:{criterion}"
-                request_payload = {
-                    "custom_id": custom_id,
-                    "method": "POST",
-                    "url": "/v1/chat/completions",
-                    "body": {
-                        "model": model,
-                        "messages": [
-                            {"role": "system", "content": JUDGE_SYSTEM_PROMPTS[criterion]},
-                            {"role": "user", "content": user_prompt},
-                        ],
-                        "response_format": JUDGE_RESPONSE_FORMAT,
-                    },
-                }
-                lines.append(json.dumps(request_payload, ensure_ascii=False))
+            for task in TASKS:
+                user_prompt = text_user_prompt if task == "text" else triples_user_prompt
+                for criterion in CRITERIA:
+                    custom_id = f"{csv_idx}:{instance_id}:{task}:{criterion}"
+                    request_payload = {
+                        "custom_id": custom_id,
+                        "method": "POST",
+                        "url": "/v1/chat/completions",
+                        "body": {
+                            "model": model,
+                            "messages": [
+                                {"role": "system", "content": JUDGE_SYSTEM_PROMPTS_BY_TASK[task][criterion]},
+                                {"role": "user", "content": user_prompt},
+                            ],
+                            "response_format": JUDGE_RESPONSE_FORMAT,
+                        },
+                    }
+                    lines.append(json.dumps(request_payload, ensure_ascii=False))
     return "\n".join(lines) + "\n"
 
 
@@ -247,29 +327,25 @@ def write_scored_outputs(
         reasons_path = csv_path.with_name(csv_path.stem.replace("_scoring", "_judge_reasons") + ".json")
         reasons: dict[str, dict[str, str]] = {}
         with out_path.open("w", encoding="utf-8-sig", newline="") as f:
-            writer = csv.writer(f, quoting=csv.QUOTE_ALL)
-            writer.writerow(HEADER)
+            writer = csv.DictWriter(f, fieldnames=HEADER, quoting=csv.QUOTE_ALL)
+            writer.writeheader()
             for row in rows:
                 instance_id = row["instance_id"]
-                score_cells = []
-                instance_reasons: dict[str, str] = {}
-                for criterion in CRITERIA:
-                    custom_id = f"{csv_idx}:{instance_id}:{criterion}"
-                    result = results.get(custom_id, {})
-                    score = result.get("score")
-                    score_cells.append(str(score) if score is not None else "")
-                    if write_reasons:
-                        instance_reasons[criterion] = result.get("reason", "")
-                if write_reasons:
-                    reasons[instance_id] = instance_reasons
-                writer.writerow([
-                    instance_id,
-                    row.get("domain", ""),
-                    row.get("input_data", ""),
-                    row.get("generated_text", ""),
-                    row.get("generated_triples", ""),
-                    *score_cells,
-                ])
+                for task in TASKS:
+                    for criterion in CRITERIA:
+                        custom_id = f"{csv_idx}:{instance_id}:{task}:{criterion}"
+                        result = results.get(custom_id, {})
+                        score = result.get("score")
+                        col_name = f"{task}_{criterion}"
+                        row[col_name] = str(score) if score is not None else ""
+                        if write_reasons:
+                            if instance_id not in reasons:
+                                reasons[instance_id] = {}
+                            reasons[instance_id][col_name] = result.get("reason", "")
+                # Ensure all stat columns are present (copied from scoring CSV)
+                for col in STAT_COLUMNS:
+                    row.setdefault(col, "")
+                writer.writerow(row)
         print(f"[ok] {out_path}")
         if write_reasons:
             reasons_path.write_text(json.dumps(reasons, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -320,9 +396,13 @@ def main() -> None:
         print("All _scored.csv outputs already exist; nothing to do (use --force to re-run).")
         return
 
+    # Fill no-LLM descriptive statistics first (idempotent, fast).
+    compute_stats_dir(test_dir, domains)
+    logger.info("Computed instance statistics for all scoring CSVs.")
+
     rows_by_idx = [read_scoring_csv(p) for p in csv_paths]
     total_rows = sum(len(r) for r in rows_by_idx)
-    logger.info("Total instances: %d; total judge requests: %d", total_rows, total_rows * len(CRITERIA))
+    logger.info("Total instances: %d; total judge requests: %d", total_rows, total_rows * len(CRITERIA) * len(TASKS))
 
     client = OpenAI(base_url=args.base_url, api_key=args.api_key)
     state_path = test_dir / STATE_FILENAME

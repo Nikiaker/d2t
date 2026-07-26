@@ -5,7 +5,16 @@ Reads every *_scored.csv under a test output directory, groups them by method
 (extracted from the filename stem), and writes one CSV per method with one
 row per domain containing the average of each criterion across all instances.
 
-Output columns: domain, summary, completeness, faithfulness, omissions
+Scores are split into two independent tasks:
+  - text_*    : judge the data -> reference text conversion
+  - triples_* : judge the reference text -> triples conversion
+
+Output columns:
+  domain, text_summary, text_completeness, text_faithfulness, text_omissions,
+  triples_summary, triples_completeness, triples_faithfulness, triples_omissions,
+  text_overall, triples_overall
+where text_overall / triples_overall are the means of the four task scores.
+
 Output file:  <test_dir>/<method>_averages.csv
 """
 
@@ -18,7 +27,12 @@ from typing import Any
 
 logger = logging.getLogger(__name__)
 
-CRITERIA = ["summary", "completeness", "faithfulness", "omissions"]
+CRITERIA = [
+    "text_summary", "text_completeness", "text_faithfulness", "text_omissions",
+    "triples_summary", "triples_completeness", "triples_faithfulness", "triples_omissions",
+]
+TEXT_CRITERIA = ["text_summary", "text_completeness", "text_faithfulness", "text_omissions"]
+TRIPLES_CRITERIA = ["triples_summary", "triples_completeness", "triples_faithfulness", "triples_omissions"]
 
 
 def to_float_or_none(value: Any) -> float | None:
@@ -87,13 +101,21 @@ def main() -> None:
         out_path = test_dir / f"{method}_averages.csv"
         with out_path.open("w", encoding="utf-8", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow(["domain"] + CRITERIA)
+            writer.writerow(["domain"] + CRITERIA + ["text_overall", "triples_overall"])
             for domain, values in sorted(entries, key=lambda e: e[0]):
                 row = [domain]
                 for c in CRITERIA:
                     vals = values[c]
                     avg = sum(vals) / len(vals) if vals else float("nan")
                     row.append(f"{avg:.2f}")
+                text_vals = [values[c] for c in TEXT_CRITERIA]
+                triples_vals = [values[c] for c in TRIPLES_CRITERIA]
+                text_flat = [v for vv in text_vals for v in vv]
+                triples_flat = [v for vv in triples_vals for v in vv]
+                text_overall = sum(text_flat) / len(text_flat) if text_flat else float("nan")
+                triples_overall = sum(triples_flat) / len(triples_flat) if triples_flat else float("nan")
+                row.append(f"{text_overall:.2f}")
+                row.append(f"{triples_overall:.2f}")
                 writer.writerow(row)
         print(f"[ok] {out_path} ({len(entries)} domains)")
 

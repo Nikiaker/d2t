@@ -3,16 +3,23 @@
 
 Reads two CSVs (LLM-scored and human-scored) sharing the schema
   instance_id, domain, input_data, generated_text, generated_triples,
-  summary, completeness, faithfulness, omissions
+  text_summary, text_completeness, text_faithfulness, text_omissions,
+  triples_summary, triples_completeness, triples_faithfulness, triples_omissions
 and reports, per criterion and per overall variant:
   - Pearson r           (linear correlation)
   - Spearman rho        (rank correlation)
   - Kendall tau-b       (rank concordance)
   - Quadratic weighted Cohen's kappa (chance-corrected ordinal agreement)
 
-Overall variants:
-  - pooled    : concatenate all 4 criteria across instances
-  - mean      : average the 4 scores per instance, then correlate
+Scores are split into two independent judge tasks:
+  - text_*    : data -> reference text
+  - triples_* : reference text -> triples
+
+Overall variants (per task, never mixing the two tasks):
+  - overall_text (pooled)    : concatenate the 4 text_* criteria across instances
+  - overall_triples (pooled) : concatenate the 4 triples_* criteria across instances
+  - overall_text (mean)      : average the 4 text_* scores per instance, then correlate
+  - overall_triples (mean)   : average the 4 triples_* scores per instance, then correlate
 
 Run with:
 python3 tripler/correlate_scores.py \
@@ -32,7 +39,10 @@ from scipy import stats
 
 logger = logging.getLogger(__name__)
 
-CRITERIA = ["summary", "completeness", "faithfulness", "omissions"]
+CRITERIA = [
+    "text_summary", "text_completeness", "text_faithfulness", "text_omissions",
+    "triples_summary", "triples_completeness", "triples_faithfulness", "triples_omissions",
+]
 METRIC_COLS = ["pearson_r", "spearman_rho", "kendall_tau", "qw_kappa"]
 
 
@@ -161,11 +171,11 @@ def fmt(v: float) -> str:
 
 
 def print_table(rows: list[dict[str, Any]]) -> None:
-    header = f"{'criterion':<20} {'N':>4} {'Pearson r':>10} {'Spearman p':>11} {'Kendall t':>10} {'QW-k':>8}"
+    header = f"{'criterion':<26} {'N':>4} {'Pearson r':>10} {'Spearman p':>11} {'Kendall t':>10} {'QW-k':>8}"
     print(header)
     print("-" * len(header))
     for row in rows:
-        print(f"{row['label']:<20} {row['n']:>4} {fmt(row['pearson_r']):>10} {fmt(row['spearman_rho']):>11} {fmt(row['kendall_tau']):>10} {fmt(row['qw_kappa']):>8}")
+        print(f"{row['label']:<26} {row['n']:>4} {fmt(row['pearson_r']):>10} {fmt(row['spearman_rho']):>11} {fmt(row['kendall_tau']):>10} {fmt(row['qw_kappa']):>8}")
 
 
 def write_summary_csv(path: Path, rows: list[dict[str, Any]]) -> None:
@@ -228,31 +238,40 @@ def main() -> None:
         results.append(row)
         logger.info("criterion '%s': %d aligned pairs", crit, len(a))
 
-    pooled_a, pooled_b = [], []
-    for inst in sorted(common, key=lambda x: int(x) if x.isdigit() else x):
-        for crit in criteria:
-            av = llm[inst].get(crit)
-            bv = human[inst].get(crit)
-            if av is not None and bv is not None:
-                pooled_a.append(av)
-                pooled_b.append(bv)
-    pooled_row = {"label": "overall (pooled)"}
-    pooled_row.update(compute_row(pooled_a, pooled_b))
-    results.append(pooled_row)
+    task_groups = {
+        "text": [c for c in criteria if c.startswith("text_")],
+        "triples": [c for c in criteria if c.startswith("triples_")],
+    }
 
-    mean_a, mean_b = [], []
-    for inst in sorted(common, key=lambda x: int(x) if x.isdigit() else x):
-        av = [llm[inst].get(c) for c in criteria]
-        bv = [human[inst].get(c) for c in criteria]
-        if all(x is not None for x in av) and all(x is not None for x in bv):
-            mean_a.append(float(np.mean(av)))
-            mean_b.append(float(np.mean(bv)))
-    mean_row = {"label": "overall (mean)"}
-    mean_metrics = compute_row([round(x) for x in mean_a], [round(x) for x in mean_b])
-    mean_metrics_cont = compute_row_cont(mean_a, mean_b)
-    mean_row.update({k: mean_metrics[k] for k in ("n",)})
-    mean_row.update({k: mean_metrics_cont[k] for k in METRIC_COLS})
-    results.append(mean_row)
+    for task, task_criteria in task_groups.items():
+        if not task_criteria:
+            continue
+
+        pooled_a, pooled_b = [], []
+        for inst in sorted(common, key=lambda x: int(x) if x.isdigit() else x):
+            for crit in task_criteria:
+                av = llm[inst].get(crit)
+                bv = human[inst].get(crit)
+                if av is not None and bv is not None:
+                    pooled_a.append(av)
+                    pooled_b.append(bv)
+        pooled_row = {"label": f"overall_{task} (pooled)"}
+        pooled_row.update(compute_row(pooled_a, pooled_b))
+        results.append(pooled_row)
+
+        mean_a, mean_b = [], []
+        for inst in sorted(common, key=lambda x: int(x) if x.isdigit() else x):
+            av = [llm[inst].get(c) for c in task_criteria]
+            bv = [human[inst].get(c) for c in task_criteria]
+            if all(x is not None for x in av) and all(x is not None for x in bv):
+                mean_a.append(float(np.mean(av)))
+                mean_b.append(float(np.mean(bv)))
+        mean_row = {"label": f"overall_{task} (mean)"}
+        mean_metrics = compute_row([round(x) for x in mean_a], [round(x) for x in mean_b])
+        mean_metrics_cont = compute_row_cont(mean_a, mean_b)
+        mean_row.update({k: mean_metrics[k] for k in ("n",)})
+        mean_row.update({k: mean_metrics_cont[k] for k in METRIC_COLS})
+        results.append(mean_row)
 
     print_table(results)
     if args.out_csv:

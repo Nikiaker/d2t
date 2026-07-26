@@ -3,9 +3,33 @@
 When comparing scores given by an LLM-as-a-judge against scores given by a human
 on the 1-5 ordinal scale, no single statistic fully captures agreement. The
 `correlate_scores.py` script reports four complementary metrics, computed per
-criterion (summary, completeness, faithfulness, omissions) and per two "overall"
-variants (pooled, and mean). This document explains what each metric measures
-and how it is calculated.
+criterion and per overall variant. This document explains what each metric
+measures and how it is calculated.
+
+## Two independent judge tasks
+
+To reduce bias, the judge splits the data-to-triples pipeline into two
+independent evaluation tasks, each judged separately:
+
+- **`text_*` (data &rarr; reference):** the judge sees the original structured
+  data instance and the generated natural-language text, and scores how well
+  the text represents the data. The triples are NOT shown, so the text judgment
+  is not contaminated by information the triples might leak about the data.
+- **`triples_*` (reference &rarr; triples):** the judge sees the
+  natural-language reference text and the generated semantic triples, and
+  scores how well the triples represent the text. The original data is NOT
+  shown, so the triples are judged purely as a text-to-triples extraction
+  rather than being re-grounded against the source.
+
+Each task uses the same four criteria (`summary, completeness, faithfulness,
+omissions`) with task-specific prompt wording scoped to the task's own input,
+so each instance produces **eight scores**:
+`text_summary, text_completeness, text_faithfulness, text_omissions,
+triples_summary, triples_completeness, triples_faithfulness, triples_omissions`.
+
+The "overall" variants are computed **per task** (never mixing the two tasks
+together), so a cross-task pooled number does not conflate the two independent
+judgments.
 
 All metrics range from **-1 to +1**, where:
 
@@ -159,34 +183,35 @@ away from it. Then:
 
 ## Overall (cross-criterion) variants
 
-The script reports two "overall" rows in addition to the four per-criterion
-rows:
+The script reports four "overall" rows in addition to the eight per-criterion
+rows — two per task (`text`, `triples`):
 
-### Pooled (`overall (pooled)`)
-Concatenate the four criteria across instances into a single long vector per
-rater:
+### Pooled (`overall_text (pooled)` / `overall_triples (pooled)`)
+Concatenate the four criteria of one task across instances into a single long
+vector per rater:
 ```
-LLM_pooled  = (summary_1, completeness_1, ..., omissions_n)
-Human_pooled = (summary_1, completeness_1, ..., omissions_n)
+LLM_pooled  = (text_summary_1, text_completeness_1, ..., text_omissions_n)
+Human_pooled = (text_summary_1, text_completeness_1, ..., text_omissions_n)
 ```
 This treats each `(instance, criterion)` pair as an independent observation
-(4N data points for N instances) and computes the four metrics once on this
-long vector. It gives a single correlation number for the entire scoring task
-but mixes different criteria together.
+(4N data points for N instances within one task) and computes the four metrics
+once on this long vector. The two tasks are pooled **separately** so a single
+cross-task number never conflates the data&rarr;text and text&rarr;triples
+judgments.
 
-### Per-instance mean (`overall (mean)`)
-For each rater, average the four criterion scores per instance to obtain an
-"overall quality per instance":
+### Per-instance mean (`overall_text (mean)` / `overall_triples (mean)`)
+For each rater, average the four criterion scores of one task per instance to
+obtain a "task-level overall quality per instance":
 ```
-LLM_overall_i  = mean(summary_i, completeness_i, faithfulness_i, omissions_i)
-Human_overall_i = mean(summary_i, completeness_i, faithfulness_i, omissions_i)
+LLM_overall_i  = mean(text_summary_i, text_completeness_i, text_faithfulness_i, text_omissions_i)
+Human_overall_i = mean(text_summary_i, text_completeness_i, text_faithfulness_i, text_omissions_i)
 ```
-This reduces to N data points and measures how well the two raters agree on
-which instances are good or bad overall, abstracting away per-criterion
-differences. The correlation coefficients (Pearson, Spearman, Kendall) are
-computed on the floating-point means directly; Quadratic Weighted Kappa is
-computed on the means rounded back to the nearest integer so that it operates
-on the 1-5 confusion matrix.
+This reduces to N data points per task and measures how well the two raters
+agree on which instances are good or bad within that task, abstracting away
+per-criterion differences. The correlation coefficients (Pearson, Spearman,
+Kendall) are computed on the floating-point means directly; Quadratic Weighted
+Kappa is computed on the means rounded back to the nearest integer so that it
+operates on the 1-5 confusion matrix.
 
 ---
 
@@ -205,14 +230,20 @@ on the 1-5 confusion matrix.
 
 Example output:
 ```
-criterion               N  Pearson r  Spearman p  Kendall t     QW-k
---------------------------------------------------------------------
-summary                10      0.979       0.981      0.962    0.973
-completeness           10      1.000       1.000      1.000    1.000
-faithfulness           10      1.000       1.000      1.000    1.000
-omissions              10      1.000       1.000      1.000    1.000
-overall (pooled)       40      0.993       0.996      0.990    0.993
-overall (mean)         10      0.998       0.981      0.964    1.000
+criterion                     N  Pearson r  Spearman p  Kendall t     QW-k
+--------------------------------------------------------------------------
+text_summary                100      0.979       0.981      0.962    0.973
+text_completeness           100      1.000       1.000      1.000    1.000
+text_faithfulness           100      1.000       1.000      1.000    1.000
+text_omissions              100      1.000       1.000      1.000    1.000
+triples_summary             100      0.951       0.949       0.934    0.944
+triples_completeness        100      0.962       0.960       0.921    0.955
+triples_faithfulness        100      0.973       0.971       0.940    0.966
+triples_omissions           100      0.947       0.944       0.918    0.940
+overall_text (pooled)       400      0.993       0.996      0.990    0.993
+overall_text (mean)         100      0.998       0.981      0.964    1.000
+overall_triples (pooled)    400      0.958       0.956       0.928    0.951
+overall_triples (mean)      100      0.961       0.958       0.925    0.957
 ```
 
 ### Reading the output
@@ -222,13 +253,14 @@ overall (mean)         10      0.998       0.981      0.964    1.000
 - A high **Quadratic Weighted Kappa** indicates strong agreement beyond chance,
   with the quadratic weighting ensuring that being off by 3 points is treated
   as much worse than being off by 1 point.
-- The two **overall** rows give two complementary summaries:
-  - `overall (pooled)` is sensitive to per-criterion disagreement (an LLM that
-    is good at "summary" but bad at "omissions" will pull the pooled number
-    down).
-  - `overall (mean)` is sensitive to per-instance overall-quality agreement
-    (an LLM that is consistently slightly low on every criterion will still
-    agree well on the means if its low-ness is uniform).
+- The four **overall** rows give per-task summaries:
+  - `overall_text (pooled)` / `overall_text (mean)` summarize the
+    data&rarr;text judgment; `overall_triples (*)` summarize the
+    text&rarr;triples judgment. Comparing the two lets you see whether the
+    LLM judge agrees with the human more on the text stage or the triples
+    stage of the pipeline.
+  - The pooled variant is sensitive to per-criterion disagreement, while the
+    mean variant is sensitive to per-instance overall-quality agreement.
 
 For a master thesis on LLM-driven data-to-text evaluation, **report all four
 metrics per criterion** and highlight **Spearman rho** and **Quadratic Weighted
