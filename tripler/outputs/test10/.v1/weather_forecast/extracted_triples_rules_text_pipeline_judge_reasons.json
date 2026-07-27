@@ -1,0 +1,602 @@
+{
+  "0": {
+    "summary": "The text and triples accurately summarize the time range, temperature extremes, weather conditions, and wind data from the input JSON.",
+    "completeness": "The text and triples summarize the overall trends and extremes but omit the vast majority of the time-series data points (40 entries) and specific attributes like humidity, pressure, and visibility.",
+    "faithfulness": "The text and triples accurately summarize the data, with temperature extremes, wind peaks, and weather conditions all grounded in the input.",
+    "omissions": "The text and triples accurately summarize the key trends, extremes, and conditions from the extensive dataset without omitting significant information."
+  },
+  "1": {
+    "summary": "The text and triples accurately and concisely summarize all key data points, including location, dates, temperature range, weather conditions, and humidity.",
+    "completeness": "The summary captures the general trends and extreme values, but omits the vast majority of the specific time-series data points (40 entries) provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the provided weather data without any hallucinations.",
+    "omissions": "The text and triples accurately summarize the key data points, including location, date range, temperature extremes, humidity, and weather conditions."
+  },
+  "2": {
+    "summary": "The text and triples accurately and concisely summarize the key trends, temperature extremes, and significant weather events from the provided dataset.",
+    "completeness": "The text and triples capture the main trends, date range, and temperature extremes, but omit the vast majority of the detailed per-interval data, including humidity, pressure, and specific wind speeds.",
+    "faithfulness": "The text and triples accurately summarize the input data without any fabrications or distortions.",
+    "omissions": "The text and triples summarize the general trend well, but omit specific daily values, wind speeds, and humidity levels present in the source data."
+  },
+  "3": {
+    "summary": "The text and triples accurately and concisely summarize the key temperature trends, weather conditions, and timeframe provided in the data.",
+    "completeness": "The text and triples capture the general trend and key extremes, but omit the vast majority of the hourly data points, specific wind/pressure/humidity attributes, and coordinates.",
+    "faithfulness": "The text and triples accurately summarize the input data without any hallucinations or contradictions.",
+    "omissions": "The text and triples accurately capture all key trends, temperature extremes, and weather transitions from the detailed dataset."
+  },
+  "4": {
+    "summary": "The text and triples jointly capture all key weather events, temperature extremes, and the timeframe accurately and concisely.",
+    "completeness": "The text and triples capture the main entities, date range, temperature extremes, and general weather trends, but omit almost all granular data such as humidity, wind speed, pressure, and specific timestamps.",
+    "faithfulness": "The text and triples accurately summarize the temperatures, weather events, and time frame provided in the input data.",
+    "omissions": "The text and triples capture all key weather events and temperature extremes, though they omit specific supporting metrics like humidity, wind speed, and pressure."
+  },
+  "5": {
+    "summary": "The text and triples accurately and concisely summarize the key weather patterns, temperature extremes, and humidity range from the provided dataset.",
+    "completeness": "The text and triples capture the general trends, date range, and extrema, but omit the vast majority of the specific time-series data points provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the input data without any fabrications or distortions.",
+    "omissions": "The text and triples together capture all key summary metrics (time range, location, temperature extremes, humidity range, and weather conditions) from the detailed dataset."
+  },
+  "6": {
+    "summary": "The text and triples accurately and concisely summarize the key trends and ranges from the detailed weather data.",
+    "completeness": "The text and triples capture the general trends and ranges (temperature, humidity, precipitation) but omit almost all specific hourly data points and secondary attributes like wind speed, pressure, and visibility.",
+    "faithfulness": "The text and triples accurately summarize the temperature ranges, humidity levels, weather conditions, and dates provided in the input data.",
+    "omissions": "The text and triples accurately summarize the key trends and ranges (temperature, humidity, sky conditions, precipitation) from the detailed dataset."
+  },
+  "7": {
+    "summary": "The text and triples accurately and concisely summarize the temperature range, weather conditions, precipitation peaks, and wind speeds from the provided data.",
+    "completeness": "The summary captures the general range and main trends, but omits the vast majority of the specific hourly data points and attributes provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the input data without any hallucinations or distortions.",
+    "omissions": "The text and triples successfully summarize the primary trends and extremes from the large dataset without omitting any key high-level information."
+  },
+  "8": {
+    "summary": "The text and triples accurately and concisely summarize the temperature range, weather progression, and key events from the input data.",
+    "completeness": "The summary captures the general trends and temperature range, but omits the vast majority of specific hourly data points and secondary attributes like wind, pressure, and humidity.",
+    "faithfulness": "The text and triples accurately summarize the input data, including temperature ranges, weather transitions, and the rain event on January 7th.",
+    "omissions": "The text and triples capture the core trends and extremes, though they omit specific daily values and the precise timing of the rain shift."
+  },
+  "9": {
+    "summary": "The text and triples accurately and concisely summarize the key trends (temperature, weather conditions, and pressure) and the time range from the input data.",
+    "completeness": "The summaries capture the main trends (temperature, pressure, general weather) and the location, but omit a vast majority of the granular hourly data, wind speeds, humidity, and specific date-time mappings provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the data, correctly identifying the temperature range, weather transitions, pressure increase, and timeframe.",
+    "omissions": "The text and triples accurately capture all the primary trends and key values (temperature range, pressure range, weather conditions, location, and timeframe) from the dataset."
+  },
+  "10": {
+    "summary": "The text and triples accurately and concisely summarize all key metrics from the input data, including date range, temperature extremes, weather conditions, and peak wind gusts.",
+    "completeness": "The summary captures the general trends and extreme values, but ignores the vast majority of the 40 timestamped data points and specific attributes like pressure, humidity, and cloud percentage.",
+    "faithfulness": "The text and triples accurately summarize the data, including temperature extremes, wind gusts, and precipitation patterns without fabrication.",
+    "omissions": "The text and triples accurately summarize the key weather trends, extremes, and specific data points from the structured data."
+  },
+  "11": {
+    "summary": "The text and triples accurately capture the essential trends, temperature extremes, humidity range, and weather transitions from the structured data.",
+    "completeness": "The summary captures the general trends and extrema but omits the vast majority of the hourly data points, wind speeds, pressure, and specific dates for most weather changes.",
+    "faithfulness": "The text and triples accurately reflect the temperature extremes, humidity range, weather transitions, and timeframe provided in the input data.",
+    "omissions": "The text and triples accurately summarize the key trends and extreme values (temperature, humidity, weather conditions) from the provided dataset."
+  },
+  "12": {
+    "summary": "The text and triples accurately and concisely summarize all key metrics (temperature range, weather conditions, precipitation dates, peak wind speed, and humidity range) from the provided dataset.",
+    "completeness": "The summary captures the overall trends and extremes, but omits the vast majority of the time-series data points (40 entries) and specific city metadata like population and coordinates.",
+    "faithfulness": "The text and triples accurately summarize the temperature range, rain dates, peak wind speed, and humidity range provided in the input data.",
+    "omissions": "The text and triples accurately summarize all key meteorological trends and extremes from the provided dataset."
+  },
+  "13": {
+    "summary": "The text and triples accurately capture the main trends, extremes, and weather shifts from the input data.",
+    "completeness": "The generation captures the main trend and extremes (max/min temp, overall weather shift), but omits the vast majority of the 40 detailed time-step attributes like wind speed, pressure, and specific snowfall amounts.",
+    "faithfulness": "The text and triples accurately reflect the temperature range, weather transitions, and dates provided in the structured data.",
+    "omissions": "The text and triples capture the main trends and extremes, but omit specific details like wind speed and visibility."
+  },
+  "14": {
+    "summary": "The text and triples accurately and concisely summarize the key trends, temperature extremes, and weather events from the detailed dataset.",
+    "completeness": "The text and triples capture the general trend and extreme values, but omit the vast majority of the 40 timestamped data points and their specific attributes.",
+    "faithfulness": "The text and triples accurately summarize the data, including specific temperatures, weather events, and the maximum wind gust (17.42 m/s) without any hallucinations.",
+    "omissions": "The text and triples successfully capture the essential trends, temperature extremes, key weather events, and timeframes from the detailed dataset."
+  },
+  "15": {
+    "summary": "The text and triples accurately and concisely summarize the key weather trends, temperature ranges, and wind conditions from the detailed dataset.",
+    "completeness": "The generation captures the general trends and main entities but omits a vast majority of the specific hourly data points, attributes (humidity, pressure, visibility), and city metadata (population, coordinates) present in the input.",
+    "faithfulness": "The text and triples accurately summarize the provided weather data without adding any unsupported information.",
+    "omissions": "The text and triples accurately summarize the key trends and metrics from the extensive time-series data without significant omission."
+  },
+  "16": {
+    "summary": "The text and triples accurately and concisely summarize the key weather trends, temperature extremes, and precipitation peaks from the input data.",
+    "completeness": "The summary captures the main trends and extremes, but omits the vast majority of the hourly data points, specific wind speeds, pressure, and humidity levels present in the input.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the date range, location, precipitation levels, temperature extremes, and sky conditions.",
+    "omissions": "The text and triples successfully summarize the key trends, extremes, and locations from the extensive time-series data without omitting significant information."
+  },
+  "17": {
+    "summary": "The text and triples accurately and concisely summarize the key temperature ranges, weather conditions, and wind peaks from the input data.",
+    "completeness": "The summary captures the general temperature range and wind peaks, but omits a vast majority of the hourly data points and specific attributes like humidity, pressure, and visibility.",
+    "faithfulness": "The text and triples accurately summarize the temperature range, weather conditions, and maximum wind gust provided in the input data.",
+    "omissions": "The summary captures the general range and peaks, but omits many specific details like humidity, pressure, and the detailed timeline of weather changes."
+  },
+  "18": {
+    "summary": "The text and triples accurately summarize the trends and ranges, although the humidity range in the summary is slightly narrower than the actual data (15% to 80%).",
+    "completeness": "The summaries capture the general trends and range of the data, but omit a vast majority of the specific time-series data points, wind speeds, pressure, and visibility.",
+    "faithfulness": "The humidity range claim (70%-80%) is distorted, as it ignores the low of 15% on January 3.",
+    "omissions": "The summary captures the general trends but omits specific daily details, wind speeds, and precision regarding the humidity range (which actually starts at 15%)."
+  },
+  "19": {
+    "summary": "The text and triples capture the key trends and extremes accurately, though the triples contain a minor repetition error in the humidity predicate.",
+    "completeness": "The text and triples capture the main trends (temp range, general weather sequence, peak humidity), but omit the vast majority of the granular hourly/3-hourly data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the minimum/maximum temperatures, weather patterns, humidity peaks, and dates present in the input data.",
+    "omissions": "The text and triples successfully capture all key summary information, including temperature extremes, weather progression, peak humidity, and the timeframe."
+  },
+  "20": {
+    "summary": "The text and triples accurately and concisely summarize the key weather trends, temperature range, and humidity from the provided dataset.",
+    "completeness": "The text and triples capture the general trends and extremes (min/max temp, humidity range), but ignore the vast majority of the specific hourly/3-hourly data points and detailed attributes like pressure, visibility, and specific dates for weather changes.",
+    "faithfulness": "The generated text and triples accurately summarize the input data without any fabrications or distortions.",
+    "omissions": "The text and triples accurately summarize the key trends, ranges, and entities from the detailed time-series data."
+  },
+  "21": {
+    "summary": "The text and triples jointly provide a concise and accurate summary of the weather patterns, including temperature extremes and precipitation, for the specified city and dates.",
+    "completeness": "The summaries capture the main trends and key temperatures, but omit the vast majority of the detailed hourly data, including humidity, wind, pressure, and specific timestamps for most events.",
+    "faithfulness": "The text and triples accurately summarize the weather trends, temperatures, and conditions provided in the structured data.",
+    "omissions": "The text and triples provide a high-level summary but omit many specific data points such as humidity, wind speed, pressure, and exact timestamps for most events."
+  },
+  "22": {
+    "summary": "The text and triples accurately and concisely summarize all key metrics (temperature range, weather conditions, precipitation, and wind) from the provided dataset.",
+    "completeness": "The summary captures the general range and trends, but omits a vast majority of the specific time-series data points (40 entries) and several attributes like humidity and pressure.",
+    "faithfulness": "The text and triples accurately summarize the input data without any fabrications.",
+    "omissions": "The text and triples accurately summarize all key weather trends and extremes from the provided dataset without missing any significant information."
+  },
+  "23": {
+    "summary": "The text and triples accurately summarize the temperature trends and weather transitions across the specified dates.",
+    "completeness": "The summary captures the general trend and extreme values but omits a vast majority of the specific hourly/3-hourly data points, pressure, humidity, and visibility attributes provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the trends and specific data points provided in the input JSON.",
+    "omissions": "The summary captures the general trend but omits specific quantitative data for several days and ignores many key fields like pressure, humidity, and visibility."
+  },
+  "24": {
+    "summary": "The text and triples accurately summarize the temperature trends, weather transitions (rain to snow), and key extremes provided in the dataset.",
+    "completeness": "The summaries capture the general trend and key temperature extremes, but omit a vast majority of the hourly/3-hourly data points, wind speeds, pressure, and visibility.",
+    "faithfulness": "The text and triples accurately summarize the weather trends, temperature extremes, and conditions provided in the dataset.",
+    "omissions": "The text and triples accurately summarize the key trends, temperature extremes, and weather transitions from the detailed dataset."
+  },
+  "25": {
+    "summary": "The text and triples accurately and concisely summarize the key temperature ranges, weather conditions, and specific precipitation event from the provided data.",
+    "completeness": "The output summarizes the entire dataset into a few general points, omitting the vast majority of the time-series data, including specific hourly temperatures, wind speeds, humidity, and pressure for 40 different timestamps.",
+    "faithfulness": "The text and triples accurately summarize the input data, correctly identifying the date range, temperature extrema, general weather conditions, and the specific light snow event.",
+    "omissions": "The generated text and triples accurately summarize the key weather trends, temperature extremes, and precipitation events from the detailed dataset."
+  },
+  "26": {
+    "summary": "The text and triples accurately summarize the general trend and key values, though the text slightly misrepresents the end of the period as 'consistent snowfall' when the data shows overcast clouds after January 7.",
+    "completeness": "The text and triples capture the main temperature range, weather trend, and timeframe, but omit a vast majority of the detailed per-interval data including wind, pressure, humidity, and specific timestamps.",
+    "faithfulness": "The text incorrectly states that the period ends with consistent snowfall through January 8, whereas the data shows overcast clouds with no snow from January 7, 15:00 onwards.",
+    "omissions": "The text and triples omit several specific daily weather shifts and significant quantitative data such as wind speed and humidity."
+  },
+  "27": {
+    "summary": "The text and triples accurately and concisely summarize the key weather trends, temperature ranges, and humidity levels from the provided data.",
+    "completeness": "The summaries capture the main trends (temperature ranges, humidity, and general weather), but omit a vast majority of the specific hourly data points, wind speeds, pressure, and visibility provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the provided data without any hallucinations or distortions.",
+    "omissions": "The text and triples accurately summarize the key trends, ranges, and entities from the provided weather data without significant omission."
+  },
+  "28": {
+    "summary": "The text and triples accurately summarize the key trends, temperature ranges, and weather transitions from the input data.",
+    "completeness": "The text and triples capture the general trend and key temperature bounds, but omit the vast majority of specific hourly data points, wind speeds, humidity, and pressure values.",
+    "faithfulness": "The text and triples accurately summarize the trends and specific values found in the provided weather data.",
+    "omissions": "The text and triples successfully summarize the key trends, entities, and value ranges of the large dataset without omitting significant information."
+  },
+  "29": {
+    "summary": "Both the text and triples accurately and concisely summarize the key weather trends, temperature extremes, and wind peaks from the provided data.",
+    "completeness": "The summary captures the general trend and key extremes, but ignores the vast majority of the detailed time-series data (40 data points) and specific attributes like humidity, pressure, and visibility.",
+    "faithfulness": "The text and triples accurately summarize the input data without fabrications, correctly identifying temperature extremes, weather patterns, and peak wind values.",
+    "omissions": "The text and triples capture the main trends and extrema, though they omit specific daily temperature variations and humidity levels."
+  },
+  "30": {
+    "summary": "The text and triples accurately summarize the key trends, temperature extremes, and weather shifts present in the detailed dataset.",
+    "completeness": "The text and triples summarize the overall trends and extremes, but omit the vast majority of the granular time-series data provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the temperature ranges, weather transitions, and dates provided in the input data.",
+    "omissions": "The summaries capture the essential trends, temperature extremes, and weather shifts, though specific daily metrics (like wind speed, pressure values, and humidity percentages) are omitted."
+  },
+  "31": {
+    "summary": "The text and triples accurately and concisely summarize the key weather trends, temperature extremes, and specific events from the input data.",
+    "completeness": "The output captures the general trend and extreme values, but ignores the vast majority of specific time-step data, wind speeds, pressure, and visibility.",
+    "faithfulness": "The text and triples accurately summarize the input data without any fabrications or contradictions.",
+    "omissions": "The text and triples capture the primary trends and extremes, though they omit specific values for wind, pressure, and visibility."
+  },
+  "32": {
+    "summary": "The text and triples correctly and concisely summarize all key metrics from the input data, including location, date range, temperature extrema, weather conditions, and humidity.",
+    "completeness": "The text and triples summarize the general trends (temp range, humidity, sky conditions) but omit the vast majority of the time-series data, including specific timestamps, wind speeds, and pressure values.",
+    "faithfulness": "The text and triples accurately summarize the provided weather data without any fabrications.",
+    "omissions": "The combined text and triples accurately capture all primary weather trends, the specific date range, location, temperature extremes, humidity range, and precipitation status from the dataset."
+  },
+  "33": {
+    "summary": "The text and triples accurately summarize the key temperature trends and weather transitions from the detailed JSON data.",
+    "completeness": "The summary captures the general trends and extreme temperatures, but omits the vast majority of the 40 detailed hourly/3-hourly data points provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the temperature range, precipitation patterns, and weather transitions documented in the input data.",
+    "omissions": "The text and triples capture the primary weather trends and temperature extremes, though they omit specific wind, pressure, and humidity data."
+  },
+  "34": {
+    "summary": "The text and triples jointly capture the key temperature trends, precipitation types, and time range accurately and concisely.",
+    "completeness": "The text and triples capture the general trend and main extremes, but omit the vast majority of the 40 detailed time-step data points including wind, pressure, humidity, and specific daily values.",
+    "faithfulness": "The text and triples accurately summarize the input data without any hallucinations.",
+    "omissions": "The text and triples successfully capture all key trends, temperature extremes, date ranges, and weather transitions from the data."
+  },
+  "35": {
+    "summary": "The text and triples accurately and concisely summarize the key trends, temperature range, precipitation events, and peak wind gusts from the input data.",
+    "completeness": "The summary captures the general trend, date range, and extremes, but ignores the vast majority of the detailed hourly data points, including specific humidity, pressure, and visibility values.",
+    "faithfulness": "The text and triples accurately summarize the input data without any fabrications or distortions.",
+    "omissions": "The text and triples accurately capture all key trends, temperature extremes, precipitation types, and the peak wind gust from the detailed dataset."
+  },
+  "36": {
+    "summary": "The text and triples accurately and concisely summarize all key trends, including the temperature range, precipitation types, wind peaks, and time frame.",
+    "completeness": "The output summarizes the main trends and key extremes, but omits the vast majority of the granular hourly data (temperature, pressure, humidity, and wind) for the 40 time steps provided.",
+    "faithfulness": "The text and triples accurately summarize the input data without any fabrications.",
+    "omissions": "The text and triples successfully capture all key trends and extreme values from the data, including the temperature range, precipitation types, wind peaks, and timeframe."
+  },
+  "37": {
+    "summary": "The text and triples accurately and concisely summarize the key temperature trends, weather transitions, and environmental conditions from the input data.",
+    "completeness": "The summary captures the general trend and key events, but omits a vast majority of the granular data points (wind, pressure, specific timestamps, and exact values for most days).",
+    "faithfulness": "The text and triples accurately summarize the input data without any hallucinations or distortions.",
+    "omissions": "The text and triples accurately summarize the key weather trends, temperature extremes, and precipitation events from the provided data."
+  },
+  "38": {
+    "summary": "Both the text and triples accurately and concisely summarize the temperature range, precipitation types, sky conditions, and time period from the input data.",
+    "completeness": "The summary captures the main trends and range, but omits a vast majority of the specific hourly data points, wind speeds, humidity, and pressure values present in the input.",
+    "faithfulness": "The text and triples accurately summarize the provided weather data without any fabrications.",
+    "omissions": "The text and triples combined capture all key trends, entities, and critical values from the extensive dataset."
+  },
+  "39": {
+    "summary": "The text and triples accurately and concisely summarize all key weather trends, temperature extremes, and conditions from the input data.",
+    "completeness": "The text and triples capture the main trends and extreme values, but omit a vast majority of the granular hourly data and specific attributes (pressure, humidity, visibility, etc.) provided in the input.",
+    "faithfulness": "The text and triples are fully grounded in the provided data, accurately reflecting the temperature range, weather conditions, dates, and wind speeds.",
+    "omissions": "The text and triples accurately capture all key trends, temperature extremes, weather conditions, timeframes, and wind peaks from the provided data."
+  },
+  "40": {
+    "summary": "The text and triples accurately and concisely summarize the temperature trend, weather conditions, and timeframe provided in the data.",
+    "completeness": "The text and triples capture the general trend and main weather events, but omit the vast majority of the specific hourly data, wind speeds, humidity, and pressure values provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the temperature trends, weather conditions, and dates provided in the input data.",
+    "omissions": "The summary and triples capture the main trends and key events, but omit specific details like wind speed, humidity, and precise dates for most rain events."
+  },
+  "41": {
+    "summary": "The text and triples accurately and concisely summarize the key temperature ranges, weather transitions, and the significant snowfall event from the input data.",
+    "completeness": "The summaries capture the general trends and extremes, but omit the vast majority of the specific hourly data points, wind speeds, pressure, and precise timestamps provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the temperature range, weather transitions, and specific events (snowfall, visibility, humidity) grounded in the input data.",
+    "omissions": "The text and triples successfully summarize all key weather trends, temperature extremes, and significant events from the detailed dataset."
+  },
+  "42": {
+    "summary": "The text and triples accurately and concisely summarize the key temperature peaks, precipitation events, wind gusts, and the date range from the input data.",
+    "completeness": "The text and triples capture the general trend and peak/low values, but omit the vast majority of the specific time-series data points, including humidity, pressure, and detailed wind speeds.",
+    "faithfulness": "The text and triples accurately reflect the temperatures, precipitation, wind gusts, and date range provided in the input data.",
+    "omissions": "The text and triples successfully summarize all the key meteorological trends and extreme values from the extensive dataset."
+  },
+  "43": {
+    "summary": "The text and triples accurately and concisely summarize the key trends and extremes from the provided weather data.",
+    "completeness": "The summary captures the overall trends and extremes, but omits the vast majority of the 40 individual time-step data points (specific temperatures, humidity, visibility, and exact dates for rain) provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the input data, correctly identifying the temperature range, pressure trend, peak wind gusts, and general weather conditions.",
+    "omissions": "The text and triples accurately summarize all key trends and extreme values (min/max temp, pressure range, max wind gust, and general weather conditions) from the provided dataset."
+  },
+  "44": {
+    "summary": "The text and triples accurately and concisely summarize the temperature trends, weather transitions, and timeframe from the input data.",
+    "completeness": "The text and triples capture the main temperature trends and weather patterns, but they omit a vast amount of specific data, including humidity, wind speed, pressure, visibility, and detailed time-series values for most of the 40 provided data points.",
+    "faithfulness": "The text and triples accurately summarize the temperature range and weather transitions provided in the data.",
+    "omissions": "The text and triples summarize the main trends but omit a vast majority of the specific time-step data (wind, humidity, pressure, visibility, and precise daily values) provided in the JSON."
+  },
+  "45": {
+    "summary": "The text and triples accurately and concisely summarize the temperature range, precipitation types, sky conditions, and time period provided in the data.",
+    "completeness": "The summary captures the general trend and extremes, but ignores the vast majority of the hourly time-series data, including specific wind speeds, humidity, and pressure.",
+    "faithfulness": "The text and triples accurately summarize the temperature range, weather transitions, and timeframe provided in the input data.",
+    "omissions": "The summaries capture the overall trend and range, but omit specific daily patterns, wind speeds, and visibility data present in the source."
+  },
+  "46": {
+    "summary": "The text and triples accurately summarize the overall trend and peak values, though the temperature range mentioned for the rainy period (low 15.8, high 28.2) is a bit imprecise compared to the full dataset.",
+    "completeness": "The summary captures the general temperature trends and weather conditions, but ignores a vast majority of the granular data points provided (pressure, humidity, wind speed, visibility, and specific timestamps).",
+    "faithfulness": "The text and triples accurately summarize the temperature ranges, dates, and weather conditions provided in the input data.",
+    "omissions": "The generated text and triples accurately summarize the key weather trends, temperature extremes, and dates from the dataset without significant omission."
+  },
+  "47": {
+    "summary": "The text and triples accurately and concisely capture the key temperature extremes, precipitation trends, and time frame from the input data.",
+    "completeness": "The summaries capture the general trend and extreme values, but omit the vast majority of the 40 detailed time-step observations provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the provided weather data without any fabrications.",
+    "omissions": "The text and triples summarize the general trends correctly but omit a significant amount of granular data present in the JSON, such as specific daily temperatures, wind speeds, humidity, and pressure."
+  },
+  "48": {
+    "summary": "The text and triples accurately and concisely capture the critical trends (peak temp, cold snap, snow) and specific values from the dataset.",
+    "completeness": "The text and triples capture the general trend and extremes, but omit the vast majority of the 40 detailed time-step attributes (wind, humidity, pressure, etc.).",
+    "faithfulness": "The text and triples accurately summarize the temperature peaks, lows, dates, and weather conditions provided in the input data.",
+    "omissions": "The summary captures the main trend and extremes, but omits a large amount of the granular hourly/daily data provided in the input."
+  },
+  "49": {
+    "summary": "The text and triples accurately and concisely summarize the weather transition, temperature range, and precipitation patterns provided in the data.",
+    "completeness": "The text and triples capture the general trend and extremes, but ignore the vast majority of the 40 time-step data points, including specific wind, humidity, and visibility values.",
+    "faithfulness": "The text and triples accurately summarize the input data without any fabrications or distortions.",
+    "omissions": "The text and triples accurately summarize the key trends, temperature extremes, and weather transitions from the detailed dataset."
+  },
+  "50": {
+    "summary": "The text and triples accurately and concisely summarize the temperature range, weather transitions, and visibility trends from the input data.",
+    "completeness": "The summary captures the general trend and key weather events, but omits the vast majority of the hourly data points and specific attributes like wind speed, pressure, and humidity.",
+    "faithfulness": "The text and triples accurately summarize the input data without any hallucinations or contradictions.",
+    "omissions": "The summary and triples capture the primary trends and extremes, though they omit specific daily details like humidity and wind speed."
+  },
+  "51": {
+    "summary": "The text and triples accurately and concisely summarize the temperature trends, weather events, and timeframe from the input data.",
+    "completeness": "The text and triples capture the main trends and extremes, but omit the vast majority of the specific hourly data points, including wind speeds, pressure, humidity, and exact dates for several shifts.",
+    "faithfulness": "The text and triples accurately summarize the input data without introducing any fabrications.",
+    "omissions": "The summary and triples capture the general trend and extremes, but omit specific measurements for wind, pressure, humidity, and visibility present in the data."
+  },
+  "52": {
+    "summary": "The text and triples jointly provide a concise and accurate summary of the temperature trend, precipitation types, and visibility changes over the specified date range.",
+    "completeness": "The text and triples capture the general trend and primary weather types, but omit the vast majority of the specific hourly data, including wind, pressure, humidity, and precise timing of transitions.",
+    "faithfulness": "The generated text and triples accurately summarize the temperature range, precipitation types, and conditions provided in the input data.",
+    "omissions": "The text and triples capture the primary trends and key values, but omit several specific weather conditions like 'overcast clouds' and specific dates for certain transitions."
+  },
+  "53": {
+    "summary": "The text and triples accurately and concisely summarize the key weather patterns, temperature ranges, and humidity from the provided data.",
+    "completeness": "The summaries capture the general trends and ranges (temp, humidity, sky conditions), but omit a vast majority of the specific hourly data points and city attributes (population, coordinates) provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the input data without fabrication.",
+    "omissions": "The text and triples successfully summarize all key weather trends, temperature ranges, humidity, and conditions from the provided dataset without significant omissions."
+  },
+  "54": {
+    "summary": "The text and triples accurately and concisely summarize the key weather trends, temperature extremes, and specific events from the input data.",
+    "completeness": "The summary captures the main trends and extreme values, but omits the vast majority of the hourly data points, specific dates for temperature peaks, and various atmospheric attributes like pressure and humidity.",
+    "faithfulness": "The text and triples accurately summarize the temperature range, precipitation, wind speed, and date range provided in the input data.",
+    "omissions": "The summary and triples capture the main trends, temperature extremes, and key events, though specific dates for the wind peak and rain are slightly generalized."
+  },
+  "55": {
+    "summary": "The text and triples accurately summarize the temperature range, weather progression, and time period from the input data.",
+    "completeness": "The summary captures the general trend, date range, and extreme temperatures, but omits the majority of the specific hourly/3-hourly data points, wind speeds, humidity, and pressure values present in the input.",
+    "faithfulness": "The text and triples accurately summarize the temperature range, weather conditions, and dates provided in the structured data.",
+    "omissions": "The text and triples successfully summarize the key trends, including temperature extremes, weather transitions, and dates, without missing any significant high-level information."
+  },
+  "56": {
+    "summary": "The text and triples accurately and concisely summarize the key weather trends, temperature extremes, and time period from the input data.",
+    "completeness": "The text and triples capture the general trend and temperature range, but omit the vast majority of the detailed hourly/3-hourly data points provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the input data, including the date range, temperature extremes, and weather patterns.",
+    "omissions": "The summary captures the main trends and temperature extremes correctly, though it omits specific atmospheric details like wind speed, pressure, and exact humidity levels present in the data."
+  },
+  "57": {
+    "summary": "The text and triples accurately and concisely summarize the temperature ranges, weather conditions, humidity, and timeframe provided in the data.",
+    "completeness": "The text and triples capture the general trends and range of the weather data, but omit the vast majority of the specific hourly/3-hourly data points and secondary attributes (wind, pressure, visibility).",
+    "faithfulness": "The text and triples accurately summarize the input data without introducing any hallucinations or contradictions.",
+    "omissions": "The text and triples summarize the main trends accurately, but omit specific detailed metrics like wind speed, pressure, and exact rainfall amounts."
+  },
+  "58": {
+    "summary": "The text and triples accurately summarize the temperature ranges, humidity fluctuations, cloud conditions, and dates provided in the input data.",
+    "completeness": "The generation captures the general trends and summary of the weather, but omits a vast majority of the specific hourly data points, wind speeds, and pressure values provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the input data, correctly identifying temperature ranges, humidity fluctuations, cloud trends, and the lack of precipitation.",
+    "omissions": "The text and triples accurately summarize the key trends and ranges of the structured weather data without omitting significant information."
+  },
+  "59": {
+    "summary": "The text and triples accurately summarize the temperature range, weather conditions, and chronological sequence of events from the input data.",
+    "completeness": "The summary captures the general trend and key weather events, but omits a vast majority of the specific hourly data points, wind speeds, humidity, and pressure values provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the temperature range, weather conditions, and timing provided in the input data.",
+    "omissions": "The generated text and triples accurately summarize all key trends and events from the detailed hourly data, including temperature range, precipitation dates, and sky conditions."
+  },
+  "60": {
+    "summary": "The text and triples accurately and concisely summarize the key weather trends, temperature ranges, and conditions provided in the detailed JSON data.",
+    "completeness": "The generated text and triples capture the general trends and main entities, but they omit the vast majority of the specific time-series data and detailed attributes (pressure, visibility, specific rain amounts, etc.) provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the input data without fabricating any details.",
+    "omissions": "The generated text and triples accurately summarize the key trends and values from the extensive dataset without omitting significant information."
+  },
+  "61": {
+    "summary": "The text and triples accurately summarize the weather trends, temperature ranges, and timing provided in the structured data.",
+    "completeness": "The summary captures the main trend and key temperature extremes, but omits a vast majority of the detailed hourly/3-hourly data points, wind, pressure, and humidity.",
+    "faithfulness": "The text and triples accurately summarize the weather trends, temperature ranges, and specific low temperature provided in the input data.",
+    "omissions": "The text and triples capture the main trend and extreme values, but omit specific details like wind speed, humidity, and pressure."
+  },
+  "62": {
+    "summary": "The text and triples accurately and concisely summarize the weather transition, temperature range, and precipitation events from the input data.",
+    "completeness": "The text and triples capture the general trend and key extremes, but ignore the vast majority of the 40 data points, including specific hourly values for pressure, humidity, wind speed, and precise precipitation amounts.",
+    "faithfulness": "The text and triples accurately summarize the weather trends, specific temperatures, and dates provided in the input data.",
+    "omissions": "The text and triples accurately summarize the key trends, dates, and critical values from the detailed dataset without significant omission."
+  },
+  "63": {
+    "summary": "The text and triples accurately and concisely summarize the temperature range, dates, location, and weather conditions provided in the input data.",
+    "completeness": "The text and triples capture the general trend, temperature extremes, and dates, but omit the vast majority of the specific hourly data points, pressure, humidity values, and precise wind speeds provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the input data without any fabrications or contradictions.",
+    "omissions": "The text and triples successfully summarize the key trends, date range, temperature extremes, and weather conditions from the detailed dataset."
+  },
+  "64": {
+    "summary": "The text and triples jointly provide a precise and concise summary of all key metrics including date range, location, temperature extremes, humidity range, wind speed, and weather conditions.",
+    "completeness": "The output summarizes the primary trends (temperature, humidity, wind, clear skies) but ignores the majority of the specific timestamped data points and secondary attributes like pressure, visibility, and exact daily values.",
+    "faithfulness": "The text and triples accurately summarize the input data without any fabrications or distortions.",
+    "omissions": "The text and triples accurately summarize all key trends and extreme values from the provided weather data without omitting any significant information."
+  },
+  "65": {
+    "summary": "The text and triples accurately and concisely summarize the key temperature, weather, and humidity trends for the specified location and timeframe.",
+    "completeness": "The output summarizes the overall trends (min/max temp, humidity range, general weather) but omits the vast majority of the time-series data points, wind speeds, pressure, and visibility.",
+    "faithfulness": "The text and triples accurately summarize the temperature range, humidity, and weather conditions provided in the input data.",
+    "omissions": "The text and triples accurately summarize the key meteorological trends (temperature range, precipitation, cloud cover, and humidity) for the specified location and time period."
+  },
+  "66": {
+    "summary": "The text and triples accurately summarize the key temperature ranges, weather transitions, wind, and pressure trends from the detailed dataset.",
+    "completeness": "The text and triples capture the general trends, extremes, and main events, but omit a vast majority of the time-series data points (40 entries) and secondary attributes like humidity and specific wind speeds.",
+    "faithfulness": "The text and triples accurately represent the data, including temperature extremes, wind gusts, weather transitions, and pressure trends.",
+    "omissions": "The text and triples combined capture all the essential trends, key extremes (temperature, wind, pressure), and significant weather events (snow, visibility) from the dataset."
+  },
+  "67": {
+    "summary": "Both the text and triples accurately and concisely summarize the key trends and specific events from the input data.",
+    "completeness": "The summary captures the main trends and key weather events, but omits a vast majority of the specific hourly data points, including humidity, pressure, wind speeds, and precise timing for most entries.",
+    "faithfulness": "The text and triples accurately summarize the input data, including temperature extremes, weather progression, and visibility drops.",
+    "omissions": "The text and triples successfully summarize the key trends, temperature extremes, weather conditions, and critical visibility warnings from the detailed dataset."
+  },
+  "68": {
+    "summary": "The text and triples accurately and concisely summarize the weather trends, temperature range, and timeframe provided in the data.",
+    "completeness": "The summary captures the general trends and main entities but ignores the vast majority of specific hourly data points, including exact temperatures, pressures, and wind speeds for most entries.",
+    "faithfulness": "The text and triples accurately summarize the input data without fabricating any information.",
+    "omissions": "The text and triples provide a high-level summary but omit specific daily data points, pressure, visibility, and exact wind speed values present in the source."
+  },
+  "69": {
+    "summary": "The text and triples accurately and concisely summarize the key weather patterns, temperature extremes, and dates from the input data.",
+    "completeness": "The text and triples capture the main entities, time range, temperature extremes, and general weather trends, but omit the vast majority of the hourly data points and specific attributes (humidity, wind, pressure, etc.).",
+    "faithfulness": "The text and triples accurately reflect the temperature range, time period, and weather conditions present in the input data.",
+    "omissions": "The text and triples capture the core temperature range and general weather trends, but omit specific daily details, wind, and humidity."
+  },
+  "70": {
+    "summary": "The text and triples accurately summarize the temperature trend, the transition from rain to snow, and the specific date ranges and extremes provided in the data.",
+    "completeness": "The text and triples capture the general trend and key temperature extremes, but omit a vast majority of the specific hourly data points, wind speeds, humidity, and pressure.",
+    "faithfulness": "The text and triples accurately summarize the temperature trends, precipitation changes, and specific dates found in the input data.",
+    "omissions": "The text and triples summarize the overall trend well but omit a vast majority of the specific hourly/daily data points, wind speeds, and pressure values present in the input."
+  },
+  "71": {
+    "summary": "The text and triples accurately and concisely summarize the key trends, temperature ranges, and precipitation changes from the provided data.",
+    "completeness": "The summary captures the main trends and key endpoints, but omits a vast majority of the hourly data, specific wind speeds, pressure, humidity, and visibility values provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the data, correctly identifying the city, date range, temperature trends, and weather transitions without any hallucinations.",
+    "omissions": "The conversion summarizes the general trend well but omits specific data points for most of the 40 forecast intervals (wind, pressure, humidity, visibility)."
+  },
+  "72": {
+    "summary": "The text and triples accurately and concisely summarize all key metrics from the input data, including the temperature range, weather conditions, humidity peak, and maximum wind gusts.",
+    "completeness": "The summary captures the general trends and extreme values, but omits the vast majority of the 40 specific time-step data points provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the input data without any fabrications or distortions.",
+    "omissions": "The text and triples accurately summarize all key aspects of the data, including the time range, temperature extremes, weather transitions, peak humidity, and maximum wind gusts."
+  },
+  "73": {
+    "summary": "The text and triples accurately and concisely summarize the temperature range, the chronological progression of weather conditions (clear/cloudy, snow, rain, overcast), and the time period.",
+    "completeness": "The summary captures the general trends and extremes, but omits the vast majority of the hourly data points, specific wind speeds, humidity, and pressure values.",
+    "faithfulness": "The text and triples accurately summarize the temperature range, weather transitions, and dates provided in the input data.",
+    "omissions": "The text and triples accurately summarize the key weather trends, temperature extremes, and chronological shifts present in the data."
+  },
+  "74": {
+    "summary": "The text and triples accurately and concisely summarize the key weather trends and metrics from the provided data.",
+    "completeness": "The summary captures the general trends and main entities, but omits a vast amount of specific hourly data, pressure, visibility, and precise coordinates/population from the input.",
+    "faithfulness": "The text and triples accurately summarize the provided weather data without any hallucinations.",
+    "omissions": "The generated text and triples accurately summarize the key trends (dates, location, temperature range, humidity, and weather conditions) from the detailed dataset."
+  },
+  "75": {
+    "summary": "The text and triples accurately summarize the key weather trends, temperature extremes, and humidity ranges from the provided data.",
+    "completeness": "The text and triples capture the general trend and extreme values, but omit the vast majority of the detailed hourly/3-hourly data points provided in the JSON.",
+    "faithfulness": "The text and triples accurately summarize the data, with all temperatures, humidity ranges, and dates grounded in the input.",
+    "omissions": "The text and triples accurately summarize the key trends and extreme values from the detailed weather data without significant omission."
+  },
+  "76": {
+    "summary": "The text and triples accurately and concisely summarize the temperature range, weather transitions, and timeframe provided in the data.",
+    "completeness": "The text and triples capture the main temperature trends and weather conditions, but omit the vast majority of the granular hourly data including pressure, humidity, and specific wind speeds.",
+    "faithfulness": "The text and triples accurately summarize the temperature ranges, weather conditions, and dates provided in the input data.",
+    "omissions": "The text and triples accurately summarize the key trends, extremes, and weather events from the detailed dataset without significant omissions."
+  },
+  "77": {
+    "summary": "The text and triples accurately and concisely summarize the temperature trends, precipitation, sky conditions, and pressure changes provided in the data.",
+    "completeness": "The text and triples capture the general trends and main entities, but omit the vast majority of the specific hourly/3-hourly data points, including humidity, wind speed, and exact dates for most events.",
+    "faithfulness": "The text and triples accurately summarize the data, capturing the temperature range, precipitation types, sky conditions, and the trend of increasing pressure.",
+    "omissions": "The generated text and triples successfully capture all key trends, temperature extremes, precipitation events, and the overall time frame from the detailed dataset."
+  },
+  "78": {
+    "summary": "The text and triples accurately and concisely summarize the complex weather transition, including key dates, temperature extremes, and precipitation changes.",
+    "completeness": "The summary captures the general trend and key extremes, but omits the majority of the detailed hourly/3-hourly data points, including wind speed, pressure, and humidity.",
+    "faithfulness": "The text and triples accurately summarize the weather transitions, temperatures, and visibility trends grounded in the input data.",
+    "omissions": "The text and triples capture the primary weather trends and extreme values, though they omit specific data like wind speeds and humidity."
+  },
+  "79": {
+    "summary": "The text and triples accurately and concisely summarize the key weather trends, temperature extremes, precipitation, and humidity from the provided data.",
+    "completeness": "The summary captures the general trends and extremes, but omits the vast majority of specific hourly/3-hourly data points, wind speeds, and pressure values present in the input.",
+    "faithfulness": "The text and triples accurately summarize the temperature range, weather events, visibility changes, and humidity levels provided in the input data.",
+    "omissions": "The text and triples accurately summarize the key trends, temperature extremes, and significant weather events from the dataset."
+  },
+  "80": {
+    "summary": "The text and triples accurately capture the key temperature ranges, precipitation events, and overall weather trends from the provided data.",
+    "completeness": "The text and triples summarize the main trends and extremes well, but omit a vast majority of the specific hourly data points, wind speeds, humidity, and pressure values provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the input data, including the temperature range, weather transitions, and specific dates.",
+    "omissions": "The text and triples accurately summarize the key trends, temperature ranges, and significant weather events from the data."
+  },
+  "81": {
+    "summary": "The text and triples accurately and concisely summarize the key weather trends, extremes, and conditions from the structured data.",
+    "completeness": "The summary captures the general trends and extrema, but omits a vast majority of the specific hourly data points, humidity, pressure, and visibility provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the data, correctly identifying the date range, temperature extremes, sky conditions, lack of precipitation, and maximum wind gusts.",
+    "omissions": "The summary and triples successfully capture the main trends and extremes, though they omit specific details like humidity, pressure, and visibility."
+  },
+  "82": {
+    "summary": "The text and triples accurately and concisely summarize the temperature extremes, weather transitions, and timeframe provided in the data.",
+    "completeness": "The text and triples capture the overall trend, high/low temperatures, and main weather events, but omit a vast amount of specific hourly data, wind speeds, pressure, and humidity.",
+    "faithfulness": "The text and triples accurately summarize the input data without any fabrications or distortions.",
+    "omissions": "The text and triples accurately capture all the key trends, critical values (min/max temp), and weather events from the data."
+  },
+  "83": {
+    "summary": "The text and triples accurately and concisely summarize the temperature range, precipitation transitions, cloud cover, and peak wind speed from the input data.",
+    "completeness": "The summary captures the general trend and key extremes, but omits the vast majority of the granular 3-hourly data points provided in the input.",
+    "faithfulness": "The text and triples are fully grounded in the input data, accurately summarizing the temperature range, weather transitions, and peak wind speed.",
+    "omissions": "The text and triples accurately summarize the key trends, temperature extremes, weather transitions, and peak wind speed from the provided dataset."
+  },
+  "84": {
+    "summary": "The text and triples accurately and concisely summarize the key trends, temperature extremes, and weather transitions from the provided data.",
+    "completeness": "The text and triples capture the general trend and extremes, but omit the vast majority of the specific hourly/3-hourly data points, wind speeds, humidity, and pressure values provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the input data, correctly identifying the location, date range, temperature extremes, and weather transitions.",
+    "omissions": "The text and triples capture the overall trends and key extremes, but omit specific details like wind speed, humidity, and precise dates for the temperature transitions."
+  },
+  "85": {
+    "summary": "The text and triples accurately and concisely summarize the key trends, temperature extremes, and precipitation patterns found in the detailed JSON data.",
+    "completeness": "The summary captures the overall trends and main events, but ignores a vast majority of the specific hourly data points, wind speeds, humidity, and pressure values.",
+    "faithfulness": "The text and triples accurately summarize the input data without any fabrications or contradictions.",
+    "omissions": "The text and triples together accurately capture all key trends, date ranges, temperature extremes, and weather conditions from the detailed dataset."
+  },
+  "86": {
+    "summary": "The text and triples accurately and concisely summarize the temperature range, weather conditions, humidity, and wind gusts from the provided data.",
+    "completeness": "The summaries capture the overall trend and extreme values, but omit most of the 40 individual time-step data points and several specific attributes like pressure and visibility.",
+    "faithfulness": "The text and triples accurately reflect the data, including the temperature range, humidity, wind gusts, and weather conditions.",
+    "omissions": "The text and triples successfully capture all key trends, extreme values, and entities from the dataset."
+  },
+  "87": {
+    "summary": "The text and triples accurately and concisely summarize the key trends and data points from the input JSON.",
+    "completeness": "The summary captures the general trends and range of the data but omits the vast majority of the specific time-step attributes (humidity, visibility, wind speed values, and exact rain volumes) provided in the JSON.",
+    "faithfulness": "The text and triples accurately summarize the input data without any fabrications or contradictions.",
+    "omissions": "The text and triples accurately summarize the key trends and values from the extensive dataset, including temperature range, pressure range, and general weather conditions."
+  },
+  "88": {
+    "summary": "The text and triples accurately and concisely summarize all key aspects of the data, including the location, date range, temperature extremes, weather conditions, and peak wind gusts.",
+    "completeness": "The summary captures the main trends and extreme values, but ignores the vast majority of the 40 time-step data points, including specific humidity, pressure, and visibility attributes.",
+    "faithfulness": "The text and triples accurately summarize the data provided in the input JSON without any hallucinations.",
+    "omissions": "The text and triples accurately summarize all key trends and peak values from the extensive dataset, including dates, location, temperature range, weather conditions, and maximum wind gusts."
+  },
+  "89": {
+    "summary": "The text and triples accurately and concisely summarize the key weather trends, temperature ranges, and conditions from the provided data.",
+    "completeness": "The summary captures the general trend and extreme values, but omits a vast majority of the specific hourly/3-hourly data points, wind speeds, humidity, and pressure values provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the input data without adding any unsupported information.",
+    "omissions": "The text and triples provide a high-level summary but omit a significant amount of detailed data, such as humidity, wind speed, and specific timestamps for most weather transitions."
+  },
+  "90": {
+    "summary": "The text and triples accurately and concisely summarize the temperature range, weather transitions, and time period from the provided data.",
+    "completeness": "The summary captures the primary trends and temperature extremes, but omits a vast majority of the specific hourly/3-hourly data points, wind speeds, pressure, and humidity.",
+    "faithfulness": "The text and triples accurately summarize the temperature range, weather transitions, and dates provided in the input data.",
+    "omissions": "The summary and triples capture the general trends and temperature extremes, but omit significant detailed data such as humidity, wind speed, and specific timestamps for weather changes."
+  },
+  "91": {
+    "summary": "The text and triples accurately and concisely summarize the key weather trends, temperature extremes, precipitation, and wind gusts from the provided data.",
+    "completeness": "The summary captures the primary trends and extreme values, but omits the vast majority of the detailed time-series data provided for each 3-hour interval.",
+    "faithfulness": "The text and triples are fully grounded in the provided data, accurately reflecting temperature extremes, weather transitions, rain dates, and wind gust peaks.",
+    "omissions": "The text and triples accurately summarize all key weather trends, extremes, and specific events from the provided data."
+  },
+  "92": {
+    "summary": "The text and triples accurately and concisely summarize the key temperature extremes, weather events, dates, and peak wind gusts from the provided data.",
+    "completeness": "The summaries capture the main trends, temperature extremes, and weather events, but omit the vast majority of the granular time-series data (40 data points) including specific hourly temperatures, humidity, and pressure.",
+    "faithfulness": "The text and triples accurately summarize the temperature extremes, weather conditions, dates, and peak wind gusts present in the input data.",
+    "omissions": "The text and triples accurately capture all key summary statistics and significant weather events from the detailed dataset."
+  },
+  "93": {
+    "summary": "The text and triples accurately and concisely summarize the key temperature ranges, weather conditions, and humidity from the provided dataset.",
+    "completeness": "The text and triples capture the general range and main weather patterns, but omit a vast majority of the specific hourly/3-hourly data points and city metadata.",
+    "faithfulness": "The text and triples accurately summarize the input data without adding any unsupported information.",
+    "omissions": "The summary and triples capture the essential trends and extremes, though specific daily details and wind data are omitted."
+  },
+  "94": {
+    "summary": "The text and triples accurately and concisely summarize the weather transition from mild/rainy to snowy and freezing temperatures for the specified dates.",
+    "completeness": "The summary captures the general trend, temperature extremes, and weather transitions, but omits a vast majority of the specific hourly data points, wind speeds, humidity, and pressure values present in the input.",
+    "faithfulness": "The text and triples accurately summarize the temperature ranges, weather conditions, and dates provided in the input data.",
+    "omissions": "The text and triples capture the primary weather trends and extremes, though they simplify the detailed 3-hour interval data into general ranges."
+  },
+  "95": {
+    "summary": "The text and triples accurately and concisely summarize the temperature trend, weather conditions, and time period provided in the data.",
+    "completeness": "The text and triples capture the general trend and main entities, but omit nearly all specific numerical data for the 40 time intervals provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the temperature trends, weather conditions, and timeframe provided in the input data.",
+    "omissions": "The text and triples accurately summarize the key trends, temperature extremes, and weather transitions from the detailed dataset."
+  },
+  "96": {
+    "summary": "The text and triples accurately and concisely summarize the key temperature extremes, weather transitions, humidity peaks, and wind ranges from the input data.",
+    "completeness": "The text and triples summarize the overall trends and extremes but omit the vast majority of the time-specific data points (40 entries) and detailed attributes like pressure and visibility.",
+    "faithfulness": "The text and triples accurately summarize the data, correctly identifying the temperature range, peak date, humidity peak, and wind speed range.",
+    "omissions": "The text and triples accurately summarize all key trends and extreme values (min/max temp, max humidity, wind range) from the extensive dataset."
+  },
+  "97": {
+    "summary": "The text and triples accurately and concisely summarize the key trends and data points from the input JSON.",
+    "completeness": "The summary captures the overall trend and key ranges, but omits the vast majority of specific data points for the 40 time intervals provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the temperature trends, weather conditions, humidity range, and timeframe provided in the data.",
+    "omissions": "The text and triples summarize the trends well, but omit specific details like pressure and visibility."
+  },
+  "98": {
+    "summary": "The text and triples accurately and concisely summarize the key trends, temperature extremes, and weather changes from the provided data.",
+    "completeness": "The summary captures the general trend and extreme values, but omits the vast majority of the hourly data points, wind speeds, pressure, and humidity.",
+    "faithfulness": "The text and triples accurately summarize the temperature range, weather transition, and timeframe provided in the input data.",
+    "omissions": "The summary captures the main trend but omits most of the detailed hourly/daily data points, including specific wind speeds, pressure, and humidity."
+  },
+  "99": {
+    "summary": "The text and triples accurately and concisely summarize the key weather transitions, temperatures, and dates from the provided dataset.",
+    "completeness": "The output summarizes the general trend and key dates, but omits the vast majority of the granular hourly data, specific wind speeds, humidity, and pressure values provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the trends and specific data points provided in the input JSON.",
+    "omissions": "The text and triples provide a high-level summary but omit a significant amount of granular data including wind speed, humidity, pressure, and specific hourly timings."
+  }
+}

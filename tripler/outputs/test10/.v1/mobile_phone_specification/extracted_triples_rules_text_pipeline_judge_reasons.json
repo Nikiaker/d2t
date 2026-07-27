@@ -1,0 +1,602 @@
+{
+  "0": {
+    "summary": "The text and triples accurately and concisely capture all the key technical specifications from the input data.",
+    "completeness": "The main specifications are captured, but many secondary attributes (network bands, dimensions, weight, connectivity, sensors, and colors) are entirely omitted.",
+    "faithfulness": "The text and triples are completely faithful to the provided input data.",
+    "omissions": "Most key specifications are captured, but secondary details like dimensions, weight, and connectivity (Wi-Fi/Bluetooth) are omitted."
+  },
+  "1": {
+    "summary": "The text is excellent, but the triples contain a semantic error where 'has_resolution' is used as the subject instead of the phone.",
+    "completeness": "The main specifications are captured, but many secondary attributes like network bands, dimensions, connectivity (WiFi, Bluetooth, USB), and sensors are missing.",
+    "faithfulness": "The text is perfectly grounded, but the triples contain a structural error ('has_resolution --has_resolution-> 1080p') instead of linking the device to the resolution.",
+    "omissions": "Most key specifications are captured, although some secondary details like dimensions, connectivity, and sensors are omitted."
+  },
+  "2": {
+    "summary": "The text and triples accurately and concisely capture all key technical specifications from the input data.",
+    "completeness": "The main specifications are present, but many secondary details like network bands, dimensions, connectivity (USB, Bluetooth, WLAN), and sensors are missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided JSON data with no hallucinations.",
+    "omissions": "All primary specifications are captured, though secondary details like network bands, sensors, and connectivity are omitted."
+  },
+  "3": {
+    "summary": "Both the text and triples accurately and concisely capture all key technical specifications from the input data.",
+    "completeness": "The main specifications are present, but many secondary details (network bands, dimensions, weight, sensors, and connectivity) are completely omitted.",
+    "faithfulness": "Both the text and triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "Several important specifications such as network technology, dimensions, weight, and sensors are missing from both the text and triples."
+  },
+  "4": {
+    "summary": "Both the text and triples accurately and concisely capture all primary specifications from the input data.",
+    "completeness": "The main specifications are present, but many secondary attributes like network bands, dimensions, build materials, OS, GPU, and sensors are completely omitted.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "Several important technical details are missing, including the OS (Android 13), the specific storage/RAM combinations (128GB/4GB), and connectivity features like NFC."
+  },
+  "5": {
+    "summary": "The text and triples jointly capture all key specifications from the input data accurately and concisely.",
+    "completeness": "The main entities and primary specs are present, but many secondary attributes (detailed camera specs, OS, dimensions, weight, colors, and price) are missing.",
+    "faithfulness": "The generated text and triples are fully grounded in the provided input data with no hallucinations or distortions.",
+    "omissions": "All key specifications from the input data are accurately captured across the text and triples."
+  },
+  "6": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data without errors.",
+    "completeness": "The text and triples cover all primary specifications, but omit many secondary details such as dimensions, weight, specific camera details, network bands, and sensor information.",
+    "faithfulness": "The generated text and triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "All key specifications including display, processor, memory, camera, battery, price, and colors are captured in both the text and triples."
+  },
+  "7": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data without any errors.",
+    "completeness": "The main specifications are present, but numerous secondary details such as network bands, dimensions, weight, GPU, sensors, and connectivity are missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data without any fabrications.",
+    "omissions": "Several important technical details are missing, including network bands, dimensions, weight, GPU, and specific camera apertures."
+  },
+  "8": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data without errors.",
+    "completeness": "The main specifications are present, but several secondary details such as dimensions, weight, specific network bands, GPU, and sensors are missing.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "The text and triples together cover all key specifications, including OS, release date, display, processor, memory, cameras, battery, and connectivity."
+  },
+  "9": {
+    "summary": "The text and triples jointly capture all key specifications from the input data accurately and concisely.",
+    "completeness": "The main specifications are covered, but several secondary attributes such as network bands, dimensions, weight, sensors, and connectivity (WLAN, Bluetooth, NFC) are missing.",
+    "faithfulness": "The generated text and triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "Several secondary but important specifications such as network bands, dimensions, weight, and connectivity (NFC, Bluetooth, USB) are missing from both the text and triples."
+  },
+  "10": {
+    "summary": "Both the text and the triples accurately and concisely capture all the key specifications from the input data.",
+    "completeness": "The main specifications are captured, but several secondary attributes (network bands, dimensions, weight, selfie camera, connectivity, and sensors) are entirely missing.",
+    "faithfulness": "Both the generated text and triples are fully grounded in the provided input data.",
+    "omissions": "The conversion captures all primary specifications, though it omits minor details like dimensions, weight, and selfie camera resolution."
+  },
+  "11": {
+    "summary": "The text and triples together accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The main specifications are present, but many secondary details like dimensions, weight, GPU, specific camera features, connectivity (NFC, Bluetooth, etc.), and sensors are missing.",
+    "faithfulness": "Both the text and triples are fully grounded in the provided input data.",
+    "omissions": "All key specifications from the input data are accurately captured across the text and triples."
+  },
+  "12": {
+    "summary": "The text and triples jointly capture all key specifications from the input data accurately and concisely.",
+    "completeness": "The main entities and primary specs are present, but many secondary attributes like network bands, dimensions, weight, GPU, and connectivity (USB, Bluetooth, WLAN) are missing.",
+    "faithfulness": "The generated text and triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "Most key specifications are present, but some secondary details like dimensions, weight, and connectivity options were omitted."
+  },
+  "13": {
+    "summary": "Both the text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The main specifications are captured, but several secondary attributes (ROM, dimensions, weight, SIM, resolution, bands, and audio features) are missing.",
+    "faithfulness": "Both the text and triples are fully grounded in the provided JSON data.",
+    "omissions": "Most key specifications are captured, but some secondary details like dimensions, weight, and internal ROM are omitted."
+  },
+  "14": {
+    "summary": "The generated text and triples accurately and concisely capture all key specifications from the input data without any errors.",
+    "completeness": "The main specifications are captured, but many secondary attributes such as specific network bands, dimensions, weight, GPU, OS version, and connectivity details are missing.",
+    "faithfulness": "The text and triples are perfectly grounded in the provided JSON data.",
+    "omissions": "All key specifications from the input data are accurately captured in both the text and the triples."
+  },
+  "15": {
+    "summary": "The text and triples jointly capture all key technical specifications and pricing from the input data accurately and concisely.",
+    "completeness": "The main entities and primary specs are present, but secondary attributes like dimensions, weight, network bands, GPU, colors, and sensors are missing.",
+    "faithfulness": "Both the text and triples are fully grounded in the provided input data.",
+    "omissions": "The conversion captures all primary specifications, though minor details like dimensions, weight, and specific network bands are omitted."
+  },
+  "16": {
+    "summary": "The text and triples jointly cover all key technical specifications and unique features of the device accurately and concisely.",
+    "completeness": "The text and triples capture the primary features, but omit many secondary specifications such as dimensions, weight, memory details, sound, and specific network bands.",
+    "faithfulness": "The text and triples are fully grounded in the provided JSON data without any fabrications.",
+    "omissions": "Several important technical specifications such as dimensions, weight, memory/SD card details, and price are missing from both the text and triples."
+  },
+  "17": {
+    "summary": "The text and triples jointly capture all key specifications from the input data accurately and concisely.",
+    "completeness": "The main specifications are captured, but many secondary details (network bands, OS, GPU, sensors, connectivity, and dimensions) are completely omitted.",
+    "faithfulness": "The text and triples are perfectly grounded in the provided data with no fabrications or distortions.",
+    "omissions": "The text and triples combined capture all essential specifications, including durability ratings, display, hardware, cameras, battery, and price."
+  },
+  "18": {
+    "summary": "The text and triples jointly capture all key specifications from the input data accurately and concisely.",
+    "completeness": "The main specifications are captured, but many secondary attributes (network bands, dimensions, weight, GPU, detailed camera specs, and connectivity) are missing.",
+    "faithfulness": "The generated text and triples are fully grounded in the provided input data without any fabrications.",
+    "omissions": "The conversion captures all primary hardware and pricing specifications, though it omits minor details like specific network bands and dimensions."
+  },
+  "19": {
+    "summary": "The text and triples jointly capture all key technical specifications from the input data accurately and concisely.",
+    "completeness": "The main specifications are present, but secondary details like network bands, dimensions, weight, connectivity (WLAN, Bluetooth, USB), and color options are missing.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "The text and triples combined capture all key specifications, including display, processor, memory, battery, cameras, and release date."
+  },
+  "20": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data without errors.",
+    "completeness": "The main entities and primary facts are present, but many secondary attributes (dimensions, SIM type, sound features, messaging, browser, and specific network bands) are missing.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "All central specifications are covered, though some minor details like dimensions, USB version, and messaging types are omitted."
+  },
+  "21": {
+    "summary": "Both the text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The main specifications are captured, but numerous secondary details like network bands, dimensions, weight, GPU, sensors, and connectivity (USB, Bluetooth, etc.) are missing.",
+    "faithfulness": "Both the generated text and triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "The conversion captures all primary specifications, though secondary details like dimensions, weight, and connectivity are omitted."
+  },
+  "22": {
+    "summary": "Both the text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The main specifications are covered, but many secondary details like network bands, dimensions, sensor types, and connectivity options are missing.",
+    "faithfulness": "The text and triples are perfectly grounded in the provided input data with no hallucinations.",
+    "omissions": "Most key specifications are present, though some secondary details like network bands, sensors, and connectivity are omitted."
+  },
+  "23": {
+    "summary": "The text and triples accurately and concisely capture all the key technical specifications and pricing from the input data.",
+    "completeness": "The main entities and primary specs are present, but many secondary attributes (OS, GPU, dimensions, selfie camera, sensors, and connectivity) are completely missing.",
+    "faithfulness": "The text and triples are completely grounded in the provided input data with no hallucinations.",
+    "omissions": "The conversion captures all central specifications, though it omits some secondary details like the selfie camera and OS version."
+  },
+  "24": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The main specifications are captured, but many secondary details like network bands, dimensions, weight, GPU, sensors, and connectivity options are missing.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "Several important specifications such as network technology, display resolution, dimensions, and connectivity options are missing from both the text and triples."
+  },
+  "25": {
+    "summary": "The text and triples accurately capture almost all key specifications, though the triples contain a minor error in the price relation ('has_price --has_price-> 70 EUR').",
+    "completeness": "The main specifications are captured, but numerous secondary details (dimensions, weight, GPU, specific bands, sensors, and colors) are completely omitted.",
+    "faithfulness": "The text is fully grounded, but the triples contain a malformed entry ('has_price --has_price-> 70 EUR') where the subject is the predicate.",
+    "omissions": "All key specifications from the input data are accurately captured across the text and triples."
+  },
+  "26": {
+    "summary": "The text and triples accurately and concisely capture all the key specifications from the input data without errors.",
+    "completeness": "The main entities and primary specifications are present, but many secondary attributes like network bands, dimensions, weight, internal storage, and connectivity details are missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data without any fabrications.",
+    "omissions": "Several important specifications like internal storage, dimensions, and weight are missing from both the text and triples."
+  },
+  "27": {
+    "summary": "The text and triples jointly capture all key technical specifications and pricing from the input data accurately and concisely.",
+    "completeness": "The main entities and primary specs are present, but many secondary attributes (dimensions, weight, network bands, GPU, selfie camera, sensors, and colors) are missing.",
+    "faithfulness": "The text and triples are perfectly grounded in the provided JSON data.",
+    "omissions": "The conversion captures all primary specifications, though it omits secondary details like dimensions, weight, and the specific secondary camera lenses."
+  },
+  "28": {
+    "summary": "Both the text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The main specifications are covered, but many secondary attributes (network bands, dimensions, weight, GPU, sensors, and connectivity details) are missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "The conversion captures all primary specifications, though it omits secondary details like the selfie camera, dimensions, and specific GPU/CPU details."
+  },
+  "29": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data without any omissions or errors.",
+    "completeness": "The main specifications are present, but several secondary attributes like network bands, dimensions, weight, SIM type, GPU, sensors, and connectivity (Wi-Fi, Bluetooth, USB) are missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "All key technical specifications, including OS, processor, memory, display, cameras, battery, and price, are captured in both the text and triples."
+  },
+  "30": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The main entities and primary facts are present, but several secondary attributes (dimensions, weight, memory, specific 2G bands, colors, and messaging) are missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data.",
+    "omissions": "Several important specifications such as dimensions, weight, display resolution, internal memory, and available colors are missing from both the text and triples."
+  },
+  "31": {
+    "summary": "Both the text and triples accurately and concisely capture all key technical specifications from the input data.",
+    "completeness": "The main specifications are covered, but several secondary attributes such as network bands, dimensions, weight, GPU, and specific sensors are missing.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data with no fabrications.",
+    "omissions": "All key specifications from the input data are accurately represented in both the text and the triples."
+  },
+  "32": {
+    "summary": "Both the text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The main specifications are covered, but several secondary attributes like dimensions, phonebook, messaging, and specific battery life are missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data, including the quickSpec section for camera resolution.",
+    "omissions": "The text and triples combined capture all key specifications, including the model, release year, network, display, camera, battery, and primary features/limitations."
+  },
+  "33": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data without omissions or errors.",
+    "completeness": "The main specifications are captured, but several secondary attributes (dimensions, weight, storage/ROM, selfie camera, and detailed network bands) are missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided JSON data, including details from both the detailSpec and quickSpec sections.",
+    "omissions": "The output captures all primary specifications, though minor details like dimensions, weight, and ROM are omitted."
+  },
+  "34": {
+    "summary": "The text and triples accurately and comprehensively summarize all key specifications from the input data without errors.",
+    "completeness": "The main specifications are present, but several secondary attributes such as network bands, dimensions, weight, GPU, and colors are missing.",
+    "faithfulness": "The generated text and triples are perfectly grounded in the provided input data with no hallucinations.",
+    "omissions": "All key specifications from the input data are accurately captured in both the text and the triples."
+  },
+  "35": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The main specifications are captured, but several secondary details like GPRS, SIM type, and specific software features are missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided structured data.",
+    "omissions": "All key specifications provided in the data are accurately captured in the text and triples."
+  },
+  "36": {
+    "summary": "Both the text and triples accurately and concisely capture all key technical specifications and features from the input data.",
+    "completeness": "The main specifications are captured, but many secondary details like network bands, dimensions, weight, GPU, sensors, and specific camera apertures are missing.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data with no fabrications.",
+    "omissions": "All key specifications, including display, chipset, memory, battery, cameras, durability, and price, are accurately captured in both the text and triples."
+  },
+  "37": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data without errors.",
+    "completeness": "The main entities and primary facts are present, but several secondary attributes like dimensions, weight, phonebook capacity, and specific colors are missing.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data without any fabrications.",
+    "omissions": "Several important specifications are omitted, including dimensions, weight, resolution, phonebook capacity, and available colors."
+  },
+  "38": {
+    "summary": "The text and triples jointly capture all key specifications from the input data accurately and concisely.",
+    "completeness": "The main entities and primary facts are present, but several secondary attributes such as dimensions, resolution, battery life, and available colors are missing.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "The text and triples combined cover all key specifications, including network, display, memory, features, battery, and connectivity, with no significant omissions."
+  },
+  "39": {
+    "summary": "The text and triples jointly capture all key specifications from the input data accurately and concisely.",
+    "completeness": "The main specs are covered, but many secondary details like weight, dimensions, GPU, selfie camera, and specific sensor information are missing.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "The text and triples combined capture all key specifications including display, hardware, battery, connectivity, and unique features without any significant omissions."
+  },
+  "40": {
+    "summary": "The text and triples accurately and concisely capture all the key specifications from the input data.",
+    "completeness": "The main entities and primary specs are present, but many secondary attributes like network bands, dimensions, GPU, storage, and connectivity are missing.",
+    "faithfulness": "The text and triples are fully grounded in the input data with no fabrications.",
+    "omissions": "Several important technical specifications such as internal storage, GPU, connectivity (Wi-Fi/Bluetooth), and camera features are missing from both text and triples."
+  },
+  "41": {
+    "summary": "The generated text and triples accurately and concisely capture all key specifications from the input data without omissions or errors.",
+    "completeness": "The main specifications are present, but several secondary attributes like weight, dimensions, GPU, Bluetooth, WLAN, sensors, and price are missing.",
+    "faithfulness": "Both the text and triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "The text and triples combined capture all key technical specifications, including display, processor, memory, cameras, battery, and unique features."
+  },
+  "42": {
+    "summary": "The text and triples accurately and concisely capture all the key technical specifications and features from the input data.",
+    "completeness": "The main specifications are covered, but several secondary attributes (network bands, dimensions, weight, selfie camera, sensors, and colors) are entirely missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "Several important specifications are missing from both text and triples, including the selfie camera, connectivity options (NFC, USB-C), and physical dimensions/weight."
+  },
+  "43": {
+    "summary": "The text and triples jointly capture all key specifications from the input data accurately and concisely.",
+    "completeness": "The main specifications are present, but several secondary attributes (network bands, dimensions, weight, sensors, and connectivity details) are missing.",
+    "faithfulness": "Both the generated text and triples are fully grounded in the input data without any fabrications.",
+    "omissions": "Several important technical details are missing, including dimensions, weight, GPU, and specific connectivity features like Bluetooth and USB."
+  },
+  "44": {
+    "summary": "The text and triples accurately and concisely capture all the key specifications from the input data.",
+    "completeness": "The main specifications are captured, but many secondary details (dimensions, resolution, SIM type, messaging, browser, and color) are missing from both outputs.",
+    "faithfulness": "The text and triples are fully grounded in the provided JSON data, including details from both the detailed specifications and the quick specifications.",
+    "omissions": "All key specifications from the input data are accurately captured across the text and triples."
+  },
+  "45": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "Main specifications are present, but several secondary attributes like display resolution, specific network bands, sensors, and available colors are missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided JSON data without any fabrications.",
+    "omissions": "All key specifications from the input data are accurately captured in either the text or the triples."
+  },
+  "46": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data without omissions or errors.",
+    "completeness": "The text and triples cover almost all primary specifications, though minor details like dimensions, weight, and specific network bands are omitted.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "All essential specifications from the input data are captured in either the text or the triples."
+  },
+  "47": {
+    "summary": "The text and triples accurately and concisely capture all the key specifications from the input data without any errors.",
+    "completeness": "The main specifications are present, but many secondary details like dimensions, weight, OS, GPU, sensors, and connectivity are missing.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data without any fabrications.",
+    "omissions": "The conversion captures all central specifications, though it omits secondary details like dimensions, OS, and specific sensor information."
+  },
+  "48": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data without any omissions or errors.",
+    "completeness": "The main specifications are captured, but many secondary details (bands, dimensions, weight, OS, GPU, specific camera sensors, WLAN/Bluetooth/USB details) are omitted.",
+    "faithfulness": "The text and triples are completely faithful to the provided input data.",
+    "omissions": "The text and triples combined cover all key specifications including display, chipset, memory, cameras, battery, and special features."
+  },
+  "49": {
+    "summary": "Both the text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The main entities and primary specs are present, but many secondary attributes like dimensions, weight, Bluetooth version, and specific network bands are missing.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data.",
+    "omissions": "Several secondary but important specifications like dimensions, weight, SIM type, and Bluetooth version are missing from both outputs."
+  },
+  "50": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data without omissions or errors.",
+    "completeness": "The core specifications are present, but several secondary attributes like network bands, GPRS/EDGE, dimensions, weight, GPU, card slot, sound, and connectivity details (Wi-Fi, Bluetooth, GPS, USB) are missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "Most key specifications are present, though some secondary details like dimensions, weight, and connectivity (Wi-Fi, Bluetooth) are omitted."
+  },
+  "51": {
+    "summary": "The text and triples jointly capture all key specifications from the input data accurately and concisely.",
+    "completeness": "The main specifications are captured, but several secondary attributes (network bands, detailed CPU/GPU, sensor list, and audio specs) are missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data with no hallucinations or distortions.",
+    "omissions": "The text and triples combined cover all the primary specifications, including display, performance, cameras, battery, price, and launch date."
+  },
+  "52": {
+    "summary": "Both the text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "Main entities and primary specs are present, but several secondary attributes (dimensions, weight, specific sensors, GPS systems, and Bluetooth version) are missing.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "All key specifications including build materials, display, OS, battery, price, and certifications are captured in both the text and triples."
+  },
+  "53": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data without any errors.",
+    "completeness": "The main specifications are captured, but secondary details like dimensions, weight, GPU, sensors, and connectivity (Bluetooth, Wi-Fi, USB) are missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data without any fabrications.",
+    "omissions": "The text and triples combined capture all the key specifications, including display, OS, processor, memory, cameras, battery, and network."
+  },
+  "54": {
+    "summary": "The text and triples accurately and concisely capture all the key specifications from the input data.",
+    "completeness": "The main entities and primary facts are present, but many secondary attributes (dimensions, weight, SIM type, memory details, colors, etc.) are missing.",
+    "faithfulness": "The generated text and triples are fully grounded in the provided input data.",
+    "omissions": "Important physical specifications (dimensions, weight) and memory/feature details (Java, messaging) are missing from both outputs."
+  },
+  "55": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data without any omissions or errors.",
+    "completeness": "The main specifications are covered, but several secondary attributes like dimensions, weight, GPU, selfie camera, sensors, and price are missing.",
+    "faithfulness": "Both the text and triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "The text and triples cover all core specifications, though minor details like physical dimensions, weight, and the selfie camera are omitted."
+  },
+  "56": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data without omissions or errors.",
+    "completeness": "The main specifications are present, but many secondary attributes like network bands, dimensions, weight, connectivity (WiFi, Bluetooth, USB), and sensors are completely omitted.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data.",
+    "omissions": "The text and triples omit several important categories including network technology, dimensions, weight, and connectivity options (WLAN, Bluetooth, USB)."
+  },
+  "57": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The main specifications are present, but many secondary attributes like dimensions, weight, connectivity (Bluetooth, Wi-Fi), sensors, and specific band information are missing.",
+    "faithfulness": "The text and triples are fully grounded in the input data with no fabrications.",
+    "omissions": "Several secondary but important specifications (dimensions, weight, connectivity, sensors, and colors) are omitted from both the text and triples."
+  },
+  "58": {
+    "summary": "The text and triples jointly capture all key specifications from the input data accurately and concisely.",
+    "completeness": "The main specifications are present, but several secondary attributes like dimensions, weight, selfie camera, sensors, and price are missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "Several secondary but important details are missing, such as the selfie camera, dimensions, weight, and specific OS version."
+  },
+  "59": {
+    "summary": "The text and triples jointly capture all essential specifications from the input data accurately and concisely.",
+    "completeness": "The main specifications are present, but many secondary attributes (network bands, dimensions, weight, build, sensors, and connectivity details) are completely omitted.",
+    "faithfulness": "The text and triples accurately reflect the provided data without any fabrications or distortions.",
+    "omissions": "Significant technical specifications such as network bands, dimensions, weight, and sensor details are omitted."
+  },
+  "60": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data without omissions or errors.",
+    "completeness": "The main specifications are present, but several secondary attributes (network bands, dimensions, weight, SIM type, sound, and detailed feature lists) are missing.",
+    "faithfulness": "Both the text and triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "The text and triples cover all primary hardware and software specs, though minor details like dimensions, weight, and radio are omitted."
+  },
+  "61": {
+    "summary": "Both the text and triples accurately and concisely capture all key technical specifications from the input data.",
+    "completeness": "The text and triples combined capture all relevant specifications, including display, OS, sensors, battery, connectivity, and physical attributes.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data.",
+    "omissions": "All key technical specifications, including display, battery, OS, sensors, and connectivity, are accurately captured in both the text and triples."
+  },
+  "62": {
+    "summary": "Both the text and the triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The main specs are covered, but many secondary details (network bands, connectivity, dimensions, sensors, colors, and price) are missing.",
+    "faithfulness": "The generated text and triples are fully grounded in the provided input data without any fabrications.",
+    "omissions": "Several important technical specifications are missing, including network bands, connectivity (Wi-Fi, Bluetooth, GPS), and sensor data."
+  },
+  "63": {
+    "summary": "The text and triples accurately capture all key specifications including model, launch date, network, display, cameras, and battery.",
+    "completeness": "The main entities and specifications are present, but many secondary attributes (dimensions, memory, connectivity, and features) are missing.",
+    "faithfulness": "The generated text and triples are fully grounded in the input data, including the quickSpec details for battery capacity.",
+    "omissions": "Several important technical specifications, such as the display resolution, memory card slot, and connectivity (Bluetooth/USB), are missing from both the text and triples."
+  },
+  "64": {
+    "summary": "The text and triples accurately and comprehensively capture all key specifications from the input data without omissions or errors.",
+    "completeness": "The main specifications are present, but several secondary details like network bands, dimensions, weight, sensors, and specific camera features are missing.",
+    "faithfulness": "Both the text and triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "All key technical specifications, including dimensions, memory variants, camera details, and unique features, are accurately captured across the text and triples."
+  },
+  "65": {
+    "summary": "Both the text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The main specifications are captured, but many secondary attributes like dimensions, weight, Bluetooth version, GPS, and SAR values are missing.",
+    "faithfulness": "The text and triples are fully grounded in the input data with no hallucinations.",
+    "omissions": "Most key specifications are present, but some secondary details like dimensions, weight, and specific Bluetooth version are omitted."
+  },
+  "66": {
+    "summary": "The text and triples jointly capture all key specifications from the input data accurately and concisely.",
+    "completeness": "The main specifications are present, but many secondary attributes (network bands, dimensions, materials, OS, GPU, sound, comms, and colors) are completely omitted.",
+    "faithfulness": "Both the text and the triples are perfectly grounded in the provided input data without any hallucinations.",
+    "omissions": "Several important technical specifications are missing, including the selfie camera, OS, dimensions, and USB/NFC connectivity."
+  },
+  "67": {
+    "summary": "The text and triples jointly capture all key specifications from the input data accurately and concisely.",
+    "completeness": "The main specifications are present, but a significant amount of technical detail (network bands, detailed sensor lists, CPU/GPU clock speeds, and specific dimensions) is missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "All key specifications from the input data are accurately reflected in the text and triples."
+  },
+  "68": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The main specifications are present, but many secondary details like network bands, dimensions, weight, GPU, and connectivity options are missing.",
+    "faithfulness": "The generated text and triples are fully grounded in the provided input data.",
+    "omissions": "All key specifications from the input data are captured across the text and triples."
+  },
+  "69": {
+    "summary": "Both the text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The main specifications are present, but many secondary details like network bands, dimensions, weight, GPU, and sound/comms features are missing.",
+    "faithfulness": "The generated text and triples are fully grounded in the provided input data.",
+    "omissions": "The text and triples cover almost all key specifications, though some secondary details like GPU, network bands, and dimensions are omitted."
+  },
+  "70": {
+    "summary": "Both the text and triples accurately and concisely capture all key specifications from the input data without any errors.",
+    "completeness": "The text and triples cover the primary specifications, but several secondary attributes (dimensions, SIM type, call records, specific alert types, USB version, and messaging/browser details) are missing.",
+    "faithfulness": "Both the text and triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "The text and triples combined cover all key specifications including network, launch date, weight, display, camera, battery, and notable features."
+  },
+  "71": {
+    "summary": "The text and triples accurately and concisely capture all the key specifications from the input data without any errors.",
+    "completeness": "The main specifications are present, but many secondary attributes like network bands, dimensions, weight, GPU, sound, and USB type are missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided JSON data.",
+    "omissions": "All key specifications from the input data are accurately reflected in either the text or the triples."
+  },
+  "72": {
+    "summary": "Both the text and triples accurately and comprehensively capture all key specifications from the input data.",
+    "completeness": "The text and triples capture almost all primary specifications, though some secondary details like the 3.5mm jack, HDMI, and specific dimensions are missing.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data.",
+    "omissions": "All key technical specifications from the input data are accurately represented in both the text and the triples."
+  },
+  "73": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The text and triples cover the primary specs, but omit significant categories like dimensions, weight, SIM type, connectivity (Bluetooth/Wi-Fi/USB), and sensors.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "Several important technical details are missing, including the CPU speed (1.1 GHz), GPU, SIM configuration (Dual SIM), and connectivity features (Wi-Fi, Bluetooth, GPS)."
+  },
+  "74": {
+    "summary": "The generated text and triples accurately and concisely capture all the key specifications from the input data.",
+    "completeness": "The main specifications are present, but many secondary details like network bands, dimensions, weight, SIM type, GPU, sensors, and connectivity (USB, Bluetooth, WiFi) are missing.",
+    "faithfulness": "The generated text and triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "The conversion captures all primary specs, though it omits minor details like network bands, dimensions, and sensors."
+  },
+  "75": {
+    "summary": "The text and triples accurately and concisely capture all key hardware and software specifications from the input data.",
+    "completeness": "The main specifications are covered, but many secondary details like network bands, GPRS/EDGE, dimensions, weight, GPU, sensors, and connectivity options are missing.",
+    "faithfulness": "Both the generated text and triples are fully grounded in the provided input data.",
+    "omissions": "Significant technical details such as the chipset (MT6571), network bands, dimensions, and connectivity options are omitted from both the text and triples."
+  },
+  "76": {
+    "summary": "The text and triples accurately and concisely capture all the primary technical specifications from the input data.",
+    "completeness": "The main specifications are captured, but many secondary attributes (network bands, dimensions, connectivity, sensors, and memory details) are missing.",
+    "faithfulness": "The generated text and triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "Several important technical details are missing, including internal storage, connectivity options, and the OS version."
+  },
+  "77": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The summary captures the primary specifications, but omits several secondary attributes like dimensions, weight, OS, GPU, sensor details, and specific network bands.",
+    "faithfulness": "The text and triples are fully grounded in the input data without any fabrications.",
+    "omissions": "The conversion captures all central specifications, though it omits secondary details like dimensions, weight, and specific sensor types."
+  },
+  "78": {
+    "summary": "The text and triples jointly capture all key specifications from the input data accurately and concisely.",
+    "completeness": "The main specifications are captured, but many secondary attributes like network bands, dimensions, weight, build materials, selfie camera, and connectivity (NFC, USB, etc.) are completely omitted.",
+    "faithfulness": "The text and triples are fully grounded in the input data without any hallucinations or distortions.",
+    "omissions": "All key specifications from the source data are captured across the text and triples."
+  },
+  "79": {
+    "summary": "The text and triples jointly capture all key specifications from the input data accurately and concisely.",
+    "completeness": "The main specifications are captured, but many secondary details (dimensions, weight, resolution, detailed memory/call records, messaging, and browser) are missing from both outputs.",
+    "faithfulness": "Both the generated text and triples are fully grounded in the input data without any hallucinations.",
+    "omissions": "All main specifications are captured, though minor details like dimensions, weight, and specific network bands are omitted."
+  },
+  "80": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data without omissions or errors.",
+    "completeness": "The main entities and primary facts are present, but many secondary attributes (network bands, CPU/GPU, dimensions, weight, sensors, and connectivity) are missing.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "The conversion captures all primary specifications, though it omits secondary details like dimensions, CPU/GPU, and connectivity options."
+  },
+  "81": {
+    "summary": "The text and triples jointly capture all key specifications from the input data accurately and concisely.",
+    "completeness": "The main specifications are present, but several secondary attributes like network bands, dimensions, sensors, and detailed connectivity (USB, NFC, Bluetooth) are missing.",
+    "faithfulness": "The text and triples are fully grounded in the input data without any fabrications or distortions.",
+    "omissions": "The text and triples combined cover all key specifications including display, processor, OS, memory, camera, battery, build materials, and price."
+  },
+  "82": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The main specs are present, but several attributes like dimensions, weight, colors, and memory (eMMC 4.5) are missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data.",
+    "omissions": "All key specifications from the input data are accurately captured in both the text and the triples."
+  },
+  "83": {
+    "summary": "The text and triples jointly capture all key specifications from the input data accurately and concisely.",
+    "completeness": "The main specifications are present, but many secondary attributes (Network, Body, Sound, Comms, Sensors, Colors) are entirely omitted.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "Several important specifications were omitted, including network technology (LTE), physical dimensions, build materials, and connectivity options (microUSB, Bluetooth, GPS)."
+  },
+  "84": {
+    "summary": "The text and triples jointly capture all key specifications from the input data accurately and concisely.",
+    "completeness": "The main specifications are present, but numerous secondary details such as dimensions, weight, GPU, specific camera apertures, sensors, and connectivity (WLAN, Bluetooth, USB) are omitted.",
+    "faithfulness": "The generated text and triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "The text and triples combined capture all key specifications, including brand, release date, OS, display, processor, memory, cameras, battery, and price."
+  },
+  "85": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The main specifications are captured, but several secondary attributes like dimensions, weight, network bands, connectivity (Bluetooth, WLAN, GPS), and sensors are missing.",
+    "faithfulness": "The text and triples accurately reflect the input data without any hallucinations or contradictions.",
+    "omissions": "Significant technical details like network bands, dimensions, weight, connectivity (Wi-Fi, Bluetooth, USB), and sensors are completely omitted from both the text and triples."
+  },
+  "86": {
+    "summary": "The text and triples jointly capture all key specifications from the input data accurately and concisely.",
+    "completeness": "The main specifications are well-covered, but secondary details like network bands, dimensions, weight, GPU, and specific camera apertures are missing.",
+    "faithfulness": "The generated text and triples are fully grounded in the provided input data without any fabrications.",
+    "omissions": "All key specifications and unique features from the input data are captured across the text and triples."
+  },
+  "87": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data without omissions or errors.",
+    "completeness": "The main specifications are covered, but several secondary attributes (network bands, build materials, sensors, and connectivity) are completely omitted.",
+    "faithfulness": "The generated text and triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "The conversion captures all primary specifications, though minor details like the GPU, specific network bands, and sensor types are omitted."
+  },
+  "88": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The main specifications are captured, but many secondary details from the input (network bands, dimensions, weight, SIM, connectivity, and sensors) are entirely missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "Several important technical specifications are missing, including network bands, dimensions, weight, SIM type, display resolution, and connectivity details (Wi-Fi, Bluetooth, USB)."
+  },
+  "89": {
+    "summary": "Both the text and triples accurately and comprehensively capture all key specifications from the input data.",
+    "completeness": "The main specifications are present, but several secondary attributes (network bands, dimensions, weight, GPU, sensors, and connectivity details) are missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "The text and triples combined capture all key specifications, including durability ratings, hardware specs, battery, and pricing."
+  },
+  "90": {
+    "summary": "The text and triples comprehensively and accurately capture all key specifications from the input data without omissions or errors.",
+    "completeness": "The main entities and primary facts are present, but many secondary attributes like network bands, dimensions, weight, GPU, and sound specifications are missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "The text and triples combined capture all primary specifications, including the dual-chipset options and various memory configurations."
+  },
+  "91": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data without any errors.",
+    "completeness": "The main entities and primary specs are present, but numerous secondary details (network bands, GPU, sensors, connectivity, sound features, and dimensions) are missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "All essential specifications and key fields from the input data are accurately captured in both the text and the triples."
+  },
+  "92": {
+    "summary": "The text and triples accurately and concisely capture all the key technical specifications from the input data without omissions or errors.",
+    "completeness": "The main specifications are covered, but several secondary details like network bands, GPU, card slot, and connectivity (Wi-Fi, Bluetooth, USB) are missing.",
+    "faithfulness": "The generated text and triples are fully grounded in the provided JSON data with no hallucinations.",
+    "omissions": "Several technical details such as the GPU, chipset, network bands, and connectivity (Wi-Fi, Bluetooth, FM radio) are missing from both the text and triples."
+  },
+  "93": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data without errors.",
+    "completeness": "The primary specifications are captured, but many secondary details (network bands, dimensions, weight, CPU/GPU specifics, sensors, and colors) are missing.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data.",
+    "omissions": "All key specifications from the source data are accurately captured in either the text or the triples."
+  },
+  "94": {
+    "summary": "The text and triples jointly capture all key specifications from the input data accurately and concisely.",
+    "completeness": "The main specifications are captured, but several secondary details like network bands, GPU, sensors, and specific camera features are missing.",
+    "faithfulness": "Both the text and triples are fully grounded in the provided input data.",
+    "omissions": "All key technical specifications, including battery, display, chipset, memory, and camera, are accurately captured in both the text and triples."
+  },
+  "95": {
+    "summary": "The text summarizes the key hardware and features well, but the triples are far too sparse and omit most of the technical specifications.",
+    "completeness": "The main entities and primary facts are present, but many secondary attributes like dimensions, weight, memory capacity, and specific color options are missing.",
+    "faithfulness": "Both the text and triples are fully grounded in the provided input data.",
+    "omissions": "Significant technical details like dimensions, weight, phonebook capacity, and specific colors are missing from both the text and triples."
+  },
+  "96": {
+    "summary": "The text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The main specifications are captured, but many secondary details like network bands, dimensions, weight, GPU, sensors, and connectivity options are missing.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data.",
+    "omissions": "All primary specifications are captured, though some minor details like dimensions, weight, and network bands are omitted."
+  },
+  "97": {
+    "summary": "The text and triples jointly capture all key specifications from the input data accurately and concisely.",
+    "completeness": "The primary specifications are covered, but numerous secondary details (band lists, dimensions, weight, OS, GPU, secondary cameras, and specific connectivity) are omitted.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data without any fabrications.",
+    "omissions": "The text and triples combined cover all key specifications, including display, processor, memory, cameras, battery, biometrics, and price."
+  },
+  "98": {
+    "summary": "Both the text and triples accurately and concisely capture all the key technical specifications from the input data.",
+    "completeness": "The main specifications are present, but several secondary attributes like dimensions, weight, GPU, chipset, WLAN, Bluetooth, GPS, sensors, and battery life are missing.",
+    "faithfulness": "Both the text and the triples are perfectly grounded in the provided input data.",
+    "omissions": "The conversion covers all primary specifications, though minor details like dimensions, weight, and sensors are omitted."
+  },
+  "99": {
+    "summary": "Both the text and triples accurately and concisely capture all key specifications from the input data.",
+    "completeness": "The main entities and primary specs are present, but many secondary attributes like dimensions, resolution, memory details, and specific sound/messaging features are missing.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "All primary specifications are captured, though some minor details like colors and specific messaging types are omitted."
+  }
+}

@@ -1,0 +1,602 @@
+{
+  "0": {
+    "summary": "Both the text and triples accurately and comprehensively capture all key properties from the input data.",
+    "completeness": "All relevant attributes, entities, and values from the input data are present in both the text and the triples, with only the 'category for maps' (a metadata tag) being omitted.",
+    "faithfulness": "The text and triples perfectly reflect the provided input data without any additions or distortions.",
+    "omissions": "All key entities, properties, and values from the input data are accurately captured in both the text and the triples."
+  },
+  "1": {
+    "summary": "Both the text and triples accurately and comprehensively capture all key data points from the input, including the missing editor which is a minor detail.",
+    "completeness": "All information is present except for the film editor (Mick Audsley) and the instance type (film).",
+    "faithfulness": "The text and triples accurately reflect all provided data points without any hallucinations or distortions.",
+    "omissions": "The film editor (Mick Audsley) is missing from both the text and the triples."
+  },
+  "2": {
+    "summary": "The text and triples accurately and concisely capture all key factual properties from the input data.",
+    "completeness": "Main entities and primary facts are present, but categories for people and the source description are missing.",
+    "faithfulness": "The text is perfectly faithful, but the triples introduce 'sovereign state' and 'located in' which are slight extensions of 'historical country' and 'state in the Holy Roman Empire'.",
+    "omissions": "The conversion captures all main entity facts, though it omits the source and category metadata which are less central."
+  },
+  "3": {
+    "summary": "Both the text and triples accurately and comprehensively capture all key attributes from the input data.",
+    "completeness": "All relevant attributes from the input data are accurately captured in both the text and the triples.",
+    "faithfulness": "The generated text and triples accurately reflect all information provided in the input data without any hallucinations.",
+    "omissions": "All key entities, roles, and values from the input data are accurately captured in both the text and the triples."
+  },
+  "4": {
+    "summary": "The text and triples accurately and concisely capture all key properties from the input data.",
+    "completeness": "All attributes from the input data are accurately represented in either the text or the triples.",
+    "faithfulness": "The text and triples are fully grounded in the input data with no hallucinations.",
+    "omissions": "All key fields, entities, and values from the input data are present in both the text and the triples."
+  },
+  "5": {
+    "summary": "Both the text and triples accurately and comprehensively capture all key attributes from the input data.",
+    "completeness": "All attributes from the input data are accurately represented in either the text or the triples.",
+    "faithfulness": "The text and triples are perfectly grounded in the provided input data without any hallucinations.",
+    "omissions": "All properties from the input data are accurately captured in either the text or the triples."
+  },
+  "6": {
+    "summary": "The text captures most info, but the triples omit the gender and instance type provided in the input.",
+    "completeness": "All input attributes (name, gender, occupation, and instance of human) are covered across the text and triples.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data.",
+    "omissions": "All key information from the input data is captured across the text and triples combined."
+  },
+  "7": {
+    "summary": "Both the text and triples accurately and concisely capture all key properties from the input data.",
+    "completeness": "All entities, attributes, and values from the input data are accurately represented in both the text and the triples.",
+    "faithfulness": "The text and triples accurately reflect all properties provided in the input data without any hallucinations.",
+    "omissions": "All entities, properties, and values from the input data are accurately reflected in both the text and the triples."
+  },
+  "8": {
+    "summary": "The text and triples capture the primary facts, although the family name and 'human' instance are omitted from the triples.",
+    "completeness": "The main identity, citizenship, and gender are captured, but the family name 'Yang' is not explicitly stated as a separate attribute.",
+    "faithfulness": "Both the text and the triples are fully grounded in the input data.",
+    "omissions": "All key information from the input data is captured across the text and triples."
+  },
+  "9": {
+    "summary": "The text is accurate, but the triples omit the religion and the distinction from the Yem people, while incorrectly introducing 'sovereign state' instead of 'historical country'.",
+    "completeness": "All attributes from the input data (capital, different from, instance of, and religion) are captured in the generated text.",
+    "faithfulness": "The text is faithful, but the triples introduce a hallucination by labeling the entity a 'sovereign state' instead of a 'historical country'.",
+    "omissions": "All key information from the input data is present across the text and the triples."
+  },
+  "10": {
+    "summary": "The text is accurate, but the triples introduce imprecise labels like 'industry' and 'competitor' instead of using the exact properties from the input.",
+    "completeness": "All attributes from the input data are accurately represented in both the text and the triples.",
+    "faithfulness": "The triples introduce 'located in', 'industry', and 'competitor' labels not present in the input, and 'competitor' is an interpretation of 'followed by'.",
+    "omissions": "All key fields from the input data are accurately represented in both the text and the triples."
+  },
+  "11": {
+    "summary": "The text is excellent, but the triples omit the 'replaces' property and slightly mislabel the 'instance of' relation.",
+    "completeness": "All attributes from the input data, including the replacement of the Occupied Enemy Territory Administration, are present in either the text or the triples.",
+    "faithfulness": "The text and triples accurately reflect all information provided in the input data without any hallucinations.",
+    "omissions": "All key fields, entities, and values from the input data are accurately represented in both the text and the triples."
+  },
+  "12": {
+    "summary": "The text is excellent, but the triples omit several key properties present in the input data, such as the replacement chain and the state category.",
+    "completeness": "All unique relevant attributes from the input data are captured in the generated text.",
+    "faithfulness": "The text and triples accurately reflect all information provided in the input data without any hallucinations.",
+    "omissions": "All key properties from the input data are successfully captured in either the text or the triples."
+  },
+  "13": {
+    "summary": "The text and triples perfectly and concisely capture all information from the input data.",
+    "completeness": "All input properties, values, and entities are accurately represented in both the text and the triples.",
+    "faithfulness": "The text and triples are perfectly grounded in the input data with no hallucinations.",
+    "omissions": "All information from the input data is accurately captured in both the text and the triples."
+  },
+  "14": {
+    "summary": "The text and triples perfectly capture all properties from the input data accurately and concisely.",
+    "completeness": "All attributes, entities, and values from the input data are accurately represented in both the text and the triples.",
+    "faithfulness": "The text and triples are perfectly grounded in the provided input data with no hallucinations.",
+    "omissions": "All entities, properties, and values from the input data are accurately captured in both the text and the triples."
+  },
+  "15": {
+    "summary": "The text and triples omit several key properties from the input data, including the producer and director of photography.",
+    "completeness": "The producer, director of photography, and country of origin are missing from both the text and the triples.",
+    "faithfulness": "The text and triples are fully grounded in the input data with no hallucinations.",
+    "omissions": "The producer and director of photography are missing from both the text and the triples."
+  },
+  "16": {
+    "summary": "Both text and triples capture almost all key data, though the director of photography is omitted in both.",
+    "completeness": "The director of photography and the blaxploitation/comic science fiction genres are missing from both the text and triples.",
+    "faithfulness": "Both the text and triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "The director of photography (Henrik Kristensen) and the blaxploitation genre are omitted from both the text and triples."
+  },
+  "17": {
+    "summary": "The text and triples capture almost all information, but the triples omit the 'historical country' property.",
+    "completeness": "All properties from the input data, including both 'instance of' types and the capital, are present in the text and triples.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "All entities, properties, and values from the input data are accurately reflected in both the text and the triples."
+  },
+  "18": {
+    "summary": "The text and triples accurately and concisely capture all key attributes from the input data.",
+    "completeness": "All attributes from the input data, including name, citizenship, gender, and both occupations, are present in the text and triples.",
+    "faithfulness": "The text and triples are perfectly grounded in the provided input data.",
+    "omissions": "All key attributes from the input data are accurately reflected in both the text and the triples."
+  },
+  "19": {
+    "summary": "The text and triples accurately and concisely capture all properties from the input data.",
+    "completeness": "All input properties, entities, and values are accurately captured in both the text and the triples.",
+    "faithfulness": "The text and triples accurately reflect all properties provided in the input data without fabrication.",
+    "omissions": "All information from the input data is accurately captured in both the text and the triples."
+  },
+  "20": {
+    "summary": "The text and triples accurately and concisely capture all information from the input data.",
+    "completeness": "All input attributes (country and instance of) are accurately represented in both the text and the triples.",
+    "faithfulness": "The text and triples accurately reflect the input data without any hallucinations.",
+    "omissions": "All information from the input data is accurately captured in both the text and the triples."
+  },
+  "21": {
+    "summary": "Both the text and the triples accurately and completely capture all key-value pairs from the input data.",
+    "completeness": "All entities, attributes, and values from the input data are perfectly represented in both the text and the triples.",
+    "faithfulness": "The generated text and triples are perfectly grounded in the provided input data.",
+    "omissions": "All entities, properties, and values from the input data are accurately represented in both the text and the triples."
+  },
+  "22": {
+    "summary": "The text is perfect, but the triples omit the 'color' and 'copyright status' properties present in the input.",
+    "completeness": "All attributes from the input data are present in either the generated text or the triples.",
+    "faithfulness": "Both the text and the triples are fully grounded in the input data with no hallucinations.",
+    "omissions": "All properties from the input data are present in either the text or the triples."
+  },
+  "23": {
+    "summary": "The text and triples capture almost all data, but the triples omit the film rating and the National Film Registry award.",
+    "completeness": "All information is captured except for the director of photography (Jeri Sopanen).",
+    "faithfulness": "The text and triples claim Shirley Clarke directed the film, but the input only lists her as a cast member and editor.",
+    "omissions": "The director of photography (Jeri Sopanen) is missing from both the text and the triples."
+  },
+  "24": {
+    "summary": "Both the text and triples accurately and concisely capture all key properties from the input data.",
+    "completeness": "All attributes from the input data are accurately represented in both the text and the triples.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "All key entities, properties, and values from the input data are accurately captured in both the text and the triples."
+  },
+  "25": {
+    "summary": "The text and triples correctly identify the composer and a few cast members, but they omit the majority of the cast listed in the input data.",
+    "completeness": "The composer and three cast members are present, but six other cast members from the input data are missing from both representations.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "Six cast members listed in the input data were omitted from both the text and the triples."
+  },
+  "26": {
+    "summary": "The text and triples accurately and comprehensively capture all key information from the input data.",
+    "completeness": "All primary data is captured, but the property 'color' (which is likely a data error in the source) and 'original language' are missing.",
+    "faithfulness": "The text and triples are perfectly grounded in the provided input data with no hallucinations.",
+    "omissions": "The 'original language' and the redundant 'color' property are missing, but all key entities and roles are captured."
+  },
+  "27": {
+    "summary": "The text and triples accurately and concisely capture all key attributes from the input data.",
+    "completeness": "All attributes from the input data are accurately represented across the text and triples.",
+    "faithfulness": "The text and triples accurately reflect all information provided in the input data without any hallucinations.",
+    "omissions": "All key entities, properties, and values from the input data are accurately represented in both the text and the triples."
+  },
+  "28": {
+    "summary": "Both the text and triples omit several cast members (Petra Welteroth, Ana Kerezovic, Andreas Schmidt) listed in the input data.",
+    "completeness": "Three cast members (Petra Welteroth, Ana Kerezovic, and Andreas Schmidt) are missing from both the text and the triples.",
+    "faithfulness": "Both the text and triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "Several cast members (Petra Welteroth, Ana Kerezovic, Andreas Schmidt) and the commissioning body (Südwestrundfunk) are missing from the triples."
+  },
+  "29": {
+    "summary": "Both the text and triples accurately and comprehensively capture all key attributes from the input data.",
+    "completeness": "All primary data is present, but the source 'Allgemeine Hannoversche Biographie' is missing from both text and triples.",
+    "faithfulness": "Both the text and the triples are fully grounded in the input data with no hallucinations.",
+    "omissions": "The information 'described by source: Allgemeine Hannoversche Biographie' is missing from both the text and the triples."
+  },
+  "30": {
+    "summary": "The text and triples accurately and concisely capture all information from the entity name and properties.",
+    "completeness": "All input properties and the relational information in the entity name are fully captured in both the text and triples.",
+    "faithfulness": "All claims in the text and triples are directly grounded in the input data and entity name.",
+    "omissions": "All entities and properties from the input data, including the relationship in the entity name, are accurately represented in both the text and triples."
+  },
+  "31": {
+    "summary": "Both the text and triples accurately and concisely capture all information from the input data.",
+    "completeness": "All information from the input data is accurately captured in both the text and the triples.",
+    "faithfulness": "The text and triples accurately reflect the input data without any hallucinations.",
+    "omissions": "All information from the input data is accurately represented in both the text and the triples."
+  },
+  "32": {
+    "summary": "Both the text and triples accurately and concisely capture all information from the input data.",
+    "completeness": "All properties and values from the input data are accurately represented in both the text and the triples.",
+    "faithfulness": "The text and triples accurately reflect the input properties without any fabrication.",
+    "omissions": "All entities, properties, and values from the input data are accurately represented in both the text and the triples."
+  },
+  "33": {
+    "summary": "The text and triples accurately and concisely capture all key properties from the input data.",
+    "completeness": "All attributes from the input data are accurately represented in both the text and the triples.",
+    "faithfulness": "Both the text and triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "All fields from the input data are accurately represented in both the text and the triples."
+  },
+  "34": {
+    "summary": "The text and triples perfectly capture all information from the input data without adding or omitting any details.",
+    "completeness": "All input entities, attributes, and values are perfectly captured in both the text and the triples.",
+    "faithfulness": "The text and triples accurately represent all information in the input data without any additions or distortions.",
+    "omissions": "All information from the input data is accurately captured in both the text and the triples."
+  },
+  "35": {
+    "summary": "The text and triples omit four cast members listed in the original data.",
+    "completeness": "The main entities and primary facts are present, but four cast members (Robert Leffler, Hans Richter, Paul Westermeier, and Otto Wernicke) are missing from both the text and triples.",
+    "faithfulness": "Both the text and triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "Several cast members (Robert Leffler, Hans Richter, Paul Westermeier, and Otto Wernicke) are omitted from both the text and the triples."
+  },
+  "36": {
+    "summary": "Both the text and triples accurately and concisely capture all information from the input data.",
+    "completeness": "All entities, attributes, and values from the input data are accurately represented in both the text and the triples.",
+    "faithfulness": "The text and triples perfectly reflect the input data without any additions or distortions.",
+    "omissions": "All entities, properties, and values from the input data are accurately represented in both the text and the triples."
+  },
+  "37": {
+    "summary": "Both the text and triples accurately and concisely capture all information from the input data.",
+    "completeness": "All attributes and values from the input data are accurately represented in both the text and the triples.",
+    "faithfulness": "The text and triples perfectly reflect the information provided in the input data without any additions or distortions.",
+    "omissions": "All information from the input data is perfectly captured in both the text and the triples."
+  },
+  "38": {
+    "summary": "Both the text and the triples capture all input properties accurately and concisely.",
+    "completeness": "All attributes from the input data are accurately represented in both the generated text and the triples.",
+    "faithfulness": "The text and triples accurately reflect all properties provided in the input data without any hallucinations.",
+    "omissions": "All key entities, properties, and values from the input data are accurately represented in both the text and the triples."
+  },
+  "39": {
+    "summary": "The text and triples accurately and concisely capture all key information from the input data.",
+    "completeness": "All relevant information was captured except for the 'color' property, which contained a redundant/placeholder value.",
+    "faithfulness": "The text and triples accurately represent all provided data without any hallucinations or distortions.",
+    "omissions": "All key entities, properties, and values from the input data are successfully captured in both the text and the triples."
+  },
+  "40": {
+    "summary": "The text captures all properties, but the triples omit the gender and given names.",
+    "completeness": "All attributes from the input data (given names, instance of, and gender) are present across the text and triples.",
+    "faithfulness": "Both the text and triples are fully grounded in the provided input data.",
+    "omissions": "The text and triples cover almost all data, but the specific 'given name' properties are not explicitly isolated in the triples."
+  },
+  "41": {
+    "summary": "The text and triples accurately and concisely capture all key factual properties from the input data.",
+    "completeness": "All primary information is captured, but the 'described by source' and 'located in time zone' attributes are missing from both representations.",
+    "faithfulness": "The text and triples accurately reflect the input data without adding any external information or distorting the facts.",
+    "omissions": "The time zone and the source description are missing from both the text and the triples."
+  },
+  "42": {
+    "summary": "The text and triples accurately and concisely capture all key properties from the input data.",
+    "completeness": "All attributes from the input data are accurately represented in either the text or the triples.",
+    "faithfulness": "Both the text and triples are fully grounded in the provided input data.",
+    "omissions": "All entities, properties, and values from the input data are accurately captured in either the text or the triples."
+  },
+  "43": {
+    "summary": "The text is perfect, but the triples missed the 'part of the series' property and incorrectly inferred 'language' from 'country of origin'.",
+    "completeness": "All relevant properties from the input data are accurately captured in the text and/or the triples.",
+    "faithfulness": "The triples claim the language is 'Danish', but the input only specifies the country of origin is 'Denmark'.",
+    "omissions": "All key fields from the input data are accurately represented in either the text or the triples."
+  },
+  "44": {
+    "summary": "The text and triples accurately and concisely capture all key information from the input data.",
+    "completeness": "All information was captured except for the 'color' attribute, which was listed as 'color' in the input and likely ignored as redundant or noise.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "All key entities and properties from the input data are accurately captured in both the text and the triples."
+  },
+  "45": {
+    "summary": "The text and triples jointly capture all key properties from the input data accurately and concisely.",
+    "completeness": "All attributes from the input data are captured across the text and triples.",
+    "faithfulness": "Both the text and the triples are fully grounded in the input data without any fabrications.",
+    "omissions": "All key entities, properties, and relationships from the input data are accurately captured in both the text and the triples."
+  },
+  "46": {
+    "summary": "The text is accurate, but the triples introduce a 'language' property not present in the input and mislabel the 'instance of' property as 'documentary film' instead of 'film'.",
+    "completeness": "All input attributes (entity, country of origin/nationality, genre, and instance type) are accurately captured across the text and triples.",
+    "faithfulness": "The triples introduce 'language' as 'Danish', which is not explicitly stated in the input data (only 'country of origin' is provided).",
+    "omissions": "All key information from the input data is captured across the text and triples."
+  },
+  "47": {
+    "summary": "The text and triples capture almost all key data, though the triples omit the head of government and the 'studied by' property.",
+    "completeness": "Most attributes are present, but 'culture of Malawi' and 'Malawian studies' are missing from both the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data, using standard abbreviations (WTO, ICSID) for the listed organizations.",
+    "omissions": "The 'culture' and 'studied by' properties are omitted from both the text and triples."
+  },
+  "48": {
+    "summary": "Both the text and the triples accurately and concisely capture all information provided in the input data.",
+    "completeness": "All attributes from the input data are accurately represented in both the text and the triples.",
+    "faithfulness": "The text and triples accurately reflect all information provided in the input data without any additions or distortions.",
+    "omissions": "All information from the input data is accurately captured in both the text and the triples."
+  },
+  "49": {
+    "summary": "The text and triples accurately and concisely capture all properties from the input data.",
+    "completeness": "All properties from the input data (country, headquarters location, instance of, and legal form) are present in the generated text and triples.",
+    "faithfulness": "The text and triples are perfectly grounded in the provided input data with no hallucinations.",
+    "omissions": "All information from the input data is accurately represented in both the text and the triples."
+  },
+  "50": {
+    "summary": "Both the text and triples accurately and comprehensively capture all key information from the input data.",
+    "completeness": "All attributes from the input data are accurately captured in both the text and the triples.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data with no hallucinations.",
+    "omissions": "All key entities, properties, and values from the input data are accurately represented in both the text and the triples."
+  },
+  "51": {
+    "summary": "The text and triples accurately and concisely capture all properties from the input data.",
+    "completeness": "All input attributes (country, headquarters location, and instance of) are accurately represented in both the text and the triples.",
+    "faithfulness": "The text and triples accurately reflect all information provided in the input data without any fabrications.",
+    "omissions": "All entities, properties, and values from the input data are accurately represented in both the text and the triples."
+  },
+  "52": {
+    "summary": "The text and triples accurately and comprehensively capture all meaningful data points from the input, correctly omitting the redundant 'color: color' property.",
+    "completeness": "All relevant information was captured except for the property 'color: color', which appears to be a data error in the source.",
+    "faithfulness": "The text and triples accurately reflect all provided data points without any hallucinations.",
+    "omissions": "All key entities, roles, and attributes are accurately captured in both the text and the triples, with only the nonsensical 'color: color' property omitted."
+  },
+  "53": {
+    "summary": "Both the text and the triples accurately and concisely capture all key information from the input data.",
+    "completeness": "All attributes from the input data, including the award, location, and entity type, are accurately represented in both the text and the triples.",
+    "faithfulness": "The text and triples are perfectly grounded in the provided input data.",
+    "omissions": "All key fields, entities, and values from the input data are accurately represented in both the text and the triples."
+  },
+  "54": {
+    "summary": "Both the text and the triples accurately and concisely capture all key information from the input data.",
+    "completeness": "All input attributes, including the form of government, capital, continent, head of government, and instance type, are represented in the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the input data without any fabrications or contradictions.",
+    "omissions": "All key properties from the input data are represented in both the text and the triples."
+  },
+  "55": {
+    "summary": "The text is perfect, but the triples omit the 'instance of' property.",
+    "completeness": "All attributes and relationships from the input data are fully captured in the text and triples.",
+    "faithfulness": "Both the text and the triples are perfectly grounded in the provided input data.",
+    "omissions": "All information from the input data is accurately captured in both the text and the triples."
+  },
+  "56": {
+    "summary": "The text and triples accurately and concisely capture all key information from the input data.",
+    "completeness": "All attributes from the input data (country of origin, genre, and instance of) are accurately represented in the text and triples.",
+    "faithfulness": "The text and triples are fully grounded in the provided input data.",
+    "omissions": "All information from the input data is accurately captured in both the text and the triples."
+  },
+  "57": {
+    "summary": "The text and triples accurately and concisely capture all key properties from the input data.",
+    "completeness": "All attributes from the input data are captured across the text and the triples.",
+    "faithfulness": "The text and triples are fully grounded in the input data with no hallucinations.",
+    "omissions": "All key entities, properties, and values from the input data are successfully captured across the text and triples."
+  },
+  "58": {
+    "summary": "Both the text and triples omit several cast members provided in the input data.",
+    "completeness": "The main directors and language are present, but four cast members from the input were omitted from both the text and triples.",
+    "faithfulness": "Both the text and triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "Several cast members (Jacques Fabbri, Liliane Patrick, Raymond Gérôme, Jean-Marc Thibault) are omitted from both the text and triples."
+  },
+  "59": {
+    "summary": "The text and triples accurately and concisely capture all key attributes from the input data.",
+    "completeness": "All attributes from the input data, including name, gender, citizenship, and both occupations, are present in the text and triples.",
+    "faithfulness": "The text and triples accurately reflect all information provided in the input data without any additions or distortions.",
+    "omissions": "All key entities, attributes, and relationships from the input data are accurately reflected in the text and triples."
+  },
+  "60": {
+    "summary": "Both the text and triples accurately and comprehensively capture all key attributes from the input data.",
+    "completeness": "All attributes from the input data are accurately represented in both the text and the triples.",
+    "faithfulness": "The text and triples accurately reflect all information provided in the input data without any hallucinations.",
+    "omissions": "All key fields, entities, and values from the input data are accurately represented in both the text and the triples."
+  },
+  "61": {
+    "summary": "The text and triples accurately and concisely capture all core factual attributes of the input data.",
+    "completeness": "The core attributes are present, but the coat of arms, Wikimedia focus list, and demographic categories are completely omitted.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "The coat of arms and Wikimedia categories are missing from both the text and triples."
+  },
+  "62": {
+    "summary": "The text captures all properties, but the triples omit the gender and given name.",
+    "completeness": "All input attributes (given name, instance of, and sex or gender) are represented across the text and triples.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data.",
+    "omissions": "All information from the input data is captured across the text and the triples."
+  },
+  "63": {
+    "summary": "The text is accurate, but the triples omit the gender and 'instance of' information present in the input.",
+    "completeness": "All input properties (given name, instance of, occupation, and gender) are captured across the text and triples.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data.",
+    "omissions": "All key information from the data (name, gender, and occupation) is present across the text and triples."
+  },
+  "64": {
+    "summary": "The text and triples capture the primary entity and its core attributes, though they correctly ignore the contradictory/incorrect location values (Abercarn, Llantwit Major) found in the input data.",
+    "completeness": "The text and triples capture the primary entity and its main properties, but completely omit the specific location attributes 'Abercarn' and 'Llantwit Major'.",
+    "faithfulness": "Both the text and triples are fully grounded in the input data without any hallucinations.",
+    "omissions": "The specific locations 'Abercarn' and 'Llantwit Major' are omitted from both the text and the triples."
+  },
+  "65": {
+    "summary": "Both the text and triples perfectly and concisely capture all information from the input data.",
+    "completeness": "All entities, attributes, and values from the input data are accurately represented in both the text and the triples.",
+    "faithfulness": "The text and triples perfectly reflect the provided input data without any additions or distortions.",
+    "omissions": "All fields from the input data are accurately represented in both the text and the triples."
+  },
+  "66": {
+    "summary": "The text and triples accurately and concisely capture all key attributes from the input data.",
+    "completeness": "All input properties, including the capital and the dual 'instance of' classifications, are accurately captured in the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the provided properties without introducing external information.",
+    "omissions": "All key entities and properties from the input data are accurately represented in both the text and the triples."
+  },
+  "67": {
+    "summary": "The text and triples accurately and concisely capture all key information from the input data.",
+    "completeness": "All input attributes (entity, country, and instance of) are accurately captured in both the text and the triples.",
+    "faithfulness": "The text and triples accurately reflect the input data without any hallucinations.",
+    "omissions": "All key information from the input data is accurately captured in both the text and the triples."
+  },
+  "68": {
+    "summary": "The text and triples capture almost all data, but the triples omit the 'historical country' instance property.",
+    "completeness": "All attributes from the input data are present in both the text and the triples.",
+    "faithfulness": "The text and triples are perfectly grounded in the provided input data without any hallucinations.",
+    "omissions": "All key entities, properties, and values from the input data are present in both the text and the triples."
+  },
+  "69": {
+    "summary": "The text and triples accurately and concisely capture all properties from the input data.",
+    "completeness": "All attributes from the input data are accurately represented in both the text and the triples.",
+    "faithfulness": "The text and triples accurately reflect all information provided in the input data without any hallucinations.",
+    "omissions": "All key entities, values, and relationships from the input data are accurately represented in both the text and the triples."
+  },
+  "70": {
+    "summary": "Both the text and triples accurately and concisely capture all information provided in the input data.",
+    "completeness": "All attributes and values from the input data are accurately represented in both the text and the triples.",
+    "faithfulness": "The text and triples are perfectly grounded in the input data with no hallucinations.",
+    "omissions": "All information from the input data is accurately captured in both the text and the triples."
+  },
+  "71": {
+    "summary": "The text and triples capture almost all key data, though the director of photography and film editor are omitted from both.",
+    "completeness": "The director of photography (Enzo Brandner) and the film editor (Julia Drack) are missing from both the text and the triples.",
+    "faithfulness": "The text and triples are perfectly grounded in the provided input data.",
+    "omissions": "The director of photography (Enzo Brandner) and the film editor (Julia Drack) are missing from both the text and the triples."
+  },
+  "72": {
+    "summary": "The text captures all properties, but the triples omit the 'given name' and 'sex or gender' information.",
+    "completeness": "All input properties (given name, instance of, and sex or gender) are captured across the text and triples.",
+    "faithfulness": "Both the text and triples are fully grounded in the provided input data.",
+    "omissions": "All key information from the input data is captured across the text and the triples."
+  },
+  "73": {
+    "summary": "Both the text and triples accurately and concisely capture all the key information provided in the input data.",
+    "completeness": "All entities, attributes, and values from the input data are accurately represented in both the text and the triples.",
+    "faithfulness": "Both the text and the triples are perfectly grounded in the input data without any fabrications.",
+    "omissions": "All properties from the input data are accurately represented in both the text and the triples."
+  },
+  "74": {
+    "summary": "The text is excellent, but the triples introduce slight inaccuracies by using 'sovereign state' instead of 'kingdom' and 'located in' instead of 'capital'.",
+    "completeness": "All relevant attributes from the input data are present in the generated text.",
+    "faithfulness": "The triples introduce 'sovereign state' and 'located in', which are not explicitly in the input, though the text is fully faithful.",
+    "omissions": "All key data points from the JSON are present in either the text or the triples."
+  },
+  "75": {
+    "summary": "Both the text and triples accurately and concisely capture all primary key-value pairs from the input data.",
+    "completeness": "The director of photography (Albert Benitz) and the original language (German) are missing from both representations.",
+    "faithfulness": "Both the text and triples are fully grounded in the provided input data without any hallucinations.",
+    "omissions": "The director of photography (Albert Benitz) and the original language (German) are missing from both the text and triples."
+  },
+  "76": {
+    "summary": "The text is accurate, but the triples failed to capture the 'sex or gender' property.",
+    "completeness": "All attributes from the input data (instance of: human, sex or gender: male) are present in the generated text.",
+    "faithfulness": "The text and triples are fully grounded in the input data without any fabrications.",
+    "omissions": "All information from the input data is present across the text and triples."
+  },
+  "77": {
+    "summary": "The text and triples accurately capture all primary key-value pairs from the input data concisely.",
+    "completeness": "All primary attributes are present, but the director of photography (Céline Bozon) is missing from both the text and triples.",
+    "faithfulness": "The text and triples accurately reflect all provided data points without any hallucinations or distortions.",
+    "omissions": "The director of photography (Céline Bozon) is missing from both the text and the triples."
+  },
+  "78": {
+    "summary": "The text and triples accurately and comprehensively capture all key attributes from the input data.",
+    "completeness": "All input attributes, including the cast, production company, country, genres, and copyright status, are fully represented in the text and triples.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data.",
+    "omissions": "All entities, properties, and values from the source data are accurately reflected in both the text and the triples."
+  },
+  "79": {
+    "summary": "Both the text and triples accurately and concisely capture all key information from the input data.",
+    "completeness": "All attributes from the input data, including citizenship, occupation, and participation, are present in both the text and the triples.",
+    "faithfulness": "All claims in the text and triples are directly grounded in the provided input data.",
+    "omissions": "All key properties from the input data are accurately captured in either the text or the triples."
+  },
+  "80": {
+    "summary": "The text and triples accurately and concisely capture all key information from the input data.",
+    "completeness": "All information from the input data is accurately represented in both the text and the triples.",
+    "faithfulness": "The text and triples accurately reflect the input data without any hallucinations.",
+    "omissions": "All data points from the input are accurately represented in both the text and the triples."
+  },
+  "81": {
+    "summary": "Both the text and triples accurately and concisely capture all key information from the source data.",
+    "completeness": "All relevant input attributes, including name, citizenship, occupations, and specific positions held, are captured in both the text and the triples.",
+    "faithfulness": "The text and triples accurately reflect all information provided in the input data without any hallucinations.",
+    "omissions": "All key information from the input data is accurately reflected in both the text and the triples."
+  },
+  "82": {
+    "summary": "The text and triples accurately and comprehensively capture all key-value pairs from the input data.",
+    "completeness": "All attributes, entities, and values from the input data are accurately represented in both the text and the triples.",
+    "faithfulness": "Both the text and triples are perfectly grounded in the provided input data without any fabrications.",
+    "omissions": "All entities, properties, and values from the input data are accurately reflected in both the text and the triples."
+  },
+  "83": {
+    "summary": "The text is perfect, but the triples omit the 'manner of death' and 'sex or gender' properties.",
+    "completeness": "Every attribute from the input data is captured in either the text or the triples.",
+    "faithfulness": "Both the text and the triples are perfectly grounded in the provided input data.",
+    "omissions": "All key entities, properties, and values from the input data are accurately represented in the text and triples."
+  },
+  "84": {
+    "summary": "The text captures most information, but the triples omit key attributes like 'replaces', 'official religion', and 'described by source'.",
+    "completeness": "All attributes from the input data are successfully captured across the text and triples, including the source, relationship to Germania Secunda, languages, religion, and capitals.",
+    "faithfulness": "Both the text and the triples are fully grounded in the input data without any fabrications.",
+    "omissions": "All key entities, properties, and values from the input data are accurately represented in either the text or the triples."
+  },
+  "85": {
+    "summary": "The text and triples accurately and concisely capture all key attributes from the input data.",
+    "completeness": "All relevant attributes and values from the input data are accurately captured in both the text and the triples.",
+    "faithfulness": "The text and triples accurately reflect all properties provided in the input data without any hallucinations.",
+    "omissions": "All key properties from the input data are accurately captured in both the text and the triples."
+  },
+  "86": {
+    "summary": "The text captures all information perfectly, but the triples omit the color, copyright status, and aspect ratio.",
+    "completeness": "All attributes from the input data are present in either the generated text or the triples.",
+    "faithfulness": "The text and triples accurately reflect the input data without any fabrications.",
+    "omissions": "All key entities, properties, and values from the input data are present in either the text or the triples."
+  },
+  "87": {
+    "summary": "The text and triples accurately and concisely capture the entity and its properties from the input data.",
+    "completeness": "All relevant information from the input data is accurately captured in both the text and the triples.",
+    "faithfulness": "The triples introduce 'located in China' and simplify 'ancient Chinese state' to 'state', which are inferences not explicitly stated as separate properties in the input.",
+    "omissions": "All key information from the input data is accurately captured in both the text and the triples."
+  },
+  "88": {
+    "summary": "Both the text and triples accurately and concisely capture all key properties from the input data.",
+    "completeness": "All input properties, including the entity, location, heritage designation, and instance types, are present in the text and triples.",
+    "faithfulness": "The text and triples accurately reflect the provided data without any hallucinations.",
+    "omissions": "All key entities, properties, and relationships from the input data are accurately represented in both the text and triples."
+  },
+  "89": {
+    "summary": "The text and triples accurately and concisely capture all properties from the input data.",
+    "completeness": "All properties and values from the input JSON are accurately represented in both the text and the triples.",
+    "faithfulness": "Both the text and triples accurately reflect all properties provided in the input data without adding external information.",
+    "omissions": "All entities, properties, and values from the input data are accurately represented in both the text and the triples."
+  },
+  "90": {
+    "summary": "The text and triples accurately and concisely capture all key information from the input data.",
+    "completeness": "All input attributes (entity, country, and instance of) are accurately captured in both the text and the triples.",
+    "faithfulness": "The triples introduce categories ('business', 'industry') not present in the input data.",
+    "omissions": "All key information from the input data is accurately captured in both the text and the triples."
+  },
+  "91": {
+    "summary": "Both the text and triples accurately and completely capture all properties from the input data.",
+    "completeness": "All entities, properties, and values from the input data are fully represented in both the text and the triples.",
+    "faithfulness": "The text and triples perfectly reflect the input data without any hallucinations or omissions.",
+    "omissions": "All entities, roles, and properties from the input data are accurately captured in both the text and the triples."
+  },
+  "92": {
+    "summary": "Both the text and triples accurately and concisely capture all information from the input data.",
+    "completeness": "All entities, attributes, and values from the input data are accurately represented in both the text and the triples.",
+    "faithfulness": "The text and triples accurately represent the input data without any hallucinations.",
+    "omissions": "All information from the input data is accurately represented in both the text and the triples."
+  },
+  "93": {
+    "summary": "Both the text and triples accurately and concisely capture all key attributes from the input data.",
+    "completeness": "All attributes from the input data, including name, citizenship, gender, occupation, birthplace, and language, are captured in the text and triples.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided input data.",
+    "omissions": "All key information from the input data is accurately represented in either the text or the triples."
+  },
+  "94": {
+    "summary": "The text is excellent, but the triples contain a slight inaccuracy by labeling the broadcaster as 'distributed by' and using 'located in' for the country of origin.",
+    "completeness": "All attributes from the input data (country, genre, instance, subject, broadcaster, and language) are covered across the text and triples.",
+    "faithfulness": "The triples incorrectly claim the film is 'located in' France and 'distributed by' Canal+, whereas the input specifies 'country of origin' and 'original broadcaster'.",
+    "omissions": "All key entities, properties, and values from the source data are accurately captured in the text and triples."
+  },
+  "95": {
+    "summary": "Both the text and triples accurately and concisely capture all key attributes from the input data.",
+    "completeness": "Every relevant attribute and value from the input data is present in either the text or the triples.",
+    "faithfulness": "The text and triples are fully grounded in the input data with no hallucinations.",
+    "omissions": "All key information from the input data is accurately captured in both the text and the triples."
+  },
+  "96": {
+    "summary": "The text and triples accurately and concisely capture all key properties from the input data.",
+    "completeness": "All attributes from the input data are accurately represented in both the text and the triples.",
+    "faithfulness": "The text and triples accurately reflect all information provided in the input without any fabrications.",
+    "omissions": "All properties from the input data are accurately reflected in both the text and the triples."
+  },
+  "97": {
+    "summary": "Both the text and triples accurately and concisely capture all key attributes of the input data.",
+    "completeness": "All relevant attributes (name, gender, occupation, education) from the input are present across the text and triples.",
+    "faithfulness": "The text and triples are perfectly grounded in the provided input data.",
+    "omissions": "All key properties from the input data are captured across the text and triples."
+  },
+  "98": {
+    "summary": "Both the text and triples accurately and concisely capture all information provided in the input data.",
+    "completeness": "All entities, attributes, and relationships from the input data are accurately captured in both the text and the triples.",
+    "faithfulness": "The text and triples accurately reflect all information provided in the input data without any hallucinations.",
+    "omissions": "All entities, properties, and values from the input data are accurately reflected in both the text and the triples."
+  },
+  "99": {
+    "summary": "Both the text and triples accurately and concisely capture all key attributes from the input data.",
+    "completeness": "All relevant attributes from the input data are captured in the text and triples.",
+    "faithfulness": "The text and triples are perfectly grounded in the provided input data.",
+    "omissions": "All key entities, properties, and values from the input data are accurately represented in both the text and the triples."
+  }
+}

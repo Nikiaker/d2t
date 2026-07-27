@@ -1,0 +1,602 @@
+{
+  "0": {
+    "summary": "The text and triples accurately summarize the overall trend, key data points (start, peak, and end), and the specific volatility mentioned in the data.",
+    "completeness": "The text and triples summarize the overall trend and key milestones, but the vast majority of the annual data points from the input are omitted.",
+    "faithfulness": "The text and triples accurately represent the data, using appropriate rounding and correctly identifying trends and specific data points.",
+    "omissions": "The text and triples only capture a few key data points (start, peak, end) and trends, omitting the vast majority of the annual data values provided in the input."
+  },
+  "1": {
+    "summary": "The text and triples accurately capture the peak value, the final value, and the overall trend of the data provided.",
+    "completeness": "The summary captures the primary trends and peaks, but the vast majority of the individual time-series data points from the input are omitted.",
+    "faithfulness": "The text and triples accurately reflect the data, correctly identifying the peak in February 2022 (12,527.377) and the final value in December 2023 (13.188).",
+    "omissions": "The text and triples accurately capture the key trends, the peak value in February 2022, and the final value in late 2023, effectively summarizing the large dataset."
+  },
+  "2": {
+    "summary": "The text and triples accurately capture the overall trend, the peak value and date, and the final stabilization period from the dataset.",
+    "completeness": "The text and triples capture the general trend, the peak, and the final stable value, but they omit the vast majority of the individual data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the trends and specific values provided in the input data.",
+    "omissions": "The text and triples together capture all key aspects of the data, including the country, metric, time range, peak value/date, and the final stabilizing value."
+  },
+  "3": {
+    "summary": "The text and triples accurately capture the date range, the peak value and date, the final value, and the general trend of the data.",
+    "completeness": "The text and triples summarize the main trends and peaks, but the vast majority of the specific weekly data points from the input are omitted.",
+    "faithfulness": "The text and triples accurately reflect the data, including the overall peak in January 2022 and the final value in December 2023.",
+    "omissions": "The text and triples together capture all key trends, the absolute peak, the final value, and the timeframe provided in the data."
+  },
+  "4": {
+    "summary": "The text and triples accurately summarize the trend and the specific start and end points of the dataset concisely.",
+    "completeness": "The text and triples capture the start and end points and the overall trend, but omit the vast majority of the annual data points provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the data, using rounded values that are consistent with the input.",
+    "omissions": "The text and triples only capture the start and end points, omitting the vast majority of the annual data points provided in the input."
+  },
+  "5": {
+    "summary": "The text and triples accurately capture the date range, the peak value, the final value, and the overall trend from the provided data.",
+    "completeness": "The text and triples summarize the overall trend and key peaks, but the vast majority of the specific daily data points from the input are omitted.",
+    "faithfulness": "The text and triples accurately reflect the data, including the start/end values, the peak value in August 2021, and the overall trend.",
+    "omissions": "The text and triples combined capture all key entities, the date range, the peak value, the final value, and the overall trend without any significant omissions."
+  },
+  "6": {
+    "summary": "The text and triples accurately capture the start value, peak value, overall trend, and the specific timing of the plateau from the provided data.",
+    "completeness": "The text and triples summarize the overall trend and key endpoints, but they omit the vast majority of the specific daily data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data provided in the JSON, including dates, values, and trends.",
+    "omissions": "The text and triples combined capture all key entities, the full time range, start/end/peak values, the unit, and the overall trend described in the data."
+  },
+  "7": {
+    "summary": "The text and triples accurately and concisely capture the start, peak, and end points of the dataset, correctly identifying the trend.",
+    "completeness": "The text and triples only capture the start, peak, and end values, omitting the vast majority of the annual data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, including the start value, peak value, and end value, with appropriate rounding.",
+    "omissions": "The conversion captures the start, peak, and end points correctly, but omits the vast majority of the individual yearly data points provided in the source."
+  },
+  "8": {
+    "summary": "The text and triples accurately capture the overall trend, the key peaks (June 2020, Jan 2022, June 2022), and the specific maximum value from the data.",
+    "completeness": "The text and triples summarize the main trends and peaks accurately, but they omit the vast majority of the individual daily data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the peaks and trends found in the provided data without adding any external information.",
+    "omissions": "The text and triples accurately capture the country, the metric, the time range, and all the critical peak values and trends from the data."
+  },
+  "9": {
+    "summary": "The text accurately summarizes the trends and peaks of the reproduction rate, and the triples correctly map the key data points and qualitative observations.",
+    "completeness": "The text and triples summarize the main peaks and trends, but the vast majority of the individual daily data points from the input JSON are omitted.",
+    "faithfulness": "The text and triples are fully grounded in the provided data, accurately reflecting the peaks, dates, and values.",
+    "omissions": "The text and triples together capture all key trends, peaks, and boundary values from the dataset, summarizing the extensive time series accurately."
+  },
+  "10": {
+    "summary": "The text and triples accurately capture the overall trend, the specific all-time peak, and the time range provided in the data.",
+    "completeness": "The text and triples capture the overall trend and the absolute peak, but they omit the vast majority of the specific date-value pairs provided in the dataset.",
+    "faithfulness": "The text and triples accurately reflect the data, including the peak value of 27,278.123 in February 2022 and the general trends.",
+    "omissions": "The text and triples capture the overall trend and the absolute peak, but omit several intermediate data points and the specific 7-day rolling average definition."
+  },
+  "11": {
+    "summary": "The text and triples accurately capture the time range, the key peaks, the overall trend, and the minimum value from the input data.",
+    "completeness": "The text and triples capture the overall trend and key peaks/troughs, but omit the vast majority of the specific daily data points provided in the input.",
+    "faithfulness": "The text and triples are fully grounded in the provided data, accurately reflecting the peaks, the minimum value, and the overall trend.",
+    "omissions": "The text and triples together capture all key trends, the country, the metric, the peak values, and the final minimum value from the dataset."
+  },
+  "12": {
+    "summary": "The text and triples accurately capture the time range, country, indicator, and key data milestones (peaks and lows) from the source data.",
+    "completeness": "The text and triples correctly capture the general trend and key extrema (peaks and lows), but they omit the vast majority of the individual daily data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, including peaks (July 2020: 0.3789, Jan 2022: 0.3986), the low (Nov 2021: 0.0218), and the final value (June 2022: 0.1835).",
+    "omissions": "The text and triples successfully capture all key trends, the overall time range, and the critical peak/trough values from the dataset."
+  },
+  "13": {
+    "summary": "The text and triples jointly capture the full time range, the specific peaks and lows, the general trends, and the final value accurately.",
+    "completeness": "The text and triples capture the overall trend, peaks, and troughs, but omit the vast majority of the specific daily data points provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the data, citing correct peaks, lows, and dates without any hallucinations.",
+    "omissions": "The text and triples successfully capture the key trends, peak values, minimum values, and the overall time range of the dataset."
+  },
+  "14": {
+    "summary": "The text and triples accurately capture the low baseline, the specific timing of the surge, and the peak value, effectively summarizing the provided data.",
+    "completeness": "The text and triples capture the overall trend and key peak/trough values, but they omit the vast majority of the specific daily data points provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the trends and specific data points found in the input JSON.",
+    "omissions": "The text and triples accurately capture the overall trend, the long period of low rates, and the specific surge in 2022, including the peak value."
+  },
+  "15": {
+    "summary": "The text and triples accurately capture the key trends, the minimum value, and the peak value from the provided data.",
+    "completeness": "The text and triples capture the overall trend, the minimum, and the maximum, but omit the vast majority of the daily data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, correctly identifying the minimum (0.0026 = 0.26%) and peak (0.0888 = 8.88%) values and the overall trends.",
+    "omissions": "The text and triples accurately capture the key trends, the minimum value, and the peak value from the dataset."
+  },
+  "16": {
+    "summary": "The text and triples accurately capture the full time range, the minimum and maximum values, the overall trend, and the final value from the input data.",
+    "completeness": "The text and triples capture the overall trend, start/end dates, and key extremes (min/max), but omit the vast majority of the individual data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the date range, the minimum value in July 2020, the peak in July 2021, and the final value in January 2023.",
+    "omissions": "The text and triples combined capture all key entities, the time range, the minimum/maximum values, and the final value from the dataset."
+  },
+  "17": {
+    "summary": "The text and triples accurately capture the overall trend, the start and end points, and the specific anomalous years mentioned in the data.",
+    "completeness": "The text and triples summarize the overall trend and key outliers, but the vast majority of the annual data points from the input are omitted.",
+    "faithfulness": "The text and triples accurately reflect the data, including the starting value, the peak, and the specific dips in 1963 and 1974.",
+    "omissions": "The text and triples summarize the trend and key points but omit the vast majority of the specific annual data points provided in the input JSON."
+  },
+  "18": {
+    "summary": "The text and triples accurately capture the overall trend, the specific peaks (including the anomaly in August 2021 and the high in January 2022), and the final value.",
+    "completeness": "The text and triples capture the general trend and key peaks, but they omit the vast majority of the individual data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, including the peak in January 2022 (~21%), the anomaly in August 2021 (>90%), and the final value in June 2022 (6.2%).",
+    "omissions": "The text and triples accurately capture the key trends, the peak values, the anomalous spike, and the final value from the dataset."
+  },
+  "19": {
+    "summary": "The text and triples jointly capture the start point, peak, critical anomaly in 2010, and the end point accurately and concisely.",
+    "completeness": "The text and triples capture the overall trend and key milestones (start, peak, crash, end), but omit the vast majority of the individual yearly data points provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the data, including the trends and the specific anomaly in 2010, with appropriate rounding of values.",
+    "omissions": "The text summarizes the key trends and critical data points (start, peak, anomaly, end), and the triples capture these specific observations and the overall trend accurately."
+  },
+  "20": {
+    "summary": "The text and triples accurately capture the time range, the overall trend, the specific maximum peak, and the subsequent movements of the data.",
+    "completeness": "The text and triples summarize the overall trend and key peaks, but the vast majority of the specific date-value pairs from the input data are omitted.",
+    "faithfulness": "The text and triples accurately reflect the data, correctly identifying the peak value, peak dates, and overall trend.",
+    "omissions": "The text and triples successfully capture the country, the metric, the overall time range, the primary peak value and date, and the general trend of the data."
+  },
+  "21": {
+    "summary": "The text and triples accurately and concisely summarize the key start, peak, and end values of the dataset and the overall trend.",
+    "completeness": "The text and triples capture the start, peak, and end values, but omit the vast majority of the annual data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, including the starting value, the peak in 2011, and the final value in 2021.",
+    "omissions": "The text and triples summarize the trend and key milestones but omit the vast majority of the annual data points provided in the input."
+  },
+  "22": {
+    "summary": "The text and triples accurately summarize the start and end points of the data trend and the specific values for Vanuatu.",
+    "completeness": "The text and triples capture the start, end, and overall trend, but almost all intermediate data points are omitted.",
+    "faithfulness": "The text and triples accurately reflect the data provided in the JSON instance without any hallucinations.",
+    "omissions": "The text and triples only capture the start and end points, omitting the vast majority of the intermediate time-series data points provided in the JSON."
+  },
+  "23": {
+    "summary": "The text and triples accurately capture the overall trend, the peak value, and the final value, providing a concise and correct summary of the data.",
+    "completeness": "The text and triples capture the general trend, start/end points, and the peak value, but omit the vast majority of the specific dated data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, including the peak value in January 2023 and the final value in December 2023.",
+    "omissions": "The text and triples successfully capture the country, the metric, the peak value/date, the final value/date, and the general trend of the entire dataset."
+  },
+  "24": {
+    "summary": "The text and triples accurately capture the key milestones and trends of the dataset, including the start, peaks, troughs, and the most recent value.",
+    "completeness": "The text and triples summarize the key trends and extreme points but omit the vast majority of the annual data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, using reasonable rounding for the values.",
+    "omissions": "The text and triples summarize the trend but omit the vast majority of the annual data points provided in the input."
+  },
+  "25": {
+    "summary": "The text and triples accurately and concisely summarize the key trends, peak, and minimum values from the provided dataset.",
+    "completeness": "The text and triples accurately summarize the trend and extreme values, but the vast majority of the individual daily data points from the input are omitted.",
+    "faithfulness": "The text and triples accurately reflect the data, correctly identifying the maximum value (1.81 in March 2020), the minimum value (0.63 in March 2022), and the overall trends.",
+    "omissions": "The text and triples successfully capture the country, the metric, the date range, the peak value, the minimum value, and the overall trend of the data."
+  },
+  "26": {
+    "summary": "The text and triples accurately capture the main trends and extreme values, though the triples contain a minor date inconsistency for the minimum value (attributing 0.61 to Sept/Oct 2021 instead of Oct 2021).",
+    "completeness": "The text and triples capture the main entities and critical extrema (peaks and troughs), but they omit the vast majority of the individual data points provided in the input.",
+    "faithfulness": "The value 0.61 occurred only on 2021-10-07; attributing it to February 2022 (where the minimum was 0.63) is a hallucination.",
+    "omissions": "The text and triples accurately capture all key trends, the overall time range, the country, the metric, and the critical peak and trough values from the dataset."
+  },
+  "27": {
+    "summary": "The text and triples accurately capture the timeframe, the peak value and date, significant surges, and the overall trend from the structured data.",
+    "completeness": "The text and triples summarize the main trends and peaks, but omit the vast majority of the specific date-value pairs provided in the structured data.",
+    "faithfulness": "The text and triples accurately reflect the data, correctly identifying the peak value and the dates of surges and declines.",
+    "omissions": "The text and triples accurately capture the time range, country, metric, peak value, and general trends provided in the data."
+  },
+  "28": {
+    "summary": "The text and triples accurately capture the start, end, minimum, and maximum values from the dataset, correctly identifying the dates and the overall trend.",
+    "completeness": "The summaries capture the overall trend and key extrema (min/max), but the vast majority of the daily data points from the input are omitted.",
+    "faithfulness": "The text and triples accurately reflect the data, correctly identifying the start, end, minimum, and maximum values.",
+    "omissions": "The text and triples accurately capture the time range, country, metric, and key data points (start, min, max, and end values) provided in the input data."
+  },
+  "29": {
+    "summary": "The text and triples accurately capture the data range, the minimum and maximum values, the general trends, and the specific end-point value.",
+    "completeness": "The summary and triples capture the general trend, min/max values, and end-point, but omit the vast majority of the individual date-value pairs provided in the input.",
+    "faithfulness": "Both text and triples are fully grounded in the input data, accurately reflecting the date range, minimum/maximum values, and trends.",
+    "omissions": "All key entities, the overall trend, the minimum/maximum values, and the start/end points are accurately captured in both the text and the triples."
+  },
+  "30": {
+    "summary": "The text and triples accurately capture the overall trend, the minimum value, and the peak value from the provided dataset.",
+    "completeness": "The summary and triples capture the overall trend, minimum, and maximum values, but omit the vast majority of the daily data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the input data, correctly identifying the minimum (0.0 on May 13-15) and the maximum (0.2478 on Nov 12) and the overall trend.",
+    "omissions": "The text and triples accurately capture the key trends, the minimum value, the peak value, and the relevant dates and country from the dataset."
+  },
+  "31": {
+    "summary": "The text and triples accurately summarize the start, peak, and trend of the vaccination data, capturing all key milestones and the plateau effect.",
+    "completeness": "The summary captures the overall trend and key milestones (start, peak, and plateau), but omits the vast majority of the individual daily data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, including the start value, peak value, and the observed trends.",
+    "omissions": "The text and triples combined capture all essential data points, including the start value, peak value, time range, and the general trend of the dataset."
+  },
+  "32": {
+    "summary": "The text and triples accurately identify the time range, the global maximum, the global minimum, and the overall trend of the provided data.",
+    "completeness": "The text and triples capture the overall trend, time range, and extreme values, but ignore the vast majority of the individual daily data points provided in the input.",
+    "faithfulness": "Both the text and the triples are fully grounded in the provided data, accurately reflecting the date range, extreme values, and overall trends.",
+    "omissions": "The text and triples accurately summarize the key trends, timeframes, and extreme values (peak and trough) from the extensive dataset without omitting any significant high-level information."
+  },
+  "33": {
+    "summary": "The text and triples accurately capture the key trends, peak values, and the final value from the extensive dataset.",
+    "completeness": "The text and triples summarize the overall trend and key milestones, but the vast majority of the individual daily data points from the input are omitted.",
+    "faithfulness": "The text and triples accurately reflect the data provided, including the peak values, the stable period in 2021, and the final value on January 1, 2023.",
+    "omissions": "The text and triples accurately capture the overall trend, the peak, the stable period, and the final value, effectively summarizing the extensive time-series data."
+  },
+  "34": {
+    "summary": "The text and triples accurately summarize the start and end values, the trend, and the specific acceleration periods from the input data.",
+    "completeness": "The text and triples summarize the trend and key points but omit the vast majority of the individual data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, including the start value, final peak value, dates, and observed trend accelerations.",
+    "omissions": "The text and triples accurately capture the start value, end/peak value, time range, country, metric, and key trends from the dataset."
+  },
+  "35": {
+    "summary": "The text and triples accurately capture the time range, the peak value and date, the general trend, and the final stabilization value from the input data.",
+    "completeness": "The summary captures the overall trend and peak value, but omits the vast majority of the specific daily data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, including the peak value (0.182 on 2020-09-06) and the general trends and ranges.",
+    "omissions": "The generated text and triples accurately summarize the key trends, peak value, time range, and final stabilization period from the provided data."
+  },
+  "36": {
+    "summary": "The text and triples accurately capture the key trends, peaks, and end-point of the data from the provided JSON instance.",
+    "completeness": "The summary captures the general trend and key peaks, but omits the vast majority of the specific date-value pairs provided in the input data.",
+    "faithfulness": "The text and triples accurately reflect the data, including the specific peaks and the final value.",
+    "omissions": "The text and triples accurately summarize the key trends, peaks, and endpoints of the provided time-series data without significant omissions."
+  },
+  "37": {
+    "summary": "The text and triples accurately summarize the key trends, including the major peaks and the final decline to zero, using correct values and dates from the data.",
+    "completeness": "The text and triples capture the overall trend and peak values, but the vast majority of the specific date-value pairs from the input data are omitted.",
+    "faithfulness": "The text and triples accurately reflect the data, including the peaks, the maximum value in April 2022, and the decline to zero in June 2023.",
+    "omissions": "The text and triples combined capture all key trends, the maximum peak value, the timeframe, the country, and the final state of the data."
+  },
+  "38": {
+    "summary": "The text and triples accurately capture the start and end points, the trend, and the specific metric from the input data.",
+    "completeness": "The text and triples capture the overall trend and the start/end points, but the vast majority of the daily data points are omitted.",
+    "faithfulness": "The text and triples accurately represent the data range, values, and trend provided in the input.",
+    "omissions": "The text and triples accurately capture the start and end dates, the country, the metric, and the corresponding values, effectively summarizing the trend."
+  },
+  "39": {
+    "summary": "The text and triples accurately capture the overall trend, the key peaks (Sept 2021 and Jan 2022), and the final value, summarizing the extensive dataset concisely.",
+    "completeness": "The text and triples accurately summarize the trends and key peaks, but the vast majority of the individual daily data points from the input are omitted.",
+    "faithfulness": "The text and triples accurately reflect the data, including the specific peak values and dates from the input JSON.",
+    "omissions": "The text and triples combined capture all key entities, the trend, the specific peak values, and the time range from the source data."
+  },
+  "40": {
+    "summary": "The text and triples accurately capture the start, peak, and critical anomalies (1974, 1988, 1991-92) of the data series.",
+    "completeness": "The text and triples summarize the key trends and extreme values, but they omit the vast majority of the individual yearly data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the provided data, including specific values, dates, and trends without fabrication.",
+    "omissions": "The text and triples summarize the key trends and extremes but omit the vast majority of the annual data points provided in the source JSON."
+  },
+  "41": {
+    "summary": "The text and triples accurately capture the starting value, peak value, the mid-80s dip, and the final 2021 decrease, summarizing the dataset perfectly.",
+    "completeness": "The text and triples summarize the overall trend and key milestones but omit the vast majority of the annual data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, using reasonable rounding for the values provided in the input.",
+    "omissions": "The text and triples accurately capture the key trend, start/end values, the mid-1980s dip, and the final 2021 value."
+  },
+  "42": {
+    "summary": "The text and triples correctly and concisely capture the start and end points of the data trend for Anguilla.",
+    "completeness": "The summary captures the start and end points of the time series, but omits the vast majority of the intermediate data points.",
+    "faithfulness": "The text and triples accurately reflect the start and end values and the date range provided in the input data.",
+    "omissions": "The text and triples accurately capture the start and end values, the country, the time range, and the metric described in the data."
+  },
+  "43": {
+    "summary": "The text and triples accurately capture the overall trend, the absolute peak value and date, and the final value and date from the input data.",
+    "completeness": "The text and triples capture the overall trend and extreme values (peak and end), but they omit the vast majority of the specific data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, including the peak value in February 2022 and the final value on June 19, 2022.",
+    "omissions": "The generated text and triples accurately capture all key entities, values, date ranges, and the overall trend described in the data."
+  },
+  "44": {
+    "summary": "The text and triples accurately and concisely summarize the start, end, and overall trend of the vaccination data for Guinea.",
+    "completeness": "The text and triples capture the start and end points and the overall trend, but omit the vast majority of the time-series data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data range, start/end values, and the overall trend without any fabrications.",
+    "omissions": "The text and triples accurately capture the key entities, the start and end values, the time range, and the overall trend."
+  },
+  "45": {
+    "summary": "The text and triples accurately and concisely summarize the start, end, and overall trend of the data.",
+    "completeness": "The text and triples capture the start and end points and the overall trend, but omit the vast majority of the intermediate yearly data points.",
+    "faithfulness": "The text and triples accurately summarize the input data, with values correctly rounded to two decimal places.",
+    "omissions": "The text and triples only capture the start and end points, omitting the vast majority of the annual data points provided in the input."
+  },
+  "46": {
+    "summary": "The text and triples jointly capture the overall trend, key start/end points, and significant historical outliers accurately and concisely.",
+    "completeness": "The text and triples capture the general trend and a few key extrema, but the vast majority of the annual data points from the input are omitted.",
+    "faithfulness": "The text and triples are fully grounded in the input data, correctly identifying values and trends without fabricating information.",
+    "omissions": "The text and triples capture the primary trend and key outliers, but omit the majority of the individual data points from the large dataset."
+  },
+  "47": {
+    "summary": "The text and triples accurately summarize the key trends, peaks, and the final value of the data provided.",
+    "completeness": "The text and triples capture the overall trend and key extrema, but the vast majority of the individual daily data points from the input are omitted.",
+    "faithfulness": "The text and triples accurately reflect the data, including the peaks, the final value, and the overall trend.",
+    "omissions": "The text and triples combined capture all key entities, the overall trend, the peak values, and the final minimum value from the dataset."
+  },
+  "48": {
+    "summary": "The text and triples accurately summarize the key data points (start, peak, and end) and the overall trend of the dataset.",
+    "completeness": "The text and triples capture the start, peak, and end points, but omit the vast majority of the year-by-year data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data points and trends provided in the input JSON.",
+    "omissions": "The text and triples only capture the start, peak, and end points, omitting the vast majority of the annual data points provided in the input."
+  },
+  "49": {
+    "summary": "The text and triples accurately summarize the key data points (start, peak, and end) and the overall trend from the input dataset.",
+    "completeness": "The text and triples capture the overall trend and key boundary values (start, peak, end), but the vast majority of the annual data points from the input are omitted.",
+    "faithfulness": "The text and triples are fully grounded in the input data, accurately reflecting the values for 1877, 2018, and 2021.",
+    "omissions": "The text and triples summarize the trend and endpoints but omit the vast majority of the annual data points provided in the input."
+  },
+  "50": {
+    "summary": "The text and triples accurately and concisely summarize that North Korea had zero smoothed COVID-19 cases per million people for the entire date range provided.",
+    "completeness": "The text and triples accurately summarize the entire dataset, capturing the country, metric, date range, and the consistent value of zero.",
+    "faithfulness": "The text and triples accurately reflect the input data, which shows a constant value of 0.0 for the specified date range.",
+    "omissions": "The text and triples accurately capture all key information from the dataset, including the country, the metric, the date range, and the constant value of zero."
+  },
+  "51": {
+    "summary": "The text and triples accurately capture the overall trend, the peak value in March 2022, and the key time periods from the data.",
+    "completeness": "The text and triples capture the general trend and the absolute peak, but omit the vast majority of the specific date-value pairs provided in the input data.",
+    "faithfulness": "The text and triples accurately reflect the data, including the peak in March 2022 and the general trends described.",
+    "omissions": "The text and triples summarize the main trends and the peak, but omit the vast majority of the specific data points and dates provided in the input."
+  },
+  "52": {
+    "summary": "The text and triples accurately capture the key trends, peaks, and the minimum value from the input data.",
+    "completeness": "The summary captures the overall trend and key peaks/troughs, but it omits the vast majority of the individual daily data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, including peak values (40.6% in Nov 2020, 23.6% in Mar 2021, 28.6% in Jan 2022) and the low in July 2021.",
+    "omissions": "The text and triples accurately summarize the key trends, peaks, and troughs from the comprehensive dataset without omitting significant information."
+  },
+  "53": {
+    "summary": "Both the text and the triples accurately and concisely summarize the key trends, start/end values, and specific timeframes provided in the dataset.",
+    "completeness": "The text and triples together capture all essential aspects of the data, including the country, the metric, the start and end values, the date range, and the overall trend.",
+    "faithfulness": "The text and triples accurately reflect the data, including the start value, peak value, and general trend.",
+    "omissions": "The text and triples together capture all key metrics, the country, the date range, the start/end values, and the trend analysis provided in the data."
+  },
+  "54": {
+    "summary": "The text and triples accurately capture the time range, the peak, the minimum, and the final trend from the provided data.",
+    "completeness": "The text and triples capture the general trend, peaks, and lows, but omit the vast majority of the specific daily data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the peak, low, and final values provided in the input data.",
+    "omissions": "The text and triples accurately capture the key trends, peak, low, and final value from the dataset."
+  },
+  "55": {
+    "summary": "The text and triples accurately and concisely summarize the key trends, start/end values, and plateau period from the input data.",
+    "completeness": "The text and triples capture all key aspects of the data, including the country, metric, start/end values, peak value, and the overall trend over the specified time period.",
+    "faithfulness": "The text and triples accurately reflect the data, including the start value, peak value, and the plateau period.",
+    "omissions": "The text and triples accurately capture the country, metric, time range, start/end values, and the overall trend without omitting any significant information."
+  },
+  "56": {
+    "summary": "The text and triples accurately capture the time range, the periodic peaks with correct values, and the final trend of the data.",
+    "completeness": "The text and triples capture the main trends and a few peak values, but omit the vast majority of the individual data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, correctly identifying the peak values and trends provided in the input.",
+    "omissions": "The text and triples combined accurately capture the country, metric, time range, key peak values, and the overall trend described in the data."
+  },
+  "57": {
+    "summary": "The text and triples accurately capture the start, peak, and recent decline of life expectancy in Guinea, reflecting the input data correctly.",
+    "completeness": "The text and triples capture the overall trend and key boundary values, but omit the vast majority of the annual data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, including the upward trend and the slight decline in the final two years.",
+    "omissions": "The text and triples summarize the trend but omit the vast majority of the individual annual data points provided in the input."
+  },
+  "58": {
+    "summary": "The text and triples accurately capture the start/end dates, the record peak in February 2022, the final value in December 2023, and the overall trend observed in the data.",
+    "completeness": "The output captures the overall trend and peak values accurately, but omits the vast majority of the specific date-value pairs provided in the input data.",
+    "faithfulness": "The text and triples accurately reflect the data, including the record peak in February 2022 and the final value in December 2023.",
+    "omissions": "The text and triples accurately capture the key trends, the record peak, the final value, and the general timeline from the dataset."
+  },
+  "59": {
+    "summary": "The text and triples accurately capture the key trends, peaks, and troughs from the data, providing a correct and concise summary.",
+    "completeness": "The text and triples capture the general trend and key peaks/troughs, but omit the vast majority of the individual daily data points provided in the input.",
+    "faithfulness": "The generated text and triples accurately reflect the data points and trends provided in the input JSON.",
+    "omissions": "The text and triples accurately capture the key trends, peaks, and troughs from the data, including the country, metric, and specific critical values."
+  },
+  "60": {
+    "summary": "The text and triples accurately summarize the key trends, start/end points, and stability periods of the dataset.",
+    "completeness": "The output captures the general trend and a few data points, but ignores the vast majority of the yearly data provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the data, using correct values and trends grounded in the input.",
+    "omissions": "The text and triples only summarize a few data points, omitting the vast majority of the annual values provided in the input dataset."
+  },
+  "61": {
+    "summary": "The text and triples accurately capture the time range, country, indicator, minimum, maximum, and final values, as well as the overall trend.",
+    "completeness": "The text and triples summarize the trend and key extrema (min, max, end) but omit the vast majority of the individual daily data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, including the minimum, maximum, and final values, and correctly describe the trend.",
+    "omissions": "The text and triples combined capture all key entities, the overall trend, the minimum, maximum, and final values, as well as the specific timeframe and country."
+  },
+  "62": {
+    "summary": "The text and triples accurately summarize the key trends, start/end values, and peak value from the input data.",
+    "completeness": "The text and triples capture the overall trend and key milestones (start, peak, end, and dip), but the vast majority of the yearly data points from the input are omitted.",
+    "faithfulness": "The text and triples accurately reflect the data, using appropriate rounding and correctly identifying the peak and trend.",
+    "omissions": "The text and triples successfully capture the key trends, start/end values, peak value, and the specific period of decline from the dataset."
+  },
+  "63": {
+    "summary": "The text and triples accurately summarize the key trends and specific peak/end values from the dataset.",
+    "completeness": "The summary and triples capture the trend and extreme values, but omit the vast majority of the individual daily data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data provided in the JSON instance without any hallucinations.",
+    "omissions": "The conversion summarizes the trend and key peak/end points but omits the vast majority of the daily data points provided in the input."
+  },
+  "64": {
+    "summary": "The text and triples accurately capture the start, peak, and end points of the data, correctly summarizing the overall trend.",
+    "completeness": "The text and triples capture the overall trend and key boundary values, but the vast majority of the annual data points from the input are omitted.",
+    "faithfulness": "The text and triples accurately reflect the data, including values for 1921, 2019, and 2021, with minor rounding that remains faithful.",
+    "omissions": "The text and triples only capture the start, peak, and end points, omitting the vast majority of the annual data points provided in the input."
+  },
+  "65": {
+    "summary": "The text and triples accurately and concisely summarize the key trends, peak, and minimum values from the provided dataset.",
+    "completeness": "The text and triples summarize the main trends, peaks, and minimums, but the vast majority of the individual daily data points are omitted.",
+    "faithfulness": "The text and triples accurately reflect the data provided, including the peak value, minimum value, and overall trends.",
+    "omissions": "The text and triples accurately capture the time range, the entity, the metric, the peak value, the minimum value, and the overall trend described in the data."
+  },
+  "66": {
+    "summary": "The text and triples jointly provide a precise and concise summary of the key trends, peaks, lows, and the final state of the data.",
+    "completeness": "The text and triples correctly capture the overall trend and key extrema, but omit the vast majority of the specific date-value pairs provided in the input data.",
+    "faithfulness": "The text and triples are fully grounded in the input data, correctly identifying the starting peak, the December 2021 peak, the August 2022 low, and the final value.",
+    "omissions": "The text and triples accurately capture the key trends, start/end values, and extreme points from the dataset without any significant omissions."
+  },
+  "67": {
+    "summary": "The text accurately summarizes the trend, peak, and final value, and the triples correctly map these key semantic points from the data.",
+    "completeness": "The text and triples capture the overall trend and extreme values, but the vast majority of the individual daily data points from the input are omitted.",
+    "faithfulness": "The text and triples accurately reflect the input data, correctly identifying the peak value in January 2022 and the final value in June 2022.",
+    "omissions": "The text and triples accurately summarize the key trends, the peak value, the final value, and the geographic/temporal context provided in the data."
+  },
+  "68": {
+    "summary": "The text and triples accurately capture the overall trend, the key peaks (December 2020 and February 2022), and the timeline of the data.",
+    "completeness": "The text and triples capture the main trends and the absolute peak, but they omit the vast majority of the specific data points provided in the input JSON.",
+    "faithfulness": "The generated text and triples are fully grounded in the provided data, accurately reflecting the peaks, trends, and specific values.",
+    "omissions": "The text and triples accurately summarize the key trends, peaks, and dates from the extensive dataset without omitting significant information."
+  },
+  "69": {
+    "summary": "The text and triples accurately capture the time range, the peak values, the minimum values, and the general trend of the data.",
+    "completeness": "The summary captures the overall trend and key extremes (peaks and troughs), but it omits the vast majority of the individual daily data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, including the peak values, minimum values, and the overall trend.",
+    "omissions": "The text and triples accurately capture the key trends, peak values, and minimum values from the extensive dataset."
+  },
+  "70": {
+    "summary": "The text and triples accurately summarize the trends, key peaks, and lows from the data, maintaining consistent values and timeframes.",
+    "completeness": "The text and triples capture the main trends and peaks, but they omit the vast majority of the specific daily data points provided in the input.",
+    "faithfulness": "The text and triples are fully grounded in the provided data, accurately reflecting the peaks and low points.",
+    "omissions": "The text and triples accurately summarize the key trends, peaks, and troughs from the dataset without omitting significant information."
+  },
+  "71": {
+    "summary": "The text and triples accurately capture the full time range, the minimum and maximum values, and the overall trend of the reproduction rate in Syria.",
+    "completeness": "The text and triples summarize the main trends and extreme values (min/max) but omit the vast majority of the individual daily data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data points, including the minimums, maximums, and date ranges provided in the input.",
+    "omissions": "The text and triples accurately capture the key trends, the minimum and maximum values, and the final data point from the extensive dataset."
+  },
+  "72": {
+    "summary": "The text and triples accurately capture the start and end points of the data and the overall upward trend.",
+    "completeness": "The text and triples capture the start and end points and the overall trend, but omit all intermediate data points.",
+    "faithfulness": "The text and triples accurately reflect the start and end values, dates, and the overall trend provided in the input data.",
+    "omissions": "The generation only captures the start and end points, omitting the vast majority of the intermediate data points provided in the input."
+  },
+  "73": {
+    "summary": "The text and triples accurately capture the start, end, and critical outlier (1945) of the dataset, summarizing the overall trend perfectly.",
+    "completeness": "The text and triples capture the overall trend and key extrema (min/max), but omit the vast majority of the annual data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data provided, including the 1865 start, the 1945 dip, and the 2021 peak, with appropriate rounding.",
+    "omissions": "The text and triples summarize the trend and key extremities but omit the vast majority of the annual data points provided in the source."
+  },
+  "74": {
+    "summary": "The text and triples accurately and concisely capture all key information from the input data, including the constant value, the date range, and the specific metric.",
+    "completeness": "The text and triples perfectly capture all relevant information, including the country, date range, constant value, and the specific metric definition.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the date range, country, value, and the fact that the value remained constant.",
+    "omissions": "All key information including dates, country, metric, value, and the stagnant trend is accurately captured in both the text and triples."
+  },
+  "75": {
+    "summary": "The text and triples accurately capture the start, peak, and end points of the data, correctly identifying the trend and values.",
+    "completeness": "The text and triples capture the start, peak, and end points, but the vast majority of the annual data points from 1951-2018 are omitted.",
+    "faithfulness": "The text and triples accurately reflect the data provided, with values correctly rounded to two decimal places.",
+    "omissions": "The text and triples summarize the trend and key endpoints but omit the vast majority of the annual data points provided in the input."
+  },
+  "76": {
+    "summary": "The text and triples accurately capture the start and end values, the date range, the country, and the overall trend from the input data.",
+    "completeness": "The text and triples capture the start and end points and the overall trend, but omit the vast majority of the intermediate data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the start/end dates and values.",
+    "omissions": "The text and triples accurately capture the key entities, the timeframe, the metric, and the start/end values of the dataset."
+  },
+  "77": {
+    "summary": "The text and triples accurately capture all key trends, peak values, and the overall timeline from the input data.",
+    "completeness": "The text and triples capture the overall trend and major peaks, but the vast majority of the specific weekly data points from the input are omitted.",
+    "faithfulness": "The generated text and triples accurately reflect the values and trends present in the input data.",
+    "omissions": "The text and triples accurately capture all key trends, peak values, dates, and the final outcome from the provided data."
+  },
+  "78": {
+    "summary": "The text and triples accurately capture the start, peak, and end values, as well as the overall trend described in the input data.",
+    "completeness": "The text and triples capture the overall trend and boundary values, but omit the vast majority of the annual data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, including the start value, the peak in 2019, and the decline through 2021.",
+    "omissions": "The text and triples summarize the trend and key boundary points but omit the vast majority of the annual data points provided in the input."
+  },
+  "79": {
+    "summary": "The text and triples accurately capture the start, end, and key peaks of the data, including the overall trend and specific values.",
+    "completeness": "The text and triples capture the overall trend and key milestones (start, peaks, end), but omit the vast majority of the individual data points provided in the input.",
+    "faithfulness": "The text claims the all-time high was 4.072 in February 2022, but the data shows a higher value of 4.338 in November 2021.",
+    "omissions": "The text and triples together capture all key entities, the overall trend, the start and end values, and the primary peaks from the dataset."
+  },
+  "80": {
+    "summary": "The text and triples accurately capture the time range, country, metric, peak, and minimum values, as well as the overall trend described in the data.",
+    "completeness": "The text and triples capture the overall trend, date range, and extreme values (peak and low), but omit the vast majority of the specific daily data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, correctly identifying the peak (2.8 on 2021-07-08) and the minimum (0.37 on 2022-04-16).",
+    "omissions": "The conversion captures the essential trends, date range, and extreme values, though it summarizes the vast majority of the individual data points into trends."
+  },
+  "81": {
+    "summary": "The text and triples accurately and concisely capture the start, peak, and end values, as well as the overall trend and anomalies from the input data.",
+    "completeness": "The text and triples capture the overall trend and key boundary dates, but the vast majority of the annual data points from the input are omitted.",
+    "faithfulness": "The text and triples accurately reflect the values and trends present in the input data.",
+    "omissions": "The text and triples summarize the trend and key endpoints but omit the vast majority of the annual data points provided in the input."
+  },
+  "82": {
+    "summary": "The text and triples accurately and concisely capture the start value, peak value, time range, and key trends from the input data.",
+    "completeness": "The text and triples capture the overall trend, start, and end values, but omit the vast majority of the individual daily/monthly data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data provided, including the start value, peak value, and overall trend.",
+    "omissions": "The text and triples accurately capture the start value, peak value, country, time range, and general trend of the dataset."
+  },
+  "83": {
+    "summary": "The text and triples accurately and concisely capture the peak value, the overall downward trend, and the final plateau period from the input data.",
+    "completeness": "The text and triples capture the overall trend, the peak, and the minimum, but they omit the vast majority of the individual daily data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, correctly identifying the peak value, the date of the peak, the overall trend, and the minimum values reached at the end of the period.",
+    "omissions": "The text and triples accurately summarize the key trends, peak values, and minimum values from the dataset without any significant omissions."
+  },
+  "84": {
+    "summary": "The text and triples accurately capture the key trends, peak values, and the final state of the data provided in the input.",
+    "completeness": "The text and triples capture the overall trend and key peaks/troughs, but they omit the vast majority of the specific date-value pairs from the input data.",
+    "faithfulness": "The text and triples accurately summarize the data, correctly identifying the peak, the secondary rise, the final value, and the overall trend without any hallucinations.",
+    "omissions": "The text and triples together capture all key metrics, dates, trends, and the specific country, effectively summarizing the extensive dataset without significant omission."
+  },
+  "85": {
+    "summary": "The text and triples accurately capture the key trends, peak values, and date ranges from the dataset concisely.",
+    "completeness": "The text and triples capture the overall trend and key peaks/troughs, but omit the vast majority of the specific daily data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data provided in the JSON, including the peaks and end values.",
+    "omissions": "The text and triples accurately capture the country, metric, time range, key peaks, and the final value, effectively summarizing the extensive dataset without omitting significant information."
+  },
+  "86": {
+    "summary": "The text and triples accurately capture the overall trend, the peak value, and the time range from the input data.",
+    "completeness": "The text and triples summarize the trend and the peak value, but they omit the vast majority of the specific date-value pairs provided in the input data.",
+    "faithfulness": "The text and triples accurately reflect the data, including the peak value of 0.23% in March 2022 and the overall trend.",
+    "omissions": "The text and triples summarize the overall trend and peak but omit almost all individual data points from the extensive time series."
+  },
+  "87": {
+    "summary": "The text and triples accurately summarize the key trends, start/end points, and anomalies (1970 dip) present in the data.",
+    "completeness": "The text and triples capture the general trend and critical boundary points (start, peak, end) and a specific anomaly, but omit the vast majority of the individual yearly data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the input data, including the 1940 value, the 2019 peak (rounded), the 1970 dip, and the 2021 decline.",
+    "omissions": "The text and triples summarize the trend but omit the vast majority of the yearly data points provided in the input."
+  },
+  "88": {
+    "summary": "The text and triples accurately summarize the start, end, and key anomalies (1983 and 2004) of the dataset while maintaining consistency.",
+    "completeness": "The text and triples capture the overall trend, start/end points, and key anomalies, but omit the vast majority of the year-by-year data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data provided, including specific values, dates, and the overall trend.",
+    "omissions": "The text and triples summarize the trend and key milestones but omit the vast majority of the individual yearly data points provided in the input."
+  },
+  "89": {
+    "summary": "The text and triples accurately capture the overall trend, the peak values, and the final minimum value from the provided dataset.",
+    "completeness": "The text and triples capture the overall trend, peaks, and final value, but omit the vast majority of the specific daily data points provided in the input.",
+    "faithfulness": "The text and triples accurately summarize the data, correctly identifying the peaks above 1.3 and the final minimum value.",
+    "omissions": "The text and triples accurately summarize the key trends, peaks, and the final value of the dataset without omitting significant information."
+  },
+  "90": {
+    "summary": "The text and triples accurately capture the start, peak, and end values, as well as the overall trend and temporal characteristics described in the data.",
+    "completeness": "The text and triples capture the overall trend and extreme values, but omit the vast majority of the specific annual data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data provided in the JSON input without any fabrication.",
+    "omissions": "The text and triples only capture the start, peak, and end points, omitting the vast majority of the yearly data points provided in the input."
+  },
+  "91": {
+    "summary": "The text and triples correctly capture the start and end points of the data and accurately summarize the overall trend.",
+    "completeness": "Only the start and end points of the time series are represented, omitting the vast majority of the annual data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the input data, with values rounded to two decimal places.",
+    "omissions": "The text and triples only capture the start and end points of the dataset, omitting over 100 intermediate data points."
+  },
+  "92": {
+    "summary": "The text and triples perfectly capture the constant value, the sharp decline, and the final stable minimum across the specified dates.",
+    "completeness": "The text and triples accurately capture the constant initial value, the period of decline, and the final stable minimum value across the entire date range provided.",
+    "faithfulness": "The text and triples accurately reflect the data, correctly identifying the constant period, the decline, and the final stable minimum value.",
+    "omissions": "The text and triples combined accurately capture all key time periods, values, and trends present in the data."
+  },
+  "93": {
+    "summary": "The text and triples accurately capture the key trends and peak values from the provided data, including the correct dates and magnitudes.",
+    "completeness": "The output captures the general trends and major peaks, but ignores the vast majority of the individual data points provided in the input JSON.",
+    "faithfulness": "The text and triples accurately reflect the peaks and trends present in the provided data.",
+    "omissions": "The text and triples accurately summarize the key trends, peaks, and timeframes from the extensive data set without omitting significant information."
+  },
+  "94": {
+    "summary": "The text and triples accurately and concisely summarize the start and end points of the data and the overall trend.",
+    "completeness": "The text and triples capture the overall trend and the start/end points, but ignore the vast majority of the time-series data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, including the start date, end date, start value, and peak value.",
+    "omissions": "The text and triples accurately capture the start and end points, the trend, the country, and the metric from the provided dataset."
+  },
+  "95": {
+    "summary": "The text and triples accurately summarize the time range, peak, low, and overall trends found in the input data.",
+    "completeness": "The text and triples summarize the main trends and extrema, but the vast majority of the individual date-value pairs from the input data are omitted.",
+    "faithfulness": "The text and triples accurately reflect the data, including the peak, low, and final values.",
+    "omissions": "The text and triples accurately capture the key metrics, trends, and extreme values from the extensive dataset."
+  },
+  "96": {
+    "summary": "The text and triples accurately and concisely summarize the key trends, peaks, and troughs of the reproduction rate over the specified period.",
+    "completeness": "The text and triples capture the general trend and key peaks/troughs, but they omit the vast majority of the specific daily data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, including the peak of 2.24 in September 2021 and the low of 0.03 in December 2022.",
+    "omissions": "The text and triples together capture all key trends, the specific peak and low values, the country, the metric, and the timeframe provided in the data."
+  },
+  "97": {
+    "summary": "The text and triples accurately summarize the long-term trends and key data points from the input, including the historical lows, the peak in 2019, and the recent decline.",
+    "completeness": "The text and triples capture the general trend and extreme values, but omit the vast majority of the specific yearly data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data points provided in the input JSON without any hallucinations.",
+    "omissions": "The generation summarizes the trends and key points but omits the vast majority of the specific annual data points provided in the input JSON."
+  },
+  "98": {
+    "summary": "The text and triples accurately capture the overall trend, key peaks, and the maximum value from the input data.",
+    "completeness": "The text and triples capture the overall trend and key peaks, but omit the vast majority of the individual daily data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, including the specific peaks in August 2021 (0.5134), November 2021 (0.6304), and the maximum on January 15, 2022 (0.8919).",
+    "omissions": "The text and triples accurately capture the overall trend, key peaks, the maximum value, and the timeframe from the source data."
+  },
+  "99": {
+    "summary": "The text and triples accurately capture the overall trend, the starting value, the peak, the anomaly in 2010, and the final value.",
+    "completeness": "The summary and triples capture the start, peak, and end points as well as the general trend, but they omit the vast majority of the individual yearly data points provided in the input.",
+    "faithfulness": "The text and triples accurately reflect the data, including the start value, the peak in 2019, the decline in 2010, and the 2021 value.",
+    "omissions": "The text and triples only capture a few key data points (1950, 2019, 2021) and the general trend, omitting the vast majority of the yearly values from the input data."
+  }
+}
