@@ -12,8 +12,10 @@ Scores are split into two independent tasks:
 Output columns:
   domain, text_summary, text_completeness, text_faithfulness, text_omissions,
   triples_summary, triples_completeness, triples_faithfulness, triples_omissions,
-  text_overall, triples_overall
-where text_overall / triples_overall are the means of the four task scores.
+  text_overall, triples_overall,
+  json_elements, ref_words, ref_sentences, ref_subsentences, num_triples, unique_predicates
+where text_overall / triples_overall are the means of the four task scores, and the
+last six columns are averages of the descriptive instance statistics.
 
 Output file:  <test_dir>/<method>_averages.csv
 """
@@ -33,6 +35,10 @@ CRITERIA = [
 ]
 TEXT_CRITERIA = ["text_summary", "text_completeness", "text_faithfulness", "text_omissions"]
 TRIPLES_CRITERIA = ["triples_summary", "triples_completeness", "triples_faithfulness", "triples_omissions"]
+STAT_COLUMNS = [
+    "json_elements", "ref_words", "ref_sentences", "ref_subsentences",
+    "num_triples", "unique_predicates",
+]
 
 
 def to_float_or_none(value: Any) -> float | None:
@@ -57,12 +63,12 @@ def read_scored_csv(path: Path) -> tuple[str, dict[str, list[float]]]:
         rows = list(reader)
 
     domain = ""
-    values: dict[str, list[float]] = {c: [] for c in CRITERIA}
+    values: dict[str, list[float]] = {c: [] for c in CRITERIA + STAT_COLUMNS}
 
     for row in rows:
         if not domain:
             domain = (row.get("domain") or "").strip()
-        for c in CRITERIA:
+        for c in CRITERIA + STAT_COLUMNS:
             v = to_float_or_none(row.get(c))
             if v is not None:
                 values[c].append(v)
@@ -101,7 +107,7 @@ def main() -> None:
         out_path = test_dir / f"{method}_averages.csv"
         with out_path.open("w", encoding="utf-8", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow(["domain"] + CRITERIA + ["text_overall", "triples_overall"])
+            writer.writerow(["domain"] + CRITERIA + ["text_overall", "triples_overall"] + STAT_COLUMNS)
             for domain, values in sorted(entries, key=lambda e: e[0]):
                 row = [domain]
                 for c in CRITERIA:
@@ -116,6 +122,10 @@ def main() -> None:
                 triples_overall = sum(triples_flat) / len(triples_flat) if triples_flat else float("nan")
                 row.append(f"{text_overall:.2f}")
                 row.append(f"{triples_overall:.2f}")
+                for c in STAT_COLUMNS:
+                    vals = values[c]
+                    avg = sum(vals) / len(vals) if vals else float("nan")
+                    row.append(f"{avg:.2f}")
                 writer.writerow(row)
         print(f"[ok] {out_path} ({len(entries)} domains)")
 

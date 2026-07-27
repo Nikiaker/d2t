@@ -62,7 +62,7 @@ JUDGE_SYSTEM_PROMPTS_TEXT: dict[str, str] = {
     "summary": (
         "You are a strict judge evaluating a data-to-text conversion. "
         "You will see: (1) the original structured data instance, and (2) the natural-language text "
-        "generated from it. You will NOT see the triples. "
+        "generated from it."
         "Rate how well the text summarizes the input on a 1-5 scale. "
         "5 = all key information is captured concisely and correctly in the text. "
         "3 = the most important aspects are captured but with notable gaps or verbosity. "
@@ -73,7 +73,7 @@ JUDGE_SYSTEM_PROMPTS_TEXT: dict[str, str] = {
     "completeness": (
         "You are a strict judge evaluating a data-to-text conversion. "
         "You will see: (1) the original structured data instance, and (2) the natural-language text "
-        "generated from it. You will NOT see the triples. "
+        "generated from it."
         "Rate what fraction of the RELEVANT input information is represented in the text, on a 1-5 scale. "
         "5 = every relevant attribute, entity, value, and relationship from the input appears in the text. "
         "3 = the main entities and the primary facts are present, but several secondary attributes are missing. "
@@ -84,7 +84,7 @@ JUDGE_SYSTEM_PROMPTS_TEXT: dict[str, str] = {
     "faithfulness": (
         "You are a strict judge evaluating a data-to-text conversion. "
         "You will see: (1) the original structured data instance, and (2) the natural-language text "
-        "generated from it. You will NOT see the triples. "
+        "generated from it."
         "Rate whether the text is FAITHFUL to the input, i.e. every claim in the text is directly grounded "
         "in the input data with NO fabrication or distortion, on a 1-5 scale. "
         "5 = fully grounded; nothing in the text contradicts or extends the input. "
@@ -96,7 +96,7 @@ JUDGE_SYSTEM_PROMPTS_TEXT: dict[str, str] = {
     "omissions": (
         "You are a strict judge evaluating a data-to-text conversion. "
         "You will see: (1) the original structured data instance, and (2) the natural-language text "
-        "generated from it. You will NOT see the triples. "
+        "generated from it."
         "Rate how FEW important pieces of information are missing from the text, on an inverted 1-5 scale. "
         "5 = no significant omission; all key fields, entities, values, and relationships from the input are present in the text. "
         "3 = some important but non-central information is missing. "
@@ -110,7 +110,7 @@ JUDGE_SYSTEM_PROMPTS_TRIPLES: dict[str, str] = {
     "summary": (
         "You are a strict judge evaluating a text-to-triples conversion. "
         "You will see: (1) the natural-language reference text, and (2) the semantic triples "
-        "generated from it. You will NOT see the original structured data. "
+        "generated from it."
         "Rate how well the triples summarize the text on a 1-5 scale. "
         "5 = all key information in the text is captured concisely and correctly in the triples. "
         "3 = the most important aspects of the text are captured but with notable gaps. "
@@ -121,7 +121,7 @@ JUDGE_SYSTEM_PROMPTS_TRIPLES: dict[str, str] = {
     "completeness": (
         "You are a strict judge evaluating a text-to-triples conversion. "
         "You will see: (1) the natural-language reference text, and (2) the semantic triples "
-        "generated from it. You will NOT see the original structured data. "
+        "generated from it."
         "Rate what fraction of the RELEVANT information in the text is represented in the triples, on a 1-5 scale. "
         "5 = every relevant entity, value, and relationship mentioned in the text appears in the triples. "
         "3 = the main entities and the primary facts from the text are present, but several secondary attributes are missing. "
@@ -132,7 +132,7 @@ JUDGE_SYSTEM_PROMPTS_TRIPLES: dict[str, str] = {
     "faithfulness": (
         "You are a strict judge evaluating a text-to-triples conversion. "
         "You will see: (1) the natural-language reference text, and (2) the semantic triples "
-        "generated from it. You will NOT see the original structured data. "
+        "generated from it."
         "Rate whether the triples are FAITHFUL to the text, i.e. every triple is directly grounded "
         "in the text with NO fabrication or distortion, on a 1-5 scale. "
         "5 = fully grounded; nothing in the triples contradicts or extends the text. "
@@ -144,7 +144,7 @@ JUDGE_SYSTEM_PROMPTS_TRIPLES: dict[str, str] = {
     "omissions": (
         "You are a strict judge evaluating a text-to-triples conversion. "
         "You will see: (1) the natural-language reference text, and (2) the semantic triples "
-        "generated from it. You will NOT see the original structured data. "
+        "generated from it."
         "Rate how FEW important pieces of information from the text are missing from the triples, on an inverted 1-5 scale. "
         "5 = no significant omission; all key entities, values, and relationships from the text are present in the triples. "
         "3 = some important but non-central information from the text is missing. "
