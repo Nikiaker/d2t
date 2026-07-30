@@ -5,7 +5,7 @@
 #SBATCH -N 1
 #SBATCH -c16
 #SBATCH --mem=128G
-#SBATCH --gres=gpu:3
+#SBATCH --gres=gpu:1
 #SBATCH --time=48:00:00
 SERVER_LOG1="$HOME/vllm-server1.log"
 SERVER_LOG2="$HOME/vllm-server2.log"
@@ -28,21 +28,6 @@ conda run -n vllm-env vllm serve \
 SERVER_PID1=$!
 
 conda run -n openevolve-env python $D2TPATH/.conda/test-response.py --port {port_1}
-
-CUDA_VISIBLE_DEVICES=1,2 \
-conda run -n vllm-env vllm serve \
-	RedHatAI/Qwen3.5-122B-A10B-NVFP4 \
-    --port {port_2} \
-    --max-model-len 10K \
-    --reasoning-parser qwen3 \
-    --default-chat-template-kwargs '{"enable_thinking": false}' \
-    --language-model-only \
-    --tensor-parallel-size 2 \
-    --gpu-memory-utilization 0.95 \
-    > "$SERVER_LOG2" 2>&1 &
-SERVER_PID2=$!
-
-conda run -n openevolve-env python $D2TPATH/.conda/test-response.py --port {port_2}
 
 conda run -n openevolve-env python $D2TPATH/tripler/batch_wrapper_server.py \
     --upstream-base-url http://localhost:{port_1} \

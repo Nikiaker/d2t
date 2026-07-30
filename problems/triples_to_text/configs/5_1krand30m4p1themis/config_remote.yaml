@@ -15,7 +15,7 @@ llm:
       weight: 0.8
       api_base: "http://localhost:{port_1}/v1"
       api_key: "AiIsMyLife25"
-    - name: "DeepSeek-V3.1-vLLM"
+    - name: "GLM-5.2"
       island: 0
       weight: 0.2
       api_base: "https://llm.hpc.psnc.pl/v1"

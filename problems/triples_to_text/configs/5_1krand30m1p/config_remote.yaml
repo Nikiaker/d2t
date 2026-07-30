@@ -15,11 +15,11 @@ llm:
       weight: 0.8
       api_base: "http://localhost:{port_1}/v1"
       api_key: "AiIsMyLife25"
-    - name: "RedHatAI/Qwen3.5-122B-A10B-NVFP4"
+    - name: "GLM-5.2"
       island: 0
       weight: 0.2
-      api_base: "http://localhost:{port_2}/v1"
-      api_key: "AiIsMyLife25"
+      api_base: "https://llm.hpc.psnc.pl/v1"
+      api_key: "sk-RV1GdH6Op2N7zdmNtZVmcQ"
 
   max_tokens: 3000
   timeout: 120
