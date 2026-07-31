@@ -35,6 +35,9 @@ pkgs.mkShell {
     # venv
     python3Packages.venvShellHook
     python3Packages.pip
+
+    # latex for master-thesis
+    texlive.combined.scheme-medium
   ];
 
   shellHook = ''
@@ -55,6 +58,7 @@ pkgs.mkShell {
     export CONFIG_PATH="$PWD/../problems/triples_to_text/config_remote.yaml"
 
     export PYTHONPATH=`pwd`/../openevolve/:`pwd`/../problems/triples_to_text/tests/benchmark_reader/:`pwd`/../problems/triples_to_text/:$PYTHONPATH
+    export TEXINPUTS="$PWD/master-thesis//:$TEXINPUTS"
   '';
 
   postShellHook = ''

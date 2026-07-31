@@ -1,0 +1,93 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Bachelor's & Master's Thesis Template        %%
+%% Copyleft by Dawid Weiss & Marta Szachniuk    %%
+%% Faculty of Computing and Telecommunication   %%
+%% Poznan University of Technology, 2020        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[english,master,a4paper,oneside]{ppfcmthesis}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+%--------------------------------------
+% Title page
+%--------------------------------------
+
+\author{%
+   Dominik Maćkowiak \album{151915}}
+\authortitle{}
+
+\title{Interpretable methods for data-to-text generation}
+
+\ppsupervisor{Mateusz Lango, PhD}
+
+\ppyear{2026}
+
+
+\begin{document}
+
+% Front matter starts here
+\frontmatter\pagestyle{empty}%
+\maketitle\cleardoublepage%
+
+%--------------------------------------
+% Diploma thesis card placeholder
+%--------------------------------------
+
+\thispagestyle{empty}\vspace*{\fill}%
+\begin{center}Here the diploma thesis card will be placed;\\ insert the original for the PP archive copy, a photocopy for the remaining copies.\end{center}%
+\vfill\cleardoublepage%
+
+%--------------------------------------
+% Abstract
+%--------------------------------------
+
+\thispagestyle{empty}
+\vspace*{2cm}
+\begin{center}
+\Large\textbf{Abstract}
+\end{center}
+\vspace{1cm}
+
+% Abstract content goes here
+\input{chapters/00-abstract}
+
+\vfill\cleardoublepage%
+
+%--------------------------------------
+% Table of contents
+%--------------------------------------
+
+\pagenumbering{Roman}\pagestyle{ppfcmthesis}%
+\tableofcontents*
+\cleardoublepage
+
+%--------------------------------------
+% Chapters
+%--------------------------------------
+
+\mainmatter%
+\input{chapters/01-introduction}
+\input{chapters/02-d2t-generation}
+\input{chapters/03-meaning-representation}
+\input{chapters/04-surface-realization}
+\input{chapters/05-experiments}
+\input{chapters/06-discussion}
+\input{chapters/07-summary}
+
+%--------------------------------------
+% Bibliography
+%--------------------------------------
+
+\bibliographystyle{plain}{\raggedright\sloppy\small\bibliography{bibliografia}}
+
+%--------------------------------------
+% Colophon
+%--------------------------------------
+
+\ppcolophon
+
+\end{document}
