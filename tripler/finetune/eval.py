@@ -28,7 +28,7 @@ import time
 from pathlib import Path
 
 import numpy as np
-from openai import AsyncOpenAI
+from openai import AsyncOpenAI, OpenAI
 
 import evaluate  # noqa: E402
 
