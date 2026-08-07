@@ -107,7 +107,7 @@ def main() -> None:
     model = AutoModelForCausalLM.from_pretrained(
         args.base_id,
         quantization_config=bnb,
-        torch_dtype=torch.bfloat16,
+        dtype=torch.bfloat16,
         device_map="auto",
         trust_remote_code=True,
         attn_implementation="flash_attention_2",
@@ -126,7 +126,7 @@ def main() -> None:
         lora_dropout=args.lora_dropout,
         bias="none",
         task_type="CAUSAL_LM",
-        target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
+        target_modules=r".*\.(?:q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)\.linear$",
     )
 
     sft_args = SFTConfig(
@@ -167,6 +167,16 @@ def main() -> None:
         processing_class=tokenizer,
         peft_config=lora,
     )
+    peft_model = trainer.model
+    targeted = (
+        getattr(peft_model, "targeted_module_names", None)
+        or getattr(getattr(peft_model, "base_model", None), "targeted_module_names", None)
+        or []
+    )
+    logger.info("LoRA targeted %d modules; sample=%s", len(targeted), targeted[:3])
+    assert len(targeted) > 0, "regex matched 0 modules — adapter would train nothing"
+    if hasattr(peft_model, "print_trainable_parameters"):
+        peft_model.print_trainable_parameters()
     logger.info("starting training: %d train / %d dev, eff batch=%d, max_len=%d",
                 len(train_ds), len(dev_ds), args.bs * args.grad_accum, args.max_len)
     trainer.train()

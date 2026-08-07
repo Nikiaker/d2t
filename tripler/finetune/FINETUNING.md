@@ -117,6 +117,37 @@ These three messages are rendered with the base tokenizer's `chat_template`
 (`apply_chat_template, tokenize=False`) so the tokens fed to the trainer match
 the tokens vLLM will assemble at serve time.
 
+### Gemma 4 + PEFT note (LoRA target modules)
+
+Gemma 4 wraps every attention/MLP projection in a custom `Gemma4ClippableLinear`
+module — an `nn.Module` that holds an inner `nn.Linear` at attribute `.linear`
+and applies optional input/output clamping. PEFT's LoRA dispatcher only accepts
+`nn.Linear` (and a small allow-list of other types), and the type check runs
+**before** `exclude_modules`, so passing the conventional
+`target_modules=["q_proj", ..., "down_proj"]` makes PEFT raise
+`ValueError: Target module Gemma4ClippableLinear(...) is not supported`. This is
+upstream PEFT bug [#3129](https://github.com/huggingface/peft/issues/3129), not
+a problem in this pipeline.
+
+Workaround (`train_qlora.py`): pass `target_modules` as a single regex string
+that drills into the inner `.linear` submodule of each wrapper:
+
+```python
+target_modules=r".*\.(?:q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)\.linear$"
+```
+
+Because it is a *string* (not a list), PEFT treats it as a regex and matches the
+inner `Linear4bit` (an `nn.Linear` subclass), which it accepts. The wrapper
+module stays in place — so the model's state-dict keys are byte-identical to the
+official base, and `merge_adapter.py` / `vllm serve` load the merged checkpoint
+unchanged. Clamping behavior is preserved at inference because we never unwrap.
+`train_qlora.py` also asserts that the regex matched > 0 modules right after
+`SFTTrainer` is built, to guard against a silent under-coverage regression
+(PEFT only raises when **zero** target modules match — a too-narrow regex that
+matches *some* layers would otherwise train without error). If you switch to a
+non-multimodal Gemma variant whose projections are plain `nn.Linear`, restore the
+plain list `["q_proj", ..., "down_proj"]` and drop the `.linear` suffix.
+
 ---
 
 ## 4. Pipeline stages
