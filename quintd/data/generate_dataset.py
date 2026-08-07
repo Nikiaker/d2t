@@ -15,7 +15,10 @@ import api.openweather.openweather as openweather
 import api.gsmarena.gsmarena as gsmarena
 import api.ice_hockey.ice_hockey as ice_hockey
 import api.owid.main as owid
-import api.wikidata.wikidata as wikidata
+try:
+    import api.wikidata.wikidata as wikidata
+except ModuleNotFoundError:
+    wikidata = None
 
 coloredlogs.install(level="INFO", fmt="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
@@ -192,6 +195,10 @@ if __name__ == "__main__":
         logger.info(f"Preparing data for the {domain} domain...")
         api_key = get_api_key(api_keys, domain)
         out_dir = os.path.join(out_dir, domain)
+
+        if module is None:
+            logger.error(f"wikidata module not available (wikidatasets package not installed). Skipping domain '{domain}'.")
+            continue
 
         module.generate_dataset(
             api_key=api_key,
