@@ -1,31 +1,42 @@
 #!/bin/bash
-#SBATCH -p plgrid-gpu-a100
-#SBATCH -A plgnarnlg-gpu-a100
-#SBATCH -n 1
-#SBATCH -N 1
+#SBATCH -w hgx2
+#SBATCH -p hgx
 #SBATCH -c16
-#SBATCH --mem=96G
 #SBATCH --gres=gpu:1
-#SBATCH --time=06:00:00
+#SBATCH -n1
+SERVER_LOG1="/home/inf151915/vllm-server1.log"
 
-set -euo pipefail
+export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
 
-module load CUDA/12.8.0
-module load Miniconda3
-eval "$(conda shell.bash hook)"
-
-export D2TPATH="${D2TPATH:-$HOME/d2t}"
-export PYTHONPATH="$D2TPATH/tripler:$D2TPATH/problems/triples_to_text/:$PYTHONPATH"
-export HF_TOKEN="${HF_TOKEN:?HF_TOKEN must be exported}"
+export PYTHONPATH="$D2TPATH/tripler:$D2TPATH/openevolve/:$D2TPATH/problems/triples_to_text/:$PYTHONPATH"
 
 DOMAIN="gsmarena"
 TRIPLE_DOMAIN="mobile_phone_specification"
 DATA_DIR="$D2TPATH/tripler/finetune/datasets/${DOMAIN}"
-TRIPLES_FILE="${TRIPLES_FILE:-$D2TPATH/tripler/outputs/test9/${TRIPLE_DOMAIN}/extracted_triples_text_predicate_catalog_stable.json}"
+TRIPLES_FILE="${TRIPLES_FILE:-$D2TPATH/tripler/outputs/test10/${TRIPLE_DOMAIN}/extracted_triples_text_predicate_catalog_stable.json}"
 REPORT="$D2TPATH/tripler/finetune/runs/${DOMAIN}/eval_report.json"
-MERGED_DIR="${MERGED_DIR:-$SCRATCH/ft_models/${DOMAIN}_gemma4_31b_merged}"
-BASE_ID="RedHatAI/gemma-4-31B-it"
+MERGED_DIR="${MERGED_DIR:-$HOME/ft_models/${DOMAIN}_gemma4_31b_merged}"
+BASE_ID="$HOME/ft_models/gsmarena_gemma4_31b_merged"
 PORT="${PORT:-2997}"
+
+CUDA_VISIBLE_DEVICES=0 \
+VLLM_USE_FLASHINFER_SAMPLER=0 \
+conda run -n vllm-env vllm serve \
+	$MERGED_DIR \
+    --port $PORT \
+    --max-model-len 30K \
+    --reasoning-parser gemma4 \
+    --default-chat-template-kwargs '{"enable_thinking": false}' \
+    --max-num-batched-tokens 4096 \
+    --gpu-memory-utilization 0.95 \
+    > "$SERVER_LOG1" 2>&1 &
+SERVER_PID1=$!
+
+conda run -n openevolve-env python $D2TPATH/.conda/test-response.py --port $PORT --timeout 300
+if [ $? -ne 0 ]; then
+    echo "ERROR: vLLM server 1 (gemma) did not start within 5 minutes. Canceling." >&2
+    exit 1
+fi
 
 conda run -n finetune-env python "$D2TPATH/tripler/finetune/eval.py" \
     --dev "$DATA_DIR/dev.jsonl" \

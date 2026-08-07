@@ -9,7 +9,6 @@ SERVER_LOG1="/home/inf151915/vllm-server1.log"
 export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
 
 export PYTHONPATH="$D2TPATH/tripler:$D2TPATH/openevolve/:$D2TPATH/problems/triples_to_text/:$PYTHONPATH"
-export HF_TOKEN="${HF_TOKEN:?HF_TOKEN must be exported}"
 
 BASE_ID="google/gemma-4-31B-it"
 DOMAIN="gsmarena"
@@ -19,7 +18,7 @@ INPUT_FILE="${INPUT_FILE:-$D2TPATH/tripler/inputs/gsmarena_dev.json}"
 DATA_DIR="$D2TPATH/tripler/finetune/datasets/${DOMAIN}"
 RUN_DIR="$D2TPATH/tripler/finetune/runs/${DOMAIN}"
 ADAPTER_DIR="$RUN_DIR/adapter"
-MERGED_DIR="${MERGED_DIR:-$SCRATCH/ft_models/${DOMAIN}_gemma4_31b_merged}"
+MERGED_DIR="${MERGED_DIR:-$HOME/ft_models/${DOMAIN}_gemma4_31b_merged}"
 
 mkdir -p "$DATA_DIR" "$RUN_DIR"
 
