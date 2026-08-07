@@ -19,6 +19,7 @@ Usage:
 """
 
 import argparse
+import asyncio
 import json
 import logging
 import re
@@ -27,7 +28,7 @@ import time
 from pathlib import Path
 
 import numpy as np
-from openai import OpenAI
+from openai import AsyncOpenAI
 
 import evaluate  # noqa: E402
 
@@ -110,25 +111,28 @@ def _start_vllm(model_path: str, port: int, api_key: str) -> subprocess.Popen:
     return proc
 
 
-def _generate(client: OpenAI, model: str, dev: list[dict], max_tokens: int) -> list[dict | None]:
-    out = []
-    for i, rec in enumerate(dev):
-        msgs = _prompt_messages(rec)
-        try:
-            resp = client.chat.completions.create(
-                model=model,
-                messages=msgs,
-                temperature=0.0,
-                max_tokens=max_tokens,
-            )
-            content = resp.choices[0].message.content or ""
-        except Exception as exc:
-            logger.warning("generate failed for example %d: %s", i, exc)
-            out.append(None)
-            continue
-        parsed = _extract_json(content)
-        out.append({"raw": content, "parsed": parsed})
-    return out
+async def _generate_async(
+    client: AsyncOpenAI, model: str, dev: list[dict], max_tokens: int, concurrency: int = 32
+) -> list[dict | None]:
+    sem = asyncio.Semaphore(concurrency)
+
+    async def _one(i: int, rec: dict) -> dict | None:
+        async with sem:
+            msgs = _prompt_messages(rec)
+            try:
+                resp = await client.chat.completions.create(
+                    model=model,
+                    messages=msgs,
+                    temperature=0.0,
+                    max_tokens=max_tokens,
+                )
+                content = resp.choices[0].message.content or ""
+            except Exception as exc:
+                logger.warning("generate failed for example %d: %s", i, exc)
+                return None
+            return {"raw": content, "parsed": _extract_json(content)}
+
+    return await asyncio.gather(*[_one(i, rec) for i, rec in enumerate(dev)])
 
 
 def _triple_set(triples: list) -> set[tuple[str, str, str]]:
@@ -221,9 +225,9 @@ def main() -> None:
             if not _wait_for_vllm(args.port, args.api_key):
                 logger.error("vLLM did not become ready for %s; skipping", label)
                 continue
-            client = OpenAI(base_url=f"http://localhost:{args.port}/v1", api_key=args.api_key)
+            client = AsyncOpenAI(base_url=f"http://localhost:{args.port}/v1", api_key=args.api_key)
             served_name = path
-            preds = _generate(client, served_name, dev, args.max_tokens)
+            preds = asyncio.run(_generate_async(client, served_name, dev, args.max_tokens))
             res = _score_model(label, preds, dev, catalog)
             logger.info("%s: bleu=%.4f meteor=%.4f triple_f1=%.4f parse_rate=%.3f",
                         label, res["bleu"], res["meteor"], res["triple_f1"], res["parse_rate"])
