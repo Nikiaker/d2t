@@ -4,8 +4,8 @@
 #SBATCH -c16
 #SBATCH --gres=gpu:1
 #SBATCH -n1
-DOMAIN="gsmarena"
-TRIPLE_DOMAIN="mobile_phone_specification"
+DOMAIN="ice_hockey"
+TRIPLE_DOMAIN="ice_hockey_match"
 SERVER_LOG1="$HOME/vllm-server_${DOMAIN}.log"
 
 export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
