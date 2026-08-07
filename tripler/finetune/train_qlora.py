@@ -110,7 +110,7 @@ def main() -> None:
         dtype=torch.bfloat16,
         device_map="auto",
         trust_remote_code=True,
-        attn_implementation="flash_attention_2",
+        attn_implementation="sdpa",
     )
     model.config.use_cache = False
     model.gradient_checkpointing_enable()
@@ -126,7 +126,7 @@ def main() -> None:
         lora_dropout=args.lora_dropout,
         bias="none",
         task_type="CAUSAL_LM",
-        target_modules=r".*\.(?:q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)\.linear$",
+        target_modules=r"^model\.language_model\..*\.(?:q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)$",
     )
 
     sft_args = SFTConfig(

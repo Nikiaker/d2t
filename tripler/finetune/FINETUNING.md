@@ -66,7 +66,8 @@ fine-tuning a large model on a single GPU with limited memory.
   numerical quality close to a full-precision fine-tune while holding memory
   down.
 - Gradient checkpointing + paged 8-bit AdamW further reduce activation and
-  optimizer memory; FlashAttention-2 speeds up the attention kernels.
+  optimizer memory; SDPA dispatches sliding (head_dim=256) and global
+  (head_dim=512) attention layers to compatible backends.
 
 After training, the adapter is **merged back into the base** weights
 (`merge_and_unload`) and the result is saved as a standard fp16/bf16
@@ -119,34 +120,66 @@ the tokens vLLM will assemble at serve time.
 
 ### Gemma 4 + PEFT note (LoRA target modules)
 
-Gemma 4 wraps every attention/MLP projection in a custom `Gemma4ClippableLinear`
-module — an `nn.Module` that holds an inner `nn.Linear` at attribute `.linear`
-and applies optional input/output clamping. PEFT's LoRA dispatcher only accepts
-`nn.Linear` (and a small allow-list of other types), and the type check runs
-**before** `exclude_modules`, so passing the conventional
-`target_modules=["q_proj", ..., "down_proj"]` makes PEFT raise
-`ValueError: Target module Gemma4ClippableLinear(...) is not supported`. This is
-upstream PEFT bug [#3129](https://github.com/huggingface/peft/issues/3129), not
-a problem in this pipeline.
+Gemma 4 is a multimodal checkpoint: the top-level `model` has two sibling
+backbones — `model.vision_tower` (image encoder) and `model.language_model`
+(text decoder). In `model.vision_tower`, every attention/MLP projection is a
+custom `Gemma4ClippableLinear` — an `nn.Module` wrapping an inner
+`nn.Linear` at attribute `.linear` with optional input/output clamping. In
+`model.language_model`, the projections are **plain `nn.Linear`** (no
+`.linear` child). PEFT's LoRA dispatcher only accepts `nn.Linear` (and a small
+allow-list of other types), and the type check runs **before**
+`exclude_modules`, so the conventional `target_modules=["q_proj", ...,
+"down_proj"]` makes PEFT suffix-match the vision tower's `Gemma4ClippableLinear`
+first and raise `ValueError: Target module Gemma4ClippableLinear(...) is not
+supported`. This is upstream PEFT bug
+[#3129](https://github.com/huggingface/peft/issues/3129), not a problem in this
+pipeline.
 
-Workaround (`train_qlora.py`): pass `target_modules` as a single regex string
-that drills into the inner `.linear` submodule of each wrapper:
+Workaround (`train_qlora.py`): scope `target_modules` **positively to the
+language model only**, with no `.linear` suffix (the LM projections are already
+plain `nn.Linear`):
 
 ```python
-target_modules=r".*\.(?:q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)\.linear$"
+target_modules=r"^model\.language_model\..*\.(?:q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)$"
 ```
 
-Because it is a *string* (not a list), PEFT treats it as a regex and matches the
-inner `Linear4bit` (an `nn.Linear` subclass), which it accepts. The wrapper
-module stays in place — so the model's state-dict keys are byte-identical to the
-official base, and `merge_adapter.py` / `vllm serve` load the merged checkpoint
-unchanged. Clamping behavior is preserved at inference because we never unwrap.
-`train_qlora.py` also asserts that the regex matched > 0 modules right after
+Because it is a *string* (not a list), PEFT treats it as a regex; the `^` and
+`$` anchors keep it from drifting back to `vision_tower`/`audio_tower`; and
+plain `nn.Linear`/`Linear4bit` is on PEFT's accept list. For the 31B Dense
+checkpoint (60 LM layers × 7 projections) this matches **420 modules**; if your
+run prints `LoRA targeted 420 modules` (and ~25M trainable params) the scoping
+is correct. `train_qlora.py` also asserts `len(targeted) > 0` right after
 `SFTTrainer` is built, to guard against a silent under-coverage regression
 (PEFT only raises when **zero** target modules match — a too-narrow regex that
-matches *some* layers would otherwise train without error). If you switch to a
-non-multimodal Gemma variant whose projections are plain `nn.Linear`, restore the
-plain list `["q_proj", ..., "down_proj"]` and drop the `.linear` suffix.
+matches *some* layers would otherwise train without error). The vision/audio
+towers see no adapters and stay frozen; their `Gemma4ClippableLinear` wrappers
+are untouched, so the model's state-dict keys are byte-identical to the
+official base and `merge_adapter.py` / `vllm serve` load the merged checkpoint
+unchanged. If training a non-multimodal Gemma variant whose LM projections live
+at `model.layers.{i}.self_attn.{...}_proj` (no `language_model` prefix),
+loosen the regex to `r"^model\.layers\..*\.(?:...)\$"`.
+
+### Gemma 4 hybrid head-dim + FlashAttention
+
+Gemma 4 uses **hybrid attention**: most layers are sliding-window with
+`head_dim=256`, and a few are global with `global_head_dim=512`. FlashAttention
+2/3 caps at head dimension 256 on A100 (SM80), so loading the model with
+`attn_implementation="flash_attention_2"` makes the first global layer raise
+`RuntimeError: FlashAttention forward only supports head dimension at most 256`
+([flash-attn#2427](https://github.com/Dao-AILab/flash-attention/issues/2427)).
+
+`train_qlora.py` loads with `attn_implementation="sdpa"` so PyTorch's SDPA
+dispatches each layer to a compatible backend automatically: the 256-head
+sliding layers still hit the fast flash/cutlass path; the 512-head global
+layers fall back to the math backend (no head-dim limit, slower but correct).
+No per-layer patching, robust across transformers versions. vLLM serving of
+the merged checkpoint is unaffected — vLLM uses its own attention kernels and
+already handles `global_head_dim=512` (as in the existing
+`tripler/outputs/test9/batch_gsmarena.sh`). If you later want to preserve FA2
+on the sliding layers for speed, the hybrid patch from
+[prime-rl#2362](https://github.com/PrimeIntellect-ai/prime-rl/issues/2362)
+(selectively overrides `_attn_implementation` to `"sdpa"` per global layer)
+can be added as an opt-in flag.
 
 ---
 
@@ -177,7 +210,7 @@ examples):
 | LoRA r / α / dropout | 16 / 32 / 0.05 |
 | precision | bf16 compute, NF4 4-bit weights |
 | optimizer | paged_adamw_8bit |
-| attention | FlashAttention-2 |
+| attention | SDPA (Gemma 4 hybrid head-dim — see §3 note) |
 | loss | completion-only (prompt masked) |
 
 Adapter + tokenizer + `training_metadata.json`
