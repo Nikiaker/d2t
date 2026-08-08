@@ -212,7 +212,7 @@ def main() -> None:
     catalog = None
     if args.catalog:
         cdoc = json.loads(args.catalog.read_text(encoding="utf-8"))
-        catalog = set(cdoc.get("unique_predicates", []))
+        catalog = set(cdoc.get("unique_predicates_after", []) or cdoc.get("unique_predicates", []))
         logger.info("loaded %d catalog predicates", len(catalog))
 
     dev = _load_dev(args.dev)

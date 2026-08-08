@@ -4,8 +4,8 @@
 #SBATCH -c16
 #SBATCH --gres=gpu:1
 #SBATCH -n1
-DOMAIN="openweather"
-TRIPLE_DOMAIN="weather_forecast"
+DOMAIN="owid"
+TRIPLE_DOMAIN="owid"
 SERVER_LOG1="$HOME/vllm-server_${DOMAIN}.log"
 
 export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
@@ -17,7 +17,7 @@ DATA_DIR="$D2TPATH/tripler/finetune/datasets/${DOMAIN}"
 TRIPLES_FILE="${TRIPLES_FILE:-$D2TPATH/tripler/outputs/test11/${TRIPLE_DOMAIN}/joined.json}"
 REPORT="$D2TPATH/tripler/finetune/runs/${DOMAIN}/eval_report.json"
 MERGED_DIR="${MERGED_DIR:-$HOME/ft_models/${DOMAIN}_gemma4_31b_merged}"
-PORT="${PORT:-2998}"
+PORT="${PORT:-2999}"
 
 CUDA_VISIBLE_DEVICES=0 \
 VLLM_USE_FLASHINFER_SAMPLER=0 \

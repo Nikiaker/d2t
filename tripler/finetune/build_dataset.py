@@ -88,6 +88,23 @@ def _index_text_output(triples_output: dict[str, Any]) -> dict[int, str]:
     return by_id
 
 
+def _is_joined(doc: dict[str, Any]) -> bool:
+    return isinstance(doc.get("per_instance"), list)
+
+
+def _index_joined(doc: dict[str, Any]) -> tuple[dict[int, str], dict[int, dict[str, Any]], set[str]]:
+    text_by_id: dict[int, str] = {}
+    triples_by_id: dict[int, dict[str, Any]] = {}
+    for entry in doc["per_instance"]:
+        if not isinstance(entry, dict) or "instance_id" not in entry:
+            continue
+        iid = int(entry["instance_id"])
+        text_by_id[iid] = str(entry.get("reference", ""))
+        triples_by_id[iid] = {"triples": entry.get("normalized_triples", [])}
+    catalog = set(doc.get("unique_predicates_after", []) or doc.get("unique_predicates", []))
+    return text_by_id, triples_by_id, catalog
+
+
 def build_records(
     instances: list[dict[str, Any]],
     text_by_id: dict[int, str],
@@ -157,12 +174,17 @@ def main() -> None:
     payload = _load_json(args.input)
     triples_output = _load_json(args.triples)
     instances = extract_instances(payload, top_level_key=args.top_level_key)
-    logger.info("loaded %d instances (%s), %d reference texts, %d reference triples",
-                len(instances), args.input, len(triples_output.get("generated_text_by_instance", [])),
-                len(triples_output.get("triples_by_instance", [])))
 
-    text_by_id = _index_text_output(triples_output)
-    triples_by_id = _index_triples_output(triples_output)
+    if _is_joined(triples_output):
+        text_by_id, triples_by_id, _catalog = _index_joined(triples_output)
+        logger.info("loaded %d instances (%s) + joined.json (%d per_instance, normalized_triples target)",
+                    len(instances), args.input, len(triples_output["per_instance"]))
+    else:
+        text_by_id = _index_text_output(triples_output)
+        triples_by_id = _index_triples_output(triples_output)
+        logger.info("loaded %d instances (%s), %d reference texts, %d reference triples (legacy extract shape)",
+                    len(instances), args.input, len(triples_output.get("generated_text_by_instance", [])),
+                    len(triples_output.get("triples_by_instance", [])))
 
     tokenizer = AutoTokenizer.from_pretrained(args.base_id, trust_remote_code=True)
     if tokenizer.chat_template is None:

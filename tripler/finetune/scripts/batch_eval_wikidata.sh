@@ -14,10 +14,10 @@ export PYTHONPATH="$D2TPATH/tripler:$D2TPATH/openevolve/:$D2TPATH/problems/tripl
 
 BASE_ID="${BASE_ID:-google/gemma-4-31B-it}"
 DATA_DIR="$D2TPATH/tripler/finetune/datasets/${DOMAIN}"
-TRIPLES_FILE="${TRIPLES_FILE:-$D2TPATH/tripler/outputs/test10/${TRIPLE_DOMAIN}/extracted_triples_text_predicate_catalog_stable.json}"
+TRIPLES_FILE="${TRIPLES_FILE:-$D2TPATH/tripler/outputs/test11/${TRIPLE_DOMAIN}/joined.json}"
 REPORT="$D2TPATH/tripler/finetune/runs/${DOMAIN}/eval_report.json"
 MERGED_DIR="${MERGED_DIR:-$HOME/ft_models/${DOMAIN}_gemma4_31b_merged}"
-PORT="${PORT:-2997}"
+PORT="${PORT:-3000}"
 
 CUDA_VISIBLE_DEVICES=0 \
 VLLM_USE_FLASHINFER_SAMPLER=0 \

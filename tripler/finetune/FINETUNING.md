@@ -187,13 +187,41 @@ can be added as an opt-in flag.
 
 ### Stage A — `build_dataset.py`
 
-Zips `tripler/inputs/gsmarena_train.json` (raw instances, ~1000) with the
-tripler output JSON by `instance_id`, renders each triple via the Gemma chat
+Zips `tripler/inputs/<domain>_train.json` (raw instances, ~1000) with the
+tripler output JSON by `instance_id`, renders each example via the Gemma chat
 template, and writes TRL-native `train.jsonl` / `dev.jsonl` plus a `split.json`
 sidecar recording the held-out `instance_id`s. Default split: 200 dev / rest
 train, deterministic by `--seed`.
 
-Working directory: `tripler/finetune/datasets/gsmarena/`.
+`--triples` accepts **two shapes**, auto-detected:
+
+1. **`joined.json`** (the recommended target, produced by
+   `scripts/join_extract_normalize.py` from an
+   `app_text_pipeline.py extract` + `normalize` run). Detected via the
+   `per_instance` key. The text target is `per_instance[i].reference` and the
+   triples target is `per_instance[i].normalized_triples` — i.e. the
+   **canonical** predicates after `normalize`, not the raw synonym-bearing
+   triples. Canonical targets are the reason the `normalize` step exists: they
+   give the model one consistent predicate vocabulary to emit (e.g. always
+   `release_date`, never `released`/`launched`), instead of teaching it the
+   inconsistent synonyms the raw extractor produced.
+2. **Legacy extract-file shape** (`extracted_triples_text_predicate_catalog_stable.json`
+   or `extracted_triples_text_pipeline.json`). Detected via the
+   `generated_text_by_instance` + `triples_by_instance` keys. Used as a
+   fallback for the older test9/test10 outputs. Targets come from
+   `generated_text_by_instance[i].text` and `triples_by_instance[i].triples`
+   (raw, unnormalized — there is no canonical form in this shape).
+
+`--input` (the raw quintd JSON) remains required in both paths: the user prompt
+is rendered from it via `tripler.app.extract_instances` + `json.dumps` to stay
+byte-identical to the prompt the tripler pipeline saw — reusing the
+`original_data` embedded in `joined.json` would risk key-order/whitespace drift
+and break prompt parity with inference time. The matching `--top-level-key`
+must match what the tripler run used (`none` for bare-list inputs like
+gsmarena/wikidata/owid; `forecasts` for the `{"forecasts":[...]}` openweather
+shape).
+
+Working directory: `tripler/finetune/datasets/<domain>/`.
 
 ### Stage B — `train_qlora.py`
 
@@ -250,11 +278,13 @@ with the thesis results):
   `(subject, predicate, object)` tuples against the reference triples
   (micro-averaged TP/FP/FN across the dev set).
 - **Predicate catalog adherence** (optional, `--catalog <tripler output>`) —
-  the fraction of produced predicates that belong to the domain's
-  `unique_predicates` catalog; measures whether the fine-tuned model stays on
-  the learned predicate vocabulary.
+  the fraction of produced predicates that belong to the domain's canonical
+  catalog. When the catalog file is a `joined.json` (with
+  `unique_predicates_after`) the canonical post-normalization vocabulary is
+  used; otherwise the legacy `unique_predicates` list is read. Measures whether
+  the fine-tuned model stays on the learned predicate vocabulary.
 
-Output: `tripler/finetune/runs/gsmarena/eval_report.json` with per-model metric
+Output: `tripler/finetune/runs/<domain>/eval_report.json` with per-model metric
 blocks, written incrementally as each model finishes.
 
 ---

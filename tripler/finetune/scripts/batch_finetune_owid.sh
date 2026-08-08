@@ -4,8 +4,8 @@
 #SBATCH -c16
 #SBATCH --gres=gpu:1
 #SBATCH -n1
-DOMAIN="openweather"
-TRIPLE_DOMAIN="weather_forecast"
+DOMAIN="owid"
+TRIPLE_DOMAIN="owid"
 SERVER_LOG1="$HOME/vllm-server_${DOMAIN}.log"
 
 export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
@@ -27,7 +27,7 @@ conda run -n finetune-env python "$D2TPATH/tripler/finetune/build_dataset.py" \
     --triples "$TRIPLES_FILE" \
     --out-dir "$DATA_DIR" \
     --base-id "$BASE_ID" \
-    --top-level-key forecasts \
+    --top-level-key none \
     --holdout 200 --seed 13
 
 conda run -n finetune-env python "$D2TPATH/tripler/finetune/train_qlora.py" \

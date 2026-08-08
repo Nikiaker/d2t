@@ -13,7 +13,7 @@ export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
 export PYTHONPATH="$D2TPATH/tripler:$D2TPATH/openevolve/:$D2TPATH/problems/triples_to_text/:$PYTHONPATH"
 
 BASE_ID="google/gemma-4-31B-it"
-TRIPLES_FILE="${TRIPLES_FILE:-$D2TPATH/tripler/outputs/test10/${TRIPLE_DOMAIN}/extracted_triples_text_predicate_catalog_stable.json}"
+TRIPLES_FILE="${TRIPLES_FILE:-$D2TPATH/tripler/outputs/test11/${TRIPLE_DOMAIN}/joined.json}"
 INPUT_FILE="${INPUT_FILE:-$D2TPATH/tripler/inputs/${DOMAIN}_train.json}"
 DATA_DIR="$D2TPATH/tripler/finetune/datasets/${DOMAIN}"
 RUN_DIR="$D2TPATH/tripler/finetune/runs/${DOMAIN}"
