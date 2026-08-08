@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -w hgx2
+#SBATCH -w hgx1
 #SBATCH -p hgx
 #SBATCH -c4
 #SBATCH --gres=gpu:1
