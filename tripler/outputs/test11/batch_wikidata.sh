@@ -12,10 +12,9 @@ trap 'kill $SERVER_PID1 2>/dev/null' EXIT
 TRIPLE_DOMAIN="wikidata"
 TRIPLE_INPUT_FILE="$D2TPATH/tripler/inputs/seed_2993/wikidata_dev_2993.json"
 
+source /home/inf151915/miniconda3/bin/activate vllm-env
 export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
-
-CUDA_VISIBLE_DEVICES=0 \
-conda run -n vllm-env vllm serve \
+CUDA_VISIBLE_DEVICES=0 vllm serve \
 	google/gemma-4-31B-it \
     --port 3013 \
     --max-model-len 30K \
@@ -26,13 +25,14 @@ conda run -n vllm-env vllm serve \
     > "$SERVER_LOG1" 2>&1 &
 SERVER_PID1=$!
 
-conda run -n openevolve-env python $D2TPATH/.conda/test-response.py --port 3013 --timeout 300
+source /home/inf151915/miniconda3/bin/activate openevolve-env
+python $D2TPATH/.conda/test-response.py --port 3013 --timeout 300
 if [ $? -ne 0 ]; then
     echo "ERROR: vLLM server 1 (gemma) did not start within 5 minutes. Canceling." >&2
     exit 1
 fi
 
-conda run -n openevolve-env python $D2TPATH/tripler/batch_wrapper_server.py \
+python $D2TPATH/tripler/batch_wrapper_server.py \
     --upstream-base-url http://localhost:3013 \
     --port 3012 \
     --storage-dir $HOME/.batch_wrapper_data14 \
@@ -41,7 +41,7 @@ conda run -n openevolve-env python $D2TPATH/tripler/batch_wrapper_server.py \
 cd $D2TPATH/tripler/
 mkdir -p outputs/test11/${TRIPLE_DOMAIN}
 
-conda run -n openevolve-env python app_text_pipeline.py extract \
+python app_text_pipeline.py extract \
   --input "$TRIPLE_INPUT_FILE" \
   --output outputs/test11/${TRIPLE_DOMAIN}/extracted_triples_text_pipeline.json \
   --model google/gemma-4-31B-it \
@@ -49,7 +49,7 @@ conda run -n openevolve-env python app_text_pipeline.py extract \
   --api-key none \
   --top-level-key none
 
-conda run -n openevolve-env python app_text_pipeline.py normalize \
+python app_text_pipeline.py normalize \
   --input  outputs/test11/${TRIPLE_DOMAIN}/extracted_triples_text_pipeline.json \
   --output outputs/test11/${TRIPLE_DOMAIN}/normalized_triples.json \
   --model google/gemma-4-31B-it \
@@ -57,7 +57,7 @@ conda run -n openevolve-env python app_text_pipeline.py normalize \
   --api-key none \
   --batch-timeout-seconds 21600
 
-conda run -n openevolve-env python $D2TPATH/scripts/join_extract_normalize.py \
+python $D2TPATH/scripts/join_extract_normalize.py \
   --extract   outputs/test11/${TRIPLE_DOMAIN}/extracted_triples_text_pipeline.json \
   --normalize outputs/test11/${TRIPLE_DOMAIN}/normalized_triples.json \
   --output    outputs/test11/${TRIPLE_DOMAIN}/joined.json \
