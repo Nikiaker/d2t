@@ -151,16 +151,13 @@ def main() -> None:
         gradient_checkpointing_kwargs={"use_reentrant": False},
         max_length=args.max_len,
         packing=False,
-        completion_only_loss=True,
+        completion_only_loss=False,
         report_to="none",
         seed=args.seed,
         data_seed=args.seed,
         max_steps=args.max_steps,
         dataset_text_field="messages",
     )
-
-    import trl.trainer.sft_trainer as _sft_mod
-    _sft_mod._patch_chunked_ce_lm_head = lambda target, chunk_size, is_vlm: None
 
     trainer = SFTTrainer(
         model=model,
@@ -170,17 +167,6 @@ def main() -> None:
         processing_class=tokenizer,
         peft_config=lora,
     )
-
-    _peft_forward = trainer.model.forward
-
-    def _patched_peft_forward(self, *args, **kwargs):
-        output = _peft_forward(*args, **kwargs)
-        if "labels" in kwargs and not hasattr(output, "num_valid_tokens"):
-            output.num_valid_tokens = (kwargs["labels"] != -100).sum()
-        return output
-
-    trainer.model.forward = _patched_peft_forward.__get__(trainer.model, type(trainer.model))
-
     peft_model = trainer.model
     targeted = (
         getattr(peft_model, "targeted_module_names", None)
