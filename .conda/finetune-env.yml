@@ -4,6 +4,7 @@ channels:
   - defaults
 dependencies:
   - python=3.13
+  - libstdcxx-ng
   - pytorch
   - flash-attn
   - numpy
@@ -19,6 +20,5 @@ dependencies:
       - bitsandbytes
       - accelerate
       - datasets
-      - vllm
       - sacrebleu
       - sacremoses
