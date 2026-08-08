@@ -15,6 +15,7 @@ Usage:
 """
 
 import argparse
+import functools
 import json
 import logging
 import os
@@ -158,6 +159,9 @@ def main() -> None:
         max_steps=args.max_steps,
         dataset_text_field="messages",
     )
+
+    if isinstance(model.lm_head.forward, functools.partial):
+        model.lm_head.forward = model.lm_head.forward.func
 
     trainer = SFTTrainer(
         model=model,
