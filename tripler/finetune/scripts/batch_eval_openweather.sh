@@ -15,6 +15,7 @@ module load CUDA/12.8.0
 module load Miniconda3
 eval "$(conda shell.bash hook)"
 conda activate finetune-env
+export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
 
 export PYTHONPATH="$D2TPATH/tripler:$D2TPATH/openevolve/:$D2TPATH/problems/triples_to_text/tests/benchmark_reader/:$D2TPATH/problems/triples_to_text/:$PYTHONPATH"
 
