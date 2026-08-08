@@ -162,16 +162,6 @@ def main() -> None:
     import trl.trainer.sft_trainer as _sft_mod
     _sft_mod._patch_chunked_ce_lm_head = lambda target, chunk_size, is_vlm: None
 
-    _model_forward = model.forward
-
-    def _patched_forward(self, *args, **kwargs):
-        output = _model_forward(*args, **kwargs)
-        if "labels" in kwargs and not hasattr(output, "num_valid_tokens"):
-            output.num_valid_tokens = (kwargs["labels"] != -100).sum()
-        return output
-
-    model.forward = _patched_forward.__get__(model, type(model))
-
     trainer = SFTTrainer(
         model=model,
         args=sft_args,
@@ -180,6 +170,17 @@ def main() -> None:
         processing_class=tokenizer,
         peft_config=lora,
     )
+
+    _peft_forward = trainer.model.forward
+
+    def _patched_peft_forward(self, *args, **kwargs):
+        output = _peft_forward(*args, **kwargs)
+        if "labels" in kwargs and not hasattr(output, "num_valid_tokens"):
+            output.num_valid_tokens = (kwargs["labels"] != -100).sum()
+        return output
+
+    trainer.model.forward = _patched_peft_forward.__get__(trainer.model, type(trainer.model))
+
     peft_model = trainer.model
     targeted = (
         getattr(peft_model, "targeted_module_names", None)
