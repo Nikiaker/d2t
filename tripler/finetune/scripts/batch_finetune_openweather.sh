@@ -1,16 +1,21 @@
 #!/bin/bash
-#SBATCH -w hgx1
-#SBATCH -p hgx
+#SBATCH -p plgrid-gpu-a100
+#SBATCH -A plgnarnlg-gpu-a100
+#SBATCH -n 1
+#SBATCH -N 1
 #SBATCH -c16
-#SBATCH --gres=gpu:1
-#SBATCH -n1
+#SBATCH --mem=128G
+#SBATCH --gres=gpu:2
+#SBATCH --time=48:00:00
 DOMAIN="openweather"
 TRIPLE_DOMAIN="weather_forecast"
 SERVER_LOG1="$HOME/vllm-server_${DOMAIN}.log"
 
-export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
+module load CUDA/12.8.0
+module load Miniconda3
+eval "$(conda shell.bash hook)"
 
-export PYTHONPATH="$D2TPATH/tripler:$D2TPATH/openevolve/:$D2TPATH/problems/triples_to_text/:$PYTHONPATH"
+export PYTHONPATH="$D2TPATH/tripler:$D2TPATH/openevolve/:$D2TPATH/problems/triples_to_text/tests/benchmark_reader/:$D2TPATH/problems/triples_to_text/:$PYTHONPATH"
 
 BASE_ID="google/gemma-4-31B-it"
 TRIPLES_FILE="${TRIPLES_FILE:-$D2TPATH/tripler/outputs/test11/${TRIPLE_DOMAIN}/joined.json}"

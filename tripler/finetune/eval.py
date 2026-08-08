@@ -95,12 +95,13 @@ def _wait_for_vllm(port: int, api_key: str, timeout: int = 600) -> bool:
     return False
 
 
-def _start_vllm(model_path: str, port: int, api_key: str) -> subprocess.Popen:
+def _start_vllm(model_path: str, port: int, api_key: str, tp: int) -> subprocess.Popen:
     cmd = [
         "vllm", "serve", model_path,
         "--port", str(port),
         "--api-key", api_key,
-        "--max-model-len", "30K",
+        "--tensor-parallel-size", str(tp),
+        "--max-model-len", "8192",
         "--reasoning-parser", "gemma4",
         "--default-chat-template-kwargs", '{"enable_thinking": false}',
         "--max-num-batched-tokens", "4096",
@@ -203,6 +204,7 @@ def main() -> None:
     parser.add_argument("--port", type=int, default=2997)
     parser.add_argument("--api-key", default="none")
     parser.add_argument("--max-tokens", type=int, default=2048)
+    parser.add_argument("--tp", type=int, default=2, help="vLLM tensor-parallel-size (GPUs for serving).")
     parser.add_argument("--model", action="append", nargs=2, metavar=("LABEL", "PATH"),
                         required=True, help="Repeatable: --model <label> <hf_id_or_path>")
     parser.add_argument("--catalog", type=Path, default=None,
@@ -220,7 +222,7 @@ def main() -> None:
 
     results = []
     for label, path in args.model:
-        proc = _start_vllm(path, args.port, args.api_key)
+        proc = _start_vllm(path, args.port, args.api_key, args.tp)
         try:
             if not _wait_for_vllm(args.port, args.api_key):
                 logger.error("vLLM did not become ready for %s; skipping", label)
