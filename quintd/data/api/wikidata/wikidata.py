@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import pickle
-import wikidatasets
 import pandas as pd
 import tqdm
 import json
@@ -16,6 +15,21 @@ import requests
 
 coloredlogs.install(level="INFO", fmt="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
+
+
+def _load_data_labels(path, attributes=False, return_dicts=False):
+    fn = "attributes.tsv" if attributes else "edges.tsv"
+    df = pd.read_csv(path + fn, sep="\t")
+    entities = pd.read_csv(path + "entities.tsv", sep="\t")
+    relations = pd.read_csv(path + "relations.tsv", sep="\t")
+    ent_dict = dict(zip(entities["entityID"], entities["label"]))
+    rel_dict = dict(zip(relations["relationID"], relations["label"]))
+    df["headLabel"] = df["headEntity"].map(ent_dict)
+    df["tailLabel"] = df["tailEntity"].map(ent_dict)
+    df["relationLabel"] = df["relation"].map(rel_dict)
+    if return_dicts:
+        return df, ent_dict, rel_dict
+    return df
 
 
 def is_eng_alpha(c):
@@ -50,7 +64,7 @@ def extract_subgraphs(subgraphs_per_domain):
             # Remove the archive file
             os.remove(archive_path)
 
-        df = wikidatasets.utils.load_data_labels(subdir + "/", attributes=True)
+        df = _load_data_labels(subdir + "/", attributes=True)
         logger.info(f"Processing {subdomain}")
 
         # sample `subgraphs_per_domain` unique entities
