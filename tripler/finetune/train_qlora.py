@@ -15,7 +15,6 @@ Usage:
 """
 
 import argparse
-import functools
 import json
 import logging
 import os
@@ -160,8 +159,8 @@ def main() -> None:
         dataset_text_field="messages",
     )
 
-    if isinstance(model.lm_head.forward, functools.partial):
-        model.lm_head.forward = model.lm_head.forward.func
+    import trl.trainer.sft_trainer as _sft_mod
+    _sft_mod._patch_chunked_ce_lm_head = lambda target, chunk_size, is_vlm: None
 
     trainer = SFTTrainer(
         model=model,
