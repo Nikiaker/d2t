@@ -4,6 +4,7 @@
 #SBATCH -c16
 #SBATCH --gres=gpu:1
 #SBATCH -n1
+#SBATCH --time=48:00:00
 SERVER_LOG1="$HOME/vllm-server11.log"
 SERVER_PID1=""
 trap 'kill $SERVER_PID1 2>/dev/null' EXIT
@@ -46,4 +47,19 @@ conda run -n openevolve-env python app_text_pipeline.py extract \
   --model google/gemma-4-31B-it \
   --base-url http://localhost:3004/v1 \
   --api-key none \
+  --top-level-key none
+
+conda run -n openevolve-env python app_text_pipeline.py normalize \
+  --input  outputs/test11/${TRIPLE_DOMAIN}/extracted_triples_text_pipeline.json \
+  --output outputs/test11/${TRIPLE_DOMAIN}/normalized_triples.json \
+  --model google/gemma-4-31B-it \
+  --base-url http://localhost:3004/v1 \
+  --api-key none \
+  --batch-timeout-seconds 21600
+
+conda run -n openevolve-env python $D2TPATH/scripts/join_extract_normalize.py \
+  --extract   outputs/test11/${TRIPLE_DOMAIN}/extracted_triples_text_pipeline.json \
+  --normalize outputs/test11/${TRIPLE_DOMAIN}/normalized_triples.json \
+  --output    outputs/test11/${TRIPLE_DOMAIN}/joined.json \
+  --input "$TRIPLE_INPUT_FILE" \
   --top-level-key none
