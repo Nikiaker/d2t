@@ -14,8 +14,7 @@ SERVER_LOG1="$HOME/vllm-server_${DOMAIN}.log"
 module load CUDA/12.8.0
 module load Miniconda3
 eval "$(conda shell.bash hook)"
-
-export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
+conda activate finetune-env
 
 export PYTHONPATH="$D2TPATH/tripler:$D2TPATH/openevolve/:$D2TPATH/problems/triples_to_text/tests/benchmark_reader/:$D2TPATH/problems/triples_to_text/:$PYTHONPATH"
 
@@ -45,7 +44,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-conda run -n finetune-env python "$D2TPATH/tripler/finetune/eval.py" \
+python "$D2TPATH/tripler/finetune/eval.py" \
     --dev "$DATA_DIR/dev.jsonl" \
     --report "$REPORT" \
     --port "$PORT" \

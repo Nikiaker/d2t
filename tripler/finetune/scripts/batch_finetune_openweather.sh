@@ -15,8 +15,7 @@ SERVER_LOG1="$HOME/vllm-server_${DOMAIN}.log"
 module load CUDA/12.8.0
 module load Miniconda3
 eval "$(conda shell.bash hook)"
-
-export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
+conda activate finetune-env
 
 export PYTHONPATH="$D2TPATH/tripler:$D2TPATH/openevolve/:$D2TPATH/problems/triples_to_text/tests/benchmark_reader/:$D2TPATH/problems/triples_to_text/:$PYTHONPATH"
 
@@ -30,7 +29,7 @@ MERGED_DIR="${MERGED_DIR:-$HOME/ft_models/${DOMAIN}_gemma4_31b_merged}"
 
 mkdir -p "$DATA_DIR" "$RUN_DIR"
 
-conda run -n finetune-env python "$D2TPATH/tripler/finetune/build_dataset.py" \
+python "$D2TPATH/tripler/finetune/build_dataset.py" \
     --input "$INPUT_FILE" \
     --triples "$TRIPLES_FILE" \
     --out-dir "$DATA_DIR" \
@@ -38,7 +37,7 @@ conda run -n finetune-env python "$D2TPATH/tripler/finetune/build_dataset.py" \
     --top-level-key forecasts \
     --holdout 200 --seed 13
 
-conda run -n finetune-env python "$D2TPATH/tripler/finetune/train_qlora.py" \
+python "$D2TPATH/tripler/finetune/train_qlora.py" \
     --base-id "$BASE_ID" \
     --train "$DATA_DIR/train.jsonl" \
     --dev "$DATA_DIR/dev.jsonl" \
@@ -46,7 +45,7 @@ conda run -n finetune-env python "$D2TPATH/tripler/finetune/train_qlora.py" \
     --epochs 3 --lr 1e-4 --max-len 8192 --lora-r 16 --lora-alpha 32 \
     --bs 1 --grad-accum 16 --seed 13
 
-conda run -n finetune-env python "$D2TPATH/tripler/finetune/merge_adapter.py" \
+python "$D2TPATH/tripler/finetune/merge_adapter.py" \
     --base-id "$BASE_ID" \
     --adapter "$ADAPTER_DIR" \
     --out "$MERGED_DIR" \
