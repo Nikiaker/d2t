@@ -16,3 +16,9 @@ sbatch $D2TPATH/tripler/outputs/test10/batch_owid.sh
 
 # llm as a judge
 sbatch $D2TPATH/tripler/outputs/test10/batch_judge.sh
+
+# test 11 (seed 2993)
+sbatch $D2TPATH/tripler/outputs/test11/batch_forecast.sh
+sbatch $D2TPATH/tripler/outputs/test11/batch_gsmarena.sh
+sbatch $D2TPATH/tripler/outputs/test11/batch_wikidata.sh
+sbatch $D2TPATH/tripler/outputs/test11/batch_owid.sh
