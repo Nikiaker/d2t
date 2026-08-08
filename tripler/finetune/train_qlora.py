@@ -159,6 +159,9 @@ def main() -> None:
         dataset_text_field="messages",
     )
 
+    import trl.trainer.sft_trainer as _sft_mod
+    _sft_mod._patch_chunked_ce_lm_head = lambda target, chunk_size, is_vlm: None
+
     trainer = SFTTrainer(
         model=model,
         args=sft_args,
