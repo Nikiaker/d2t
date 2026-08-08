@@ -51,6 +51,7 @@ conda run -n openevolve-env python app_text_pipeline.py extract \
   --model RedHatAI/gemma-4-31B-it-NVFP4 \
   --base-url http://localhost:3010/v1 \
   --api-key none \
+  --batch-timeout-seconds 21600 \
   --top-level-key none
 
 conda run -n openevolve-env python app_text_pipeline.py normalize \
