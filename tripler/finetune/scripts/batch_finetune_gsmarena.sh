@@ -7,6 +7,7 @@
 #SBATCH --mem=128G
 #SBATCH --gres=gpu:2
 #SBATCH --time=48:00:00
+set -eo pipefail
 DOMAIN="gsmarena"
 DOMAIN_SEED="2993"
 TRIPLE_DOMAIN="mobile_phone_specification"

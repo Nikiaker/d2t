@@ -151,6 +151,7 @@ def main() -> None:
         gradient_checkpointing_kwargs={"use_reentrant": False},
         max_length=args.max_len,
         packing=False,
+        loss_type="nll",
         completion_only_loss=False,
         report_to="none",
         seed=args.seed,
@@ -158,9 +159,6 @@ def main() -> None:
         max_steps=args.max_steps,
         dataset_text_field="messages",
     )
-
-    import trl.trainer.sft_trainer as _sft_mod
-    _sft_mod._patch_chunked_ce_lm_head = lambda target, chunk_size, is_vlm: None
 
     trainer = SFTTrainer(
         model=model,
