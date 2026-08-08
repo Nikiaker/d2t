@@ -23,7 +23,7 @@ BASE_ID="${BASE_ID:-google/gemma-4-31B-it}"
 DATA_DIR="$D2TPATH/tripler/finetune/datasets/${DOMAIN}"
 TRIPLES_FILE="${TRIPLES_FILE:-$D2TPATH/tripler/outputs/test11/${TRIPLE_DOMAIN}/joined.json}"
 REPORT="$D2TPATH/tripler/finetune/runs/${DOMAIN}/eval_report.json"
-MERGED_DIR="${MERGED_DIR:-$HOME/ft_models/${DOMAIN}_gemma4_31b_merged}"
+MERGED_DIR="${MERGED_DIR:-$SCRATCH/ft_models/${DOMAIN}_gemma4_31b_merged}"
 PORT="${PORT:-3000}"
 
 VLLM_USE_FLASHINFER_SAMPLER=0 \

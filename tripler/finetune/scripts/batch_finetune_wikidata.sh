@@ -27,7 +27,7 @@ INPUT_FILE="${INPUT_FILE:-$D2TPATH/tripler/inputs/seed_${DOMAIN_SEED}/${DOMAIN}_
 DATA_DIR="$D2TPATH/tripler/finetune/datasets/${DOMAIN}"
 RUN_DIR="$D2TPATH/tripler/finetune/runs/${DOMAIN}"
 ADAPTER_DIR="$RUN_DIR/adapter"
-MERGED_DIR="${MERGED_DIR:-$HOME/ft_models/${DOMAIN}_gemma4_31b_merged}"
+MERGED_DIR="${MERGED_DIR:-$SCRATCH/ft_models/${DOMAIN}_gemma4_31b_merged}"
 
 mkdir -p "$DATA_DIR" "$RUN_DIR"
 
