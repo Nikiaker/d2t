@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from owid import catalog
+from owid.catalog import Client
 import os
 from pandas import DataFrame
 import json
@@ -16,6 +16,15 @@ from tqdm import tqdm
 
 coloredlogs.install(level="INFO", fmt="%(asctime)s %(levelname)s %(message)s")
 logger = logging.getLogger(__name__)
+
+_client = None
+
+
+def _get_client() -> Client:
+    global _client
+    if _client is None:
+        _client = Client()
+    return _client
 
 
 def preprocess(metadata_dir, fetched_out_dir, seed):
@@ -57,8 +66,9 @@ def extract_covid():
     logger.info("Extracting COVID data")
 
     all_data = []
-    df = catalog.find("covid")
-    table = df.iloc[0].load()
+    client = _get_client()
+    results = client.tables.search(table="covid", match="exact", channel="garden", namespace="owid")
+    table = results[0].fetch()
     countries = table.groupby("location")
     columns = [
         "new_cases_smoothed_per_million",
@@ -66,6 +76,16 @@ def extract_covid():
         "people_vaccinated_per_hundred",
         "reproduction_rate",
         "positive_rate",
+        "total_cases",
+        "new_cases_smoothed",
+        "total_deaths",
+        "new_deaths_smoothed",
+        "icu_patients",
+        "hosp_patients",
+        "new_vaccinations_smoothed",
+        "people_fully_vaccinated_per_hundred",
+        "stringency_index",
+        "total_boosters",
     ]
 
     for country, data in countries:
@@ -93,8 +113,22 @@ def extract_expectancy():
     logger.info("Extracting life expectancy data")
 
     all_data = []
-    df = catalog.find("life_expectancy")
-    table = df.loc[df["table"] == "life_expectancy"].iloc[0].load()
+    client = _get_client()
+    results = client.tables.search(
+        table="life_expectancy",
+        match="exact",
+        channel="garden",
+        namespace="demography",
+        dataset="life_expectancy",
+    )
+    table = None
+    for r in results:
+        tb = r.fetch()
+        if "life_expectancy_0" in tb.columns:
+            table = tb
+            break
+    if table is None:
+        raise RuntimeError("No life_expectancy table has the 'life_expectancy_0' column")
     countries = table.groupby("country")
 
     column = "life_expectancy_0"
