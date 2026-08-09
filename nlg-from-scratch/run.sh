@@ -1,0 +1,1 @@
+sbatch $D2TPATH/nlg-from-scratch/batch_train_gemma4.sh
