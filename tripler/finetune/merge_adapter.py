@@ -14,7 +14,7 @@ from pathlib import Path
 
 import torch
 from peft import PeftModel
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import AutoModelForCausalLM, AutoProcessor, AutoTokenizer
 
 logger = logging.getLogger(__name__)
 
@@ -48,6 +48,8 @@ def main() -> None:
 
     tokenizer = AutoTokenizer.from_pretrained(args.base_id, trust_remote_code=True)
     tokenizer.save_pretrained(str(args.out))
+    processor = AutoProcessor.from_pretrained(args.base_id, trust_remote_code=True)
+    processor.save_pretrained(str(args.out))
     logger.info("done; vllm serve %s will load this dir", args.out)
 
 
