@@ -66,6 +66,27 @@ The other two problems are independent of this pipeline:
 `function_minimization/` and `circle_packing_with_artifacts/` evolve standalone
 algorithmic code with their own evaluators and need neither quintd nor tripler.
 
+## Cluster hardware
+
+Experiments run on **PLGrid Athena** (Academic Computer Centre Cyfronet AGH), an
+HPE Cray EX4000 system with Infiniband HDR (4×200 Gb/s per node) and a Lustre
+filesystem backed by NVMe flash.
+
+**Per-node specs:** 48 nodes, each with 2× AMD EPYC 7742 64-core (128 cores
+total), 1 TB RAM, and 8× NVIDIA A100-SXM4-40GB GPUs (40 GB VRAM each). Total
+cluster: 6144 CPU cores, 384 A100 GPUs, ~7.7 PFlops theoretical.
+
+**Partition and account:**
+- SLURM partition: `plgrid-gpu-a100`
+- Account: `plgnarnlg-gpu-a100`
+- Walltime limit: 48 hours
+
+**Proportional per-GPU resources:** 128 GB RAM and 16 CPU cores. Batch scripts
+request `--cpus-per-task=16` and 64–128 GB of RAM accordingly. Jobs use 1–5 GPUs
+from a single node, pinned to specific devices via `CUDA_VISIBLE_DEVICES`.
+Multi-GPU jobs can leverage tensor parallelism across GPUs on the same node over
+the Infiniband fabric.
+
 ## Running an experiment
 
 From inside a problem directory:
