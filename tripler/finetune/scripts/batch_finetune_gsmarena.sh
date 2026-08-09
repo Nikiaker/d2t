@@ -20,6 +20,7 @@ conda activate finetune-env
 export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
 
 export PYTHONPATH="$D2TPATH/tripler:$D2TPATH/openevolve/:$D2TPATH/problems/triples_to_text/tests/benchmark_reader/:$D2TPATH/problems/triples_to_text/:$PYTHONPATH"
+export PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
 
 BASE_ID="google/gemma-4-31B-it"
 TRIPLES_FILE="${TRIPLES_FILE:-$D2TPATH/tripler/outputs/test11/${TRIPLE_DOMAIN}/joined.json}"
@@ -44,7 +45,7 @@ python "$D2TPATH/tripler/finetune/train_qlora.py" \
     --train "$DATA_DIR/train.jsonl" \
     --dev "$DATA_DIR/dev.jsonl" \
     --out "$ADAPTER_DIR" \
-    --epochs 3 --lr 1e-4 --max-len 8192 --lora-r 16 --lora-alpha 32 \
+    --epochs 3 --lr 1e-4 --max-len 4096 --lora-r 16 --lora-alpha 32 \
     --bs 1 --grad-accum 16 --seed 13
 
 python "$D2TPATH/tripler/finetune/merge_adapter.py" \

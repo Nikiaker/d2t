@@ -54,7 +54,8 @@ fine-tuning a large model on a single GPU with limited memory.
 - The **base model weights are frozen** and loaded in 4-bit precision (NF4
   quantization with double quantization) via bitsandbytes. Frozen weights cost
   no optimizer state and no gradients, so memory for a 31B model fits on one
-  A100 (80 GB).
+  A100-SXM4-40GB (the cluster's 40 GB variant; the original recipe targeted the
+  80 GB card, but PLGrid Athena exposes the 40 GB SKU).
 - A small set of **trainable LoRA adapters** is inserted alongside the frozen
   weights of every attention and MLP projection
   (`q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj`). Each
@@ -234,12 +235,38 @@ examples):
 | learning rate | 1e-4, cosine, warmup 0.03 |
 | per-device batch | 1 |
 | grad accum | 16 (effective batch 16) |
-| max length | 8192 |
+| max length | 8192 (script default; see note below) |
 | LoRA r / α / dropout | 16 / 32 / 0.05 |
 | precision | bf16 compute, NF4 4-bit weights |
 | optimizer | paged_adamw_8bit |
 | attention | SDPA (Gemma 4 hybrid head-dim — see §3 note) |
 | loss | completion-only (prompt masked) |
+
+> **Per-domain `--max-len` override.** The 8192 value above is the
+> `train_qlora.py` argparse default. The cluster's A100-SXM4-40GB has ~40 GB
+> per GPU (half of the 80 GB the original recipe assumed), so at `seq_len≈8192`
+> the attention activations plus the `[1, seq, vocab≈128k]` cross-entropy
+> logits peak above the free budget — on the longest examples the first
+> backward raises `CUDA out of memory`. The batch scripts therefore override
+> `--max-len` per domain according to the raw instance-size distribution of
+> each input (the user prompt embeds `instance_context={json.dumps(instance)}`
+> verbatim, so input bytes map ~linearly to tokens):
+>
+> - `batch_finetune_wikidata.sh` keeps 8192 (instances are tiny, max ~640 B).
+> - `batch_finetune_gsmarena.sh` uses **4096** (instances max ~6.4 KB ≈ 3–4 K
+>   tokens; 4096 covers 100% of examples).
+> - `batch_finetune_owid.sh` uses **4096** (median ~8.7 KB, but the small ~33%
+>   of examples fit fully at 4096; the long-tail time-series instances are
+>   truncated).
+> - `batch_finetune_openweather.sh` uses **6144** (every forecast instance is
+>   ~18 KB ≈ 6–8 K tokens rendered; 4096 would right-truncate the assistant
+>   target of 100% of examples, so 6144 keeps the bulk intact while staying
+>   under the activation ceiling — borderline; the very largest outliers may
+>   still OOM, in which case the upstream fix is to pre-aggregate the forecast
+>   time series in `build_dataset.py` rather than dump the raw blob).
+>
+> All batch scripts also export
+> `PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True` to reduce fragmentation.
 
 Adapter + tokenizer + `training_metadata.json`
 (git SHA, base id, seed, final dev loss) are saved to
