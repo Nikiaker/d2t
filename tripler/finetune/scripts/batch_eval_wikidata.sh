@@ -52,7 +52,6 @@ python "$D2TPATH/tripler/finetune/eval.py" \
     --api-key none \
     --max-tokens 2048 \
     --tp 2 \
-    --model base "$BASE_ID" \
     --model ft "$MERGED_DIR" \
     --catalog "$TRIPLES_FILE"
 
