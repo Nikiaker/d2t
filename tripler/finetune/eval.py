@@ -166,6 +166,8 @@ def _score_model(name: str, preds: list[dict | None], dev: list[dict], catalog: 
             pred_set = _triple_set(pred["parsed"].get("triples", []))
             if catalog is not None:
                 for tr in pred["parsed"].get("triples", []) or []:
+                    if not isinstance(tr, dict):
+                        continue
                     adhere_total += 1
                     if str(tr.get("predicate", "")) in catalog:
                         adhere += 1
