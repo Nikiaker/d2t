@@ -5,7 +5,7 @@
 #SBATCH -N 1
 #SBATCH -c16
 #SBATCH --mem=128G
-#SBATCH --gres=gpu:2
+#SBATCH --gres=gpu:4
 #SBATCH --time=48:00:00
 DOMAIN="openweather"
 TRIPLE_DOMAIN="weather_forecast"
@@ -30,8 +30,8 @@ VLLM_USE_FLASHINFER_SAMPLER=0 \
 conda run -n vllm-env vllm serve \
 	$MERGED_DIR \
     --port $PORT \
-    --tensor-parallel-size 2 \
-    --max-model-len 8192 \
+    --tensor-parallel-size 4 \
+    --max-model-len 60K \
     --reasoning-parser gemma4 \
     --default-chat-template-kwargs '{"enable_thinking": false}' \
     --max-num-batched-tokens 4096 \
@@ -52,7 +52,6 @@ python "$D2TPATH/tripler/finetune/eval.py" \
     --api-key none \
     --max-tokens 2048 \
     --tp 2 \
-    --model base "$BASE_ID" \
     --model ft "$MERGED_DIR" \
     --catalog "$TRIPLES_FILE"
 
