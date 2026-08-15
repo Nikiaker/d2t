@@ -1,0 +1,29 @@
+\chapter{Prompts for Blueprint-Iterative Refinement}
+\label{app:prompts-blueprint}
+
+This appendix contains the complete text of all system prompts used in the Blueprint-Iterative Refinement method (Section~\ref{sec:data-conversion}).
+
+\section*{Text-Generation System Prompt ($P_{\mathrm{txt}}$)}
+\begin{quote}
+You convert one structured data instance into concise natural language. Return ONLY JSON with schema: \{"text":"..."\}. Capture the most important information, trends, extremes, and notable conditions. If the instance contains a time series (for example a weather forecast), summarize it at a high level instead of listing every point.
+\end{quote}
+
+\section*{Blueprint-Creation System Prompt ($P_{\mathrm{blueprint}}$)}
+\begin{quote}
+You design extraction rules for a domain. Return ONLY JSON with schema: \{"predicates":["..."], "example\_triples":[\{"subject":"...","predicate":"...","object":"..."\}], "example\_text":"...", "guidelines":["..."]\}. Rules: include precise and reusable predicates, provide concrete example triples with strict formatting, provide an example text matching those triples, and give practical transformation guidelines.
+\end{quote}
+
+\section*{Blueprint-Feasibility System Prompt ($P_{\mathrm{feas}}$)}
+\begin{quote}
+You evaluate whether given extraction rules are sufficient to extract triples from a text. Return ONLY JSON with schema: \{"possible":true\textbar false,"reason":"...","rule\_gaps":["..."]\}.
+\end{quote}
+
+\section*{Blueprint-Revision System Prompt ($P_{\mathrm{rev}}$)}
+\begin{quote}
+You revise extraction rules so triples can be produced from a text. Return ONLY JSON with schema: \{"predicates":["..."], "example\_triples":[\{"subject":"...","predicate":"...","object":"..."\}], "example\_text":"...", "guidelines":["..."]\}. Keep existing high-quality rules, but add or adjust what is necessary to cover the failing case.
+\end{quote}
+
+\section*{Triples-From-Text-With-Blueprint System Prompt ($P_{\mathrm{tr}\&R}$)}
+\begin{quote}
+You extract semantic triples from natural language text using provided rules. Return ONLY JSON with this exact schema: \{"triples":[\{"subject":"...","predicate":"...","object":"..."\}]\}. Follow rule guidelines and mimic the formatting style from example triples. Prefer predicates from the rule predicate list whenever possible.
+\end{quote}

@@ -1,0 +1,24 @@
+\chapter{Prompts for Text-First Extraction with Normalization}
+\label{app:prompts-text-first}
+
+This appendix contains the complete text of all system prompts used in the Text-First Extraction with Normalization method (Section~\ref{sec:data-conversion}).
+
+\section*{Text-Generation System Prompt ($P_{\mathrm{txt}}$)}
+\begin{quote}
+You convert one structured data instance into concise natural language. Return ONLY JSON with schema: \{"text":"..."\}. Capture the most important information, trends, extremes, and notable conditions. If the instance contains a time series (for example a weather forecast), summarize it at a high level instead of listing every point.
+\end{quote}
+
+\section*{Triples-From-Text System Prompt ($P_{\mathrm{tr}}$)}
+\begin{quote}
+You extract semantic triples from natural language text. Return ONLY JSON with this exact schema: \{"triples":[\{"subject":"...","predicate":"...","object":"..."\}]\}. Rules: preserve the full meaning of the input text, avoid duplicate triples, and keep predicates in lower\_snake\_case when possible.
+\end{quote}
+
+\section*{Candidate-Pairs System Prompt}
+\begin{quote}
+You find candidate predicate pairs that may be semantically equivalent. Return ONLY JSON with schema: \{"pairs":[\{"predicate\_a":"...","predicate\_b":"..."\}]\}. Rules: include only pairs with high likelihood of strict semantic equivalence; do not include pairs that are merely related; do not include duplicates or self-pairs.
+\end{quote}
+
+\section*{Strict-Equivalence System Prompt}
+\begin{quote}
+You decide if two predicates are semantically equivalent in meaning. Return ONLY JSON with schema: \{"equivalent": true\textbar false, "confidence": 0.0-1.0, "reason": "..."\}. Be strict: equivalent only if they can be safely merged in a knowledge graph.
+\end{quote}
