@@ -1,9 +1,9 @@
 
 \section{Data conversion with LLMs}
 
-Text-First Extraction with Normalization decomposes the data-to-triples problem into two independent, fully batched LLM stages and a normalization stage. The method deliberately avoids any inter-instance coupling during extraction: each reference and each triple set is produced independently and in parallel, which makes the method stateless and easy to reason about, at the cost of not enforcing predicate consistency during extraction.
-
 \subsection{Text-First Extraction with Normalization}
+
+Text-First Extraction with Normalization decomposes the data-to-triples problem into two fully batched LLM stages and a normalization stage. The method deliberately avoids any inter-instance coupling during extraction: each reference and each triple set is produced independently and in parallel, which makes the method stateless, at the cost of not enforcing predicate consistency during extraction.
 
 \textbf{Stage 1 --- Reference text generation.}
 Let $D = \{d_1, \dots, d_N\}$ denote the set of $N$ raw structured instances obtained from the input JSON after instance extraction. In the first stage the model is invoked once per instance under a text-generation system prompt, $P_{\mathrm{txt}}$, whose objective is to convert one structured data instance into concise natural language and to return the result as a JSON object of schema \texttt{\{"text": "..."\}}. The prompt further instructs the model to capture the most important information, trends, extremes, and notable conditions, and to summarize time series (e.g., weather forecasts) at a high level rather than listing every data point.
@@ -11,7 +11,7 @@ Let $D = \{d_1, \dots, d_N\}$ denote the set of $N$ raw structured instances obt
 All $N$ requests are packaged as a single OpenAI Batch API job and a single request outputs $t_i$, where $t_i$ is the generated reference text for instance $d_i$. This batched stage yields, for every instance, a natural-language reference $t_i$ that constitutes the intermediate representation from which triples are subsequently derived.
 
 \textbf{Stage 2 --- Triples-from-text extraction.}
-A second OpenAI Batch is then assembled in which every reference $t_i$ is paired with a triples-from-text system prompt, $P_{\mathrm{tr}}$, whose objective is to extract semantic triples from natural language text, returning JSON of schema \texttt{\{"triples":[{"subject":"...","predicate":"...","object":"..."}]\}}. The prompt imposes two light constraints: it instructs the model to preserve the full meaning of the input text and to keep predicates in \texttt{lower\_snake\_case} when possible, and to avoid duplicate triples. Each instance is therefore an independent text-to-triples problem, and the batch can be fully parallelized. The output of a single request is $T_i$, where $T_i$ is a set of triples that describe the reference text $t_i$.
+A second OpenAI Batch is then assembled in which every reference $t_i$ is paired with a triples-from-text system prompt, $P_{\mathrm{tr}}$, whose objective is to extract semantic triples from natural language text, returning JSON of schema \texttt{\{"triples":[{"subject":"...","predicate":"...","object":"..."}]\}}. The prompt imposes two constraints: it instructs the model to preserve the full meaning of the input text and to keep predicates in \texttt{lower\_snake\_case} when possible, and to avoid duplicate triples. Each instance is therefore an independent text-to-triples problem, and the batch can be fully parallelized. The output of a single request is $T_i$, where $T_i$ is a set of triples that describe the reference text $t_i$.
 
 \textbf{Stage 3 --- Post-hoc predicate normalization.}
 Because Stage 2 imposes no inter-instance vocabulary control, this stage invokes a predicate-normalization routine. The routine operates on the flattened list of triples and iteratively merges semantically equivalent predicates:
@@ -32,7 +32,7 @@ In the normalization step, the final output combines: (i) generated references, 
 
 \subsection{Rules-Iterative Refinement}
 
-Rules-Iterative Refinement introduces an explicit notion of extraction rules that act as an intermediate, human-inspectable artifact between the domain declaration and the final triple extraction. The rules are generated top-down from the domain name, then iteratively validated and revised against the generated references until they admit triple extraction for every instance. Only then is a single batched triple-extraction run executed under the finalized rules.
+Rules-Iterative Refinement introduces an explicit notion of extraction rules that act as an intermediate, human-inspectable artifact between the domain declaration and the final triple extraction. The rules are generated top-down from the domain name, then iteratively validated and revised against the generated references until it is confirmed that they can extract triples for every instance. Only then is a single batched triple-extraction run executed under the finalized rules.
 
 \textbf{Stage 1 --- Initial rule generation.}
 Given the user-supplied problem domain string $\delta$ (e.g., weather forecast), the model is invoked once under a rule-creation system prompt, $P_{\mathrm{rules}}$, and asked to design extraction rules for a domain. Its response is constrained by a strict JSON schema to contain exactly four fields:
@@ -46,7 +46,7 @@ The reference-generation batch is identical to that of the previous method: ever
 The core of the method is an iterative loop, bounded by $R_{\max}$. The loop maintains a current ruleset $R$ and operates as follows for each round $r = 1, \dots, R_{\max}$:
 
 \begin{enumerate}
-  \item \textbf{Feasibility scan.} A random reference text $t_i$ is selected and the model is invoked under a rule-feasibility system prompt, $P_{\mathrm{feas}}$, which receives the current rules $R$ and the text $t_i$, and returns \texttt{\{possible, reason, rule\_gaps\}}, where \texttt{rule\_gaps} is a list of textual descriptions of what is missing from $R$ in order to extract triples from $t_i$.
+  \item \textbf{Feasibility scan.} A random reference text with replacement $t_i$ is selected and the model is invoked under a rule-feasibility system prompt, $P_{\mathrm{feas}}$, which receives the current rules $R$ and the text $t_i$, and returns \texttt{\{possible, reason, rule\_gaps\}}, where \texttt{rule\_gaps} is a list of textual descriptions of what is missing from $R$ in order to extract triples from $t_i$.
 
   \item \textbf{Pass condition.} If the scan reaches the $R_{\max}$ without encountering a \texttt{possible = false} judgment, the rules are declared validated against all texts and the loop terminates.
 
