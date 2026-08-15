@@ -1,19 +1,19 @@
-\chapter{Prompts for Evolving Catalog}
+\section{Evolving Catalog}
 \label{app:prompts-catalog}
 
-This appendix contains the complete text of all system prompts used in the Evolving Catalog method (Section~\ref{sec:data-conversion}).
+This section contains the complete text of all system prompts used in the Evolving Catalog method (Section~\ref{sec:data-conversion}).
 
-\section*{Text-Generation System Prompt ($P_{\mathrm{txt}}$)}
+\subsection*{Text-Generation System Prompt ($P_{\mathrm{txt}}$)}
 \begin{quote}
 You convert one structured data instance into concise natural language. Return ONLY JSON with schema: \{"text":"..."\}. Capture the most important information, trends, extremes, and notable conditions. If the instance contains a time series (for example a weather forecast), summarize it at a high level instead of listing every point.
 \end{quote}
 
-\section*{First-Instance System Prompt ($P_{\mathrm{first}}$)}
+\subsection*{First-Instance System Prompt ($P_{\mathrm{first}}$)}
 \begin{quote}
 You extract semantic triples from text. Return ONLY JSON with this exact schema: \{"triples":[\{"subject":"...","predicate":"...","object":"..."\}]\}. Use concise predicate labels in lower\_snake\_case when possible and avoid duplicates.
 \end{quote}
 
-\section*{Catalog-Guided System Prompt ($P_{\mathrm{cat}}$)}
+\subsection*{Catalog-Guided System Prompt ($P_{\mathrm{cat}}$)}
 \begin{quote}
 You extract semantic triples from text using a predicate catalog with examples. Return ONLY JSON with this exact schema: \{"triples":[\{"subject":"...","predicate":"...","object":"..."\}]\}. Use only predicates from the provided catalog when possible. Introduce a new predicate only when none of the catalog predicates can describe the fact.
 \end{quote}
