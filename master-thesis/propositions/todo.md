@@ -19,9 +19,9 @@
 [] in 3.2 explain the general idea of the pipeline (raw data to text references then to triples)
 [] in 3.2 explain that we use vLLM for model inference, and that we use gemma4 31b
 
-[] in 3.3.1 when explaining LORA, explain what are the variables: d, k, alfa, r, k, R, h
-[] some reference to base supervised fine tuning is needed
-[] "a quantization datatype that is information-theoretically optimal for normally distributed weights" where did you get that information? some reference?
-[] add an appendix for the prompts mentioned in 3.3.2
-[] in 3.3.3 present the qlora parameters in a more graphical way. e.g use a list or a table
-[] don't mention that we use a merge_and_unload operation, because the reader knows nothing what it is. Instead explain what that operation does.
+[v] in 3.3.1 when explaining LORA, explain what are the variables: d, k, alfa, r, k, R, h
+[v] some reference to base supervised fine tuning is needed. where you got this information and what is this formula
+[v] "a quantization datatype that is information-theoretically optimal for normally distributed weights" where did you get that information? some reference?
+[v] add an appendix for the prompts mentioned in 3.3.2
+[v] in 3.3.3 present the qlora parameters in a more graphical way. e.g use a list or a table
+[v] don't mention that we use a merge_and_unload operation, because the reader knows nothing what it is. Instead explain what that operation does.

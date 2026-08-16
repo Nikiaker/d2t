@@ -1,0 +1,21 @@
+\chapter{Prompts for Fine-tuned Model}
+\label{app:prompts-finetune}
+
+\section*{System Prompt for Joint Text and Triple Generation}
+\begin{quote}
+You convert one structured data instance into concise natural language and a corresponding set of RDF semantic triples. Return ONLY JSON with schema: \{"text":"...","triples":[\{"subject":"...","predicate":"...","object":"..."\}]\}. Capture the most important information, trends, extremes, and notable conditions. Use concise predicate labels in lower\_snake\_case when possible and avoid duplicates. If the instance contains a time series (for example a weather forecast), summarize it at a high level instead of listing every point.
+\end{quote}
+
+\section*{User Message Template}
+\begin{quote}
+Create a concise natural-language summary of this ONE data instance and extract its semantic triples.
+
+instance\_context=\texttt{\{serialized JSON instance\}}
+
+Return JSON only.
+\end{quote}
+
+\section*{Assistant Message (Expected Output)}
+\begin{quote}
+\{"text": "<generated natural language text>", "triples": [\{"subject": "...", "predicate": "...", "object": "..."\}, ...]\}
+\end{quote}
