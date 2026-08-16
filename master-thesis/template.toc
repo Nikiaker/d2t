@@ -10,33 +10,36 @@
 \contentsline {section}{\numberline {2.4}Performance Evaluation}{2}{section.2.4}%
 \contentsline {chapter}{\chapternumberline {3}Building interpretable meaning representations from complex data}{3}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Method Overview}{3}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Data conversion with LLMs}{3}{section.3.2}%
-\contentsline {paragraph}{Input data format.}{3}{section*.4}%
-\contentsline {paragraph}{Pipeline overview.}{3}{section*.5}%
-\contentsline {paragraph}{Large language model.}{3}{section*.6}%
-\contentsline {subsection}{\numberline {3.2.1}Text-First Extraction with Normalization}{3}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Blueprint-Iterative Refinement}{5}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Evolving Catalog}{6}{subsection.3.2.3}%
-\contentsline {section}{\numberline {3.3}Fine-tuned model for data conversion}{7}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Supervised Fine-Tuning and QLoRA}{7}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Training Data Construction}{9}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Training Configuration}{9}{subsection.3.3.3}%
-\contentsline {chapter}{\chapternumberline {4}Surface realization --- evolving programs using AlphaEvolve}{11}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Modern approaches for writing complex programs}{11}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Methods overview}{11}{section.4.2}%
-\contentsline {section}{\numberline {4.3}OpenEvolve}{11}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Program database}{11}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Prompt and selection}{11}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Evaluation}{11}{section.4.6}%
-\contentsline {chapter}{\chapternumberline {5}Experiments}{12}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Meaning representation}{12}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Surface realization}{12}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Whole system evaluation}{12}{section.5.3}%
-\contentsline {chapter}{\chapternumberline {6}Discussion}{13}{chapter.6}%
-\contentsline {chapter}{\chapternumberline {7}Summary}{14}{chapter.7}%
-\contentsline {chapter}{Bibliography}{15}{chapter*.8}%
-\contentsline {appendix}{\chapternumberline {A}Prompts}{16}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Text-First Extraction with Normalization}{16}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Blueprint-Iterative Refinement}{16}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Evolving Catalog}{17}{section.A.3}%
-\contentsline {appendix}{\chapternumberline {B}Prompts for Fine-tuned Model}{19}{appendix.B}%
+\contentsline {subsection}{\numberline {3.1.1}Data Collection}{3}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Conversion Methods Overview}{4}{subsection.3.1.2}%
+\contentsline {paragraph}{Pipeline-based methods.}{4}{section*.4}%
+\contentsline {paragraph}{Fine-tuned model.}{4}{section*.5}%
+\contentsline {section}{\numberline {3.2}Data conversion with LLMs}{4}{section.3.2}%
+\contentsline {paragraph}{Pipeline overview.}{4}{section*.6}%
+\contentsline {paragraph}{Large language model.}{4}{section*.7}%
+\contentsline {subsection}{\numberline {3.2.1}Text-First Extraction with Normalization}{5}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Blueprint-Iterative Refinement}{6}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Evolving Catalog}{7}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Fine-tuned model for data conversion}{8}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Supervised Fine-Tuning and QLoRA}{9}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Training Data Construction}{10}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Training Configuration}{10}{subsection.3.3.3}%
+\contentsline {chapter}{\chapternumberline {4}Surface realization --- evolving programs using AlphaEvolve}{12}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Modern approaches for writing complex programs}{12}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Methods overview}{12}{section.4.2}%
+\contentsline {section}{\numberline {4.3}OpenEvolve}{12}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Program database}{12}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Prompt and selection}{12}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Evaluation}{12}{section.4.6}%
+\contentsline {chapter}{\chapternumberline {5}Experiments}{13}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Meaning representation}{13}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Surface realization}{13}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Whole system evaluation}{13}{section.5.3}%
+\contentsline {chapter}{\chapternumberline {6}Discussion}{14}{chapter.6}%
+\contentsline {chapter}{\chapternumberline {7}Summary}{15}{chapter.7}%
+\contentsline {chapter}{Bibliography}{16}{chapter*.9}%
+\contentsline {appendix}{\chapternumberline {A}Prompts}{17}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Text-First Extraction with Normalization}{17}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Blueprint-Iterative Refinement}{17}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Evolving Catalog}{18}{section.A.3}%
+\contentsline {appendix}{\chapternumberline {B}Prompts for Fine-tuned Model}{20}{appendix.B}%

@@ -11,10 +11,10 @@
 [v] "the four-field rules schema" not sure what schema it is
 [v] the prompt names could be highlighted using a verbatim
 
-[] describe what is quintd
-[] describe the datasets (gsmarena, openweather, owid, wikidata)
-[] maybe move the definition of raw structured instances to overview where I explain quintd
-[] describe the general overview and ideas of the methods we will use to convert the data to triples
+[v] describe what is quintd
+[v] describe the datasets (gsmarena, openweather, owid, wikidata)
+[v] move the definition of raw structured instances to overview where I explain quintd
+[v] describe the general overview and ideas of the methods we will use to convert the data to triples
 
 [v] in 3.2 explain the general idea of the pipeline (raw data to text references then to triples)
 [v] in 3.2 explain that we use vLLM for model inference, and that we use gemma4 31b. It also means you should move the explanation of what is gemma4 that is in the later section over here.

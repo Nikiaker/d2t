@@ -2,9 +2,6 @@
 \section{Data conversion with LLMs}
 \label{sec:data-conversion}
 
-\paragraph{Input data format.}
-All three methods operate on a collection of \emph{raw structured instances}. A raw structured instance is a single JSON object representing one self-contained data record, such as a weather forecast for a specific city, a product description, or a sports event summary. Each instance contains nested fields with structured data (e.g., time series, categorical values, numerical measurements) that must be converted into semantic triples. For example, a weather forecast instance might contain fields for city name, date, temperature values, wind speed, and weather conditions. Let $D = \{d_1, \dots, d_N\}$ denote the set of $N$ such instances extracted from the input JSON.
-
 \paragraph{Pipeline overview.}
 All three methods follow a common two-stage structure. In the first stage, each raw structured instance is converted into a natural-language reference text. In the second stage, semantic triples are extracted from that text. This text-first approach decouples verbalization from triple extraction, allowing each stage to be optimized independently and batched for throughput. The rationale for this decomposition is that natural language serves as an intermediate representation that is both human-readable and amenable to well-studied extraction techniques and it generalizes the input data, while the structured triple output can be directly used for downstream tasks such as knowledge graph construction or program synthesis.
 

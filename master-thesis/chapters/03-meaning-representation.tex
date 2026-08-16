@@ -3,11 +3,46 @@
 
 \section{Method Overview}
 
-% Content goes here
+\subsection{Data Collection}
+
+The experimental evaluation in this work requires structured data from diverse domains. To obtain such data, \emph{quintd}~\cite{kasner2024beyond} is used, a framework for collecting \emph{ad hoc} data-to-text datasets. Quintd downloads up-to-date structured data from real-world APIs. The framework supports five domains: weather forecasts, mobile phone specifications, ice hockey game summaries, health statistics, and world knowledge entities.
+
+From the five domains available in quintd, four datasets are used in the experiments:
+
+\begin{description}
+  \item[\textbf{GSMArena}] Mobile phone specifications scraped from the GSMArena website. Each instance describes a single phone model with nested categories (Network, Launch, Body, Display, Platform, Memory, Camera, Battery, etc.) containing attribute--value pairs. The dataset contains approximately 800 instances with rich, hierarchical structure.
+  
+  \item[\textbf{OpenWeather}] Five-day weather forecasts obtained from the OpenWeather API. Each instance contains a time series of 40 three-hour intervals, with each interval recording temperature, humidity, wind speed, cloud coverage, and weather conditions. The dataset contains approximately 1000 instances.
+  
+  \item[\textbf{OWID (Our World in Data)}] Country-level time series metrics from the Our World in Data project. Each instance represents a single metric (e.g., life expectancy, vaccination rates, reproduction rate) for a specific country, containing yearly data points spanning several decades. The dataset contains approximately 500 instances.
+  
+  \item[\textbf{Wikidata}] Knowledge graph entities and their properties from Wikidata. Each instance describes an entity (e.g., a country, film, or organization) with a list of property--value pairs (e.g., capital, cast member, language used). The dataset contains approximately 1000 instances.
+\end{description}
+
+The fifth domain, \emph{ice hockey}, is available in quintd but is excluded from our experiments due to API rate limits and associated costs.
+
+All datasets are provided as JSON files containing arrays of structured records. A \emph{raw structured instance} is defined as a single JSON object representing one self-contained data record from any of these domains. Each instance contains nested fields with structured data---time series, categorical values, numerical measurements, or hierarchical attribute lists---that must be converted into semantic triples. Let $D = \{d_1, \dots, d_N\}$ denote the set of $N$ such instances extracted from the input JSON for a given domain.
+
+\subsection{Conversion Methods Overview}
+
+Two complementary approaches are investigated for converting raw structured instances into semantic triples.
+
+\paragraph{Pipeline-based methods.}
+The first approach, described in Section~\ref{sec:data-conversion}, consists of three pipeline variants that convert data to triples using large language models. All three methods follow a common two-stage structure: in the first stage, each raw structured instance is converted into a natural-language reference text; in the second stage, semantic triples are extracted from that text. The three variants differ in how they manage predicate consistency and validation:
+\begin{itemize}
+  \item \textbf{Text-First Extraction with Normalization}---a stateless approach that extracts triples independently and normalizes predicates post-hoc;
+  \item \textbf{Blueprint-Iterative Refinement}---an approach that iteratively refines extraction blueprints through validation against reference texts;
+  \item \textbf{Evolving Catalog}---a hybrid approach that maintains a mutable predicate catalog and transitions from sequential to batch processing based on stability.
+\end{itemize}
+All pipeline methods use \emph{Gemma~4 31B IT}~\cite{team2024gemma,team2026gemma} as the underlying language model, served via \emph{vLLM}~\cite{kwon2023vllm} for high-throughput batched inference.
+
+\paragraph{Fine-tuned model.}
+The second approach, described in Section~\ref{sec:finetuned-model}, distills the behavior of the multi-stage pipeline into a single domain-specialized model. Using \emph{QLoRA} (Quantized Low-Rank Adaptation), Gemma~4 31B IT is fine-tuned to produce both natural-language text and semantic triples in a single decode pass. This approach trades the flexibility of the pipeline for reduced inference latency and improved consistency, at the cost of requiring per-domain fine-tuning on reference outputs produced by the pipeline.
 
 \input{chapters/03-sec2-data-conversion}
 
 \section{Fine-tuned model for data conversion}
+\label{sec:finetuned-model}
 
 The methods described in Section~\ref{sec:data-conversion} rely on repeated invocations of a general-purpose large language model at inference time: each instance requires one or more LLM calls to produce reference text, extract triples, and, in some pipelines, to validate or revise intermediate artifacts. While this design keeps the pipeline flexible, it incurs substantial latency and computational cost, particularly when the same domain is processed repeatedly. An alternative is to \emph{distill} the behaviour of the multi-stage pipeline into a single, domain-specialized model that produces both the natural-language reference and the corresponding triple set in one decode pass. This section describes how such a model is obtained via supervised fine-tuning with QLoRA.
 
