@@ -93,6 +93,13 @@ A notable consequence of this distillation approach is that the fine-tuned model
 
 The dataset is split into a training, evaluation and test set. The split is deterministic, controlled by a fixed random seed, so that results are reproducible across runs. One fine-tuned model is produced per domain (mobile phone specifications, weather forecasts, Wikidata entries, illness reports), keeping the predicate vocabulary and verbalization style specialized to that domain.
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{figures/ft-llm.png}
+    \caption{Fine-tuning flow: the raw structured instances, tripler pipeline reference texts and triples are used to train a domain-specialized model via QLoRA. The resulting model can produce both outputs in a single decode pass.}
+    \label{fig:ft-llm}
+\end{figure}
+
 \subsection{Training Configuration}
 
 The base model for all fine-tuning experiments is \emph{Gemma~4 31B IT} (described in Section~\ref{sec:data-conversion}).

@@ -5,6 +5,13 @@
 \paragraph{Pipeline overview.}
 All three methods follow a common two-stage structure. In the first stage, each raw structured instance is converted into a natural-language reference text. In the second stage, semantic triples are extracted from that text. This text-first approach decouples verbalization from triple extraction, allowing each stage to be optimized independently and batched for throughput. The rationale for this decomposition is that natural language serves as an intermediate representation that is both human-readable and amenable to well-studied extraction techniques and it generalizes the input data, while the structured triple output can be directly used for downstream tasks such as knowledge graph construction or program synthesis.
 
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{figures/pipeline.png}
+    \caption{General pipeline flow: raw structured data from quintd is first converted to reference texts, then to semantic triples using one of the three pipeline methods.}
+    \label{fig:pipeline}
+\end{figure}
+
 \paragraph{Large language model.}
 All LLM invocations across the three methods use \emph{Gemma~4 31B IT}~\cite{team2024gemma,team2026gemma}, a 31-billion-parameter instruction-tuned language model released by Google. Gemma~4 uses a hybrid attention architecture: most layers employ sliding-window attention with head dimension 256, while a subset of layers use global attention with head dimension 512. The model is served via \emph{vLLM}~\cite{kwon2023vllm}, a high-throughput inference engine that uses \emph{PagedAttention} to efficiently manage KV-cache memory, enabling batched inference with dynamic sequence lengths.
 
