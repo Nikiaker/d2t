@@ -16,8 +16,8 @@
 [] maybe move the definition of raw structured instances to overview where I explain quintd
 [] describe the general overview and ideas of the methods we will use to convert the data to triples
 
-[] in 3.2 explain the general idea of the pipeline (raw data to text references then to triples)
-[] in 3.2 explain that we use vLLM for model inference, and that we use gemma4 31b
+[v] in 3.2 explain the general idea of the pipeline (raw data to text references then to triples)
+[v] in 3.2 explain that we use vLLM for model inference, and that we use gemma4 31b. It also means you should move the explanation of what is gemma4 that is in the later section over here.
 
 [v] in 3.3.1 when explaining LORA, explain what are the variables: d, k, alfa, r, k, R, h
 [v] some reference to base supervised fine tuning is needed. where you got this information and what is this formula

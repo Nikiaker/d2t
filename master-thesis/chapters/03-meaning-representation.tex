@@ -60,7 +60,7 @@ The dataset is split into a training, evaluation and test set. The split is dete
 
 \subsection{Training Configuration}
 
-The base model for all fine-tuning experiments is \emph{Gemma~4 31B IT}~\cite{team2024gemma}\cite{team2026gemma}, a 31-billion-parameter instruction-tuned language model released by Google. Gemma~4 uses a hybrid attention architecture: most layers employ sliding-window attention with head dimension 256, while a subset of layers use global attention with head dimension 512. The model is loaded with the \texttt{SDPA} (Scaled Dot-Product Attention) implementation, which automatically dispatches each layer to a compatible backend, accommodating the mixed head dimensions without requiring per-layer patching.
+The base model for all fine-tuning experiments is \emph{Gemma~4 31B IT} (described in Section~\ref{sec:data-conversion}).
 
 All training is performed on NVIDIA A100-SXM4 GPUs with 40~GB of VRAM, using the PLGrid Athena cluster. Table~\ref{tab:qlora-config} summarizes the complete training configuration.
 
