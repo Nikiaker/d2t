@@ -9,4 +9,54 @@
 
 \section{Fine-tuned model for data conversion}
 
-% Content goes here
+The methods described in Section~\ref{sec:data-conversion} rely on repeated invocations of a general-purpose large language model at inference time: each instance requires one or more LLM calls to produce reference text, extract triples, and, in some pipelines, to validate or revise intermediate artifacts. While this design keeps the pipeline flexible, it incurs substantial latency and computational cost, particularly when the same domain is processed repeatedly. An alternative is to \emph{distill} the behaviour of the multi-stage pipeline into a single, domain-specialized model that produces both the natural-language reference and the corresponding triple set in one decode pass. This section describes how such a model is obtained via supervised fine-tuning with QLoRA.
+
+\subsection{Supervised Fine-Tuning and QLoRA}
+
+Supervised fine-tuning (SFT) adapts a pre-trained language model to a specific task by training it on labeled input--output pairs. Given a pre-trained model $M_\theta$ with parameters $\theta$ and a dataset $\{(x_i, y_i)\}_{i=1}^{n}$ of input--output examples, SFT minimizes the negative log-likelihood of the targets:
+\begin{equation}
+  \mathcal{L}(\theta) = -\frac{1}{n}\sum_{i=1}^{n}\sum_{t=1}^{|y_i|} \log P_\theta(y_{i,t} \mid x_i, y_{i,<t}).
+\end{equation}
+For small models (up to a few billion parameters), full SFT---updating all parameters $\theta$---is feasible on modern GPU hardware. However, for models with tens of billions of parameters, full fine-tuning becomes prohibitively expensive: a 31-billion-parameter model in 16-bit precision requires approximately 62~GB of memory for the weights alone, and the Adam optimizer~\cite{kingma2014adam} maintains two additional moment estimates per parameter, roughly doubling the memory footprint.
+
+\emph{Parameter-efficient fine-tuning} (PEFT) methods address this by keeping the base model weights frozen and introducing a small number of trainable parameters~\cite{mangrulkar2022peft}. Among these, \emph{Low-Rank Adaptation} (LoRA)~\cite{hu2021lora} has become the most widely adopted. LoRA decomposes the weight update into a low-rank product: for each frozen weight matrix $W_0 \in \mathbb{R}^{d \times k}$, the forward pass is modified as
+\begin{equation}
+  h = W_0 x + \Delta W x = W_0 x + \frac{\alpha}{r} B A x,
+\end{equation}
+where $B \in \mathbb{R}^{d \times r}$ and $A \in \mathbb{R}^{r \times k}$ are the trainable low-rank matrices, $r \ll \min(d, k)$ is the rank, and $\alpha$ is a scaling factor. Only $A$ and $B$ are updated by the optimizer; $W_0$ remains frozen and requires no gradient storage or optimizer state. For a typical transformer with attention projections $W_q, W_k, W_v, W_o$ and feed-forward projections $W_{\mathrm{gate}}, W_{\mathrm{up}}, W_{\mathrm{down}}$, LoRA adapters are attached to each projection, yielding a trainable parameter count that is a small fraction of the base model (on the order of tens of millions versus tens of billions).
+
+\emph{QLoRA}~\cite{dettmers2023qlora} extends LoRA with two memory-reduction techniques that together allow fine-tuning a 31-billion-parameter model on a single GPU with 40~GB of VRAM. First, the frozen base model weights are quantized to \emph{4-bit NormalFloat} (NF4), a quantization datatype that is information-theoretically optimal for normally distributed weights. A \emph{double quantization} step further quantizes the quantization constants themselves, reducing the per-parameter overhead. Second, \emph{paged optimizers} leverage NVIDIA unified memory to transparently page optimizer state between GPU and CPU memory when the GPU reaches capacity, avoiding out-of-memory failures during gradient accumulation steps. The forward and backward passes are performed in \texttt{bfloat16} precision: the 4-bit weights are dequantized on the fly for each matrix multiplication, preserving numerical quality close to a full-precision fine-tune while keeping the memory footprint low.
+
+At the data scales typical for domain-specific data-to-text tasks (on the order of several hundred to a few thousand labeled examples), LoRA's low-rank constraint also acts as a regularizer: by limiting the number of trainable parameters, it reduces the risk of overfitting and preserves the general linguistic capabilities acquired during pre-training~\cite{hu2021lora}.
+
+\subsection{Training Data Construction}
+
+Rather than collecting human-annotated text--triple pairs, the training data for the fine-tuned model is produced by \emph{distilling} the outputs of the tripler pipeline described in Section~\ref{sec:data-conversion}. For each raw structured instance $d_i$ processed by a tripler method, the pipeline already produces a reference text $t_i$ and a set of normalized triples $T_i = \{(s_k, \pi_k, o_k)\}$. These two outputs, aligned by instance identifier, constitute exactly the joint target that the fine-tuned model should learn to produce in a single pass.
+
+Each training example is formatted as a three-message conversation following the base model's chat template:
+
+\begin{itemize}
+  \item \textbf{System prompt.} An instruction directing the model to convert one structured data instance into concise natural language and a corresponding set of RDF semantic triples, and to return the result as a JSON object of schema \texttt{\{"text": "...", "triples": [\{"subject": "...", "predicate": "...", "object": "..."\}]\}}.
+  \item \textbf{User message.} A prompt that presents the serialized instance and requests the joint output. The wording and instance serialization are kept byte-identical to the prompts used by the tripler pipeline at inference time, ensuring \emph{prompt parity}: the token sequence seen during training matches the token sequence the model will encounter when served.
+  \item \textbf{Assistant message (target).} A JSON string encoding the reference text and the normalized triples: \texttt{\{"text": $t_i$, "triples": $T_i$\}}.
+\end{itemize}
+
+The messages are rendered through the base tokenizer's \texttt{chat\_template} function, which applies the special tokens and formatting expected by the model architecture. This ensures that the token sequences fed to the trainer are identical to those assembled by the serving engine at inference time.
+
+A notable consequence of this distillation approach is that the fine-tuned model is bounded by the quality of the reference labels: it can learn to reproduce the pipeline's outputs more efficiently and consistently, but it cannot exceed their quality. Improving the reference labels is an upstream concern addressed by the tripler pipeline design, not by fine-tuning.
+
+The dataset is split into a training, evaluation and test set. The split is deterministic, controlled by a fixed random seed, so that results are reproducible across runs. One fine-tuned model is produced per domain (mobile phone specifications, weather forecasts, Wikidata entries, illness reports), keeping the predicate vocabulary and verbalization style specialized to that domain.
+
+\subsection{Training Configuration}
+
+The base model for all fine-tuning experiments is \emph{Gemma~4 31B IT}~\cite{team2024gemma}\cite{team2026gemma}, a 31-billion-parameter instruction-tuned language model released by Google. Gemma~4 uses a hybrid attention architecture: most layers employ sliding-window attention with head dimension 256, while a subset of layers use global attention with head dimension 512. The model is loaded with the \texttt{SDPA} (Scaled Dot-Product Attention) implementation, which automatically dispatches each layer to a compatible backend, accommodating the mixed head dimensions without requiring per-layer patching.
+
+All training is performed on NVIDIA A100-SXM4 GPUs with 40~GB of VRAM, using the PLGrid Athena cluster. The LoRA configuration targets all attention and MLP projection matrices in the language model backbone (\texttt{q\_proj}, \texttt{k\_proj}, \texttt{v\_proj}, \texttt{o\_proj}, \texttt{gate\_proj}, \texttt{up\_proj}, \texttt{down\_proj}), using a regular expression that scopes the adapter placement to the language model sub-network and excludes the vision and audio towers present in the multimodal Gemma~4 checkpoint. This yields approximately 420 target modules and roughly 25 million trainable parameters---less than 0.1\% of the base model. The LoRA hyperparameters are $r = 16$, $\alpha = 32$, and dropout $0.05$.
+
+The frozen base model is loaded in 4-bit NF4 precision with double quantization enabled, and all compute is performed in \texttt{bfloat16}. The optimizer is \emph{paged AdamW 8-bit}~\cite{dettmers2023qlora}, which stores optimizer states in 8-bit quantized form and leverages CPU--GPU memory paging to stay within the GPU memory budget. Gradient checkpointing is enabled to trade compute for memory by recomputing activations during the backward pass rather than storing them.
+
+Training proceeds for 3 epochs with a learning rate of $10^{-4}$, a cosine learning rate schedule, and a warmup ratio of 0.03. The per-device batch size is 1, with gradient accumulation over 16 steps yielding an effective batch size of 16. The loss is computed only on the assistant (target) tokens, masking the system and user prompt tokens so that gradients flow exclusively from the desired output. This \emph{completion-only loss} prevents the model from being trained to predict its own input and focuses learning on producing the joint \texttt{\{text, triples\}} output for a given input instance.
+
+The maximum sequence length is adjusted per domain to accommodate the varying sizes of the raw structured instances while staying within the GPU memory budget. Wikidata instances are small (at most a few hundred bytes), so a maximum length of 8192 tokens is used. GSM Arena and OWID instances are larger, and a maximum length of 4096 tokens covers the majority of examples. OpenWeather forecast instances are the largest (approximately 18~KB each), and a maximum length of 6144 tokens is used to retain the bulk of each example while remaining within the activation memory ceiling. Instances exceeding the maximum length are truncated.
+
+After training, the LoRA adapter is merged back into the base model weights via the \texttt{merge\_and\_unload} operation, producing a standalone \texttt{bfloat16} checkpoint. The merged model is a drop-in replacement for the base model: it can be served by the same vLLM inference engine used by the tripler pipeline, with no adapter-loading overhead at inference time. The result is a domain-specialized model that, given a raw structured instance, produces both a natural-language verbalization and the corresponding set of semantic triples in a single decode pass.
