@@ -10,6 +10,7 @@ def restructure_domain_folder(domain_dir: Path, dry_run: bool = False) -> bool:
 
     best_program = domain_dir / "best_program.py"
     generated_texts = domain_dir / "generated_texts.json"
+    config_remote = domain_dir / "config_remote.yaml"
 
     if not best_program.exists() and not generated_texts.exists():
         return False
@@ -22,6 +23,8 @@ def restructure_domain_folder(domain_dir: Path, dry_run: bool = False) -> bool:
             print(f"  Move: {best_program.name} -> {target_dir.relative_to(domain_dir) / best_program.name}")
         if generated_texts.exists():
             print(f"  Move: {generated_texts.name} -> {target_dir.relative_to(domain_dir) / generated_texts.name}")
+        if not config_remote.exists():
+            print(f"  Create: config_remote.yaml")
         return True
 
     target_dir.mkdir(parents=True, exist_ok=True)
@@ -38,6 +41,11 @@ def restructure_domain_folder(domain_dir: Path, dry_run: bool = False) -> bool:
 
         shutil.move(str(src_file), str(dst_file))
         print(f"[MOVE] {src_file.name} -> {dst_file.relative_to(domain_dir)}")
+        moved_any = True
+
+    if not config_remote.exists():
+        config_remote.touch()
+        print(f"[CREATE] config_remote.yaml")
         moved_any = True
 
     return moved_any

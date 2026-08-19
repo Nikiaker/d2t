@@ -160,6 +160,9 @@ def main():
     best_dir = ZS_OUTPUT_DIR / "openevolve_output" / "best"
     best_dir.mkdir(parents=True, exist_ok=True)
 
+    config_path = ZS_OUTPUT_DIR / "config_remote.yaml"
+    config_path.touch()
+
     json_path = best_dir / "generated_texts.json"
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(generated, f, indent=2, ensure_ascii=False)
