@@ -54,6 +54,6 @@ export ZS_GEN_PORT={port_0}
 conda run -n openevolve-env python ./zeroshot/generate_zeroshot.py
 
 cd ./outputs/zeroshot/${WEBNLG_DOMAIN}_output
-export BEST_PROGRAM_PATH="$(pwd)/best_program.py"
+export BEST_PROGRAM_PATH="$(pwd)/openevolve_output/best/best_program.py"
 export LLM_JUDGES="[{\"name\": \"themis\", \"base_url\": \"http://localhost:{port_0}/v1\", \"api_key\": \"AiIsMyLife25\"}]"
 conda run -n openevolve-env python ../../../final_test.py

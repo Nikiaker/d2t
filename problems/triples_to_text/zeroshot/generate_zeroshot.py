@@ -157,14 +157,15 @@ def main():
     for idx, key in enumerate(keys_ordered):
         generated[key] = responses_by_index.get(idx, "").strip()
 
-    ZS_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    best_dir = ZS_OUTPUT_DIR / "openevolve_output" / "best"
+    best_dir.mkdir(parents=True, exist_ok=True)
 
-    json_path = ZS_OUTPUT_DIR / "generated_texts.json"
+    json_path = best_dir / "generated_texts.json"
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(generated, f, indent=2, ensure_ascii=False)
     print(f"Written {len(generated)} entries to {json_path}")
 
-    shim_path = ZS_OUTPUT_DIR / "best_program.py"
+    shim_path = best_dir / "best_program.py"
     shim_source = (
         'import json\n'
         'import os\n\n'
