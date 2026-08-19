@@ -61,6 +61,10 @@ def convert_checkpoint(checkpoint_path: Path, target_root: Path) -> bool:
     config_path.touch()
     print(f"  Created: {config_path}")
 
+    sh_path = target_dir / f"{domain}.sh"
+    sh_path.write_text("#!/bin/bash\n")
+    print(f"  Created: {sh_path}")
+
     print(f"  Stats: iteration={curr_iteration}, best_successes={best_num_successes_test}")
     return True
 
