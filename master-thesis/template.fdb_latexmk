@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex template"] 1786913366.85309 "template.aux" "template.bbl" "template" 1786913568.0707 0
+["bibtex template"] 1787259444.95244 "template.aux" "template.bbl" "template" 1787259494.01341 0
   "./bibliografia.bib" 1786908133.50813 3841 443243b119b0eeae782bea6c807e7636 ""
   "/nix/store/m5zvchrsayhz74yl12hdjsfsq3lpi4gj-texlive-combined-medium-2025-final-texmfdist/bibtex/bst/base/plain.bst" 1 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "template.aux" 1786913567.84369 8964 4f0d128150a7e8c5060b5dd8e5cd02ef "pdflatex"
+  "template.aux" 1787259493.77131 8851 0ee8e747e4fc786ec216532268e58bc0 "pdflatex"
   (generated)
   "template.bbl"
   "template.blg"
   (rewritten before read)
-["pdflatex"] 1786913567.22894 "template.tex" "template.pdf" "template" 1786913568.07102 0
+["pdflatex"] 1787259493.16815 "template.tex" "template.pdf" "template" 1787259494.01363 0
   "/nix/store/6sy41l5yv7hvikgr2bz7024fkkxjyc5k-texlive-combined-medium-2025-final/share/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1 366579 d032c5b7e508de68545703580a387c08 ""
   "/nix/store/6sy41l5yv7hvikgr2bz7024fkkxjyc5k-texlive-combined-medium-2025-final/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1 3438085 9594d02fe2715a265bb0c6dab6383834 ""
   "/nix/store/6sy41l5yv7hvikgr2bz7024fkkxjyc5k-texlive-combined-medium-2025-final/share/texmf-var/web2c/texmf.cnf" 1 44423 8c0319ea86b447d9e21aa2bb909b4166 ""
@@ -154,26 +154,26 @@
   "/nix/store/m5zvchrsayhz74yl12hdjsfsq3lpi4gj-texlive-combined-medium-2025-final-texmfdist/tex/latex/xpatch/xpatch.sty" 1 8314 7803f78066c4f9d008405191a4b43073 ""
   "appendices/appendix-prompts-blueprint.tex" 1786904648.56858 2336 0fa91a1130ba20d18b528d5a322cfa7c ""
   "appendices/appendix-prompts-catalog.tex" 1786904648.56864 1383 fb754e15894269be9138d3b87bac0814 ""
+  "appendices/appendix-prompts-finetune.tex" 1786904648.56878 1130 d57652e0ce97bf46fdcd4d876a399b74 ""
   "appendices/appendix-prompts-text-first.tex" 1786904648.56864 1794 06247a45e5fc5877505a5327008d447e ""
-  "appendix-prompts-finetune.tex" 1786904648.56878 1130 d57652e0ce97bf46fdcd4d876a399b74 ""
   "chapters/00-abstract.tex" 1786904648.56887 77 c580280f964bde9b6ec85eb16c0cb2a4 ""
   "chapters/01-introduction.tex" 1786904648.56887 505 7d64f603334d5c8722a500173ec322c8 ""
   "chapters/02-d2t-generation.tex" 1786904648.56887 242 2408be7b3c7c40512653f9ae541a38d8 ""
-  "chapters/03-meaning-representation.tex" 1786913565.10742 15848 c0ec7282ee3de91bda11e1b8d864c2bc ""
-  "chapters/03-sec2-data-conversion.tex" 1786910964.90627 15849 a5baaea50c9543aa9a8edd18deda69ee ""
+  "chapters/03-meaning-representation.tex" 1787259426.38142 15094 f2ef41800dbc9f05a961f0d59e7e684c ""
+  "chapters/03-sec2-data-conversion.tex" 1787255229.03231 15111 67b844d029e2e7a92aee9ef4f1b94365 ""
   "chapters/04-surface-realization.tex" 1786904648.56923 387 da041fda91ff5bcc000aaacff61a9170 ""
-  "chapters/05-experiments.tex" 1786904648.56923 186 7e7f8d628d5b932c37a7764570923db0 ""
+  "chapters/05-experiments.tex" 1787254267.8864 6307 00e9dc92706bfe1b9500d7408727f91f ""
   "chapters/06-discussion.tex" 1786904648.56923 43 9c72f38246b79ccd9f0745e8f5d72f10 ""
   "chapters/07-summary.tex" 1786904648.56927 40 acc9901da2b227df3731972e4181cba9 ""
-  "figures/ft-llm.png" 1786912906.07373 58365 93bc9b80cfad50bc2b3ca5d1c181bcb0 ""
+  "figures/ft-llm.png" 1787259488.04886 46788 c71b6f5aea4e657331ab028957e12d37 ""
   "figures/pipeline.png" 1786910640.67981 23261 f1ba7cf76c45ac8954708728fdfcc151 ""
   "figures/template/logo-pp.pdf" 1786904648.56978 56528 156916ff627b6379b6bf8e194f43a9a0 ""
   "ppfcmthesis.cls" 1786904648.56986 7556 5c4c5a27bf4d03f251fff4b8f52894d6 ""
-  "template.aux" 1786913567.84369 8964 4f0d128150a7e8c5060b5dd8e5cd02ef "pdflatex"
-  "template.bbl" 1786913366.87733 2065 91d61aa0f68c4a3c395f5a4ffdef34c5 "bibtex template"
-  "template.out" 1786913567.84485 7519 2581c67df47e34c55efdb618d4a882ca "pdflatex"
-  "template.tex" 1786904648.57414 2136 9154c97f9919442ee921f65fb240b6c7 ""
-  "template.toc" 1786913567.8456 3655 c01a8c92c9a53272f4c30d10a8605355 "pdflatex"
+  "template.aux" 1787259493.77131 8851 0ee8e747e4fc786ec216532268e58bc0 "pdflatex"
+  "template.bbl" 1787259444.97831 2065 91d61aa0f68c4a3c395f5a4ffdef34c5 "bibtex template"
+  "template.out" 1787259493.77366 7519 a9326c32fb6d89ce9b09c143216b6421 "pdflatex"
+  "template.tex" 1786914143.27997 2147 a77f2fc6e3b414ebc4cd31ddb9206261 ""
+  "template.toc" 1787259493.77453 3657 230bd16a1fc2eb39d453b8beba527181 "pdflatex"
   (generated)
   "template.aux"
   "template.log"

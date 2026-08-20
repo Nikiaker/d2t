@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/nixos.org) (preloaded format=pdflatex 1980.1.1)  16 AUG 2026 22:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/nixos.org) (preloaded format=pdflatex 1980.1.1)  20 AUG 2026 22:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -766,62 +766,66 @@ Chapter 2.
 
 ]
 Chapter 3.
-[3
 
-]
-Overfull \hbox (5.56047pt too wide) in paragraph at lines 34--35
-[]\T1/cmr/bx/n/10 Blueprint-Iterative Re-fine-ment\T1/cmr/m/n/10 ---an ap-proac
-h that it-er-a-tively re-fines ex-trac-tion blueprints
+Overfull \hbox (30.25085pt too wide) in paragraph at lines 12--14
+[]\T1/cmtt/m/n/9 {"name": "PhoneModel", "display": {"size": "6.5 inch", "resolu
+tion": "2400x1080"}, 
  []
 
-(./chapters/03-sec2-data-conversion.tex
+
+Overfull \hbox (0.67725pt too wide) in paragraph at lines 26--27
+[]\T1/cmr/m/n/10 This trans-for-ma-tion presents sev-eral chal-lenges that must
+ be ad-dressed by any prac-ti-cal method.
+ []
+
+[3
+
+{/nix/store/m5zvchrsayhz74yl12hdjsfsq3lpi4gj-texlive-combined-medium-2025-final
+-texmfdist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+(./chapters/03-sec2-data-conversion.tex [4]
 <figures/pipeline.png, id=253, 773.89125pt x 121.45375pt>
 File: figures/pipeline.png Graphic file (type png)
 <use figures/pipeline.png>
 Package pdftex.def Info: figures/pipeline.png  used on input line 10.
 (pdftex.def)             Requested size: 426.0pt x 66.8572pt.
- [4{/nix/store/m5zvchrsayhz74yl12hdjsfsq3lpi4gj-texlive-combined-medium-2025-fi
-nal-texmfdist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./figures/pipeline.pn
-g>] [5] [6] [7]) [8]
-Overfull \hbox (0.91615pt too wide) in paragraph at lines 57--58
+ [5 <./figures/pipeline.png>]
+[6] [7] [8])
+Overfull \hbox (0.91615pt too wide) in paragraph at lines 65--66
 []\T1/cmr/m/it/10 Parameter-efficient fine-tuning \T1/cmr/m/n/10 (PEFT) meth-od
 s ad-dress this by keep-ing the base model weights
  []
 
 [9]
-Overfull \hbox (18.89749pt too wide) in paragraph at lines 85--86
+Overfull \hbox (18.89749pt too wide) in paragraph at lines 96--97
 \T1/cmtt/m/n/10 {"text": "...", "triples": [{"subject": "...", "predicate": "..
 .", "object":
  []
 
-<figures/ft-llm.png, id=344, 683.55376pt x 703.62875pt>
+[10]
+<figures/ft-llm.png, id=337, 606.265pt x 500.87125pt>
 File: figures/ft-llm.png Graphic file (type png)
 <use figures/ft-llm.png>
-Package pdftex.def Info: figures/ft-llm.png  used on input line 98.
-(pdftex.def)             Requested size: 426.0pt x 438.52145pt.
-[10]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[11 <./figures/ft-llm.png>]) (./chapters/04-surface-realization.tex [12]
+Package pdftex.def Info: figures/ft-llm.png  used on input line 109.
+(pdftex.def)             Requested size: 426.0pt x 351.94493pt.
+) (./chapters/04-surface-realization.tex [11 <./figures/ft-llm.png>]
 Chapter 4.
-) (./chapters/05-experiments.tex [13
+) (./chapters/05-experiments.tex [12
 
 ]
 Chapter 5.
-) (./chapters/06-discussion.tex [14
+[13
 
-]
+] [14]) (./chapters/06-discussion.tex [15]
 Chapter 6.
-) (./chapters/07-summary.tex [15
+) (./chapters/07-summary.tex [16
 
 ]
 Chapter 7.
-) (./template.bbl [16
+) (./template.bbl [17
 
 ]
 bibitemlist
-) [17
+) [18
 
 ]
 Appendix A.
@@ -831,7 +835,7 @@ Overfull \hbox (5.0922pt too wide) in paragraph at lines 13--14
 bject":"..."}]}. Rules: pre-
  []
 
-) (./appendices/appendix-prompts-blueprint.tex [18
+) (./appendices/appendix-prompts-blueprint.tex [19
 
 ]
 Overfull \hbox (2.35211pt too wide) in paragraph at lines 13--14
@@ -863,7 +867,7 @@ Overfull \hbox (51.6712pt too wide) in paragraph at lines 18--19
 "predicate":"...","object":"..."}]}.
  []
 
-[19]) (./appendix-prompts-finetune.tex [20]
+[20]) (./appendices/appendix-prompts-finetune.tex [21]
 Appendix B.
 
 Overfull \hbox (256.74966pt too wide) in paragraph at lines 6--7
@@ -872,15 +876,15 @@ schema: {"text":"...","triples":[{"subject":"...","predicate":"...","object":".
 .."}]}.
  []
 
-) [21
+) [22
 
 ]
-<figures/template/logo-pp.pdf, id=433, 469.755pt x 469.755pt>
+<figures/template/logo-pp.pdf, id=434, 469.755pt x 469.755pt>
 File: figures/template/logo-pp.pdf Graphic file (type pdf)
 <use figures/template/logo-pp.pdf>
 Package pdftex.def Info: figures/template/logo-pp.pdf  used on input line 89.
 (pdftex.def)             Requested size: 42.67752pt x 42.67912pt.
- [22
+ [23
 
  <./figures/template/logo-pp.pdf>]
 \tf@toc=\write6
@@ -892,16 +896,16 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `template.out' has not changed.
-(rerunfilecheck)             Checksum: 2581C67DF47E34C55EFDB618D4A882CA;7519.
+(rerunfilecheck)             Checksum: A9326C32FB6D89CE9B09C143216B6421;7519.
  ) 
 Here is how much of TeX's memory you used:
- 15074 strings out of 468657
- 244583 string characters out of 5422359
- 685414 words of memory out of 5000000
+ 15075 strings out of 468657
+ 244667 string characters out of 5422359
+ 685400 words of memory out of 5000000
  43471 multiletter control sequences out of 15000+600000
  650373 words of font info for 95 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 99i,13n,107p,1187b,648s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 99i,13n,107p,1071b,648s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </nix/store/m5zvchrsayhz74yl12hdjsfsq3lpi4gj-texlive-combined-medium-2025-fin
 al-texmfdist/fonts/type1/public/amsfonts/cm/cmex10.pfb></nix/store/m5zvchrsayhz
 74yl12hdjsfsq3lpi4gj-texlive-combined-medium-2025-final-texmfdist/fonts/type1/p
@@ -952,10 +956,10 @@ t/fonts/type1/public/cm-super/sftt0800.pfb></nix/store/m5zvchrsayhz74yl12hdjsfs
 q3lpi4gj-texlive-combined-medium-2025-final-texmfdist/fonts/type1/public/cm-sup
 er/sftt0900.pfb></nix/store/m5zvchrsayhz74yl12hdjsfsq3lpi4gj-texlive-combined-m
 edium-2025-final-texmfdist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on template.pdf (26 pages, 682481 bytes).
+Output written on template.pdf (27 pages, 689108 bytes).
 PDF statistics:
- 600 PDF objects out of 1000 (max. 8388607)
+ 601 PDF objects out of 1000 (max. 8388607)
  499 compressed objects within 5 object streams
- 110 named destinations out of 1000 (max. 500000)
+ 111 named destinations out of 1000 (max. 500000)
  328 words of extra memory for PDF output out of 10000 (max. 10000000)
 

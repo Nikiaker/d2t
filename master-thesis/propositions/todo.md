@@ -25,3 +25,4 @@
 [v] add an appendix for the prompts mentioned in 3.3.2
 [v] in 3.3.3 present the qlora parameters in a more graphical way. e.g use a list or a table
 [v] don't mention that we use a merge_and_unload operation, because the reader knows nothing what it is. Instead explain what that operation does.
+

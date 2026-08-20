@@ -3,41 +3,49 @@
 
 \section{Method Overview}
 
-\subsection{Data Collection}
+The central problem addressed in this work is the conversion of complex structured data into interpretable meaning representations. Modern data sources frequently provide information in structured formats such as JSON or XML, containing nested fields, time series, categorical values, and hierarchical relationships. While these formats are efficient for data storage and exchange, they are not directly amenable to semantic reasoning, or natural language understanding tasks. The challenge lies in extracting the semantic content from these structures and representing it in a standardized, machine-interpretable form.
 
-The experimental evaluation in this work requires structured data from diverse domains. To obtain such data, \emph{quintd}~\cite{kasner2024beyond} is used, a framework for collecting \emph{ad hoc} data-to-text datasets. Quintd downloads up-to-date structured data from real-world APIs. The framework supports five domains: weather forecasts, mobile phone specifications, ice hockey game summaries, health statistics, and world knowledge entities.
+The goal is to transform structured data into semantic triples---subject-predicate-object statements that capture the essential meaning of the data. For example, consider a JSON object describing a mobile phone with nested specifications:
 
-From the five domains available in quintd, four datasets are used in the experiments:
+\begin{quote}
+\small
+\texttt{\{"name": "PhoneModel", "display": \{"size": "6.5 inch", "resolution": "2400x1080"\},} \\
+\texttt{"battery": \{"capacity": "5000 mAh"\}, "camera": \{"main": "108 MP"\}\}}
+\end{quote}
 
-\begin{description}
-  \item[\textbf{GSMArena}] Mobile phone specifications scraped from the GSMArena website. Each instance describes a single phone model with nested categories (Network, Launch, Body, Display, Platform, Memory, Camera, Battery, etc.) containing attribute--value pairs.
-  
-  \item[\textbf{OpenWeather}] Five-day weather forecasts obtained from the OpenWeather API. Each instance contains a time series of 40 three-hour intervals, with each interval recording temperature, humidity, wind speed, cloud coverage, and weather conditions.
-  
-  \item[\textbf{OWID (Our World in Data)}] Country-level time series metrics from the Our World in Data project. Each instance represents a single metric (e.g., life expectancy, vaccination rates, reproduction rate) for a specific country, containing yearly data points spanning several decades.
-  
-  \item[\textbf{Wikidata}] Knowledge graph entities and their properties from Wikidata. Each instance describes an entity (e.g., a country, film, or organization) with a list of property--value pairs (e.g., capital, cast member, language used).
-\end{description}
+\noindent This structured data should be converted into triples such as:
+\begin{itemize}
+  \item \texttt{(PhoneModel, hasDisplaySize, 6.5 inch)}
+  \item \texttt{(PhoneModel, hasDisplayResolution, 2400x1080)}
+  \item \texttt{(PhoneModel, hasBatteryCapacity, 5000 mAh)}
+  \item \texttt{(PhoneModel, hasMainCamera, 108 MP)}
+\end{itemize}
 
-The fifth domain, \emph{ice hockey}, is available in quintd but is excluded from our experiments due to API rate limits and associated costs.
+\noindent These triples capture the semantic relationships in a format that can be directly used for querying, and reasoning.
 
-All datasets are provided as JSON files containing arrays of structured records. A \emph{raw structured instance} is defined as a single JSON object representing one self-contained data record from any of these domains. Each instance contains nested fields with structured data---time series, categorical values, numerical measurements, or hierarchical attribute lists---that must be converted into semantic triples. Let $D = \{d_1, \dots, d_N\}$ denote the set of $N$ such instances extracted from the input JSON for a given domain.
+This transformation presents several challenges that must be addressed by any practical method. First, the input data varies significantly in structure and complexity: some sources contain flat key-value pairs, while others have deeply nested hierarchies, time series with dozens of data points, or categorical attributes with multiple values. Second, the extraction must preserve semantic accuracy, ensuring that the generated triples faithfully represent the information in the source data without introducing errors or omissions. Third, predicate normalization is essential for consistency: the same relationship should be expressed using the same predicate across different instances (e.g., always \texttt{hasBatteryCapacity} rather than sometimes \texttt{battery\_capacity}, sometimes \texttt{has\_battery}, etc.). Fourth, the methods must scale to handle large datasets efficiently, as real-world applications may involve thousands or millions of instances.
+
+To address these challenges, two complementary approaches are investigated in this work. The first consists of pipeline-based methods that use large language models in a multi-stage process: first generating natural-language references from the structured data, then extracting semantic triples from those references. The second approach distills this behavior into a single domain-specialized fine-tuned model that produces both the natural-language text and the semantic triples in a single pass. Both approaches are described in detail in the following sections.
 
 \subsection{Conversion Methods Overview}
 
-Two complementary approaches are investigated for converting raw structured instances into semantic triples.
+Two complementary approaches are investigated for converting raw structured instances into semantic triples. The first consists of three pipeline variants that use a general-purpose LLM to first generate reference texts and then extract triples, while the second distills this behavior into a single domain-specialized fine-tuned model.
 
 \paragraph{Pipeline-based methods.}
-The first approach, described in Section~\ref{sec:data-conversion}, consists of three pipeline variants that convert data to triples using large language models. All three methods follow a common two-stage structure: in the first stage, each raw structured instance is converted into a natural-language reference text; in the second stage, semantic triples are extracted from that text. The three variants differ in how they manage predicate consistency and validation:
+The first approach, described in Section~\ref{sec:data-conversion}, consists of three pipeline variants that convert data to triples using large language models. All three methods follow a common two-stage structure: in the first stage, each raw structured instance is converted into a natural-language reference text; in the second stage, semantic triples are extracted from that text. The three variants differ in how they manage predicate consistency and validation.
+
+The fundamental challenge is that predicate consistency---ensuring the same semantic relationship is expressed with the same predicate across all instances---requires some form of coordination between extraction calls, but such coordination introduces sequential dependencies that reduce throughput. A fully parallel approach maximizes speed but produces inconsistent predicates; a fully sequential approach ensures consistency but is slow. The three variants explore different points in this tradeoff space:
+
 \begin{itemize}
-  \item \textbf{Text-First Extraction with Normalization}---a stateless approach that extracts triples independently and normalizes predicates post-hoc;
-  \item \textbf{Blueprint-Iterative Refinement}---an approach that iteratively refines extraction blueprints through validation against reference texts;
-  \item \textbf{Evolving Catalog}---a hybrid approach that maintains a mutable predicate catalog and transitions from sequential to batch processing based on stability.
+  \item \textbf{Text-First Extraction with Normalization} prioritizes throughput by extracting triples independently in parallel, accepting predicate inconsistency during extraction and resolving it through a post-hoc normalization stage. This approach is the fastest but requires additional LLM calls for normalization.
+  
+  \item \textbf{Blueprint-Iterative Refinement} prioritizes interpretability and control by creating an explicit, human-inspectable specification (the blueprint) that defines the predicate vocabulary upfront. The blueprint is iteratively validated and refined against reference texts before extraction. This approach provides the most structured and auditable output but requires multiple validation rounds.
+  
+  \item \textbf{Evolving Catalog} seeks a middle ground by building predicate consistency incrementally during a sequential bootstrap phase, then switching to batch processing once the predicate vocabulary stabilizes. This hybrid approach balances consistency and throughput, adapting to the data's complexity.
 \end{itemize}
-All pipeline methods use \emph{Gemma~4 31B IT}~\cite{team2024gemma,team2026gemma} as the underlying language model, served via \emph{vLLM}~\cite{kwon2023vllm} for high-throughput batched inference.
 
 \paragraph{Fine-tuned model.}
-The second approach, described in Section~\ref{sec:finetuned-model}, distills the behavior of the multi-stage pipeline into a single domain-specialized model. Using \emph{QLoRA} (Quantized Low-Rank Adaptation), Gemma~4 31B IT is fine-tuned to produce both natural-language text and semantic triples in a single decode pass. This approach trades the flexibility of the pipeline for reduced inference latency and improved consistency, at the cost of requiring per-domain fine-tuning on reference outputs produced by the pipeline.
+The second approach, described in Section~\ref{sec:finetuned-model}, distills the behavior of the multi-stage pipeline into a single domain-specialized model. Using \emph{QLoRA} (Quantized Low-Rank Adaptation), a model is fine-tuned to produce both natural-language text and semantic triples in a single decode pass. This approach trades the flexibility of the pipeline for reduced inference latency and improved consistency, at the cost of requiring per-domain fine-tuning on reference outputs produced by the pipeline.
 
 \input{chapters/03-sec2-data-conversion}
 
@@ -48,16 +56,19 @@ The methods described in Section~\ref{sec:data-conversion} rely on repeated invo
 
 \subsection{Supervised Fine-Tuning and QLoRA}
 
-Supervised fine-tuning (SFT) adapts a pre-trained language model to a specific task by training it on labeled input--output pairs. Given a pre-trained model $M_\theta$ with parameters $\theta$ and a dataset $\{(x_i, y_i)\}_{i=1}^{n}$ of input--output examples, SFT minimizes the negative log-likelihood of the targets~\cite{ouyang2022instructgpt}:
+Supervised fine-tuning (SFT) adapts a pre-trained language model to a specific task by training it on input--output pairs. Given a pre-trained model $M_\theta$ with parameters $\theta$ and a dataset $\{(x_i, y_i)\}_{i=1}^{n}$ of input--output examples, SFT minimizes the negative log-likelihood of the targets~\cite{ouyang2022instructgpt}:
 \begin{equation}
   \mathcal{L}(\theta) = -\frac{1}{n}\sum_{i=1}^{n}\sum_{t=1}^{|y_i|} \log P_\theta(y_{i,t} \mid x_i, y_{i,<t}).
 \end{equation}
-For small models (up to a few billion parameters), full SFT---updating all parameters $\theta$---is feasible on modern GPU hardware. However, for models with tens of billions of parameters, full fine-tuning becomes prohibitively expensive: a 31-billion-parameter model in 16-bit precision requires approximately 62~GB of memory for the weights alone, and the Adam optimizer~\cite{kingma2014adam} maintains two additional moment estimates per parameter, roughly doubling the memory footprint.
+For small models (up to a few billion parameters), full SFT---updating all parameters $\theta$---is feasible on modern GPU hardware. However, for models with tens of billions of parameters, full fine-tuning becomes prohibitively expensive: a 31-billion-parameter model in 16-bit precision requires approximately 62~GB of memory for the weights alone, and the standard Adam optimizer~\cite{kingma2014adam} maintains two additional moment estimates per parameter, roughly doubling the memory footprint.
 
 \emph{Parameter-efficient fine-tuning} (PEFT) methods address this by keeping the base model weights frozen and introducing a small number of trainable parameters~\cite{mangrulkar2022peft}. Among these, \emph{Low-Rank Adaptation} (LoRA)~\cite{hu2021lora} has become the most widely adopted. LoRA decomposes the weight update into a low-rank product: for each frozen weight matrix $W_0$, the forward pass is modified as
 \begin{equation}
   h = W_0 x + \Delta W x = W_0 x + \frac{\alpha}{r} B A x,
 \end{equation}
+
+In this formulation, $W_0 x$ represents the output of the original pretrained model, while $\Delta W x$ is the learned task-specific adaptation. The key insight from Hu et al.~\cite{hu2021lora} is that the weight updates $\Delta W$ during fine-tuning also have low ``intrinsic rank,'' meaning they can be approximated by a low-rank decomposition. Rather than updating the full weight matrix $W_0$, LoRA keeps $W_0$ frozen and learns the low-rank matrices $A$ and $B$, where $\Delta W = \frac{\alpha}{r} BA$. The scaling factor $\frac{\alpha}{r}$ controls the magnitude of the adaptation relative to the pretrained weights. This decomposition reduces the number of trainable parameters from $d \times k$ (the full weight matrix) to $r \times (d + k)$ (the two low-rank matrices), where $r \ll \min(d, k)$.
+
 where:
 \begin{itemize}
   \item $W_0 \in \mathbb{R}^{d \times k}$ is the frozen pretrained weight matrix
@@ -71,19 +82,19 @@ where:
 \end{itemize}
 Only $A$ and $B$ are updated by the optimizer; $W_0$ remains frozen and requires no gradient storage or optimizer state. For a typical transformer with attention projections $W_q, W_k, W_v, W_o$ and feed-forward projections $W_{\mathrm{gate}}, W_{\mathrm{up}}, W_{\mathrm{down}}$, LoRA adapters are attached to each projection, yielding a trainable parameter count that is a small fraction of the base model (on the order of tens of millions versus tens of billions).
 
-\emph{QLoRA}~\cite{dettmers2023qlora} extends LoRA with two memory-reduction techniques that together allow fine-tuning a 31-billion-parameter model on a single GPU with 40~GB of VRAM. First, the frozen base model weights are quantized to \emph{4-bit NormalFloat} (NF4), a quantization datatype introduced by Dettmers et al.~\cite{dettmers2023qlora} that is information-theoretically optimal for normally distributed weights (see Section 3 of their paper for theoretical justification). A \emph{double quantization} step further quantizes the quantization constants themselves, reducing the per-parameter overhead. Second, \emph{paged optimizers} leverage NVIDIA unified memory to transparently page optimizer state between GPU and CPU memory when the GPU reaches capacity, avoiding out-of-memory failures during gradient accumulation steps. The forward and backward passes are performed in \texttt{bfloat16} precision: the 4-bit weights are dequantized on the fly for each matrix multiplication, preserving numerical quality close to a full-precision fine-tune while keeping the memory footprint low.
-
 At the data scales typical for domain-specific data-to-text tasks (on the order of several hundred to a few thousand labeled examples), LoRA's low-rank constraint also acts as a regularizer: by limiting the number of trainable parameters, it reduces the risk of overfitting and preserves the general linguistic capabilities acquired during pre-training~\cite{hu2021lora}.
+
+\emph{QLoRA}~\cite{dettmers2023qlora} extends LoRA with two memory-reduction techniques that together allow fine-tuning a 31-billion-parameter model on a single GPU with 40~GB of VRAM. First, the frozen base model weights are quantized to \emph{4-bit NormalFloat} (NF4), a quantization datatype that is information-theoretically optimal for normally distributed weights. A \emph{double quantization} step further quantizes the quantization constants themselves, reducing the per-parameter overhead. Second, \emph{paged optimizers} leverage NVIDIA unified memory to transparently page optimizer state between GPU and CPU memory when the GPU reaches capacity, avoiding out-of-memory failures during gradient accumulation steps. The forward and backward passes are performed in \texttt{bfloat16} precision: the 4-bit weights are dequantized on the fly for each matrix multiplication, preserving numerical quality close to a full-precision fine-tune while keeping the memory footprint low.
 
 \subsection{Training Data Construction}
 
-Rather than collecting human-annotated text--triple pairs, the training data for the fine-tuned model is produced by \emph{distilling} the outputs of the tripler pipeline described in Section~\ref{sec:data-conversion}. For each raw structured instance $d_i$ processed by a tripler method, the pipeline already produces a reference text $t_i$ and a set of normalized triples $T_i = \{(s_k, \pi_k, o_k)\}$. These two outputs, aligned by instance identifier, constitute exactly the joint target that the fine-tuned model should learn to produce in a single pass.
+Rather than collecting human-annotated data--triple pairs, the training data for the fine-tuned model is produced by \emph{distilling} one of the pipeline described in Section~\ref{sec:data-conversion}. For each raw structured instance $d_i$ processed by a tripler method, the pipeline already produces a reference text $t_i$ and a set of normalized triples $T_i = \{(s_k, \pi_k, o_k)\}$. These two outputs, aligned by instance identifier, constitute exactly the joint target that the fine-tuned model should learn to produce in a single pass.
 
 Each training example is formatted as a three-message conversation following the base model's chat template:
 
 \begin{itemize}
   \item \textbf{System prompt.} An instruction directing the model to convert one structured data instance into concise natural language and a corresponding set of RDF semantic triples (see Appendix~\ref{app:prompts-finetune} for the complete prompt text), and to return the result as a JSON object of schema \texttt{\{"text": "...", "triples": [\{"subject": "...", "predicate": "...", "object": "..."\}]\}}.
-  \item \textbf{User message.} A prompt that presents the serialized instance and requests the joint output (see Appendix~\ref{app:prompts-finetune} for the complete template). The wording and instance serialization are kept byte-identical to the prompts used by the tripler pipeline at inference time, ensuring \emph{prompt parity}: the token sequence seen during training matches the token sequence the model will encounter when served.
+  \item \textbf{User message.} A prompt that presents the serialized instance and requests the reference text and triples (see Appendix~\ref{app:prompts-finetune} for the complete template). The wording and instance serialization are kept byte-identical to the prompts used by the tripler pipeline at inference time, ensuring \emph{prompt parity}: the token sequence seen during training matches the token sequence the model will encounter when served.
   \item \textbf{Assistant message (target).} A JSON string encoding the reference text and the normalized triples (see Appendix~\ref{app:prompts-finetune} for the expected output format): \texttt{\{"text": $t_i$, "triples": $T_i$\}}.
 \end{itemize}
 
@@ -91,50 +102,11 @@ The messages are rendered through the base tokenizer's \texttt{chat\_template} f
 
 A notable consequence of this distillation approach is that the fine-tuned model is bounded by the quality of the reference labels: it can learn to reproduce the pipeline's outputs more efficiently and consistently, but it cannot exceed their quality. Improving the reference labels is an upstream concern addressed by the tripler pipeline design, not by fine-tuning.
 
-The dataset is split into a training, evaluation and test set. The split is deterministic, controlled by a fixed random seed, so that results are reproducible across runs. One fine-tuned model is produced per domain (mobile phone specifications, weather forecasts, Wikidata entries, illness reports), keeping the predicate vocabulary and verbalization style specialized to that domain.
+The dataset is split into a training, evaluation and test set. The split is deterministic, controlled by a fixed random seed, so that results are reproducible across runs. One fine-tuned model is produced per domain, keeping the predicate vocabulary and verbalization style specialized to that domain.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{figures/ft-llm.png}
-    \caption{Fine-tuning flow: the raw structured instances, tripler pipeline reference texts and triples are used to train a domain-specialized model via QLoRA. The resulting model can produce both outputs in a single decode pass.}
+    \caption{Fine-tuning flow: the raw structured instances, reference texts and triples are used to train a domain-specialized model via QLoRA. The resulting model can produce both outputs in a single decode pass.}
     \label{fig:ft-llm}
 \end{figure}
-
-\subsection{Training Configuration}
-
-The base model for all fine-tuning experiments is \emph{Gemma~4 31B IT} (described in Section~\ref{sec:data-conversion}).
-
-All training is performed on NVIDIA A100-SXM4 GPUs with 40~GB of VRAM, using the PLGrid Athena cluster. Table~\ref{tab:qlora-config} summarizes the complete training configuration.
-
-\begin{table}[h]
-\centering
-\caption{QLoRA training configuration}
-\label{tab:qlora-config}
-\begin{tabular}{ll}
-\hline
-\textbf{Component} & \textbf{Value} \\
-\hline
-Base model & Gemma 4 31B IT \\
-LoRA rank ($r$) & 16 \\
-LoRA scaling ($\alpha$) & 32 \\
-LoRA dropout & 0.05 \\
-Target modules & 420 (all attention and MLP projections) \\
-Trainable parameters & ~25M (<0.1\% of base model) \\
-Quantization & 4-bit NF4 with double quantization \\
-Compute precision & bfloat16 \\
-Optimizer & Paged AdamW 8-bit \\
-Learning rate & $10^{-4}$ (cosine schedule) \\
-Warmup ratio & 0.03 \\
-Epochs & 3 \\
-Effective batch size & 16 (per-device: 1, accumulation: 16) \\
-Max sequence length & 4096--8192 (domain-dependent) \\
-Loss type & Completion-only (prompt masked) \\
-\hline
-\end{tabular}
-\end{table}
-
-The LoRA configuration targets all attention and MLP projection matrices in the language model backbone (\texttt{q\_proj}, \texttt{k\_proj}, \texttt{v\_proj}, \texttt{o\_proj}, \texttt{gate\_proj}, \texttt{up\_proj}, \texttt{down\_proj}), using a regular expression that scopes the adapter placement to the language model sub-network and excludes the vision and audio towers present in the multimodal Gemma~4 checkpoint. This yields approximately 420 target modules and roughly 25 million trainable parameters---less than 0.1\% of the base model.
-
-The maximum sequence length is adjusted per domain to accommodate the varying sizes of the raw structured instances while staying within the GPU memory budget. Wikidata instances are small (at most a few hundred bytes), so a maximum length of 8192 tokens is used. GSM Arena and OWID instances are larger, and a maximum length of 4096 tokens covers the majority of examples. OpenWeather forecast instances are the largest (approximately 18~KB each), and a maximum length of 6144 tokens is used to retain the bulk of each example while remaining within the activation memory ceiling. Instances exceeding the maximum length are truncated.
-
-After training, the LoRA adapter weights are combined with the frozen base model weights to produce a single, standalone model. This process, known as \emph{weight merging}, computes $W_{\mathrm{final}} = W_0 + \Delta W$ for each adapted layer, effectively absorbing the adapter's learned modifications into the base model. The resulting model contains no separate adapter components and can be served as a standard \texttt{bfloat16} checkpoint. The merged model is a drop-in replacement for the base model: it can be served by the same vLLM inference engine used by the tripler pipeline, with no adapter-loading overhead at inference time. The result is a domain-specialized model that, given a raw structured instance, produces both a natural-language verbalization and the corresponding set of semantic triples in a single decode pass.
