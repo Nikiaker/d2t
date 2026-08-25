@@ -41,10 +41,7 @@ can operate in a single turn or across multiple turns, and it can be standalone
 or augmented with tools such as terminals, compilers, debuggers, profilers,
 language servers, and version-control systems. Finally, it can be static, using
 the same procedure for every task, or adaptive, changing its plan in response to
-observations from the development environment. These dimensions are useful for
-positioning the system presented in this chapter: OpenEvolve is adaptive and
-iterative, but its action space is deliberately restricted to modifying a
-specified program and its progress is determined by an automated evaluator.
+observations from the development environment.
 
 \subsection{Current state of the art}
 
@@ -106,15 +103,6 @@ also contain realistic multi-file tasks, multiple languages, tool interaction,
 intermediate feedback, and metrics for robustness and recovery rather than
 functional correctness alone.
 
-The method used in this thesis addresses a narrower but well-defined version of
-these challenges. The task is not to give an agent unrestricted access to a
-repository. Instead, a complete surface-realization program is supplied,
-changes are restricted to an explicitly marked region, and each proposed
-program is executed by an evaluator. The restriction makes the search easier to
-reproduce and the results easier to attribute: a program is retained because it
-achieves a measurable score, not because its textual explanation appears
-convincing.
-
 \section{AlphaEvolve}
 \label{sec:alphaevolve}
 
@@ -175,7 +163,7 @@ interface. Third, an evaluator function must be provided. The evaluator
 receives the generated program, executes it on the task-specific inputs, and
 returns a dictionary of scalar metrics.
 
-This interface is important for the experiment in this thesis. The fixed
+The fixed
 skeleton defines the \texttt{Triple} data class, while the marked block contains
 the implementation of \texttt{predict}. Every candidate must therefore retain
 the same input and output contract even when its internal realization strategy
@@ -183,7 +171,7 @@ changes substantially.
 
 \subsection{Architecture of AlphaEvolve}
 
-The public description of AlphaEvolve separates the discovery process into the
+The description of AlphaEvolve separates the discovery process into the
 following cooperating components~\cite{novikov2025alphaevolve}:
 
 \begin{enumerate}

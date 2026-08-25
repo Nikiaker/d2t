@@ -26,3 +26,7 @@
 [v] in 3.3.3 present the qlora parameters in a more graphical way. e.g use a list or a table
 [v] don't mention that we use a merge_and_unload operation, because the reader knows nothing what it is. Instead explain what that operation does.
 
+[] we need some kind of overview of what we are even doing in surface realization
+[] talk more about the loop and components, fix the loop, add a graph maybe
+[] add the prompts to appendix
+[] mention themis (reference)
