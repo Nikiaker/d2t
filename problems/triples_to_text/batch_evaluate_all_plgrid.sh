@@ -6,7 +6,7 @@
 #SBATCH -c16
 #SBATCH --mem=32G
 #SBATCH --gres=gpu:5
-#SBATCH --time=2:00:00
+#SBATCH --time=48:00:00
 SERVER_LOG1="$HOME/vllm-server1.log"
 SERVER_LOG2="$HOME/vllm-server2.log"
 SERVER_LOG3="$HOME/vllm-server3.log"
@@ -65,24 +65,24 @@ conda run -n openevolve-env python $D2TPATH/.conda/test-response.py --port 2995
 conda run -n openevolve-env python $D2TPATH/tripler/batch_wrapper_server.py \
     --upstream-base-url http://localhost:2993 \
     --port 2996 \
-    --storage-dir $HOME/.batch_wrapper_data1 \
+    --storage-dir $SCRATCH/.batch_wrapper_data1 \
 	2>&1 &
 
 conda run -n openevolve-env python $D2TPATH/tripler/batch_wrapper_server.py \
     --upstream-base-url http://localhost:2994 \
     --port 2997 \
-    --storage-dir $HOME/.batch_wrapper_data2 \
+    --storage-dir $SCRATCH/.batch_wrapper_data2 \
 	2>&1 &
 
 conda run -n openevolve-env python $D2TPATH/tripler/batch_wrapper_server.py \
     --upstream-base-url http://localhost:2995 \
     --port 2998 \
-    --storage-dir $HOME/.batch_wrapper_data3 \
+    --storage-dir $SCRATCH/.batch_wrapper_data3 \
 	2>&1 &
 
 export WEBNLG_BASE_PATH="$D2TPATH/problems/triples_to_text/tests/webnlg/release_v3.0/en/"
 export LLM_JUDGES="[{\"name\": \"google/gemma-4-31B-it\", \"structured\": true, \"base_url\": \"http://localhost:2996/v1\", \"api_key\": \"AiIsMyLife25\"},{\"name\": \"Qwen/Qwen3.6-35B-A3B-FP8\", \"structured\": true, \"base_url\": \"http://localhost:2997/v1\", \"api_key\": \"AiIsMyLife25\"},{\"name\": \"PKU-ONELab/Themis\", \"structured\": false, \"base_url\": \"http://localhost:2998/v1\", \"api_key\": \"AiIsMyLife25\"}]"
 
 cd $D2TPATH/problems/triples_to_text
-conda run -n openevolve-env python run_final_test_for_configs.py results/plgrid/ 2
-conda run -n openevolve-env python collect_scores_to_csv.py results/plgrid/ 2
+conda run -n openevolve-env python run_final_test_for_configs.py outputs/ 2
+conda run -n openevolve-env python collect_scores_to_csv.py outputs/ 2
