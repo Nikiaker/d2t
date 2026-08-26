@@ -10,11 +10,15 @@ Metrics (matching problems/triples_to_text/final_test.py for comparability):
 
 Usage:
     python eval.py \
+        --train tripler/finetune/datasets/gsmarena/train.jsonl \
         --dev tripler/finetune/datasets/gsmarena/dev.jsonl \
         --port 2997 \
         --report tripler/finetune/runs/gsmarena/eval_report.json \
+        --vllm-env vllm-env \
         --model base RedHatAI/gemma-4-31B-it \
         --model ft $SCRATCH/ft_models/gsmarena_gemma4_31b_merged \
+        --model checkpoint-100 $SCRATCH/ft_models/gsmarena_gemma4_31b_checkpoint_100_merged \
+        --model checkpoint-150 $SCRATCH/ft_models/gsmarena_gemma4_31b_checkpoint_150_merged \
         [--catalog tripler/outputs/<run>/mobile_phone_specification/extracted_triples_text_predicate_catalog_stable.json]
 """
 
@@ -95,7 +99,7 @@ def _wait_for_vllm(port: int, api_key: str, timeout: int = 600) -> bool:
     return False
 
 
-def _start_vllm(model_path: str, port: int, api_key: str, tp: int) -> subprocess.Popen:
+def _start_vllm(model_path: str, port: int, api_key: str, tp: int, vllm_env: str | None) -> subprocess.Popen:
     cmd = [
         "vllm", "serve", model_path,
         "--port", str(port),
@@ -107,13 +111,17 @@ def _start_vllm(model_path: str, port: int, api_key: str, tp: int) -> subprocess
         "--max-num-batched-tokens", "4096",
         "--gpu-memory-utilization", "0.95",
     ]
+    if vllm_env:
+        cmd = ["conda", "run", "--no-capture-output", "-n", vllm_env, *cmd]
     logger.info("starting vLLM: %s", " ".join(cmd))
-    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    env = os.environ.copy()
+    env["VLLM_USE_FLASHINFER_SAMPLER"] = "0"
+    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, env=env)
     return proc
 
 
 async def _generate_async(
-    client: AsyncOpenAI, model: str, dev: list[dict], max_tokens: int, concurrency: int = 32
+    client: AsyncOpenAI, model: str, records: list[dict], max_tokens: int, concurrency: int = 32
 ) -> list[dict | None]:
     sem = asyncio.Semaphore(concurrency)
 
@@ -133,7 +141,7 @@ async def _generate_async(
                 return None
             return {"raw": content, "parsed": _extract_json(content)}
 
-    return await asyncio.gather(*[_one(i, rec) for i, rec in enumerate(dev)])
+    return await asyncio.gather(*[_one(i, rec) for i, rec in enumerate(records)])
 
 
 def _triple_set(triples: list) -> set[tuple[str, str, str]]:
@@ -146,14 +154,14 @@ def _triple_set(triples: list) -> set[tuple[str, str, str]]:
     return s
 
 
-def _score_model(name: str, preds: list[dict | None], dev: list[dict], catalog: set[str] | None) -> dict:
+def _score_model(name: str, preds: list[dict | None], records: list[dict], catalog: set[str] | None) -> dict:
     bleu, meteor = _metrics()
     bleu_scores, meteor_scores = [], []
     tp = fp = fn = 0
     adhere = 0
     adhere_total = 0
     n_parsed = 0
-    for pred, rec in zip(preds, dev):
+    for pred, rec in zip(preds, records):
         ref = _assistant_target(rec)
         ref_text = ref.get("text", "")
         ref_set = _triple_set(ref.get("triples", []))
@@ -183,9 +191,9 @@ def _score_model(name: str, preds: list[dict | None], dev: list[dict], catalog: 
     f1 = 2 * prec * rec / (prec + rec) if (prec + rec) else 0.0
     return {
         "model": name,
-        "n_dev": len(dev),
+        "n_examples": len(records),
         "n_parsed": n_parsed,
-        "parse_rate": n_parsed / len(dev) if dev else 0.0,
+        "parse_rate": n_parsed / len(records) if records else 0.0,
         "bleu": float(np.mean(bleu_scores)) if bleu_scores else 0.0,
         "meteor": float(np.mean(meteor_scores)) if meteor_scores else 0.0,
         "triple_precision": prec,
@@ -201,12 +209,18 @@ def _score_model(name: str, preds: list[dict | None], dev: list[dict], catalog: 
 def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--train", type=Path, default=None)
     parser.add_argument("--dev", type=Path, required=True)
     parser.add_argument("--report", type=Path, required=True)
     parser.add_argument("--port", type=int, default=2997)
     parser.add_argument("--api-key", default="none")
     parser.add_argument("--max-tokens", type=int, default=2048)
     parser.add_argument("--tp", type=int, default=2, help="vLLM tensor-parallel-size (GPUs for serving).")
+    parser.add_argument(
+        "--vllm-env",
+        default=None,
+        help="Conda environment containing vLLM. If omitted, vLLM is launched from the current environment.",
+    )
     parser.add_argument("--model", action="append", nargs=2, metavar=("LABEL", "PATH"),
                         required=True, help="Repeatable: --model <label> <hf_id_or_path>")
     parser.add_argument("--catalog", type=Path, default=None,
@@ -219,25 +233,41 @@ def main() -> None:
         catalog = set(cdoc.get("unique_predicates_after", []) or cdoc.get("unique_predicates", []))
         logger.info("loaded %d catalog predicates", len(catalog))
 
+    datasets = []
+    if args.train:
+        train = _load_dev(args.train)
+        logger.info("loaded %d train examples", len(train))
+        datasets.append(("train", train))
     dev = _load_dev(args.dev)
     logger.info("loaded %d dev examples", len(dev))
+    datasets.append(("dev", dev))
 
+    args.report.parent.mkdir(parents=True, exist_ok=True)
     results = []
     for label, path in args.model:
-        proc = _start_vllm(path, args.port, args.api_key, args.tp)
+        proc = _start_vllm(path, args.port, args.api_key, args.tp, args.vllm_env)
         try:
             if not _wait_for_vllm(args.port, args.api_key):
                 logger.error("vLLM did not become ready for %s; skipping", label)
                 continue
             client = AsyncOpenAI(base_url=f"http://localhost:{args.port}/v1", api_key=args.api_key)
             served_name = path
-            preds = asyncio.run(_generate_async(client, served_name, dev, args.max_tokens))
-            res = _score_model(label, preds, dev, catalog)
-            logger.info("%s: bleu=%.4f meteor=%.4f triple_f1=%.4f parse_rate=%.3f",
-                        label, res["bleu"], res["meteor"], res["triple_f1"], res["parse_rate"])
-            results.append(res)
-            with open(args.report, "w", encoding="utf-8") as fh:
-                json.dump({"models": results}, fh, indent=2, ensure_ascii=False)
+            for split, records in datasets:
+                preds = asyncio.run(_generate_async(client, served_name, records, args.max_tokens))
+                res = _score_model(label, preds, records, catalog)
+                res["split"] = split
+                logger.info(
+                    "%s (%s): bleu=%.4f meteor=%.4f triple_f1=%.4f parse_rate=%.3f",
+                    label,
+                    split,
+                    res["bleu"],
+                    res["meteor"],
+                    res["triple_f1"],
+                    res["parse_rate"],
+                )
+                results.append(res)
+                with open(args.report, "w", encoding="utf-8") as fh:
+                    json.dump({"models": results}, fh, indent=2, ensure_ascii=False)
         finally:
             proc.terminate()
             try:
@@ -245,7 +275,6 @@ def main() -> None:
             except Exception:
                 proc.kill()
 
-    args.report.parent.mkdir(parents=True, exist_ok=True)
     with open(args.report, "w", encoding="utf-8") as fh:
         json.dump({"models": results}, fh, indent=2, ensure_ascii=False)
     logger.info("report written to %s", args.report)

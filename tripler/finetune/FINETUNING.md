@@ -5,7 +5,8 @@ per domain so that, given a single raw structured-data instance, it emits **both
 a natural-language verbalization of that instance **and** the corresponding set
 of RDF semantic triples — in one decode, as a single JSON object.
 
-The pipeline lives in `tripler/finetune/` and the cluster jobs in `.conda/`.
+The pipeline lives in `tripler/finetune/` and the cluster jobs in
+`tripler/finetune/scripts/`.
 
 ---
 
@@ -87,13 +88,13 @@ so serving is identical to the existing batch scripts.
 - Reproducibility: one adapter per domain is a small, inspectable artifact; the
   merged model is drop-in for the existing vLLM serving scripts.
 
-### Completion-only loss
+### Loss mode
 
-Training uses TRL `SFTTrainer` with `completion_only_loss=True`, which masks the
-loss on the prompt tokens (system + user) so gradients flow only from the
-assistant's target tokens (`{"text": "...", "triples": [...]}`). This prevents
-the model from being trained to *predict the input* and focuses learning on
-producing the joint {text, triples} output for the given input.
+Training uses TRL `SFTTrainer` with `loss_type="nll"` and
+`completion_only_loss=False`. The dataset is conversational (`messages`) rather
+than a prompt-completion dataset, so the complete rendered sequence is used by
+the standard NLL path. Explicitly selecting NLL avoids TRL's chunked-CE path,
+which is incompatible with Gemma 4's wrapped forward function.
 
 ---
 
@@ -240,7 +241,7 @@ examples):
 | precision | bf16 compute, NF4 4-bit weights |
 | optimizer | paged_adamw_8bit |
 | attention | SDPA (Gemma 4 hybrid head-dim — see §3 note) |
-| loss | completion-only (prompt masked) |
+| loss | standard NLL |
 
 > **Per-domain `--max-len` override.** The 8192 value above is the
 > `train_qlora.py` argparse default. The cluster's A100-SXM4-40GB has ~40 GB
@@ -272,6 +273,23 @@ Adapter + tokenizer + `training_metadata.json`
 (git SHA, base id, seed, final dev loss) are saved to
 `tripler/finetune/runs/gsmarena/adapter`.
 
+### Hyperparameter experiments
+
+The shared `experiments.sh` defines these reproducible variants:
+
+| experiment | epochs | learning rate | LoRA r/alpha | dropout | weight decay |
+|---|---:|---:|---:|---:|---:|
+| `baseline` | 3 | `1e-4` | 16/32 | 0.05 | 0.0 |
+| `low_lr` | 5 | `3e-5` | 16/32 | 0.05 | 0.01 |
+| `higher_capacity` | 3 | `5e-5` | 32/64 | 0.05 | 0.01 |
+| `regularized_capacity` | 5 | `3e-5` | 32/64 | 0.10 | 0.01 |
+
+Non-baseline runs are isolated under
+`tripler/finetune/runs/<domain>/<experiment>/` and use experiment-specific
+merged model names under `$SCRATCH/ft_models/`. Checkpoints are saved at epoch
+boundaries; with 800 training examples and effective batch 16, checkpoints 100
+and 150 are available for all listed variants.
+
 Scaling beyond ~2000 examples: switch to multi-GPU FSDP by providing an
 `accelerate` config in the batch script and requesting `--gres=gpu:4`; the
 script's arguments already expose `--bs` and `--grad-accum` to retune. No code
@@ -287,23 +305,24 @@ models. No adapter lives at inference.
 
 ### Stage D — `eval.py` (separate job)
 
-Standalone evaluation. For each model (base baseline + fine-tuned) it:
+Standalone evaluation. For each model (base, final adapter, checkpoint 100,
+and checkpoint 150) it:
 
 1. starts `vllm serve <model>` on a port and waits for the `/v1/models`
    health endpoint,
-2. sends the dev prompts with the **exact same** user content used at training
+2. sends the train and dev prompts with the **exact same** user content used at training
    (zero-shot, no few-shot, `enable_thinking:false` via the chat template),
 3. parses each response as `{"text","triples"}`,
-4. scores against the dev references.
+4. scores against the corresponding train or dev references.
 
 Metrics (matching `problems/triples_to_text/final_test.py` for comparability
 with the thesis results):
 
 - **Text** — BLEU (`evaluate`/sacrebleu) and METEOR (`evaluate`), per-example
-  mean over the dev split.
+  mean over each split.
 - **Triples** — set precision / recall / F1 over
   `(subject, predicate, object)` tuples against the reference triples
-  (micro-averaged TP/FP/FN across the dev set).
+  (micro-averaged TP/FP/FN across each split).
 - **Predicate catalog adherence** (optional, `--catalog <tripler output>`) —
   the fraction of produced predicates that belong to the domain's canonical
   catalog. When the catalog file is a `joined.json` (with
@@ -311,42 +330,48 @@ with the thesis results):
   used; otherwise the legacy `unique_predicates` list is read. Measures whether
   the fine-tuned model stays on the learned predicate vocabulary.
 
-Output: `tripler/finetune/runs/<domain>/eval_report.json` with per-model metric
-blocks, written incrementally as each model finishes.
+Output: `tripler/finetune/runs/<domain>/eval_report.json` with one metric block
+per model and split, written incrementally as each model finishes.
 
 ---
 
 ## 5. Running on the cluster
 
-Two SLURM jobs (matching the existing `.conda/batch_*.sh` style). Both require
-`HF_TOKEN` to be exported in the SLURM environment (Gemma weights are gated on
-Hugging Face). The `finetune-env` conda env (`.conda/finetune-env.yml`) is used
-by both.
+Two SLURM jobs (matching the existing batch style). Both require `HF_TOKEN` to
+be exported in the SLURM environment (Gemma weights are gated on Hugging Face).
+The training and evaluation drivers use `finetune-env`; evaluation launches
+vLLM through the separate `vllm-env` environment.
 
 ### One-shot: build dataset + train + merge
 
 ```bash
-sbatch .conda/batch_finetune_gsmarena.sh
+sbatch tripler/finetune/scripts/batch_finetune_gsmarena.sh
+```
+
+To run all three new variants for all four domains, submit:
+
+```bash
+bash tripler/finetune/run_hyperparameter_experiments.sh
 ```
 
 Override knobs via SLURM env when submitting:
 
 ```bash
-INPUT_FILE=$D2TPATH/tripler/inputs/gsmarena_train.json \
+EXPERIMENT=low_lr INPUT_FILE=$D2TPATH/tripler/inputs/gsmarena_train.json \
 TRIPLES_FILE=$D2TPATH/tripler/outputs/<run>/mobile_phone_specification/extracted_triples_text_predicate_catalog_stable.json \
-MERGED_DIR=$SCRATCH/ft_models/gsmarena_gemma4_31b_merged \
-sbatch .conda/batch_finetune_gsmarena.sh
+MERGED_DIR=$SCRATCH/ft_models/gsmarena_gemma4_31b_low_lr_merged \
+sbatch tripler/finetune/scripts/batch_finetune_gsmarena.sh
 ```
 
 ### Evaluation (separate, re-runnable)
 
 ```bash
-sbatch .conda/batch_eval_gsmarena.sh
+EXPERIMENT=low_lr sbatch tripler/finetune/scripts/batch_eval_gsmarena.sh
 ```
 
-Eval starts vLLM twice (base, then merged) and writes the combined report; it
-does not retrain, so it can be re-run after model changes without touching
-training.
+Eval starts vLLM once per model (base, final, checkpoint 100, and checkpoint
+150), evaluates both train and dev, and writes the combined report. It does not
+retrain, so it can be re-run after model changes without touching training.
 
 ### Conda env creation (one-time, on the cluster)
 
@@ -368,9 +393,8 @@ inside the env after the rest is installed.
   `tripler/finetune/runs/`, and the merged model under `$SCRATCH` are all
   treated like other `outputs/`/`openevolve_output*` artifacts and are not
   committed.
-- **No renames/renumbers** of existing configs/scripts; everything under
-  `tripler/finetune/` and the two new `.conda/batch_*gsmarena.sh` files is
-  purely additive.
+- **No renames/renumbers** of existing configs/scripts; experiment support is
+  additive and existing baseline paths remain supported.
 - **Prompt parity** between training and inference is enforced by reusing
   `tripler.app.extract_instances` and the tripler user-prompt wording at
   dataset-build time, and by using the base tokenizer's `chat_template` (the

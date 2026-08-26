@@ -49,6 +49,8 @@ class TrainMetadata:
     lora_alpha: int
     lora_dropout: float
     eff_batch: int
+    warmup_ratio: float
+    weight_decay: float
     seed: int
     git_sha: str
     final_dev_loss: float
@@ -87,6 +89,7 @@ def main() -> None:
     parser.add_argument("--bs", type=int, default=1, help="per_device_train_batch_size")
     parser.add_argument("--grad-accum", type=int, default=16)
     parser.add_argument("--warmup-ratio", type=float, default=0.03)
+    parser.add_argument("--weight-decay", type=float, default=0.0)
     parser.add_argument("--seed", type=int, default=13)
     parser.add_argument("--max-steps", type=int, default=-1, help="Smoke-test override (-1 = full run).")
     args = parser.parse_args()
@@ -136,12 +139,13 @@ def main() -> None:
         per_device_eval_batch_size=args.bs,
         gradient_accumulation_steps=args.grad_accum,
         learning_rate=args.lr,
+        weight_decay=args.weight_decay,
         lr_scheduler_type="cosine",
         warmup_ratio=args.warmup_ratio,
         logging_steps=5,
         eval_strategy="epoch",
         save_strategy="epoch",
-        save_total_limit=2,
+        save_total_limit=5,
         load_best_model_at_end=True,
         metric_for_best_model="eval_loss",
         greater_is_better=False,
@@ -202,6 +206,8 @@ def main() -> None:
         lora_alpha=args.lora_alpha,
         lora_dropout=args.lora_dropout,
         eff_batch=args.bs * args.grad_accum,
+        warmup_ratio=args.warmup_ratio,
+        weight_decay=args.weight_decay,
         seed=args.seed,
         git_sha=_git_sha(),
         final_dev_loss=final_dev_loss,

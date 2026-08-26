@@ -7,9 +7,10 @@
 #SBATCH --mem=128G
 #SBATCH --gres=gpu:2
 #SBATCH --time=48:00:00
+set -eo pipefail
 DOMAIN="gsmarena"
 TRIPLE_DOMAIN="mobile_phone_specification"
-SERVER_LOG1="$HOME/vllm-server_${DOMAIN}.log"
+EXPERIMENT="${EXPERIMENT:-baseline}"
 
 module load CUDA/12.8.0
 module load Miniconda3
@@ -18,41 +19,38 @@ conda activate finetune-env
 export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
 
 export PYTHONPATH="$D2TPATH/tripler:$D2TPATH/openevolve/:$D2TPATH/problems/triples_to_text/tests/benchmark_reader/:$D2TPATH/problems/triples_to_text/:$PYTHONPATH"
+source "$D2TPATH/tripler/finetune/experiments.sh"
+configure_experiment "$EXPERIMENT"
 
 BASE_ID="${BASE_ID:-google/gemma-4-31B-it}"
 DATA_DIR="$D2TPATH/tripler/finetune/datasets/${DOMAIN}"
 TRIPLES_FILE="${TRIPLES_FILE:-$D2TPATH/tripler/outputs/test11/${TRIPLE_DOMAIN}/joined.json}"
-REPORT="$D2TPATH/tripler/finetune/runs/${DOMAIN}/eval_report.json"
-MERGED_DIR="${MERGED_DIR:-$SCRATCH/ft_models/${DOMAIN}_gemma4_31b_merged}"
+if [ "$EXPERIMENT" = "baseline" ]; then
+    RUN_DIR="$D2TPATH/tripler/finetune/runs/${DOMAIN}"
+    EXPERIMENT_SUFFIX=""
+else
+    RUN_DIR="$D2TPATH/tripler/finetune/runs/${DOMAIN}/${EXPERIMENT}"
+    EXPERIMENT_SUFFIX="_${EXPERIMENT}"
+fi
+REPORT="$RUN_DIR/eval_report.json"
+MERGED_DIR="${MERGED_DIR:-$SCRATCH/ft_models/${DOMAIN}_gemma4_31b${EXPERIMENT_SUFFIX}_merged}"
+MERGED_CHECKPOINT_100_DIR="${MERGED_CHECKPOINT_100_DIR:-$SCRATCH/ft_models/${DOMAIN}_gemma4_31b${EXPERIMENT_SUFFIX}_checkpoint_100_merged}"
+MERGED_CHECKPOINT_150_DIR="${MERGED_CHECKPOINT_150_DIR:-$SCRATCH/ft_models/${DOMAIN}_gemma4_31b${EXPERIMENT_SUFFIX}_checkpoint_150_merged}"
 PORT="${PORT:-2997}"
 
-VLLM_USE_FLASHINFER_SAMPLER=0 \
-conda run -n vllm-env vllm serve \
-	$MERGED_DIR \
-    --port $PORT \
-    --tensor-parallel-size 2 \
-    --max-model-len 8192 \
-    --reasoning-parser gemma4 \
-    --default-chat-template-kwargs '{"enable_thinking": false}' \
-    --max-num-batched-tokens 4096 \
-    --gpu-memory-utilization 0.95 \
-    > "$SERVER_LOG1" 2>&1 &
-SERVER_PID1=$!
-
-conda run -n openevolve-env python $D2TPATH/.conda/test-response.py --port $PORT --timeout 300
-if [ $? -ne 0 ]; then
-    echo "ERROR: vLLM server 1 (gemma) did not start within 5 minutes. Canceling." >&2
-    exit 1
-fi
-
 python "$D2TPATH/tripler/finetune/eval.py" \
+    --train "$DATA_DIR/train.jsonl" \
     --dev "$DATA_DIR/dev.jsonl" \
     --report "$REPORT" \
     --port "$PORT" \
     --api-key none \
     --max-tokens 2048 \
     --tp 2 \
+    --vllm-env vllm-env \
+    --model base "$BASE_ID" \
     --model ft "$MERGED_DIR" \
+    --model checkpoint-100 "$MERGED_CHECKPOINT_100_DIR" \
+    --model checkpoint-150 "$MERGED_CHECKPOINT_150_DIR" \
     --catalog "$TRIPLES_FILE"
 
 echo "EVAL DONE report=$REPORT"
