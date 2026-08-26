@@ -1,6 +1,7 @@
 import os
 import json
 import csv
+import re
 from openai import OpenAI
 from evaluator import ThemisEvaluation, fetch_completion, parse_themis_response
 from tests.benchmark_reader.benchmark_reader import Benchmark, select_test_file
@@ -148,6 +149,7 @@ test_benchmark.fill_benchmark(test_file)
 entries = test_benchmark.entries
 category_entries  = [e for e in entries if e.category == WEBNLG_DOMAIN]
 category_test_sentences = [TestSentence([TestTriple(*triple) for triple in e.get_clean_triples_tuple_list()], e.get_lexs_list()) for e in category_entries]
+triple_counts = [len(test_sentence.triples) for test_sentence in category_test_sentences]
 print(f"Loaded {len(category_test_sentences)} test sentences for domain '{WEBNLG_DOMAIN}'.")
 
 spec = importlib.util.spec_from_file_location("program", BEST_PROGRAM_PATH)
@@ -163,6 +165,9 @@ bleu_scores: list[float] = []
 meteor_scores: list[float] = []
 senlen_scores: list[float] = []
 bleurt_scores: list[float] = []
+sentence_counts: list[int] = []
+word_counts: list[int] = []
+character_counts: list[int] = []
 themis_scores: dict[str, list[ThemisEvaluation]] = {}
 gramatic_scores: list[ThemisEvaluation] = []
 ommisions_scores: list[ThemisEvaluation] = []
@@ -199,6 +204,10 @@ for test_sentence in category_test_sentences:
         senlen_results = 0.0
         bleurt_score = 0.0
     else:
+        sentence_counts.append(len(re.findall(r"[^.!?]+(?:[.!?]+|$)", generated_text.strip())))
+        word_counts.append(len(generated_text.split()))
+        character_counts.append(len(generated_text))
+
         # Calculate BLEU score with weights
         #print("Calulating BLEU score...")
         bleu_results = bleu.compute(predictions=[generated_text], references=[test_sentence.example_texts])
@@ -353,6 +362,10 @@ avg_bleu_score = float(np.mean(bleu_scores))
 avg_meteor_score = float(np.mean(meteor_scores))
 avg_senlen_score = float(np.mean(senlen_scores))
 avg_bleurt_score = float(np.mean(bleurt_scores))
+avg_sentences = float(np.mean(sentence_counts)) if sentence_counts else 0.0
+avg_words = float(np.mean(word_counts)) if word_counts else 0.0
+avg_characters = float(np.mean(character_counts)) if character_counts else 0.0
+avg_triples = float(np.mean(triple_counts)) if triple_counts else 0.0
 
 avg_themis_score = {
     judge_name: float(np.mean([evaluation.rating for evaluation in evaluations])) / 5.0
@@ -369,6 +382,10 @@ print(f"Average BLEU Score: {avg_bleu_score}")
 print(f"Average METEOR Score: {avg_meteor_score}")
 print(f"Average SENLEN Score: {avg_senlen_score}")
 print(f"Average BLEURT Score: {avg_bleurt_score}")
+print(f"Average Number of Sentences: {avg_sentences}")
+print(f"Average Number of Words: {avg_words}")
+print(f"Average Number of Characters: {avg_characters}")
+print(f"Average Number of Triples: {avg_triples}")
 for judge_name, score in avg_themis_score.items():
     print(f"Average Judge Score ({judge_name}): {score}")
 print(f"Average Grammaticality Score: {avg_gramatic_score}")
@@ -385,6 +402,10 @@ results_payload = {
         "meteor": avg_meteor_score,
         "senlen": avg_senlen_score,
         "bleurt": avg_bleurt_score,
+        "avg_sentences": avg_sentences,
+        "avg_words": avg_words,
+        "avg_characters": avg_characters,
+        "avg_triples": avg_triples,
         **{judge_name: score for judge_name, score in avg_themis_score.items()},
         "gramatic": avg_gramatic_score,
         "ommisions": avg_ommisions_score,
