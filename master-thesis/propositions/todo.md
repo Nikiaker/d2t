@@ -27,6 +27,11 @@
 [v] don't mention that we use a merge_and_unload operation, because the reader knows nothing what it is. Instead explain what that operation does.
 
 [] we need some kind of overview of what we are even doing in surface realization
-[] talk more about the loop and components, fix the loop, add a graph maybe
+[] reference Dr. Lango's article that gives an idea of creating a program to convert triples to text
+[] fix the alpha evolve section
+[] maybe a different section about the llm ensambles?
+[] there are very technical mentions about the repository structure, folders, filenames - remove or change those
+[] more explenation in the Execution architecture of OpenEvolve
+[] appendix the initial program
 [] add the prompts to appendix
 [] mention themis (reference)

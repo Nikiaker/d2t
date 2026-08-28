@@ -60,13 +60,14 @@ Structured prompts provide the model with a role, a task decomposition, and
 constraints on the output. Memory mechanisms preserve plans, tool results, and
 previous decisions that no longer fit into the immediate context window. Tool
 interfaces ground the model's actions in executable operations, while execution
-monitoring provides an observation on which the next action can be based. A
-feedback loop can thus be represented abstractly as
-\[
-  \mathrm{state}_t \;\longrightarrow\; \mathrm{action}_t
-  \;\longrightarrow\; \mathrm{tool\ output}_t
-  \;\longrightarrow\; \mathrm{state}_{t+1}.
-\]
+monitoring provides an observation on which the next action can be based.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{figures/coding-agent.png}
+    \caption{From Wang et al. \cite{wang2025agenticprogramming} fig. 1: An example workflow of an AI coding agent.}
+    \label{fig:coding-agent}
+\end{figure}
 
 \subsection{Challenges and possible improvements}
 
@@ -117,23 +118,6 @@ be syntactically valid and still be slower, less accurate, or less robust than
 the program that preceded it. AlphaEvolve places the LLM inside an evolutionary
 loop in which every proposed change is grounded by execution and scoring.
 
-Let $\mathcal{P}$ denote the space of programs that satisfy the interface of a
-task. The user supplies an evaluator
-\[
-  h : \mathcal{P} \longrightarrow \mathbb{R}^{m},
-\]
-which returns one or more scalar metrics. The metrics are conventionally
-maximized, although the evaluator can negate a quantity such as execution time
-when minimization is required. Starting from an initial program $p_0$, the
-system repeatedly generates a candidate $p'$, evaluates it using $h$, and
-stores the resulting program together with its metrics. The database then
-determines which previously evaluated candidates should influence later
-generations. The essential combination is therefore
-\[
-  \mathrm{LLM\ proposal} + \mathrm{program\ execution}
-  + \mathrm{evolutionary\ selection}.
-\]
-
 This design solves a problem that is difficult for either component alone.
 Evolutionary search supplies selection, persistence, and a mechanism for
 backtracking from unsuccessful ideas, while the LLM supplies mutations that can
@@ -151,23 +135,6 @@ kernel with an average speedup of 23\% and contributed to a reported 1\%
 reduction in Gemini's training time. These results are not required for using
 the framework, but they demonstrate why evolving executable algorithms can be
 more useful than generating a single static answer.
-
-\subsection{Task specification and program representation}
-
-An AlphaEvolve task has three essential inputs. First, an initial program must
-be complete enough to run, even if its implementation is deliberately simple.
-Second, the part of the source code that may be changed is marked with
-\texttt{\# EVOLVE-BLOCK-START} and \texttt{\# EVOLVE-BLOCK-END}. The remaining
-code forms a fixed skeleton that defines imports, data types, and the public
-interface. Third, an evaluator function must be provided. The evaluator
-receives the generated program, executes it on the task-specific inputs, and
-returns a dictionary of scalar metrics.
-
-The fixed
-skeleton defines the \texttt{Triple} data class, while the marked block contains
-the implementation of \texttt{predict}. Every candidate must therefore retain
-the same input and output contract even when its internal realization strategy
-changes substantially.
 
 \subsection{Architecture of AlphaEvolve}
 
@@ -196,11 +163,42 @@ following cooperating components~\cite{novikov2025alphaevolve}:
   candidates from being processed.
 \end{enumerate}
 
+Let $\mathcal{P}$ denote the space of programs that satisfy the interface of a
+task. The user supplies an evaluator
+\[
+  h : \mathcal{P} \longrightarrow \mathbb{R}^{m},
+\]
+which returns one or more scalar metrics. The metrics are conventionally
+maximized, although the evaluator can negate a quantity such as execution time
+when minimization is required. Starting from an initial program $p_0$, the
+system repeatedly generates a candidate $p'$, evaluates it using $h$, and
+stores the resulting program together with its metrics. The database then
+determines which previously evaluated candidates should influence later
+generations.
+
 The interaction between these components is deliberately cyclic. A program is
 not selected only once at the beginning of the experiment. Its score, code, and
 observed failures become part of the context used for subsequent mutations.
 The database consequently acts as an external memory for the evolutionary
 agent.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{figures/alpha-evolve.png}
+    \caption{From Novikov et al \cite{novikov2025alphaevolve} fig. 2: Expanded view of the AlphaEvolve discovery process.}
+    \label{fig:alpha-evolve}
+\end{figure}
+
+\subsection{Task specification and program representation}
+
+An AlphaEvolve task has three essential inputs. First, an initial program must
+be complete enough to run, even if its implementation is deliberately simple.
+Second, the part of the source code that may be changed is marked with
+\texttt{\# EVOLVE-BLOCK-START} and \texttt{\# EVOLVE-BLOCK-END}. The remaining
+code forms a fixed skeleton that defines imports, data types, and the public
+interface. Third, an evaluator function must be provided. The evaluator
+receives the generated program, executes it on the task-specific inputs, and
+returns a dictionary of scalar metrics.
 
 \subsection{Prompt sampling and creative generation}
 
@@ -279,14 +277,13 @@ repeatedly.
 
 \subsection{Open-source implementation}
 
-OpenEvolve is an open-source implementation of the AlphaEvolve design~\cite{sharma2025openevolve}.
-It is included in this repository as the \texttt{openevolve/} submodule and is
-used as the execution framework for all surface-realization experiments. The
-implementation exposes the same basic interface as AlphaEvolve: an initial
+OpenEvolve is an open-source implementation of the AlphaEvolve design~\cite{sharma2025openevolve}
+and is used as the execution framework for all surface-realization experiments.
+The implementation exposes the same basic interface as AlphaEvolve: an initial
 program, an evaluator, and a configuration determine an iterative process in
 which programs are proposed, scored, and registered for future use.
 
-The main controller is implemented in \texttt{controller.py}. It loads the
+The main controller loads the
 initial source, initializes the LLM ensemble, prompt sampler, evaluator, and
 program database, and optionally initializes the evolution tracer. The
 initial program is evaluated before the evolutionary workers are started. On a
@@ -296,10 +293,10 @@ starts from a measured candidate rather than an unscored source file.
 
 \subsection{Execution architecture used in the thesis}
 
-The local implementation uses \texttt{ProcessParallelController} for
+The local implementation uses parallel workers for
 process-based parallelism. Before a worker is submitted, the controller selects
-a parent and its inspirations and creates a serializable snapshot of the
-database. The snapshot contains all program source code, island assignments,
+a parent and its inspirations??? and creates a serializable snapshot of the
+database. The snapshot contains all program source code, island??? assignments,
 feature dimensions, and a bounded amount of artifact data. A worker reconstructs
 the selected programs from this snapshot, builds the prompt, calls the LLM,
 parses the response, and evaluates the resulting source. Only a serializable
@@ -418,6 +415,12 @@ directory can therefore contain substantially more programs than can be
 selected at one time. This distinction is useful for research reproducibility:
 the active database controls the search, while the persisted records and
 evolution trace document what was attempted.
+
+The fixed
+skeleton defines the \texttt{Triple} data class, while the marked block contains
+the implementation of \texttt{predict}. Every candidate must therefore retain
+the same input and output contract even when its internal realization strategy
+changes substantially.
 
 \subsection{MAP-Elites, islands, and database limits}
 
