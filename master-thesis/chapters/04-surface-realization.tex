@@ -1,6 +1,73 @@
 \chapter{Surface realization --- evolving programs using AlphaEvolve}
 \label{chap:surface-realization}
 
+\section{Method Overview}
+\label{sec:surface-method-overview}
+
+The previous chapter considered the problem of meaning representation. Complex
+structured data was converted into semantic triples so that the information
+could be expressed in a compact, standardized, and machine-interpretable form.
+The problem considered in this
+chapter is the second stage of the data-to-text conversion: given the
+information contained in a set of triples, how should it be said in natural
+language?
+
+This stage is called \emph{surface realization}. Let
+$T = \{(s_i,p_i,o_i)\}_{i=1}^{n}$ denote a set of subject--predicate--object
+triples and let $y$ denote a natural-language text. A surface realizer is a
+mapping
+\begin{equation}
+    G : T \longrightarrow y,
+\end{equation}
+which must express the facts in $T$ fluently and coherently. The mapping is not
+limited to replacing predicates with fixed phrases. It can require entity
+ordering, aggregation of related facts, selection of referring expressions,
+realization of numerical values, and the choice of a suitable sentence
+structure. The generated text should preserve the information in the triples
+while avoiding unsupported statements and unnecessary repetition.
+
+A large language model can be asked to perform this mapping directly using a
+zero-shot or few-shot prompt. Such a solution can produce fluent text, but the
+realization behavior is then distributed across model parameters, prompt
+instructions, and sampling decisions. It is consequently difficult to inspect
+which rules were applied, to reproduce a particular decision, or to diagnose a
+hallucination. A direct LLM call also makes the model part of every inference
+step. The approach taken here changes the role of the LLM: rather than asking it
+to verbalize each input instance directly, it is asked to construct a program
+that performs the conversion. The resulting program can be executed, tested,
+and inspected as an explicit surface realizer.
+
+This idea is directly motivated by the work of Lango and Dusek~\cite{lango-dusek-2025-llm},
+who describe a neurosymbolic framework in which LLM agents implement an NLG
+system from scratch. Their agents produce interpretable rule-based Python
+generators from RDF triples, without requiring in-domain human reference texts
+or conventional supervised training. The generated code provides a transparent
+representation of the realization process and can generate text using ordinary
+CPU execution. The work demonstrates that LLMs can be used to build an NLG
+system rather than only to act as the NLG system at inference time.
+
+The distinction in this work concerns how the generator program is obtained.
+Lango and Dusek use collaborative interactions between multiple LLM agents to
+design and refine the rule-based generator. Here, Google's AlphaEvolve idea is
+used instead: the LLM is placed inside an evolutionary optimization loop and
+proposes mutations of an existing program. The implementation used in the
+experiments is OpenEvolve, an open-source evolutionary coding framework that
+provides the AlphaEvolve-style orchestration layer.
+
+During evolution, an LLM receives the current
+program together with selected alternative programs and task-specific instructions. It
+then proposes a modified program, which is evaluated on RDF-to-text examples.
+The evaluation compares generated texts with references
+using automatic metrics and can additionally use an LLM-based judge. The
+evolutionary database stores candidate programs and their measurements, making
+the final result not merely a generated response, but an executable and
+inspectable artifact.
+
+The remainder of this chapter first introduces agentic programming and the
+AlphaEvolve framework. It then describes OpenEvolve, the program representation
+and database, candidate selection, prompt construction, LLM response handling,
+and the evaluation process used for surface realization.
+
 \section{Modern approaches for writing complex programs}
 \label{sec:modern-programming}
 
@@ -236,7 +303,7 @@ mutation, after which the resulting program is evaluated independently.
 AlphaEvolve supports several mechanisms for making the evaluation stage both
 useful and affordable. An evaluation cascade can apply inexpensive tests first
 and run expensive tests only for candidates that pass earlier thresholds.
-Embarrassingly parallel test cases can be distributed across workers. Multiple
+Parallel test cases can be distributed across workers. Multiple
 metrics can be returned simultaneously, both because they may represent genuine
 objectives and because programs that perform well under different metrics can
 provide more varied context for future mutations. Optional LLM feedback can be
@@ -285,8 +352,8 @@ which programs are proposed, scored, and registered for future use.
 
 The main controller loads the
 initial source, initializes the LLM ensemble, prompt sampler, evaluator, and
-program database, and optionally initializes the evolution tracer. The
-initial program is evaluated before the evolutionary workers are started. On a
+program database.
+The initial program is evaluated before the evolutionary workers are started. On a
 fresh run it is then inserted into the database as generation zero. This makes
 the baseline available to the selection mechanism and ensures that evolution
 starts from a measured candidate rather than an unscored source file.
@@ -295,41 +362,31 @@ starts from a measured candidate rather than an unscored source file.
 
 The local implementation uses parallel workers for
 process-based parallelism. Before a worker is submitted, the controller selects
-a parent and its inspirations??? and creates a serializable snapshot of the
-database. The snapshot contains all program source code, island??? assignments,
-feature dimensions, and a bounded amount of artifact data. A worker reconstructs
-the selected programs from this snapshot, builds the prompt, calls the LLM,
-parses the response, and evaluates the resulting source. Only a serializable
-result is returned to the controller.
+a parent program and inspiration programs, which are selected the same way as the parent
+program, and are used as a source of inspiration for the LLM. Then the controller builds the prompt, calls the LLM,
+parses the response, and evaluates the resulting source.
 
-This separation avoids concurrent writes to the in-memory database. The main
-controller receives results as they finish, adds accepted programs, stores
-their artifacts, records the evolution trace, updates island counters, and
-submits replacement work. Consequently, the logical evolution loop is
+Consequently, the logical evolution loop is:
 
 \begin{enumerate}
-  \item select a parent and optional inspirations;
+  \item select a parent and inspirations;
   \item assemble a prompt from the selected context;
   \item generate and parse an LLM mutation;
   \item execute the candidate evaluator;
-  \item register the candidate, metrics, and feedback; and
+  \item register the candidate, metrics, and feedback;
   \item repeat until the iteration budget, target score, or stopping rule is
   reached.
 \end{enumerate}
 
 The implementation is asynchronous in practice. Several workers can use
-snapshots made close together, and their results can be incorporated in a
+snapshots of the program database made close together, and their results can be incorporated in a
 different order from the numerical iteration identifiers. This increases
 throughput but means that a candidate does not necessarily use the immediately
-preceding candidate as its parent. Checkpoints contain the database state and
-the best program, allowing a run to be resumed, while \texttt{evolution\_trace.json}
-can retain source code, prompts, responses, metrics, and artifacts for later
-analysis.
+preceding candidate as its parent.
 
 \subsection{Extensions made for the experiments}
 
-Several changes in the checked-out OpenEvolve fork were authored under the
-\texttt{nikiaker} account and are relevant to the experiments. They address
+Several changes were made to the OpenEvolve's algorithm. They address
 both the search distribution and the failure modes that are common when a
 language model is required to emit an exact source-code patch.
 
@@ -344,46 +401,34 @@ optional iteration-based model schedule was added for periodically forcing a
 chosen model.
 
 \paragraph{Configurable inspirations.}
-The number of inspiration programs is controlled independently through
-\texttt{prompt.num\_inspirations}. This is separate from the number of top and
-diverse programs rendered in the evolution history, so the prompt can be made
-shorter without eliminating all alternative implementations.
+The number of inspiration programs that are selected and added to the prompt can be controlled.
 
 \paragraph{More robust SEARCH/REPLACE application.}
 The original exact line matching was extended with trailing-whitespace cleanup
 and common-indentation handling. A model can therefore return a source block
 with a different outer indentation while the replacement is still inserted at
-the correct nesting level. Additional tests cover indented and multi-line
-changes. If the response has no parsable diff, a corrective prompt asks the
+the correct nesting level. If the response has no parsable diff, a corrective prompt asks the
 LLM to return the required format. If a syntactically valid diff does not
 change the source because its SEARCH block does not match, a second corrective
 prompt includes the parent code and asks the LLM to repair the SEARCH section.
 
 \paragraph{Retention of failed candidates.}
 Malformed or unchanged proposals are written to a separate
-\texttt{broken\_programs/} directory instead of being silently discarded.
-Duplicate source code is detected within the target island before insertion.
+directory instead of being silently discarded.
+Duplicate source code is detected before insertion.
 These changes prevent repeated evaluation of identical candidates and preserve
 evidence needed to diagnose the behavior of the LLM and the mutation parser.
 
 \paragraph{Explicit zero scores for timeouts.}
 The evaluator integration was changed so that timeout and failed-evaluation
-paths include \texttt{combined\_score: 0.0}. In the standard evaluator,
-per-call execution was also changed from a thread-based timeout to a forked
-child process that can be killed. This prevents an infinite loop in generated
-code from continuing in the background and avoids a misleading fallback score
-being used to guide evolution. The Themis-specific evaluator used by the
-Building run retains its own five-second per-call guard and is additionally
-protected by the outer evaluator timeout.
+paths give a score of 0.
 
 \section{Program database and initial program}
 \label{sec:program-database}
 
 \subsection{Program records and persistence}
 
-The program database is implemented by \texttt{ProgramDatabase}. A candidate is
-represented by a \texttt{Program} record containing more than its source code.
-The principal fields are:
+The program database is implemented in a way to store those principal fields:
 
 \begin{itemize}
   \item a unique identifier and the program source;
@@ -392,40 +437,13 @@ The principal fields are:
   \item a dictionary of evaluation metrics, including the fitness metric;
   \item derived values such as complexity and diversity and metadata such as
   island assignment and a human-readable change summary;
-  \item optional prompts and LLM responses associated with its creation; and
+  \item optional prompts and LLM responses associated with its creation;
   \item optional artifacts and embeddings used for feedback and novelty
   checks.
 \end{itemize}
 
-The active database is maintained in memory for fast selection. When a database
-path is configured, each program is serialized as a JSON file in a
-\texttt{programs/} directory. A separate \texttt{metadata.json} file stores
-the island populations, feature maps, archive, best-program identifier,
-generation counters, migration state, and feature-scaling statistics. At
-regular intervals the same state is copied to a checkpoint directory together
-with the best source file and its metrics. Small artifacts are serialized in
-the program record, while larger artifacts can be placed in an artifact
-directory. Prompts can also be logged with the program identifier and template
-name.
-
-The persistent directory should be distinguished from the active population.
-When a candidate is removed from an active feature cell or by population
-pruning, its historical JSON file is not necessarily deleted. The disk
-directory can therefore contain substantially more programs than can be
-selected at one time. This distinction is useful for research reproducibility:
-the active database controls the search, while the persisted records and
-evolution trace document what was attempted.
-
-The fixed
-skeleton defines the \texttt{Triple} data class, while the marked block contains
-the implementation of \texttt{predict}. Every candidate must therefore retain
-the same input and output contract even when its internal realization strategy
-changes substantially.
-
-\subsection{MAP-Elites, islands, and database limits}
-
-OpenEvolve combines an island population model with a MAP-Elites-style feature
-map. For each program, feature coordinates are calculated before insertion. In
+The active database is maintained in memory for fast selection.
+For each program, feature coordinates are calculated before insertion. In
 the surface-realization task, code length is used as the built-in complexity
 feature, while diversity is approximated from source-code length, line-count,
 and character-set differences. Feature values are scaled and assigned to
@@ -435,22 +453,11 @@ coordinates for complexity and diversity.
 At most one program is retained as the occupant of a feature cell. If a new
 program maps to an empty cell, the cell is occupied. If it maps to an occupied
 cell, the program with the better fitness is retained as the cell occupant.
-An archive separately stores a bounded set of elite programs. The absolute
+The database separately stores a bounded set of elite programs. The absolute
 best program is tracked independently so that it is protected from ordinary
 population cleanup. When the configured population limit is exceeded, the
 lowest-fitness unprotected programs are removed from the active in-memory
-population, together with their references in islands, cells, and the archive.
-
-The main limits are configurable. The Building run examined here used a
-population limit of 50 programs, an archive limit of 10 programs, one island,
-and ten bins for each of the two built-in feature dimensions. The checkpoint at
-iteration 1000 contained 41 active island members and 15 occupied feature
-cells. The lower active count is a consequence of cell replacement and
-population management; it does not imply that only 41 candidate programs were
-evaluated during the run. With multiple islands, populations are evolved in
-relative isolation and good programs can be copied to neighboring islands by
-migration. Migration has no effect in the cited one-island run, but the same
-implementation supports it for multi-island configurations.
+population, together with their references in islands and cells. The main limits are configurable.
 
 \subsection{Initial program}
 
@@ -477,56 +484,32 @@ algorithm, which allows multiple realization strategies to be explored.
 
 \subsection{Parent and inspiration selection}
 
-Selection is performed before a worker process is launched. The controller
-specifies the target island and calls \texttt{sample\_from\_island}. If roulette
-selection is enabled, the parent is selected from the island using a
-fitness-weighted softmax distribution. The fitness is normally
-\texttt{combined\_score}; if that metric is absent, the implementation uses an
-average of the available non-feature numeric metrics. The use of a distribution
+Selection is performed before a worker process is launched. For roulette
+selection, the parent is selected from the island using a
+fitness-weighted softmax distribution. The use of a distribution
 rather than always selecting the best program retains a non-zero probability
 of returning to less explored solutions.
 
 Inspirations are selected separately from the parent. They are alternative
 programs that can provide a design idea without being the source that is
-directly modified. With roulette selection enabled, their probabilities are
+directly modified. With roulette, their probabilities are
 also based on fitness, and the parent itself is excluded from the candidate
-inspiration set. In the general configuration, the prompt sampler can also
-receive top-performing programs, diverse programs, recent attempts, and
-programs from nearby feature cells. The selected parent and inspiration IDs are
-passed to the worker, which reconstructs their source code from the database
-snapshot.
-
-The concrete Building configuration illustrates how this mechanism was
-specialized. It set \texttt{num\_top\_programs} and
-\texttt{num\_diverse\_programs} to zero, requested one inspiration, and enabled
-artifact rendering. Thus the current program and its score were always
-present, while one separately selected alternative program could be shown as
-an inspiration. The zero values for top and diverse programs should not be
-confused with an absence of database diversity; they only control which
-programs are rendered in that particular prompt.
+inspiration set. The selected parent and inspirations are
+passed to the worker, which reconstructs their source code from the database.
 
 \subsection{Prompt composition}
 
-Prompt construction is handled by \texttt{PromptSampler} and a set of text
-templates. The system message used for the surface-realization experiment
+The system message used for the surface-realization experiment
 contains four kinds of fixed information:
 
-\begin{enumerate}
+\begin{itemize}
   \item the role of the model as an expert data engineer;
   \item the domain and the required \texttt{predict} function signature;
   \item an example in which several triples are combined into one complex
-  sentence; and
+  sentence;
   \item the list of predicates that may occur, with one example triple for
   each predicate.
-\end{enumerate}
-
-The predicate list is generated for each domain by
-\texttt{dataset\_multi\_predicates.py}. The preparation script reads the
-available WebNLG entries, groups triples by predicate, chooses an example, and
-writes the resulting list into the domain-specific output directory. In the
-Building run this produced 46 predicate--example pairs. The configuration and
-batch scripts are copied into the same directory, and placeholders for the
-domain and ports are resolved before the SLURM job is started.
+\end{itemize}
 
 The user message is assembled for each selected parent. Its main parts are:
 
@@ -534,11 +517,9 @@ The user message is assembled for each selected parent. Its main parts are:
   \item the current metrics and fitness score;
   \item optional evaluator artifacts, such as low-scoring triples and the
   generated text that caused them;
-  \item the evolution history, including previous attempts and selected
-  programs when these options are enabled;
-  \item the complete current source code; and
+  \item the complete current source code;
   \item the mutation task, including the requirement to improve
-  \texttt{combined\_score}, preserve the interface, and use the exact
+  the score, preserve the interface, and use the exact
   SEARCH/REPLACE format.
 \end{itemize}
 
@@ -546,9 +527,7 @@ Consequently, the code and score of the selected parent are shown directly in
 the current-program section. An inspiration is rendered separately with its
 own score and source code. A high-scoring program can therefore provide a
 strong implementation pattern, while a structurally different inspiration can
-suggest a different way of grouping or ordering triples. Artifacts are
-truncated before insertion into the prompt and are passed through the available
-security filter so that the context remains bounded.
+suggest a different way of grouping or ordering triples.
 
 \subsection{SEARCH/REPLACE instructions and their extensions}
 
@@ -562,40 +541,21 @@ rewrites fixed parts of the program unintentionally.
 
 The format is also a significant source of failure. A model can describe a
 patch in prose, omit one of the delimiters, copy an outdated version of the
-source, or use an indentation that prevents an exact match. The forked
-implementation addresses these cases in two ways. First, trailing whitespace
+source, or use an indentation that prevents an exact match. These problems
+are adressed in two ways. First, trailing whitespace
 is normalized and common indentation is removed while matching, after which
 the replacement is re-indented at the original location. Second, malformed
 responses and unapplied responses are sent to dedicated repair prompts. These
-repairs preserve the replacement text where possible and focus the subsequent
+safeguards preserve the replacement text where possible and focus the subsequent
 LLM call on producing a matchable SEARCH section.
 
 \section{Large Language Model}
 \label{sec:large-language-model}
 
-\subsection{Model ensemble and API integration}
-
-OpenEvolve uses an OpenAI-compatible client interface, so the same orchestration
-code can communicate with hosted models, local servers, or vLLM instances. In
-the PLGrid experiments, vLLM served the model used for program mutation. The
-SLURM batch script started the model server, waited for a health check, and
-exported the endpoint information to the OpenEvolve configuration. A separate
-model server was used for Themis when LLM-based judging was enabled. Since
-vLLM does not provide the OpenAI Files and Batches endpoints, a lightweight
-batch-wrapper server was placed in front of it for the judge requests.
-
-The Building example used an ensemble consisting of
-\texttt{RedHatAI/gemma-4-31B-it-NVFP4} with weight 0.8 and
-\texttt{DeepSeek-V3.1-vLLM} with weight 0.2. The weights affect which model is
-sampled for a mutation; they do not average or merge the generated source
-files. The island-specific selection extension can restrict this choice to
-models assigned to the parent island. Each request is made with the assembled
-system and user messages, a maximum token budget, a timeout, and retry
-parameters.
-
 \subsection{Parsing the LLM response}
 
-For the main experiments, diff-based evolution is enabled. The response is
+OpenEvolve uses an OpenAI-compatible client interface, so the same orchestration
+code can communicate with hosted models or local servers. The response is
 processed in the worker in the following order:
 
 \begin{enumerate}
@@ -605,7 +565,6 @@ processed in the worker in the following order:
   \item If at least one block is found but no source line is changed, the
   response is treated as an unapplied mutation rather than as a successful
   no-op.
-  \item The resulting source length is checked against the configured maximum.
   \item A new identifier is assigned and the candidate is passed to the
   evaluator.
 \end{enumerate}
@@ -620,11 +579,8 @@ diagnostic feedback.
 
 If all repair attempts fail, a child record carrying the unchanged parent code
 is returned with an error and a \texttt{no\_valid\_diffs} or \texttt{no\_changes}
-artifact. The controller writes this record to \texttt{broken\_programs/} and
-does not add it to the active evolutionary population. This behavior is
-different from a valid diff that produces syntactically invalid Python. In the
-latter case the evaluator reports a zero score and diagnostic artifacts, so the
-failed candidate can still be inspected as part of the evolutionary history.
+artifact. The controller writes this record to the list of broken programs and
+does not add it to the active evolutionary population.
 
 OpenEvolve also contains a full-rewrite mode. When diff-based evolution is
 disabled, a fenced code block or the plain response is parsed as the complete
@@ -642,16 +598,6 @@ converted into zero-valued fitness and artifacts describing the failure rather
 than terminating the entire evolution run. The artifacts can then be included
 in a later prompt, where they provide a concrete example of what should be
 avoided.
-
-The evaluator changes made in the fork are particularly important for
-infinite loops. The standard evaluator runs each call in a forked child process
-and kills the child when the five-second per-call limit is reached. The
-exception is propagated to the evaluation loop, which returns a zero
-\texttt{combined\_score}. The outer OpenEvolve evaluator also limits the total
-evaluation time and retries ordinary evaluation exceptions according to the
-configuration. This prevents a faulty candidate from consuming the whole
-experiment budget or receiving a score that falsely suggests it was evaluated
-successfully.
 
 \section{Evaluation}
 \label{sec:surface-evaluation}

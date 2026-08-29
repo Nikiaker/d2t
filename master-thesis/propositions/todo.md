@@ -26,10 +26,10 @@
 [v] in 3.3.3 present the qlora parameters in a more graphical way. e.g use a list or a table
 [v] don't mention that we use a merge_and_unload operation, because the reader knows nothing what it is. Instead explain what that operation does.
 
-[] we need some kind of overview of what we are even doing in surface realization
-[] reference Dr. Lango's article that gives an idea of creating a program to convert triples to text
-[] fix the alpha evolve section
-[] maybe a different section about the llm ensambles?
+[v] we need some kind of overview of what we are even doing in surface realization
+[v] reference Dr. Lango's article that gives an idea of creating a program to convert triples to text
+[v] fix the alpha evolve section
+[x] maybe a different section about the llm ensambles?
 [] there are very technical mentions about the repository structure, folders, filenames - remove or change those
 [] more explenation in the Execution architecture of OpenEvolve
 [] appendix the initial program
