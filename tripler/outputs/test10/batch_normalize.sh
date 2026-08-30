@@ -17,9 +17,11 @@ set -euo pipefail
 
 export CUDA_HOME=/usr/local/cuda
 export PATH="$CUDA_HOME/bin:$PATH"
-export CPATH="$CUDA_HOME/include:$CPATH"
-export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH"
-export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
+export CPATH="$CUDA_HOME/include:${CPATH:-}"
+export LD_LIBRARY_PATH="$CUDA_HOME/lib64:${LD_LIBRARY_PATH:-}"
+if [[ -n "${CONDA_PREFIX:-}" ]]; then
+    export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
+fi
 export VLLM_USE_FLASHINFER_SAMPLER=0
 
 DOMAINS=(
@@ -64,8 +66,6 @@ cleanup() {
     fi
 }
 trap cleanup EXIT
-
-export LD_LIBRARY_PATH="${CONDA_PREFIX:-}/lib:${LD_LIBRARY_PATH:-}"
 
 CUDA_VISIBLE_DEVICES=0 \
 conda run -n vllm-env vllm serve "$MODEL" \
