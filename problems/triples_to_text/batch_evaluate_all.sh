@@ -54,19 +54,19 @@ conda run -n openevolve-env python $D2TPATH/.conda/test-response.py --port 2995
 conda run -n openevolve-env python $D2TPATH/tripler/batch_wrapper_server.py \
     --upstream-base-url http://localhost:2993 \
     --port 2996 \
-    --storage-dir $D2TPATH/.batch_wrapper_data1 \
+    --storage-dir $HOME/.batch_wrapper_data1 \
 	2>&1 &
 
 conda run -n openevolve-env python $D2TPATH/tripler/batch_wrapper_server.py \
     --upstream-base-url http://localhost:2994 \
     --port 2997 \
-    --storage-dir $D2TPATH/.batch_wrapper_data2 \
+    --storage-dir $HOME/.batch_wrapper_data2 \
 	2>&1 &
 
 conda run -n openevolve-env python $D2TPATH/tripler/batch_wrapper_server.py \
     --upstream-base-url http://localhost:2995 \
     --port 2998 \
-    --storage-dir $D2TPATH/.batch_wrapper_data3 \
+    --storage-dir $HOME/.batch_wrapper_data3 \
 	2>&1 &
 
 export WEBNLG_BASE_PATH="$D2TPATH/problems/triples_to_text/tests/webnlg/release_v3.0/en/"

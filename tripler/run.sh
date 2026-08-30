@@ -13,6 +13,7 @@ sbatch $D2TPATH/tripler/outputs/test10/batch_gsmarena.sh
 sbatch $D2TPATH/tripler/outputs/test10/batch_ice_hockey.sh
 sbatch $D2TPATH/tripler/outputs/test10/batch_wikidata.sh
 sbatch $D2TPATH/tripler/outputs/test10/batch_owid.sh
+sbatch $D2TPATH/tripler/outputs/test10/batch_normalize.sh
 
 # llm as a judge
 sbatch $D2TPATH/tripler/outputs/test10/batch_judge.sh
