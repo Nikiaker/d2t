@@ -14,14 +14,16 @@ Output columns:
   triples_summary, triples_completeness, triples_faithfulness, triples_omissions,
   text_overall, triples_overall,
   json_elements, ref_words, ref_sentences, ref_subsentences, num_triples, unique_predicates
-where text_overall / triples_overall are the means of the four task scores, and the
-last six columns are averages of the descriptive instance statistics.
+where text_overall / triples_overall are the means of the four task scores, the first
+five descriptive columns are averages of instance statistics, and unique_predicates
+is the number of predicates declared by the pipeline.
 
 Output file:  <test_dir>/<method>_averages.csv
 """
 
 import argparse
 import csv
+import json
 import logging
 from collections import defaultdict
 from pathlib import Path
@@ -57,7 +59,23 @@ def to_float_or_none(value: Any) -> float | None:
     return None
 
 
-def read_scored_csv(path: Path) -> tuple[str, dict[str, list[float]]]:
+def read_pipeline_predicate_count(scored_csv_path: Path) -> int:
+    method = scored_csv_path.stem.removesuffix("_scored")
+    output_path = scored_csv_path.with_name(f"{method}.json")
+    data = json.loads(output_path.read_text(encoding="utf-8"))
+
+    rules_final = data.get("rules_final")
+    if isinstance(rules_final, dict) and "predicates" in rules_final:
+        predicates = rules_final["predicates"]
+    else:
+        predicates = data.get("unique_predicates")
+
+    if not isinstance(predicates, list):
+        raise ValueError(f"Predicate list not found in {output_path}")
+    return len(predicates)
+
+
+def read_scored_csv(path: Path) -> tuple[str, dict[str, list[float]], int]:
     with path.open("r", encoding="utf-8-sig", newline="") as f:
         reader = csv.DictReader(f)
         rows = list(reader)
@@ -76,7 +94,7 @@ def read_scored_csv(path: Path) -> tuple[str, dict[str, list[float]]]:
     if not domain:
         domain = path.parent.name
 
-    return domain, values
+    return domain, values, read_pipeline_predicate_count(path)
 
 
 def main() -> None:
@@ -95,12 +113,12 @@ def main() -> None:
     if not scored_csvs:
         raise SystemExit(f"No *_scored.csv files found under {test_dir}")
 
-    by_method: dict[str, list[tuple[str, dict[str, list[float]]]]] = defaultdict(list)
+    by_method: dict[str, list[tuple[str, dict[str, list[float]], int]]] = defaultdict(list)
 
     for path in scored_csvs:
         method = path.stem.removesuffix("_scored")
-        domain, values = read_scored_csv(path)
-        by_method[method].append((domain, values))
+        domain, values, predicate_count = read_scored_csv(path)
+        by_method[method].append((domain, values, predicate_count))
         logger.info("read %s: domain=%s, method=%s", path.name, domain, method)
 
     for method, entries in sorted(by_method.items()):
@@ -108,7 +126,7 @@ def main() -> None:
         with out_path.open("w", encoding="utf-8", newline="") as f:
             writer = csv.writer(f)
             writer.writerow(["domain"] + CRITERIA + ["text_overall", "triples_overall"] + STAT_COLUMNS)
-            for domain, values in sorted(entries, key=lambda e: e[0]):
+            for domain, values, predicate_count in sorted(entries, key=lambda e: e[0]):
                 row = [domain]
                 for c in CRITERIA:
                     vals = values[c]
@@ -122,10 +140,11 @@ def main() -> None:
                 triples_overall = sum(triples_flat) / len(triples_flat) if triples_flat else float("nan")
                 row.append(f"{text_overall:.2f}")
                 row.append(f"{triples_overall:.2f}")
-                for c in STAT_COLUMNS:
+                for c in STAT_COLUMNS[:-1]:
                     vals = values[c]
                     avg = sum(vals) / len(vals) if vals else float("nan")
                     row.append(f"{avg:.2f}")
+                row.append(str(predicate_count))
                 writer.writerow(row)
         print(f"[ok] {out_path} ({len(entries)} domains)")
 
