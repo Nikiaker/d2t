@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH -w hgx1
+#SBATCH -w hgx2
 #SBATCH -p hgx
 #SBATCH -c16
 #SBATCH --gres=gpu:3
@@ -8,11 +8,12 @@ SERVER_LOG1="$HOME/vllm-server1.log"
 SERVER_LOG2="$HOME/vllm-server2.log"
 SERVER_LOG3="$HOME/vllm-server3.log"
 
-#export CUDA_HOME=/usr/local/cuda
-#export PATH="$CUDA_HOME/bin:$PATH"
-#export CPATH="$CUDA_HOME/include:$CPATH"
-#export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH"
-#export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
+export CUDA_HOME=/usr/local/cuda
+export PATH="$CUDA_HOME/bin:$PATH"
+export CPATH="$CUDA_HOME/include:$CPATH"
+export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
+export VLLM_USE_FLASHINFER_SAMPLER=0
 
 CUDA_VISIBLE_DEVICES=0 \
 conda run -n vllm-env vllm serve \
@@ -25,7 +26,7 @@ conda run -n vllm-env vllm serve \
     > "$SERVER_LOG1" 2>&1 &
 SERVER_PID1=$!
 
-conda run -n openevolve-env python ~/d2t/.conda/test-response.py --port 2993
+conda run -n openevolve-env python $D2TPATH/.conda/test-response.py --port 2993
 
 CUDA_VISIBLE_DEVICES=1 \
 conda run -n vllm-env vllm serve \
@@ -38,39 +39,39 @@ conda run -n vllm-env vllm serve \
     > "$SERVER_LOG2" 2>&1 &
 SERVER_PID2=$!
 
-conda run -n openevolve-env python ~/d2t/.conda/test-response.py --port 2994
+conda run -n openevolve-env python $D2TPATH/.conda/test-response.py --port 2994
 
 CUDA_VISIBLE_DEVICES=2 \
 conda run -n vllm-env vllm serve \
 	PKU-ONELab/Themis \
-    --chat-template ~/d2t/jinja/llama.jinja \
+    --chat-template $D2TPATH/jinja/llama.jinja \
     --port 2995 \
     > "$SERVER_LOG3" 2>&1 &
 SERVER_PID3=$!
 
-conda run -n openevolve-env python ~/d2t/.conda/test-response.py --port 2995
+conda run -n openevolve-env python $D2TPATH/.conda/test-response.py --port 2995
 
-conda run -n openevolve-env python ~/d2t/tripler/batch_wrapper_server.py \
+conda run -n openevolve-env python $D2TPATH/tripler/batch_wrapper_server.py \
     --upstream-base-url http://localhost:2993 \
     --port 2996 \
-    --storage-dir ~/.batch_wrapper_data1 \
+    --storage-dir $D2TPATH/.batch_wrapper_data1 \
 	2>&1 &
 
-conda run -n openevolve-env python ~/d2t/tripler/batch_wrapper_server.py \
+conda run -n openevolve-env python $D2TPATH/tripler/batch_wrapper_server.py \
     --upstream-base-url http://localhost:2994 \
     --port 2997 \
-    --storage-dir ~/.batch_wrapper_data2 \
+    --storage-dir $D2TPATH/.batch_wrapper_data2 \
 	2>&1 &
 
-conda run -n openevolve-env python ~/d2t/tripler/batch_wrapper_server.py \
+conda run -n openevolve-env python $D2TPATH/tripler/batch_wrapper_server.py \
     --upstream-base-url http://localhost:2995 \
     --port 2998 \
-    --storage-dir ~/.batch_wrapper_data3 \
+    --storage-dir $D2TPATH/.batch_wrapper_data3 \
 	2>&1 &
 
-export WEBNLG_BASE_PATH="/home/inf151915/d2t/problems/triples_to_text/tests/webnlg/release_v3.0/en/"
+export WEBNLG_BASE_PATH="$D2TPATH/problems/triples_to_text/tests/webnlg/release_v3.0/en/"
 export LLM_JUDGES="[{\"name\": \"google/gemma-4-31B-it\", \"structured\": true, \"base_url\": \"http://localhost:2996/v1\", \"api_key\": \"AiIsMyLife25\"},{\"name\": \"Qwen/Qwen3.6-35B-A3B-FP8\", \"structured\": true, \"base_url\": \"http://localhost:2997/v1\", \"api_key\": \"AiIsMyLife25\"},{\"name\": \"PKU-ONELab/Themis\", \"structured\": false, \"base_url\": \"http://localhost:2998/v1\", \"api_key\": \"AiIsMyLife25\"}]"
 
-cd ~/d2t/problems/triples_to_text
-conda run -n openevolve-env python run_final_test_for_configs.py results/slurm32/outputs/ 2
-conda run -n openevolve-env python collect_scores_to_csv.py results/slurm32/outputs/ 2
+cd $D2TPATH/problems/triples_to_text
+conda run -n openevolve-env python run_final_test_for_configs.py outputs/ 2
+conda run -n openevolve-env python collect_scores_to_csv.py outputs/ 2
