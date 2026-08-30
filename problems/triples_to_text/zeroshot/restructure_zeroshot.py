@@ -4,6 +4,14 @@ import sys
 from pathlib import Path
 
 
+CONFIG_REMOTE_CONTENT = """evaluator:
+  themis_enabled: false
+  themis_name: ""
+  themis_api_base: ""
+  themis_api_key: ""
+"""
+
+
 def restructure_domain_folder(domain_dir: Path, dry_run: bool = False) -> bool:
     if not domain_dir.is_dir() or not domain_dir.name.endswith("_output"):
         return False
@@ -11,11 +19,21 @@ def restructure_domain_folder(domain_dir: Path, dry_run: bool = False) -> bool:
     best_program = domain_dir / "best_program.py"
     generated_texts = domain_dir / "generated_texts.json"
     config_remote = domain_dir / "config_remote.yaml"
-    
+
     domain_name = domain_dir.name.removesuffix("_output")
     sh_file = domain_dir / f"{domain_name}.sh"
+    nested_best_program = domain_dir / "openevolve_output" / "best" / "best_program.py"
+    nested_generated_texts = domain_dir / "openevolve_output" / "best" / "generated_texts.json"
 
-    if not best_program.exists() and not generated_texts.exists():
+    if not any(
+        path.exists()
+        for path in (
+            best_program,
+            generated_texts,
+            nested_best_program,
+            nested_generated_texts,
+        )
+    ):
         return False
 
     target_dir = domain_dir / "openevolve_output" / "best"
@@ -26,8 +44,8 @@ def restructure_domain_folder(domain_dir: Path, dry_run: bool = False) -> bool:
             print(f"  Move: {best_program.name} -> {target_dir.relative_to(domain_dir) / best_program.name}")
         if generated_texts.exists():
             print(f"  Move: {generated_texts.name} -> {target_dir.relative_to(domain_dir) / generated_texts.name}")
-        if not config_remote.exists():
-            print(f"  Create: config_remote.yaml")
+        if not config_remote.exists() or config_remote.stat().st_size == 0:
+            print(f"  Write: config_remote.yaml")
         if not sh_file.exists():
             print(f"  Create: {sh_file.name}")
         return True
@@ -48,9 +66,9 @@ def restructure_domain_folder(domain_dir: Path, dry_run: bool = False) -> bool:
         print(f"[MOVE] {src_file.name} -> {dst_file.relative_to(domain_dir)}")
         moved_any = True
 
-    if not config_remote.exists():
-        config_remote.touch()
-        print(f"[CREATE] config_remote.yaml")
+    if not config_remote.exists() or config_remote.stat().st_size == 0:
+        config_remote.write_text(CONFIG_REMOTE_CONTENT, encoding="utf-8")
+        print(f"[WRITE] config_remote.yaml")
         moved_any = True
 
     if not sh_file.exists():

@@ -21,6 +21,13 @@ def predict(triples: list[Triple]) -> str:
     return system.verbalize_set_of_triples(triples)
 '''
 
+CONFIG_REMOTE_CONTENT = """evaluator:
+  themis_enabled: false
+  themis_name: ""
+  themis_api_base: ""
+  themis_api_key: ""
+"""
+
 
 def convert_checkpoint(checkpoint_path: Path, target_root: Path) -> bool:
     if not checkpoint_path.name.startswith("chpt-"):
@@ -58,7 +65,8 @@ def convert_checkpoint(checkpoint_path: Path, target_root: Path) -> bool:
     print(f"  Written: {best_program_path}")
 
     config_path = target_dir / "config_remote.yaml"
-    config_path.touch()
+    if not config_path.exists() or config_path.stat().st_size == 0:
+        config_path.write_text(CONFIG_REMOTE_CONTENT, encoding="utf-8")
     print(f"  Created: {config_path}")
 
     sh_path = target_dir / f"{domain}.sh"

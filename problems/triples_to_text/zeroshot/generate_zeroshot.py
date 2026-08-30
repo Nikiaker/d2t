@@ -38,6 +38,13 @@ USER_PROMPT_TEMPLATE = (
     "Output only the sentence."
 )
 
+CONFIG_REMOTE_CONTENT = """evaluator:
+  themis_enabled: false
+  themis_name: ""
+  themis_api_base: ""
+  themis_api_key: ""
+"""
+
 gen_client = OpenAI(
     base_url=f"http://localhost:{ZS_GEN_PORT}/v1",
     api_key=ZS_API_KEY,
@@ -161,7 +168,8 @@ def main():
     best_dir.mkdir(parents=True, exist_ok=True)
 
     config_path = ZS_OUTPUT_DIR / "config_remote.yaml"
-    config_path.touch()
+    if not config_path.exists() or config_path.stat().st_size == 0:
+        config_path.write_text(CONFIG_REMOTE_CONTENT, encoding="utf-8")
 
     json_path = best_dir / "generated_texts.json"
     with open(json_path, "w", encoding="utf-8") as f:
