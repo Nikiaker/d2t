@@ -1,8 +1,13 @@
-sbatch $D2TPATH/problems/triples_to_text/outputs/5_1k30m1p1themis/Building_output/Building.sh
-sbatch $D2TPATH/problems/triples_to_text/outputs/5_1k30m1p1themis/Food_output/Food.sh
-sbatch $D2TPATH/problems/triples_to_text/outputs/5_1k30m1p1themis/WrittenWork_output/WrittenWork.sh
-sbatch $D2TPATH/problems/triples_to_text/outputs/5_1k70mllama4p1themis/Building_output/Building.sh
-sbatch $D2TPATH/problems/triples_to_text/outputs/5_1k70mllama4p1themis/Food_output/Food.sh
-sbatch $D2TPATH/problems/triples_to_text/outputs/5_1k70mllama4p1themis/WrittenWork_output/WrittenWork.sh
-
-sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m1p/Food_output/Food.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/Airport_output/Airport.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/Artist_output/Artist.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/Astronaut_output/Astronaut.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/Athlete_output/Athlete.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/CelestialBody_output/CelestialBody.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/City_output/City.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/ComicsCharacter_output/ComicsCharacter.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/Company_output/Company.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/MeanOfTransportation_output/MeanOfTransportation.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/Monument_output/Monument.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/Politician_output/Politician.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/SportsTeam_output/SportsTeam.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/University_output/University.sh

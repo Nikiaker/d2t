@@ -31,7 +31,7 @@ conda run -n openevolve-env python $D2TPATH/.conda/test-response.py --port {port
 conda run -n openevolve-env python $D2TPATH/tripler/batch_wrapper_server.py \
     --upstream-base-url http://localhost:{port_1} \
     --port {port_0} \
-    --storage-dir $SCRATCH/.batch_wrapper_data \
+    --storage-dir $HOME/.batch_wrapper_data \
 	2>&1 &
 
 cd $D2TPATH/problems/triples_to_text
