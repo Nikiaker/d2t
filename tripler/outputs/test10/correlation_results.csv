@@ -1,0 +1,73 @@
+domain,variant,criterion,n,pearson_r,spearman_rho,kendall_tau,qw_kappa
+mobile_phone_specification,rules_text_pipeline,text_summary,0,,,,
+mobile_phone_specification,rules_text_pipeline,text_completeness,0,,,,
+mobile_phone_specification,rules_text_pipeline,text_faithfulness,0,,,,
+mobile_phone_specification,rules_text_pipeline,text_omissions,0,,,,
+mobile_phone_specification,rules_text_pipeline,triples_summary,10,0.375000,0.375000,0.375000,0.090909
+mobile_phone_specification,rules_text_pipeline,triples_completeness,10,-0.151620,-0.175682,-0.170251,-0.129032
+mobile_phone_specification,rules_text_pipeline,triples_faithfulness,10,0.218218,0.218218,0.218218,0.146341
+mobile_phone_specification,rules_text_pipeline,triples_omissions,10,0.267261,0.223607,0.212132,0.153846
+mobile_phone_specification,rules_text_pipeline,overall_text (pooled),0,,,,
+mobile_phone_specification,rules_text_pipeline,overall_text (mean),0,,,,
+mobile_phone_specification,rules_text_pipeline,overall_triples (pooled),40,0.256103,0.223175,0.207047,0.164786
+mobile_phone_specification,rules_text_pipeline,overall_triples (mean),10,0.215207,0.182259,0.161627,0.000000
+mobile_phone_specification,text_pipeline,text_summary,0,,,,
+mobile_phone_specification,text_pipeline,text_completeness,0,,,,
+mobile_phone_specification,text_pipeline,text_faithfulness,0,,,,
+mobile_phone_specification,text_pipeline,text_omissions,0,,,,
+mobile_phone_specification,text_pipeline,triples_summary,10,,,,0.000000
+mobile_phone_specification,text_pipeline,triples_completeness,10,,,,0.000000
+mobile_phone_specification,text_pipeline,triples_faithfulness,10,,,,0.000000
+mobile_phone_specification,text_pipeline,triples_omissions,10,,,,0.000000
+mobile_phone_specification,text_pipeline,overall_text (pooled),0,,,,
+mobile_phone_specification,text_pipeline,overall_text (mean),0,,,,
+mobile_phone_specification,text_pipeline,overall_triples (pooled),40,,,,0.000000
+mobile_phone_specification,text_pipeline,overall_triples (mean),10,,,,0.000000
+mobile_phone_specification,text_predicate_catalog_stable,text_summary,0,,,,
+mobile_phone_specification,text_predicate_catalog_stable,text_completeness,0,,,,
+mobile_phone_specification,text_predicate_catalog_stable,text_faithfulness,0,,,,
+mobile_phone_specification,text_predicate_catalog_stable,text_omissions,0,,,,
+mobile_phone_specification,text_predicate_catalog_stable,triples_summary,10,,,,0.000000
+mobile_phone_specification,text_predicate_catalog_stable,triples_completeness,10,,,,0.000000
+mobile_phone_specification,text_predicate_catalog_stable,triples_faithfulness,10,,,,0.000000
+mobile_phone_specification,text_predicate_catalog_stable,triples_omissions,10,-0.061898,-0.071722,-0.069505,-0.014493
+mobile_phone_specification,text_predicate_catalog_stable,overall_text (pooled),0,,,,
+mobile_phone_specification,text_predicate_catalog_stable,overall_text (mean),0,,,,
+mobile_phone_specification,text_predicate_catalog_stable,overall_triples (pooled),40,-0.031284,-0.039112,-0.037452,-0.003802
+mobile_phone_specification,text_predicate_catalog_stable,overall_triples (mean),10,0.248452,0.332008,0.320750,0.000000
+wikidata,rules_text_pipeline,text_summary,0,,,,
+wikidata,rules_text_pipeline,text_completeness,0,,,,
+wikidata,rules_text_pipeline,text_faithfulness,0,,,,
+wikidata,rules_text_pipeline,text_omissions,0,,,,
+wikidata,rules_text_pipeline,triples_summary,10,0.532014,0.526787,0.493829,0.315068
+wikidata,rules_text_pipeline,triples_completeness,10,0.166667,0.149404,0.144338,0.098361
+wikidata,rules_text_pipeline,triples_faithfulness,10,,,,0.000000
+wikidata,rules_text_pipeline,triples_omissions,10,0.456435,0.461266,0.433013,0.444444
+wikidata,rules_text_pipeline,overall_text (pooled),0,,,,
+wikidata,rules_text_pipeline,overall_text (mean),0,,,,
+wikidata,rules_text_pipeline,overall_triples (pooled),40,0.286840,0.299046,0.275871,0.277567
+wikidata,rules_text_pipeline,overall_triples (mean),10,0.384197,0.533244,0.493067,0.324324
+wikidata,text_pipeline,text_summary,0,,,,
+wikidata,text_pipeline,text_completeness,0,,,,
+wikidata,text_pipeline,text_faithfulness,0,,,,
+wikidata,text_pipeline,text_omissions,0,,,,
+wikidata,text_pipeline,triples_summary,10,,,,0.000000
+wikidata,text_pipeline,triples_completeness,10,,,,0.000000
+wikidata,text_pipeline,triples_faithfulness,10,,,,0.000000
+wikidata,text_pipeline,triples_omissions,10,,,,0.000000
+wikidata,text_pipeline,overall_text (pooled),0,,,,
+wikidata,text_pipeline,overall_text (mean),0,,,,
+wikidata,text_pipeline,overall_triples (pooled),40,,,,0.000000
+wikidata,text_pipeline,overall_triples (mean),10,,,,0.000000
+wikidata,text_predicate_catalog_stable,text_summary,0,,,,
+wikidata,text_predicate_catalog_stable,text_completeness,0,,,,
+wikidata,text_predicate_catalog_stable,text_faithfulness,0,,,,
+wikidata,text_predicate_catalog_stable,text_omissions,0,,,,
+wikidata,text_predicate_catalog_stable,triples_summary,10,-0.301511,-0.320750,-0.309492,-0.153846
+wikidata,text_predicate_catalog_stable,triples_completeness,10,-0.166667,-0.166667,-0.166667,-0.153846
+wikidata,text_predicate_catalog_stable,triples_faithfulness,10,,,,0.000000
+wikidata,text_predicate_catalog_stable,triples_omissions,10,0.111111,0.132803,0.128300,0.074074
+wikidata,text_predicate_catalog_stable,overall_text (pooled),0,,,,
+wikidata,text_predicate_catalog_stable,overall_text (mean),0,,,,
+wikidata,text_predicate_catalog_stable,overall_triples (pooled),40,-0.083683,-0.145254,-0.136410,-0.041667
+wikidata,text_predicate_catalog_stable,overall_triples (mean),10,-0.180775,-0.176777,-0.156174,0.090909
