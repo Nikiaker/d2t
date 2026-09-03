@@ -605,10 +605,8 @@ avoided.
 \subsection{Evaluator integration}
 
 The OpenEvolve \texttt{Evaluator} is a generic wrapper around the task-specific
-evaluation file. For every candidate, it writes the source code to a temporary
-file and invokes the function named \texttt{evaluate}. The result can be a
-dictionary of metrics or an \texttt{EvaluationResult} containing metrics and a
-separate artifact channel. The wrapper applies the configured timeout, handles
+evaluation file. For every candidate, it invokes the function named \texttt{evaluate}. The result contain metrics and
+artifacts. The wrapper applies the configured timeout, handles
 retries, converts both result formats to a common representation, and collects
 pending artifacts for the program record.
 
@@ -619,25 +617,17 @@ The task-specific evaluator is therefore the boundary between source-code
 generation and evolutionary selection: OpenEvolve does not infer whether a
 sentence is good from the source code itself.
 
-\subsection{WebNLG data and candidate execution}
+\subsection{Reference data and candidate execution}
 
-The surface-realization evaluator loads the WebNLG XML corpus through the local
-benchmark reader. The training and development directories are read, and
-entries are filtered by the value of \texttt{WEBNLG\_DOMAIN}. Each selected
-entry contains a modified triple set and one or more reference
-lexicalizations. The triples are converted to the \texttt{Triple} class used by
-the candidate program, while underscores in subjects and objects are replaced
-with spaces for evaluation.
+The surface-realization evaluator loads a supplied reference data corpus.
+Each selected entry contains a triple set and one or more reference
+lexicalizations.
 
 Before the examples are processed, the evaluator loads the candidate module
 dynamically and checks that \texttt{predict} exists and accepts exactly one
-argument. For each WebNLG entry, the list of triples is passed to
+argument. For each reference data entry, the list of triples is passed to
 \texttt{predict}. A result is accepted only when it is a string. An empty
-string receives a per-example zero lexical score. In the current implementation
-that zero is assigned in the empty-output branch but is not appended to the
-aggregate BLEU list; therefore an empty output contributes to the success
-counter but can be omitted from the numerical BLEU mean when other outputs are
-available. Exceptions, invalid return types, and timeouts terminate the
+string receives a per-example zero lexical score. Exceptions, invalid return types, and timeouts terminate the
 affected evaluation path and produce zero-valued metrics with an explanation in
 the artifacts.
 
@@ -646,52 +636,27 @@ the artifacts.
 For every non-empty generated text, the evaluator computes a BLEU score against
 all reference lexicalizations associated with the entry. The average over the
 selected domain entries is returned as an aggregate reference-based measure.
-In the current implementation the metric is stored under the key
-\texttt{BLUE score}; the spelling is preserved here because it is part of the
-program database and prompt interface, although the metric is BLEU.
 
-When Themis is disabled, this average BLEU value is used as
+BLEU value is used as
 \texttt{combined\_score}, and it is the quantity used by the evolutionary
-database for fitness comparisons. The evaluator also contains integrations for
-METEOR, BLEURT, and sentence-length scoring, but these are disabled in the
-online evolution evaluator. They are enabled in the separate final-test
-script, where a broader set of metrics is collected.
+database for fitness comparisons.
 
 \subsection{LLM as a judge}
+
+(mention here about themis and what it is. tell that instead of themis model we can use a different model as a judge)
 
 When Themis is enabled, the evaluator constructs an additional judge prompt for
 each non-empty candidate output. The prompt contains the input triples and the
 generated text and asks the judge to assess two criteria: whether the text
 faithfully expresses the triples and, where possible, whether the information
 is expressed as one complex sentence instead of several disconnected
-sentences. The requests are serialized as JSON Lines, uploaded through the
-batch wrapper, and submitted to the OpenAI-compatible chat-completions batch
-endpoint. The evaluator polls until completion, retrieves the output file, and
-restores responses to the order of the original examples using their custom
-identifiers.
+sentences.
 
-The response parser accepts a JSON object containing a \texttt{rating} or
-\texttt{score} field, or a plain-text line beginning with \texttt{Rating:}. A
-rating on a scale from 1 to 5 is averaged over the examples and divided by 5:
-\[
-  \texttt{combined\_score}
-  = \frac{1}{5N}\sum_{i=1}^{N} r_i,
-  \qquad r_i \in \{1,2,3,4,5\}.
-\]
+A rating on a scale from 1 to 5 is averaged over the examples and divided by 5.
 When Themis is available, this normalized judge score is the combined fitness,
 while the average BLEU value is retained as a diagnostic metric. Thus the
 judge can favor a faithful and compact realization even when it uses wording
 that has limited n-gram overlap with the references.
-
-Response formatting is part of this evaluation path. If a judge response does
-not contain one of the recognized rating fields or a valid \texttt{Rating:}
-line, it is mapped to zero. The recorded Building run contains examples in
-which the textual judge review reports an accuracy value but does not use a
-recognized rating field. Such cases explain why the stored judge score can be
-zero even when the accompanying review appears favorable. The strict parser
-therefore makes structured output instructions and response validation
-important experimental conditions rather than incidental implementation
-details.
 
 \subsection{Artifacts as evaluator feedback}
 
@@ -715,8 +680,7 @@ the explanation available to the next generation.
 
 After evaluation, the worker creates a child \texttt{Program} containing the
 candidate source, parent identifier, generation, iteration, metrics, and a
-change summary. The controller receives the result and performs duplicate
-checking before calling \texttt{ProgramDatabase.add}. The database then
+change summary. The database then
 calculates feature coordinates, updates the corresponding MAP-Elites cell and
 the archive, enforces the population limit, and updates the global and
 island-specific best-program references. Artifacts and prompts are stored, and
@@ -730,37 +694,3 @@ registration would not affect the search, and a database without evaluation
 would have no objective basis for selection. The repeated interaction between
 the two is what converts LLM code generation into an evolutionary surface
 realization procedure.
-
-\subsection{Illustrative evolution trace}
-
-The completed Building run in the
-\texttt{5\_1krand30m4p1themis/Building\_output/} directory
-shows the complete data flow. It was configured for 1,000 evolutionary
-iterations, used four worker processes, one island, a population limit of 50,
-an archive of 10, one inspiration per prompt, and enabled Themis judging and
-JSON evolution tracing. The output contains 948 ordinary program records, 15
-records in \texttt{broken\_programs/}, and 896 trace entries. The counts differ
-because several iterations produced malformed or duplicate candidates and
-because persistent program files document historical candidates rather than
-only the final active population.
-
-The initial program was evaluated at iteration zero with a recorded
-\texttt{combined\_score} of approximately 0.0300 and a BLEU diagnostic of
-approximately 0.1871. The first accepted mutation replaced the one-line
-fallback with a predicate map, an empty-input guard, subject grouping, and
-multi-triple joining. Its recorded combined score increased to approximately
-0.0358, while its BLEU diagnostic increased to approximately 0.4295. Later
-mutations introduced linked-subject traversal and relative-clause selection.
-The best recorded candidate was found at iteration 794, generation 10, after a
-mutation that simplified subject processing and removed quote and angle-bracket
-delimiters from object values. It had a recorded combined score of
-approximately 0.0676. These values illustrate the mechanics of the evolution
-trace and are not held-out test results; the latter are produced separately by
-\texttt{final\_test.py}.
-
-The online evaluator uses WebNLG training and development entries to provide
-fitness during evolution. The final-test script instead loads the held-out
-WebNLG test file and computes BLEU, METEOR, SENLEN, BLEURT, judge scores,
-grammaticality, omission, and addition measures. Keeping these two paths
-separate makes it possible to use the evolutionary score to drive search while
-reporting generalization in the experiments chapter.

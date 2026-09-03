@@ -30,8 +30,8 @@
 [v] reference Dr. Lango's article that gives an idea of creating a program to convert triples to text
 [v] fix the alpha evolve section
 [x] maybe a different section about the llm ensambles?
-[] there are very technical mentions about the repository structure, folders, filenames - remove or change those
-[] more explenation in the Execution architecture of OpenEvolve
+[v] there are very technical mentions about the repository structure, folders, filenames - remove or change those
+[?] more explenation in the Execution architecture of OpenEvolve
 [] appendix the initial program
 [] add the prompts to appendix
 [] mention themis (reference)
