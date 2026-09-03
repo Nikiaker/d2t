@@ -1,13 +1,5 @@
-sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/Airport_output/Airport.sh
-sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/Artist_output/Artist.sh
-sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/Astronaut_output/Astronaut.sh
-sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/Athlete_output/Athlete.sh
-sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/CelestialBody_output/CelestialBody.sh
-sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/City_output/City.sh
-sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/ComicsCharacter_output/ComicsCharacter.sh
-sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/Company_output/Company.sh
-sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/MeanOfTransportation_output/MeanOfTransportation.sh
-sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/Monument_output/Monument.sh
-sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/Politician_output/Politician.sh
-sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/SportsTeam_output/SportsTeam.sh
-sbatch $D2TPATH/problems/triples_to_text/outputs/5_1krand30m4p_pp/University_output/University.sh
+WRITTENWORK=$(sbatch $D2TPATH/problems/triples_to_text/outputs/3_sm1ifenp_500/WrittenWork_output/WrittenWork.sh)
+BUILDING=$(sbatch $D2TPATH/problems/triples_to_text/outputs/3_sm1ifenp_500/Building_output/Building.sh)
+FOOD=$(sbatch $D2TPATH/problems/triples_to_text/outputs/3_sm1ifenp_500/Food_output/Food.sh)
+
+sbatch --dependency="afterok:$WRITTENWORK:$BUILDING:$FOOD" $D2TPATH/problems/triples_to_text/batch_evaluate_all_plgrid.sh
