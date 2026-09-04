@@ -10,3 +10,31 @@
 % Content goes here
 
 The structure of the thesis is as follows. Chapter~2 provides an overview of data-to-text generation. Chapter~3 describes the methods for building interpretable meaning representations from complex data. Chapter~4 presents the surface realization approach using OpenEvolve. Chapter~5 reports the experimental results. Chapter~6 discusses the findings, and Chapter~7 concludes the thesis.
+
+For the thesis pipeline, the input to the final generation stage is not the
+original JSON instance. The structured instance is first transformed into
+semantic triples, as described in Chapter~\ref{chap:meaning-representation}.
+The D2T problem studied here can consequently be separated into two related
+transformations:
+\begin{equation}
+    d \longrightarrow T \longrightarrow y,
+\end{equation}
+where $d$ is a complex structured data instance, $T$ is its meaning
+representation, and $y$ is the generated text. Chapter 3 addresses the first
+transformation. This chapter introduces the broader D2T context, while
+Chapter~\ref{chap:surface-realization} focuses on the second transformation,
+namely surface realization from triples.
+
+Chapter~\ref{chap:meaning-representation} describes
+how complex structured instances are converted into this representation. The
+resulting triples are then verbalized as natural-language text in the D2T and
+surface-realization stages.
+
+The approach developed in this thesis addresses this gap by treating the D2T
+program as an object of evolutionary search. An LLM proposes source-code
+mutations, and an evaluator executes each candidate on a reference corpus. The
+program database retains promising and diverse candidates together with their
+scores and diagnostic artifacts. This retains the interpretability of an
+executable rule-based generator while introducing an automated mechanism for
+iterative improvement. The AlphaEvolve and OpenEvolve implementation details
+are presented in Chapter~\ref{chap:surface-realization}.

@@ -36,7 +36,7 @@
 [] add the prompts to appendix
 [v] mention themis (reference)
 
-[] there is a mention of semantic triples, but there is no explenation of what it is.
+[v] there is a mention of semantic triples, but there is no explenation of what it is.
 [] d->T->y move that to somewhere else
 [] The approach developed in this thesis addresses this gap... move that to somewhere else
 [] Studies therefore report agreement... what studies?

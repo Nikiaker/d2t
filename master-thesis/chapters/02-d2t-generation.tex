@@ -19,16 +19,7 @@ structured input $x$:
 \begin{equation}
     G(x) = y,
 \end{equation}
-where $G$ is a data-to-text generator. If the input is a set of semantic
-triples, it can be written as
-\begin{equation}
-    T = \{(s_i,p_i,o_i)\}_{i=1}^{n},
-\end{equation}
-where $s_i$ is a subject, $p_i$ is a predicate, and $o_i$ is an object. The
-generator must produce a text that verbalizes the information encoded in $T$.
-The task is not a simple serialization of the triples. Several valid texts can
-describe the same input, and the system must decide how the facts should be
-organized and expressed in the target language~\cite{gatt2018survey,osuji2024systematic}.
+where $G$ is a data-to-text generator. 
 
 D2T is distinguished from text-to-text generation by the nature of its source.
 In machine translation, summarization, and paraphrasing, the input is already
@@ -50,6 +41,50 @@ and level of detail to the intended audience. These requirements can conflict:
 for example, adding more facts can improve coverage while making the text less
 readable, and maximizing similarity to a reference can encourage wording that
 does not accurately describe the input.
+
+\subsection{RDF and semantic triples}
+\label{sec:rdf-semantic-triples}
+
+The Resource Description Framework (RDF) is a graph-based data model for
+representing statements about resources~\cite{w3c2014rdf11concepts}. The basic
+unit of an RDF statement is a triple consisting of a subject, a predicate, and
+an object. The subject identifies the entity being described, the predicate
+denotes a relation or property, and the object identifies another entity or
+contains a literal value. A compact representation of a statement about a
+mobile phone can therefore be written as:
+\begin{equation}
+    (\texttt{ex:PhoneModel},\ \texttt{ex:hasBatteryCapacity},\ \texttt{"5000 mAh"}).
+\end{equation}
+Here, \texttt{ex:} is a namespace prefix, \texttt{ex:PhoneModel} is the
+subject, \texttt{ex:hasBatteryCapacity} is the predicate, and the string
+\texttt{"5000 mAh"} is the object literal. In a complete RDF representation,
+resources and predicates are normally identified using globally resolvable
+identifiers, while literals may carry datatypes or language tags.
+
+A collection of triples forms a directed, labeled graph: subjects and resource
+objects are nodes, and predicates label the edges between them. Unlike a JSON
+tree or a database table, this graph does not prescribe an order in which facts
+must be presented. The same entity can participate in many relations, and an
+object can simultaneously be the subject of other statements. This makes RDF a
+useful meaning representation for D2T generation: the triples preserve the
+facts and their relations while leaving sentence ordering, aggregation,
+lexicalization, and surface realization to the generation system.
+
+If the input is a set of semantic
+triples, it can be written as
+\begin{equation}
+    T = \{(s_i,p_i,o_i)\}_{i=1}^{n},
+\end{equation}
+where $s_i$ is a subject, $p_i$ is a predicate, and $o_i$ is an object. The
+generator must produce a text that verbalizes the information encoded in $T$.
+The task is not a simple serialization of the triples. Several valid texts can
+describe the same input, and the system must decide how the facts should be
+organized and expressed in the target language~\cite{gatt2018survey,osuji2024systematic}.
+
+The term \emph{semantic triple} is used for a normalized
+subject--predicate--object statement, usually stored as three strings. Such a
+triple has the same structural role as an RDF triple and is not a complete RDF document with formal
+namespaces and datatypes.
 
 \subsection{Generation stages}
 
@@ -81,20 +116,6 @@ surface realization address ``how to say it?''. The distinction is useful even
 when all stages are implemented by a single neural model. It identifies the
 different sources of errors and makes it possible to introduce intermediate
 representations that can be inspected or constrained~\cite{moryossef-etal-2019-step}.
-
-For the thesis pipeline, the input to the final generation stage is not the
-original JSON instance. The structured instance is first transformed into
-semantic triples, as described in Chapter~\ref{chap:meaning-representation}.
-The D2T problem studied here can consequently be separated into two related
-transformations:
-\begin{equation}
-    d \longrightarrow T \longrightarrow y,
-\end{equation}
-where $d$ is a complex structured data instance, $T$ is its meaning
-representation, and $y$ is the generated text. Chapter 3 addresses the first
-transformation. This chapter introduces the broader D2T context, while
-Chapter~\ref{chap:surface-realization} focuses on the second transformation,
-namely surface realization from triples.
 
 \subsection{Properties and challenges}
 
@@ -303,15 +324,6 @@ construction procedure or a fixed sequence of agent interactions may not explore
 the space of alternative program structures systematically. Manual correction
 can restore quality, but it reduces the automation that motivated program
 generation in the first place.
-
-The approach developed in this thesis addresses this gap by treating the D2T
-program as an object of evolutionary search. An LLM proposes source-code
-mutations, and an evaluator executes each candidate on a reference corpus. The
-program database retains promising and diverse candidates together with their
-scores and diagnostic artifacts. This retains the interpretability of an
-executable rule-based generator while introducing an automated mechanism for
-iterative improvement. The AlphaEvolve and OpenEvolve implementation details
-are presented in Chapter~\ref{chap:surface-realization}.
 
 \section{Performance Evaluation}
 \label{sec:d2t-performance-evaluation}

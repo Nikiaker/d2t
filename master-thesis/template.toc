@@ -6,36 +6,36 @@
 \contentsline {chapter}{\chapternumberline {2}Data-to-Text Generation}{2}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Problem definition}{2}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}The D2T task}{2}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Generation stages}{3}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Properties and challenges}{3}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.2}RDF and semantic triples}{2}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Generation stages}{3}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Properties and challenges}{4}{subsection.2.1.4}%
 \contentsline {section}{\numberline {2.2}Methods}{4}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Rule-based and template-based systems}{4}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Retrieval and statistical systems}{4}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.2}Retrieval and statistical systems}{5}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Neural sequence-to-sequence systems}{5}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Modular neural and end-to-end architectures}{5}{subsection.2.2.4}%
-\contentsline {subsection}{\numberline {2.2.5}Transformers, pretrained models, and controllable generation}{5}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.5}Transformers, pretrained models, and controllable generation}{6}{subsection.2.2.5}%
 \contentsline {section}{\numberline {2.3}Interpretable D2T Approaches}{6}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Explicit rules and templates}{6}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Intermediate representations and hybrid systems}{6}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}LLM-generated rule-based systems}{6}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.3}LLM-generated rule-based systems}{7}{subsection.2.3.3}%
 \contentsline {section}{\numberline {2.4}Performance Evaluation}{7}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Evaluation dimensions}{7}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Reference-based automatic metrics}{7}{subsection.2.4.2}%
-\contentsline {subsubsection}{BLEU}{7}{section*.4}%
+\contentsline {subsection}{\numberline {2.4.2}Reference-based automatic metrics}{8}{subsection.2.4.2}%
+\contentsline {subsubsection}{BLEU}{8}{section*.4}%
 \contentsline {subsubsection}{METEOR}{8}{section*.5}%
-\contentsline {subsubsection}{ROUGE}{8}{section*.6}%
-\contentsline {subsubsection}{BERTScore}{8}{section*.7}%
-\contentsline {subsubsection}{BLEURT}{8}{section*.8}%
-\contentsline {subsection}{\numberline {2.4.3}Source-aware and semantic evaluation}{8}{subsection.2.4.3}%
+\contentsline {subsubsection}{BERTScore}{8}{section*.6}%
+\contentsline {subsubsection}{BLEURT}{8}{section*.7}%
+\contentsline {subsection}{\numberline {2.4.3}Source-aware and semantic evaluation}{9}{subsection.2.4.3}%
 \contentsline {subsection}{\numberline {2.4.4}Human evaluation}{9}{subsection.2.4.4}%
-\contentsline {subsection}{\numberline {2.4.5}Metrics used in this thesis}{9}{subsection.2.4.5}%
+\contentsline {subsection}{\numberline {2.4.5}Metrics used}{9}{subsection.2.4.5}%
 \contentsline {chapter}{\chapternumberline {3}Building interpretable meaning representations from complex data}{11}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Method Overview}{11}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Conversion Methods Overview}{12}{subsection.3.1.1}%
-\contentsline {paragraph}{Pipeline-based methods.}{12}{section*.9}%
-\contentsline {paragraph}{Fine-tuned model.}{12}{section*.10}%
+\contentsline {paragraph}{Pipeline-based methods.}{12}{section*.8}%
+\contentsline {paragraph}{Fine-tuned model.}{12}{section*.9}%
 \contentsline {section}{\numberline {3.2}Data conversion with LLMs}{13}{section.3.2}%
-\contentsline {paragraph}{Pipeline overview.}{13}{section*.11}%
+\contentsline {paragraph}{Pipeline overview.}{13}{section*.10}%
 \contentsline {subsection}{\numberline {3.2.1}Text-First Extraction with Normalization}{13}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Blueprint-Iterative Refinement}{14}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}Evolving Catalog}{16}{subsection.3.2.3}%
@@ -59,11 +59,11 @@
 \contentsline {subsection}{\numberline {4.4.1}Open-source implementation}{26}{subsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.2}Execution architecture used in the thesis}{26}{subsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.4.3}Extensions made for the experiments}{27}{subsection.4.4.3}%
-\contentsline {paragraph}{Fitness-weighted and island-specific selection.}{27}{section*.12}%
-\contentsline {paragraph}{Configurable inspirations.}{27}{section*.13}%
-\contentsline {paragraph}{More robust SEARCH/REPLACE application.}{27}{section*.14}%
-\contentsline {paragraph}{Retention of failed candidates.}{27}{section*.15}%
-\contentsline {paragraph}{Explicit zero scores for timeouts.}{27}{section*.16}%
+\contentsline {paragraph}{Fitness-weighted and island-specific selection.}{27}{section*.11}%
+\contentsline {paragraph}{Configurable inspirations.}{27}{section*.12}%
+\contentsline {paragraph}{More robust SEARCH/REPLACE application.}{27}{section*.13}%
+\contentsline {paragraph}{Retention of failed candidates.}{27}{section*.14}%
+\contentsline {paragraph}{Explicit zero scores for timeouts.}{27}{section*.15}%
 \contentsline {section}{\numberline {4.5}Program database and initial program}{27}{section.4.5}%
 \contentsline {subsection}{\numberline {4.5.1}Program records and persistence}{27}{subsection.4.5.1}%
 \contentsline {subsection}{\numberline {4.5.2}Initial program}{28}{subsection.4.5.2}%
@@ -84,14 +84,14 @@
 \contentsline {chapter}{\chapternumberline {5}Experiments}{33}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Meaning representation}{33}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}Data Collection}{33}{subsection.5.1.1}%
-\contentsline {paragraph}{Large language model.}{34}{section*.17}%
+\contentsline {paragraph}{Large language model.}{34}{section*.16}%
 \contentsline {subsection}{\numberline {5.1.2}Training Configuration}{34}{subsection.5.1.2}%
 \contentsline {section}{\numberline {5.2}Surface realization}{35}{section.5.2}%
 \contentsline {subsection}{\numberline {5.2.1}Illustrative evolution trace}{35}{subsection.5.2.1}%
 \contentsline {section}{\numberline {5.3}Whole system evaluation}{35}{section.5.3}%
 \contentsline {chapter}{\chapternumberline {6}Discussion}{36}{chapter.6}%
 \contentsline {chapter}{\chapternumberline {7}Summary}{37}{chapter.7}%
-\contentsline {chapter}{Bibliography}{38}{chapter*.19}%
+\contentsline {chapter}{Bibliography}{38}{chapter*.18}%
 \contentsline {appendix}{\chapternumberline {A}Prompts}{41}{appendix.A}%
 \contentsline {section}{\numberline {A.1}Text-First Extraction with Normalization}{41}{section.A.1}%
 \contentsline {section}{\numberline {A.2}Blueprint-Iterative Refinement}{41}{section.A.2}%
