@@ -259,7 +259,8 @@ agent.
 \subsection{Task specification and program representation}
 
 An AlphaEvolve task has three essential inputs. First, an initial program must
-be complete enough to run, even if its implementation is deliberately simple.
+be complete enough to run, even if its implementation is deliberately simple
+(the complete initial program is reproduced in Appendix~\ref{app:initial-program}).
 Second, the part of the source code that may be changed is marked with
 \texttt{\# EVOLVE-BLOCK-START} and \texttt{\# EVOLVE-BLOCK-END}. The remaining
 code forms a fixed skeleton that defines imports, data types, and the public
@@ -272,9 +273,10 @@ returns a dictionary of scalar metrics.
 AlphaEvolve prompts contain more than the current program. Depending on the
 configuration, the context can contain high-scoring programs, structurally
 diverse programs, previous attempts, evaluator outputs, artifacts, explicit
-human-written instructions, and relevant examples or literature. This context
-allows an LLM to compare alternatives rather than repeatedly proposing a
-mutation without knowing what has already been tried.
+human-written instructions, and relevant examples or literature. The complete
+experiment-specific prompt composition is shown in Appendix~\ref{app:prompts-evolution}.
+This context allows an LLM to compare alternatives rather than repeatedly
+proposing a mutation without knowing what has already been tried.
 
 The LLM is asked to make a concrete source-level change. For a diff-based
 mutation, the expected response is a sequence of blocks of the form
@@ -286,7 +288,8 @@ mutation, the expected response is a sequence of blocks of the form
 \texttt{>>>>>>> REPLACE}
 \end{quote}
 The search part identifies the source segment to be replaced, and the replace
-part contains the candidate implementation. A complete rewrite can be used for
+part contains the candidate implementation. The complete mutation template is
+provided in Appendix~\ref{app:prompt-evolution-user}. A complete rewrite can be used for
 short programs or when a targeted change is not appropriate. In both cases,
 the model is instructed to preserve the public interface and to optimize the
 metrics defined by the evaluator.
@@ -411,6 +414,7 @@ the correct nesting level. If the response has no parsable diff, a corrective pr
 LLM to return the required format. If a syntactically valid diff does not
 change the source because its SEARCH block does not match, a second corrective
 prompt includes the parent code and asks the LLM to repair the SEARCH section.
+The exact repair prompts are given in Appendix~\ref{app:prompt-repair}.
 
 \paragraph{Retention of failed candidates.}
 Malformed or unchanged proposals are written to a separate
@@ -461,7 +465,7 @@ population, together with their references in islands and cells. The main limits
 
 \subsection{Initial program}
 
-The initial program defines a small \texttt{Triple} data class with
+The initial program, reproduced in Appendix~\ref{app:initial-program}, defines a small \texttt{Triple} data class with
 \texttt{subject}, \texttt{predicate}, and \texttt{object} fields. Its evolution
 block contains the following baseline behavior: \texttt{predict} receives a
 list of triples and returns a sentence describing the predicate, subject, and
@@ -499,8 +503,9 @@ passed to the worker, which reconstructs their source code from the database.
 
 \subsection{Prompt composition}
 
-The system message used for the surface-realization experiment
-contains four kinds of fixed information:
+The system message used for the surface-realization experiment is reproduced in
+Appendix~\ref{app:prompt-evolution-system}. It contains four kinds of fixed
+information:
 
 \begin{itemize}
   \item the role of the model as an expert data engineer;
@@ -511,12 +516,14 @@ contains four kinds of fixed information:
   each predicate.
 \end{itemize}
 
-The user message is assembled for each selected parent. Its main parts are:
+The user message is assembled for each selected parent. Its complete template
+and runtime components are shown in Appendix~\ref{app:prompt-evolution-user}.
+Its main parts are:
 
 \begin{itemize}
   \item the current metrics and fitness score;
   \item optional evaluator artifacts, such as low-scoring triples and the
-  generated text that caused them;
+  generated text that caused them (see Appendix~\ref{app:prompt-artifact-message});
   \item the complete current source code;
   \item the mutation task, including the requirement to improve
   the score, preserve the interface, and use the exact
@@ -537,7 +544,8 @@ program, and the REPLACE section must contain the proposed replacement. The
 controller extracts all matching blocks with a regular expression, applies
 them line by line, and checks whether the resulting source differs from the
 parent. This format makes changes auditable and reduces the risk that the LLM
-rewrites fixed parts of the program unintentionally.
+rewrites fixed parts of the program unintentionally. The full mutation prompt
+is given in Appendix~\ref{app:prompt-evolution-user}.
 
 The format is also a significant source of failure. A model can describe a
 patch in prose, omit one of the delimiters, copy an outdated version of the
@@ -547,7 +555,8 @@ is normalized and common indentation is removed while matching, after which
 the replacement is re-indented at the original location. Second, malformed
 responses and unapplied responses are sent to dedicated repair prompts. These
 safeguards preserve the replacement text where possible and focus the subsequent
-LLM call on producing a matchable SEARCH section.
+LLM call on producing a matchable SEARCH section; the repair messages are
+listed in Appendix~\ref{app:prompt-repair}.
 
 \section{Large Language Model}
 \label{sec:large-language-model}
@@ -659,7 +668,8 @@ non-empty generated text, the evaluator sends the input triples and the text to
 the configured judge, without sending the reference texts to that judge.
 The evaluation criterion requires the text to express the triples accurately,
 to avoid information not present in the triples, and, where possible, to use a
-single complex sentence instead of several disconnected sentences. The judge
+single complex sentence instead of several disconnected sentences. The exact
+judge prompt is reproduced in Appendix~\ref{app:prompt-llm-judge}. The judge
 first returns a concise review and then a rating on a scale from 1 to 5. The
 ratings are averaged over the evaluation examples and divided by 5. When the
 judge is enabled, this normalized value is used as the combined evolutionary
@@ -680,7 +690,8 @@ references.
 The evaluator returns low-scoring examples as artifacts. An LLM-judge artifact
 contains the input triples, the generated text, the judge review, and the score.
 If too many examples qualify, at most three are sampled for storage and prompt
-rendering. When the LLM judge is disabled, low BLEU examples contain the
+rendering (the message format is shown in Appendix~\ref{app:prompt-artifact-message}).
+When the LLM judge is disabled, low BLEU examples contain the
 references as well. On the next mutation, these artifacts are rendered under the feedback
 section of the user prompt. The resulting feedback loop is therefore more
 specific than a scalar fitness value: the LLM can see which triples were

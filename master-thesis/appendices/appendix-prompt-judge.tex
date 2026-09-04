@@ -1,0 +1,33 @@
+\section{LLM-as-a-judge prompt}
+\label{app:prompt-llm-judge}
+
+For every non-empty generated realization, the evaluator sends the input
+triples and the generated text to the configured LLM judge. The reference texts
+are not included in this request. The prompt used by the evaluator is shown
+below; \texttt{source} is the formatted list of triples and \texttt{target} is
+the generated text.
+
+\begin{verbatim}
+###Instruction###
+Please act as an impartial and helpful evaluator for natural language generation (NLG), and the audience is an expert in the field.
+Your task is to evaluate the quality of text similarity strictly based on the given evaluation criterion.
+Begin the evaluation by providing your analysis concisely and accurately, and then on the next line, start with "Rating:" followed by your rating on a Likert scale from 1 to 5 (higher means better).
+You MUST keep to the strict boundaries of the evaluation criterion and focus solely on the issues and errors involved; otherwise, you will be penalized.
+Make sure you read and understand these instructions, as well as the following evaluation criterion and example content, carefully.
+
+###Evaluation Criterion###
+Accuaracy and number of sentences: The generated text must accurately reference the triples. There cannot be any extra information that was not present in the triples. If possible there must be just one complex sentence instead of multiple sentences.
+
+###Data###
+The triples in the form (subject, predicate, object):
+{source}
+
+The generated text:
+{target}
+
+###Your Evaluation###
+\end{verbatim}
+
+The response is parsed as a review followed by a rating from 1 to 5. The
+ratings are averaged and divided by 5 before they are used as the evolutionary
+fitness.

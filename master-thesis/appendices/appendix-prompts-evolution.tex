@@ -1,0 +1,185 @@
+\section{Evolution prompts for surface realization}
+\label{app:prompts-evolution}
+
+The following prompts are the experiment-specific templates used to evolve the
+surface-realization program. Values in braces are filled at runtime by
+OpenEvolve. The templates are shown separately because the final user message
+is assembled from the mutation template, the current program, evaluation
+metrics, evolution history, and optional artifacts.
+
+\subsection{Evolution system prompt}
+\label{app:prompt-evolution-system}
+
+\begin{verbatim}
+You are an expert data engineer specializing in converting data to text. You will be given the current Python program with its score and your task will be to evolve the current Python program to improve the score. It is a program that converts a list of triples into natural language text. The given triples will be associated with the topic: {domain}. The program must implement a function called 'predict' that accepts a list of triples and generates a coherent, contextually relevant sentence that accurately represents the information contained in the triples. Ensure that the generated text is fluent, grammatically correct, and maintains the meaning of the original data. There can be multiple triples given that make up a complex sentence. Converting all those triples into one sentence will award greater score. An example of a complex sentence:
+Triples:
+(Antwerp | cityServed | Antwerp International Airport)
+(Belgium | country | Antwerp)
+(City of Brussels | capital | Belgium)
+Example sentence:
+"Antwerp International Airport serves the city of Antwerp which is in Belgium, where the capital is Brussels."
+
+The 'predict' function returns that sentence as a string. Below is the list of all possible predicates that can be given as an input. With the given predicates and example triples implement the 'predict' function so it can process all the possible predicates:
+
+{triples}
+
+\end{verbatim}
+
+\subsection{Evolution user prompt}
+\label{app:prompt-evolution-user}
+
+The custom user template for diff-based evolution is:
+
+\begin{verbatim}
+# Current Program Information
+{metrics}
+
+{artifacts}
+
+{evolution_history}
+
+# Current Program
+```{language}
+{current_program}
+```
+
+# Task
+Suggest an improvement to the current program that will improve the combined_score.
+Different solutions with similar combined_score score but different ideas are valuable.
+Creating one complex sentence from all the given triples will award greater score as well.
+
+You MUST use the exact SEARCH/REPLACE diff format shown below to indicate changes:
+
+<<<<<<< SEARCH
+# Original code to find and replace (must match exactly, indentations and endlines as well)
+=======
+# New replacement code
+>>>>>>> REPLACE
+
+Example of a valid diff format:
+<<<<<<< SEARCH
+    best_x = 0
+    best_y = 0
+=======
+    # Initialize with a random point
+    best_x = np.random.uniform(bounds[0], bounds[1])
+    best_y = np.random.uniform(bounds[0], bounds[1])
+>>>>>>> REPLACE
+
+The SEARCH section must exactly match the code in the current program, even with it's indentations and endlines.
+Do not provide explanations, only the SEARCH/REPLACE section.
+IMPORTANT: Do not rewrite the entire program - focus on targeted improvements.
+
+\end{verbatim}
+
+The placeholders are expanded as follows: \texttt{metrics} contains the
+parent's recorded metrics, \texttt{artifacts} contains the optional artifact
+message shown in Appendix~\ref{app:prompt-artifact-message},
+\texttt{evolution\_history} contains previous attempts and selected programs,
+and \texttt{current\_program} contains the parent source code. In the reported
+run, the top-program and inspiration subsections were disabled, but the
+inspiration slot was enabled separately.
+
+\subsection{Evolution-history components}
+\label{app:prompt-evolution-history}
+
+The user prompt can contain the following runtime-generated history components.
+They are included here to make the composition of the complete user message
+explicit.
+
+\begin{verbatim}
+{inspirations_section}
+
+### Attempt {attempt_number}
+- Changes: {changes}
+- Metrics: {performance}
+- Outcome: {outcome}
+
+### Program {program_number} (Score: {score})
+```{language}
+{program_snippet}
+```
+Key features: {key_features}
+
+## Inspiration Programs
+
+This is a different program that might have a different approach on how to solve the problem. Use it as an inspiration. Do not copy the whole program:
+
+{inspiration_programs}
+
+### Inspiration {program_number} (Score: {score})
+```{language}
+{program_snippet}
+```
+\end{verbatim}
+
+\subsection{Artifact message}
+\label{app:prompt-artifact-message}
+
+Artifacts returned by the evaluator are wrapped before being inserted into the
+user prompt. The wrapper has the following form:
+
+\begin{verbatim}
+## Evaluator Artifacts
+
+### {artifact_key}
+```
+{artifact_content}
+```
+\end{verbatim}
+
+The artifact content is truncated to the configured maximum size and passed
+through the artifact security filter. For example, a low-scoring LLM-judge
+artifact has the following structure:
+
+\begin{verbatim}
+The program got scored by the judge with the score {rating}. The input triples were:
+{subject} | {predicate} | {object}
+
+The generated text was:
+{generated_text}
+
+The judge review is:
+{review}
+
+Based on the review try to understand why the program might have performed poorly and improve the program accordingly.
+\end{verbatim}
+
+\subsection{Repair prompts}
+\label{app:prompt-repair}
+
+When no valid diff is extracted, the following repair messages are used. The
+second user message is also used when a syntactically valid diff does not apply
+any change to the parent source.
+
+\begin{verbatim}
+SYSTEM:
+You are an expert in fixing your collegues code. You know that the code should be in format:
+<<<<<<< SEARCH
+# Original code to find and replace (must match exactly, indentations and endlines as well)
+=======
+# New replacement code
+>>>>>>> REPLACE
+Provided the incorrect format of SEARCH/REPLACE fix it to a correct format.
+
+USER:
+The original code was:
+{parent_code}
+An incorrect diff format was detected in this change:
+{llm_response}
+Please fix it to the correct format.
+\end{verbatim}
+
+\begin{verbatim}
+SYSTEM:
+You are an expert in fixing your collegues code. You know that in order for the SEARCH/REPLACE diff to be correct, the SEARCH section must EXACTLY match a part of the original code. That includes indentations and endlines as well. Every character matters. The provided code in the SEARCH section DOES NOT match excatly the original code. Your task is to modify the SEARCH section so that it matches EXACTLY the searched part of the original code. Make sure to keep the REPLACE section unchanged.
+
+USER:
+The provided diff did not apply any changes to the original code:
+{llm_response}
+Given the original code please modify the SEARCH section to ensure it matches exactly the searched part of the original code:
+{parent_code}
+\end{verbatim}
+
+The spelling in these blocks is preserved from the implementation because the
+appendix documents the actual prompts sent to the model.
