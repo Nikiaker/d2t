@@ -445,12 +445,19 @@ facts are present and whether unsupported facts have been added. Text quality
 can also be measured on a Likert scale.
 
 Human evaluation is expensive and can be affected by annotator expertise,
-instructions, sample selection, and the number of annotators per item. Studies
-therefore report agreement measures such as Cohen's kappa, Krippendorff's alpha,
-or correlation between annotators where appropriate. A reliable evaluation
-should specify the criteria, scale, annotation procedure, and aggregation
-method. Human assessment is particularly important when automatic metrics
-disagree or when the task permits many valid verbalizations.
+instructions, sample selection, and the number of annotators per item.
+For this reason, human-evaluation studies should report inter-annotator
+agreement and describe the assumptions behind the selected statistic. The survey
+by Artstein and Poesio~\cite{artstein-poesio-2008-survey} discusses the use of
+agreement coefficients in computational linguistics. Cohen's kappa measures
+chance-corrected agreement between two annotators assigning nominal categories,
+whereas Krippendorff's alpha is designed to accommodate multiple annotators,
+missing annotations, and different measurement levels~\cite{cohen1960agreement,krippendorff2004reliability}.
+A reliable evaluation should specify
+the criteria, scale, annotation procedure, number of annotators, agreement
+measure, and aggregation method. Human assessment is particularly important
+when automatic metrics disagree or when the task permits many valid
+verbalizations. \cite{wang-etal-2023-faithful, xiang-etal-2022-asdot}
 
 \subsection{Metrics used}
 

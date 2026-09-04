@@ -1,22 +1,27 @@
 \begin{thebibliography}{10}
 
+\bibitem{artstein-poesio-2008-survey}
+Ron Artstein and Massimo Poesio.
+\newblock Survey article: Inter-coder agreement for computational linguistics.
+\newblock {\em Computational Linguistics}, 34(4):555--596, 2008.
+
 \bibitem{banerjee2005meteor}
 Satanjeev Banerjee and Alon Lavie.
 \newblock Meteor: An automatic metric for mt evaluation with improved
   correlation with human judgments.
-\newblock In {\em Proceedings of the ACL Workshop on Intrinsic and Extrinsic
-  Evaluation Measures for Machine Translation and/or Summarization}, pages
-  65--72, Ann Arbor, Michigan, 2005. Association for Computational Linguistics.
+\newblock \url{https://aclanthology.org/W05-0909/}, 2005.
 
 \bibitem{castro-ferreira-etal-2019-neural}
 Thiago Castro~Ferreira, Chris van~der Lee, Emiel van Miltenburg, and Emiel
   Krahmer.
 \newblock Neural data-to-text generation: A comparison between pipeline and
   end-to-end architectures.
-\newblock In {\em Proceedings of the 2019 Conference on Empirical Methods in
-  Natural Language Processing and the 9th International Joint Conference on
-  Natural Language Processing}, pages 552--562, Hong Kong, China, 2019.
-  Association for Computational Linguistics.
+\newblock \url{https://arxiv.org/abs/1908.09022}, 2019.
+
+\bibitem{cohen1960agreement}
+Jacob Cohen.
+\newblock A coefficient of agreement for nominal scales.
+\newblock {\em Educational and Psychological Measurement}, 20(1):37--46, 1960.
 
 \bibitem{w3c2014rdf11concepts}
 Richard Cyganiak, David Wood, and Markus Lanthaler.
@@ -33,23 +38,19 @@ Bhuwan Dhingra, Manaal Faruqui, Ankur Parikh, Ming-Wei Chang, Dipanjan Das, and
   William Cohen.
 \newblock Handling divergent reference texts when evaluating table-to-text
   generation.
-\newblock In {\em Proceedings of the 57th Annual Meeting of the Association for
-  Computational Linguistics}, pages 4884--4895, Florence, Italy, 2019.
-  Association for Computational Linguistics.
+\newblock \url{https://arxiv.org/abs/1906.01081}, 2019.
 
 \bibitem{dusek-kasner-2020-evaluating}
 Ondrej Du{\v{s}}ek and Zdenek Kasner.
 \newblock Evaluating semantic accuracy of data-to-text generation with natural
   language inference.
-\newblock In {\em Proceedings of the 13th International Conference on Natural
-  Language Generation}, pages 131--137, Dublin, Ireland, 2020. Association for
-  Computational Linguistics.
+\newblock \url{https://arxiv.org/abs/2011.10819}, 2020.
 
 \bibitem{gatt2018survey}
 Albert Gatt and Emiel Krahmer.
 \newblock Survey of the state of the art in natural language generation: Core
   tasks, applications and evaluation.
-\newblock {\em Journal of Artificial Intelligence Research}, 61:65--170, 2018.
+\newblock \url{https://arxiv.org/abs/1703.09902}, 2018.
 
 \bibitem{hu2021lora}
 Edward~J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean
@@ -74,6 +75,12 @@ Diederik~P. Kingma and Jimmy Ba.
 \newblock Adam: A method for stochastic optimization.
 \newblock \url{https://arxiv.org/abs/1412.6980}, 2014.
 
+\bibitem{krippendorff2004reliability}
+Klaus Krippendorff.
+\newblock Reliability in content analysis: Some common misconceptions and
+  recommendations.
+\newblock {\em Human Communication Research}, 30(3):411--433, 2004.
+
 \bibitem{kwon2023vllm}
 Woosuk Kwon, Zhuohan Li, Siyuan Zhuang, Ying Sheng, Lianmin Zheng, Cody~Hao Yu,
   Joseph~E. Gonzalez, Hao Zhang, and Ion Stoica.
@@ -85,9 +92,7 @@ Woosuk Kwon, Zhuohan Li, Siyuan Zhuang, Ying Sheng, Lianmin Zheng, Cody~Hao Yu,
 Mateusz Lango and Ondrej Dusek.
 \newblock {LLM} agents implement an {NLG} system from scratch: Building
   interpretable rule-based {RDF}-to-text generators.
-\newblock In {\em Proceedings of the 2025 Conference on Empirical Methods in
-  Natural Language Processing: Industry Track}, pages 2025--2040, Suzhou,
-  China, 2025. Association for Computational Linguistics.
+\newblock \url{https://aclanthology.org/2025.emnlp-industry.142/}, 2025.
 
 \bibitem{mangrulkar2022peft}
 Sourab Mangrulkar, Sylvain Gugger, Lysak Lysak, et~al.
@@ -99,10 +104,7 @@ Sourab Mangrulkar, Sylvain Gugger, Lysak Lysak, et~al.
 Amit Moryossef, Yoav Goldberg, and Ido Dagan.
 \newblock {S}tep-by-step: {S}eparating planning from realization in neural
   data-to-text generation.
-\newblock In {\em Proceedings of the 2019 Conference of the North American
-  Chapter of the Association for Computational Linguistics: Human Language
-  Technologies, Volume 1}, pages 2267--2277, Minneapolis, Minnesota, 2019.
-  Association for Computational Linguistics.
+\newblock \url{https://arxiv.org/abs/1904.03396}, 2019.
 
 \bibitem{novikov2025alphaevolve}
 Alexander Novikov, Ngan Vu, Marvin Eisenberger, Emilien Dupont, Po-Sen Huang,
@@ -118,9 +120,7 @@ Alexander Novikov, Ngan Vu, Marvin Eisenberger, Emilien Dupont, Po-Sen Huang,
 Jekaterina Novikova, Ondrej Du{\v{s}}ek, Amanda Cercas~Curry, and Verena
   Rieser.
 \newblock Why we need new evaluation metrics for {NLG}.
-\newblock In {\em Proceedings of the 2017 Conference on Empirical Methods in
-  Natural Language Processing}, pages 2241--2252, Copenhagen, Denmark, 2017.
-  Association for Computational Linguistics.
+\newblock \url{https://arxiv.org/abs/1707.06875}, 2017.
 
 \bibitem{osuji2024systematic}
 Chinonso~Cynthia Osuji, Thiago Castro~Ferreira, and Brian Davis.
@@ -136,21 +136,19 @@ Long Ouyang, Jeffrey Wu, Xu~Jiang, Diogo Almeida, Carroll~L. Wainwright, Pamela
 \bibitem{papineni2002bleu}
 Kishore Papineni, Salim Roukos, Todd Ward, and Wei-Jing Zhu.
 \newblock Bleu: A method for automatic evaluation of machine translation.
-\newblock In {\em Proceedings of the 40th Annual Meeting of the Association for
-  Computational Linguistics}, pages 311--318, Philadelphia, Pennsylvania, USA,
-  2002. Association for Computational Linguistics.
+\newblock \url{https://aclanthology.org/P02-1040/}, 2002.
 
 \bibitem{reiter1997building}
 Ehud Reiter and Robert Dale.
 \newblock Building applied natural language generation systems.
-\newblock {\em Natural Language Engineering}, 3(1):57--87, 1997.
+\newblock
+  \url{https://www.researchgate.net/publication/2839784_Building_applied_natural_language_generation_systems},
+  1997.
 
 \bibitem{sellam2020bleurt}
 Thibault Sellam, Dipanjan Das, and Ankur Parikh.
 \newblock {BLEURT}: Learning robust metrics for text generation.
-\newblock In {\em Proceedings of the 58th Annual Meeting of the Association for
-  Computational Linguistics}, pages 7881--7892, Online, 2020. Association for
-  Computational Linguistics.
+\newblock \url{https://arxiv.org/abs/2004.04696}, 2020.
 
 \bibitem{sharma2025openevolve}
 Asankhaya Sharma.
@@ -172,9 +170,7 @@ Gemma Team et~al.
 Chris van~der Lee, Emiel Krahmer, and Sander Wubben.
 \newblock Automated learning of templates for data-to-text generation:
   Comparing rule-based, statistical and neural methods.
-\newblock In {\em Proceedings of the 11th International Conference on Natural
-  Language Generation}, pages 35--45, Tilburg University, The Netherlands,
-  2018. Association for Computational Linguistics.
+\newblock \url{https://aclanthology.org/W18-6504/}, 2018.
 
 \bibitem{wang2025agenticprogramming}
 Huanting Wang, Jingzhi Gong, Huawei Zhang, Jie Xu, and Zheng Wang.
@@ -182,24 +178,32 @@ Huanting Wang, Jingzhi Gong, Huawei Zhang, Jie Xu, and Zheng Wang.
   opportunities.
 \newblock \url{https://arxiv.org/abs/2508.11126}, 2025.
 
+\bibitem{wang-etal-2023-faithful}
+Zhuoer Wang, Marcus Collins, Nikhita Vedula, Simone Filice, Shervin Malmasi,
+  and Oleg Rokhlenko.
+\newblock Faithful low-resource data-to-text generation through cycle training.
+\newblock \url{https://aclanthology.org/2023.acl-long.160/}, 2023.
+
 \bibitem{warczynski-etal-2024-leveraging-large}
 J{\k{e}}drzej Warczy{\'n}ski, Mateusz Lango, and Ondrej Dusek.
 \newblock Leveraging large language models for building interpretable
   rule-based data-to-text systems.
-\newblock In {\em Proceedings of the 17th International Natural Language
-  Generation Conference}, pages 622--630, Tokyo, Japan, 2024. Association for
-  Computational Linguistics.
+\newblock \url{https://arxiv.org/abs/2502.20609}, 2024.
 
 \bibitem{wiseman-etal-2017-challenges}
 Sam Wiseman, Stuart~M. Shieber, and Alexander~M. Rush.
 \newblock Challenges in data-to-document generation.
-\newblock In {\em Proceedings of the 2017 Conference on Empirical Methods in
-  Natural Language Processing}, pages 2253--2263, Copenhagen, Denmark, 2017.
-  Association for Computational Linguistics.
+\newblock \url{https://arxiv.org/abs/1707.08052}, 2017.
+
+\bibitem{xiang-etal-2022-asdot}
+Jiannan Xiang, Zhengzhong Liu, Yucheng Zhou, Eric Xing, and Zhiting Hu.
+\newblock {ASDOT}: Any-shot data-to-text generation with pretrained language
+  models.
+\newblock \url{https://aclanthology.org/2022.findings-emnlp.136/}, 2022.
 
 \bibitem{zhang2020bertscore}
 Tianyi Zhang, Varsha Kishore, Felix Wu, Kilian~Q. Weinberger, and Yoav Artzi.
 \newblock Bertscore: Evaluating text generation with bert.
-\newblock In {\em International Conference on Learning Representations}, 2020.
+\newblock \url{https://arxiv.org/abs/1904.09675}, 2020.
 
 \end{thebibliography}
