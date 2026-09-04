@@ -1,18 +1,471 @@
 
 \chapter{Data-to-Text Generation}
 
-\section{Problem definition}
+Data-to-text (D2T) generation is a branch of natural language generation in
+which structured, non-linguistic information is converted into natural-language
+text. The input can be represented as a table, a database record, a collection
+of RDF triples, a knowledge graph, or another formal meaning representation.
+The output is intended for a human reader and should present the relevant facts
+in a fluent, coherent, and faithful form. D2T systems are therefore situated at
+the interface between structured data processing and language generation.
 
-% Content goes here
+\section{Problem definition}
+\label{sec:d2t-problem-definition}
+
+\subsection{The D2T task}
+
+The general aim of D2T generation is to produce a textual description $y$ from
+structured input $x$:
+\begin{equation}
+    G(x) = y,
+\end{equation}
+where $G$ is a data-to-text generator. If the input is a set of semantic
+triples, it can be written as
+\begin{equation}
+    T = \{(s_i,p_i,o_i)\}_{i=1}^{n},
+\end{equation}
+where $s_i$ is a subject, $p_i$ is a predicate, and $o_i$ is an object. The
+generator must produce a text that verbalizes the information encoded in $T$.
+The task is not a simple serialization of the triples. Several valid texts can
+describe the same input, and the system must decide how the facts should be
+organized and expressed in the target language~\cite{gatt2018survey,osuji2024systematic}.
+
+D2T is distinguished from text-to-text generation by the nature of its source.
+In machine translation, summarization, and paraphrasing, the input is already
+natural language. In D2T, the input is structured and may not have an obvious
+linguistic order. The generator must therefore construct a discourse from
+records, attributes, or graph relations before it can realize individual
+sentences. Common input formats include relational tables, key--value records,
+RDF graphs, meaning representations, and time series. The required output can
+range from a short dialogue utterance to a multi-sentence report or a complete
+document~\cite{gatt2018survey,osuji2024systematic}.
+
+The generated text is normally expected to satisfy several requirements. It
+should be \emph{adequate} or \emph{faithful}, meaning that it should express the
+intended facts without introducing unsupported information. It should provide
+appropriate \emph{coverage}, so that important input facts are not omitted. It
+should also be grammatical, fluent, coherent, and appropriately organized. In
+addition, a practical system should be able to adapt its style, output length,
+and level of detail to the intended audience. These requirements can conflict:
+for example, adding more facts can improve coverage while making the text less
+readable, and maximizing similarity to a reference can encourage wording that
+does not accurately describe the input.
+
+\subsection{Generation stages}
+
+Classical descriptions of natural language generation divide D2T generation
+into a sequence of decisions. Reiter and Dale~\cite{reiter1997building}
+
+\begin{enumerate}
+    \item \textbf{Content selection} determines which facts from the input
+    should be included in the output. This decision is necessary when the input
+    contains more information than can be presented in a useful text.
+    \item \textbf{Content ordering} determines the order in which selected
+    facts or entities are introduced. The ordering can follow temporal,
+    spatial, causal, or discourse-based relations.
+    \item \textbf{Content aggregation} groups related facts into clauses,
+    sentences, or paragraphs. Aggregation can reduce repetition and make the
+    relations between facts explicit.
+    \item \textbf{Lexicalization} selects words and phrases that express the
+    predicates and values in the target language.
+    \item \textbf{Referring expression generation} determines how entities
+    should be mentioned, for example by using a proper name on first mention and
+    a pronoun or a shorter description later in the discourse.
+    \item \textbf{Surface realization} converts the resulting plan into
+    grammatical natural-language sentences.
+\end{enumerate}
+
+The first two groups of decisions are often summarized by the question
+``what to say?'', whereas lexicalization, referring expression generation, and
+surface realization address ``how to say it?''. The distinction is useful even
+when all stages are implemented by a single neural model. It identifies the
+different sources of errors and makes it possible to introduce intermediate
+representations that can be inspected or constrained~\cite{moryossef-etal-2019-step}.
+
+For the thesis pipeline, the input to the final generation stage is not the
+original JSON instance. The structured instance is first transformed into
+semantic triples, as described in Chapter~\ref{chap:meaning-representation}.
+The D2T problem studied here can consequently be separated into two related
+transformations:
+\begin{equation}
+    d \longrightarrow T \longrightarrow y,
+\end{equation}
+where $d$ is a complex structured data instance, $T$ is its meaning
+representation, and $y$ is the generated text. Chapter 3 addresses the first
+transformation. This chapter introduces the broader D2T context, while
+Chapter~\ref{chap:surface-realization} focuses on the second transformation,
+namely surface realization from triples.
+
+\subsection{Properties and challenges}
+
+The difficulty of D2T generation depends on the input representation, the
+number of facts, the required output length, and whether the system is allowed
+to select only part of the input. Short inputs with a small fixed set of
+attributes can often be handled by templates or simple sequence-to-sequence
+models. Larger inputs require content planning, aggregation,
+and mechanisms for maintaining consistency over several sentences.
+
+Faithfulness is a particularly important challenge. A system can generate a
+grammatical sentence that contains an incorrect value, omits an input fact, or
+adds information that is not supported by the source. Such errors are often
+called hallucinations. Neural systems may be fluent while still
+making these errors, especially when the input is long or contains many similar
+records~\cite{wiseman-etal-2017-challenges,dusek-kasner-2020-evaluating}.
+
+Another challenge is the multiplicity of valid realizations. A single set of
+triples can be expressed with different word choices, sentence boundaries, and
+fact orderings. A metric that rewards only agreement with one reference can
+therefore penalize a valid output. This issue affects both training and
+evaluation, and motivates the use of multiple references, source-aware metrics,
+and human assessment~\cite{dhingra-etal-2019-handling,novikova-etal-2017-need}.
 
 \section{Methods}
+\label{sec:d2t-methods}
 
-% Content goes here
+\subsection{Rule-based and template-based systems}
+
+The earliest D2T systems were built as manually engineered pipelines. A domain
+expert defined rules for selecting and ordering facts, templates for common
+sentence structures, and lexicalization procedures for inserting values into
+those templates. A template such as ``$\langle$entity$\rangle$ is located in
+$\langle$place$\rangle$'' can be instantiated whenever the input contains a
+corresponding location relation.
+
+The modular structure of these systems offers several advantages. The rules can
+be inspected directly, unsupported facts can be excluded by construction, and
+the output style can be controlled precisely. Runtime generation is also fast,
+because it does not require a large neural model. These properties made
+templates attractive in domains such as weather forecasting, sports reporting,
+and dialogue systems~\cite{reiter1997building,gatt2018survey}.
+
+Their main limitation is the cost of domain engineering. New predicates,
+entities, combinations of facts, and linguistic constructions require new rules
+or templates. A finite template inventory also restricts lexical and syntactic
+variation. As the domain becomes more varied, maintaining interactions between
+content selection, aggregation, referring expressions, and surface realization
+becomes difficult. The resulting systems can be faithful and controllable while
+still sounding repetitive or unnatural.
+
+\subsection{Retrieval and statistical systems}
+
+Retrieval-based systems select an existing sentence or template that resembles
+the input and adapt it to the current values. They reduce the amount of
+handwritten linguistic knowledge, but their coverage is limited by the examples
+available in the retrieval collection. They can also produce awkward results
+when no sufficiently similar example exists.
+
+Statistical systems learn generation decisions from aligned data rather than
+encoding every decision manually. Probabilistic models can learn, for example,
+which facts tend to be mentioned together, which order is likely, and which
+phrases correspond to particular attributes. Hidden Markov models, statistical
+machine translation, and learned alignment models have all been used for this
+purpose~\cite{van-der-lee-etal-2018-automated,osuji2024systematic}.
+
+Compared with fully handwritten systems, statistical methods can generalize to
+combinations that were not explicitly covered by a template. However, their
+behavior is still dependent on the quality and size of the aligned corpus. The
+probabilistic decisions are less transparent than explicit rules, and errors in
+alignment or sparse observations can lead to omissions, incorrect lexicalization,
+or incoherent ordering.
+
+\subsection{Neural sequence-to-sequence systems}
+
+Neural D2T systems formulate generation as conditional language modeling. The
+input representation is encoded into a vector sequence and a decoder generates
+the output one token at a time. Recurrent encoder--decoder models with attention
+were among the first widely used neural architectures. Attention allows the
+decoder to focus on different input records while generating different parts
+of the text.
+
+The input may be linearized into a sequence, or it may be represented using a
+specialized encoder. For RDF and graph inputs, graph neural networks can encode
+nodes and labeled edges before decoding a textual sequence. For tables and
+records, hierarchical encoders can separately represent rows, fields, and cell
+values. Copy mechanisms allow values such as names, dates, and numbers to be
+copied from the input instead of generated from the vocabulary. This is useful
+when exact values are rare or unseen during training.
+
+Longer documents introduce additional problems. The decoder must remember which
+records have already been mentioned, maintain a coherent discourse order, and
+avoid repeating or omitting facts. The RotoWire data-to-document study showed
+that neural models can produce fluent text while struggling with content
+selection and long-range structure; in some settings, templated baselines
+performed better on content-related measures~\cite{wiseman-etal-2017-challenges}.
+
+\subsection{Modular neural and end-to-end architectures}
+
+Neural D2T systems can be organized as a modular pipeline or as an end-to-end
+model. In a modular neural pipeline, separate models perform decisions such as
+discourse ordering, text structuring, referring expression generation,
+lexicalization, and realization. The output of one module is passed to the next
+one. In an end-to-end system, the input is encoded and directly decoded into
+text, with no explicitly supervised intermediate plan.
+
+Castro Ferreira et al.~\cite{castro-ferreira-etal-2019-neural} compared neural
+pipeline and end-to-end systems for RDF-to-text generation using GRU and
+Transformer architectures. Their results indicate that explicit intermediate
+steps can improve generation quality and generalization to unseen inputs. The
+pipeline also makes individual decisions easier to analyze, although errors can
+propagate between modules and the system requires intermediate annotations or
+procedures for constructing them.
+
+An intermediate design is provided by Moryossef et al.~\cite{moryossef-etal-2019-step}.
+Their system first creates a symbolic text plan that specifies the division of
+facts into sentences and their ordering, and then uses a neural model to
+realize that plan. The symbolic planning stage improves control over coverage
+and structure, while the neural realization stage supplies linguistic
+flexibility. This division illustrates that interpretability and neural
+generation do not have to be mutually exclusive.
+
+\subsection{Transformers, pretrained models, and controllable generation}
+
+Transformer architectures replaced recurrent sequence models in many D2T
+systems because self-attention provides a direct mechanism for relating distant
+input and output positions. Pretrained language models can then be adapted to
+D2T through supervised fine-tuning, prompt-based generation, or parameter-
+efficient adaptation. These models provide strong linguistic fluency and can
+transfer knowledge between domains, but their internal generation decisions are
+difficult to inspect.
+
+Several techniques are used to improve faithfulness and controllability. Copy
+and coverage mechanisms encourage the model to preserve input values and avoid
+repeating already realized content. Auxiliary reconstruction or attribute
+prediction objectives provide additional supervision about the source. Content
+planning separates high-level decisions from token generation, and reranking can
+select a more faithful output from a set of candidates. Constrained decoding can
+also prevent invalid values or enforce a required output structure. These
+techniques address specific failure modes, but they usually add specialized
+components and do not fully expose the learned realization policy.
 
 \section{Interpretable D2T Approaches}
+\label{sec:interpretable-d2t}
 
-% Content goes here
+Interpretability in D2T generation concerns the ability to understand why a
+particular text was produced from a particular input. An interpretable system
+should make the connection between source facts, generation decisions, and
+output phrases sufficiently explicit for a researcher or domain expert to
+inspect. Related properties include controllability, faithfulness, auditability,
+and the ability to modify a behavior without retraining the whole system.
+
+\subsection{Explicit rules and templates}
+
+Handwritten rule-based systems are the most direct example of interpretable D2T.
+The relationship between a predicate and its realization is represented by a
+visible rule or template. Content selection and ordering can be examined as
+conditions in the generation procedure, and values copied into the output can
+be traced to their source fields. If a system produces an unsupported fact, the
+responsible rule can often be identified directly.
+
+This transparency is obtained at the cost of manual engineering. The number of
+rules grows with the number of predicates, fact combinations, discourse
+patterns, and linguistic variants. A rule base may therefore be highly
+interpretable but difficult to extend to a new domain. It may also fail to
+provide the lexical and syntactic variety expected from natural text.
+
+\subsection{Intermediate representations and hybrid systems}
+
+Modular pipelines expose intermediate objects such as ordered triples, sentence
+plans, dependency structures, or lexicalization templates. These objects make
+the generation process easier to analyze than a single undifferentiated neural
+decoder. The symbolic planning component of Moryossef et al.~\cite{moryossef-etal-2019-step}
+is an example: the selected facts and their sentence structure can be verified
+before neural realization takes place.
+
+Hybrid systems combine explicit rules with learned components. For example, a
+rule-based content planner can guarantee that selected facts are represented,
+while a neural realizer can provide more varied language. Conversely, a neural
+model can propose candidate structures that are filtered by a symbolic
+faithfulness checker. These designs improve specific aspects of transparency,
+but the learned parts remain difficult to explain and the boundaries between
+modules can introduce additional engineering complexity.
+
+\subsection{LLM-generated rule-based systems}
+
+Recent work has investigated a different division of labor between language
+models and D2T systems. Lango et al.~\cite{warczynski-etal-2024-leveraging-large}
+use a large language model to implement a rule-based D2T system in Python. The
+language model is used during system construction, while the resulting program
+performs the actual generation at inference time. This approach retains an
+inspectable code artifact, operates without a GPU during inference, and offers
+a way to compare program-based generation with direct prompting and neural
+fine-tuning.
+
+Lango and Dusek~\cite{lango-dusek-2025-llm} extend this general direction by
+using interactions between LLM agents to construct an interpretable rule-based
+RDF-to-text generator. Their results show that an LLM can be used to build an
+NLG system rather than only to produce each output directly. The generated code
+can be inspected and executed independently of the model that created it.
+
+These approaches address the opacity of direct neural generation, but they leave
+an important question open: how should the generated program be improved when
+its initial rules are incomplete, incorrect, or overly specialized? A single
+construction procedure or a fixed sequence of agent interactions may not explore
+the space of alternative program structures systematically. Manual correction
+can restore quality, but it reduces the automation that motivated program
+generation in the first place.
+
+The approach developed in this thesis addresses this gap by treating the D2T
+program as an object of evolutionary search. An LLM proposes source-code
+mutations, and an evaluator executes each candidate on a reference corpus. The
+program database retains promising and diverse candidates together with their
+scores and diagnostic artifacts. This retains the interpretability of an
+executable rule-based generator while introducing an automated mechanism for
+iterative improvement. The AlphaEvolve and OpenEvolve implementation details
+are presented in Chapter~\ref{chap:surface-realization}.
 
 \section{Performance Evaluation}
+\label{sec:d2t-performance-evaluation}
 
-% Content goes here
+\subsection{Evaluation dimensions}
+
+No single measurement captures all desirable properties of generated text.
+Evaluation is therefore usually organized along several dimensions. \emph{Text
+quality} includes grammaticality, fluency, readability, and coherence.
+\emph{Semantic adequacy} or \emph{faithfulness} concerns whether the output
+expresses the source data correctly. \emph{Coverage} concerns omissions, while
+\emph{non-redundancy} concerns repetitions. Some applications additionally
+evaluate style, diversity, latency, and computational cost.
+
+Evaluation procedures can be reference-based or reference-free. Reference-based
+metrics compare a generated text with one or more human-written texts. They are
+easy to apply when a corpus contains references, but they can penalize valid
+paraphrases and cannot by themselves determine whether a reference or a
+candidate is supported by the source. Reference-free procedures compare the
+output directly with the input data or ask human annotators to assess the
+input--output pair. They are better suited to factuality and coverage, but they
+require a model or annotation procedure capable of interpreting the structured
+input.
+
+\subsection{Reference-based automatic metrics}
+
+\subsubsection{BLEU}
+
+BLEU (Bilingual Evaluation Understudy) was introduced for machine translation by
+Papineni et al.~\cite{papineni2002bleu} and became one of the most frequently
+reported metrics in D2T research. It measures modified precision for matching
+unigrams, bigrams, trigrams, and four-grams between a candidate and one or more
+references. A brevity penalty reduces the score of candidates that obtain high
+precision by being much shorter than the references. A simplified corpus-level
+form is
+\begin{equation}
+    \mathrm{BLEU} = BP \cdot \exp\left(\sum_{n=1}^{N} w_n \log p_n\right),
+\end{equation}
+where $p_n$ is the modified precision for $n$-grams, $w_n$ are the weights, and
+$BP$ is the brevity penalty.
+
+BLEU is inexpensive, deterministic, and useful for comparing systems under the
+same implementation and preprocessing conditions. Its limitations are equally
+important. It rewards lexical overlap rather than meaning, does not directly
+measure factual correctness, and can assign a low score to a faithful
+paraphrase. It can also assign a relatively high score to a text that shares
+surface forms with a reference while omitting or altering source facts.
+
+\subsubsection{METEOR}
+
+METEOR was proposed by Banerjee and Lavie~\cite{banerjee2005meteor} to improve
+the relationship between automatic and human evaluation. It aligns candidate
+and reference unigrams using exact matches and, depending on the implementation,
+stem and synonym matches. Precision and recall are combined in a weighted
+harmonic mean, and a fragmentation penalty discourages matches that occur in a
+disordered fashion. METEOR can therefore recognize some lexical variation that
+BLEU cannot. It remains reference-dependent, however, and its behavior depends
+on the available stemming and synonym resources.
+
+\subsubsection{BERTScore}
+
+BERTScore uses contextual embeddings rather than exact token identity to
+compare a candidate with a reference~\cite{zhang2020bertscore}. Each token in
+one text is matched to semantically similar tokens in the other text using
+cosine similarity. Precision, recall, and F1 variants can be reported. Because
+contextual embeddings represent related words and paraphrases more flexibly,
+BERTScore can capture similarities missed by n-gram metrics. It is nevertheless
+dependent on the pretrained model, tokenizer, language, and reference text, and
+semantic similarity does not guarantee factual faithfulness to the source data.
+
+\subsubsection{BLEURT}
+
+BLEURT is a learned evaluation metric trained to predict human judgments of
+generated text~\cite{sellam2020bleurt}. It combines pretrained language-model
+representations with further training on synthetic perturbations and human
+ratings. Unlike a direct n-gram count, BLEURT can learn that some substitutions,
+omissions, or fluency problems affect quality differently. This flexibility can
+improve correlation with human judgments, but it also introduces dependence on
+the metric model and its training distribution. Domain shift, model bias, and
+the use of a reference remain relevant limitations.
+
+\subsection{Source-aware and semantic evaluation}
+
+Reference-based metrics treat the reference as the principal target. In D2T,
+the structured source should also be treated as an evaluation object. This is
+especially important when a reference contains information that is not present
+in the input or when a candidate expresses an input fact using a different
+wording.
+
+PARENT (Precision And Recall of Entailed N-grams from the Table) addresses this
+problem for table-to-text generation~\cite{dhingra-etal-2019-handling}. It
+compares the candidate with both the reference and the source table. Its
+precision and recall calculations use entailment estimates to reward information
+supported by the table and to reduce the effect of divergent reference text.
+PARENT illustrates the value of task-specific metrics, although its original
+formulation is designed for semi-structured tables and requires a suitable
+source-to-text entailment procedure.
+
+Dušek and Kasner~\cite{dusek-kasner-2020-evaluating} proposed an NLI-based
+semantic-accuracy metric for D2T. The structured input is converted into simple
+textual statements, after which natural-language inference is used in both
+directions. Testing whether the input entails the output helps detect
+unsupported information, while testing whether the output entails each input
+fact helps detect omissions. The resulting labels can distinguish faithful
+outputs, omissions, hallucinations, and combinations of these errors. This
+approach directly targets the semantic requirements of D2T, but its accuracy
+depends on the data-to-text conversion, the NLI model, and the assumptions about
+whether all input facts should be realized.
+
+\subsection{Human evaluation}
+
+Human evaluation remains necessary because automatic scores are proxies for
+quality. Annotators can assess the generated text directly or judge it together
+with the input representation and reference. Typical criteria include
+grammaticality, fluency, coherence, informativeness, semantic adequacy,
+coverage, repetition, and factual consistency. For D2T, semantic criteria are
+often operationalized through binary questions such as whether all required
+facts are present and whether unsupported facts have been added. Text quality
+can also be measured on a Likert scale.
+
+Human evaluation is expensive and can be affected by annotator expertise,
+instructions, sample selection, and the number of annotators per item. Studies
+therefore report agreement measures such as Cohen's kappa, Krippendorff's alpha,
+or correlation between annotators where appropriate. A reliable evaluation
+should specify the criteria, scale, annotation procedure, and aggregation
+method. Human assessment is particularly important when automatic metrics
+disagree or when the task permits many valid verbalizations.
+
+\subsection{Metrics used}
+
+The evolutionary evaluator used in this work computes BLEU against the
+reference lexicalizations during program evolution. The final evaluation also
+reports METEOR and BLEURT, allowing lexical, alignment-based, and learned
+reference-based comparisons. The experiment additionally calculates $\mathrm{SENLEN}$,
+a project-specific structural diagnostic. It counts sentence boundaries using
+periods and returns the absolute difference between the candidate sentence count
+and the average reference sentence count:
+\begin{equation}
+    \mathrm{SENLEN}(y) = \left|\#\mathrm{sentences}(y) -
+    \frac{1}{|R|}\sum_{r\in R}\#\mathrm{sentences}(r)\right|.
+\end{equation}
+Here, $R$ is the set of reference lexicalizations associated with the input
+instance. The implementation approximates the number of sentences by splitting
+each text at full stops.
+Unlike BLEU, METEOR, and BLEURT, a lower SENLEN value indicates greater
+structural proximity and the measure is not a general semantic quality metric.
+It is therefore treated as a diagnostic rather than as a substitute for
+faithfulness or human evaluation.
+
+These metrics serve different purposes. BLEU, METEOR, and BLEURT measure
+similarity to reference texts, whereas SENLEN measures a simple structural
+property. None of them alone proves that every input triple has been verbalized
+or that no unsupported fact has been introduced. Their results must therefore be
+interpreted together with source-aware analysis and qualitative inspection of
+generated examples. The next chapters describe how these measurements are
+incorporated into the evolutionary surface-realization system and how the
+resulting programs are evaluated experimentally.
