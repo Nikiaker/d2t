@@ -643,28 +643,45 @@ database for fitness comparisons.
 
 \subsection{LLM as a judge}
 
-(mention here about themis and what it is. tell that instead of themis model we can use a different model as a judge)
+Themis is a language model dedicated to the evaluation of natural language
+generation, rather than a metric based on surface-form overlap. Hu et al.~\cite{hu2024themis}
+propose Themis as an 8-billion-parameter evaluator trained using the NLG-Eval
+corpus, which combines human and GPT-4 annotations from multiple NLG tasks.
+The model was designed to address several limitations of conventional metrics
+and generic prompted judges. In particular, it can evaluate an output without a
+reference text, accept task-specific evaluation aspects and criteria, and return
+both a rating and an analysis explaining that rating. The latter property makes
+the evaluation useful not only for ranking outputs, but also for identifying
+which aspects of a generated text require improvement.
 
-When Themis is enabled, the evaluator constructs an additional judge prompt for
-each non-empty candidate output. The prompt contains the input triples and the
-generated text and asks the judge to assess two criteria: whether the text
-faithfully expresses the triples and, where possible, whether the information
-is expressed as one complex sentence instead of several disconnected
-sentences.
+Here an LLM is used as a judge for the surface realizer. For each
+non-empty generated text, the evaluator sends the input triples and the text to
+the configured judge, without sending the reference texts to that judge.
+The evaluation criterion requires the text to express the triples accurately,
+to avoid information not present in the triples, and, where possible, to use a
+single complex sentence instead of several disconnected sentences. The judge
+first returns a concise review and then a rating on a scale from 1 to 5. The
+ratings are averaged over the evaluation examples and divided by 5. When the
+judge is enabled, this normalized value is used as the combined evolutionary
+fitness, while BLEU remains available as a reference-based diagnostic metric.
 
-A rating on a scale from 1 to 5 is averaged over the examples and divided by 5.
-When Themis is available, this normalized judge score is the combined fitness,
-while the average BLEU value is retained as a diagnostic metric. Thus the
-judge can favor a faithful and compact realization even when it uses wording
-that has limited n-gram overlap with the references.
+The evaluator does not depend on a particular set of Themis model weights. The
+name, endpoint, and credentials of the judge are supplied through the
+configuration. Therefore,
+the same evaluation role can be assigned to another suitable LLM when required.
+The term ``Themis'' in the experiment configuration consequently identifies the
+default judge setup, while the evaluation protocol can also be used with an
+alternative model. This allows the judge to favor a faithful and compact
+realization even when it uses wording that has limited n-gram overlap with the
+references.
 
 \subsection{Artifacts as evaluator feedback}
 
-The evaluator returns low-scoring examples as artifacts. A Themis artifact
+The evaluator returns low-scoring examples as artifacts. An LLM-judge artifact
 contains the input triples, the generated text, the judge review, and the score.
 If too many examples qualify, at most three are sampled for storage and prompt
-rendering. In a run without Themis, low BLEU examples contain the references as
-well. On the next mutation, these artifacts are rendered under the feedback
+rendering. When the LLM judge is disabled, low BLEU examples contain the
+references as well. On the next mutation, these artifacts are rendered under the feedback
 section of the user prompt. The resulting feedback loop is therefore more
 specific than a scalar fitness value: the LLM can see which triples were
 omitted, which relation was expressed poorly, or which output was split into
