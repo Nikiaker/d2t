@@ -85,23 +85,28 @@
 \contentsline {section}{\numberline {5.1}Meaning representation}{34}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}Data Collection}{34}{subsection.5.1.1}%
 \contentsline {paragraph}{Large language model.}{35}{section*.16}%
-\contentsline {subsection}{\numberline {5.1.2}Training Configuration}{35}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2}Surface realization}{36}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Illustrative evolution trace}{36}{subsection.5.2.1}%
-\contentsline {section}{\numberline {5.3}Whole system evaluation}{36}{section.5.3}%
-\contentsline {chapter}{\chapternumberline {6}Discussion}{37}{chapter.6}%
-\contentsline {chapter}{\chapternumberline {7}Summary}{38}{chapter.7}%
-\contentsline {chapter}{Bibliography}{39}{chapter*.18}%
-\contentsline {appendix}{\chapternumberline {A}Prompts}{42}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Evolution prompts for surface realization}{42}{section.A.1}%
-\contentsline {subsection}{\numberline {A.1.1}Evolution system prompt}{42}{subsection.A.1.1}%
-\contentsline {subsection}{\numberline {A.1.2}Evolution user prompt}{42}{subsection.A.1.2}%
-\contentsline {subsection}{\numberline {A.1.3}Evolution-history components}{43}{subsection.A.1.3}%
-\contentsline {subsection}{\numberline {A.1.4}Artifact message}{44}{subsection.A.1.4}%
-\contentsline {subsection}{\numberline {A.1.5}Repair prompts}{44}{subsection.A.1.5}%
-\contentsline {section}{\numberline {A.2}LLM-as-a-judge prompt}{45}{section.A.2}%
-\contentsline {section}{\numberline {A.3}Text-First Extraction with Normalization}{46}{section.A.3}%
-\contentsline {section}{\numberline {A.4}Blueprint-Iterative Refinement}{46}{section.A.4}%
-\contentsline {section}{\numberline {A.5}Evolving Catalog}{47}{section.A.5}%
-\contentsline {appendix}{\chapternumberline {B}Prompts for Fine-tuned Model}{49}{appendix.B}%
-\contentsline {appendix}{\chapternumberline {C}Initial Program}{50}{appendix.C}%
+\contentsline {subsection}{\numberline {5.1.2}Experimental setup for pipelines}{35}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Human evaluation for pipelines}{35}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Correlation between LLM and human evaluation}{37}{subsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.1.5}Experimental setup for fine-tuning}{38}{subsection.5.1.5}%
+\contentsline {subsection}{\numberline {5.1.6}Training Configuration}{38}{subsection.5.1.6}%
+\contentsline {subsection}{\numberline {5.1.7}Evaluation of fine-tuned models}{39}{subsection.5.1.7}%
+\contentsline {section}{\numberline {5.2}Surface realization}{39}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Illustrative evolution trace}{39}{subsection.5.2.1}%
+\contentsline {section}{\numberline {5.3}Whole system evaluation}{39}{section.5.3}%
+\contentsline {chapter}{\chapternumberline {6}Discussion}{41}{chapter.6}%
+\contentsline {chapter}{\chapternumberline {7}Summary}{42}{chapter.7}%
+\contentsline {chapter}{Bibliography}{43}{chapter*.18}%
+\contentsline {appendix}{\chapternumberline {A}Prompts}{46}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Evolution prompts for surface realization}{46}{section.A.1}%
+\contentsline {subsection}{\numberline {A.1.1}Evolution system prompt}{46}{subsection.A.1.1}%
+\contentsline {subsection}{\numberline {A.1.2}Evolution user prompt}{46}{subsection.A.1.2}%
+\contentsline {subsection}{\numberline {A.1.3}Evolution-history components}{47}{subsection.A.1.3}%
+\contentsline {subsection}{\numberline {A.1.4}Artifact message}{48}{subsection.A.1.4}%
+\contentsline {subsection}{\numberline {A.1.5}Repair prompts}{48}{subsection.A.1.5}%
+\contentsline {section}{\numberline {A.2}LLM-as-a-judge prompt}{49}{section.A.2}%
+\contentsline {section}{\numberline {A.3}Text-First Extraction with Normalization}{50}{section.A.3}%
+\contentsline {section}{\numberline {A.4}Blueprint-Iterative Refinement}{50}{section.A.4}%
+\contentsline {section}{\numberline {A.5}Evolving Catalog}{51}{section.A.5}%
+\contentsline {appendix}{\chapternumberline {B}Prompts for Fine-tuned Model}{53}{appendix.B}%
+\contentsline {appendix}{\chapternumberline {C}Initial Program}{54}{appendix.C}%

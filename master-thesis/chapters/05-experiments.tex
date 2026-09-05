@@ -5,65 +5,517 @@
 
 \subsection{Data Collection}
 
-The experimental evaluation in this work requires structured data from diverse domains. To obtain such data, \emph{quintd}~\cite{kasner2024beyond} is used, a framework for collecting \emph{ad hoc} data-to-text datasets. Quintd downloads up-to-date structured data from real-world APIs. The framework supports five domains: weather forecasts, mobile phone specifications, ice hockey game summaries, health statistics, and world knowledge entities.
+The experimental evaluation for meaning representation requires structured data
+from diverse domains. To obtain such data, \emph{quintd}~\cite{kasner2024beyond}
+is used, a framework for collecting \emph{ad hoc} data-to-text datasets. The
+purpose of this type of collection is to provide data that is not part of the
+training data of the evaluated language models. Quintd selects examples using
+a random seed and can also obtain up-to-date information from external data
+sources.
 
-From the five domains available in quintd, four datasets are used in the experiments:
+The source collection used in the experiments is denoted by $S_0$. It contains
+the five domains available in the corresponding quintd collection: GSMArena,
+OpenWeather, Our World in Data (OWID), Wikidata, and ice hockey. The ice-hockey
+data is retained as part of the source collection for completeness, but it is
+not used in the experiments described below. The pipeline comparison and the
+fine-tuning experiments use the same four-domain subset consisting of GSMArena,
+OpenWeather, OWID, and Wikidata. This distinction is important because the
+ice-hockey domain is present in the quintd collection but is absent from the
+later $S_1$ and $S_2$ datasets.
+
+The four experimental datasets are:
 
 \begin{description}
-  \item[\textbf{GSMArena}] Mobile phone specifications scraped from the GSMArena website. Each instance describes a single phone model with nested categories (Network, Launch, Body, Display, Platform, Memory, Camera, Battery, etc.) containing attribute--value pairs.
-  
-  \item[\textbf{OpenWeather}] Five-day weather forecasts obtained from the OpenWeather API. Each instance contains a time series of 40 three-hour intervals, with each interval recording temperature, humidity, wind speed, cloud coverage, and weather conditions.
-  
-  \item[\textbf{OWID (Our World in Data)}] Country-level time series metrics from the Our World in Data project. Each instance represents a single metric (e.g., life expectancy, vaccination rates, reproduction rate) for a specific country, containing yearly data points spanning several decades.
-  
-  \item[\textbf{Wikidata}] Knowledge graph entities and their properties from Wikidata. Each instance describes an entity (e.g., a country, film, or organization) with a list of property--value pairs (e.g., capital, cast member, language used).
+  \item[\textbf{GSMArena}] Mobile phone specifications scraped from the GSMArena
+  website. Each instance describes a single phone model with nested categories
+  such as Network, Launch, Body, Display, Platform, Memory, Camera, and
+  Battery, containing attribute--value pairs.
+
+  \item[\textbf{OpenWeather}] Five-day weather forecasts obtained from the
+  OpenWeather API. Each instance contains a time series of 40 three-hour
+  intervals, with each interval recording temperature, humidity, wind speed,
+  cloud coverage, and weather conditions.
+
+  \item[\textbf{OWID}] Country-level time-series metrics from the Our World in
+  Data project. Each instance represents a single metric, such as life
+  expectancy, vaccination rates, or reproduction rate, for a specific country
+  and contains yearly data points spanning several decades.
+
+  \item[\textbf{Wikidata}] Knowledge-graph entities and their properties from
+  Wikidata. Each instance describes an entity, such as a country, film, or
+  organization, with a list of property--value pairs such as capital, cast
+  member, or language used.
 \end{description}
 
-The fifth domain, \emph{ice hockey}, is available in quintd but is excluded from our experiments due to API rate limits and associated costs.
+The fifth domain, \emph{ice hockey}, is therefore not included in the pipeline
+comparison, the human evaluation, or the fine-tuning experiments. Its presence
+in the original $S_0$ collection should not be interpreted as evidence that it
+was used in the later four-domain experiments.
 
-All datasets are provided as JSON files containing arrays of structured records. A \emph{raw structured instance} is defined as a single JSON object representing one self-contained data record from any of these domains. Each instance contains nested fields with structured data---time series, categorical values, numerical measurements, or hierarchical attribute lists---that must be converted into semantic triples. Let $D = \{d_1, \dots, d_N\}$ denote the set of $N$ such instances extracted from the input JSON for a given domain.
+All experimental datasets are provided as JSON files containing arrays of
+structured records. A \emph{raw structured instance} is defined as a single
+JSON object representing one self-contained data record from one of the four
+experimental domains. Each instance contains nested fields with structured
+data---time series, categorical values, numerical measurements, or hierarchical
+attribute lists---that must be converted into semantic triples. Let
+$D = \{d_1, \dots, d_N\}$ denote the set of $N$ such instances extracted from
+the input JSON for a given domain.
 
 \paragraph{Large language model.}
-All LLM invocations across the three methods use \emph{Gemma~4 31B IT}~\cite{team2024gemma,team2026gemma}, a 31-billion-parameter instruction-tuned language model released by Google. Gemma~4 uses a hybrid attention architecture: most layers employ sliding-window attention with head dimension 256, while a subset of layers use global attention with head dimension 512. The model is served via \emph{vLLM}~\cite{kwon2023vllm}, a high-throughput inference engine that uses \emph{PagedAttention} to efficiently manage KV-cache memory, enabling batched inference with dynamic sequence lengths.
+All LLM invocations across the three conversion methods use \emph{Gemma~4
+31B IT}~\cite{team2024gemma,team2026gemma}, a 31-billion-parameter
+instruction-tuned language model released by Google. The model is served via
+\emph{vLLM}~\cite{kwon2023vllm}, a high-throughput inference engine that uses
+\emph{PagedAttention} to manage key--value cache memory and enable batched
+inference with dynamic sequence lengths.
 
-\subsection{Training Configuration}
+\subsection{Experimental setup for pipelines}
+\label{sec:experimental-setup}
 
-The base model for all fine-tuning experiments is \emph{Gemma~4 31B IT} (described in Section~\ref{sec:data-conversion}).
+The pipeline comparison uses 100 instances from each of the four experimental
+domains. Each of the three pipelines is run on the same domain-specific
+instances, resulting in twelve domain--pipeline experiments. The three
+pipelines are Text-First Extraction with Normalization, Blueprint-Iterative
+Refinement, and Evolving Catalog.
 
-All training is performed on NVIDIA A100-SXM4 GPUs with 40~GB of VRAM, using the PLGrid Athena cluster. Table~\ref{tab:qlora-config} summarizes the complete training configuration.
+The generated outputs are evaluated using an LLM as a judge. The judge is the
+same Gemma~4 31B IT model, but it is used in a separate evaluation role rather
+than as part of the extraction pipeline. Two transitions are assessed
+independently:
 
-\begin{table}[h]
+\begin{enumerate}
+    \item the conversion from the raw structured instance to the generated
+    natural-language reference text; and
+    \item the conversion from the reference text to the generated semantic
+    triples.
+\end{enumerate}
+
+Each transition is evaluated according to four criteria: summary,
+completeness, faithfulness, and omissions. Every criterion is scored on an
+ordinal scale from 1 to 5, where 5 represents the best result. Each criterion
+uses a separate judge prompt. The four criteria are separated so that a
+missing fact is not treated as the same type of error as an unsupported claim.
+Since the evaluation contains 400 instances, two transitions, and four
+criteria, it requires 3,200 judge calls. For each domain and pipeline, the
+score for each criterion is averaged over the 100 instances. The resulting
+averages are used to compare the three conversion methods.
+
+The evaluation output also contains descriptive statistics. These statistics
+are computed without additional LLM calls and describe the size and structure
+of the generated outputs: the number of primitive JSON elements, reference
+words, reference sentences, reference subsentences, extracted triples, and
+unique predicates. The overall text and triples scores are calculated as the
+mean of the four criteria belonging to the corresponding transition.
+
+% Blueprint-Iterative Refinement
+\begin{table}[p]
 \centering
-\caption{QLoRA training configuration}
-\label{tab:qlora-config}
-\begin{tabular}{ll}
+\scriptsize
+\caption{Data-to-text judge scores for Blueprint-Iterative Refinement.}
+\label{tab:pipeline-blueprint-text-results}
+\begin{tabular}{lccccc}
 \hline
-\textbf{Component} & \textbf{Value} \\
+\texttt{domain} & \texttt{summary} & \texttt{completeness} & \texttt{faithfulness} & \texttt{omissions} & \texttt{overall} \\
 \hline
-Base model & Gemma 4 31B IT \\
-LoRA rank ($r$) & 16 \\
-LoRA scaling ($\alpha$) & 32 \\
-LoRA dropout & 0.05 \\
-Target modules & 420 (all attention and MLP projections) \\
-Trainable parameters & ~25M (<0.1\% of base model) \\
-Quantization & 4-bit NF4 with double quantization \\
-Compute precision & bfloat16 \\
-Optimizer & Paged AdamW 8-bit \\
-Learning rate & $10^{-4}$ (cosine schedule) \\
-Warmup ratio & 0.03 \\
-Epochs & 3 \\
-Effective batch size & 16 (per-device: 1, accumulation: 16) \\
-Max sequence length & 4096--8192 (domain-dependent) \\
-Loss type & Completion-only (prompt masked) \\
+GSMArena & 0 & 0 & 0 & 0 & 0 \\
+OpenWeather & 0 & 0 & 0 & 0 & 0 \\
+OWID & 0 & 0 & 0 & 0 & 0 \\
+Wikidata & 0 & 0 & 0 & 0 & 0 \\
+Average & 0 & 0 & 0 & 0 & 0 \\
 \hline
 \end{tabular}
 \end{table}
 
-The LoRA configuration targets all attention and MLP projection matrices in the language model backbone (\texttt{q\_proj}, \texttt{k\_proj}, \texttt{v\_proj}, \texttt{o\_proj}, \texttt{gate\_proj}, \texttt{up\_proj}, \texttt{down\_proj}), using a regular expression that scopes the adapter placement to the language model sub-network and excludes the vision and audio towers present in the multimodal Gemma~4 checkpoint. This yields approximately 420 target modules and roughly 25 million trainable parameters---less than 0.1\% of the base model.
+\begin{table}[p]
+\centering
+\scriptsize
+\caption{Text-to-triples judge scores for Blueprint-Iterative Refinement.}
+\label{tab:pipeline-blueprint-triples-results}
+\begin{tabular}{lccccc}
+\hline
+\texttt{domain} & \texttt{summary} & \texttt{completeness} & \texttt{faithfulness} & \texttt{omissions} & \texttt{overall} \\
+\hline
+GSMArena & 0 & 0 & 0 & 0 & 0 \\
+OpenWeather & 0 & 0 & 0 & 0 & 0 \\
+OWID & 0 & 0 & 0 & 0 & 0 \\
+Wikidata & 0 & 0 & 0 & 0 & 0 \\
+Average & 0 & 0 & 0 & 0 & 0 \\
+\hline
+\end{tabular}
+\end{table}
 
-The maximum sequence length is adjusted per domain to accommodate the varying sizes of the raw structured instances while staying within the GPU memory budget. Wikidata instances are small (at most a few hundred bytes), so a maximum length of 8192 tokens is used. GSM Arena and OWID instances are larger, and a maximum length of 4096 tokens covers the majority of examples. OpenWeather forecast instances are the largest (approximately 18~KB each), and a maximum length of 6144 tokens is used to retain the bulk of each example while remaining within the activation memory ceiling. Instances exceeding the maximum length are truncated.
+\begin{table}[p]
+\centering
+\scriptsize
+\caption{Additional statistics for Blueprint-Iterative Refinement.}
+\label{tab:pipeline-blueprint-statistics}
+\begin{tabular}{lcccccc}
+\hline
+\texttt{domain} & \texttt{json\_elements} & \texttt{ref\_words} & \texttt{ref\_sentences} & \texttt{ref\_subsentences} & \texttt{num\_triples} & \texttt{unique\_predicates} \\
+\hline
+GSMArena & 0 & 0 & 0 & 0 & 0 & 0 \\
+OpenWeather & 0 & 0 & 0 & 0 & 0 & 0 \\
+OWID & 0 & 0 & 0 & 0 & 0 & 0 \\
+Wikidata & 0 & 0 & 0 & 0 & 0 & 0 \\
+Average & 0 & 0 & 0 & 0 & 0 & 0 \\
+\hline
+\end{tabular}
+\end{table}
 
-After training, the LoRA adapter weights are combined with the frozen base model weights to produce a single, standalone model. This process, known as \emph{weight merging}, computes $W_{\mathrm{final}} = W_0 + \Delta W$ for each adapted layer, effectively absorbing the adapter's learned modifications into the base model. The resulting model contains no separate adapter components and can be served as a standard \texttt{bfloat16} checkpoint. The merged model is a drop-in replacement for the base model: it can be served by the same vLLM inference engine used by the tripler pipeline, with no adapter-loading overhead at inference time. The result is a domain-specialized model that, given a raw structured instance, produces both a natural-language verbalization and the corresponding set of semantic triples in a single decode pass.
+% Text-First Extraction with Normalization
+\begin{table}[p]
+\centering
+\scriptsize
+\caption{Data-to-text judge scores for Text-First Extraction with Normalization.}
+\label{tab:pipeline-text-first-text-results}
+\begin{tabular}{lccccc}
+\hline
+\texttt{domain} & \texttt{summary} & \texttt{completeness} & \texttt{faithfulness} & \texttt{omissions} & \texttt{overall} \\
+\hline
+GSMArena & 0 & 0 & 0 & 0 & 0 \\
+OpenWeather & 0 & 0 & 0 & 0 & 0 \\
+OWID & 0 & 0 & 0 & 0 & 0 \\
+Wikidata & 0 & 0 & 0 & 0 & 0 \\
+Average & 0 & 0 & 0 & 0 & 0 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[p]
+\centering
+\scriptsize
+\caption{Text-to-triples judge scores for Text-First Extraction with Normalization.}
+\label{tab:pipeline-text-first-triples-results}
+\begin{tabular}{lccccc}
+\hline
+\texttt{domain} & \texttt{summary} & \texttt{completeness} & \texttt{faithfulness} & \texttt{omissions} & \texttt{overall} \\
+\hline
+GSMArena & 0 & 0 & 0 & 0 & 0 \\
+OpenWeather & 0 & 0 & 0 & 0 & 0 \\
+OWID & 0 & 0 & 0 & 0 & 0 \\
+Wikidata & 0 & 0 & 0 & 0 & 0 \\
+Average & 0 & 0 & 0 & 0 & 0 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[p]
+\centering
+\scriptsize
+\caption{Additional statistics for Text-First Extraction with Normalization.}
+\label{tab:pipeline-text-first-statistics}
+\begin{tabular}{lcccccc}
+\hline
+\texttt{domain} & \texttt{json\_elements} & \texttt{ref\_words} & \texttt{ref\_sentences} & \texttt{ref\_subsentences} & \texttt{num\_triples} & \texttt{unique\_predicates} \\
+\hline
+GSMArena & 0 & 0 & 0 & 0 & 0 & 0 \\
+OpenWeather & 0 & 0 & 0 & 0 & 0 & 0 \\
+OWID & 0 & 0 & 0 & 0 & 0 & 0 \\
+Wikidata & 0 & 0 & 0 & 0 & 0 & 0 \\
+Average & 0 & 0 & 0 & 0 & 0 & 0 \\
+\hline
+\end{tabular}
+\end{table}
+
+% Evolving Catalog
+\begin{table}[p]
+\centering
+\scriptsize
+\caption{Data-to-text judge scores for Evolving Catalog.}
+\label{tab:pipeline-catalog-text-results}
+\begin{tabular}{lccccc}
+\hline
+\texttt{domain} & \texttt{summary} & \texttt{completeness} & \texttt{faithfulness} & \texttt{omissions} & \texttt{overall} \\
+\hline
+GSMArena & 0 & 0 & 0 & 0 & 0 \\
+OpenWeather & 0 & 0 & 0 & 0 & 0 \\
+OWID & 0 & 0 & 0 & 0 & 0 \\
+Wikidata & 0 & 0 & 0 & 0 & 0 \\
+Average & 0 & 0 & 0 & 0 & 0 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[p]
+\centering
+\scriptsize
+\caption{Text-to-triples judge scores for Evolving Catalog.}
+\label{tab:pipeline-catalog-triples-results}
+\begin{tabular}{lccccc}
+\hline
+\texttt{domain} & \texttt{summary} & \texttt{completeness} & \texttt{faithfulness} & \texttt{omissions} & \texttt{overall} \\
+\hline
+GSMArena & 0 & 0 & 0 & 0 & 0 \\
+OpenWeather & 0 & 0 & 0 & 0 & 0 \\
+OWID & 0 & 0 & 0 & 0 & 0 \\
+Wikidata & 0 & 0 & 0 & 0 & 0 \\
+Average & 0 & 0 & 0 & 0 & 0 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[p]
+\centering
+\scriptsize
+\caption{Additional statistics for Evolving Catalog.}
+\label{tab:pipeline-catalog-statistics}
+\begin{tabular}{lcccccc}
+\hline
+\texttt{domain} & \texttt{json\_elements} & \texttt{ref\_words} & \texttt{ref\_sentences} & \texttt{ref\_subsentences} & \texttt{num\_triples} & \texttt{unique\_predicates} \\
+\hline
+GSMArena & 0 & 0 & 0 & 0 & 0 & 0 \\
+OpenWeather & 0 & 0 & 0 & 0 & 0 & 0 \\
+OWID & 0 & 0 & 0 & 0 & 0 & 0 \\
+Wikidata & 0 & 0 & 0 & 0 & 0 & 0 \\
+Average & 0 & 0 & 0 & 0 & 0 & 0 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Human evaluation for pipelines}
+
+The human evaluation uses the same four criteria as the LLM-as-a-judge
+evaluation: summary, completeness, faithfulness, and omissions. It is limited
+to the transition from the raw structured instance to the semantic triples.
+For each of the four domains, ten instances are selected for each of the three
+pipelines. The evaluation therefore contains
+$4 \times 10 \times 3 = 120$ manually assessed instances. The scores are
+assigned by the author of the thesis using the same 1--5 scale as the automated
+evaluation. Domain-level scores and an across-domain average are reported for
+each pipeline.
+
+\begin{table}[ht]
+\centering
+\caption{Human evaluation for Blueprint-Iterative Refinement.}
+\label{tab:human-blueprint-results}
+\begin{tabular}{lcccc}
+\hline
+\textbf{Domain} & \textbf{Summary} & \textbf{Completeness} & \textbf{Faithfulness} & \textbf{Omissions} \\
+\hline
+GSMArena & 0 & 0 & 0 & 0 \\
+OpenWeather & 0 & 0 & 0 & 0 \\
+OWID & 0 & 0 & 0 & 0 \\
+Wikidata & 0 & 0 & 0 & 0 \\
+Average & 0 & 0 & 0 & 0 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{Human evaluation for Text-First Extraction with Normalization.}
+\label{tab:human-text-first-results}
+\begin{tabular}{lcccc}
+\hline
+\textbf{Domain} & \textbf{Summary} & \textbf{Completeness} & \textbf{Faithfulness} & \textbf{Omissions} \\
+\hline
+GSMArena & 0 & 0 & 0 & 0 \\
+OpenWeather & 0 & 0 & 0 & 0 \\
+OWID & 0 & 0 & 0 & 0 \\
+Wikidata & 0 & 0 & 0 & 0 \\
+Average & 0 & 0 & 0 & 0 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[ht]
+\centering
+\caption{Human evaluation for Evolving Catalog.}
+\label{tab:human-catalog-results}
+\begin{tabular}{lcccc}
+\hline
+\textbf{Domain} & \textbf{Summary} & \textbf{Completeness} & \textbf{Faithfulness} & \textbf{Omissions} \\
+\hline
+GSMArena & 0 & 0 & 0 & 0 \\
+OpenWeather & 0 & 0 & 0 & 0 \\
+OWID & 0 & 0 & 0 & 0 \\
+Wikidata & 0 & 0 & 0 & 0 \\
+Average & 0 & 0 & 0 & 0 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Correlation between LLM and human evaluation}
+
+The agreement between the LLM judge and the human evaluator is computed from
+the paired 1--5 scores. The implementation reports four complementary
+statistics: Pearson's product--moment correlation, Spearman's rank
+correlation, Kendall's tau-b, and quadratic weighted Cohen's kappa. Pearson's
+coefficient measures linear association, while Spearman's coefficient and
+Kendall's tau measure rank-based association. Quadratic weighted kappa measures
+chance-corrected agreement and penalizes larger disagreements more strongly
+than disagreements between adjacent score categories
+\cite{cohen1960agreement}.
+
+The metrics are computed separately for each of the four criteria and for the
+two evaluation transitions. Two additional overall variants are available for
+each transition: a pooled variant that concatenates the four criteria and a
+per-instance-mean variant that first averages the four criteria for each
+instance. The two transitions are never pooled together.
+
+\begin{table}[ht]
+\centering
+\scriptsize
+\caption{Correlation between LLM-as-a-judge and human scores.}
+\label{tab:judge-human-correlation}
+\begin{tabular}{llrcccc}
+\hline
+\textbf{Pipeline} & \textbf{Domain} & \textbf{$N$} & \textbf{Pearson $r$} & \textbf{Spearman $\rho$} & \textbf{Kendall $\tau$} & \textbf{QW-$\kappa$} \\
+\hline
+Blueprint-Iterative Refinement & all & 0 & 0 & 0 & 0 & 0 \\
+Text-First Extraction with Normalization & all & 0 & 0 & 0 & 0 & 0 \\
+Evolving Catalog & all & 0 & 0 & 0 & 0 & 0 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Experimental setup for fine-tuning}
+
+The fine-tuning experiments are conducted on the same four domains as the
+pipeline comparison: GSMArena, OpenWeather, OWID, and Wikidata. The
+training-and-validation collection is downloaded using seed $S_1$, while the
+held-out test collection is downloaded independently using seed $S_2$.
+
+The raw instances from the $S_1$ collection are converted into reference text
+and semantic triples using the Text-First Extraction with Normalization
+pipeline. The aligned text--triple outputs are then used as the targets for a
+domain-specific model. For each domain, the resulting examples are split into
+80\% training data and 20\% validation data. The $S_2$ collection remains
+separate and is used only for the final evaluation of the trained models. This
+split prevents the test instances from influencing either model fitting or
+training-configuration selection.
+
+The fine-tuned model receives one structured instance and is trained to return
+both a natural-language reference and its semantic triples in one JSON output.
+The base model is Gemma~4 31B IT, and the adaptation is performed using QLoRA.
+The base weights remain frozen, while low-rank adapters are trained in the
+language-model attention and feed-forward projections. After training, the
+adapters are merged into the base model before evaluation.
+
+\subsection{Training Configuration}
+
+The fine-tuning comparison contains five configurations. The standard baseline
+uses three epochs. The additional \emph{baseline-epoch1} variant keeps the
+baseline learning rate, adapter capacity, dropout, and weight decay, but trains
+for one epoch. The remaining variants change the learning rate, adapter
+capacity, or regularization in order to test their influence on the
+domain-specialized models.
+
+All training is performed on NVIDIA A100-SXM4 GPUs with 40~GB of VRAM, using
+the PLGrid Athena cluster. The common effective batch size is 16, obtained
+from a per-device batch size of 1 and 16 gradient-accumulation steps. The
+optimizer is 8-bit paged AdamW, the learning-rate schedule is cosine, and the
+compute precision is bfloat16. The base model is loaded using 4-bit NF4
+quantization with double quantization.
+
+\begin{table}[h]
+\centering
+\small
+\caption{QLoRA configurations used for fine-tuning.}
+\label{tab:qlora-config}
+\begin{tabular}{lrrrrrrr}
+\hline
+\textbf{Configuration} & \textbf{Epochs} & \textbf{LR} & \textbf{Warmup} & \textbf{$r$} & \textbf{$\alpha$} & \textbf{Dropout} & \textbf{Weight decay} \\
+\hline
+baseline & 3 & $10^{-4}$ & 0.03 & 16 & 32 & 0.05 & 0.00 \\
+baseline-epoch1 & 1 & $10^{-4}$ & 0.03 & 16 & 32 & 0.05 & 0.00 \\
+low\_lr & 5 & $3\times10^{-5}$ & 0.05 & 16 & 32 & 0.05 & 0.01 \\
+higher\_capacity & 3 & $5\times10^{-5}$ & 0.05 & 32 & 64 & 0.05 & 0.01 \\
+regularized\_capacity & 5 & $3\times10^{-5}$ & 0.10 & 32 & 64 & 0.10 & 0.01 \\
+\hline
+\end{tabular}
+\end{table}
+
+The LoRA configuration targets all attention and MLP projection matrices in
+the language-model backbone (\texttt{q\_proj}, \texttt{k\_proj},
+\texttt{v\_proj}, \texttt{o\_proj}, \texttt{gate\_proj}, \texttt{up\_proj},
+and \texttt{down\_proj}). A positively scoped module pattern excludes the
+vision and audio towers of the multimodal checkpoint. This selects 420 target
+modules and approximately 25 million trainable parameters, which is less than
+0.1\% of the base model.
+
+The maximum sequence length is adjusted per domain to accommodate the varying
+sizes of the raw structured instances while staying within the GPU memory
+budget. Wikidata uses 8192 tokens, GSMArena and OWID use 4096 tokens, and
+OpenWeather uses 6144 tokens. Instances exceeding the selected maximum are
+truncated.
+
+After training, the LoRA adapter weights are combined with the frozen base
+model weights to produce a standalone model. This process, known as weight
+merging, computes $W_{\mathrm{final}} = W_0 + \Delta W$ for each adapted layer.
+The merged model can be served by the same vLLM infrastructure as the base
+model and produces both a natural-language verbalization and the corresponding
+semantic triples in a single decode pass.
+
+\subsection{Evaluation of fine-tuned models}
+
+The fine-tuned models are evaluated on the held-out $S_2$ test sets for each
+domain. The evaluation compares the generated text with the reference text
+using BLEU and METEOR. The generated and reference triples are compared as
+sets of subject--predicate--object tuples. Micro-averaged triple precision,
+recall, and F1 are computed from the resulting true-positive, false-positive,
+and false-negative counts. Predicate adherence measures the proportion of
+generated predicates that belong to the predicate catalog used to construct
+the targets. A parse rate is recorded by the evaluation script as a diagnostic,
+but the principal result tables follow the requested metric set.
+
+The results are reported separately for the five configurations.
+
+\newcommand{\finetuneresultbody}{%
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\hline
+\textbf{Domain} & \textbf{Text BLEU} & \textbf{Text METEOR} & \textbf{Triple precision} & \textbf{Triple recall} & \textbf{Triple F1} & \textbf{Predicate adherence} \\
+\hline
+GSMArena & 0 & 0 & 0 & 0 & 0 & 0 \\
+OpenWeather & 0 & 0 & 0 & 0 & 0 & 0 \\
+OWID & 0 & 0 & 0 & 0 & 0 & 0 \\
+Wikidata & 0 & 0 & 0 & 0 & 0 & 0 \\
+Average & 0 & 0 & 0 & 0 & 0 & 0 \\
+\hline
+\end{tabular}%
+}%
+}
+
+\begin{table}[p]
+\centering
+\small
+\caption{Fine-tuned model results for the baseline configuration.}
+\label{tab:finetune-baseline-results}
+\finetuneresultbody
+\end{table}%
+
+\begin{table}[p]
+\centering
+\small
+\caption{Fine-tuned model results for the baseline-epoch1 configuration.}
+\label{tab:finetune-baseline-epoch1-results}
+\finetuneresultbody
+\end{table}
+
+\begin{table}[p]
+\centering
+\small
+\caption{Fine-tuned model results for the low learning-rate configuration.}
+\label{tab:finetune-low-lr-results}
+\finetuneresultbody
+\end{table}
+
+\begin{table}[p]
+\centering
+\small
+\caption{Fine-tuned model results for the higher-capacity configuration.}
+\label{tab:finetune-higher-capacity-results}
+\finetuneresultbody
+\end{table}
+
+\begin{table}[p]
+\centering
+\small
+\caption{Fine-tuned model results for the regularized-capacity configuration.}
+\label{tab:finetune-regularized-capacity-results}
+\finetuneresultbody
+\end{table}
 
 \section{Surface realization}
 
