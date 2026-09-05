@@ -19,7 +19,7 @@ conda activate finetune-env
 export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
 
 export PYTHONPATH="$D2TPATH/tripler:$D2TPATH/openevolve/:$D2TPATH/problems/triples_to_text/tests/benchmark_reader/:$D2TPATH/problems/triples_to_text/:$PYTHONPATH"
-source "$D2TPATH/tripler/finetune/experiments.sh"
+source "$D2TPATH/tripler/finetune/experiments_old.sh"
 configure_experiment "$EXPERIMENT"
 
 BASE_ID="${BASE_ID:-google/gemma-4-31B-it}"
