@@ -31,3 +31,75 @@ The generated text:
 The response is parsed as a review followed by a rating from 1 to 5. The
 ratings are averaged and divided by 5 before they are used as the evolutionary
 fitness.
+
+\subsection{Grammaticality prompt}
+
+The following criterion is used for the binary grammaticality score. The
+judge returns 1 for a grammatically correct realization and 0 otherwise.
+
+\begin{verbatim}
+Grammatical correctness: You should assess the grammatical correctness of the
+resulting text. Do not take any other factors into account. Do not make
+assumptions or consider external knowledge not present in the provided context.
+Identify only errors relating to the grammaticality of the text. Do not
+consider aspects such as fluency, omissions or hallucinations.
+
+Return 1 if the text is grammatically correct and 0 if it is not. The rating
+must be the integer 0 or 1.
+\end{verbatim}
+
+\subsection{Omissions prompt}
+
+The omissions score measures whether any input triples were not verbalized. A
+score of 0 indicates that no omission was detected, while 1 indicates that at
+least one omission was detected.
+
+\begin{verbatim}
+Omissions: You should assess the omissions in the resulting text; in other
+words, check whether any of the input triples were not verbalised. You can
+perform the task by iterating over the input triples and checking if each is
+present in the output. Do not take any other factors into account. Do not make
+assumptions or consider external knowledge not present in the provided context.
+Identify only omissions. Do not consider grammaticality, fluency or the
+addition of new facts.
+
+Return 0 if there are no omissions and 1 if there are. The rating must be the
+integer 0 or 1.
+\end{verbatim}
+
+\subsection{Additions prompt}
+
+The additions score measures whether the realization introduces facts that are
+not supported by the input triples. A score of 0 indicates that no addition was
+detected, while 1 indicates that at least one addition was detected.
+
+\begin{verbatim}
+Additions: You should assess the addition of new facts in the resulting text
+which were not present in the input triples. Carefully read the text and check
+whether the facts mentioned are present in the input triples. Do not take any
+other factors into account. Do not make assumptions or consider external
+knowledge not present in the provided context. Identify only additions. Do not
+consider grammaticality, fluency or omissions.
+
+Return 0 if there are no additions and 1 if there are. The rating must be the
+integer 0 or 1.
+\end{verbatim}
+
+\subsection{Zero-shot prompt}
+
+The zero-shot prompt is used to convert the input triples into a natural language realization without any additional context. 
+The prompt is shown below;
+
+\begin{verbatim}
+You are an expert data-to-text generator. Verbalize the given RDF triples 
+into a single fluent, grammatically correct English sentence that conveys 
+every fact and adds no extra information.
+
+Convert these RDF triples (subject | predicate | object) into one
+natural-language sentence.
+
+Triples:
+{triples}
+
+Output only the sentence.
+\end{verbatim}

@@ -263,6 +263,8 @@ INPUT /nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-f
 INPUT /nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT /nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT /nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/tfm/jknappen/ec/ecbx0900.tfm
+INPUT /nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/tfm/jknappen/ec/ectt0800.tfm
+INPUT /nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/tfm/jknappen/ec/ecbx0600.tfm
 INPUT ./chapters/06-discussion.tex
 INPUT ./chapters/06-discussion.tex
 INPUT ./chapters/06-discussion.tex
@@ -322,7 +324,6 @@ INPUT ./figures/template/logo-pp.pdf
 INPUT ./figures/template/logo-pp.pdf
 INPUT ./figures/template/logo-pp.pdf
 INPUT /nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/tfm/jknappen/ec/tcrm0800.tfm
-INPUT /nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/tfm/jknappen/ec/ectt0800.tfm
 OUTPUT template.toc
 INPUT template.aux
 INPUT ./template.out
@@ -344,6 +345,7 @@ INPUT /nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-f
 INPUT /nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
 INPUT /nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/type1/public/amsfonts/cm/cmsy9.pfb
 INPUT /nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
+INPUT /nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/type1/public/cm-super/sfbx0600.pfb
 INPUT /nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/type1/public/cm-super/sfbx0700.pfb
 INPUT /nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/type1/public/cm-super/sfbx0900.pfb
 INPUT /nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/type1/public/cm-super/sfbx1000.pfb
