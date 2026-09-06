@@ -91,10 +91,20 @@ independently:
 \end{enumerate}
 
 Each transition is evaluated according to four criteria: summary,
-completeness, faithfulness, and omissions. Every criterion is scored on an
-ordinal scale from 1 to 5, where 5 represents the best result. Each criterion
-uses a separate judge prompt. The four criteria are separated so that a
-missing fact is not treated as the same type of error as an unsupported claim.
+completeness, faithfulness, and omissions. The complete criterion prompts are
+provided in Appendix~\ref{app:pipeline-judge-prompts}. Summary measures whether
+the output is concise, coherent, non-redundant, and preserves the source's core
+message. Completeness measures coverage of the source's main points and
+critical facts, constraints, context, entities, relationships, values, and
+conclusions. Faithfulness measures whether the claims in the output are
+supported by the source and preserve its meaning, penalizing hallucinations,
+contradictions, and misinterpretations. Omissions measures whether omitted
+content removes critical context, changes the meaning, hides an important
+conclusion or constraint, or creates a misleading imbalance. Every criterion is
+scored on an ordinal scale from 1 to 5, where 5 represents the best result.
+Each criterion uses a separate judge prompt. The four criteria are separated so
+that a missing fact is not treated as the same type of error as an unsupported
+claim.
 Since the evaluation contains 400 instances, two transitions, and four
 criteria, it requires 3,200 judge calls. For each domain and pipeline, the
 score for each criterion is averaged over the 100 instances. The resulting
