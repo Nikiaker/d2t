@@ -13,6 +13,10 @@
 \usepackage[T1]{fontenc}
 \usepackage{amssymb}
 
+% Keep experiment tables from crossing subsection boundaries without adding a
+% package dependency that is unavailable in the cluster TeX environment.
+\newcommand{\FloatBarrier}{\clearpage}
+
 %--------------------------------------
 % Title page
 %--------------------------------------

@@ -21,7 +21,7 @@ not used in the experiments described below. The pipeline comparison and the
 fine-tuning experiments use the same four-domain subset consisting of GSMArena,
 OpenWeather, OWID, and Wikidata. This distinction is important because the
 ice-hockey domain is present in the quintd collection but is absent from the
-later $S_1$ and $S_2$ datasets.
+later $S_1$, $S_2$, $S_3$ and $S_4$ datasets.
 
 The four experimental datasets are:
 
@@ -108,7 +108,7 @@ unique predicates. The overall text and triples scores are calculated as the
 mean of the four criteria belonging to the corresponding transition.
 
 % Blueprint-Iterative Refinement
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering
 \scriptsize
 \caption{Data-to-text judge scores for Blueprint-Iterative Refinement.}
@@ -126,7 +126,7 @@ Average & 0 & 0 & 0 & 0 & 0 \\
 \end{tabular}
 \end{table}
 
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering
 \scriptsize
 \caption{Text-to-triples judge scores for Blueprint-Iterative Refinement.}
@@ -144,7 +144,7 @@ Average & 0 & 0 & 0 & 0 & 0 \\
 \end{tabular}
 \end{table}
 
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering
 \scriptsize
 \caption{Additional statistics for Blueprint-Iterative Refinement.}
@@ -163,7 +163,7 @@ Average & 0 & 0 & 0 & 0 & 0 & 0 \\
 \end{table}
 
 % Text-First Extraction with Normalization
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering
 \scriptsize
 \caption{Data-to-text judge scores for Text-First Extraction with Normalization.}
@@ -181,7 +181,7 @@ Average & 0 & 0 & 0 & 0 & 0 \\
 \end{tabular}
 \end{table}
 
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering
 \scriptsize
 \caption{Text-to-triples judge scores for Text-First Extraction with Normalization.}
@@ -199,7 +199,7 @@ Average & 0 & 0 & 0 & 0 & 0 \\
 \end{tabular}
 \end{table}
 
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering
 \scriptsize
 \caption{Additional statistics for Text-First Extraction with Normalization.}
@@ -218,7 +218,7 @@ Average & 0 & 0 & 0 & 0 & 0 & 0 \\
 \end{table}
 
 % Evolving Catalog
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering
 \scriptsize
 \caption{Data-to-text judge scores for Evolving Catalog.}
@@ -236,7 +236,7 @@ Average & 0 & 0 & 0 & 0 & 0 \\
 \end{tabular}
 \end{table}
 
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering
 \scriptsize
 \caption{Text-to-triples judge scores for Evolving Catalog.}
@@ -254,7 +254,7 @@ Average & 0 & 0 & 0 & 0 & 0 \\
 \end{tabular}
 \end{table}
 
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering
 \scriptsize
 \caption{Additional statistics for Evolving Catalog.}
@@ -272,6 +272,7 @@ Average & 0 & 0 & 0 & 0 & 0 & 0 \\
 \end{tabular}
 \end{table}
 
+\FloatBarrier
 \subsection{Human evaluation for pipelines}
 
 The human evaluation uses the same four criteria as the LLM-as-a-judge
@@ -284,7 +285,7 @@ assigned by the author of the thesis using the same 1--5 scale as the automated
 evaluation. Domain-level scores and an across-domain average are reported for
 each pipeline.
 
-\begin{table}[ht]
+\begin{table}[!htbp]
 \centering
 \caption{Human evaluation for Blueprint-Iterative Refinement.}
 \label{tab:human-blueprint-results}
@@ -301,7 +302,7 @@ Average & 0 & 0 & 0 & 0 \\
 \end{tabular}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[!htbp]
 \centering
 \caption{Human evaluation for Text-First Extraction with Normalization.}
 \label{tab:human-text-first-results}
@@ -318,7 +319,7 @@ Average & 0 & 0 & 0 & 0 \\
 \end{tabular}
 \end{table}
 
-\begin{table}[ht]
+\begin{table}[!htbp]
 \centering
 \caption{Human evaluation for Evolving Catalog.}
 \label{tab:human-catalog-results}
@@ -335,6 +336,7 @@ Average & 0 & 0 & 0 & 0 \\
 \end{tabular}
 \end{table}
 
+\FloatBarrier
 \subsection{Correlation between LLM and human evaluation}
 
 The agreement between the LLM judge and the human evaluator is computed from
@@ -353,7 +355,7 @@ each transition: a pooled variant that concatenates the four criteria and a
 per-instance-mean variant that first averages the four criteria for each
 instance. The two transitions are never pooled together.
 
-\begin{table}[ht]
+\begin{table}[!htbp]
 \centering
 \scriptsize
 \caption{Correlation between LLM-as-a-judge and human scores.}
@@ -369,6 +371,7 @@ Evolving Catalog & all & 0 & 0 & 0 & 0 & 0 \\
 \end{tabular}
 \end{table}
 
+\FloatBarrier
 \subsection{Experimental setup for fine-tuning}
 
 The fine-tuning experiments are conducted on the same four domains as the
@@ -408,7 +411,7 @@ optimizer is 8-bit paged AdamW, the learning-rate schedule is cosine, and the
 compute precision is bfloat16. The base model is loaded using 4-bit NF4
 quantization with double quantization.
 
-\begin{table}[h]
+\begin{table}[!htbp]
 \centering
 \small
 \caption{QLoRA configurations used for fine-tuning.}
@@ -447,6 +450,7 @@ The merged model can be served by the same vLLM infrastructure as the base
 model and produces both a natural-language verbalization and the corresponding
 semantic triples in a single decode pass.
 
+\FloatBarrier
 \subsection{Evaluation of fine-tuned models}
 
 The fine-tuned models are evaluated on the held-out $S_2$ test sets for each
@@ -477,7 +481,7 @@ Average & 0 & 0 & 0 & 0 & 0 & 0 \\
 }%
 }
 
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering
 \small
 \caption{Fine-tuned model results for the baseline configuration.}
@@ -485,7 +489,7 @@ Average & 0 & 0 & 0 & 0 & 0 & 0 \\
 \finetuneresultbody
 \end{table}%
 
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering
 \small
 \caption{Fine-tuned model results for the baseline-epoch1 configuration.}
@@ -493,7 +497,7 @@ Average & 0 & 0 & 0 & 0 & 0 & 0 \\
 \finetuneresultbody
 \end{table}
 
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering
 \small
 \caption{Fine-tuned model results for the low learning-rate configuration.}
@@ -501,7 +505,7 @@ Average & 0 & 0 & 0 & 0 & 0 & 0 \\
 \finetuneresultbody
 \end{table}
 
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering
 \small
 \caption{Fine-tuned model results for the higher-capacity configuration.}
@@ -509,7 +513,7 @@ Average & 0 & 0 & 0 & 0 & 0 & 0 \\
 \finetuneresultbody
 \end{table}
 
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering
 \small
 \caption{Fine-tuned model results for the regularized-capacity configuration.}
@@ -517,6 +521,7 @@ Average & 0 & 0 & 0 & 0 & 0 & 0 \\
 \finetuneresultbody
 \end{table}
 
+\FloatBarrier
 \section{Surface realization}
 
 \subsection{WebNLG dataset and evaluation protocol}
@@ -598,7 +603,7 @@ corresponding experiment.
 \newcommand{\surfacebaselinerow}[9]{#1 & #2 & #3 & #4 & #5 & #6 & #7 & #8 & #9 & \surfacebaselinetail}
 \newcommand{\surfacebaselinetail}[7]{#1 & #2 & #3 & #4 & #5 & #6 & #7 \\\hline}
 
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
 \caption{Initial BLEU-based evolution variant with one inspiration.}
 \label{tab:surface-base}
@@ -625,7 +630,7 @@ corresponding experiment.
 \end{tabular}
 \end{table}
 
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
 \caption{BLEU-based evolution without inspirations.}
 \label{tab:surface-bleu-no-inspirations}
@@ -639,7 +644,7 @@ corresponding experiment.
 \end{tabular}
 \end{table}
 
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
 \caption{Gemma-as-a-judge evolution variant with one inspiration.}
 \label{tab:surface-gemma-judge}
@@ -653,7 +658,7 @@ corresponding experiment.
 \end{tabular}
 \end{table}
 
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
 \caption{LLM-judge evolution with occasional DeepSeek-V3.1 calls.}
 \label{tab:surface-deepseek-one-thread}
@@ -667,7 +672,7 @@ corresponding experiment.
 \end{tabular}
 \end{table}
 
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
 \caption{LLM-judge evolution with occasional DeepSeek-V3.1 calls and four threads.}
 \label{tab:surface-deepseek-four-threads}
@@ -681,7 +686,7 @@ corresponding experiment.
 \end{tabular}
 \end{table}
 
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
 \caption{Themis evolution with DeepSeek-V3.1 calls and four threads.}
 \label{tab:surface-themis-deepseek}
@@ -695,7 +700,7 @@ corresponding experiment.
 \end{tabular}
 \end{table}
 
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
 \caption{Themis evolution with Llama 3.3 70B replacing Gemma 4 as the evolutionary model.}
 \label{tab:surface-themis-llama}
@@ -709,12 +714,13 @@ corresponding experiment.
 \end{tabular}
 \end{table}
 
+\FloatBarrier
 \subsection{Baseline systems}
 
 The baseline scores are collected from the fine-tuned BART, zero-shot and the Lango et al. method.
 The average is calculated over the available domain results for each baseline.
 
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
 \caption{Baseline scores across WebNLG domains.}
 \label{tab:surface-baselines}
@@ -727,12 +733,13 @@ The average is calculated over the available domain results for each baseline.
 \end{tabular}
 \end{table}
 
+\FloatBarrier
 \subsection{Three-domain comparison}
 
 The final comparison with the baselines. The baseline rows below contain the average over
 WrittenWork, Building, and Food; and the OpenEvolve's variant is (placeholder).
 
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
 \caption{Average scores on WrittenWork, Building, and Food.}
 \label{tab:surface-final-comparison}
@@ -747,6 +754,7 @@ WrittenWork, Building, and Food; and the OpenEvolve's variant is (placeholder).
 \end{table}
 
 
+\FloatBarrier
 \section{Whole system evaluation}
 
 The whole-system evaluation combines the meaning-representation and surface-
@@ -805,7 +813,7 @@ respect to the distilled references. It does not separately estimate the
 semantic precision or recall of the fine-tuned model; those properties are
 reported in the fine-tuning experiments.
 
-\begin{table}[p]
+\begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
 \caption{Whole-system evaluation on the independent $S_4$ test collections.}
 \label{tab:whole-system-results}
