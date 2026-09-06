@@ -7,6 +7,7 @@ import json
 from PySide6.QtCore import Qt, Signal
 from PySide6.QtGui import QFont
 from PySide6.QtWidgets import (
+    QDialog,
     QComboBox,
     QFormLayout,
     QGroupBox,
@@ -17,12 +18,42 @@ from PySide6.QtWidgets import (
     QScrollArea,
     QTableWidget,
     QTableWidgetItem,
+    QTextBrowser,
     QVBoxLayout,
     QWidget,
 )
 
-from .data import DOMAINS, SCORE_COLUMNS, SCORE_LABELS, ScoringFile, list_scoring_files
+from .data import DOMAINS, GUIDELINES_PATH, SCORE_COLUMNS, SCORE_LABELS, ScoringFile, list_scoring_files
 from .renderers import SourceWidget
+
+
+class GuidelinesDialog(QDialog):
+    """Modal viewer for guidelines.md."""
+
+    def __init__(self, parent: QWidget | None = None):
+        super().__init__(parent)
+        self.setWindowTitle("Scoring guidelines")
+        self.resize(900, 650)
+        layout = QVBoxLayout(self)
+        self.browser = QTextBrowser()
+        self.browser.setOpenExternalLinks(False)
+        try:
+            with open(GUIDELINES_PATH, encoding="utf-8") as fh:
+                content = fh.read()
+            self.browser.setMarkdown(content)
+            if not self.browser.toPlainText().strip():
+                self.browser.setPlainText(content)
+        except OSError as exc:
+            self.browser.setPlainText(
+                f"Guidelines file not found at:\n{GUIDELINES_PATH}\n\n({exc})"
+            )
+        layout.addWidget(self.browser)
+        close_btn = QPushButton("Close")
+        close_btn.clicked.connect(self.accept)
+        row = QHBoxLayout()
+        row.addStretch(1)
+        row.addWidget(close_btn)
+        layout.addLayout(row)
 
 
 class DomainView(QWidget):
@@ -237,14 +268,17 @@ class DetailView(QWidget):
         self.prev_btn = QPushButton("← Previous")
         self.next_btn = QPushButton("Next →")
         self.return_btn = QPushButton("Return to list")
+        self.guidelines_btn = QPushButton("Guidelines")
         self.save_btn = QPushButton("Save")
         self.save_btn.setDefault(True)
         self.prev_btn.clicked.connect(self._prev)
         self.next_btn.clicked.connect(self._next)
         self.return_btn.clicked.connect(self._return)
+        self.guidelines_btn.clicked.connect(self._show_guidelines)
         self.save_btn.clicked.connect(self._save)
         buttons.addWidget(self.return_btn)
         buttons.addStretch(1)
+        buttons.addWidget(self.guidelines_btn)
         buttons.addWidget(self.save_btn)
         buttons.addWidget(self.prev_btn)
         buttons.addWidget(self.next_btn)
@@ -317,6 +351,9 @@ class DetailView(QWidget):
     def _dirty(self) -> bool:
         current = {col: combo.currentText() for col, combo in self.combos.items()}
         return current != {k: (v or "") for k, v in self._loaded_values.items()}
+
+    def _show_guidelines(self):
+        GuidelinesDialog(self).exec()
 
     def _save(self):
         scores = {col: combo.currentText() for col, combo in self.combos.items()}

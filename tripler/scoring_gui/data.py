@@ -10,6 +10,8 @@ TEST10_ROOT = os.path.normpath(
     os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "outputs", "test10")
 )
 
+GUIDELINES_PATH = os.path.join(TEST10_ROOT, "guidelines.md")
+
 # Display name -> subdirectory inside test10/
 DOMAINS = {
     "ice_hockey": "ice_hockey_match",
@@ -50,12 +52,9 @@ def list_scoring_files(domain: str) -> list[tuple[str, str]]:
         if not name.endswith("_scoring.csv"):
             continue
         stem = name[: -len("_scoring.csv")]
-        human = stem.startswith("human_")
-        if human:
-            stem = stem[len("human_"):]
+        if stem.startswith("human_"):
+            continue  # human copies are not scored through the GUI
         label = PIPELINE_LABELS.get(stem, stem)
-        if human:
-            label += "  [human copy]"
         found.append((label, os.path.join(subdir, name)))
     return found
 

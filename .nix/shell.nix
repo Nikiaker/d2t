@@ -40,7 +40,7 @@ let
     xorg.libXrender
     xorg.libXtst
     xorg.libxkbfile
-    xorg.libxcb
+    libxcb
     libxcb-cursor
     libxcb-util
     libxcb-image
