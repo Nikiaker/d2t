@@ -749,4 +749,73 @@ WrittenWork, Building, and Food; and the OpenEvolve's variant is (placeholder).
 
 \section{Whole system evaluation}
 
-% Content goes here
+The whole-system evaluation combines the meaning-representation and surface-
+realization stages into one experimental pipeline. Unlike the preceding
+experiments, which evaluate the two stages separately, this evaluation measures
+whether errors introduced while converting raw structured data into triples
+affect the final generated text.
+
+\subsection{Data construction}
+
+Two new collections are downloaded with quintd for each of the four domains:
+GSMArena, OpenWeather, OWID, and Wikidata. The first collection is denoted by
+$S_3$ and contains 1,000 raw structured instances per domain for training the
+evolutionary programs. The second collection is denoted by $S_4$ and contains
+another 1,000 raw structured instances per domain for final testing. The two
+collections are downloaded independently so that no raw instance from the test
+collection is available during evolution.
+
+The raw instances in both collections are processed with the selected best
+fine-tuned Gemma~4 model from the preceding fine-tuning experiments. For each
+instance, the model produces a natural-language reference and the associated
+normalized semantic triples in a single output. Thus, both $S_3$ and $S_4$
+contain aligned pairs of the form
+\[
+    (T_i, r_i),
+\]
+where $T_i$ is the generated set of triples and $r_i$ is the corresponding
+reference text. The model is selected before this evaluation and remains frozen
+while the whole-system experiments are performed. The generated references are
+therefore used as domain-specific evaluation targets, rather than as additional
+inputs to the surface-realization programs.
+
+\subsection{Evolution and evaluation protocol}
+
+For each domain, the selected best-working OpenEvolve variant is run using the
+$S_3$ collection. The evolved program receives only $T_i$ and must generate a
+natural-language text. Its fitness is computed by comparing the generated text
+with $r_i$ on the 1,000 training instances. A separate best program is retained
+for each domain. The $S_4$ triples and reference texts are not used during
+program generation, fitness calculation, or program selection.
+
+After evolution, each domain-specific program is executed on all 1,000
+instances in the corresponding $S_4$ test collection. The generated texts are
+evaluated using the same protocol as the WebNLG surface-realization
+experiments. BLEU, BLEURT, and METEOR compare the generated text with its
+reference. SENLEN measures the difference between the generated and reference
+sentence counts. Gemma~4, Qwen, and Themis provide judge scores, while
+grammaticality, additions, and omissions are evaluated using the corresponding
+judge prompts. Average sentence count, word count, character count, and number
+of input triples are reported as descriptive statistics.
+
+In this experiment, the reference triples are produced by the selected
+fine-tuned model rather than annotated independently by humans. Consequently,
+the evaluation measures the quality of the complete data-to-text pipeline with
+respect to the distilled references. It does not separately estimate the
+semantic precision or recall of the fine-tuned model; those properties are
+reported in the fine-tuning experiments.
+
+\begin{table}[p]
+\centering\tiny\setlength{\tabcolsep}{1pt}
+\caption{Whole-system evaluation on the independent $S_4$ test collections.}
+\label{tab:whole-system-results}
+\begin{tabular}{l*{14}{r}}\hline
+\surfaceHeader
+\surfacerow{GSMArena}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
+\surfacerow{OpenWeather}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
+\surfacerow{OWID}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
+\surfacerow{Wikidata}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
+\hline
+\surfacerow{\textbf{Average}}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
+\end{tabular}
+\end{table}
