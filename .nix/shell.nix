@@ -9,6 +9,47 @@ let
     libffi
     openssl
     stdenv.cc.cc
+
+    # PySide6/Qt runtime libraries (tripler scoring GUI)
+    alsa-lib
+    brotli
+    dbus
+    expat
+    fontconfig
+    freetype
+    glib
+    libglvnd
+    zstd
+    libkrb5
+    libpcap
+    libpulseaudio
+    mesa  # libgbm, libEGL
+    nspr
+    nss
+    pcsclite
+    systemd  # libudev
+    udev
+    xorg.libX11
+    xorg.libXcomposite
+    xorg.libXcursor
+    xorg.libXdamage
+    xorg.libXext
+    xorg.libXfixes
+    xorg.libXi
+    xorg.libXrandr
+    xorg.libXrender
+    xorg.libXtst
+    xorg.libxkbfile
+    xorg.libxcb
+    libxcb-cursor
+    libxcb-util
+    libxcb-image
+    libxcb-keysyms
+    libxcb-render-util
+    libxcb-wm
+    libxkbcommon
+    wayland
+    xkeyboard-config
   ];
 in 
 pkgs.mkShell {
