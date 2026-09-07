@@ -1,22 +1,22 @@
 #!/bin/bash
-#!/bin/bash
-#SBATCH -w hgx2
-#SBATCH -p hgx
+#SBATCH -p plgrid-gpu-a100
+#SBATCH -A plgnarnlg-gpu-a100
+#SBATCH -n 1
+#SBATCH -N 1
 #SBATCH -c16
-#SBATCH --gres=gpu:1
-#SBATCH -n1
+#SBATCH --mem=128G
+#SBATCH --gres=gpu:2
 #SBATCH --time=48:00:00
 set -eo pipefail
 DOMAIN="wikidata"
 TRIPLE_DOMAIN="wikidata"
 EXPERIMENT="${EXPERIMENT:-baseline}"
 
-export CUDA_HOME=/usr/local/cuda
-export PATH="$CUDA_HOME/bin:$PATH"
-export CPATH="$CUDA_HOME/include:$CPATH"
-export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH"
+module load CUDA/12.8.0
+module load Miniconda3
+eval "$(conda shell.bash hook)"
+conda activate finetune-env
 export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
-export VLLM_USE_FLASHINFER_SAMPLER=0
 
 export PYTHONPATH="$D2TPATH/tripler:$D2TPATH/openevolve/:$D2TPATH/problems/triples_to_text/tests/benchmark_reader/:$D2TPATH/problems/triples_to_text/:$PYTHONPATH"
 source "$D2TPATH/tripler/finetune/experiments_old.sh"
@@ -33,7 +33,9 @@ else
     EXPERIMENT_SUFFIX="_${EXPERIMENT}"
 fi
 REPORT="$RUN_DIR/eval_report.json"
-MERGED_DIR="${MERGED_DIR:-$D2TPATH/ft_models/${DOMAIN}_gemma4_31b${EXPERIMENT_SUFFIX}_merged}"
+MERGED_DIR="${MERGED_DIR:-$SCRATCH/ft_models/${DOMAIN}_gemma4_31b${EXPERIMENT_SUFFIX}_merged}"
+MERGED_CHECKPOINT_100_DIR="${MERGED_CHECKPOINT_100_DIR:-$SCRATCH/ft_models/${DOMAIN}_gemma4_31b${EXPERIMENT_SUFFIX}_checkpoint_100_merged}"
+MERGED_CHECKPOINT_150_DIR="${MERGED_CHECKPOINT_150_DIR:-$SCRATCH/ft_models/${DOMAIN}_gemma4_31b${EXPERIMENT_SUFFIX}_checkpoint_150_merged}"
 PORT="${PORT:-3000}"
 
 python "$D2TPATH/tripler/finetune/eval.py" \
@@ -47,6 +49,8 @@ python "$D2TPATH/tripler/finetune/eval.py" \
     --vllm-env vllm-env \
     --model base "$BASE_ID" \
     --model ft "$MERGED_DIR" \
+    --model checkpoint-100 "$MERGED_CHECKPOINT_100_DIR" \
+    --model checkpoint-150 "$MERGED_CHECKPOINT_150_DIR" \
     --catalog "$TRIPLES_FILE"
 
 echo "EVAL DONE report=$REPORT"
