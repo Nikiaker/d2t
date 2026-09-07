@@ -33,7 +33,7 @@ else
     EXPERIMENT_SUFFIX="_${EXPERIMENT}"
 fi
 REPORT="$RUN_DIR/eval_report.json"
-MERGED_DIR="${MERGED_DIR:-$D2TPATH/ft_models/${DOMAIN}_gemma4_31b${EXPERIMENT_SUFFIX}_merged}"
+MERGED_DIR="${MERGED_DIR:-$HOME/ft_models/${DOMAIN}_gemma4_31b${EXPERIMENT_SUFFIX}_merged}"
 PORT="${PORT:-3000}"
 
 python "$D2TPATH/tripler/finetune/eval.py" \
@@ -43,7 +43,7 @@ python "$D2TPATH/tripler/finetune/eval.py" \
     --port "$PORT" \
     --api-key none \
     --max-tokens 2048 \
-    --tp 2 \
+    --tp 1 \
     --vllm-env vllm-env \
     --model base "$BASE_ID" \
     --model ft "$MERGED_DIR" \
