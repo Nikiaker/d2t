@@ -3,8 +3,7 @@
 
 Reads two CSVs (LLM-scored and human-scored) sharing the schema
   instance_id, domain, input_data, generated_text, generated_triples,
-  text_summary, text_completeness, text_faithfulness, text_omissions,
-  triples_summary, triples_completeness, triples_faithfulness, triples_omissions
+  text_summary, text_faithfulness, triples_completeness, triples_omissions
 and reports, per criterion and per overall variant:
   - Pearson r           (linear correlation)
   - Spearman rho        (rank correlation)
@@ -13,13 +12,13 @@ and reports, per criterion and per overall variant:
 
 Scores are split into two independent judge tasks:
   - text_*    : data -> reference text
-  - triples_* : reference text -> triples
+  - triples_* : generated text -> triples
 
 Overall variants (per task, never mixing the two tasks):
-  - overall_text (pooled)    : concatenate the 4 text_* criteria across instances
-  - overall_triples (pooled) : concatenate the 4 triples_* criteria across instances
-  - overall_text (mean)      : average the 4 text_* scores per instance, then correlate
-  - overall_triples (mean)   : average the 4 triples_* scores per instance, then correlate
+  - overall_text (pooled)    : concatenate the 2 text_* criteria across instances
+  - overall_triples (pooled) : concatenate the 2 triples_* criteria across instances
+  - overall_text (mean)      : average the 2 text_* scores per instance, then correlate
+  - overall_triples (mean)   : average the 2 triples_* scores per instance, then correlate
 
 Run with:
 python3 tripler/correlate_scores.py \
@@ -49,8 +48,8 @@ from scipy import stats
 logger = logging.getLogger(__name__)
 
 CRITERIA = [
-    "text_summary", "text_completeness", "text_faithfulness", "text_omissions",
-    "triples_summary", "triples_completeness", "triples_faithfulness", "triples_omissions",
+    "text_summary", "text_faithfulness",
+    "triples_completeness", "triples_omissions",
 ]
 METRIC_COLS = ["pearson_r", "spearman_rho", "kendall_tau", "qw_kappa"]
 SCORE_MIN = 1

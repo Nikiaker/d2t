@@ -23,3 +23,6 @@ sbatch $D2TPATH/tripler/outputs/test11/batch_forecast.sh
 sbatch $D2TPATH/tripler/outputs/test11/batch_gsmarena.sh
 sbatch $D2TPATH/tripler/outputs/test11/batch_wikidata.sh
 sbatch $D2TPATH/tripler/outputs/test11/batch_owid.sh
+
+# test 10 retake
+sbatch $D2TPATH/tripler/outputs/test10_re/batch_judge.sh

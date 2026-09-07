@@ -7,14 +7,13 @@ row per domain containing the average of each criterion across all instances.
 
 Scores are split into two independent tasks:
   - text_*    : judge the data -> reference text conversion
-  - triples_* : judge the reference text -> triples conversion
+  - triples_* : judge the generated text -> triples conversion
 
 Output columns:
-  domain, text_summary, text_completeness, text_faithfulness, text_omissions,
-  triples_summary, triples_completeness, triples_faithfulness, triples_omissions,
+  domain, text_summary, text_faithfulness, triples_completeness, triples_omissions,
   text_overall, triples_overall,
   json_elements, ref_words, ref_sentences, ref_subsentences, num_triples, unique_predicates
-where text_overall / triples_overall are the means of the four task scores, the first
+where text_overall / triples_overall are the means of the two task scores, the first
 five descriptive columns are averages of instance statistics, and unique_predicates
 is the number of predicates declared by the pipeline.
 
@@ -32,11 +31,11 @@ from typing import Any
 logger = logging.getLogger(__name__)
 
 CRITERIA = [
-    "text_summary", "text_completeness", "text_faithfulness", "text_omissions",
-    "triples_summary", "triples_completeness", "triples_faithfulness", "triples_omissions",
+    "text_summary", "text_faithfulness",
+    "triples_completeness", "triples_omissions",
 ]
-TEXT_CRITERIA = ["text_summary", "text_completeness", "text_faithfulness", "text_omissions"]
-TRIPLES_CRITERIA = ["triples_summary", "triples_completeness", "triples_faithfulness", "triples_omissions"]
+TEXT_CRITERIA = ["text_summary", "text_faithfulness"]
+TRIPLES_CRITERIA = ["triples_completeness", "triples_omissions"]
 STAT_COLUMNS = [
     "json_elements", "ref_words", "ref_sentences", "ref_subsentences",
     "num_triples", "unique_predicates",

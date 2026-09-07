@@ -3,13 +3,12 @@
 For every extracted_triples_*.json under a test output directory (e.g.
 tripler/outputs/test8), emit a CSV with one row per instance containing:
   instance_id, domain, input_data, generated_text, generated_triples,
-  text_summary, text_completeness, text_faithfulness, text_omissions,
-  triples_summary, triples_completeness, triples_faithfulness, triples_omissions
+  text_summary, text_faithfulness, triples_completeness, triples_omissions
 
-The last eight columns are left empty for manual scoring (1-5). The scores are
+The last four columns are left empty for manual scoring (1-5). The scores are
 split into two independent tasks:
-  - text_*  : judge the data -> reference text conversion
-  - triples_*: judge the reference text -> triples conversion
+  - text_*  : summary and faithfulness of the data -> text conversion
+  - triples_*: completeness and omissions of the text -> triples conversion
 """
 
 import argparse
@@ -20,8 +19,8 @@ from pathlib import Path
 from typing import Any
 
 SCORE_COLUMNS = [
-    "text_summary", "text_completeness", "text_faithfulness", "text_omissions",
-    "triples_summary", "triples_completeness", "triples_faithfulness", "triples_omissions",
+    "text_summary", "text_faithfulness",
+    "triples_completeness", "triples_omissions",
 ]
 STAT_COLUMNS = [
     "json_elements", "ref_words", "ref_sentences", "ref_subsentences",
@@ -94,7 +93,7 @@ def rows_for_output(output_path: Path, tripler_dir: Path) -> list[list[str]]:
         triples = format_triples(triples_by_id.get(iid, []))
         rows.append([
             str(iid), domain, input_data, text, triples,
-            "", "", "", "", "", "", "", "",  # score columns
+            "", "", "", "",  # score columns
             "", "", "", "", "", "",  # stat columns
         ])
     return rows
