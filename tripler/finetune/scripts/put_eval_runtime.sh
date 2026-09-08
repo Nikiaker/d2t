@@ -38,12 +38,34 @@ put_conda_run() {
     done
 }
 
+put_vllm_run() {
+    if [ -z "${PUT_VLLM_ENV_PREFIX:-}" ]; then
+        echo "ERROR: PUT_VLLM_ENV_PREFIX is not initialized" >&2
+        return 1
+    fi
+    put_conda_run -n vllm-env env \
+        "LD_LIBRARY_PATH=$PUT_VLLM_ENV_PREFIX/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" "$@"
+}
+
 put_eval_check_conda() {
     if ! command -v conda >/dev/null 2>&1 && [ -x "$HOME/miniconda3/bin/conda" ]; then
         export PATH="$HOME/miniconda3/bin:$PATH"
     fi
     command -v conda >/dev/null 2>&1 || {
         echo "ERROR: conda is not available in PATH; PUT jobs use 'conda run' directly" >&2
+        return 1
+    }
+    PUT_VLLM_ENV_PREFIX="$(put_conda_run -n vllm-env python -c 'import sys; print(sys.prefix)')" || {
+        echo "ERROR: cannot determine vllm-env prefix; check the PUT /home filesystem" >&2
+        return 1
+    }
+    export PUT_VLLM_ENV_PREFIX
+    test -f "$PUT_VLLM_ENV_PREFIX/lib/libstdc++.so.6" || {
+        echo "ERROR: vllm-env has no libstdc++.so.6 under $PUT_VLLM_ENV_PREFIX/lib" >&2
+        return 1
+    }
+    put_vllm_run python -c 'import optree, vllm; print("vLLM imports successfully")' || {
+        echo "ERROR: vllm-env cannot import vLLM with its Conda C++ runtime" >&2
         return 1
     }
     put_conda_run -n vllm-env python -c 'import sys; print(sys.executable)' >/dev/null || {
