@@ -38,7 +38,7 @@ SERVER_LOG="${SERVER_LOG:-$RUN_DIR/vllm-ft.log}"
 mkdir -p "$RUN_DIR"
 
 VLLM_USE_FLASHINFER_SAMPLER=0 \
-conda run --no-capture-output -n vllm-env vllm serve "$MERGED_DIR" \
+conda run -n vllm-env vllm serve "$MERGED_DIR" \
     --port "$PORT" \
     --api-key none \
     --tensor-parallel-size 1 \
