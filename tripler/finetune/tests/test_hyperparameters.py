@@ -94,14 +94,19 @@ class HyperparameterTests(unittest.TestCase):
                 content = path.read_text(encoding="utf-8")
                 with self.subTest(kind=kind, domain=domain):
                     self.assertIn('EXPERIMENT="${EXPERIMENT:-baseline}"', content)
-                    self.assertIn('source "$D2TPATH/tripler/finetune/experiments.sh"', content)
+                    self.assertRegex(
+                        content,
+                        r'source "\$D2TPATH/tripler/finetune/experiments(?:_old)?\.sh"',
+                    )
                     if kind == "finetune":
                         self.assertIn('--weight-decay "$TRAIN_WEIGHT_DECAY"', content)
                         self.assertIn('checkpoint-100', content)
                         self.assertIn('checkpoint-150', content)
                     else:
-                        self.assertIn('--model checkpoint-100', content)
-                        self.assertIn('--model checkpoint-150', content)
+                        self.assertIn('vllm serve', content)
+                        self.assertIn('--model ft', content)
+                        self.assertNotIn('--model checkpoint-100', content)
+                        self.assertNotIn('--model checkpoint-150', content)
 
     def test_all_domain_launcher_covers_every_variant(self):
         content = (FINETUNE_DIR / "run_hyperparameter_experiments.sh").read_text(encoding="utf-8")
@@ -110,7 +115,8 @@ class HyperparameterTests(unittest.TestCase):
                 self.assertIn(experiment, content)
         for domain in ("gsmarena", "openweather", "owid", "wikidata"):
             self.assertIn("batch_finetune_${domain}.sh", content)
-            self.assertIn("batch_eval_${domain}.sh", content)
+            self.assertIn("batch_eval_${domain}_base.sh", content)
+            self.assertIn("batch_eval_${domain}_plgrid.sh", content)
 
     def test_training_script_accepts_weight_decay_and_retains_checkpoints(self):
         content = TRAIN_SCRIPT.read_text(encoding="utf-8")

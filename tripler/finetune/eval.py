@@ -1,5 +1,5 @@
-"""Evaluate one or more Gemma checkpoints on the held-out dev split produced
-by build_dataset.py. Each model is served via vLLM, queried with the exact same
+"""Evaluate an externally served Gemma model on the held-out dev split produced
+by build_dataset.py. The model is queried with the exact same
 zero-shot prompt used at training (no few-shot), and scored against the
 reference {text, triples} from dev.jsonl.
 
@@ -14,11 +14,7 @@ Usage:
         --dev tripler/finetune/datasets/gsmarena/dev.jsonl \
         --port 2997 \
         --report tripler/finetune/runs/gsmarena/eval_report.json \
-        --vllm-env vllm-env \
         --model base RedHatAI/gemma-4-31B-it \
-        --model ft $SCRATCH/ft_models/gsmarena_gemma4_31b_merged \
-        --model checkpoint-100 $SCRATCH/ft_models/gsmarena_gemma4_31b_checkpoint_100_merged \
-        --model checkpoint-150 $SCRATCH/ft_models/gsmarena_gemma4_31b_checkpoint_150_merged \
         [--catalog tripler/outputs/<run>/mobile_phone_specification/extracted_triples_text_predicate_catalog_stable.json]
 """
 
@@ -27,13 +23,10 @@ import asyncio
 import json
 import logging
 import re
-import subprocess
-import time
-import os
 from pathlib import Path
 
 import numpy as np
-from openai import AsyncOpenAI, OpenAI
+from openai import AsyncOpenAI
 
 import evaluate  # noqa: E402
 
@@ -86,39 +79,6 @@ def _extract_json(text: str) -> dict | None:
         except Exception:
             return None
     return None
-
-
-def _wait_for_vllm(port: int, api_key: str, timeout: int = 600) -> bool:
-    client = OpenAI(base_url=f"http://localhost:{port}/v1", api_key=api_key)
-    deadline = time.time() + timeout
-    while time.time() < deadline:
-        try:
-            client.models.list()
-            return True
-        except Exception:
-            time.sleep(5)
-    return False
-
-
-def _start_vllm(model_path: str, port: int, api_key: str, tp: int, vllm_env: str | None) -> subprocess.Popen:
-    cmd = [
-        "vllm", "serve", model_path,
-        "--port", str(port),
-        "--api-key", api_key,
-        "--tensor-parallel-size", str(tp),
-        "--max-model-len", "8192",
-        "--reasoning-parser", "gemma4",
-        "--default-chat-template-kwargs", '{"enable_thinking": false}',
-        "--max-num-batched-tokens", "4096",
-        "--gpu-memory-utilization", "0.95",
-    ]
-    if vllm_env:
-        cmd = ["conda", "run", "--no-capture-output", "-n", vllm_env, *cmd]
-    logger.info("starting vLLM: %s", " ".join(cmd))
-    env = os.environ.copy()
-    env["VLLM_USE_FLASHINFER_SAMPLER"] = "0"
-    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, env=env)
-    return proc
 
 
 async def _generate_async(
@@ -216,17 +176,13 @@ def main() -> None:
     parser.add_argument("--port", type=int, default=2997)
     parser.add_argument("--api-key", default="none")
     parser.add_argument("--max-tokens", type=int, default=2048)
-    parser.add_argument("--tp", type=int, default=2, help="vLLM tensor-parallel-size (GPUs for serving).")
-    parser.add_argument(
-        "--vllm-env",
-        default=None,
-        help="Conda environment containing vLLM. If omitted, vLLM is launched from the current environment.",
-    )
     parser.add_argument("--model", action="append", nargs=2, metavar=("LABEL", "PATH"),
-                        required=True, help="Repeatable: --model <label> <hf_id_or_path>")
+                        required=True, help="The externally served model: --model <label> <served_name>")
     parser.add_argument("--catalog", type=Path, default=None,
                         help="tripler output JSON to read unique_predicates from.")
     args = parser.parse_args()
+    if len(args.model) != 1:
+        parser.error("exactly one --model is required; start a separate vLLM server for each model")
 
     catalog = None
     if args.catalog:
@@ -245,36 +201,24 @@ def main() -> None:
 
     args.report.parent.mkdir(parents=True, exist_ok=True)
     results = []
-    for label, path in args.model:
-        proc = _start_vllm(path, args.port, args.api_key, args.tp, args.vllm_env)
-        try:
-            if not _wait_for_vllm(args.port, args.api_key):
-                logger.error("vLLM did not become ready for %s; skipping", label)
-                continue
-            client = AsyncOpenAI(base_url=f"http://localhost:{args.port}/v1", api_key=args.api_key)
-            served_name = path
-            for split, records in datasets:
-                preds = asyncio.run(_generate_async(client, served_name, records, args.max_tokens))
-                res = _score_model(label, preds, records, catalog)
-                res["split"] = split
-                logger.info(
-                    "%s (%s): bleu=%.4f meteor=%.4f triple_f1=%.4f parse_rate=%.3f",
-                    label,
-                    split,
-                    res["bleu"],
-                    res["meteor"],
-                    res["triple_f1"],
-                    res["parse_rate"],
-                )
-                results.append(res)
-                with open(args.report, "w", encoding="utf-8") as fh:
-                    json.dump({"models": results}, fh, indent=2, ensure_ascii=False)
-        finally:
-            proc.terminate()
-            try:
-                proc.wait(timeout=120)
-            except Exception:
-                proc.kill()
+    label, served_name = args.model[0]
+    client = AsyncOpenAI(base_url=f"http://localhost:{args.port}/v1", api_key=args.api_key)
+    for split, records in datasets:
+        preds = asyncio.run(_generate_async(client, served_name, records, args.max_tokens))
+        res = _score_model(label, preds, records, catalog)
+        res["split"] = split
+        logger.info(
+            "%s (%s): bleu=%.4f meteor=%.4f triple_f1=%.4f parse_rate=%.3f",
+            label,
+            split,
+            res["bleu"],
+            res["meteor"],
+            res["triple_f1"],
+            res["parse_rate"],
+        )
+        results.append(res)
+        with open(args.report, "w", encoding="utf-8") as fh:
+            json.dump({"models": results}, fh, indent=2, ensure_ascii=False)
 
     with open(args.report, "w", encoding="utf-8") as fh:
         json.dump({"models": results}, fh, indent=2, ensure_ascii=False)

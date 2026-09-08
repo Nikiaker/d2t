@@ -21,7 +21,6 @@ export PYTHONPATH="$D2TPATH/tripler:$D2TPATH/openevolve/:$D2TPATH/problems/tripl
 source "$D2TPATH/tripler/finetune/experiments_old.sh"
 configure_experiment "$EXPERIMENT"
 
-BASE_ID="${BASE_ID:-google/gemma-4-31B-it}"
 DATA_DIR="$D2TPATH/tripler/finetune/datasets/${DOMAIN}"
 TRIPLES_FILE="${TRIPLES_FILE:-$D2TPATH/tripler/outputs/test11/${TRIPLE_DOMAIN}/joined.json}"
 if [ "$EXPERIMENT" = "baseline" ]; then
@@ -31,9 +30,38 @@ else
     RUN_DIR="$D2TPATH/tripler/finetune/runs/${DOMAIN}/${EXPERIMENT}"
     EXPERIMENT_SUFFIX="_${EXPERIMENT}"
 fi
-REPORT="$RUN_DIR/eval_report.json"
+REPORT="${REPORT:-$RUN_DIR/eval_report_ft.json}"
 MERGED_DIR="${MERGED_DIR:-$HOME/ft_models/${DOMAIN}_gemma4_31b${EXPERIMENT_SUFFIX}_merged}"
 PORT="${PORT:-3000}"
+SERVER_LOG="${SERVER_LOG:-$RUN_DIR/vllm-ft.log}"
+
+mkdir -p "$RUN_DIR"
+
+VLLM_USE_FLASHINFER_SAMPLER=0 \
+conda run --no-capture-output -n vllm-env vllm serve "$MERGED_DIR" \
+    --port "$PORT" \
+    --api-key none \
+    --tensor-parallel-size 1 \
+    --max-model-len 8192 \
+    --reasoning-parser gemma4 \
+    --default-chat-template-kwargs '{"enable_thinking": false}' \
+    --max-num-batched-tokens 4096 \
+    --gpu-memory-utilization 0.95 \
+    > "$SERVER_LOG" 2>&1 &
+SERVER_PID=$!
+
+cleanup() {
+    if kill -0 "$SERVER_PID" 2>/dev/null; then
+        kill "$SERVER_PID" 2>/dev/null || true
+        wait "$SERVER_PID" 2>/dev/null || true
+    fi
+}
+trap cleanup EXIT
+
+if ! conda run -n openevolve-env python "$D2TPATH/.conda/test-response.py" --port "$PORT" --timeout 600; then
+    echo "ERROR: vLLM server did not start within 10 minutes; see $SERVER_LOG" >&2
+    exit 1
+fi
 
 conda run -n openevolve-env python "$D2TPATH/tripler/finetune/eval.py" \
     --train "$DATA_DIR/train.jsonl" \
@@ -42,9 +70,6 @@ conda run -n openevolve-env python "$D2TPATH/tripler/finetune/eval.py" \
     --port "$PORT" \
     --api-key none \
     --max-tokens 2048 \
-    --tp 1 \
-    --vllm-env vllm-env \
-    --model base "$BASE_ID" \
     --model ft "$MERGED_DIR" \
     --catalog "$TRIPLES_FILE"
 

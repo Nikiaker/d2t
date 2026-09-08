@@ -23,11 +23,15 @@ for experiment in "${EXPERIMENTS[@]}"; do
         esac
 
         finetune_script="$D2TPATH/tripler/finetune/scripts/batch_finetune_${domain}.sh"
-        eval_script="$D2TPATH/tripler/finetune/scripts/batch_eval_${domain}.sh"
-        port=$((domain_port + experiment_offset))
+        base_eval_script="$D2TPATH/tripler/finetune/scripts/batch_eval_${domain}_base.sh"
+        eval_script="$D2TPATH/tripler/finetune/scripts/batch_eval_${domain}_plgrid.sh"
+        base_port=$((domain_port + experiment_offset))
+        ft_port=$((domain_port + 4 + experiment_offset))
 
         finetune_job=$(sbatch --parsable --export="ALL,EXPERIMENT=$experiment" "$finetune_script")
         sbatch --dependency="afterok:$finetune_job" \
-            --export="ALL,EXPERIMENT=$experiment,PORT=$port" "$eval_script"
+            --export="ALL,EXPERIMENT=$experiment,PORT=$base_port" "$base_eval_script"
+        sbatch --dependency="afterok:$finetune_job" \
+            --export="ALL,EXPERIMENT=$experiment,PORT=$ft_port" "$eval_script"
     done
 done

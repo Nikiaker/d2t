@@ -5,11 +5,11 @@
 #SBATCH -N 1
 #SBATCH -c16
 #SBATCH --mem=128G
-#SBATCH --gres=gpu:4
+#SBATCH --gres=gpu:2
 #SBATCH --time=48:00:00
 set -eo pipefail
-DOMAIN="owid"
-TRIPLE_DOMAIN="owid"
+DOMAIN="gsmarena"
+TRIPLE_DOMAIN="mobile_phone_specification"
 EXPERIMENT="${EXPERIMENT:-baseline}"
 
 module load CUDA/12.8.0
@@ -33,21 +33,16 @@ else
 fi
 REPORT="${REPORT:-$RUN_DIR/eval_report_ft.json}"
 MERGED_DIR="${MERGED_DIR:-$SCRATCH/ft_models/${DOMAIN}_gemma4_31b${EXPERIMENT_SUFFIX}_merged}"
-PORT="${PORT:-2999}"
+PORT="${PORT:-2997}"
 SERVER_LOG="${SERVER_LOG:-$RUN_DIR/vllm-ft.log}"
 
 mkdir -p "$RUN_DIR"
-
 VLLM_USE_FLASHINFER_SAMPLER=0 \
 conda run --no-capture-output -n vllm-env vllm serve "$MERGED_DIR" \
-    --port "$PORT" \
-    --api-key none \
-    --tensor-parallel-size 4 \
-    --max-model-len 8192 \
-    --reasoning-parser gemma4 \
+    --port "$PORT" --api-key none --tensor-parallel-size 2 \
+    --max-model-len 8192 --reasoning-parser gemma4 \
     --default-chat-template-kwargs '{"enable_thinking": false}' \
-    --max-num-batched-tokens 4096 \
-    --gpu-memory-utilization 0.95 \
+    --max-num-batched-tokens 4096 --gpu-memory-utilization 0.95 \
     > "$SERVER_LOG" 2>&1 &
 SERVER_PID=$!
 
@@ -65,13 +60,8 @@ if ! conda run -n openevolve-env python "$D2TPATH/.conda/test-response.py" --por
 fi
 
 conda run -n openevolve-env python "$D2TPATH/tripler/finetune/eval.py" \
-    --train "$DATA_DIR/train.jsonl" \
-    --dev "$DATA_DIR/dev.jsonl" \
-    --report "$REPORT" \
-    --port "$PORT" \
-    --api-key none \
-    --max-tokens 2048 \
-    --model ft "$MERGED_DIR" \
-    --catalog "$TRIPLES_FILE"
+    --train "$DATA_DIR/train.jsonl" --dev "$DATA_DIR/dev.jsonl" \
+    --report "$REPORT" --port "$PORT" --api-key none --max-tokens 2048 \
+    --model ft "$MERGED_DIR" --catalog "$TRIPLES_FILE"
 
 echo "EVAL DONE report=$REPORT"

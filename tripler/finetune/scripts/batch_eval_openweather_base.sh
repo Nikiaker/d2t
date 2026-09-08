@@ -8,8 +8,8 @@
 #SBATCH --gres=gpu:4
 #SBATCH --time=48:00:00
 set -eo pipefail
-DOMAIN="owid"
-TRIPLE_DOMAIN="owid"
+DOMAIN="openweather"
+TRIPLE_DOMAIN="weather_forecast"
 EXPERIMENT="${EXPERIMENT:-baseline}"
 
 module load CUDA/12.8.0
@@ -22,32 +22,25 @@ export PYTHONPATH="$D2TPATH/tripler:$D2TPATH/openevolve/:$D2TPATH/problems/tripl
 source "$D2TPATH/tripler/finetune/experiments_old.sh"
 configure_experiment "$EXPERIMENT"
 
+BASE_ID="${BASE_ID:-google/gemma-4-31B-it}"
 DATA_DIR="$D2TPATH/tripler/finetune/datasets/${DOMAIN}"
 TRIPLES_FILE="${TRIPLES_FILE:-$D2TPATH/tripler/outputs/test11/${TRIPLE_DOMAIN}/joined.json}"
 if [ "$EXPERIMENT" = "baseline" ]; then
     RUN_DIR="$D2TPATH/tripler/finetune/runs/${DOMAIN}"
-    EXPERIMENT_SUFFIX=""
 else
     RUN_DIR="$D2TPATH/tripler/finetune/runs/${DOMAIN}/${EXPERIMENT}"
-    EXPERIMENT_SUFFIX="_${EXPERIMENT}"
 fi
-REPORT="${REPORT:-$RUN_DIR/eval_report_ft.json}"
-MERGED_DIR="${MERGED_DIR:-$SCRATCH/ft_models/${DOMAIN}_gemma4_31b${EXPERIMENT_SUFFIX}_merged}"
-PORT="${PORT:-2999}"
-SERVER_LOG="${SERVER_LOG:-$RUN_DIR/vllm-ft.log}"
+REPORT="${REPORT:-$RUN_DIR/eval_report_base.json}"
+PORT="${PORT:-2998}"
+SERVER_LOG="${SERVER_LOG:-$RUN_DIR/vllm-base.log}"
 
 mkdir -p "$RUN_DIR"
-
 VLLM_USE_FLASHINFER_SAMPLER=0 \
-conda run --no-capture-output -n vllm-env vllm serve "$MERGED_DIR" \
-    --port "$PORT" \
-    --api-key none \
-    --tensor-parallel-size 4 \
-    --max-model-len 8192 \
-    --reasoning-parser gemma4 \
+conda run --no-capture-output -n vllm-env vllm serve "$BASE_ID" \
+    --port "$PORT" --api-key none --tensor-parallel-size 4 \
+    --max-model-len 8192 --reasoning-parser gemma4 \
     --default-chat-template-kwargs '{"enable_thinking": false}' \
-    --max-num-batched-tokens 4096 \
-    --gpu-memory-utilization 0.95 \
+    --max-num-batched-tokens 4096 --gpu-memory-utilization 0.95 \
     > "$SERVER_LOG" 2>&1 &
 SERVER_PID=$!
 
@@ -65,13 +58,8 @@ if ! conda run -n openevolve-env python "$D2TPATH/.conda/test-response.py" --por
 fi
 
 conda run -n openevolve-env python "$D2TPATH/tripler/finetune/eval.py" \
-    --train "$DATA_DIR/train.jsonl" \
-    --dev "$DATA_DIR/dev.jsonl" \
-    --report "$REPORT" \
-    --port "$PORT" \
-    --api-key none \
-    --max-tokens 2048 \
-    --model ft "$MERGED_DIR" \
-    --catalog "$TRIPLES_FILE"
+    --train "$DATA_DIR/train.jsonl" --dev "$DATA_DIR/dev.jsonl" \
+    --report "$REPORT" --port "$PORT" --api-key none --max-tokens 2048 \
+    --model base "$BASE_ID" --catalog "$TRIPLES_FILE"
 
 echo "EVAL DONE report=$REPORT"

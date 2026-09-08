@@ -21,9 +21,12 @@ for experiment in "${EXPERIMENTS[@]}"; do
             *) echo "ERROR: unsupported domain '$domain'" >&2; exit 1 ;;
         esac
 
-        eval_script="$D2TPATH/tripler/finetune/scripts/batch_eval_${domain}.sh"
-        port=$((domain_port + experiment_offset))
+        base_eval_script="$D2TPATH/tripler/finetune/scripts/batch_eval_${domain}_base.sh"
+        eval_script="$D2TPATH/tripler/finetune/scripts/batch_eval_${domain}_plgrid.sh"
+        base_port=$((domain_port + experiment_offset))
+        ft_port=$((domain_port + 4 + experiment_offset))
 
-        sbatch --export="ALL,EXPERIMENT=$experiment,PORT=$port" "$eval_script"
+        sbatch --export="ALL,EXPERIMENT=$experiment,PORT=$base_port" "$base_eval_script"
+        sbatch --export="ALL,EXPERIMENT=$experiment,PORT=$ft_port" "$eval_script"
     done
 done

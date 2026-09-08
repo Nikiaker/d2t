@@ -303,13 +303,12 @@ Loads the base bf16 instruct model on CPU, attaches the adapter, calls
 for `vllm serve <path>` — identical to how existing batch scripts serve base
 models. No adapter lives at inference.
 
-### Stage D — `eval.py` (separate job)
+### Stage D — `eval.py` (separate jobs)
 
-Standalone evaluation. For each model (base, final adapter, checkpoint 100,
-and checkpoint 150) it:
+Standalone evaluation. The batch job starts one external vLLM server and
+evaluates either the base Gemma model or the final merged fine-tuned model:
 
-1. starts `vllm serve <model>` on a port and waits for the `/v1/models`
-   health endpoint,
+1. waits for the `/v1/models` health endpoint,
 2. sends the train and dev prompts with the **exact same** user content used at training
    (zero-shot, no few-shot, `enable_thinking:false` via the chat template),
 3. parses each response as `{"text","triples"}`,
@@ -339,8 +338,9 @@ per model and split, written incrementally as each model finishes.
 
 Two SLURM jobs (matching the existing batch style). Both require `HF_TOKEN` to
 be exported in the SLURM environment (Gemma weights are gated on Hugging Face).
-The training and evaluation drivers use `finetune-env`; evaluation launches
-vLLM through the separate `vllm-env` environment.
+The training and evaluation drivers use `finetune-env`; the batch evaluation
+scripts launch vLLM through the separate `vllm-env` environment before calling
+`eval.py`.
 
 ### One-shot: build dataset + train + merge
 
@@ -366,12 +366,13 @@ sbatch tripler/finetune/scripts/batch_finetune_gsmarena.sh
 ### Evaluation (separate, re-runnable)
 
 ```bash
-EXPERIMENT=low_lr sbatch tripler/finetune/scripts/batch_eval_gsmarena.sh
+EXPERIMENT=low_lr sbatch tripler/finetune/scripts/batch_eval_gsmarena_base.sh
+EXPERIMENT=low_lr sbatch tripler/finetune/scripts/batch_eval_gsmarena_plgrid.sh
 ```
 
-Eval starts vLLM once per model (base, final, checkpoint 100, and checkpoint
-150), evaluates both train and dev, and writes the combined report. It does not
-retrain, so it can be re-run after model changes without touching training.
+The base and final fine-tuned jobs evaluate both train and dev and write
+`eval_report_base.json` and `eval_report_ft.json`, respectively. They can be
+re-run after model changes without touching training.
 
 ### Conda env creation (one-time, on the cluster)
 
