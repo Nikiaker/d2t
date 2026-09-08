@@ -1,6 +1,5 @@
 #!/bin/bash
-#!/bin/bash
-#SBATCH -w hgx2
+#SBATCH -w hgx1
 #SBATCH -p hgx
 #SBATCH -c16
 #SBATCH --gres=gpu:1
@@ -36,7 +35,7 @@ REPORT="$RUN_DIR/eval_report.json"
 MERGED_DIR="${MERGED_DIR:-$HOME/ft_models/${DOMAIN}_gemma4_31b${EXPERIMENT_SUFFIX}_merged}"
 PORT="${PORT:-3000}"
 
-python "$D2TPATH/tripler/finetune/eval.py" \
+conda run -n openevolve-env python "$D2TPATH/tripler/finetune/eval.py" \
     --train "$DATA_DIR/train.jsonl" \
     --dev "$DATA_DIR/dev.jsonl" \
     --report "$REPORT" \
