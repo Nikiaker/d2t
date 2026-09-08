@@ -2,7 +2,7 @@
 set -eo pipefail
 
 EXPERIMENTS=(low_lr higher_capacity regularized_capacity)
-DOMAINS=(wikidata)
+DOMAINS=(openweather owid)
 
 for experiment in "${EXPERIMENTS[@]}"; do
     case "$experiment" in
