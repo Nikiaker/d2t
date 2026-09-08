@@ -124,6 +124,19 @@ class HyperparameterTests(unittest.TestCase):
         self.assertIn("weight_decay=args.weight_decay", content)
         self.assertIn("save_total_limit=5", content)
 
+    def test_finetune_batches_use_put_runtime(self):
+        for domain in ("gsmarena", "openweather", "owid", "wikidata"):
+            primary = SCRIPTS_DIR / f"batch_finetune_{domain}.sh"
+            copy = SCRIPTS_DIR / f"batch_finetune_{domain}_plgrid.sh"
+            content = primary.read_text(encoding="utf-8")
+            with self.subTest(domain=domain):
+                self.assertEqual(content, copy.read_text(encoding="utf-8"))
+                self.assertIn("#SBATCH -p hgx", content)
+                self.assertNotIn("plgrid-gpu-a100", content)
+                self.assertNotIn("conda activate", content)
+                self.assertIn("put_finetune_run", content)
+                self.assertIn("put_publish_dir", content)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -340,7 +340,10 @@ Two SLURM jobs (matching the existing batch style). Both require `HF_TOKEN` to
 be exported in the SLURM environment (Gemma weights are gated on Hugging Face).
 The training and evaluation drivers use `finetune-env`; the batch evaluation
 scripts launch vLLM through the separate `vllm-env` environment before calling
-`eval.py`.
+`eval.py`. On PUT/HGX, finetuning uses local `/raid` storage for caches,
+datasets, adapters, checkpoints, and merged models while the job is running;
+successful artifacts are published back to the persistent `$HOME` paths used by
+the evaluation jobs.
 
 ### One-shot: build dataset + train + merge
 

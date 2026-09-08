@@ -47,6 +47,95 @@ put_vllm_run() {
         "LD_LIBRARY_PATH=$PUT_VLLM_ENV_PREFIX/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" "$@"
 }
 
+put_finetune_setup() {
+    local job_id="${SLURM_JOB_ID:-$$}"
+    export PUT_FINETUNE_ROOT="${PUT_FINETUNE_ROOT:-/raid/${USER}/d2t-finetune-${job_id}}"
+
+    mkdir -p "$PUT_FINETUNE_ROOT/tmp" "$PUT_FINETUNE_ROOT/cache" \
+        "$PUT_FINETUNE_ROOT/datasets" "$PUT_FINETUNE_ROOT/runs" \
+        "$PUT_FINETUNE_ROOT/models" || {
+        echo "ERROR: cannot create PUT finetune directory: $PUT_FINETUNE_ROOT" >&2
+        return 1
+    }
+
+    export TMPDIR="${PUT_FINETUNE_TMPDIR:-$PUT_FINETUNE_ROOT/tmp}"
+    export XDG_CACHE_HOME="${PUT_FINETUNE_CACHE:-$PUT_FINETUNE_ROOT/cache}"
+    export HF_HOME="${PUT_FINETUNE_HF_HOME:-$PUT_FINETUNE_ROOT/cache/huggingface}"
+    export TRANSFORMERS_CACHE="$HF_HOME"
+    export TORCH_HOME="$PUT_FINETUNE_ROOT/cache/torch"
+    export CUDA_CACHE_PATH="$PUT_FINETUNE_ROOT/cache/cuda"
+    export TRITON_CACHE_DIR="$PUT_FINETUNE_ROOT/cache/triton"
+    export TORCHINDUCTOR_CACHE_DIR="$PUT_FINETUNE_ROOT/cache/torchinductor"
+    mkdir -p "$XDG_CACHE_HOME" "$HF_HOME" "$TORCH_HOME" "$CUDA_CACHE_PATH" \
+        "$TRITON_CACHE_DIR" "$TORCHINDUCTOR_CACHE_DIR"
+}
+
+put_finetune_run() {
+    if [ -z "${PUT_FINETUNE_ENV_PREFIX:-}" ]; then
+        echo "ERROR: PUT_FINETUNE_ENV_PREFIX is not initialized" >&2
+        return 1
+    fi
+    put_conda_run -n finetune-env env \
+        "LD_LIBRARY_PATH=$PUT_FINETUNE_ENV_PREFIX/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" "$@"
+}
+
+put_finetune_check_conda() {
+    if ! command -v conda >/dev/null 2>&1 && [ -x "$HOME/miniconda3/bin/conda" ]; then
+        export PATH="$HOME/miniconda3/bin:$PATH"
+    fi
+    command -v conda >/dev/null 2>&1 || {
+        echo "ERROR: conda is not available in PATH; PUT jobs use 'conda run' directly" >&2
+        return 1
+    }
+    PUT_FINETUNE_ENV_PREFIX="$(put_conda_run -n finetune-env python -c 'import sys; print(sys.prefix)')" || {
+        echo "ERROR: cannot determine finetune-env prefix; check the PUT /home filesystem" >&2
+        return 1
+    }
+    export PUT_FINETUNE_ENV_PREFIX
+    test -f "$PUT_FINETUNE_ENV_PREFIX/lib/libstdc++.so.6" || {
+        echo "ERROR: finetune-env has no libstdc++.so.6 under $PUT_FINETUNE_ENV_PREFIX/lib" >&2
+        return 1
+    }
+    put_finetune_run python -c 'import torch; print(torch.__version__)' || {
+        echo "ERROR: finetune-env cannot import PyTorch with its Conda C++ runtime" >&2
+        return 1
+    }
+    put_finetune_run python -c 'import transformers, datasets, peft, trl; print("finetune imports successfully")' || {
+        echo "ERROR: finetune-env cannot import the training dependencies" >&2
+        return 1
+    }
+}
+
+put_publish_dir() {
+    local source="$1"
+    local target="$2"
+
+    test -e "$source" || {
+        echo "ERROR: artifact does not exist: $source" >&2
+        return 1
+    }
+    mkdir -p "$(dirname "$target")" || return 1
+    if [ -d "$source" ]; then
+        mkdir -p "$target" || return 1
+        if command -v rsync >/dev/null 2>&1; then
+            rsync -a --delete "$source/" "$target/"
+        else
+            cp -a "$source/." "$target/"
+        fi
+    else
+        cp -f "$source" "$target"
+    fi || {
+        echo "ERROR: failed to publish artifact $source to $target" >&2
+        return 1
+    }
+}
+
+put_finetune_cleanup() {
+    if [ -n "${PUT_FINETUNE_ROOT:-}" ] && [[ "$PUT_FINETUNE_ROOT" == /raid/* ]]; then
+        rm -rf -- "$PUT_FINETUNE_ROOT"
+    fi
+}
+
 put_eval_check_conda() {
     if ! command -v conda >/dev/null 2>&1 && [ -x "$HOME/miniconda3/bin/conda" ]; then
         export PATH="$HOME/miniconda3/bin:$PATH"
