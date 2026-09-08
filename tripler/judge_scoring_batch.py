@@ -256,6 +256,7 @@ def build_judge_batch_jsonl(
                                 {"role": "system", "content": JUDGE_SYSTEM_PROMPTS_BY_TASK[task][criterion]},
                                 {"role": "user", "content": user_prompt},
                             ],
+                            "max_tokens": 256,
                             "response_format": JUDGE_RESPONSE_FORMAT,
                         },
                     }

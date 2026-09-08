@@ -24,6 +24,7 @@ conda run -n vllm-env vllm serve \
     --reasoning-parser gemma4 \
     --default-chat-template-kwargs '{"enable_thinking": false}' \
     --max-num-batched-tokens 4096 \
+    --max-num-seqs 8 \
     --gpu-memory-utilization 0.95 \
     > "$SERVER_LOG1" 2>&1 &
 SERVER_PID1=$!
