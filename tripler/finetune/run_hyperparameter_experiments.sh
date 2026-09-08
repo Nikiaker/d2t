@@ -24,7 +24,7 @@ for experiment in "${EXPERIMENTS[@]}"; do
 
         finetune_script="$D2TPATH/tripler/finetune/scripts/batch_finetune_${domain}.sh"
         base_eval_script="$D2TPATH/tripler/finetune/scripts/batch_eval_${domain}_base.sh"
-        eval_script="$D2TPATH/tripler/finetune/scripts/batch_eval_${domain}_plgrid.sh"
+        eval_script="$D2TPATH/tripler/finetune/scripts/batch_eval_${domain}.sh"
         base_port=$((domain_port + experiment_offset))
         ft_port=$((domain_port + 4 + experiment_offset))
 

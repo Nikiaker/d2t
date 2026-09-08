@@ -116,7 +116,7 @@ class HyperparameterTests(unittest.TestCase):
         for domain in ("gsmarena", "openweather", "owid", "wikidata"):
             self.assertIn("batch_finetune_${domain}.sh", content)
             self.assertIn("batch_eval_${domain}_base.sh", content)
-            self.assertIn("batch_eval_${domain}_plgrid.sh", content)
+            self.assertIn("batch_eval_${domain}.sh", content)
 
     def test_training_script_accepts_weight_decay_and_retains_checkpoints(self):
         content = TRAIN_SCRIPT.read_text(encoding="utf-8")

@@ -367,7 +367,7 @@ sbatch tripler/finetune/scripts/batch_finetune_gsmarena.sh
 
 ```bash
 EXPERIMENT=low_lr sbatch tripler/finetune/scripts/batch_eval_gsmarena_base.sh
-EXPERIMENT=low_lr sbatch tripler/finetune/scripts/batch_eval_gsmarena_plgrid.sh
+EXPERIMENT=low_lr sbatch tripler/finetune/scripts/batch_eval_gsmarena.sh
 ```
 
 The base and final fine-tuned jobs evaluate both train and dev and write

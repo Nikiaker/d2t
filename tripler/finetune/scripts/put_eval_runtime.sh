@@ -1,0 +1,92 @@
+#!/bin/bash
+
+# Runtime setup for PUT/HGX evaluation jobs. Conda is intentionally used via
+# `conda run`: batch shells do not need (and should not use) `conda activate`.
+put_eval_setup() {
+    local job_id="${SLURM_JOB_ID:-$$}"
+    export PUT_EVAL_ROOT="${PUT_EVAL_ROOT:-/raid/${USER}/d2t-eval-${job_id}}"
+
+    mkdir -p "$PUT_EVAL_ROOT/tmp" "$PUT_EVAL_ROOT/cache" "$PUT_EVAL_ROOT/models" \
+        "$PUT_EVAL_ROOT/logs" || {
+        echo "ERROR: cannot create PUT runtime directory: $PUT_EVAL_ROOT" >&2
+        return 1
+    }
+
+    export TMPDIR="${PUT_EVAL_TMPDIR:-$PUT_EVAL_ROOT/tmp}"
+    export XDG_CACHE_HOME="${PUT_EVAL_CACHE:-$PUT_EVAL_ROOT/cache}"
+    export VLLM_CACHE_ROOT="$PUT_EVAL_ROOT/cache/vllm"
+    export CUDA_CACHE_PATH="$PUT_EVAL_ROOT/cache/cuda"
+    export TRITON_CACHE_DIR="$PUT_EVAL_ROOT/cache/triton"
+    export TORCHINDUCTOR_CACHE_DIR="$PUT_EVAL_ROOT/cache/torchinductor"
+    mkdir -p "$XDG_CACHE_HOME" "$VLLM_CACHE_ROOT" "$CUDA_CACHE_PATH" \
+        "$TRITON_CACHE_DIR" "$TORCHINDUCTOR_CACHE_DIR"
+}
+
+put_conda_run() {
+    local attempt=1
+    local retries="${PUT_CONDA_RETRIES:-3}"
+    local delay="${PUT_CONDA_RETRY_DELAY:-10}"
+
+    while true; do
+        conda run "$@" && return 0
+        if [ "$attempt" -ge "$retries" ]; then
+            return 1
+        fi
+        echo "WARNING: conda run failed (attempt $attempt/$retries); retrying in ${delay}s" >&2
+        sleep "$delay"
+        attempt=$((attempt + 1))
+    done
+}
+
+put_eval_check_conda() {
+    if ! command -v conda >/dev/null 2>&1 && [ -x "$HOME/miniconda3/bin/conda" ]; then
+        export PATH="$HOME/miniconda3/bin:$PATH"
+    fi
+    command -v conda >/dev/null 2>&1 || {
+        echo "ERROR: conda is not available in PATH; PUT jobs use 'conda run' directly" >&2
+        return 1
+    }
+    put_conda_run -n vllm-env python -c 'import sys; print(sys.executable)' >/dev/null || {
+        echo "ERROR: vllm-env cannot start Python; check the PUT /home filesystem" >&2
+        return 1
+    }
+    put_conda_run -n openevolve-env python -c 'import sys; print(sys.executable)' >/dev/null || {
+        echo "ERROR: openevolve-env cannot start Python; check the PUT /home filesystem" >&2
+        return 1
+    }
+}
+
+put_stage_model() {
+    local source="$1"
+    local target="$PUT_EVAL_ROOT/models/$(basename "$source")"
+
+    test -d "$source" || {
+        echo "ERROR: merged model directory does not exist: $source" >&2
+        return 1
+    }
+    mkdir -p "$target" || return 1
+    if command -v rsync >/dev/null 2>&1; then
+        rsync -a --delete "$source/" "$target/"
+    else
+        cp -a "$source/." "$target/"
+    fi || {
+        echo "ERROR: failed to stage $source on local /raid" >&2
+        return 1
+    }
+    printf '%s\n' "$target"
+}
+
+put_eval_log_path() {
+    printf '%s/logs/%s.log\n' "$PUT_EVAL_ROOT" "$1"
+}
+
+put_eval_cleanup() {
+    if [ -n "${PUT_EVAL_ROOT:-}" ] && [[ "$PUT_EVAL_ROOT" == /raid/* ]]; then
+        if [ -n "${PUT_EVAL_LOG_SOURCE:-}" ] && [ -n "${PUT_EVAL_LOG_DEST:-}" ] && \
+            [ -f "$PUT_EVAL_LOG_SOURCE" ]; then
+            mkdir -p "$(dirname "$PUT_EVAL_LOG_DEST")" 2>/dev/null || true
+            cp "$PUT_EVAL_LOG_SOURCE" "$PUT_EVAL_LOG_DEST" 2>/dev/null || true
+        fi
+        rm -rf -- "$PUT_EVAL_ROOT"
+    fi
+}
