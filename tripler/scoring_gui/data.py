@@ -6,9 +6,19 @@ import csv
 import os
 import tempfile
 
-TEST10_ROOT = os.path.normpath(
-    os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "outputs", "test10")
-)
+def _resolve_data_root() -> str:
+    """Data root: SCORING_GUI_DATA env -> bundle layout (<root>/data) -> repo layout."""
+    env = os.environ.get("SCORING_GUI_DATA")
+    if env:
+        return os.path.normpath(env)
+    parent = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    bundle = os.path.join(parent, "data")
+    if os.path.isdir(bundle):
+        return bundle
+    return os.path.join(parent, "outputs", "test10")
+
+
+TEST10_ROOT = _resolve_data_root()
 
 GUIDELINES_PATH = os.path.join(TEST10_ROOT, "guidelines.md")
 

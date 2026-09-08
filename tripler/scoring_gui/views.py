@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 
 from PySide6.QtCore import Qt, Signal
 from PySide6.QtGui import QFont
@@ -203,8 +204,8 @@ class InstanceListView(QWidget):
         if scoring is None:
             return
         path = scoring.path
-        domain = path.split("/test10/")[-1].split("/")[0]
-        fname = path.split("/")[-1].replace("_scoring.csv", "")
+        domain = os.path.basename(os.path.dirname(path))
+        fname = os.path.basename(path)[: -len("_scoring.csv")]
         self.header.setText(f"<h2>{domain} — {fname}</h2>")
         self.table.setRowCount(len(scoring.rows))
         for r, row in enumerate(scoring.rows):
@@ -329,8 +330,7 @@ class DetailView(QWidget):
         self.scroll.verticalScrollBar().setValue(0)
 
     def _domain(self) -> str:
-        parts = self.scoring.path.split("/test10/")[-1].split("/")
-        subdir = parts[0] if parts else ""
+        subdir = os.path.basename(os.path.dirname(self.scoring.path))
         for name, directory in DOMAINS.items():
             if directory == subdir:
                 return name
