@@ -41,7 +41,7 @@ put_vllm_run vllm serve "$LOCAL_MODEL_DIR" \
     --port "$PORT" \
     --api-key none \
     --tensor-parallel-size 1 \
-    --max-model-len 8192 \
+    --max-model-len 16K \
     --reasoning-parser gemma4 \
     --default-chat-template-kwargs '{"enable_thinking": false}' \
     --max-num-batched-tokens 4096 \

@@ -1,15 +1,15 @@
 #!/bin/bash
 set -eo pipefail
 
-EXPERIMENTS=(low_lr)
-DOMAINS=(owid)
+EXPERIMENTS=(baseline-1epoch)
+DOMAINS=(gsmarena openweather owid wikidata)
 
 for experiment in "${EXPERIMENTS[@]}"; do
     case "$experiment" in
         low_lr) experiment_offset=0 ;;
         higher_capacity) experiment_offset=1 ;;
         regularized_capacity) experiment_offset=2 ;;
-        baseline) experiment_offset=4 ;;
+        baseline-1epoch) experiment_offset=3 ;;
         *) echo "ERROR: unsupported experiment '$experiment'" >&2; exit 1 ;;
     esac
 
@@ -22,12 +22,16 @@ for experiment in "${EXPERIMENTS[@]}"; do
             *) echo "ERROR: unsupported domain '$domain'" >&2; exit 1 ;;
         esac
 
+        finetune_script="$D2TPATH/tripler/finetune/scripts/batch_finetune_${domain}.sh"
         #base_eval_script="$D2TPATH/tripler/finetune/scripts/batch_eval_${domain}_base.sh"
-        eval_script="$D2TPATH/tripler/finetune/scripts/batch_eval_${domain}.sh"
-        #base_port=$((domain_port + experiment_offset))
+        #eval_script="$D2TPATH/tripler/finetune/scripts/batch_eval_${domain}.sh"
+        base_port=$((domain_port + experiment_offset))
         ft_port=$((domain_port + 4 + experiment_offset))
 
-        #sbatch --export="ALL,EXPERIMENT=$experiment,PORT=$base_port" "$base_eval_script"
-        sbatch --export="ALL,EXPERIMENT=$experiment,PORT=$ft_port" "$eval_script"
+        finetune_job=$(sbatch --parsable --export="ALL,EXPERIMENT=$experiment" "$finetune_script")
+        #sbatch --dependency="afterok:$finetune_job" \
+        #    --export="ALL,EXPERIMENT=$experiment,PORT=$base_port" "$base_eval_script"
+        #sbatch --dependency="afterok:$finetune_job" \
+        #    --export="ALL,EXPERIMENT=$experiment,PORT=$ft_port" "$eval_script"
     done
 done

@@ -35,7 +35,7 @@ mkdir -p "$RUN_DIR"
 VLLM_USE_FLASHINFER_SAMPLER=0 \
 put_vllm_run vllm serve "$BASE_ID" \
     --port "$PORT" --api-key none --tensor-parallel-size 1 \
-    --max-model-len 8192 --reasoning-parser gemma4 \
+    --max-model-len 16K --reasoning-parser gemma4 \
     --default-chat-template-kwargs '{"enable_thinking": false}' \
     --max-num-batched-tokens 4096 --gpu-memory-utilization 0.95 \
     > "$SERVER_LOG" 2>&1 &
