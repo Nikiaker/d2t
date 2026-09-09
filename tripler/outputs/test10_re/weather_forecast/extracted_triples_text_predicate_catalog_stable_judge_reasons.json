@@ -1,0 +1,602 @@
+{
+  "0": {
+    "text_summary": "The text is a concise and coherent summary that accurately captures the temperature trends, weather conditions, and wind patterns from the structured data.",
+    "text_faithfulness": "The text accurately summarizes the temperature ranges, precipitation (pop: 0), cloud transitions, and wind gust peaks based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key facts, including dates, temperature ranges, weather conditions, and wind data, are accurately captured in the triples."
+  },
+  "1": {
+    "text_summary": "The text provides a concise and accurate summary of the weather data, capturing the date range, location, temperature extremes, humidity, and general weather patterns without being repetitive or list-like.",
+    "text_faithfulness": "The generated text accurately summarizes the data, correctly identifying the city, date range, temperature extremes, humidity peaks, and rainfall patterns.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the distinction between high and low temperatures, though the core data remains present."
+  },
+  "2": {
+    "text_summary": "The generated text is a perfect summary: it condenses a large amount of time-series data into a coherent narrative, captures all key weather transitions, and preserves the core message without redundancy.",
+    "text_faithfulness": "The generated text accurately summarizes the weather trends, dates, temperature ranges, and specific events (heavy rain and the specific low temperature) found in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all primary events and data points, though they omit the specific starting date of January 3."
+  },
+  "3": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the weather trends, key events, and temperature ranges without being repetitive or list-like.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature range, the peak temperature on January 6, the weather patterns (overcast and rain on January 7), and the final conditions on January 8, all of which are supported by the data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit the starting low temperature (1.08°C) and the specific timing of the rain (afternoon/evening), but the core message remains intact."
+  },
+  "4": {
+    "text_summary": "The generated text is a concise, coherent summary that captures the key trends and extreme values from the extensive data without being repetitive.",
+    "text_faithfulness": "The generated text accurately reflects the temperature extremes, weather transitions, and dates found in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the initial cool/cloudy conditions and the final temperature range and sky trends for the end of the period."
+  },
+  "5": {
+    "text_summary": "The text is a concise, coherent summary that captures the key trends, temperature ranges, and weather changes from the structured data without being repetitive.",
+    "text_faithfulness": "The generated text accurately summarizes the weather conditions, dates, temperature ranges, and humidity levels provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All critical details, including dates, temperature ranges, humidity, and weather transitions, are accurately captured in the triples."
+  },
+  "6": {
+    "text_summary": "The text provides a concise and accurate summary of the temperature trends, sky conditions, humidity, and wind from the detailed dataset.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature ranges, humidity, wind conditions, and sky conditions provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or additions.",
+    "triples_omissions": "All critical information from the reference text is accurately captured in the triples."
+  },
+  "7": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that captures the key trends in temperature and precipitation without being repetitive.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature range, weather conditions, and precipitation patterns based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions or hallucinations.",
+    "triples_omissions": "All key facts, dates, and temperature ranges from the source text are accurately captured in the triples."
+  },
+  "8": {
+    "text_summary": "The text provides a concise and accurate summary of the multi-day weather data, highlighting the key trends and the significant rain event without listing every data point.",
+    "text_faithfulness": "The text accurately summarizes the temperature ranges, weather transitions, and the timing of the rain event based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all key dates, temperature ranges, and weather events without omitting any meaningful information."
+  },
+  "9": {
+    "text_summary": "The text provides a concise and accurate summary of the weather trends, temperatures, and conditions over the specified period.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature trends, weather conditions, and humidity levels based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all main facts, though they omit the specific detail that light rain also occurred during the transition period."
+  },
+  "10": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the temperature range, weather trends, and extreme values from the structured data.",
+    "text_faithfulness": "The generated text accurately reflects the temperatures, dates, weather conditions, maximum wind speed, and minimum visibility provided in the data.",
+    "triples_additions": "The triple 'wind speeds --peaked_above-> 11.74 m/s' slightly misrepresents the text, which states they peaked 'at' 11.74 m/s.",
+    "triples_omissions": "The triples capture all main events and data points, though the wind speed relation 'peaked_above' is slightly inaccurate compared to 'peaking at'."
+  },
+  "11": {
+    "text_summary": "The text is a concise and coherent summary that captures the key trends in temperature, weather conditions, and humidity without being repetitive or list-like.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature trends, the progression of weather conditions, and the humidity decrease based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the starting temperature range (7-8°C) and the intermediate weather transitions (scattered/broken clouds and clear skies)."
+  },
+  "12": {
+    "text_summary": "The generated text is a perfect summary: it condenses a large amount of time-series data into a concise, coherent paragraph while accurately capturing the location, date range, temperature trends, and precipitation events.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature ranges, cloud conditions, and rain dates provided in the structured data.",
+    "triples_additions": "All generated triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All critical details, including specific dates, temperature ranges, and weather conditions, are accurately captured in the triples."
+  },
+  "13": {
+    "text_summary": "The text provides a concise and coherent summary of the weather trend, capturing the temperature range and the transition to snow without unnecessary detail.",
+    "text_faithfulness": "The text accurately summarizes the temperature range, the dates of the peak and low, the transition in weather conditions, and the timing of the snow, all of which are supported by the data.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "The triples omit the 'mostly cloudy skies' starting condition and the accompanying 'increased humidity' and 'plummeting temperatures' associated with the snow."
+  },
+  "14": {
+    "text_summary": "The text provides a concise, coherent summary of the weather trends, highlighting key temperature extremes and significant weather events without listing every data point.",
+    "text_faithfulness": "The generated text accurately reflects the temperatures, dates, weather conditions, and specific wind gust values found in the source data.",
+    "triples_additions": "The triple 'wind gusts --peaked_above-> 17.42 m/s' slightly misrepresents 'up to 17.42 m/s', but otherwise all facts are supported.",
+    "triples_omissions": "The triples capture almost all key data, though the mention of 'higher humidity' is omitted."
+  },
+  "15": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the weather patterns, temperature ranges, and humidity fluctuations contained in the structured data.",
+    "text_faithfulness": "The generated text accurately summarizes the data, including the dates, location, weather conditions, temperature ranges, and humidity extremes.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key facts, including dates, location, sky conditions, temperature ranges, and humidity extremes, are accurately captured."
+  },
+  "16": {
+    "text_summary": "The text is a concise and coherent summary that captures the core weather trends, temperature range, and key events without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately summarizes the weather conditions, temperature range, and specific events (moderate rain and visibility drop) grounded in the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the cooling trend towards January 8th and the reduced visibility accompanying the heaviest precipitation."
+  },
+  "17": {
+    "text_summary": "The generated text is a concise and coherent summary that accurately captures the temperature range, weather patterns, humidity, and wind peaks from the structured data.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature range, cloud cover, humidity, and wind speed based on the provided structured data.",
+    "triples_additions": "The triple 'winds --peaked_above-> 8.92 m/s' slightly misrepresents 'peaking around 8.92 m/s', but other information is grounded.",
+    "triples_omissions": "The triples omit the 'relative high' qualification for humidity and the 'moderate' description of winds, but all core data points and conclusions are preserved."
+  },
+  "18": {
+    "text_summary": "The text provides a clear, concise, and accurate summary of the weather data, condensing 40 data points into a coherent overview.",
+    "text_faithfulness": "The text accurately summarizes the temperature range, weather conditions, and wind patterns based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit the specific detail that rainfall 'peaked in intensity' on January 4th, though the general occurrence is noted."
+  },
+  "19": {
+    "text_summary": "The text is a concise and coherent summary that captures the essential weather trends, temperature extremes, and specific events from the structured data.",
+    "text_faithfulness": "The text accurately summarizes the dates, city, temperature peaks/lows, weather transitions, and humidity peaks based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit the specific detail that 6.89°C was a 'low' temperature, though the general data points are preserved."
+  },
+  "20": {
+    "text_summary": "The text is a concise and accurate summary that captures the time frame, location, temperature range, and general weather patterns without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately summarizes the temperature range, location, and weather conditions based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key factual information from the text, including dates, location, temperature range, and weather conditions, is captured in the triples."
+  },
+  "21": {
+    "text_summary": "The text provides a concise, coherent summary that captures the key temperature trends and weather transitions without listing every data point.",
+    "text_faithfulness": "The text accurately reflects the temperature range, specific dates for rain and clear weather, and the location provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all key factual information, including dates, temperature ranges, and weather conditions, without any critical omissions."
+  },
+  "22": {
+    "text_summary": "The text is a clear, coherent, and concise summary that accurately captures the temperature range, weather trends, wind, and humidity from the structured data.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature range, weather transitions, wind direction, and humidity levels based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All key factual details, including dates, temperature ranges, weather patterns, wind direction, and humidity, are accurately captured."
+  },
+  "23": {
+    "text_summary": "The text is a clear, coherent, and concise summary that captures the weather trends and temperature extremes without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately summarizes the weather patterns, temperature ranges, and the specific minimum temperature provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All key facts, including dates, temperature ranges, and sky conditions, are accurately captured without meaningful omissions."
+  },
+  "24": {
+    "text_summary": "The generated text is a perfect summary; it synthesizes a large amount of time-series data into a concise narrative, highlighting the temperature trend and the transition in precipitation types.",
+    "text_faithfulness": "The generated text accurately summarizes the trends, temperature extremes, and precipitation transitions described in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples capture all main events and data points, though they omit the initial starting temperature of 7°C."
+  },
+  "25": {
+    "text_summary": "The text provides a concise, accurate, and coherent summary of the weather data, capturing the date range, temperature extremes, general conditions, and specific events without being repetitive.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature range, weather conditions, precipitation, wind, and humidity based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or additions.",
+    "triples_omissions": "The triples omit the detail about light winds, but all other core meteorological data and conclusions are preserved."
+  },
+  "26": {
+    "text_summary": "The text is a concise and coherent summary that captures the core trends, temperature range, and key weather transitions from the detailed dataset.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature trends, weather transitions, and extreme values present in the structured data.",
+    "triples_additions": "The triple stating wind gusts 'peaked_above' 18 m/s is a slight imprecision, as the text says they peaked 'around' 18 m/s.",
+    "triples_omissions": "The triples omit the starting temperature of 7°C, but all other critical trends, dates, and weather conditions are preserved."
+  },
+  "27": {
+    "text_summary": "The text is a concise and coherent summary that captures the key trends (temperature, sky conditions, humidity) from the extensive structured data without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately summarizes the temperature ranges, humidity extremes, and weather conditions provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key facts, including dates, location, weather conditions, temperature ranges, and humidity extremes, are accurately captured."
+  },
+  "28": {
+    "text_summary": "The text is a concise, coherent summary that captures the core weather trends and temperature shifts without being repetitive or list-like.",
+    "text_faithfulness": "The generated text accurately summarizes the trends and specific values found in the structured data.",
+    "triples_additions": "The triple 'precipitation --peaked_above-> January 4' is an imprecise phrasing of the text's 'peaking in precipitation on January 4', but no material facts were fabricated.",
+    "triples_omissions": "The triples capture all key data points, though the specific transition date for the clearing skies (January 5) is omitted."
+  },
+  "29": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the weather data, effectively condensing 40 time-steps into a clear narrative.",
+    "text_faithfulness": "The generated text accurately summarizes the weather trends, temperature range, precipitation patterns, and wind speeds based on the provided data.",
+    "triples_additions": "The triple 'wind gusts --peaked_above-> 18.24 m/s' is a minor imprecision, as the text states gusts were 'up to' 18.24 m/s, not above.",
+    "triples_omissions": "The triples capture all major events, though the specific detail about winds calming toward the end of the period is omitted."
+  },
+  "30": {
+    "text_summary": "The text provides a concise and coherent summary of the weather trends, accurately capturing the temperature range, key transitions in weather patterns, and specific dates.",
+    "text_faithfulness": "The text accurately summarizes the temperature ranges, weather transitions, and specific peak values provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions or hallucinations.",
+    "triples_omissions": "The triples capture all key events and data points, though they omit the specific detail that the rain was 'persistent' over several days."
+  },
+  "31": {
+    "text_summary": "The text is a concise and coherent summary that accurately extracts the key trends, temperature extremes, and weather changes from the structured data.",
+    "text_faithfulness": "The generated text accurately summarizes the weather trends, temperature range, and specific events (light rain and humidity) grounded in the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions or hallucinations.",
+    "triples_omissions": "The triples capture all main points, though they omit the specific detail that the warming trend occurred at the end of the period."
+  },
+  "32": {
+    "text_summary": "The text is a clear, coherent, and concise summary that accurately captures the essential trends and extremes of the structured data.",
+    "text_faithfulness": "The text accurately summarizes the temperature range, peak temperature, dates, location, and peak wind speed based on the provided data.",
+    "triples_additions": "The generated triples accurately reflect the facts presented in the reference text without adding any unsupported information.",
+    "triples_omissions": "The triples omit the 'general warming trend' mentioned in the text, but all key data points and the core meaning are preserved."
+  },
+  "33": {
+    "text_summary": "The text provides a concise and accurate summary of the weather trends, effectively condensing a large amount of time-series data into a clear narrative.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature trends, weather conditions, and dates provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions or hallucinations.",
+    "triples_omissions": "All key details, dates, temperatures, and weather patterns from the text are accurately captured in the triples."
+  },
+  "34": {
+    "text_summary": "The text provides a concise, coherent summary that captures the temperature trend, weather transitions, and key events without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately summarizes the temperature trend, weather transitions, and specific events (snow on 5th/6th) supported by the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the details about rising atmospheric pressure and steady winds, but all core weather transitions and temperature data are preserved."
+  },
+  "35": {
+    "text_summary": "The generated text is a concise, coherent, and accurate summary of the weather data, capturing the temperature trend and precipitation changes without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately summarizes the trends and specific events (cooling trend, temperature range, light rain, and light snow on Jan 7th) grounded in the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "The triples capture almost all key information, though they omit the specific detail that temperatures dipped below freezing on January 7th."
+  },
+  "36": {
+    "text_summary": "The generated text is a concise and coherent summary that captures the temperature trend, key weather events, and the final state without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately reflects the temperature trends, specific weather events (moderate rain on the 4th, light snow on the 7th), and the final overcast conditions based on the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key facts, dates, temperatures, and weather transitions from the reference text are accurately captured in the triples."
+  },
+  "37": {
+    "text_summary": "The text is a concise and coherent summary that accurately captures the temperature trends, weather transitions, and key events from the structured data.",
+    "text_faithfulness": "The text accurately summarizes the temperature trends, weather transitions (clouds to clear to snow), and visibility changes as presented in the structured data.",
+    "triples_additions": "All triples accurately reflect the facts and timelines provided in the reference text without adding unsupported information.",
+    "triples_omissions": "All critical details, dates, temperatures, and weather transitions from the reference text are accurately captured in the triples."
+  },
+  "38": {
+    "text_summary": "The generated text is a concise and coherent summary that accurately captures the weather transition, temperature trend, and key extremes from the structured data.",
+    "text_faithfulness": "The generated text accurately summarizes the weather trends, dates, and specific temperature/wind chill values provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All key factual data points, including dates, temperatures, and weather conditions, are accurately captured in the triples."
+  },
+  "39": {
+    "text_summary": "The text is a concise and coherent summary that captures the temperature trends, weather changes, and dates accurately without being repetitive.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature range and weather transitions based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All key facts, dates, temperature values, and weather transitions from the reference text are accurately captured in the triples."
+  },
+  "40": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the weather trends, temperature shifts, and precipitation changes described in the data.",
+    "text_faithfulness": "The generated text accurately summarizes the trends, locations, dates, and weather conditions provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key facts including location, dates, temperature trends, and specific weather events are accurately captured."
+  },
+  "41": {
+    "text_summary": "The text provides a concise and coherent summary of the multi-day weather forecast, accurately capturing the temperature range, the transition in weather conditions, and the specific snow event.",
+    "text_faithfulness": "The generated text is a faithful summary of the provided weather data, accurately reflecting temperature ranges, the timing and intensity of the snow event, and the final weather trend.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All critical information, including dates, temperature ranges, and specific weather events, is accurately captured in the triples."
+  },
+  "42": {
+    "text_summary": "The text is a concise, coherent summary that captures the key trends (temperature peaks, rain events, and wind spikes) without listing every data point.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature peaks, rain events, temperature lows, and wind speeds based on the provided structured data.",
+    "triples_additions": "The triple 'wind speeds --peaked_above-> 15 m/s' is a material distortion, as the text states they peak 'around' 15 m/s, not above it.",
+    "triples_omissions": "The triples capture all main events and dates, though the specific 'decline' of temperatures is simplified to just the end result."
+  },
+  "43": {
+    "text_summary": "The text is a clear, coherent, and concise summary that captures the temperature trend, weather transitions, and key dates without being repetitive.",
+    "text_faithfulness": "The text accurately summarizes the temperature trends, weather conditions, and pressure changes presented in the data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or material additions.",
+    "triples_omissions": "All key facts, dates, temperature values, and weather transitions from the source text are accurately captured in the triples."
+  },
+  "44": {
+    "text_summary": "The text provides a concise and accurate summary of the temperature trend, weather transitions, and pressure changes over the specified period.",
+    "text_faithfulness": "The text accurately summarizes the trends and specific values provided in the structured data.",
+    "triples_additions": "The triple 'weather --transitioned_to-> light rain and overcast skies' is slightly imprecise as the text states it transitions *from* those conditions, though no material facts were fabricated.",
+    "triples_omissions": "The triples capture all main points, though the phrasing 'transitioned to light rain' slightly misrepresents that rain occurred early in the period rather than being the end state."
+  },
+  "45": {
+    "text_summary": "The generated text is a concise, coherent, and accurate summary of the weather data, capturing the temperature trend, precipitation changes, and wind patterns perfectly.",
+    "text_faithfulness": "The text accurately summarizes the temperature range, weather transitions, and wind trends based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "The triples omit all information regarding wind speeds and gusts, which is a distinct thematic element of the text."
+  },
+  "46": {
+    "text_summary": "The text provides a concise and accurate summary of the weather trends, capturing the transition from rainy/cool to clear/warm without listing every data point.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature range, weather patterns, and dates provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions or hallucinations.",
+    "triples_omissions": "The triples capture all main events and data points, though the specific link between the warming trend and the clear skies is implicit rather than explicit."
+  },
+  "47": {
+    "text_summary": "The text is a clear, coherent summary that captures the temperature trends, key weather events, and the overall progression of the data without being repetitive or list-like.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature trends, specific peaks, low points, precipitation events, and weather conditions found in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key entities, dates, temperature values, and weather conditions from the reference text are accurately captured in the triples."
+  },
+  "48": {
+    "text_summary": "The generated text is a concise, coherent summary that captures the key weather trends and extremes from the structured data.",
+    "text_faithfulness": "The generated text accurately summarizes the weather trends, peak temperatures, start of snowfall, and the final low temperature based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "Minor omissions regarding the timing of the snow (afternoon) and the decreased visibility, but all core weather events and dates are preserved."
+  },
+  "49": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the multi-day weather forecast, effectively capturing the transition from rain to snow to clear, cold weather.",
+    "text_faithfulness": "The text accurately summarizes the weather trends, dates, temperatures, and conditions provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all key dates, temperature extremes, and weather transitions without omitting any critical information."
+  },
+  "50": {
+    "text_summary": "The text is a concise and coherent summary that captures the temperature trend, precipitation changes, and the overall weather progression without being repetitive or list-like.",
+    "text_faithfulness": "The generated text accurately summarizes the trends and specific data points (dates, temperatures, and weather types) found in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions or hallucinations.",
+    "triples_omissions": "All key events, dates, temperatures, and weather transitions from the source text are accurately captured in the triples."
+  },
+  "51": {
+    "text_summary": "The text is a concise, coherent summary that captures the key weather trends and temperature extremes without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately summarizes the trends, specific temperature minimums, wind chill lows, and weather patterns found in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all key dates, temperatures, weather conditions, and events without omitting any meaningful information."
+  },
+  "52": {
+    "text_summary": "The text provides a concise and coherent summary that captures the temperature trend, weather transitions, and visibility changes without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately reflects the temperature range, weather transitions, and visibility lows based on the provided data.",
+    "triples_additions": "The triple 'weather --transitioned_to-> light rain and broken clouds' implies it transitioned *into* that state, whereas the text says it transitioned *from* that state.",
+    "triples_omissions": "The triples omit that 19 meters was the minimum visibility (lows), but all other critical data and trends are captured."
+  },
+  "53": {
+    "text_summary": "The text is a concise and accurate summary that captures the date range, location, temperature extremes, humidity, and general weather conditions without redundant detail.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature range, humidity range, sky conditions, and precipitation based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all key data points, though they slightly simplify the sky conditions by omitting the 'clear skies' starting point."
+  },
+  "54": {
+    "text_summary": "The text is a concise and coherent summary that captures the weather trends, temperature extremes, and wind peaks without redundant detail.",
+    "text_faithfulness": "The generated text accurately reflects the temperature peaks, lows, rain dates, and wind gust maximums found in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all key data points, including dates, temperature extremes, wind speeds, and weather transitions, omitting only redundant phrasing."
+  },
+  "55": {
+    "text_summary": "The text provides a concise, coherent summary that captures the key weather trends, temperature extremes, and significant events from the structured data.",
+    "text_faithfulness": "The generated text accurately reflects the data, including the location, date range, peak temperature, rain event, and minimum temperature.",
+    "triples_additions": "All information in the triples is directly supported by the reference text.",
+    "triples_omissions": "The triples capture all key events and dates, though they omit the initial 'clear skies' condition mentioned in the text."
+  },
+  "56": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the weather trends, temperature peaks, and humidity ranges from the structured data.",
+    "text_faithfulness": "The text accurately summarizes the weather trends, peak temperature, date ranges, and humidity range based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text without any additions or hallucinations.",
+    "triples_omissions": "All key facts, including dates, temperatures, and humidity ranges, are accurately captured in the triples."
+  },
+  "57": {
+    "text_summary": "The text provides a concise and coherent summary of the weather data, accurately capturing the date range, temperature extremes, precipitation events, and humidity trends.",
+    "text_faithfulness": "The generated text accurately reflects the temperature range, weather conditions, rain dates, and humidity extremes found in the structured data.",
+    "triples_additions": "All facts in the triples are directly supported by the reference text without any additions or hallucinations.",
+    "triples_omissions": "All key facts including dates, temperature ranges, cloud cover, rain dates, and humidity extremes are accurately captured."
+  },
+  "58": {
+    "text_summary": "The text provides a clear, coherent, and concise summary of the multi-day weather data, capturing temperature ranges, weather trends, and humidity fluctuations without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately summarizes the temperature ranges, weather transitions, and humidity fluctuations based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions or hallucinations.",
+    "triples_omissions": "The triples omit the initial weather states (scattered clouds and clear skies) and the specific timing of humidity peaks, but the core data is preserved."
+  },
+  "59": {
+    "text_summary": "The text is a concise and coherent summary that captures the temperature trend, weather transitions, and dates without redundant detail.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature trends, weather transitions, and dates provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or additions.",
+    "triples_omissions": "The triples capture all main events, though they omit the specific detail that the 'mostly clear' weather occurs 'by the end of the week'."
+  },
+  "60": {
+    "text_summary": "The text provides a concise and accurate summary of the weather trends, temperature ranges, and conditions present in the structured data.",
+    "text_faithfulness": "The text accurately summarizes the data, including the date range, city, weather conditions, temperature extremes, and general trends.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit the general temperature trend (warmer afternoons/cooler nights) and the information regarding wind speeds."
+  },
+  "61": {
+    "text_summary": "The text provides a clear, coherent, and concise summary of the weather trend, accurately capturing the transition from snow to clear skies and the temperature shifts.",
+    "text_faithfulness": "The text accurately summarizes the trends in the data, including the weather transition, temperature ranges, and the temperature peak on January 8th.",
+    "triples_additions": "The triple 'snowfall --occurred_on-> January 5th' is a minor imprecision as the text states snowfall *ceases* on that date.",
+    "triples_omissions": "The triples capture all major events and data points, though the specific timing of the initial light snow is slightly implicit rather than explicit."
+  },
+  "62": {
+    "text_summary": "The generated text is a concise and coherent summary that captures the key weather transitions, temperature trends, and significant events from the detailed structured data.",
+    "text_faithfulness": "The text accurately summarizes the weather transitions, dates, temperature ranges, and specific events (rain, snow, visibility, wind) grounded in the data.",
+    "triples_additions": "All generated triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit the details regarding increased wind speeds and reduced visibility, but the core weather transition and temperature data are preserved."
+  },
+  "63": {
+    "text_summary": "The text is a concise and coherent summary that accurately captures the temperature range, weather patterns, and humidity from the detailed dataset.",
+    "text_faithfulness": "The text accurately summarizes the temperature extremes, humidity peak, and weather patterns based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "All key facts including temperature range, weather conditions, dates, and humidity are accurately captured without meaningful omission."
+  },
+  "64": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured weather data.",
+    "text_faithfulness": "The text accurately summarizes the temperature peaks, lows, humidity range, wind speeds, and general weather conditions based on the provided data.",
+    "triples_additions": "The triple 'winds --peaked_above-> 3.77 m/s' is a minor imprecision, as the text says they 'peaked at' that value.",
+    "triples_omissions": "The triples capture all primary data points, though they omit the specific wind direction/timing ('toward the end of the period')."
+  },
+  "65": {
+    "text_summary": "The text is a concise and coherent summary that captures the key weather trends and extremes from the structured data without redundancy.",
+    "text_faithfulness": "The text accurately summarizes the temperature range, weather conditions, and humidity based on the provided structured data.",
+    "triples_additions": "The triples accurately reflect all facts provided in the reference text without introducing any unsupported information.",
+    "triples_omissions": "All critical information including location, dates, temperature range, weather conditions, and humidity is accurately captured."
+  },
+  "66": {
+    "text_summary": "The text is a concise and coherent summary that captures the key trends (temperature, weather events, pressure) without being a repetitive list.",
+    "text_faithfulness": "The text accurately reflects the data, including the temperature range, the dates, the weather transitions (overcast to snow to clear), visibility changes, and the pressure trend.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the detail about reduced visibility, but all core weather trends, dates, and measurements are preserved."
+  },
+  "67": {
+    "text_summary": "The generated text is a clear, coherent, and concise summary that captures the core trends of the structured data without being repetitive or list-like.",
+    "text_faithfulness": "The generated text accurately reflects the trends and specific data points provided in the structured JSON.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions or hallucinations.",
+    "triples_omissions": "The triples capture all major events, though the starting temperature (7.5°C) is omitted."
+  },
+  "68": {
+    "text_summary": "The text is a high-quality summary that condenses 40 data points into a coherent narrative, accurately capturing the weather trends, temperature ranges, and humidity without being repetitive or list-like.",
+    "text_faithfulness": "The generated text accurately summarizes the data, including date range, location, weather patterns, temperature extremes, humidity range, and wind trends.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the detail regarding wind patterns, but all other critical meteorological data and timeframes are preserved."
+  },
+  "69": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the extensive weather data, capturing temperature ranges, precipitation events, and humidity trends without being repetitive.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature range, weather conditions, dates, and humidity peaks/troughs based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit the specific weather conditions of clear skies and overcast clouds, but all critical data and the overall summary are preserved."
+  },
+  "70": {
+    "text_summary": "The text is a concise and coherent summary that captures the temperature trend and key weather transitions without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately summarizes the temperature range, weather transitions, and dates based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key facts, dates, temperature ranges, and weather transitions from the source text are accurately captured in the triples."
+  },
+  "71": {
+    "text_summary": "The text is a concise and coherent summary that captures the key trends (cooling, precipitation changes) and critical data points without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately summarizes the trends and specific data points (dates, weather types, and the minimum temperature) provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key events, dates, and the specific temperature value are accurately captured in the triples."
+  },
+  "72": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the weather data, capturing the temperature range, cloud patterns, humidity, and wind conditions without redundancy.",
+    "text_faithfulness": "The text accurately summarizes the temperature range, weather transitions, humidity peak, and wind conditions based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the initial and final cloud conditions and the information regarding wind speeds."
+  },
+  "73": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the temperature range, weather transitions, and key events from the structured data.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature range, weather events, and visibility trends provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all key dates, temperature ranges, weather shifts, and sky conditions without omitting any critical information."
+  },
+  "74": {
+    "text_summary": "The generated text is a clear, concise, and accurate summary that captures the core trends and extremes of the structured data without being repetitive.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature range, humidity, and weather conditions based on the provided structured data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all key data points, including location, dates, temperature range, humidity, sky conditions, and the peak rainfall date."
+  },
+  "75": {
+    "text_summary": "The text is a concise and coherent summary that accurately captures the weather trends, temperature range, and humidity from the detailed structured data.",
+    "text_faithfulness": "The text accurately summarizes the weather patterns, dates, temperature range, and humidity range provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the initial condition of frequent light rain and overcast skies, though the core weather transition and data points are preserved."
+  },
+  "76": {
+    "text_summary": "The text is a concise and coherent summary that captures the temperature range, key weather transitions, and dates without being repetitive or list-like.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature peaks, lows, and weather transitions supported by the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all main events and data points, though they omit the specific detail that the transition to snow and clear skies occurred over the weekend."
+  },
+  "77": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the temperature trends, weather patterns, and atmospheric changes from the structured data.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature trends, weather conditions, and pressure changes based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "All key facts, including dates, temperature range, weather transitions, and wind conditions, are accurately captured in the triples."
+  },
+  "78": {
+    "text_summary": "The text is a clear, coherent, and concise summary that captures the key trends and extreme values of the structured data without being repetitive.",
+    "text_faithfulness": "The text accurately summarizes the temperature trends, weather transitions, and wind patterns based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the detail about wind patterns, but all critical temperature and precipitation data are captured."
+  },
+  "79": {
+    "text_summary": "The text is a clear, coherent, and concise summary that captures all the key trends and extremes of the structured data without being repetitive.",
+    "text_faithfulness": "The generated text accurately summarizes the data, with temp extremes, weather conditions, dates, and trends all grounded in the source.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions or hallucinations.",
+    "triples_omissions": "Minor omissions regarding the slight increase in wind and the rise in atmospheric pressure, but the core weather data is preserved."
+  },
+  "80": {
+    "text_summary": "The text is a clear, coherent, and concise summary that accurately captures the temperature range, key weather events, and overall trend from the structured data.",
+    "text_faithfulness": "The text accurately summarizes the temperature ranges, weather patterns, and specific events (heavy rain on Jan 6) based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all main events and data points, though they omit the specific detail that January 6 had the highest precipitation recorded."
+  },
+  "81": {
+    "text_summary": "The text provides a concise and coherent summary of the multi-day weather data, accurately capturing the temperature range, general conditions, and humidity without being repetitive.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature ranges, weather conditions, humidity, and lack of precipitation based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the mention of light winds, but all other critical weather data and timeframes are preserved."
+  },
+  "82": {
+    "text_summary": "The generated text is a concise and coherent summary that accurately captures the weather trends, key temperature extremes, and precipitation changes over the specified period.",
+    "text_faithfulness": "The generated text accurately summarizes the weather trends, specific temperature peaks and lows, and weather events (rain, snow) as recorded in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key events, dates, temperatures, and conditions from the text are accurately captured in the triples."
+  },
+  "83": {
+    "text_summary": "The text is a clear, coherent, and concise summary that accurately captures the temperature trend, weather transitions, and wind peaks from the detailed dataset.",
+    "text_faithfulness": "The text accurately summarizes the temperature range, weather transitions, and peak wind speed based on the provided data.",
+    "triples_additions": "The triple stating wind speeds 'peaked_above' 9.1 m/s contradicts the text which says they peaked 'around' 9.1 m/s.",
+    "triples_omissions": "The triples capture all main events, though the wind speed relation is slightly inaccurate ('peaked_above' instead of 'peaking around')."
+  },
+  "84": {
+    "text_summary": "The text provides a concise, coherent summary that captures the core weather trends and key temperature extremes without being repetitive.",
+    "text_faithfulness": "The text accurately summarizes the weather patterns, temperature peaks, minimums, and pressure trends found in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All key facts, including dates, temperature extremes, and weather patterns, are accurately captured in the triples."
+  },
+  "85": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the weather trends and temperature peaks over the specified date range.",
+    "text_faithfulness": "The generated text accurately summarizes the trends and specific peaks (25.49°C on Jan 4 and 27.95°C on Jan 7) found in the structured data.",
+    "triples_additions": "All information in the triples is directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit the initial rain mentioned for January 3rd, though all other key dates, temperatures, and weather transitions are captured."
+  },
+  "86": {
+    "text_summary": "The text is a clear, coherent, and concise summary that captures the core trends (temperature, weather, wind) without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately reflects the temperature range, weather transitions, and wind gusts provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the 'feels like' temperature and the specific timing of the wind gusts, but all core events and data points are captured."
+  },
+  "87": {
+    "text_summary": "The generated text is a clear, concise and coherent summary that captures the main trends in temperature, precipitation, and wind without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately summarizes the temperature trends, precipitation, cloud cover, and wind speeds based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions or hallucinations.",
+    "triples_omissions": "All key details, including dates, temperature ranges, rainfall, sky conditions, and wind speeds, were accurately captured."
+  },
+  "88": {
+    "text_summary": "The text is a concise and coherent summary that captures the temperature trend, weather patterns, and wind peaks without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately summarizes the temperature range, dates, city, weather patterns, and peak wind gusts based on the provided data.",
+    "triples_additions": "The triple stating wind gusts 'peaked above' 18.92 m/s is a slight imprecision, as the text says 'up to 18.92 m/s'.",
+    "triples_omissions": "The triples capture almost all key details, though they omit the moderate nature of the winds and the specific timing of the wind peak."
+  },
+  "89": {
+    "text_summary": "The text provides a clear, coherent, and concise summary of the 40-entry weather dataset, capturing the overall trends in temperature, precipitation, and pressure.",
+    "text_faithfulness": "The text accurately summarizes the trends and specific values (temperatures, humidity, pressure, and dates) provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples capture almost all key data, but omit the initial 'rainy and mild' state of the weather transition."
+  },
+  "90": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the weather patterns, temperature ranges, and key events found in the structured data.",
+    "text_faithfulness": "The text accurately summarizes the data, correctly identifying the date range, temperature extremes, the onset of rain, the peak rainfall amount, and the associated trends in pressure and humidity.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit the drop in pressure and increased humidity, but all primary weather events and temperature data are captured."
+  },
+  "91": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the temperature range, precipitation, sky conditions, and wind trends from the data.",
+    "text_faithfulness": "The generated text accurately summarizes the temperature range, peak temperature date, rain event, and wind trends based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit the detail regarding increasing wind gusts toward the end of the period, but all other key information is preserved."
+  },
+  "92": {
+    "text_summary": "The generated text is a concise, coherent, and accurate summary of the structured weather data, capturing the date range, temperature extremes, and key weather events.",
+    "text_faithfulness": "The generated text accurately summarizes the data, including the location, date range, temperature extremes, and specific weather events (snow and rain) correctly grounded in the source.",
+    "triples_additions": "All information in the triples is directly supported by the reference text.",
+    "triples_omissions": "The triples omit the starting 'clear skies' condition and the specific context that visibility dropped 'during the snow', but the core data remains intact."
+  },
+  "93": {
+    "text_summary": "The text is a concise and coherent summary that captures the essential weather trends and ranges without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately summarizes the temperature range, peak humidity, wind speeds, and weather conditions based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The mention of 'varying cloud cover' was omitted, but all critical weather data and conclusions remain intact."
+  },
+  "94": {
+    "text_summary": "The generated text is a concise and coherent summary that captures the overall trend, key temperature extremes, and weather transitions while avoiding a list-like format.",
+    "text_faithfulness": "The text accurately summarizes the trends and specific values (peak and low temperatures) found in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit the detail regarding reduced visibility, but all other critical weather transitions and data points are captured."
+  },
+  "95": {
+    "text_summary": "The text is a concise and coherent summary that accurately captures the temperature trend and weather transitions from the structured data.",
+    "text_faithfulness": "The text accurately summarizes the temperature trends, weather transitions, and date range based on the provided data.",
+    "triples_additions": "All triples are directly supported by the provided reference text without any unsupported additions.",
+    "triples_omissions": "All key facts, including dates, temperature ranges, and weather transitions, are accurately captured in the triples."
+  },
+  "96": {
+    "text_summary": "The generated text is a concise, accurate, and coherent summary that captures the key trends and extrema from the detailed weather data.",
+    "text_faithfulness": "The generated text accurately summarizes the date range, location, temperature extremes, peak humidity, and peak wind speed as provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key facts, dates, and measurements from the reference text are accurately captured in the triples."
+  },
+  "97": {
+    "text_summary": "The text is a concise, coherent summary that captures the core trends of temperature, humidity, sky conditions, and wind without being repetitive or list-like.",
+    "text_faithfulness": "The generated text accurately summarizes the trends and specific values provided in the structured data without any hallucinations.",
+    "triples_additions": "The triple 'wind speeds --peaked_above-> 7.79 m/s' is a slight imprecision, as the text states they peaked 'at approximately' that value rather than above it.",
+    "triples_omissions": "The triples omit the starting temperature of -26°C, but all other key data points and conclusions are captured."
+  },
+  "98": {
+    "text_summary": "The text is a concise and coherent summary that captures the core trend of the data without listing every detail.",
+    "text_faithfulness": "The text accurately summarizes the trends and specific values (temperature range, date of transition, and final low) found in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all major data points, though the detail about reduced visibility is omitted."
+  },
+  "99": {
+    "text_summary": "The generated text is a concise, coherent summary that accurately captures the temperature trends, weather transitions, and key extremes from the structured data.",
+    "text_faithfulness": "The text accurately summarizes the data, including the city, date range, temperature trends, peak wind gust, and weather transitions.",
+    "triples_additions": "The triple 'wind gusts --peaked_above-> 20.61 m/s' slightly misrepresents 'peaking at 20.61 m/s' by suggesting it exceeded that value.",
+    "triples_omissions": "The triples omit the mention of high humidity and the 'significant cooling trend', but all critical weather data and dates are preserved."
+  }
+}

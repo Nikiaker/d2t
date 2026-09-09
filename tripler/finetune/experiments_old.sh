@@ -41,6 +41,15 @@ configure_experiment() {
             TRAIN_LORA_DROPOUT=0.10
             TRAIN_WEIGHT_DECAY=0.01
             ;;
+        baseline-1epoch)
+            TRAIN_EPOCHS=1
+            TRAIN_LR=1e-4
+            TRAIN_WARMUP_RATIO=0.03
+            TRAIN_LORA_R=16
+            TRAIN_LORA_ALPHA=32
+            TRAIN_LORA_DROPOUT=0.05
+            TRAIN_WEIGHT_DECAY=0.0
+            ;;
         *)
             echo "ERROR: unknown experiment '$experiment'" >&2
             echo "Valid experiments: baseline low_lr higher_capacity regularized_capacity" >&2

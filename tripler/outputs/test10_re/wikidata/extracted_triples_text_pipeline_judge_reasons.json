@@ -1,0 +1,602 @@
+{
+  "0": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the structured data without being repetitive or list-like.",
+    "text_faithfulness": "The generated text accurately reflects all information provided in the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples with no meaningful omissions."
+  },
+  "1": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided structured data without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all information provided in the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples with no omissions."
+  },
+  "2": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the key properties from the structured data.",
+    "text_faithfulness": "The generated text accurately reflects all claims provided in the structured data without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All key facts from the reference text are accurately captured in the triples without any meaningful omissions."
+  },
+  "3": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the provided structured data.",
+    "text_faithfulness": "The generated text accurately reflects all attributes provided in the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All information from the reference text is accurately captured in the triples with no omissions."
+  },
+  "4": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that integrates all data points without redundancy.",
+    "text_faithfulness": "The text accurately represents all properties provided in the structured data without any hallucinations or errors.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples with no meaningful omissions."
+  },
+  "5": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided data points without redundancy.",
+    "text_faithfulness": "The generated text accurately represents all the provided data points without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All key facts from the reference text are captured in the triples without any meaningful omissions."
+  },
+  "6": {
+    "text_summary": "The text is a concise and accurate summary of the structured data, capturing all key attributes without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all the properties provided in the structured data without any hallucinations.",
+    "triples_additions": "The triples accurately represent the facts provided in the text without any additions.",
+    "triples_omissions": "All information from the reference text is accurately captured in the triples."
+  },
+  "7": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that integrates all data points into a single natural sentence.",
+    "text_faithfulness": "The generated text accurately reflects all properties provided in the structured data without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples."
+  },
+  "8": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the provided data.",
+    "text_faithfulness": "The generated text accurately reflects all the provided data points without any hallucinations.",
+    "triples_additions": "The triples accurately reflect the reference text with no unsupported additions.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples."
+  },
+  "9": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided structured data.",
+    "text_faithfulness": "The text accurately reflects all properties provided in the structured data without any hallucinations.",
+    "triples_additions": "The triples accurately represent the facts provided in the reference text without any unsupported additions.",
+    "triples_omissions": "All key facts and relationships from the reference text are accurately captured in the triples."
+  },
+  "10": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data.",
+    "text_faithfulness": "The generated text accurately represents all properties from the structured data without any hallucinations or contradictions.",
+    "triples_additions": "The triples accurately represent all facts stated in the reference text without adding any unsupported information.",
+    "triples_omissions": "All key information from the reference text is accurately captured in the triples."
+  },
+  "11": {
+    "text_summary": "The text is a clear, coherent, and concise summary that accurately incorporates all the structured data without redundancy.",
+    "text_faithfulness": "The generated text accurately represents all claims from the structured data without any hallucinations or contradictions.",
+    "triples_additions": "Every triple is directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All factual information from the reference text has been accurately captured in the triples without any omissions."
+  },
+  "12": {
+    "text_summary": "The text is a concise, coherent, and professional summary that integrates all key data points without redundancy.",
+    "text_faithfulness": "The generated text accurately represents all the facts provided in the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key facts from the reference text are accurately captured in the triples without any meaningful omissions."
+  },
+  "13": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the provided structured data.",
+    "text_faithfulness": "The text perfectly represents all the information provided in the structured data without any hallucinations.",
+    "triples_additions": "The triples accurately reflect the facts in the reference text with no additions.",
+    "triples_omissions": "All information from the reference text is accurately captured in the triples with no omissions."
+  },
+  "14": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided structured data without any redundancy.",
+    "text_faithfulness": "The generated text accurately represents all information provided in the structured data with no hallucinations or omissions of the listed properties.",
+    "triples_additions": "Every triple is directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples."
+  },
+  "15": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data.",
+    "text_faithfulness": "The text accurately represents all facts provided in the structured data without any hallucinations or distortions.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All information from the reference text is accurately captured in the triples with no omissions."
+  },
+  "16": {
+    "text_summary": "The text is a concise, coherent summary that captures all key entities and roles without redundancy.",
+    "text_faithfulness": "The text accurately reflects all data points provided in the JSON without any hallucinations or contradictions.",
+    "triples_additions": "The triples incorrectly state that Per Kristensen is a screenwriter, whereas the text specifies that only Morten Lindberg served as the screenwriter.",
+    "triples_omissions": "All key entities and relationships from the text are accurately captured in the triples."
+  },
+  "17": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data.",
+    "text_faithfulness": "The text accurately reflects all properties provided in the structured data without any hallucinations.",
+    "triples_additions": "The triples perfectly reflect the facts stated in the reference text with no additions.",
+    "triples_omissions": "The triples capture all factual information from the reference text without any omissions."
+  },
+  "18": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided data points.",
+    "text_faithfulness": "The text accurately reflects all properties provided in the structured data without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All facts from the reference text are accurately captured in the triples with no omissions."
+  },
+  "19": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided properties.",
+    "text_faithfulness": "The text accurately reflects all properties and relationships provided in the JSON data without any hallucinations.",
+    "triples_additions": "The triples accurately reflect all facts in the reference text without any unsupported additions.",
+    "triples_omissions": "All key information and distinctions from the reference text are accurately captured in the triples."
+  },
+  "20": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the provided structured data.",
+    "text_faithfulness": "The generated text accurately represents all the information provided in the structured data without any hallucinations.",
+    "triples_additions": "The triples accurately reflect the facts presented in the reference text with no additions.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples."
+  },
+  "21": {
+    "text_summary": "The generated text is a concise, coherent, and accurate summary of all the provided structured data.",
+    "text_faithfulness": "The generated text accurately represents all facts from the structured data without any hallucinations or distortions.",
+    "triples_additions": "The triples accurately represent the facts in the reference text without any unsupported additions.",
+    "triples_omissions": "All information from the reference text is accurately captured in the triples without any omissions."
+  },
+  "22": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided data points without any redundancy.",
+    "text_faithfulness": "The text accurately reflects all properties provided in the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples."
+  },
+  "23": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of all the structured data without redundancy.",
+    "text_faithfulness": "All claims in the text are directly supported by the provided structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples without any meaningful omissions."
+  },
+  "24": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided data points without redundancy.",
+    "text_faithfulness": "The text accurately reflects all properties provided in the structured data without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples with no meaningful omissions."
+  },
+  "25": {
+    "text_summary": "The text is a concise, coherent summary that captures the key components of the data without being a repetitive list.",
+    "text_faithfulness": "The text accurately represents the composer and a subset of the cast members provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All information from the reference text is accurately captured in the triples."
+  },
+  "26": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data without any redundancy.",
+    "text_faithfulness": "The text accurately represents all claims from the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All information from the reference text is accurately captured in the triples without any omissions."
+  },
+  "27": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided structured data.",
+    "text_faithfulness": "The generated text accurately represents all facts provided in the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All factual information from the source text is accurately represented in the triples."
+  },
+  "28": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the provided structured data.",
+    "text_faithfulness": "The generated text accurately represents all claims based on the provided structured data without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All key entities and relationships from the reference text are accurately captured in the triples."
+  },
+  "29": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided structured data without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all the facts provided in the structured data without any hallucinations or distortions.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples with no omissions."
+  },
+  "30": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the provided structured data.",
+    "text_faithfulness": "The generated text accurately reflects all information provided in the entity name and properties.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions.",
+    "triples_omissions": "All information from the reference text is accurately captured in the triples with no omissions."
+  },
+  "31": {
+    "text_summary": "The text is a concise, accurate, and coherent summary of the provided structured data.",
+    "text_faithfulness": "The text accurately represents the entity, its country, and its instance type as provided in the data.",
+    "triples_additions": "The triple accurately reflects the reference text with no unsupported additions.",
+    "triples_omissions": "The triples capture the entire meaning of the reference text without any omissions."
+  },
+  "32": {
+    "text_summary": "The text is a clear, concise, and accurate summary of the provided structured data.",
+    "text_faithfulness": "The text accurately reflects all properties provided in the structured data without any hallucinations.",
+    "triples_additions": "The triples accurately reflect the facts stated in the reference text with no additions.",
+    "triples_omissions": "All information from the reference text is accurately captured in the triples."
+  },
+  "33": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of all the provided data points without redundancy.",
+    "text_faithfulness": "The generated text accurately represents all facts provided in the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples without any omissions."
+  },
+  "34": {
+    "text_summary": "The text is a clear, concise, and coherent summary of the provided structured data.",
+    "text_faithfulness": "The text accurately reflects all information provided in the structured data without any hallucinations.",
+    "triples_additions": "The triples accurately reflect the facts in the reference text with no additions.",
+    "triples_omissions": "All information from the reference text is accurately captured in the triples."
+  },
+  "35": {
+    "text_summary": "The text is a concise, coherent summary that captures the core information without being a repetitive list.",
+    "text_faithfulness": "The generated text accurately reflects all information provided in the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All information from the source text is accurately captured in the triples with no omissions."
+  },
+  "36": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the provided structured data.",
+    "text_faithfulness": "The generated text accurately reflects all the properties provided in the structured data without any hallucinations.",
+    "triples_additions": "The triples perfectly reflect the facts presented in the reference text with no additions.",
+    "triples_omissions": "All information from the reference text is accurately captured in the triples with no omissions."
+  },
+  "37": {
+    "text_summary": "The generated text is a clear, concise, and coherent summary that perfectly captures all the structured data.",
+    "text_faithfulness": "The text accurately reflects all information provided in the structured data without any hallucinations.",
+    "triples_additions": "The triples accurately reflect the facts stated in the reference text with no unsupported additions.",
+    "triples_omissions": "All information from the reference text is accurately captured in the triples."
+  },
+  "38": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided attributes without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all the properties provided in the structured data without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "The triples capture all factual information from the reference text without any meaningful omissions."
+  },
+  "39": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data.",
+    "text_faithfulness": "The generated text accurately represents all facts provided in the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "The triples capture every piece of information from the source text without any omissions."
+  },
+  "40": {
+    "text_summary": "The text provides a concise and accurate summary of the structured data without any redundancy.",
+    "text_faithfulness": "The generated text accurately represents all properties provided in the structured data without any hallucinations.",
+    "triples_additions": "The triple accurately reflects the information provided in the reference text without adding any unsupported facts.",
+    "triples_omissions": "The triple perfectly captures the only factual claim in the reference text."
+  },
+  "41": {
+    "text_summary": "The text is a concise, coherent summary that captures all key data points without redundancy or list-like phrasing.",
+    "text_faithfulness": "All claims in the text are directly supported by the provided structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "The triples capture all factual information provided in the reference text without any omissions."
+  },
+  "42": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided data points without any redundancy.",
+    "text_faithfulness": "The generated text accurately represents all facts provided in the structured data without any hallucinations or distortions.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples capture every piece of information provided in the reference text without any omissions."
+  },
+  "43": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data without any redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all the information provided in the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All information from the reference text is accurately captured in the triples."
+  },
+  "44": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the provided structured data.",
+    "text_faithfulness": "The generated text accurately represents all the facts provided in the structured data without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text without any additions.",
+    "triples_omissions": "All key facts from the reference text are accurately captured in the triples."
+  },
+  "45": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided structured data.",
+    "text_faithfulness": "Every claim in the text is directly supported by the provided structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples without any meaningful omissions."
+  },
+  "46": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data.",
+    "text_faithfulness": "The generated text accurately reflects all properties provided in the structured data.",
+    "triples_additions": "The triple accurately reflects the reference text with no unsupported additions.",
+    "triples_omissions": "The triple captures the entirety of the factual information provided in the source text."
+  },
+  "47": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures all key data points without redundancy.",
+    "text_faithfulness": "The text accurately represents all data points, including the expanded acronyms for WTO and ICSID which are consistent with the source entities.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples without any meaningful omissions."
+  },
+  "48": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data.",
+    "text_faithfulness": "The generated text accurately reflects all properties provided in the structured data without any hallucinations.",
+    "triples_additions": "The triples accurately reflect the reference text with no unsupported additions.",
+    "triples_omissions": "The triples capture all factual information from the reference text without any omissions."
+  },
+  "49": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided structured data.",
+    "text_faithfulness": "The text accurately reflects all the facts provided in the structured data without any hallucinations or distortions.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples with no meaningful omissions."
+  },
+  "50": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that integrates all data points without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all information provided in the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All factual information from the reference text has been accurately captured in the triples."
+  },
+  "51": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the provided structured data.",
+    "text_faithfulness": "The generated text accurately represents all facts from the structured data without any hallucinations or distortions.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions.",
+    "triples_omissions": "All information from the source text is accurately captured in the triples."
+  },
+  "52": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data without any redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all the information provided in the structured data without any hallucinations or distortions.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All key information from the reference text is accurately captured in the triples with no meaningful omissions."
+  },
+  "53": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided data points.",
+    "text_faithfulness": "The generated text accurately reflects all properties provided in the structured data without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text.",
+    "triples_omissions": "The triples capture all factual information from the source text without any meaningful omissions."
+  },
+  "54": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the provided structured data without any redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all provided data points without any hallucinations or distortions.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All key information from the reference text is accurately captured in the triples without any meaningful omissions."
+  },
+  "55": {
+    "text_summary": "The text is a clear, concise, and coherent summary that perfectly captures all the provided data without redundancy.",
+    "text_faithfulness": "The text accurately reflects all the information provided in the structured data without any hallucinations.",
+    "triples_additions": "The triples accurately reflect the facts provided in the reference text without any unsupported additions.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples."
+  },
+  "56": {
+    "text_summary": "The generated text is a concise, coherent, and accurate summary of the provided structured data.",
+    "text_faithfulness": "The text accurately reflects all properties provided in the structured data without any hallucinations.",
+    "triples_additions": "The triple accurately reflects the single fact provided in the reference text with no unsupported additions.",
+    "triples_omissions": "The triple captures all the information provided in the source text without any omissions."
+  },
+  "57": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the provided structured data.",
+    "text_faithfulness": "The generated text accurately reflects all properties provided in the structured data without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All key information from the reference text is accurately captured in the triples without any omissions."
+  },
+  "58": {
+    "text_summary": "The text provides a concise, coherent, and professional summary of the structured data without redundant listing.",
+    "text_faithfulness": "The generated text accurately represents all claims based on the provided structured data without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key entities and their relationships from the source text are accurately captured in the triples."
+  },
+  "59": {
+    "text_summary": "The generated text is a concise, accurate, and coherent summary of all the provided structured data.",
+    "text_faithfulness": "The text accurately represents all facts provided in the structured data without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All information from the reference text is accurately captured in the triples."
+  },
+  "60": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the structured data without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all properties provided in the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples without any omissions."
+  },
+  "61": {
+    "text_summary": "The text is a concise, coherent summary that synthesizes the key properties of the structured data without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all claims provided in the structured data without any hallucinations or distortions.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All factual information from the reference text has been accurately captured in the triples."
+  },
+  "62": {
+    "text_summary": "The text is a concise and accurate summary of the provided structured data.",
+    "text_faithfulness": "The text accurately reflects all properties provided in the structured data.",
+    "triples_additions": "The triple accurately reflects the reference text with no unsupported additions.",
+    "triples_omissions": "The triple accurately captures all the information provided in the reference text."
+  },
+  "63": {
+    "text_summary": "The text is a concise and accurate summary of all the provided structured data.",
+    "text_faithfulness": "The text accurately reflects all properties provided in the structured data without any hallucinations.",
+    "triples_additions": "The triples accurately reflect the facts provided in the reference text with no additions.",
+    "triples_omissions": "All information from the reference text is accurately captured in the triples."
+  },
+  "64": {
+    "text_summary": "The text provides a concise, coherent summary that captures the core attributes while ignoring redundant data entries.",
+    "text_faithfulness": "All claims in the text are directly supported by the provided structured data.",
+    "triples_additions": "All triples are directly supported by the reference text, including the inferred relationship between Wolverhampton and the UK.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples."
+  },
+  "65": {
+    "text_summary": "The text is a clear, concise, and coherent summary of the provided structured data.",
+    "text_faithfulness": "The text accurately reflects all properties provided in the structured data without any hallucinations.",
+    "triples_additions": "The triples accurately reflect the reference text with no unsupported additions.",
+    "triples_omissions": "All information from the reference text is captured accurately in the triples."
+  },
+  "66": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the provided structured data.",
+    "text_faithfulness": "The generated text accurately represents all the facts provided in the structured data without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key facts from the reference text are accurately captured in the triples without any meaningful omissions."
+  },
+  "67": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data.",
+    "text_faithfulness": "The text accurately reflects all properties provided in the structured data.",
+    "triples_additions": "The triple accurately reflects the information provided in the reference text without any additions.",
+    "triples_omissions": "The triples capture all the essential information from the reference text without any meaningful omissions."
+  },
+  "68": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures all the key information from the structured data.",
+    "text_faithfulness": "The text accurately reflects all properties provided in the structured data without any hallucinations.",
+    "triples_additions": "The triples accurately reflect the facts presented in the reference text without any unsupported additions.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples."
+  },
+  "69": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided data points.",
+    "text_faithfulness": "The generated text accurately represents all the provided data points without any hallucinations or distortions.",
+    "triples_additions": "All triples are directly supported by the reference text.",
+    "triples_omissions": "The triples capture all factual information from the reference text without any meaningful omissions."
+  },
+  "70": {
+    "text_summary": "The generated text is a clear, concise, and accurate summary of the structured data.",
+    "text_faithfulness": "The text accurately reflects all information provided in the structured data without any hallucinations.",
+    "triples_additions": "The triples accurately reflect the facts presented in the reference text without any unsupported additions.",
+    "triples_omissions": "All information from the reference text is accurately captured in the triples."
+  },
+  "71": {
+    "text_summary": "The generated text is a concise, coherent, and accurate summary of the structured data.",
+    "text_faithfulness": "All information in the generated text is directly supported by the input data without any hallucinations or errors.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All critical information from the reference text is accurately captured in the triples."
+  },
+  "72": {
+    "text_summary": "The text is a concise, accurate, and coherent summary of the provided structured data.",
+    "text_faithfulness": "The generated text accurately reflects all the properties provided in the structured data.",
+    "triples_additions": "The triple accurately reflects the reference text without adding any unsupported information.",
+    "triples_omissions": "The triples capture all information from the reference text without any omissions."
+  },
+  "73": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided data points without any redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all properties provided in the structured data without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key facts from the reference text are accurately captured in the triples."
+  },
+  "74": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the provided structured data without any redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all provided data points without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples."
+  },
+  "75": {
+    "text_summary": "The generated text is a concise, coherent summary that captures the most important attributes of the structured data without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all claims provided in the structured data without any hallucinations or distortions.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All information from the reference text is accurately captured in the triples without any omissions."
+  },
+  "76": {
+    "text_summary": "The generated text is a concise, coherent, and accurate summary of the structured data.",
+    "text_faithfulness": "The text accurately reflects all properties provided in the structured data.",
+    "triples_additions": "The triple accurately reflects the information provided in the reference text without any additions.",
+    "triples_omissions": "The triples capture all information from the source text without any omission."
+  },
+  "77": {
+    "text_summary": "The generated text is a concise, coherent, and accurate summary of all the key properties in the structured data.",
+    "text_faithfulness": "The generated text accurately represents all claims provided in the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key information from the source text is accurately captured in the triples."
+  },
+  "78": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided structured data without any redundancy.",
+    "text_faithfulness": "The text accurately represents all information provided in the structured data without any hallucinations or errors.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples with no meaningful omissions."
+  },
+  "79": {
+    "text_summary": "The text is a concise, coherent summary that accurately reflects all key attributes of the structured data without redundancy.",
+    "text_faithfulness": "The text accurately reflects all claims provided in the structured data without any hallucinations.",
+    "triples_additions": "The triples accurately reflect the facts provided in the reference text with no additions.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples."
+  },
+  "80": {
+    "text_summary": "The text is a clear, concise, and coherent summary that accurately represents all data points without redundancy.",
+    "text_faithfulness": "The text accurately reflects all properties provided in the structured data without any hallucinations.",
+    "triples_additions": "The triples accurately reflect the facts stated in the reference text without adding any unsupported information.",
+    "triples_omissions": "The triples capture all factual information from the reference text without any omissions."
+  },
+  "81": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all relevant data points without redundancy.",
+    "text_faithfulness": "The text accurately reflects all information provided in the structured data without any hallucinations or distortions.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key information from the reference text is accurately captured in the triples."
+  },
+  "82": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided data points without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all properties provided in the structured data without any hallucinations or distortions.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key facts from the reference text are accurately captured in the triples with no meaningful omissions."
+  },
+  "83": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided data points without redundancy.",
+    "text_faithfulness": "The text accurately represents all facts provided in the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples."
+  },
+  "84": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that integrates all key data points without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all properties provided in the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All factual claims from the reference text are accurately captured in the triples without any meaningful omissions."
+  },
+  "85": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided data points without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all the facts provided in the structured data without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples without any meaningful omissions."
+  },
+  "86": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided data points.",
+    "text_faithfulness": "The text accurately represents all values provided in the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All information from the reference text is accurately captured in the triples without any omissions."
+  },
+  "87": {
+    "text_summary": "The text provides a clear, concise, and accurate summary of the structured data, correctly handling the redundant property.",
+    "text_faithfulness": "The text accurately reflects the information provided in the structured data.",
+    "triples_additions": "The triple accurately reflects the reference text with no unsupported additions.",
+    "triples_omissions": "The triple captures the entire meaning of the reference text without any omissions."
+  },
+  "88": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the provided structured data.",
+    "text_faithfulness": "The text accurately represents all properties provided in the structured data without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples."
+  },
+  "89": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided data points without redundancy.",
+    "text_faithfulness": "The generated text accurately represents all the properties provided in the structured data without adding any unsupported information.",
+    "triples_additions": "All triples are directly supported by the reference text.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples."
+  },
+  "90": {
+    "text_summary": "The generated text is a perfect, concise summary of the provided structured data.",
+    "text_faithfulness": "The text accurately reflects the entity and its properties provided in the JSON data.",
+    "triples_additions": "The triple accurately reflects the reference text without adding any unsupported information.",
+    "triples_omissions": "The triple accurately captures the entire meaning of the reference text with no omissions."
+  },
+  "91": {
+    "text_summary": "The text perfectly summarizes the structured data into a single, concise, and coherent sentence without redundancy.",
+    "text_faithfulness": "The text accurately reflects all entities and roles provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text.",
+    "triples_omissions": "All information from the reference text is accurately captured in the triples without any meaningful omissions."
+  },
+  "92": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the provided structured data.",
+    "text_faithfulness": "The generated text accurately reflects all properties provided in the structured data without any hallucinations.",
+    "triples_additions": "The triples accurately reflect the reference text with no unsupported additions.",
+    "triples_omissions": "All information from the source text is accurately captured in the triples without any omissions."
+  },
+  "93": {
+    "text_summary": "The generated text is a concise, coherent, and accurate summary of all the key properties in the structured data.",
+    "text_faithfulness": "The text accurately represents all facts provided in the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples."
+  },
+  "94": {
+    "text_summary": "The generated text is a concise, coherent, and accurate summary of all the provided structured data.",
+    "text_faithfulness": "All claims in the text are directly supported by the provided structured data.",
+    "triples_additions": "The triple 'Canal+ --located_in-> France' is a minor inference; the text states it was broadcast on Canal+ in France, but doesn't explicitly state the company's location.",
+    "triples_omissions": "All key facts from the reference text are accurately captured in the triples without any meaningful omissions."
+  },
+  "95": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the key attributes provided in the structured data.",
+    "text_faithfulness": "The generated text accurately represents all facts provided in the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples."
+  },
+  "96": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of all the provided data points.",
+    "text_faithfulness": "The text accurately represents all the information provided in the structured data without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text.",
+    "triples_omissions": "All information from the reference text is accurately captured in the triples."
+  },
+  "97": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures all key information from the structured data without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all properties provided in the structured data without any hallucinations.",
+    "triples_additions": "The triples accurately reflect all facts in the reference text with no unsupported additions.",
+    "triples_omissions": "All key information from the reference text is accurately captured in the triples with no omissions."
+  },
+  "98": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the provided structured data.",
+    "text_faithfulness": "The generated text accurately reflects all the information provided in the structured data without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text.",
+    "triples_omissions": "The triples capture all factual information from the reference text without any omissions."
+  },
+  "99": {
+    "text_summary": "The text is a concise, coherent summary that captures all key attributes from the structured data without redundancy.",
+    "text_faithfulness": "The generated text accurately represents all facts provided in the structured data without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text.",
+    "triples_omissions": "All key attributes from the reference text were accurately captured in the triples."
+  }
+}

@@ -1,14 +1,15 @@
 #!/bin/bash
 set -eo pipefail
 
-EXPERIMENTS=(low_lr)
-DOMAINS=(owid)
+EXPERIMENTS=(baseline-1epoch)
+DOMAINS=(gsmarena openweather owid wikidata)
 
 for experiment in "${EXPERIMENTS[@]}"; do
     case "$experiment" in
         low_lr) experiment_offset=0 ;;
         higher_capacity) experiment_offset=1 ;;
         regularized_capacity) experiment_offset=2 ;;
+        baseline-1epoch) experiment_offset=3 ;;
         baseline) experiment_offset=4 ;;
         *) echo "ERROR: unsupported experiment '$experiment'" >&2; exit 1 ;;
     esac

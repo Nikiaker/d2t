@@ -1,0 +1,602 @@
+{
+  "0": {
+    "text_summary": "The text is a concise, coherent, and professional summary that captures all key specifications without being repetitive or list-like.",
+    "text_faithfulness": "The generated text is completely faithful to the provided structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "Important details such as 'discontinued', 'entry-level', 'dual-SIM', and the lack of a selfie camera were omitted."
+  },
+  "1": {
+    "text_summary": "The text provides a clear, coherent, and concise summary of the key specifications without redundancy.",
+    "text_faithfulness": "The generated text is fully grounded in the provided data, accurately representing all specifications and values without any hallucinations.",
+    "triples_additions": "The triple 'has_resolution --has_resolution-> 1080p' is a structural error (subject is a predicate), but no material facts were hallucinated.",
+    "triples_omissions": "The triples omit the 'discontinued' status and the processor's clock speed/core count, but keep all other primary specifications."
+  },
+  "2": {
+    "text_summary": "The text is a clear, coherent, and concise summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, with all facts accurately represented.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the 'discontinued' status and the 'removable Li-Po' battery detail, but all primary technical specifications are captured."
+  },
+  "3": {
+    "text_summary": "The generated text is a concise, coherent, and accurate summary of the key specifications provided in the structured data.",
+    "text_faithfulness": "The generated text is entirely faithful to the provided structured data, accurately representing all specifications without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "Minor omissions of the 'discontinued' status, processor speed (600 MHz), and battery removability, but all core specifications are captured."
+  },
+  "4": {
+    "text_summary": "The text is a concise, coherent summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "Every claim in the text is directly supported by the provided structured data.",
+    "triples_additions": "All triples are directly supported by the reference text, including the brand name inferred from the product name.",
+    "triples_omissions": "The triples capture almost all technical specs, though they omit the 'budget-friendly' classification and the distinction between main and selfie cameras."
+  },
+  "5": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all the core specifications without being repetitive or list-like.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, accurately representing all specifications and features without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key specifications and features from the reference text are captured in the triples."
+  },
+  "6": {
+    "text_summary": "The text provides a clear, coherent, and concise summary of the key specifications without any redundancy or list-like structure.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, accurately representing all mentioned specifications.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the mention of OIS for the camera and the 'wired' nature of the charging, but all core specifications are captured."
+  },
+  "7": {
+    "text_summary": "The text is a concise, coherent summary that captures all key specifications without redundancy or list-like formatting.",
+    "text_faithfulness": "The generated text is completely faithful to the provided structured data, with all claims accurately grounded in the source.",
+    "triples_additions": "All triples are directly supported by the reference text, including the inferred brand name from the product name.",
+    "triples_omissions": "Minor omissions regarding the processor being octa-core and the specific camera types (dual rear vs selfie) occur, but all core specifications are present."
+  },
+  "8": {
+    "text_summary": "The text is a concise, coherent summary that captures all key specifications without redundancy or list-like formatting.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, with all facts accurately represented.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "Minor omissions of the 'discontinued' status, 'dual-SIM' capability, and 'removable' battery attribute, but core specs are preserved."
+  },
+  "9": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all the key specifications without being repetitive or list-like.",
+    "text_faithfulness": "The generated text accurately reflects all the information provided in the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "Minor omissions of 'discontinued', 'dual-SIM', and 'removable' battery, but all key specifications and conclusions are preserved."
+  },
+  "10": {
+    "text_summary": "The text is a concise, coherent summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is fully supported by the provided structured data without any hallucinations or inaccuracies.",
+    "triples_additions": "All triples are directly supported by the reference text, and the brand extraction 'Cubot' is a logical derivation from the product name.",
+    "triples_omissions": "All key technical specifications and facts from the reference text are accurately captured in the triples."
+  },
+  "11": {
+    "text_summary": "The text is a concise and coherent summary that captures all key specifications without redundancy or list-like formatting.",
+    "text_faithfulness": "The text is completely faithful to the provided data, accurately reflecting all specifications including display, chipset, memory, camera, battery, and price.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit the peak brightness (1600 nits) and the specific camera configuration (dual main camera), though the core specifications remain intact."
+  },
+  "12": {
+    "text_summary": "The text is a concise and coherent summary that captures all key specifications without redundancy or list-like formatting.",
+    "text_faithfulness": "Every claim in the generated text is directly supported by the provided structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions or hallucinations.",
+    "triples_omissions": "The triples omit the specific distinction between the main rear camera and the selfie camera, though all technical specifications are otherwise captured."
+  },
+  "13": {
+    "text_summary": "The text is a concise, coherent summary that captures all the essential technical specifications without redundancy.",
+    "text_faithfulness": "The generated text is fully supported by the provided structured data without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the 'discontinued' status and the battery type (Li-Ion), but all primary technical specifications and key facts are preserved."
+  },
+  "14": {
+    "text_summary": "The text provides a clear, coherent, and concise summary of the key specifications without redundancy or list-like phrasing.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, with all claims accurately grounded in the source.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "Minor omissions including storage type (UFS 2.2) and video recording capability (1080p), but the core specifications are intact."
+  },
+  "15": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all the key specifications without redundancy.",
+    "text_faithfulness": "The generated text is entirely faithful to the provided structured data, accurately representing all mentioned specifications and values.",
+    "triples_additions": "All triples are directly supported by the reference text, including the regional camera variation.",
+    "triples_omissions": "The triples omit the specific context that the 13MP camera is for the Asian market and that the 5MP camera is the selfie camera."
+  },
+  "16": {
+    "text_summary": "The text is a concise and coherent summary that captures the core specifications and unique features of the device without being repetitive or list-like.",
+    "text_faithfulness": "The generated text is entirely faithful to the provided structured data, accurately reflecting all specifications and features.",
+    "triples_additions": "All generated triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "Minor omissions of the 'discontinued' status, 'removable' battery detail, and the explicitly mentioned lack of WLAN."
+  },
+  "17": {
+    "text_summary": "The text is a clear, coherent, and concise summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "Every claim in the text is directly supported by the provided structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or additions.",
+    "triples_omissions": "The triples omit the Gorilla Glass 6 protection and the distinction between the main and selfie cameras, but all core specifications are captured."
+  },
+  "18": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is entirely faithful to the provided structured data, accurately representing all mentioned specifications.",
+    "triples_additions": "All triples are directly supported by the reference text, including the inferred brand 'Oppo' from the product name.",
+    "triples_omissions": "Minor omissions of OIS and the 'triple main camera' context, but all core specifications and conclusions are preserved."
+  },
+  "19": {
+    "text_summary": "The text is a clear, coherent, and concise summary that captures all core specifications without being redundant or list-like.",
+    "text_faithfulness": "The generated text is entirely faithful to the provided structured data, with all specifications accurately represented.",
+    "triples_additions": "All triples are directly supported by the text, including the inferred brand 'Panasonic' from the product name.",
+    "triples_omissions": "Minor omissions include the screen resolution (720p), Gorilla Glass protection, and the distinction between main and selfie cameras."
+  },
+  "20": {
+    "text_summary": "The text is a concise, coherent summary that captures all key technical specifications without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all data points provided in the structured input without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the status of the phone (discontinued), the secondary external screen, and the talk time specification."
+  },
+  "21": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, with all claims accurately grounded in the input.",
+    "triples_additions": "All triples are directly supported by the reference text, including the inferred brand 'Alcatel' from the product name.",
+    "triples_omissions": "The triples omit the 'entry-level' description and the fact that the battery is 'removable', but all key technical specifications are preserved."
+  },
+  "22": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, accurately representing all mentioned specifications.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All factual details from the reference text are accurately captured in the triples."
+  },
+  "23": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is completely faithful to the provided structured data, accurately representing all mentioned specifications.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the peak brightness (2000 nits) and the 'wired' specification for charging, though the core specifications remain intact."
+  },
+  "24": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all the essential specifications without redundancy.",
+    "text_faithfulness": "The generated text is completely faithful to the provided structured data, with all claims accurately supported.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or additions.",
+    "triples_omissions": "The triples omit the processor core count (quad-core) and the battery's non-removable nature, but all primary specifications are captured."
+  },
+  "25": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is fully grounded in the provided structured data, accurately representing all specifications and values.",
+    "triples_additions": "The triple 'has_price --has_price-> 70 EUR' is syntactically incorrect and uses an entity as a subject, though the value is grounded in the text.",
+    "triples_omissions": "The triples capture almost all details, but omit the specific roles of the cameras (main vs. selfie) and the 'approx.' qualifier for the price."
+  },
+  "26": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all the essential specifications without being repetitive or list-like.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, accurately representing all mentioned specifications without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "Minor omissions include the 'discontinued' and 'rugged' status, and the OS upgradeability and video resolution, but the core specifications are preserved."
+  },
+  "27": {
+    "text_summary": "The generated text is a concise, coherent, and accurate summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, with all claims accurately grounded in the input.",
+    "triples_additions": "All triples are directly supported by the reference text, including the brand 'Sharp' which is explicitly part of the product name.",
+    "triples_omissions": "Minor omissions of secondary details like USB Power Delivery 3.0 and the fact that the camera is a triple setup, but all core specifications are present."
+  },
+  "28": {
+    "text_summary": "The text is a concise, coherent summary that captures all the core specifications without being repetitive or list-like.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, accurately representing all mentioned specifications.",
+    "triples_additions": "All triples are directly supported by the reference text; the brand 'OnePlus' is explicitly part of the product name.",
+    "triples_omissions": "The triples capture every factual detail from the reference text without any meaningful omissions."
+  },
+  "29": {
+    "text_summary": "The generated text is a concise, coherent, and accurate summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "Every claim in the text is directly supported by the provided structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions or hallucinations.",
+    "triples_omissions": "Minor omissions regarding the processor being 'octa-core', the battery being 'removable', and the specific camera roles (main vs selfie)."
+  },
+  "30": {
+    "text_summary": "The text is a concise, coherent summary that captures all key specifications without redundancy or list-like formatting.",
+    "text_faithfulness": "The generated text is completely faithful to the provided structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the LED flash and the explicit lack of WLAN/GPS, but the core specifications are preserved."
+  },
+  "31": {
+    "text_summary": "The generated text is a concise, coherent summary that captures all key specifications without redundancy or list-like phrasing.",
+    "text_faithfulness": "The generated text is completely faithful to the provided structured data, with all facts accurately represented.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions or hallucinations.",
+    "triples_omissions": "Minor omissions regarding Gorilla Glass 5 and the distinction between wired/wireless charging, but all core specifications are captured."
+  },
+  "32": {
+    "text_summary": "The generated text is a concise, coherent summary that captures the core specifications without redundancy or list-like formatting.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, accurately representing all mentioned specifications.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "Minor omissions occur regarding its discontinued status, dual-SIM capability, and the explicit lack of Bluetooth/WLAN/USB, but the core specifications are preserved."
+  },
+  "33": {
+    "text_summary": "The text is a clear, concise, and coherent summary that captures all the key technical specifications without redundancy.",
+    "text_faithfulness": "The generated text is fully supported by the provided structured data, accurately representing all mentioned specifications.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit the 'discontinued' status and the battery chemistry (Li-Ion), but these are minor details that do not distort the core specifications."
+  },
+  "34": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures the core specifications without being repetitive or list-like.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "Minor omissions include the processor core count (quad-core), the battery's removability, and the distinction between the main and selfie cameras."
+  },
+  "35": {
+    "text_summary": "The text provides a clear, concise, and coherent summary of the key specifications without being repetitive or list-like.",
+    "text_faithfulness": "The generated text is completely faithful to the provided structured data, accurately representing all mentioned specifications.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the critical fact that the phone was cancelled, as well as its announcement date and camera autofocus capability."
+  },
+  "36": {
+    "text_summary": "The text is a clear, coherent, and concise summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is completely faithful to the provided structured data, with every claim accurately grounded in the input.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit the 'budget-friendly' classification and the 'quad-camera' context, but all technical specifications and core facts are preserved."
+  },
+  "37": {
+    "text_summary": "The text is a concise, coherent summary that captures the essential specifications and limitations without being repetitive or list-like.",
+    "text_faithfulness": "The generated text is completely faithful to the provided structured data, accurately representing all mentioned specifications.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit the 'discontinued' status, the 'dual-SIM' capability, the talk time, and the significant lack of a camera, WLAN, and 3.5mm jack."
+  },
+  "38": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key specifications without being repetitive or list-like.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, accurately representing all specifications and features without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit that the device is discontinued and lacks a camera, WLAN, and browser, but all primary specifications are captured."
+  },
+  "39": {
+    "text_summary": "The generated text is a concise, coherent summary that captures all key specifications without redundancy or list-like phrasing.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, accurately representing all mentioned specifications without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "Minor omissions of the aluminum build and the lack of NFC, but all core technical specifications are captured."
+  },
+  "40": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures the core specifications without redundancy.",
+    "text_faithfulness": "The text is completely faithful to the provided data, accurately representing all mentioned specifications.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "Minor omissions of the 'discontinued' status, processor clock speed (1.0 GHz), and video resolution (720p), but all core specs are present."
+  },
+  "41": {
+    "text_summary": "The text is a concise, coherent summary that captures all essential specifications without redundancy or list-like formatting.",
+    "text_faithfulness": "The generated text is perfectly faithful to the structured data, accurately reflecting all specifications without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "Minor omissions include the 'discontinued' status, CPU clock speed, and the lack of cellular connectivity, though the main specifications are present."
+  },
+  "42": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all essential specifications without redundancy.",
+    "text_faithfulness": "The generated text is entirely faithful to the provided structured data, accurately representing all mentioned specifications.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples capture almost all technical specifications, omitting only the 'triple' nature of the camera and the general mention of 'high durability'."
+  },
+  "43": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data, highlighting key specifications without redundancy.",
+    "text_faithfulness": "The text is perfectly faithful to the provided structured data, accurately representing all mentioned specifications without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text, including the brand name and network support derived from the product name.",
+    "triples_omissions": "The triples omit that the device is 'discontinued' and the specific roles of the cameras (main vs selfie), but all technical specifications are captured."
+  },
+  "44": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures the essential specifications without being repetitive or list-like.",
+    "text_faithfulness": "The generated text is fully grounded in the provided data and accurately represents all technical specifications.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit the device status (discontinued), the camera (VGA), and the battery type (Li-Ion)."
+  },
+  "45": {
+    "text_summary": "The text is a concise, coherent, and comprehensive summary that captures all key specifications without being repetitive or list-like.",
+    "text_faithfulness": "The generated text is entirely faithful to the provided structured data, accurately representing all specifications without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "Minor omissions include the 'entry-level' classification, 'octa-core' processor detail, and 'Dual SIM' support, but all primary specifications are captured."
+  },
+  "46": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data without redundancy.",
+    "text_faithfulness": "The generated text accurately represents all facts from the provided structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit the 'discontinued' status and the CPU clock speed (120 MHz), but all other technical specifications are captured."
+  },
+  "47": {
+    "text_summary": "The generated text is a concise, coherent, and accurate summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The text accurately represents all claims from the provided structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "Minor omissions of 'dual main camera' and 'selfie camera' labels, though the resolutions are captured."
+  },
+  "48": {
+    "text_summary": "The text is a concise, coherent, and professional summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, with every claim accurately grounded in the source.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "Minor omissions regarding the quad-camera system and 4K video capability, but all other core specifications are captured."
+  },
+  "49": {
+    "text_summary": "The text is a concise, coherent summary that captures all key specifications without redundancy or list-like formatting.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, with all claims grounded in the input.",
+    "triples_additions": "The triple 'released_on' is slightly imprecise as the text states it was 'announced' in October 2007 and 'ultimately cancelled'.",
+    "triples_omissions": "The triples claim the phone was released in October 2007, omitting the critical fact that it was ultimately cancelled."
+  },
+  "50": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key specifications without being repetitive or list-like.",
+    "text_faithfulness": "The generated text is completely faithful to the provided structured data, accurately representing all specifications and values.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "Minor omissions include the 'discontinued' status and 'entry-level' classification, but all technical specifications are preserved."
+  },
+  "51": {
+    "text_summary": "The text provides a concise, coherent summary that captures all key specifications without redundancy or list-like formatting.",
+    "text_faithfulness": "Every claim in the text is directly supported by the provided structured data.",
+    "triples_additions": "All triples are directly supported by the reference text, including the inferred brand name from the product name.",
+    "triples_omissions": "Minor omissions of specific details like OIS, wired/wireless charging distinctions, and the 'main/selfie' camera labels, but core specs are preserved."
+  },
+  "52": {
+    "text_summary": "The text is a concise, coherent summary that captures all key specifications without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately reflects all the data provided in the JSON without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the critical constraint that the watch lacks cellular connectivity, as well as the diving certification and wireless charging feature."
+  },
+  "53": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all the core specifications without redundancy.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, accurately representing all specified technical details.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the 'Dual SIM' connectivity and the 'quad-core' specification of the processor, but all primary technical specifications are captured."
+  },
+  "54": {
+    "text_summary": "The text is a concise, coherent summary that captures all key details from the structured data without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all the provided data points without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the critical fact that the phone was cancelled, fundamentally changing the status of the product."
+  },
+  "55": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data, avoiding redundancy and list-like formatting.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, with all claims accurately grounded in the source.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit several important details: the 'discontinued' status, the quad-core nature of the processor, the lack of SIM/cellular support, SRS audio, and battery life."
+  },
+  "56": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key hardware and software specifications without redundancy.",
+    "text_faithfulness": "The text is fully grounded in the provided data, accurately reflecting all specifications mentioned.",
+    "triples_additions": "All generated triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the 'discontinued' status and the distinction between main and selfie cameras, but the core specifications remain intact."
+  },
+  "57": {
+    "text_summary": "The text is a clear, coherent, and concise summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is entirely faithful to the provided structured data, with all facts accurately represented.",
+    "triples_additions": "All triples are directly supported by the reference text, including the brand and network type inferred from the product name.",
+    "triples_omissions": "Minor omissions regarding the processor speed (1.3 GHz), the core count (octa-core), and the battery's non-removable status, but the core specifications are present."
+  },
+  "58": {
+    "text_summary": "The text is a concise and coherent summary that captures all the core specifications without redundancy or list-like formatting.",
+    "text_faithfulness": "The generated text is entirely faithful to the provided structured data, accurately representing all mentioned specifications without hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit the 'discontinued' status, the 'dual-core' processor detail, and the explicit lack of cellular capabilities, but the core specifications remain intact."
+  },
+  "59": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key specifications without being repetitive or list-like.",
+    "text_faithfulness": "The generated text accurately reflects all the data provided in the JSON instance without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "Minor omissions regarding the processor core count (octa-core) and the camera types (dual main vs selfie) exist, but all core specifications are present."
+  },
+  "60": {
+    "text_summary": "The text is a concise and coherent summary that captures all the essential specifications without redundancy or list-like formatting.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, with all facts accurately represented.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "Minor omissions of the LED flash, VGA selfie camera, and battery type, but all core specifications are captured."
+  },
+  "61": {
+    "text_summary": "The text provides a concise, coherent summary that captures all key specifications without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately reflects all technical specifications provided in the JSON data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "The triples omit the negative constraints regarding the lack of cellular, Wi-Fi, and camera, but all positive specifications are captured."
+  },
+  "62": {
+    "text_summary": "The text is a clear, coherent, and concise summary that captures the core specifications without being repetitive or list-like.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, accurately reflecting all specifications without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "Minor omissions of the 'discontinued' status and the processor clock speed (806 MHz), but all core specifications are captured."
+  },
+  "63": {
+    "text_summary": "The generated text is a concise, coherent, and accurate summary of the structured data.",
+    "text_faithfulness": "All claims in the text are directly supported by the provided structured data.",
+    "triples_additions": "The triple 'released_on' is a slight imprecision as the text states it was 'announced' in March 2006, not released.",
+    "triples_omissions": "The triples omit the critical fact that the phone was cancelled, which fundamentally changes the meaning of the text."
+  },
+  "64": {
+    "text_summary": "The text is a concise, coherent, and professional summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is fully grounded in the provided structured data, accurately reflecting all specifications and values.",
+    "triples_additions": "All triples are directly supported by the reference text, including the inferred brand name from the product name.",
+    "triples_omissions": "Minor omissions of the build materials (glass body, stainless steel frame) and the selfie camera specification, but all core technical specs and features are captured."
+  },
+  "65": {
+    "text_summary": "The text is a concise, coherent summary that captures all key specifications without being repetitive or list-like.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, accurately representing all mentioned specifications without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the fact that the phone is discontinued and fails to capture the specific lack of Wi-Fi, selfie camera, and 3.5mm jack."
+  },
+  "66": {
+    "text_summary": "The text is a concise, coherent, and professional summary that captures all the essential specifications without being repetitive or list-like.",
+    "text_faithfulness": "The generated text is completely faithful to the provided structured data, with all claims accurately grounded in the source.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit the 4K video capability, but all other technical specifications and key features are preserved."
+  },
+  "67": {
+    "text_summary": "The text is a clear, concise, and coherent summary that captures all the essential specifications without redundancy.",
+    "text_faithfulness": "The generated text is completely faithful to the provided structured data, with all claims accurately grounded in the source.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "Important details such as peak brightness, 4K video support, and the number of available colors were omitted."
+  },
+  "68": {
+    "text_summary": "The text is a concise, coherent summary that captures all key specifications without being repetitive or list-like.",
+    "text_faithfulness": "The generated text is completely faithful to the provided structured data, accurately representing all mentioned specifications without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "Minor omissions regarding the build material (plastic) and the 'dual' nature of the rear camera, but all core specifications are captured."
+  },
+  "69": {
+    "text_summary": "The text is a clear, coherent, and concise summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is completely faithful to the provided structured data, with all facts accurately represented.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "Minor omissions include the 'entry-level' classification, the quad-core nature of the processor, and the 'removable' attribute of the battery."
+  },
+  "70": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, with all claims accurately grounded.",
+    "triples_additions": "All generated triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "The triples omit the status of the phone (discontinued) and the critical lack of Bluetooth, WLAN, and a selfie camera."
+  },
+  "71": {
+    "text_summary": "The text is a concise, coherent, and professional summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is completely faithful to the provided structured data, with all claims accurately supported.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit the 'discontinued' status and the specific 'octa-core' detail of the processor, but all core specifications are captured."
+  },
+  "72": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all core specifications without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all details provided in the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text, with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit several important technical details, including the processor speed (1.3 GHz), the distinction between main and selfie cameras, and the critical fact that the device is discontinued and lacks cellular connectivity."
+  },
+  "73": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "Every claim in the text is directly supported by the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text, including the brand and network support inferred from the product name.",
+    "triples_omissions": "The triples omit that the phone is 'discontinued' and 'budget', as well as the 'quad-core' detail of the processor, but all core technical specifications are preserved."
+  },
+  "74": {
+    "text_summary": "The generated text is a concise, coherent, and accurate summary of the structured data, highlighting all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data.",
+    "triples_additions": "All triples are directly supported by the text, including the brand 'TCL' which is explicitly part of the product name.",
+    "triples_omissions": "The triples omit the 'entry-level' classification and the 'removable' nature of the battery, but all technical specifications and core facts are preserved."
+  },
+  "75": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit that the phone is 'discontinued' and 'entry-level', but all technical specifications and core facts are preserved."
+  },
+  "76": {
+    "text_summary": "The text is a concise, coherent summary that captures all the core specifications without redundancy or list-like formatting.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, with all facts accurately represented.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "Minor omissions of the CPU clock speed (1.4 GHz), video capability (720p), and the 'discontinued' status, but all primary hardware specs are captured."
+  },
+  "77": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all the key specifications without being repetitive or list-like.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, accurately representing all specifications without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text, including the brand inference from the product name.",
+    "triples_omissions": "Important technical details were omitted, including peak brightness, OIS, the specific selfie camera resolution, 4K recording capability, and the fact that RAM/storage are 'up to' maximums."
+  },
+  "78": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the key specifications without being repetitive or list-like.",
+    "text_faithfulness": "The generated text is entirely faithful to the provided structured data, with all facts accurately represented.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key technical specifications and facts from the reference text are captured in the triples."
+  },
+  "79": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key specifications without being repetitive or list-like.",
+    "text_faithfulness": "The generated text is fully supported by the provided structured data, with all specifications accurately represented.",
+    "triples_additions": "All generated triples are directly supported by the reference text.",
+    "triples_omissions": "The triples omit several negative constraints (lack of WLAN, selfie camera, and 3.5mm jack) and the talk time, which are important for a full device specification."
+  },
+  "80": {
+    "text_summary": "The text is a concise, coherent summary that captures all the key specifications without redundancy or list-like phrasing.",
+    "text_faithfulness": "The generated text is entirely faithful to the provided structured data, with all claims accurately grounded in the source.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the distinction between the rear triple camera and the selfie camera, though all other key specifications are captured."
+  },
+  "81": {
+    "text_summary": "The text is a concise and coherent summary that captures all key specifications without redundancy or list-like formatting.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, accurately representing all mentioned specifications without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "Several important details were omitted, including the OS upgrade path, the 4K video capability, the frame material (aluminum), and the screen protection (Gorilla Glass 4)."
+  },
+  "82": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, accurately representing all mentioned specifications without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All factual details from the reference text are accurately captured in the triples."
+  },
+  "83": {
+    "text_summary": "The generated text is a concise, coherent, and accurate summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, with all claims accurately supported.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "Minor omissions of camera roles (wide, depth, selfie) and the 'octa-core' processor detail, but all core specifications are present."
+  },
+  "84": {
+    "text_summary": "The text is a concise, coherent summary that captures all key specifications without redundancy or list-like phrasing.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, accurately representing all mentioned specifications.",
+    "triples_additions": "All triples are directly supported by the reference text, including the inferred brand name from the product name.",
+    "triples_omissions": "The triples omit the splash-resistant feature and the specific camera configurations (quad-camera and selfie), but all other critical specifications are captured."
+  },
+  "85": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, with no hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text, including the brand inference from the product name.",
+    "triples_omissions": "Minor omissions include the 'discontinued' status and the 'Dual SIM' feature, but all core specifications are captured."
+  },
+  "86": {
+    "text_summary": "The text is a concise, coherent summary that captures all key specifications without redundancy or list-like phrasing.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, with all claims directly supported by the source.",
+    "triples_additions": "All facts in the triples are directly supported by the reference text.",
+    "triples_omissions": "The triples capture almost all details, omitting only that the device is 'discontinued' and the camera's 4K video capability."
+  },
+  "87": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key specifications without being repetitive or list-like.",
+    "text_faithfulness": "The text is perfectly faithful to the provided structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples omit the 'octa-core' processor detail and the distinction between the main and selfie cameras, but all core specifications are present."
+  },
+  "88": {
+    "text_summary": "The text is a clear, coherent, and concise summary that captures all the essential specifications without redundancy.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, with all claims accurately grounded in the source.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "Minor omissions of 'entry-level' and the 'removable' nature of the battery, but all key technical specifications are captured."
+  },
+  "89": {
+    "text_summary": "The text is a concise, coherent, and comprehensive summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The text is perfectly faithful to the provided data, accurately reflecting all specifications without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "All critical technical specifications and details from the reference text are accurately captured in the triples."
+  },
+  "90": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all the information provided in the structured data without any hallucinations or contradictions.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "Minor omissions of the 'discontinued' status and '1080p' screen resolution, but all core specifications are captured."
+  },
+  "91": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is completely faithful to the provided structured data, with all claims accurately grounded in the source.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit that the device is discontinued and rugged, but all technical specifications are preserved."
+  },
+  "92": {
+    "text_summary": "The text is a concise and coherent summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, accurately representing all mentioned specifications without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "Minor omissions occur regarding the 'discontinued' status, the CPU clock speed (1.3 GHz), and the 'removable' nature of the battery."
+  },
+  "93": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is completely faithful to the provided structured data, with all claims accurately grounded in the source.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "Minor omissions include the storage type (UFS 2.2), video resolution (1440p), and dual SIM support, but all core specifications are present."
+  },
+  "94": {
+    "text_summary": "The text is a concise, coherent summary that captures all essential specifications without redundancy or list-like formatting.",
+    "text_faithfulness": "The generated text is completely faithful to the provided structured data, with all technical specifications and details accurately represented.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "Minor omissions include the 'entry-level' classification, the 'octa-core' processor detail, and 'Dual SIM' support, but all core specifications are present."
+  },
+  "95": {
+    "text_summary": "The text is a concise, coherent summary that captures all the essential specifications without being repetitive or list-like.",
+    "text_faithfulness": "All claims in the text are directly supported by the provided structured data.",
+    "triples_additions": "All triples are directly supported by the reference text.",
+    "triples_omissions": "The triples omit almost all technical specifications, including the display, battery, connectivity constraints, and built-in utilities."
+  },
+  "96": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all the essential specifications without redundancy.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, accurately representing all mentioned specifications.",
+    "triples_additions": "All triples are directly supported by the reference text, including the inferred brand name from the product name.",
+    "triples_omissions": "The triples omit the 'entry-level' classification and the 'triple rear camera' context, but all technical specifications are captured."
+  },
+  "97": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "Every claim in the text is directly supported by the provided structured data.",
+    "triples_additions": "All triples are directly supported by the reference text, including the inferred brand from the product name.",
+    "triples_omissions": "Minor details like OIS, 8K recording, and the distinction between wired/wireless charging were omitted, but all core specifications are present."
+  },
+  "98": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key specifications without redundancy.",
+    "text_faithfulness": "The generated text is completely faithful to the provided structured data, with no hallucinations or inaccuracies.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "Minor omissions of 'discontinued', 'budget', and 'dual SIM' status, but all core technical specifications are captured."
+  },
+  "99": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that distills the key specifications without being repetitive or list-like.",
+    "text_faithfulness": "The generated text is perfectly faithful to the provided structured data, with all claims directly supported.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "Several important details were omitted, including the secondary screen, the battery type, talk time, and the specific lack of camera, Bluetooth, and Wi-Fi."
+  }
+}

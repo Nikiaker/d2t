@@ -1,0 +1,602 @@
+{
+  "0": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that captures all the core information from the structured data.",
+    "text_faithfulness": "The text accurately reflects the teams, final score, league season, and the fact that all goals were scored in the third period.",
+    "triples_additions": "The triple 'Carolina Hurricanes --won_by-> Match_1' is logically inverted and the introduction of 'Match_1' as a subject/object without a definition in the text is a hallucination.",
+    "triples_omissions": "The triples omit the critical detail that all scoring occurred in the third period."
+  },
+  "1": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the final score, the teams, the league, and the period-by-period progression.",
+    "text_faithfulness": "The text accurately reflects all data points, including the final score, period-by-period scoring, and tournament details.",
+    "triples_additions": "The triple 'Spartak Moscow --won_by-> Match_1' is logically inverted (the team didn't win by the match, the match was won by the team) and 'Match_1' is an introduced entity not present in the text.",
+    "triples_omissions": "The triples omit the specific scoring timeline (scoreless first period, goals in second and third) which provides important context to the match progression."
+  },
+  "2": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that captures all the essential details of the match.",
+    "text_faithfulness": "The generated text accurately reflects all data points, including the tournament, season, round, teams, final score, and the fact that it was decided by penalties after a 3-3 normal time draw.",
+    "triples_additions": "The triple 'Stalnye Lisy --won_by-> Match_1' is logically inverted and materially incorrect.",
+    "triples_omissions": "The triples capture all key facts, though the detail about the 3-3 draw in normal time is omitted."
+  },
+  "3": {
+    "text_summary": "The text is a concise, coherent summary that captures all key details from the structured data without redundancy.",
+    "text_faithfulness": "The text accurately reflects all data points including the tournament, round, season, teams, final score, and period-by-period breakdown.",
+    "triples_additions": "The triple 'Mora IK --won_by-> Match_ID_1' is semantically incorrect (it suggests the team was won by the match), and 'Match_ID_1' is an external identifier not present in the text.",
+    "triples_omissions": "The triples omit the specific goal distribution per period, which is an important detail of the match description."
+  },
+  "4": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the match results and period-by-period scoring.",
+    "text_faithfulness": "The text accurately reflects the tournament, season, final score, and period-by-period breakdown provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text, with 'Match_1' serving as a necessary internal identifier for the game described.",
+    "triples_omissions": "The triples omit the detailed scoring breakdown per period, which is a significant portion of the reference text."
+  },
+  "5": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data, covering all key details without redundancy.",
+    "text_faithfulness": "The text accurately reflects all data points, including the final score, winner, overtime status, round, tournament, season, and regulation score.",
+    "triples_additions": "The triple 'Falu IF --won_by-> Match_1' is logically inverted and materially incorrect, as the team won the match, not the other way around.",
+    "triples_omissions": "The triples omit the specific detail that the score was 4-4 in regulation time, but all core facts and the final result are preserved."
+  },
+  "6": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the match data, including the final score and period-by-period progression.",
+    "text_faithfulness": "The text accurately reflects all data points, including the round, season, teams, final score, and period-by-period scoring breakdown.",
+    "triples_additions": "All triples are directly supported by the reference text, and the use of a Match_ID to link attributes is a standard structural representation.",
+    "triples_omissions": "The triples capture the main result and context, but omit the specific progression of goals (the comeback from 0-1), which is a minor detail relative to the final outcome."
+  },
+  "7": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the core match details and scoring progression without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all data points including the tournament, season, round, teams, final score, and period-by-period progression.",
+    "triples_additions": "The triples introduce a placeholder entity 'Match_1' which is not in the text, but it is a necessary structural addition to link the round and competition to the event.",
+    "triples_omissions": "The triples omit the specific detail about the scoreless first period and the strong third period performance, which provide key context for how the game was won."
+  },
+  "8": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures the core result and the key highlight of the match.",
+    "text_faithfulness": "The text accurately reflects all data points, including the round, season, teams, final score, and the specific second-period score.",
+    "triples_additions": "All triples are directly supported by the reference text; the introduction of 'Match_ID_1' is a standard structural identifier for the event described.",
+    "triples_omissions": "The triples omit the critical detail regarding the decisive 7-0 run in the second period."
+  },
+  "9": {
+    "text_summary": "The text is a concise, coherent summary that captures the core outcome and context without redundancy.",
+    "text_faithfulness": "The text accurately reflects the winner, the score, the tournament, the season, and the period-by-period lead (2-1, 3-1, 5-2).",
+    "triples_additions": "All triples are directly supported by the reference text without any additions or hallucinations.",
+    "triples_omissions": "The triples omit the critical detail that Vityaz Podolsk maintained the lead across all three periods."
+  },
+  "10": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the final score, teams, and period-by-period progression without redundancy.",
+    "text_faithfulness": "The text accurately reflects the teams, the final score, the league/season, and the period-by-period scoring breakdown provided in the data.",
+    "triples_additions": "The introduction of 'Match_ID_1' is a minor structural addition not explicitly in the text, but it accurately reflects the relationships described.",
+    "triples_omissions": "The triples omit the specific game progression details, such as the scoreless first period and the three goals in the second, which provide important context for how the win was secured."
+  },
+  "11": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the core match results and period-by-period scoring.",
+    "text_faithfulness": "The generated text accurately reflects all the data provided, including the tournament, season, round, final score, and period-by-period breakdown.",
+    "triples_additions": "All triples are directly supported by the reference text.",
+    "triples_omissions": "The triples omit the detailed period-by-period scoring breakdown, which is a significant portion of the reference text."
+  },
+  "12": {
+    "text_summary": "The text is a concise, accurate, and coherent summary of the structured data, capturing all key details without redundancy.",
+    "text_faithfulness": "The text accurately reflects all key data points, including the round, season, tournament, teams, final score, and the AET status.",
+    "triples_additions": "The triple 'Graz 99ers --won_by-> Match_ID_1' is semantically incorrect/distorted, as the team won the match, not the other way around.",
+    "triples_omissions": "The triples capture all core facts, though the detail about the 3-3 regulation draw is omitted."
+  },
+  "13": {
+    "text_summary": "The text is a concise and accurate summary that captures all key information from the structured data without redundancy.",
+    "text_faithfulness": "The text accurately reflects all data points including the winner, score, round, season, and the timing of the goals.",
+    "triples_additions": "The triple 'Modo Hockey --won_by-> Match_1' is semantically incorrect/inverted, and 'Match_1' is an introduced identifier not present in the text.",
+    "triples_omissions": "The triples omit the critical detail that all three goals were scored in the third period."
+  },
+  "14": {
+    "text_summary": "The text is a concise, coherent summary that captures all key details (teams, score, round, league, and period breakdown) without redundancy.",
+    "text_faithfulness": "The text accurately represents all data points, including teams, score, round, tournament, season, and the specific first-period score.",
+    "triples_additions": "The triple 'Tauron KH GKS Katowice --won_by-> Match_1' is logically incorrect and represents a material distortion of the relationship.",
+    "triples_omissions": "The triples omit the significant detail about the 5-0 start in the first period, which provides key context for the match's progression."
+  },
+  "15": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the key facts and the progression of the game without redundancy.",
+    "text_faithfulness": "The text accurately reflects the teams, the final score, the round, the league, and the period-by-period scoring breakdown provided in the data.",
+    "triples_additions": "The triple 'HC Olomouc --won_by-> Match_1' is phrased awkwardly/imprecisely, but no material facts were fabricated.",
+    "triples_omissions": "The triples omit the specific scoring breakdown by period, but all core facts regarding the winner, score, round, and league are preserved."
+  },
+  "16": {
+    "text_summary": "The text is a concise, coherent summary that captures the key result and a significant detail from the period scores without redundancy.",
+    "text_faithfulness": "The text accurately reflects the teams, the final score, the tournament/season, and the specific scoring breakdown for the third period provided in the data.",
+    "triples_additions": "The triple 'Boston College Eagles --won_by-> Match_1' is logically inverted or nonsensical, and 'Match_1' is an introduced identifier not present in the text.",
+    "triples_omissions": "The triples omit the specific detail about the three-goal performance in the third period, which provides important context for how the win was secured."
+  },
+  "17": {
+    "text_summary": "The generated text is a concise, coherent, and accurate summary of the structured data.",
+    "text_faithfulness": "The generated text accurately reflects all the key facts provided in the structured data.",
+    "triples_additions": "The triple 'HC Frýdek-Místek --won_by-> Match_ID_1' is logically distorted, as a team is not 'won by' a match.",
+    "triples_omissions": "The triples omit the detail about scoring consistently across all three periods, but all core facts and conclusions are preserved."
+  },
+  "18": {
+    "text_summary": "The text provides a concise, coherent summary that captures the winner, score, tournament, and key game progression without redundancy.",
+    "text_faithfulness": "The text accurately reflects the winner, final score, tournament/season, and period-by-period scoring from the structured data.",
+    "triples_additions": "The triple 'Abbotsford Canucks --won_by-> Match_1' is semantically incorrect and the introduction of 'Match_1' as an entity is not explicitly defined in the text.",
+    "triples_omissions": "The triples omit the specific detail regarding the scoring distribution in the first two periods."
+  },
+  "19": {
+    "text_summary": "The text is a concise and coherent summary that accurately captures the final score and the period-by-period breakdown from the structured data.",
+    "text_faithfulness": "The generated text accurately reflects all data points including the tournament, season, final score, and period-by-period breakdown.",
+    "triples_additions": "The triple 'Belfast Giants --won_by-> Match_1' is logically inverted and the entity 'Match_1' is an unsupported addition not defined in the text.",
+    "triples_omissions": "The triples omit the detailed scoring breakdown by period, which constitutes a significant portion of the source text's context."
+  },
+  "20": {
+    "text_summary": "The text is a concise, coherent summary that captures all key information (teams, score, league, and period details) without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all data points including the tournament, season, round, teams, final score, and the specific third-period score.",
+    "triples_additions": "The triple 'Sheffield Steelers --won_by-> Match_1' is logically incorrect (the team won the match, not the other way around), and 'Match_1' is an invented entity not present in the text.",
+    "triples_omissions": "The triples omit the critical detail of the dominant four-goal performance in the third period."
+  },
+  "21": {
+    "text_summary": "The text is a concise, accurate, and coherent summary of the match data.",
+    "text_faithfulness": "The generated text accurately reflects all data points including the round, season, teams, final score, and period-by-period scoring.",
+    "triples_additions": "All triples are directly supported by the reference text, with the use of a Match_ID to link the game details being a standard structural representation.",
+    "triples_omissions": "The triples omit the specific scoring distribution by period, but capture all primary facts regarding the winner, score, competition, and round."
+  },
+  "22": {
+    "text_summary": "The text is a concise and coherent summary that accurately captures the winner, final score, league, and period-by-period progression.",
+    "text_faithfulness": "The text accurately reflects the teams, final score, tournament season, and period-by-period scoring breakdown provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text.",
+    "triples_omissions": "The triples omit the specific progression of the game (the lead in the first two periods and the 2-2 tie in the third), which are important descriptive details."
+  },
+  "23": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data, capturing all essential match details without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all data points including the score, teams, round, tournament, season, and period-by-period breakdown.",
+    "triples_additions": "The triple 'Rögle BK --won_by-> Match_1' is logically inverted (it should be Match_1 --won_by-> Rögle BK) and the introduction of 'Match_1' as an entity is not explicitly defined in the text.",
+    "triples_omissions": "The triples omit the specific goal distribution per period, which is a significant detail of the match description."
+  },
+  "24": {
+    "text_summary": "The text is a concise and coherent summary that accurately captures the teams, final score, and period-by-period scoring details.",
+    "text_faithfulness": "The text accurately reflects the teams, the final score, the tournament, and the period-by-period scoring breakdown provided in the data.",
+    "triples_additions": "The triple 'Providence Friars --won_by-> Match_1' is logically inverted and introduces a non-existent entity 'Match_1' not defined in the text.",
+    "triples_omissions": "The triples omit the specific timing of all scoring (the second period) and the sequence of goals, which are important supporting details."
+  },
+  "25": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the final score and the game's progression without redundancy.",
+    "text_faithfulness": "The text accurately reflects the round, teams, final score, and period-by-period goal progression provided in the data.",
+    "triples_additions": "The triple 'EHC Erfurt --won_by-> Match_1' is logically inverted (the match didn't win the team), but it does not introduce unsupported facts.",
+    "triples_omissions": "The triples omit the critical narrative detail that Duisburg led 3-2 before Erfurt's third-period comeback."
+  },
+  "26": {
+    "text_summary": "The text is a concise, accurate, and coherent summary of the game result and scoring pattern.",
+    "text_faithfulness": "The text accurately reflects the teams, the final score, and the period-by-period scoring shown in the data.",
+    "triples_additions": "The triple 'Halifax Mooseheads --won_by-> Match_1' is logically inverted and nonsensical, and 'Match_1' is an identifier introduced without definition in the text.",
+    "triples_omissions": "The triples omit the specific detail that scoring occurred consistently across all three periods."
+  },
+  "27": {
+    "text_summary": "The text is a concise and coherent summary that captures all key details (teams, score, round, league, and period of the goal) without redundancy.",
+    "text_faithfulness": "The text accurately reflects all data points including teams, score, round, tournament, season, and the timing of the goal.",
+    "triples_additions": "The triple 'HC Motor České Budějovice --won_by-> Match_1' is logically inverted and materially incorrect, as a team is not won by a match.",
+    "triples_omissions": "The triples omit the critical detail that the decisive goal was scored in the third period."
+  },
+  "28": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data.",
+    "text_faithfulness": "The text accurately reflects all data points including the tournament, season, teams, final score, and period-by-period scoring.",
+    "triples_additions": "The triple 'Miami Ohio Redhawks --won_by-> Match_1' is logically inverted and represents a material distortion of the relationship.",
+    "triples_omissions": "The triples omit the specific timing of the goals (first and third periods), which is an important detail of the game's progression."
+  },
+  "29": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that captures all key details from the structured data.",
+    "text_faithfulness": "The text accurately reflects the teams, final score, and the period-by-period scoring distribution provided in the data.",
+    "triples_additions": "The triple 'Drummondville Voltigeurs --won_by-> Match_1' is logically inverted and the introduction of 'Match_1' as a node is an unsupported structural addition.",
+    "triples_omissions": "The triples omit the critical detail that all scoring occurred in the third period."
+  },
+  "30": {
+    "text_summary": "The text is a concise and accurate summary that captures the winner, score, tournament, and key scoring detail without redundancy.",
+    "text_faithfulness": "The text accurately reflects the winner, score, tournament, season, and period-specific scoring found in the data.",
+    "triples_additions": "The triple 'HK Ryazan --won_by-> Match_1' is logically distorted, as a team is not won by a match.",
+    "triples_omissions": "The triples omit the critical detail that all three goals were scored in the third period."
+  },
+  "31": {
+    "text_summary": "The text is a clear, coherent, and concise summary that accurately captures the core event and key details from the structured data.",
+    "text_faithfulness": "The text accurately reflects all data points, including the final score, the period-by-period breakdown, the tournament, round, and season.",
+    "triples_additions": "The triple 'Neman Grodno --won_by-> Match_1' is logically inverted/incorrect, and 'Match_1' is an introduced identifier not present in the text.",
+    "triples_omissions": "The triples omit the specific detail about the score progression (2-2 tie in the first period and the winning goal in the second)."
+  },
+  "32": {
+    "text_summary": "The text provides a concise and accurate summary of the match result and key details without any redundancy.",
+    "text_faithfulness": "The text accurately reflects the tournament, season, teams, final score, and the scoring distribution (period 2 had the most goals) provided in the data.",
+    "triples_additions": "The triple 'HK Vitebsk --won_by-> Match_1' is logically distorted, as the team did not win 'by' the match, and 'Match_1' is an invented entity not present in the text.",
+    "triples_omissions": "The triples omit the specific detail that the majority of scoring occurred in the second period, which is an important detail of the match description."
+  },
+  "33": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures all key details from the structured data without redundancy.",
+    "text_faithfulness": "The text accurately reflects all data points, including the final score, the regulation time draw, the penalty shootout outcome, and the tournament details.",
+    "triples_additions": "The triple 'HC ZUBR Přerov --won_by-> Match_1' is semantically imprecise as the team won the match, not the other way around.",
+    "triples_omissions": "The triples omit the specific season (23/24) and the regulation time draw, but the core result and context remain intact."
+  },
+  "34": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the match result and progression without redundancy.",
+    "text_faithfulness": "The text accurately reflects the round, league, season, final score, and period-by-period scoring breakdown provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text.",
+    "triples_omissions": "The triples omit the specific scoring progression (trailing 1-0, scoring in 2nd and 3rd periods), which provides important context to the match narrative."
+  },
+  "35": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the match result and scoring progression.",
+    "text_faithfulness": "The text accurately reflects the teams, final score, and period-by-period scoring progression provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text, and the use of a match ID is a standard way to represent the event entity.",
+    "triples_omissions": "The triples capture the main outcome and context, but omit the specific detail about the first-period score and the scoring surge."
+  },
+  "36": {
+    "text_summary": "The text is a concise and accurate summary that captures all key information from the structured data without redundancy.",
+    "text_faithfulness": "The text accurately reflects the tournament, season, round, teams, final score, and period-by-period scoring from the data.",
+    "triples_additions": "The triple 'Molot Perm --won_by-> Match_1' is logically inverted and materially distorted, as a team cannot be won by a match.",
+    "triples_omissions": "The triples omit the specific scoring details (one goal in each of the second and third periods), which is an important supporting detail."
+  },
+  "37": {
+    "text_summary": "The text is a concise and accurate summary that captures all key information without redundancy.",
+    "text_faithfulness": "The text accurately reflects the round, tournament, season, teams, final score, and period distribution found in the data.",
+    "triples_additions": "The triple 'Bodens HF --won_by-> Match_1' is semantically incorrect/distorted, as a team is not 'won by' a match.",
+    "triples_omissions": "The triples omit the detail that the majority of scoring occurred in the first period."
+  },
+  "38": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures all key information from the structured data.",
+    "text_faithfulness": "The text accurately reflects the league, season, round, teams, final score, and period-by-period results provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text; the introduction of 'Match_1' is a necessary structural identifier for the event described.",
+    "triples_omissions": "The triples capture the main event and score, but omit the detail that Rittner Buam outscored Lustenau in every period."
+  },
+  "39": {
+    "text_summary": "The text is a concise and coherent summary that accurately captures the core event, score, and key details without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all data points, including the round, league, season, teams, final score, and the period-by-period scoring breakdown.",
+    "triples_additions": "All triples are directly supported by the reference text.",
+    "triples_omissions": "The triples capture all core factual data, omitting only the descriptive detail about the timing of the goals."
+  },
+  "40": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that captures all the core information from the data.",
+    "text_faithfulness": "The text accurately reflects the winner, the final score, the tournament, the round, and the season provided in the data.",
+    "triples_additions": "The triple 'EV Landshut --won_by-> Match_1' is semantically incorrect/distorted, and 'Match_1' is an introduced identifier not present in the text.",
+    "triples_omissions": "The triples capture all key facts, though they omit the explicit mention that Bietigheim Steelers lost (which is implied by Landshut's win and score)."
+  },
+  "41": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the match results and scoring breakdown.",
+    "text_faithfulness": "The text accurately reflects all data points, including the league, teams, final score, and period-by-period scoring breakdown.",
+    "triples_additions": "The triple 'Biryusa Krasnoyarsk --won_by-> Match_1' is semantically imprecise as the team won the match, not 'by' the match, but no material facts were fabricated.",
+    "triples_omissions": "The triples omit the specific scoring timeline (first and third periods) and use a confusing 'won_by' relation that doesn't clearly represent the victory."
+  },
+  "42": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that captures the winner, score, teams, and league without redundant detail.",
+    "text_faithfulness": "The text accurately reflects the teams, final score, league, and the distribution of goals across the periods as provided in the data.",
+    "triples_additions": "The triple 'Detroit Red Wings --won_by-> Match_ID_1' is logically distorted, as a team is not 'won by' a match, and 'Match_ID_1' is a hallucinated identifier not present in the text.",
+    "triples_omissions": "The triples omit the detail about when the goals were scored (second and third periods), which is a supporting detail but provides context for the game's progression."
+  },
+  "43": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the core result and key details of the match without redundancy.",
+    "text_faithfulness": "The text accurately reflects the teams, score, tournament, season, and the period-by-period scoring breakdown provided in the data.",
+    "triples_additions": "The triple 'Loko Yaroslavl --won_by-> Match_1' is logically incorrect and introduces a fabricated relationship; the team won the match, they were not won by it.",
+    "triples_omissions": "The triples omit the critical detail that all goals were scored in the first two periods."
+  },
+  "44": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the final score, the teams, and the period-by-period scoring breakdown.",
+    "text_faithfulness": "The text accurately reflects the final score, the teams, the tournament, and the period-by-period scoring breakdown provided in the data.",
+    "triples_additions": "The triple 'Lokomotiv Yaroslavl --won_by-> Match_1' is slightly imprecise in its relationship phrasing, but no material facts are hallucinated.",
+    "triples_omissions": "The triples omit the specific timing of goals (first, second, and third periods), which is a significant portion of the source text's detail."
+  },
+  "45": {
+    "text_summary": "The text is a clear, coherent, and concise summary that accurately reflects the match outcome and period-by-period scoring.",
+    "text_faithfulness": "The text accurately reflects all data points, including the final score, period scores, round, tournament name, and winner.",
+    "triples_additions": "The triple 'LHK Jestřábi Prostějov --won_by-> Match_1' is logically inverted and materially distorting, as the team won the match, not the match winning the team.",
+    "triples_omissions": "The triples capture all primary facts, omitting only the specific period-by-period scoring breakdown."
+  },
+  "46": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the match data.",
+    "text_faithfulness": "The generated text accurately reflects all data points including the tournament, season, round, final score, and period-by-period scoring breakdown.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "The triples omit the specific scoring timeline (goals per period), which is an important detail of the match description."
+  },
+  "47": {
+    "text_summary": "The text is a concise, coherent summary that captures all key details (teams, score, round, league, and period trend) without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all data points including the round, league, season, teams, final score, and the period-by-period scoring distribution.",
+    "triples_additions": "The triple 'HK Poprad --won_by-> Match_1' is logically inverted or nonsensical and introduces a relationship not supported by the text.",
+    "triples_omissions": "The triples omit the specific detail that the majority of scoring occurred in the second period."
+  },
+  "48": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data.",
+    "text_faithfulness": "The generated text accurately reflects all the facts provided in the structured data, including the league, season, round, teams, final score, and period-by-period scoring.",
+    "triples_additions": "The triple 'HC AKM Tula --won_by-> Match_1' is phrased awkwardly and slightly imprecise, but all factual content is grounded in the text.",
+    "triples_omissions": "The triples omit the specific scoring breakdown per period, which is an important detail provided in the source text."
+  },
+  "49": {
+    "text_summary": "The text is a concise, coherent summary that captures the winner, final score, context, and key game detail without redundancy.",
+    "text_faithfulness": "The text accurately reflects the winner, final score, round, tournament, season, and the specific third-period scoring provided in the data.",
+    "triples_additions": "The triple 'Hanvikens SK --won_by-> Match_1' is semantically incorrect and introduces an unsupported relationship.",
+    "triples_omissions": "The triples capture all main facts, though the specific detail about the 3-goal performance in the third period is omitted."
+  },
+  "50": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that captures all key details of the match result.",
+    "text_faithfulness": "The text accurately reflects all data points, including the round, tournament, season, teams, final score, overtime result, and regulation score.",
+    "triples_additions": "The triple 'AIK --won_by-> Match_1' is logically inverted/incorrect, and 'Match_1' is an identifier introduced without definition in the text.",
+    "triples_omissions": "All critical facts including teams, score, round, competition, and the overtime outcome are captured."
+  },
+  "51": {
+    "text_summary": "The text is a concise, accurate, and coherent summary of the match result and context.",
+    "text_faithfulness": "The generated text accurately reflects all key data points, including the round, season, league, final score, and the fact that the game was decided by penalties after a 2-2 draw.",
+    "triples_additions": "The triples introduce an identifier 'Match_1' not present in the text, but it is a logical structural addition for mapping the event.",
+    "triples_omissions": "The triples omit the specific detail of the 2-2 draw in regulation time, but all core facts of the match outcome and context are preserved."
+  },
+  "52": {
+    "text_summary": "The text is a concise, coherent summary that captures all key data points without redundancy.",
+    "text_faithfulness": "The text accurately reflects all data points provided in the JSON, including the round, season, teams, final score, and period-by-period breakdown.",
+    "triples_additions": "The triple 'Brûleurs de Loups Grenoble --won_by-> Match_1' is logically inverted or distorted, as a team cannot be 'won by' a match.",
+    "triples_omissions": "The specific goal distribution per period is omitted, but the core result and context are fully preserved."
+  },
+  "53": {
+    "text_summary": "The text provides a clear, coherent, and concise summary of the match results and scoring breakdown without redundancy.",
+    "text_faithfulness": "The text accurately represents all data points, including the tournament, season, round, teams, final score, and period-by-period scoring.",
+    "triples_additions": "The triple 'HK Gomel --won_by-> Match_1' is semantically imprecise/inverted, but no material facts were fabricated.",
+    "triples_omissions": "The triples capture the main result and context, but omit the specific scoring distribution by period mentioned in the text."
+  },
+  "54": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the match data.",
+    "text_faithfulness": "The generated text accurately reflects all data points, including the tournament, season, round, teams, final score, and period-specific scoring.",
+    "triples_additions": "The triple 'LeKi Hockey --won_by-> Match_1' is logically inverted or nonsensical, and 'Match_1' is an identifier introduced without definition in the text.",
+    "triples_omissions": "The detail about the four-goal surge in the third period is omitted, but the core outcome and context are preserved."
+  },
+  "55": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the key outcome and scoring trend from the data.",
+    "text_faithfulness": "The text accurately reflects the teams, the final score, the league, and the period-by-period scoring distribution provided in the data.",
+    "triples_additions": "The triple 'Neftyanik Almetyevsk --won_by-> Match_1' is semantically nonsensical and not supported by the text.",
+    "triples_omissions": "The triples omit the specific detail regarding the game's progression (dominance in the first half/three goals in the first two periods)."
+  },
+  "56": {
+    "text_summary": "The text is a concise, accurate, and coherent summary of the match data.",
+    "text_faithfulness": "The text accurately reflects all key data points: tournament, season, round, teams, final score, and the overtime result.",
+    "triples_additions": "The triple 'Boxers de Bordeaux --won_by-> Match_1' is semantically imprecise/inverted, but no material facts were fabricated.",
+    "triples_omissions": "The triples capture all core facts, though the detail about the 3-3 draw in normal time is omitted."
+  },
+  "57": {
+    "text_summary": "The text is a concise, coherent summary that captures the winner, score, tournament, and key game progression without redundancy.",
+    "text_faithfulness": "The text accurately represents the winner, score, tournament, season, sport, and the specific first-period score provided in the data.",
+    "triples_additions": "The triple 'Corona Brașov --won_by-> Match_1' is logically incorrect and introduces a distorted relationship, as a team is not 'won by' a match.",
+    "triples_omissions": "The triples omit the specific detail about the first-period lead and the sport (ice hockey), though the core result is preserved."
+  },
+  "58": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that captures all essential details from the structured data.",
+    "text_faithfulness": "The generated text accurately reflects all key data points, including the tournament, round, teams, final score, and the fact that it was decided by penalties after a 4-4 regulation tie.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "The triples omit the specific regulation score (4-4), but all primary facts and the final outcome are correctly captured."
+  },
+  "59": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the match results and period scoring without any redundancy.",
+    "text_faithfulness": "The text accurately reflects all data points including teams, score, round, season, and period-by-period scoring.",
+    "triples_additions": "The triple 'SDE Hockey --won_by-> Match_1' is logically inverted/incorrect, and 'Match_1' is an introduced entity not explicitly named in the text.",
+    "triples_omissions": "The triples omit the detail about the goal distribution across the three periods, which is an important descriptive element of the game."
+  },
+  "60": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the final score, the teams, and the scoring progression from the structured data.",
+    "text_faithfulness": "The text accurately reflects the final score, the teams, the tournament, and the period-by-period scoring breakdown.",
+    "triples_additions": "The triple 'Nashville Predators --won_by-> Match_1' is logically distorted and the entity 'Match_1' is an unsupported hallucination not present in the text.",
+    "triples_omissions": "The triples omit the specific game progression (the 3-0 lead and Winnipeg's third-period comeback attempt), which is a significant part of the narrative."
+  },
+  "61": {
+    "text_summary": "The text is a concise and coherent summary that captures the key event, the final score, and a notable detail from the structured data.",
+    "text_faithfulness": "The text accurately reflects the teams, tournament, season, round, final score, and the specific period score provided in the data.",
+    "triples_additions": "The triple 'Biryusa Krasnoyarsk --won_by-> Match_1' is logically incorrect and unsupported, as a team is not 'won by' a match.",
+    "triples_omissions": "The triples omit the critical detail regarding the five-goal second period, which is a key narrative point of the text."
+  },
+  "62": {
+    "text_summary": "The text is a concise and coherent summary that accurately captures the winner, score, league, and period-by-period progression from the data.",
+    "text_faithfulness": "The text accurately reflects the teams, the final score, the tournament/season, and the scoring progression by period.",
+    "triples_additions": "The triple 'Columbus Blue Jackets --won_by-> Match_1' is logically distorted, as the team won the match, not 'won by' the match.",
+    "triples_omissions": "The triples omit the specific scoring progression (the lead in the first two periods and the tied third period), which is an important detail of the match description."
+  },
+  "63": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures all key details from the structured data without redundancy.",
+    "text_faithfulness": "The text accurately reflects all data points including teams, score, league, season, round, and the period in which the goal was scored.",
+    "triples_additions": "The triple 'FEHA19 --won_by-> Match_1' is logically incorrect and unsupported, as a team cannot be won by a match.",
+    "triples_omissions": "The triples omit the specific detail that the decisive goal occurred during the second period."
+  },
+  "64": {
+    "text_summary": "The text is a concise and coherent summary that captures the core event, the final score, and key period details without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all data points provided in the JSON instance.",
+    "triples_additions": "The triple 'Amiens Hockey Élite --won_by-> Match_1' is logically incorrect and introduces a non-existent relationship; 'Match_1' is a hallucinated identifier.",
+    "triples_omissions": "The triples omit the specific detail that 3 goals were scored in both the first and third periods."
+  },
+  "65": {
+    "text_summary": "The text is a clear, coherent, and concise summary that accurately captures the final score and the progression of the game from the structured data.",
+    "text_faithfulness": "The text accurately reflects the round, tournament, season, final score, and period-by-period scoring from the data.",
+    "triples_additions": "The triples introduce a fabricated 'Match_ID_1' entity and assign an illogical relationship 'Brynäs IF --won_by-> Match_ID_1'.",
+    "triples_omissions": "The triples capture the main result and competition details but omit the period-by-period scoring breakdown."
+  },
+  "66": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the core match details and score progression from the structured data.",
+    "text_faithfulness": "The text accurately reflects all data points, including the final score, teams, league, season, round, and period-by-period progression.",
+    "triples_additions": "The triple 'Amurskie Tigry --won_by-> Match_1' is logically inverted/incorrect, and 'Match_1' is an introduced identifier not present in the text.",
+    "triples_omissions": "The triples capture the main outcome and event details, though they omit the specific detail about the scoreless first period."
+  },
+  "67": {
+    "text_summary": "The text is a concise, coherent summary that accurately preserves the core game details and score without redundancy.",
+    "text_faithfulness": "The text accurately reflects the tournament, round, season, teams, final score, and period-by-period outcome provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "The triples capture all primary facts, though the narrative progression of the match (early lead and comeback) is omitted."
+  },
+  "68": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the match outcome, final score, and period-by-period progression from the data.",
+    "text_faithfulness": "The text accurately reflects all data points, including the final score, teams, tournament, round, and the period-by-period scoring breakdown.",
+    "triples_additions": "The triple 'Brandon Wheat Kings --won_by-> Match_1' is logically inverted and materially distorted, as the team won the match, not the other way around.",
+    "triples_omissions": "The triples omit the specific scoring progression by period (scoreless first, two goals in second, one each in third), which is a significant portion of the source text."
+  },
+  "69": {
+    "text_summary": "The text is a concise and coherent summary that captures all key details from the structured data without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all data points including the teams, final score, period breakdown, round, season, and sport.",
+    "triples_additions": "The triple 'HIFK Helsinki --won_by-> Match_1' is logically inverted/incorrect, and 'Match_1' is an introduced entity not defined in the text.",
+    "triples_omissions": "The triples omit the specific period-by-period scoring breakdown, which is a significant detail of the reference text."
+  },
+  "70": {
+    "text_summary": "The text is a concise, coherent summary that captures all essential information without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all key data points: round number, league, season, teams, and final score.",
+    "triples_additions": "All triples are directly supported by the reference text, and the use of a placeholder 'Match_ID_1' is a necessary structural element to link the game details.",
+    "triples_omissions": "All critical information from the text, including teams, score, competition, and round, is captured in the triples."
+  },
+  "71": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the final score and the key progression of the match from the structured data.",
+    "text_faithfulness": "The text accurately reflects all data points, including the round, teams, final score, and period-by-period breakdown.",
+    "triples_additions": "The triple 'ESC Halle Saale Bulls --won_by-> Match_1' is semantically awkward/imprecise, but no material facts were fabricated.",
+    "triples_omissions": "The triples omit the specific game progression details, such as the first period lead and the second period dominance, which provide important context to the victory."
+  },
+  "72": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the teams, tournament, final score, and period-by-period progression.",
+    "text_faithfulness": "The text accurately reflects the tournament, season, teams, final score, and period-by-period scoring progression provided in the data.",
+    "triples_additions": "The triple 'HC Khimik Voskresensk --won_by-> Match_1' is semantically incorrect/distorted, as a team is not won by a match.",
+    "triples_omissions": "The triples omit the chronological progression of the game (scoreless first period, scoring in second and third), which is a significant part of the source text."
+  },
+  "73": {
+    "text_summary": "The text is a clear, coherent, and concise summary that captures all key details from the structured data without redundancy.",
+    "text_faithfulness": "The text accurately reflects all data points, including the round, season, teams, final score, and period-by-period breakdown.",
+    "triples_additions": "The triple 'HC Bolzano --won_by-> Match_1' is logically inverted and distorted, as a team cannot be 'won by' a match.",
+    "triples_omissions": "The triples capture the core result and context but omit the specific scoring progression of the three periods."
+  },
+  "74": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data, capturing the winner, score, tournament, and period-by-period goal distribution.",
+    "text_faithfulness": "The generated text accurately reflects the winner, the final score, the tournament/season, and the period-by-period scoring based on the provided data.",
+    "triples_additions": "The triple 'Severstal Cherepovets --won_by-> Match_1' is semantically incorrect and introduces an unsupported relationship; 'Match_1' is an invented entity not defined in the text.",
+    "triples_omissions": "The triples omit the specific detail about when the goals were scored (first and third periods)."
+  },
+  "75": {
+    "text_summary": "The text is a concise, coherent summary that captures the core result and key detail without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately reflects the tournament, season, teams, final score, and the specific second-period scoring performance found in the data.",
+    "triples_additions": "The triples introduce an external entity 'Match_1' not mentioned in the text and incorrectly assign the relationship 'won_by' to it.",
+    "triples_omissions": "The triples omit the critical detail regarding the second-period surge and the specific number of goals scored during that timeframe."
+  },
+  "76": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that synthesizes the score, teams, tournament, and period-by-period progression.",
+    "text_faithfulness": "The text accurately reflects the final score, teams, tournament, season, round, and period-by-period scoring progression provided in the data.",
+    "triples_additions": "The triple 'Visby/Roma HK --won_by-> Match_1' is logically inverted (the team did not win by the match) and 'Match_1' is an identifier introduced without being defined in the text.",
+    "triples_omissions": "The triples omit the specific game progression (the 1-0 deficit and subsequent three unanswered goals), which provides important context to the match result."
+  },
+  "77": {
+    "text_summary": "The text provides a concise, coherent summary that captures all key information (teams, score, league, season, and round) without redundancy.",
+    "text_faithfulness": "The text accurately reflects the winner, score, league, season, round, and period-by-period performance provided in the data.",
+    "triples_additions": "The triple 'Victoriaville Tigres --won_by-> Match_1' is logically inverted and materially incorrect, as the team did not win 'by' the match.",
+    "triples_omissions": "The triples omit the detail about the team's dominance and the specific impact of the second period."
+  },
+  "78": {
+    "text_summary": "The text is a concise and coherent summary that accurately captures the core facts of the match without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all data points, including the round, tournament, season, teams, and final score.",
+    "triples_additions": "The triples introduce 'Match_ID_1' as a proxy entity to link the competition and round, which is a structural addition not explicitly in the text but functionally necessary for the schema.",
+    "triples_omissions": "The triples omit the specific detail about the strong performances in the first and third periods, but the core facts of the game result and context are preserved."
+  },
+  "79": {
+    "text_summary": "The text is a concise and accurate summary that captures the key event, teams, final score, and the specific manner of victory.",
+    "text_faithfulness": "The text accurately reflects the teams, the final score, the normal time tie, and the penalty shootout outcome based on the provided data.",
+    "triples_additions": "The triple 'Zauralie Kurgan --won_by-> Match_1' is logically incorrect and unsupported, as it suggests the team was won by the match rather than winning the match.",
+    "triples_omissions": "The triples omit the detail that the game was a 4-4 draw in normal time, which is a minor detail compared to the final result."
+  },
+  "80": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the match data, correctly identifying the league, teams, final score, and the method of victory.",
+    "text_faithfulness": "The generated text accurately reflects all key data points, including the tournament name, season, round, teams, final score, and the progression from a 2-2 regulation tie to a penalty win.",
+    "triples_additions": "All triples are directly supported by the reference text, with 'Match_1' serving as a logical internal identifier for the event described.",
+    "triples_omissions": "The triples omit the regulation tie (2-2), but all critical outcomes and context are preserved."
+  },
+  "81": {
+    "text_summary": "The text is a concise, accurate, and coherent summary of the match result and key details.",
+    "text_faithfulness": "The text accurately reflects the teams, final score, tournament, round, and the fact that the game was decided by penalties after a 2-2 normal time tie.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or distortions.",
+    "triples_omissions": "The triples omit the specific regulation score of 2-2, but the final result and method of victory are captured."
+  },
+  "82": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that captures the core result and scoring patterns from the data.",
+    "text_faithfulness": "The text accurately reflects the teams, final score, season, league, and the specific period-by-period scoring breakdown provided in the data.",
+    "triples_additions": "The triple 'Indy Fuel --won_by-> Match_1' is logically incorrect/distorted, and 'Match_1' is an introduced entity not defined in the text.",
+    "triples_omissions": "The triples omit the specific scoring distribution (Fuel scoring every period, Wings only in the second) which provides important context for the game's progression."
+  },
+  "83": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the match result, participants, tournament details, and scoring progression.",
+    "text_faithfulness": "The text accurately reflects the round, tournament, teams, final score, and period-by-period scoring data provided in the JSON.",
+    "triples_additions": "All triples are directly supported by the reference text, with 'Match_1' serving as a necessary internal identifier for the event.",
+    "triples_omissions": "The triples omit the detail about goals being scored in every period, but all core facts and the outcome are preserved."
+  },
+  "84": {
+    "text_summary": "The text provides a concise, coherent summary that captures the winner, the final score, the league/season, and a key highlight from the period data.",
+    "text_faithfulness": "The text accurately reflects the teams, final score, season, and first-period scoring provided in the data.",
+    "triples_additions": "The triples introduce an external entity 'Match_1' and a non-existent relationship 'won_by' that is not supported by the text.",
+    "triples_omissions": "The triples omit the specific detail about the early dominance (three goals in the first period), which is a supporting detail of the game's narrative."
+  },
+  "85": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key details without redundancy.",
+    "text_faithfulness": "The text accurately reflects the teams, final score, round, tournament, season, and period-by-period scoring provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text.",
+    "triples_omissions": "The triples omit the detail about scoring two goals in each period, but all critical match facts and the outcome are preserved."
+  },
+  "86": {
+    "text_summary": "The text is a concise, coherent summary that captures the core result and scoring breakdown without any redundancy.",
+    "text_faithfulness": "The text accurately reflects the teams, final score, and period-by-period breakdown found in the data.",
+    "triples_additions": "The triple 'Edmonton Oilers --won_by-> Match_ID_1' is logically inverted and the introduction of 'Match_ID_1' as an entity is an unsupported addition.",
+    "triples_omissions": "The triples omit the specific goal distribution per period, which is an important detail of the game's progression."
+  },
+  "87": {
+    "text_summary": "The text provides a clear, coherent, and concise summary of the match result and progression without redundancy.",
+    "text_faithfulness": "The text accurately reflects the final score, the team names, the tournament/season, the period-by-period scoring, and the method of victory (penalties).",
+    "triples_additions": "All triples are directly supported by the reference text.",
+    "triples_omissions": "The triples omit the critical detail that the game was tied 2-2 after normal time and that all scoring occurred in the third period."
+  },
+  "88": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that captures all key information from the structured data without redundancy.",
+    "text_faithfulness": "The text accurately reflects all data points, including the teams, final score, status (AET), regulation score, and season.",
+    "triples_additions": "The triples introduce a 'Match_1' entity not present in the text and use the imprecise relationship 'won_by' to link the team to the match.",
+    "triples_omissions": "The triples capture the main result and competition, but omit the specific detail about the 2-2 tie in regulation."
+  },
+  "89": {
+    "text_summary": "The text is a concise and coherent summary that accurately captures the tournament, teams, final score, and period-by-period progression.",
+    "text_faithfulness": "The generated text accurately reflects all data points, including the tournament name, season, teams, final score, and period-by-period scoring breakdown.",
+    "triples_additions": "The triple 'Deac Jegkorong Akademia U20 --won_by-> Match_1' is logically inverted and the introduction of 'Match_1' as an entity is an unsupported addition not present in the text.",
+    "triples_omissions": "The triples omit the specific period-by-period scoring breakdown, which provides important context for how the game progressed."
+  },
+  "90": {
+    "text_summary": "The text is a concise and accurate summary that captures all the essential details from the structured data.",
+    "text_faithfulness": "The generated text accurately reflects all data points provided in the JSON instance.",
+    "triples_additions": "The triple 'Lindlövens IF --won_by-> Match_1' is semantically incorrect/distorted, as it implies the team was won by the match rather than the team winning the match.",
+    "triples_omissions": "The triples capture all core facts, though the relationship 'won_by' is phrased awkwardly and 'Match_1' is an inferred entity."
+  },
+  "91": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the final score, the teams, the tournament, and the period-by-period scoring trend.",
+    "text_faithfulness": "The text accurately reflects all data points including teams, score, round, season, and period-by-period breakdown.",
+    "triples_additions": "The triple 'Cardiff Devils --won_by-> Match_1' is semantically imprecise as the team did not win 'by' the match, but the overall meaning remains grounded in the text.",
+    "triples_omissions": "The triples omit the specific scoring progression (the third period surge and the 1-0 lead), which provides significant context to the match narrative."
+  },
+  "92": {
+    "text_summary": "The text is a concise, coherent summary that captures the key facts—the tournament, round, teams, final score, and a notable detail—without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all facts provided in the structured data, including the round, league, season, teams, final score, and the specific third-period performance.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "The triples omit the specific detail about Alvesta dominating the third period by scoring four goals."
+  },
+  "93": {
+    "text_summary": "The text provides a concise and accurate summary of the match result, including the score, round, league, and period breakdown.",
+    "text_faithfulness": "The generated text accurately represents all facts from the structured data, including the score, teams, round, league, season, and period-specific scoring.",
+    "triples_additions": "The triple 'HC Košice --won_by-> Match_1' is logically backward/incorrect, and 'Match_1' is an introduced identifier not present in the text.",
+    "triples_omissions": "The triples omit the specific scoring distribution (goals in first and third periods), which is a supporting detail of the match summary."
+  },
+  "94": {
+    "text_summary": "The text is a concise and accurate summary that captures all key details from the structured data without redundancy.",
+    "text_faithfulness": "The text accurately reflects the tournament, season, round, teams, final score, and period-by-period scoring data provided in the JSON.",
+    "triples_additions": "The triple 'FTC-Telekom --won_by-> Match_1' is semantically incorrect and the introduction of 'Match_1' as an entity is an unsupported structural addition.",
+    "triples_omissions": "The triples omit the critical detail that all scoring occurred in the second period."
+  },
+  "95": {
+    "text_summary": "The text provides a concise and coherent summary of the match result and scoring progression based on the structured data.",
+    "text_faithfulness": "The text accurately reflects the tournament, season, round, teams, final score, and period-by-period scoring breakdown provided in the data.",
+    "triples_additions": "The triple 'Chelmet Chelyabinsk --won_by-> Match_1' is phrased awkwardly/imprecisely, but all factual information is supported by the text.",
+    "triples_omissions": "The triples omit the specific game progression (Dizel's early lead and Chelmet's third-period surge), which provides important context for the match."
+  },
+  "96": {
+    "text_summary": "The text is a concise and coherent summary that accurately reflects the final score and period-by-period breakdown.",
+    "text_faithfulness": "The text accurately reflects the tournament, season, teams, final score, and period-by-period scoring breakdown provided in the data.",
+    "triples_additions": "The triple 'Belye Medvedi --won_by-> Match_1' is logically incorrect, and 'Match_1' is an invented identifier not present in the text.",
+    "triples_omissions": "The triples omit the specific detail regarding the scoring pace and the two goals in the first period, which provided supporting context for the win."
+  },
+  "97": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the match data.",
+    "text_faithfulness": "The text accurately reflects all data points including teams, score, tournament, season, round, and period-by-period scoring.",
+    "triples_additions": "The triple 'Hershey Bears --won_by-> Match_1' is semantically distorted; the team won the match, they were not 'won by' the match.",
+    "triples_omissions": "The triples omit the specific scoring sequence (goals in first and second periods), which is an important supporting detail of the match narrative."
+  },
+  "98": {
+    "text_summary": "The text is a concise and accurate summary that captures all essential details from the structured data without redundancy.",
+    "text_faithfulness": "The text accurately reflects the round, tournament, teams, final score, and the fact that the game was decided by penalties after a 3-3 draw in normal time.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or material distortions.",
+    "triples_omissions": "The triples omit the regulation score (3-3), which is a minor detail given that the final outcome and method of victory are captured."
+  },
+  "99": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the match data.",
+    "text_faithfulness": "The text accurately reflects all key data points: round, league, season, teams, final score, and the outcome.",
+    "triples_additions": "The triples introduce a new entity 'Match_1' not explicitly named in the text, though it is a logical bridge to link the round and competition.",
+    "triples_omissions": "The triples capture all main facts, though the detail about maintaining a steady lead across all three periods is omitted."
+  }
+}

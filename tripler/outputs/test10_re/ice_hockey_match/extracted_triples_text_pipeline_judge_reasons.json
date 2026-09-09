@@ -1,0 +1,602 @@
+{
+  "0": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that captures all key information from the structured data.",
+    "text_faithfulness": "The generated text accurately reflects the teams, final score, tournament season, round, and the specific period in which all points were scored.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All key facts from the reference text, including the teams, score, league/round, and timing of scoring, are captured in the triples."
+  },
+  "1": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that captures all key information from the data without redundancy.",
+    "text_faithfulness": "The text accurately reflects the teams, the final score, the tournament, the season, the round, and the distribution of goals across periods.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "All key information from the source text, including the score, teams, league, round, sport, and timing of goals, is accurately captured."
+  },
+  "2": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the match result and context.",
+    "text_faithfulness": "The text accurately reflects the teams, score, tournament, season, round, and the fact that the game was decided by penalties after a 3-3 draw.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All critical details including the teams, score, league, round, sport, and the specific progression from regulation to shootout are captured."
+  },
+  "3": {
+    "text_summary": "The text provides a concise, accurate, and coherent summary of the match result and key details.",
+    "text_faithfulness": "The text accurately reflects all key data points including teams, score, round, season, league, and period-by-period breakdown.",
+    "triples_additions": "All triples are directly supported by the reference text without any additions or hallucinations.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples."
+  },
+  "4": {
+    "text_summary": "The text is a concise, accurate, and coherent summary of the structured data.",
+    "text_faithfulness": "The text accurately reflects all key data points from the JSON, including the tournament, season, round, teams, sport, and final score.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All critical information from the reference text is accurately captured in the triples."
+  },
+  "5": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the match data.",
+    "text_faithfulness": "The generated text accurately reflects all data points including the round, league, season, teams, final score, and the progression from a regulation draw to an overtime victory.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All critical information from the reference text is captured in the triples without any meaningful omissions."
+  },
+  "6": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the final score, the competition details, and the progression of the match.",
+    "text_faithfulness": "The text accurately reflects the winner, score, round, season, and period-by-period scoring breakdown provided in the data.",
+    "triples_additions": "All triples are directly supported by the facts provided in the reference text.",
+    "triples_omissions": "All key information, including the match outcome, score, league context, and period-by-period breakdown, has been captured."
+  },
+  "7": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the game results and period breakdowns.",
+    "text_faithfulness": "The text accurately reflects all data points including round, league, season, final score, and period-by-period scoring.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All key facts, including the final score, league details, and period-by-period breakdowns, are accurately captured in the triples."
+  },
+  "8": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the key details of the match and the specific scoring trend.",
+    "text_faithfulness": "The text accurately reflects all data points, including the round, tournament, season, teams, final score, and the specific second-period score.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "All key facts, including the teams, league, round, score, and specific performance detail, are captured without any meaningful omissions."
+  },
+  "9": {
+    "text_summary": "The text is a concise and accurate summary that captures all key information without redundancy.",
+    "text_faithfulness": "The text accurately reflects the winner, the final score, the tournament, the season, the round, and the period-by-period lead based on the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key pieces of information from the reference text are accurately captured in the triples."
+  },
+  "10": {
+    "text_summary": "The text provides a concise and coherent summary of the match result and scoring progression without redundancy.",
+    "text_faithfulness": "The text accurately reflects the teams, final score, league, season, and period-by-period scoring provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key facts, including the score, participants, league, and game progression, are accurately captured in the triples."
+  },
+  "11": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the match results and period-by-period scoring.",
+    "text_faithfulness": "The generated text accurately reflects all data points including the tournament, season, round, teams, final score, and period-by-period scoring.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key facts, including the final score, the competition context, and the period-by-period breakdown, are accurately captured."
+  },
+  "12": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the match data.",
+    "text_faithfulness": "The text accurately reflects all data points, including the round, league, season, teams, final score, overtime result, and regulation score.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "All critical information from the source text, including the teams, scores, league, round, and match progression, is accurately captured."
+  },
+  "13": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data, capturing all key details without redundancy.",
+    "text_faithfulness": "The text accurately reflects the winner, score, round, season, and period-by-period scoring detailed in the source data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All critical information, including the score, round, season, and the decisive nature of the third period, is captured accurately."
+  },
+  "14": {
+    "text_summary": "The text provides a concise and coherent summary of the match, capturing the key details and the core result without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all data points from the JSON, including the round, tournament, season, teams, final score, and first-period score.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples."
+  },
+  "15": {
+    "text_summary": "The text is a concise, coherent summary that captures all key details without redundancy.",
+    "text_faithfulness": "The text accurately reflects the round, tournament, season, teams, final score, and period-by-period scoring found in the data.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "All critical information from the reference text is accurately captured in the triples."
+  },
+  "16": {
+    "text_summary": "The text is a concise and accurate summary that captures the key outcome, teams, league, and scoring trend without redundancy.",
+    "text_faithfulness": "The text accurately reflects the teams, the final score, the league/season, and the period-by-period scoring distribution provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All key information from the source text, including the teams, score, league/season context, and scoring timing, is captured in the triples."
+  },
+  "17": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the provided structured data.",
+    "text_faithfulness": "The text accurately represents all data points including the teams, score, league, round, and season.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All critical details from the reference text, including teams, score, league, sport, round, and season, are accurately captured in the triples."
+  },
+  "18": {
+    "text_summary": "The text is a concise and accurate summary that captures the winner, final score, tournament, and key game progression.",
+    "text_faithfulness": "All claims including the final score, teams, tournament, and period breakdown are directly supported by the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All critical information, including teams, score, league/season, and the specific detail about early domination, is captured."
+  },
+  "19": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the match data, effectively condensing the period-by-period scoring into a narrative.",
+    "text_faithfulness": "The text accurately reflects the teams, final score, and period-by-period scoring breakdown provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples capture all factual details, including the match result, the scores, and the period-by-period breakdown."
+  },
+  "20": {
+    "text_summary": "The text is a concise, coherent summary that captures the key result, the teams, the league, and the most significant scoring detail.",
+    "text_faithfulness": "The text accurately reflects the tournament, season, round, teams, final score, and the specific third-period score provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key facts, including the teams, scores, league context, and the specific third-period performance, are captured in the triples."
+  },
+  "21": {
+    "text_summary": "The text is a concise, accurate, and coherent summary of the match data.",
+    "text_faithfulness": "The generated text accurately reflects all data points including the round, season, teams, final score, and period-by-period breakdown.",
+    "triples_additions": "All triples are directly supported by the reference text without any additions or hallucinations.",
+    "triples_omissions": "All factual information from the reference text is captured in the triples without any meaningful omissions."
+  },
+  "22": {
+    "text_summary": "The text is a concise, coherent summary that captures all key information from the structured data without redundancy.",
+    "text_faithfulness": "The text accurately reflects the tournament, season, round, teams, final score, and the scoring progression from the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key facts from the reference text are accurately captured in the triples without any meaningful omissions."
+  },
+  "23": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that captures all key details without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all data points including the round, season, teams, final score, and period-by-period breakdown.",
+    "triples_additions": "All triples are directly supported by the reference text, including the derived goal distribution per period.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples."
+  },
+  "24": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that preserves all core information without redundancy.",
+    "text_faithfulness": "The text accurately reflects the winner, score, tournament, and period-by-period scoring details provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or additions.",
+    "triples_omissions": "All critical information from the text, including the winner, score, game type, and timing of scoring, is accurately captured in the triples."
+  },
+  "25": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the key facts (teams, score, tournament, and period progression) without redundancy.",
+    "text_faithfulness": "The text accurately reflects the round, tournament, season, teams, final score, and period-by-period progression provided in the data.",
+    "triples_additions": "All triples are directly supported by the provided reference text.",
+    "triples_omissions": "The triples capture all primary facts, though the specific detail about the strong second and third period performance is omitted."
+  },
+  "26": {
+    "text_summary": "The text is a concise, accurate, and coherent summary of the game result and scoring breakdown.",
+    "text_faithfulness": "The text accurately reflects the teams, the final score, the season, and the period-by-period breakdown provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text.",
+    "triples_omissions": "The specific number of goals scored per period (1, 2, 1) was omitted, though the overall outcome and period activity were captured."
+  },
+  "27": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the match results and context.",
+    "text_faithfulness": "The text accurately reflects all data points, including the round, league, season, teams, final score, and the timing of the goal.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "All critical information from the reference text is accurately captured in the triples."
+  },
+  "28": {
+    "text_summary": "The text is a concise and accurate summary that captures all key details (teams, score, tournament, and period breakdown) without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects the teams, final score, tournament, season, and period-by-period scoring provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key facts, including participants, score, timing of goals, and game type, are accurately captured."
+  },
+  "29": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that captures all the core information from the structured data.",
+    "text_faithfulness": "The text accurately reflects the teams, the final score, the season, and the period-by-period scoring details provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "All critical information from the text is captured in the triples without any meaningful omissions."
+  },
+  "30": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the final score and the progression of the game from the structured data.",
+    "text_faithfulness": "The text accurately reflects all data points, including the final score, the period-by-period breakdown, and the teams involved.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All critical facts, scores, and chronological details from the text are accurately captured in the triples."
+  },
+  "31": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the match result and scoring progression.",
+    "text_faithfulness": "The text accurately reflects the team names, score, round, league, season, and period-by-period scoring breakdown provided in the data.",
+    "triples_additions": "All triples are directly supported by the facts provided in the reference text.",
+    "triples_omissions": "All factual information from the reference text is accurately captured in the triples."
+  },
+  "32": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures all key details from the structured data without redundancy.",
+    "text_faithfulness": "The text accurately reflects all data points including the tournament, season, round, final score, and period-by-period breakdown.",
+    "triples_additions": "All triples are directly supported by the facts provided in the reference text.",
+    "triples_omissions": "All key facts, including the league, round, final score, and period-by-period breakdown, are accurately represented."
+  },
+  "33": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that captures all essential details from the structured data without redundancy.",
+    "text_faithfulness": "The text accurately reflects all data points, including the round, league, season, final score, regulation score, and the method of victory via penalties.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All critical information from the reference text is accurately captured in the triples."
+  },
+  "34": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the result and the scoring progression from the structured data.",
+    "text_faithfulness": "The generated text accurately reflects the final score, the round, the tournament, the season, and the period-by-period scoring breakdown provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All factual information from the reference text is captured in the triples without any meaningful omissions."
+  },
+  "35": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the final score, the teams, and the period-by-period progression.",
+    "text_faithfulness": "The text accurately reflects the tournament, season, round, teams, final score, and period-by-period scoring breakdown.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or additions.",
+    "triples_omissions": "All critical facts, including scores, teams, and the progression of the game, are captured in the triples."
+  },
+  "36": {
+    "text_summary": "The text is a concise, accurate, and coherent summary of the match result and scoring breakdown.",
+    "text_faithfulness": "The text accurately reflects the tournament, season, teams, final score, and period-by-period scoring provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text, including the inferred fact that SKA-Neva conceded the goals Molot Perm scored.",
+    "triples_omissions": "All critical information, including the score, the timing of the goals, and the season context, is accurately captured in the triples."
+  },
+  "37": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that captures all key information from the structured data.",
+    "text_faithfulness": "The text is almost entirely faithful, though it incorrectly states a 3-1 lead by the end of the first period when the data shows it was 3-1 (which is a lead, but not a '3-1 lead' in the sense of a margin; the score was 3-1).",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All key facts from the reference text are captured in the triples without any meaningful omissions."
+  },
+  "38": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the core outcome and context of the data.",
+    "text_faithfulness": "The text accurately reflects the tournament, season, round, teams, final score, and the fact that the away team scored more in each individual period.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or material distortions.",
+    "triples_omissions": "All key facts from the reference text, including the teams, score, league/round, and period-by-period dominance, are captured."
+  },
+  "39": {
+    "text_summary": "The text is a concise, accurate, and coherent summary of the structured data.",
+    "text_faithfulness": "The text accurately reflects all data points including teams, score, round, tournament name, and season.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All critical information from the reference text, including score, round, league, and season, is accurately captured in the triples."
+  },
+  "40": {
+    "text_summary": "The text is a concise, coherent summary that captures all the essential information from the structured data without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all key data points including the league, round, season, teams, and final score.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key information from the reference text is accurately captured in the triples."
+  },
+  "41": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the final score and period-by-period breakdown without redundancy.",
+    "text_faithfulness": "The text accurately reflects all data points, including teams, final score, and period-by-period scoring details.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or additions.",
+    "triples_omissions": "All factual information from the source text, including the event, the winner, the final score, and the period-by-period breakdown, is captured in the triples."
+  },
+  "42": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that captures the core result and flow of the game without redundancy.",
+    "text_faithfulness": "The text accurately reflects the winner, the final score, the league/season, and the period-by-period scoring breakdown provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all key facts, including the winner, score, league/season, and the distribution of goals across periods."
+  },
+  "43": {
+    "text_summary": "The text is a concise, coherent summary that captures all key details from the structured data without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all data points including teams, score, tournament, season, round, and period-by-period scoring.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All critical information from the reference text, including the score, period breakdown, and match context, is accurately captured in the triples."
+  },
+  "44": {
+    "text_summary": "The text is a concise, accurate, and coherent summary of the provided match data.",
+    "text_faithfulness": "The generated text accurately reflects all key facts from the data, including teams, score, tournament, season, and round.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key information from the reference text is accurately captured in the triples."
+  },
+  "45": {
+    "text_summary": "The text is a concise and coherent summary that accurately captures the final score and the period-by-period progression of the game.",
+    "text_faithfulness": "The text accurately represents all scores, team names, tournament details, and period-by-period progressions found in the data.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions or hallucinations.",
+    "triples_omissions": "The triples capture all key factual information, including the winner, loser, score, league, round, and the scoring progression across all three periods."
+  },
+  "46": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data.",
+    "text_faithfulness": "The text accurately reflects all key data points: the round, tournament, season, teams, and final score.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All critical information from the source text is accurately captured in the triples."
+  },
+  "47": {
+    "text_summary": "The text is a concise and accurate summary that captures all key details without redundancy.",
+    "text_faithfulness": "The text accurately reflects the teams, final score, round, tournament, and the specific second-period score provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "All key facts, including the winner, score, round, league, season, and the specific detail about the second period, are captured."
+  },
+  "48": {
+    "text_summary": "The text is a concise, coherent summary that captures all key data points without redundancy.",
+    "text_faithfulness": "The text accurately reflects all data points including the league, season, teams, final score, and period-by-period scoring.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All critical information, including the league, teams, final score, and period-by-period breakdown, is accurately captured."
+  },
+  "49": {
+    "text_summary": "The text is a concise, coherent summary that captures all key details (tournament, teams, result, and period breakdown) without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all the data points provided in the JSON instance.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key facts from the reference text, including the score, the league/season, the round, and the specific third-period performance, are captured."
+  },
+  "50": {
+    "text_summary": "The text is a concise, accurate, and coherent summary of the game's outcome and context.",
+    "text_faithfulness": "The text accurately reflects all data points including the round, tournament, season, teams, final score, and the overtime result.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key facts from the source text, including the teams, round, season, final score, overtime outcome, and regulation score, are captured."
+  },
+  "51": {
+    "text_summary": "The text is a concise and accurate summary that captures all key details of the match result.",
+    "text_faithfulness": "The text accurately reflects the round, league, teams, final score, and the fact that the game was decided by penalties after a 2-2 tie in normal time.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key facts, including the league, round, final score, method of victory, and regulation result, are captured."
+  },
+  "52": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the match result and context.",
+    "text_faithfulness": "The text accurately reflects all data points, including the round, season, tournament, team names, final score, and period-by-period scoring.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key information from the source text is accurately captured in the triples."
+  },
+  "53": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the match results and period scoring.",
+    "text_faithfulness": "The text accurately reflects the tournament, season, round, teams, final score, and period-by-period scoring from the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All factual details and contextual information from the text are accurately captured in the triples."
+  },
+  "54": {
+    "text_summary": "The text is a concise, coherent summary that captures all key data points without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all data points: the round, season, tournament, sport, teams, final score, and the specific third-period breakdown.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "All key facts, including the teams, score, season/round, and specific period performance, are accurately captured."
+  },
+  "55": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that captures all key details without redundancy.",
+    "text_faithfulness": "The text accurately reflects all data points, including the league, season, round, teams, final score, and period-by-period breakdown.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All critical information from the reference text, including teams, score, league, sport, and period-by-period details, is accurately captured."
+  },
+  "56": {
+    "text_summary": "The text is a concise, accurate, and coherent summary of the structured data.",
+    "text_faithfulness": "The text accurately reflects all data points including the tournament, season, round, teams, final score, and the progression from a regulation draw to an overtime win.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All critical information from the source text, including the league, round, final score, overtime condition, and regulation score, is accurately captured."
+  },
+  "57": {
+    "text_summary": "The text is a concise, accurate, and coherent summary of the structured data.",
+    "text_faithfulness": "The text accurately reflects the winner, score, round, tournament name, season, and sport as provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All factual details from the reference text are accurately captured in the triples."
+  },
+  "58": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the game's outcome and progression.",
+    "text_faithfulness": "The generated text accurately reflects the tournament, season, round, final score, normal time score, and the method of victory (penalties) as specified in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key details, including the specific round, the final score, the tie after normal time, and the method of victory, are accurately captured."
+  },
+  "59": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the game results and period scoring.",
+    "text_faithfulness": "The text accurately reflects the teams, score, tournament, season, round, and period-by-period scoring from the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key facts from the text, including the score, the competition, the round, and the scoring pattern, are captured in the triples."
+  },
+  "60": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the final score and the period-by-period progression from the data.",
+    "text_faithfulness": "The text accurately reflects the final score, the teams, the tournament, and the period-by-period scoring breakdown provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key facts, including the final score, the season, the progression of the lead, and the timing of the goals, are captured."
+  },
+  "61": {
+    "text_summary": "The text is a concise, coherent summary that captures all key details (league, round, teams, final score, and period highlight) without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all data points including the tournament, season, round, teams, final score, and the specific second-period scoring.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "All essential information, including the league, round, score, and specific period performance, is accurately captured in the triples."
+  },
+  "62": {
+    "text_summary": "The text is a concise and coherent summary that captures the final score, the teams, the league, and the scoring progression without redundancy.",
+    "text_faithfulness": "The text accurately reflects the winner, the final score, the tournament/season, and the period-by-period scoring progression.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples capture all factual details, including the winner, scores, league/season context, and the scoring breakdown by period."
+  },
+  "63": {
+    "text_summary": "The text is a concise, coherent summary that captures all key data points (tournament, teams, final score, and period detail) without redundancy.",
+    "text_faithfulness": "The text accurately reflects the tournament, season, round, teams, final score, and the specific period in which the goal was scored.",
+    "triples_additions": "All triples are directly supported by the reference text, including the scores and the timing of the goal.",
+    "triples_omissions": "All critical information from the source text, including the winner, loser, score, round/season, and timing of the goal, is captured in the triples."
+  },
+  "64": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data, capturing all key information without redundancy.",
+    "text_faithfulness": "The text accurately reflects all data points, including the round, season, teams, final score, and period-by-period breakdown.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All key information from the reference text, including the league, round, opponent, score, and period-specific goal details, is accurately captured."
+  },
+  "65": {
+    "text_summary": "The text is a concise and coherent summary that accurately captures the final score, the teams, and the period-by-period progression.",
+    "text_faithfulness": "The text accurately reflects all data points including the round, season, teams, final score, and period-by-period scoring.",
+    "triples_additions": "All triples are directly supported by the provided text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All critical facts, including the final score, round, league, and period-by-period breakdown, are captured in the triples."
+  },
+  "66": {
+    "text_summary": "The text is a concise, coherent summary that captures all key information without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all data points including teams, score, tournament, season, round, and the scoring distribution across periods.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or additions.",
+    "triples_omissions": "All critical information from the reference text, including the score, league, round, sport, and period detail, is captured."
+  },
+  "67": {
+    "text_summary": "The text provides a concise, coherent summary that accurately captures the key details and outcomes of the game.",
+    "text_faithfulness": "The text accurately reflects the tournament, season, round, teams, final score, and period-by-period trends found in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key facts, including the teams, score, league, round, season, and match progression, are accurately represented."
+  },
+  "68": {
+    "text_summary": "The text provides a concise, coherent summary of the game result and scoring progression without redundancy.",
+    "text_faithfulness": "The text accurately reflects the teams, the final score, and the period-by-period scoring breakdown provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples omit the specific detail that Brandon scored two goals in the second period, but all core facts and the outcome are preserved."
+  },
+  "69": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures all key data points without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all data points provided in the JSON, including teams, score, period breakdown, round, and season.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All critical facts, including the score, opponent, league, round, and period-by-period breakdown, are accurately captured."
+  },
+  "70": {
+    "text_summary": "The text is a concise and coherent summary that accurately captures the key details of the match without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all key facts from the data, including the round, tournament, season, teams, and the final score.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all factual information from the reference text without any meaningful omissions."
+  },
+  "71": {
+    "text_summary": "The text is a concise, coherent summary that captures the final score, the tournament context, and the key momentum shift described in the period scores.",
+    "text_faithfulness": "The generated text accurately reflects all data points, including the round, league, season, final score, and period-by-period breakdown.",
+    "triples_additions": "All generated triples are directly supported by the reference text.",
+    "triples_omissions": "The triples capture all key facts, including the final score, the league/round, and the specific game progression details."
+  },
+  "72": {
+    "text_summary": "The text is a concise and accurate summary that captures all essential details from the structured data.",
+    "text_faithfulness": "The generated text accurately reflects all key data points including the teams, final score, league, country, sport, and season.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key information from the reference text is accurately captured in the triples."
+  },
+  "73": {
+    "text_summary": "The text is a concise, coherent summary that captures all key details (tournament, round, teams, final score, and key period performance) without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all the data provided in the JSON instance.",
+    "triples_additions": "All triples are directly supported by the reference text.",
+    "triples_omissions": "All key facts, including the score, the league/round, and the specific third-period performance, are accurately captured."
+  },
+  "74": {
+    "text_summary": "The text is a concise, accurate, and coherent summary of the match result and scoring details.",
+    "text_faithfulness": "The text accurately reflects the winner, the final score, the tournament/season, and the period-by-period scoring for the away team.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All critical information from the reference text, including the winner, loser, score, competition, and scoring periods, is accurately captured."
+  },
+  "75": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the final score and the progression of the game without redundancy.",
+    "text_faithfulness": "The text accurately reflects all data points, including the tournament, season, final score, and period-by-period breakdown.",
+    "triples_additions": "All triples are directly supported by the provided reference text without any unsupported additions.",
+    "triples_omissions": "All factual information from the reference text, including the league, final score, and period-by-period breakdown, is accurately captured."
+  },
+  "76": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the match result and scoring progression.",
+    "text_faithfulness": "The text accurately reflects the final score, the teams, the tournament, the season, and the period-by-period scoring breakdown provided in the data.",
+    "triples_additions": "All triples are directly supported by the provided reference text.",
+    "triples_omissions": "All key facts, including the result, league, season, and scoring breakdown, are accurately captured in the triples."
+  },
+  "77": {
+    "text_summary": "The text provides a concise, coherent summary of the match result and key details without redundancy.",
+    "text_faithfulness": "The text accurately reflects the teams, the final score, the season, and the period-by-period scoring trends provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key facts from the reference text, including the teams, score, league/season, and the specific period of strongest performance, are captured."
+  },
+  "78": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the core match details without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all the data provided in the JSON instance, including the round, league, teams, final score, and period-by-period breakdown.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All factual information from the text, including the final score, season, round, and period-by-period breakdown, was captured."
+  },
+  "79": {
+    "text_summary": "The text is a concise and accurate summary that captures all key details of the match result.",
+    "text_faithfulness": "The generated text accurately reflects the tournament, teams, final score, and the fact that the game was decided by penalties after a 4-4 normal-time draw.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key information from the reference text, including the teams, league, final score, regulation score, and method of victory, is captured."
+  },
+  "80": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the match result and the key details from the structured data.",
+    "text_faithfulness": "The text accurately reflects the teams, the final score, the league name, the round, and the fact that the game was decided by penalties after a 2-2 tie in normal time.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All key facts, including the league, the outcome, the score, and the method of victory, are accurately captured."
+  },
+  "81": {
+    "text_summary": "The text is a concise and accurate summary that captures all key details from the structured data without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all the key data points: round, tournament, season, teams, final score, regulation score, and the method of victory.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All critical details from the text, including the league, round, teams, final score, regulation score, and method of victory, are captured."
+  },
+  "82": {
+    "text_summary": "The text provides a concise and accurate summary of the game result, including the tournament, teams, and final score.",
+    "text_faithfulness": "The text accurately reflects the teams, the final score, and the tournament/season information provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text.",
+    "triples_omissions": "All critical information from the source text is accurately represented in the triples."
+  },
+  "83": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the structured data.",
+    "text_faithfulness": "The generated text accurately reflects all key facts from the structured data, including teams, score, round, tournament, and season.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "All key information from the reference text is accurately captured in the triples."
+  },
+  "84": {
+    "text_summary": "The text is a concise, coherent summary that captures all key information (tournament, teams, final score, and a notable detail) without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all data points provided in the JSON, including the tournament, season, round, teams, final score, and period breakdown.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All critical facts, including the teams, scores, specific period performance, and match context, are accurately captured."
+  },
+  "85": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures all key details without redundancy.",
+    "text_faithfulness": "The text accurately reflects the tournament, season, round, teams, final score, and period-by-period scoring distribution provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key facts, including the league, the opponent, the final score, and the scoring pattern, are accurately captured in the triples."
+  },
+  "86": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the core result and key details without redundancy.",
+    "text_faithfulness": "The text accurately reflects the teams, final score, season, and first-period scoring provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All key facts, including the score, the specific period performance, the league/season, and the game dynamics, are captured accurately."
+  },
+  "87": {
+    "text_summary": "The text is a concise and coherent summary that accurately captures the final score, the teams, the league, and the specific match progression.",
+    "text_faithfulness": "The generated text accurately reflects all data points, including the final score, the period-by-period breakdown, the season, the tournament, and the method of victory (penalties).",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All factual details from the reference text are accurately captured in the triples."
+  },
+  "88": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that captures all key details from the structured data.",
+    "text_faithfulness": "The text accurately reflects all data points, including teams, final score, status (AET), season, and regulation score.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All critical information from the reference text, including the winner, loser, scores, timing, season, and regulation result, is captured in the triples."
+  },
+  "89": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the winner, final score, competition details, and the progression of the game.",
+    "text_faithfulness": "The text accurately reflects all data points, including the score, teams, league details, round, and period-by-period breakdown.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "The triples capture all factual details from the text, including the score, league specifics, and period-by-period progression."
+  },
+  "90": {
+    "text_summary": "The text is a concise, coherent summary that captures all key information without redundancy.",
+    "text_faithfulness": "The text accurately reflects the round, tournament, season, teams, final score, and the fact that the home team led in every period.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All critical information from the reference text is accurately captured in the triples."
+  },
+  "91": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the match data.",
+    "text_faithfulness": "The text accurately reflects the tournament, season, round, teams, final score, and period-by-period breakdown provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key information from the text, including the teams, league, score, round, and specific game detail, is accurately captured in the triples."
+  },
+  "92": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the match data, highlighting the final score and the key turning point.",
+    "text_faithfulness": "The text accurately reflects the round, tournament, teams, final score, and third-period scoring from the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key details from the text, including participants, score, league, round, and the specific third-period performance, are captured."
+  },
+  "93": {
+    "text_summary": "The text is a concise, coherent summary that captures all key data points without redundancy.",
+    "text_faithfulness": "The text accurately reflects all data points, including the teams, final score, round, league, season, and period-by-period scoring.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All key facts, including the score, opponent, league, round, and period-specific goal distributions, are captured."
+  },
+  "94": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that captures all key details from the structured data without redundancy.",
+    "text_faithfulness": "The text accurately reflects all data points including the tournament, season, round, teams, final score, and period-specific scoring.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All critical information from the reference text is accurately captured in the triples."
+  },
+  "95": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the final score and the period-by-period progression from the structured data.",
+    "text_faithfulness": "The text accurately reflects all data points, including the tournament, season, teams, final score, and the period-by-period scoring breakdown.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key facts, including teams, score, league, sport, and the sequence of scoring events, are captured accurately."
+  },
+  "96": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the final score and period-by-period breakdown without redundancy.",
+    "text_faithfulness": "The generated text accurately reflects all data points, including the tournament, season, round, teams, final score, and period-by-period scoring breakdown.",
+    "triples_additions": "All triples are directly supported by the provided reference text.",
+    "triples_omissions": "All factual information from the reference text, including the score, the season, the round, and the period-by-period goal breakdown, is accurately represented in the triples."
+  },
+  "97": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the match results and period scoring.",
+    "text_faithfulness": "The text accurately reflects the teams, final score, tournament, season, round, and period-by-period scoring provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All key facts, including the final score, league/round context, and timing of goals, are accurately captured in the triples."
+  },
+  "98": {
+    "text_summary": "The text is a concise and accurate summary that captures all key details of the match without redundancy.",
+    "text_faithfulness": "The text accurately reflects the round, season, teams, final score, and the path to victory (3-3 normal time followed by a penalty shootout) as provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or additions.",
+    "triples_omissions": "All critical information from the reference text is accurately captured in the triples."
+  },
+  "99": {
+    "text_summary": "The text is a concise, accurate, and coherent summary of the provided match data.",
+    "text_faithfulness": "The text accurately reflects the teams, final score, round, season, and league provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key factual information from the text is accurately captured in the triples."
+  }
+}

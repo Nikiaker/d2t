@@ -1,0 +1,602 @@
+{
+  "0": {
+    "text_summary": "The text provides a concise, coherent summary that captures the overall trend, key peaks, and significant fluctuations without listing every data point.",
+    "text_faithfulness": "The text accurately reflects the data, including the starting value, the peak in 2019, the 2021 value, and the observed volatility in the specified periods.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key data points, trends, and contextual details from the reference text are accurately captured in the triples."
+  },
+  "1": {
+    "text_summary": "The text provides a concise and accurate summary of the trend, identifying the key peak and the final value without listing every data point.",
+    "text_faithfulness": "The generated text accurately reflects the peaks, dates, and final values provided in the structured data.",
+    "triples_additions": "All information in the triples is directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all key data points and trends, omitting only the general mention of 'several waves from 2020 to 2023', which is largely covered by the specific dates provided."
+  },
+  "2": {
+    "text_summary": "The text is a concise and accurate summary that captures the overall trend, the peak value, and the final stabilization period without unnecessary repetition.",
+    "text_faithfulness": "The text accurately reflects the data, including the peak value, date, and the period of stabilization.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all key dates, values, trends, and constraints mentioned in the reference text."
+  },
+  "3": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the trends and key peaks of the data without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately represents the data, including the peak value and dates, and correctly summarizes the trends.",
+    "triples_additions": "All information in the triples is directly supported by the reference text.",
+    "triples_omissions": "All key data points, timeframes, and trends from the text are captured in the triples."
+  },
+  "4": {
+    "text_summary": "The text is a concise and accurate summary that captures the trend and key data points without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately summarizes the trend and values provided in the data, with rounding that remains faithful to the source.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All critical data points, including the start/end values, dates, location, and the overall trend, are fully captured."
+  },
+  "5": {
+    "text_summary": "The text provides a concise and accurate summary of the data, highlighting the trend, the peak, and the final value without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately reflects the time range, the peak value and date, other peaks, and the final value from the provided data.",
+    "triples_additions": "All information in the triples is directly supported by the reference text with no hallucinations or additions.",
+    "triples_omissions": "The triples omit the secondary peaks in February 2021 and January 2022, but all core trends and primary data points are preserved."
+  },
+  "6": {
+    "text_summary": "The text is a concise, coherent summary that captures the overall trend, the start and end values, and the period of most rapid growth without being repetitive.",
+    "text_faithfulness": "The generated text accurately reflects the dates, values, and trends present in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or material additions.",
+    "triples_omissions": "The triples accurately capture all data points, dates, and trend descriptions provided in the reference text."
+  },
+  "7": {
+    "text_summary": "The text provides a concise, coherent summary that captures the overall trend, the starting point, the peak, and the ending value without unnecessary repetition.",
+    "text_faithfulness": "The text accurately represents the starting value, peak value, and final value from the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions or hallucinations.",
+    "triples_omissions": "All data points, dates, values, and trend descriptions from the source text are accurately captured in the triples."
+  },
+  "8": {
+    "text_summary": "The text is a clear, coherent, and concise summary that accurately captures the trends and key peaks of the data without being repetitive.",
+    "text_faithfulness": "The text accurately reflects the trends and peaks found in the structured data, including the specific maximum value.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions or hallucinations.",
+    "triples_omissions": "The triples capture all key dates, values, and events mentioned in the reference text without any meaningful omissions."
+  },
+  "9": {
+    "text_summary": "The text provides a concise and coherent summary of the extensive time-series data, highlighting key peaks and trends without being repetitive or list-like.",
+    "text_faithfulness": "The generated text accurately reflects the dates, values, and trends provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key data points, dates, values, and qualitative descriptors from the reference text are captured in the triples."
+  },
+  "10": {
+    "text_summary": "The text provides a concise and accurate summary of the long time-series data, correctly identifying the timeline, the overall trend, and the absolute peak.",
+    "text_faithfulness": "The text accurately reflects the data, correctly identifying the peak value and the general trend of the waves.",
+    "triples_additions": "The triples incorrectly attribute the events (waves, peaks, surges) to the 'new cases' indicator rather than to San Marino.",
+    "triples_omissions": "All key facts, dates, values, and trends from the reference text are accurately captured in the triples."
+  },
+  "11": {
+    "text_summary": "The text provides a concise and coherent summary of the extensive time-series data, highlighting key peaks and the overall trend without listing every data point.",
+    "text_faithfulness": "The text accurately reflects the data, including the date range, the peak value of 1.69 in July 2020, the timing of subsequent rises, and the final minimum value of 0.14.",
+    "triples_additions": "All facts, values, and trends in the triples are directly supported by the reference text.",
+    "triples_omissions": "The triples omit the mention of rises in April and July 2021, but capture all peak values, the final value, and the overall trend."
+  },
+  "12": {
+    "text_summary": "The text provides a concise and accurate summary of the trends, identifying the key peaks and troughs from the extensive dataset without listing every point.",
+    "text_faithfulness": "The text accurately reflects the data, including the peaks, lows, and final value, correctly converting the decimal values to percentages.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key data points, dates, and general trends from the reference text are captured in the triples."
+  },
+  "13": {
+    "text_summary": "The text provides a concise and coherent summary of the data, highlighting the start and end points, peaks, and lows without being repetitive or list-like.",
+    "text_faithfulness": "The generated text accurately reflects the data points, including the peak values, the minimum value, the general trends, and the final value.",
+    "triples_additions": "All information in the triples is directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key data points, dates, values, and the general trend of volatility are accurately captured in the triples."
+  },
+  "14": {
+    "text_summary": "The text provides a concise and accurate summary of the long-term trend, highlighting the period of stability and the subsequent dramatic surge.",
+    "text_faithfulness": "The text accurately summarizes the data, correctly identifying the long period of low positive rates and the dramatic surge starting in April 2022 peaking at over 83%.",
+    "triples_additions": "All triples are supported by the reference text, accurately reflecting the dates, values, and trends described.",
+    "triples_omissions": "The triples capture all critical dates, values, and trends mentioned in the reference text without omitting any meaningful information."
+  },
+  "15": {
+    "text_summary": "The text provides a clear, concise, and accurate summary of the data trends, highlighting the general range, the minimum, and the peak without listing every data point.",
+    "text_faithfulness": "The text accurately reflects the data, including the minimum value (0.0026 = 0.26%) and the peak value (0.0888 = 8.88%).",
+    "triples_additions": "All triples accurately reflect the facts, values, and dates provided in the reference text without adding unsupported information.",
+    "triples_omissions": "All critical data points, dates, values, and trends from the reference text are accurately captured in the triples."
+  },
+  "16": {
+    "text_summary": "The text provides a concise and coherent summary of the extensive time-series data, capturing the overall trend, the minimum, the maximum, and the final value.",
+    "text_faithfulness": "The text accurately represents the data, including the start and end dates, the minimum value in July 2020, the peak value in July 2021, and the final value in January 2023.",
+    "triples_additions": "All triples are directly supported by the reference text without any additions or hallucinations.",
+    "triples_omissions": "The triples capture all key data points, dates, and trends mentioned in the reference text without omitting any meaningful information."
+  },
+  "17": {
+    "text_summary": "The text provides a concise and coherent summary of the data, highlighting the overall trend, start/end points, and significant anomalies.",
+    "text_faithfulness": "The text accurately reflects the data, including the start value, the peak value, and the specific years of decline.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key data points, trends, and specific dates of decline from the reference text are accurately captured in the triples."
+  },
+  "18": {
+    "text_summary": "The text provides a concise and coherent summary of the long time series, highlighting key trends, peaks, and anomalies without listing every data point.",
+    "text_faithfulness": "The text accurately summarizes the trends, the peak in January 2022 (~21%), the anomaly in August 2021 (>90%), and the final value in June 2022 (0.062 = 6.2%).",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all specific data points and the general trend, but omit the mention of periodic peaks in late 2020 and mid-2021."
+  },
+  "19": {
+    "text_summary": "The text provides a concise, coherent summary that captures the overall trend, the significant outlier in 2010, and the final value without listing every data point.",
+    "text_faithfulness": "The text accurately represents the data, including the starting value, the peak, the 2010 drop, and the final value, with appropriate rounding.",
+    "triples_additions": "All information in the triples is directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key data points, dates, values, and trends from the reference text are accurately captured in the triples."
+  },
+  "20": {
+    "text_summary": "The text is a clear, coherent, and concise summary that captures the key trends and peak values without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately reflects the dates, peak values, and general trends presented in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions or hallucinations.",
+    "triples_omissions": "The triples capture all key dates, peak values, trends, and the overall timeframe mentioned in the text."
+  },
+  "21": {
+    "text_summary": "The text provides a concise and accurate summary of the trend, highlighting the start, peak, and end values without listing every data point.",
+    "text_faithfulness": "The text accurately reflects the data, including the starting value, the peak in 2011, and the final value in 2021.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All key data points, dates, values, and trend descriptions from the reference text are accurately captured in the triples."
+  },
+  "22": {
+    "text_summary": "The text provides a concise and accurate summary of the trend, including the start/end dates and values.",
+    "text_faithfulness": "The text accurately reflects the date range, the country, the metric description, and the start and end values provided in the data.",
+    "triples_additions": "The triples accurately reflect the dates, values, and trends described in the reference text without adding unsupported information.",
+    "triples_omissions": "All critical information, including the timeframe, the specific indicator, the start/end values, and the trend, is accurately captured."
+  },
+  "23": {
+    "text_summary": "The text provides a concise and coherent summary of the long time-series data, highlighting the key trends and peaks accurately.",
+    "text_faithfulness": "The text accurately reflects the data, including the peak value, date ranges, and the final value.",
+    "triples_additions": "All triples are directly supported by the provided reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all key data points, dates, and the chronological progression of the COVID-19 waves described in the text."
+  },
+  "24": {
+    "text_summary": "The text provides a concise and accurate summary of the data trends, highlighting key peaks, troughs, and recent changes without being repetitive.",
+    "text_faithfulness": "The text accurately represents the data, with values correctly rounded and trends correctly identified.",
+    "triples_additions": "All triples are directly supported by the facts and trends described in the reference text.",
+    "triples_omissions": "The triples capture all data points, years, and trend descriptions provided in the source text."
+  },
+  "25": {
+    "text_summary": "The text is a concise, coherent summary that captures the overall trend, the peak, the minimum, and the cyclical nature of the data without being repetitive.",
+    "text_faithfulness": "The text accurately reflects the dates, peak value, minimum value, and overall trends present in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key data points, dates, trends, and constraints from the reference text are accurately captured in the triples."
+  },
+  "26": {
+    "text_summary": "The text is a clear, coherent, and concise summary that captures the time range, key peaks, and troughs without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately reflects the date range, the peak values for December 2021 and April 2020, and the minimum value of 0.61 in October 2021.",
+    "triples_additions": "All triples are directly supported by the reference text with no fabricated facts or hallucinations.",
+    "triples_omissions": "All critical data points, dates, values, and general trends from the reference text are accurately captured in the triples."
+  },
+  "27": {
+    "text_summary": "The text provides a concise and accurate summary of the data, highlighting the overall trend, the absolute peak, and other significant surges without listing every data point.",
+    "text_faithfulness": "The text accurately reflects the data, correctly identifying the peak value, the timing of surges, and the overall trend.",
+    "triples_additions": "All information in the triples is directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "All key dates, values, and trends from the source text are accurately captured in the triples."
+  },
+  "28": {
+    "text_summary": "The text provides a clear, concise, and accurate summary of the data trends, including the start, minimum, peak, and end values.",
+    "text_faithfulness": "Every claim in the text is accurately supported by the provided data, including the dates and specific values.",
+    "triples_additions": "All information in the triples is directly supported by the reference text without any additions or hallucinations.",
+    "triples_omissions": "The triples capture all data points, dates, and trends described in the reference text without any meaningful omissions."
+  },
+  "29": {
+    "text_summary": "The text provides a concise and coherent summary of the extensive time-series data, accurately capturing the range, trends, and key peaks.",
+    "text_faithfulness": "The text accurately reflects the date range, the minimum (0.2) and maximum (1.5) values, the general trends, and the final value provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions or hallucinations.",
+    "triples_omissions": "All critical data points, timeframes, and trends from the source text are accurately captured in the triples."
+  },
+  "30": {
+    "text_summary": "The text provides a concise and accurate summary of the data, identifying the overall trend, the minimum, and the peak value.",
+    "text_faithfulness": "The text accurately reflects the data, including the minimum value (0% in mid-May) and the peak value (24.78% on November 12).",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All key facts, including dates, values, trends, and constraints, are fully captured in the triples."
+  },
+  "31": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the provided time-series data.",
+    "text_faithfulness": "The text accurately reflects the data, including the start value, the peak value, the 2021 trend, and the plateau in 2022-2023.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions or hallucinations.",
+    "triples_omissions": "The triples capture all quantitative values, timeframes, and trend descriptions provided in the reference text."
+  },
+  "32": {
+    "text_summary": "The text provides a clear, concise, and coherent summary of the extensive time-series data, highlighting the date range, key peaks, lows, and the overall trend.",
+    "text_faithfulness": "The generated text accurately reflects the date range, the maximum value (2.86 in December 2021), the minimum value (0.35 in January 2022), and the general trend described in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions or hallucinations.",
+    "triples_omissions": "The triples capture all critical data points, dates, values, and qualitative descriptions from the reference text."
+  },
+  "33": {
+    "text_summary": "The text provides a concise and accurate summary of the extensive time-series data, highlighting the peak, the stable period, and the final trend.",
+    "text_faithfulness": "The text accurately summarizes the trends, peaks, and final value provided in the structured data without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the facts provided in the reference text.",
+    "triples_omissions": "All key data points, dates, values, and trends from the reference text are accurately captured in the triples."
+  },
+  "34": {
+    "text_summary": "The text provides a concise, coherent summary that captures the trend, start/end points, and key growth periods without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately reflects the dates, the country, the metric description, the start/end values, and the trends observed in the data.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions or hallucinations.",
+    "triples_omissions": "The triples omit the specific date of the peak (July 2023) but capture all other critical values, trends, and acceleration dates."
+  },
+  "35": {
+    "text_summary": "The text provides a clear, coherent, and concise summary of the data, correctly identifying the time range, the peak value, and the general trend.",
+    "text_faithfulness": "The text accurately reflects the trends, the peak value, the peak date, and the final stabilization range provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or material distortions.",
+    "triples_omissions": "The triples capture all key dates, values, trends, and constraints provided in the reference text."
+  },
+  "36": {
+    "text_summary": "The text provides a concise and accurate summary of the time-series data, identifying key trends and peaks without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately represents the dates, the country, the trends, and the specific data points provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the provided reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all key data points, values, dates, and trends mentioned in the reference text without omitting any meaningful information."
+  },
+  "37": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the trends and key peaks in the data without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately reflects the trends, peak values, and dates provided in the structured data.",
+    "triples_additions": "All information in the triples is directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all key dates and numerical peaks, though they omit the overall timeframe of February 2020 to December 2023."
+  },
+  "38": {
+    "text_summary": "The text provides a concise and accurate summary of the data, capturing the time range, the trend, and the starting and ending values.",
+    "text_faithfulness": "The text accurately reflects the dates, country, metric, and the starting and ending values provided in the data.",
+    "triples_additions": "The triples accurately represent the data points and trends mentioned in the text without introducing unsupported information.",
+    "triples_omissions": "The triples accurately capture all critical data points, dates, values, and the trend described in the text."
+  },
+  "39": {
+    "text_summary": "The text provides a high-quality, concise summary that captures the overall trend, key peaks, and the time range without listing every data point.",
+    "text_faithfulness": "The text accurately represents the data, including the start/end dates, the September 2021 peak, the January 2022 peak, and the final value.",
+    "triples_additions": "All generated triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All critical data points, dates, values, and general trends from the reference text are accurately captured in the triples."
+  },
+  "40": {
+    "text_summary": "The text provides a concise and coherent summary, highlighting the overall trend and the most significant anomalies in the data.",
+    "text_faithfulness": "The generated text accurately reflects the data, including the start value, peak value, specific decline years, and the lowest recorded values.",
+    "triples_additions": "All triples are directly supported by the provided text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All key data points, dates, values, and trends from the reference text are accurately captured in the triples."
+  },
+  "41": {
+    "text_summary": "The text provides a concise and coherent summary that captures the overall trend, the significant dip in the 1980s, and the most recent data point.",
+    "text_faithfulness": "The generated text accurately reflects the data, including the starting value, peak value, the dip in the mid-1980s, and the final value for 2021.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions or hallucinations.",
+    "triples_omissions": "The triples capture all data points, dates, values, and trend descriptions present in the text without any meaningful omission."
+  },
+  "42": {
+    "text_summary": "The text provides a concise, accurate, and coherent summary of the trend and key values in the dataset.",
+    "text_faithfulness": "The text accurately reflects the start and end dates and values provided in the structured data.",
+    "triples_additions": "All triples accurately reflect the data and timeframes provided in the reference text without introducing unsupported information.",
+    "triples_omissions": "All key data points, dates, and the overall trend from the reference text are accurately captured in the triples."
+  },
+  "43": {
+    "text_summary": "The text provides a concise and accurate summary of the data, highlighting the start, the absolute peak, and the end value without being repetitive.",
+    "text_faithfulness": "The generated text accurately represents the data, correctly identifying the peak value, the date of the peak, and the final value.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All critical data points, dates, trends, and values from the reference text are accurately captured in the triples."
+  },
+  "44": {
+    "text_summary": "The text is a concise, accurate, and coherent summary that captures the start date, end date, and the overall trend of the data.",
+    "text_faithfulness": "The text accurately reflects the date range and the start and end values from the provided data.",
+    "triples_additions": "All triples are directly supported by the reference text with no additions or hallucinations.",
+    "triples_omissions": "The triples capture all key data points, dates, values, and the trend described in the reference text."
+  },
+  "45": {
+    "text_summary": "The text provides a concise and accurate summary of the trend, including the start and end points, without listing every data point.",
+    "text_faithfulness": "The text accurately reflects the start and end values and the general trend presented in the data.",
+    "triples_additions": "All information in the triples is directly supported by the reference text.",
+    "triples_omissions": "All key data points, including the start/end values, dates, and the overall trend, are accurately captured."
+  },
+  "46": {
+    "text_summary": "The text provides a concise and coherent summary of the data, highlighting the overall trend and the most significant anomalies without listing every data point.",
+    "text_faithfulness": "The generated text accurately reflects the data, including the start and end values, the peak in 2019, and the specific lows in 1871 and 1918.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture almost all data points, but omit the specific mention of World War II as a cause for decline."
+  },
+  "47": {
+    "text_summary": "The text provides a concise and accurate summary of the trends, including key peaks and the final low, without listing every data point.",
+    "text_faithfulness": "The text accurately represents the data, including the peaks, the trend, and the final value.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key data points, dates, values, and descriptive trends from the reference text are accurately captured in the triples."
+  },
+  "48": {
+    "text_summary": "The text provides a concise, coherent summary of the long-term trend, accurately citing the start, peak, and end values.",
+    "text_faithfulness": "The text accurately represents the starting value, peak value, and ending value provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All data points, dates, and trend descriptions from the reference text are accurately captured in the triples."
+  },
+  "49": {
+    "text_summary": "The text provides a concise and accurate summary of the long-term trend, including the start point, peak, and end point.",
+    "text_faithfulness": "The generated text accurately reflects the data, including the starting value in 1877, the peak in 2018, and the final value in 2021.",
+    "triples_additions": "All triples are directly supported by the provided reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All data points, dates, and trend descriptions from the reference text are accurately captured in the triples."
+  },
+  "50": {
+    "text_summary": "The text provides a perfect, concise summary of the extensive dataset, capturing the constant value and the full date range.",
+    "text_faithfulness": "The text accurately reflects the data, showing that every single recorded value from the start date to the end date was 0.0.",
+    "triples_additions": "The triples accurately represent all facts in the reference text without adding any unsupported information.",
+    "triples_omissions": "The triples capture all critical information from the source text, including the value, indicator, location, and time period."
+  },
+  "51": {
+    "text_summary": "The text provides a concise and coherent summary of the data, correctly identifying the overall timeframe, the primary peak, and the general trend of waves and declines.",
+    "text_faithfulness": "The generated text accurately reflects the trends and the peak value provided in the structured data.",
+    "triples_additions": "The triples incorrectly attribute events (surges, declines) to the indicator 'new cases per million people' rather than to the country or the pandemic situation.",
+    "triples_omissions": "The triples capture all major trends and the peak value, though they omit the overall timeframe of February 2020 to December 2023."
+  },
+  "52": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the trends, peaks, and troughs of the provided data without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately represents the data, correctly identifying the peak values and dates, as well as the minimum values in July 2021.",
+    "triples_additions": "The triples state the July 2021 value was '1', whereas the text specifies it was 'below 1%'.",
+    "triples_omissions": "The triples capture all major data points and trends, though they slightly simplify the July 2021 value from 'below 1%' to '1'."
+  },
+  "53": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the data, highlighting the start/end points and the overall trend without being repetitive.",
+    "text_faithfulness": "The text accurately reflects the data, including the start/end values, the time range, and the observed trend of rapid growth followed by a plateau.",
+    "triples_additions": "All triples are directly supported by the facts, values, and timeframes provided in the reference text.",
+    "triples_omissions": "All key data points, timeframes, and trends from the reference text are accurately captured in the triples."
+  },
+  "54": {
+    "text_summary": "The text is a clear, coherent, and concise summary that captures the key trends, peaks, and lows of the data without being repetitive.",
+    "text_faithfulness": "The text accurately represents the trends, peak, low, and final values found in the structured data.",
+    "triples_additions": "All information in the triples is directly supported by the reference text with no hallucinations or distortions.",
+    "triples_omissions": "The triples capture all key dates, values, the country, the indicator, and the general trend of fluctuation without omitting any meaningful information."
+  },
+  "55": {
+    "text_summary": "The text is a concise, coherent, and accurate summary of the provided time-series data.",
+    "text_faithfulness": "The text accurately represents the data, including the start and end values, the trend throughout 2021, and the plateau in 2022.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions or hallucinations.",
+    "triples_omissions": "The triples capture all key dates, values, trends, and specific time-bound events mentioned in the reference text."
+  },
+  "56": {
+    "text_summary": "The text is a concise and coherent summary that accurately captures the trends and key peaks of the data without being repetitive or list-like.",
+    "text_faithfulness": "The generated text accurately reflects the data, including the dates, peak values, and the overall trend.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples capture all specific data points and trends, but omit the overall timeframe of February 2020 to December 2023."
+  },
+  "57": {
+    "text_summary": "The text provides a concise and coherent summary of the data, highlighting the overall trend, the peak, and the recent decline without listing every data point.",
+    "text_faithfulness": "The text accurately reflects the trends and values provided in the data, including the peak in 2019 and the subsequent decline in 2020-2021.",
+    "triples_additions": "The triples accurately reflect all facts, values, and trends mentioned in the reference text without adding any unsupported information.",
+    "triples_omissions": "The triples capture all data points, timeframes, and the overall trend described in the text without any meaningful omissions."
+  },
+  "58": {
+    "text_summary": "The text provides a clear, coherent, and concise summary of the data, highlighting the key trends, the record peak, and the final value without being repetitive.",
+    "text_faithfulness": "The text accurately reflects the trends and specific data points provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all major data points and trends, omitting only the initial rise in 2020, which is a minor detail compared to the peaks and final decline."
+  },
+  "59": {
+    "text_summary": "The text provides a concise and coherent summary of the time-series data, correctly identifying the peaks and troughs without listing every data point.",
+    "text_faithfulness": "The text accurately represents the data, including the specific peaks (17.5% in Aug 2020, 13.6% in Oct 2021, 20.3% in Feb 2022), the low in May 2022, and the final value.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All data points, dates, values, and general trends from the reference text are accurately captured in the triples."
+  },
+  "60": {
+    "text_summary": "The text provides a concise, coherent summary that captures the overall trend, the starting and peak values, and the period of stabilization without listing every data point.",
+    "text_faithfulness": "The text accurately reflects the data, including the starting value, the peak value in 2019, and the general trend and stabilization described.",
+    "triples_additions": "All triples are directly supported by the reference text, accurately representing the values, dates, and trends provided.",
+    "triples_omissions": "The triples capture all key data points, dates, and trend descriptions from the reference text without omitting any meaningful information."
+  },
+  "61": {
+    "text_summary": "The text provides a concise and coherent summary of the data, correctly identifying the time range, the overall trend, the minimum and maximum values, and the final state.",
+    "text_faithfulness": "The text accurately represents the data, including the start value, peak value, and end value, and correctly identifies the overall trend.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions or hallucinations.",
+    "triples_omissions": "All critical data points, dates, trends, and characteristics from the reference text are accurately captured in the triples."
+  },
+  "62": {
+    "text_summary": "The text provides a concise and accurate summary of the trend, highlighting the start, peak, decline, and end points without redundant listing.",
+    "text_faithfulness": "The text accurately reflects the data, including the starting value, the peak in 2019 (rounded), the decline period, and the final value in 2021.",
+    "triples_additions": "All triples accurately reflect the facts, values, and trends described in the reference text without any unsupported additions.",
+    "triples_omissions": "All data points, dates, and trend descriptions from the reference text are accurately captured in the triples."
+  },
+  "63": {
+    "text_summary": "The text provides a concise and accurate summary of the data trends, highlighting the low start, the peak, and the final value without listing every data point.",
+    "text_faithfulness": "The text accurately reflects the trends and specific data points provided in the structured data.",
+    "triples_additions": "All generated triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all key data points, trends, and timeframes mentioned in the reference text without omitting any meaningful information."
+  },
+  "64": {
+    "text_summary": "The text provides a concise, coherent summary of the temporal trend, highlighting the start, peak, and end points without listing every data point.",
+    "text_faithfulness": "The text accurately reflects the data, including the starting value in 1921, the peak in 2019 (rounded), and the value in 2021.",
+    "triples_additions": "All information in the triples is directly supported by the reference text.",
+    "triples_omissions": "All data points, trends, and dates from the reference text are accurately captured in the triples."
+  },
+  "65": {
+    "text_summary": "The text is a concise and coherent summary that captures the key trends, peaks, and the final decline without being repetitive or list-like.",
+    "text_faithfulness": "The generated text accurately reflects the data, including the peak value, the timing of waves, and the final decline to the minimum value.",
+    "triples_additions": "All information in the triples is directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "The triples capture all critical data points, including the peak, the minimum, the overall timeframe, the waves of increase, and the final decline."
+  },
+  "66": {
+    "text_summary": "The text is a concise and coherent summary that captures the overall trend, key peaks, and the final value without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately reports the date range, initial peak, specific high/low values, and the final value, all of which are supported by the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key data points, dates, and descriptive characteristics from the source text are accurately captured in the triples."
+  },
+  "67": {
+    "text_summary": "The text is a concise, coherent summary that captures the overall trend, the peak value, and the final state without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately reflects the data, including the peak value in January 2022 and the final value in June 2022.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all key data points and trends, though the overall time frame (March 2020 to June 2022) is omitted."
+  },
+  "68": {
+    "text_summary": "The text is a clear, coherent, and concise summary that accurately captures the trends and key peaks of the provided data without being repetitive.",
+    "text_faithfulness": "The text accurately summarizes the trends and peaks described in the data, correctly identifying the dates and values for the major peaks.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all major peaks, trends, and dates, omitting only the mention of the initial small peak in early 2020."
+  },
+  "69": {
+    "text_summary": "The text is a concise and coherent summary that captures the overall trend, the maximum peak, and the minimum trough without listing every data point.",
+    "text_faithfulness": "The text accurately reflects the dates, peak values, and minimum values provided in the structured data.",
+    "triples_additions": "All triples accurately reflect the facts, values, and timeframes provided in the reference text.",
+    "triples_omissions": "The triples capture all key data points, dates, values, and the general trend described in the text."
+  },
+  "70": {
+    "text_summary": "The text is a concise, coherent summary that accurately captures the trends, peaks, and troughs of the data without listing every point.",
+    "text_faithfulness": "The text accurately reflects the date range, the peaks in September 2021 and February 2022, and the low periods in 2020 and early 2021 as supported by the data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All key data points, dates, values, and trend descriptions from the reference text are accurately captured in the triples."
+  },
+  "71": {
+    "text_summary": "The text provides a concise, coherent, and accurate summary of the time-series data, highlighting the key trends, peaks, and endpoints without being repetitive.",
+    "text_faithfulness": "The generated text accurately reflects the date range, minimums, maximums, and trends provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "Minor omission of the detail that several peaks exceeded 1.3, but all critical milestones and the overall trend are captured."
+  },
+  "72": {
+    "text_summary": "The text provides a concise, coherent summary that captures the trend, timeframe, and key data points without being repetitive.",
+    "text_faithfulness": "The text accurately reflects the date range, the country, the metric, and the start and end values provided in the data.",
+    "triples_additions": "The triples accurately represent all facts, values, and dates provided in the reference text without any unsupported additions.",
+    "triples_omissions": "All critical data points, dates, values, and the overall trend are accurately captured in the triples."
+  },
+  "73": {
+    "text_summary": "The text provides a concise and coherent summary of the data, highlighting the overall trend, the start and end points, and the significant anomaly in 1945.",
+    "text_faithfulness": "The text accurately reflects the data, including the start value, peak value, and the specific decline in 1945.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All data points, trends, and qualitative descriptions from the reference text are accurately captured in the triples."
+  },
+  "74": {
+    "text_summary": "The text is a perfect summary, condensing a long list of identical values into a single, coherent sentence.",
+    "text_faithfulness": "The text accurately reflects the dates, country, metric, and constant value provided in the structured data.",
+    "triples_additions": "All information in the triples is directly supported by the reference text.",
+    "triples_omissions": "The triples omit that the value 1.59 is a 7-day rolling average, which is a minor but relevant detail."
+  },
+  "75": {
+    "text_summary": "The text provides a concise and accurate summary of the data, highlighting the start, peak, and end points without listing every year.",
+    "text_faithfulness": "The text accurately reflects the data, including the start value, the peak in 2019, and the final value in 2021, with appropriate rounding.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All key data points, dates, and trend descriptions from the reference text are accurately captured in the triples."
+  },
+  "76": {
+    "text_summary": "The text is a concise and accurate summary that captures the time range, the trend, and the start and end values.",
+    "text_faithfulness": "The text accurately reflects the start date, end date, starting value, and peak value provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the provided reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All critical data points, including the dates, values, units, and the trend, are accurately captured in the triples."
+  },
+  "77": {
+    "text_summary": "The text provides a clear, coherent, and concise summary of the data, accurately identifying the three main peaks and the overall trend without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately represents the peaks, timing, and trends provided in the structured data without any hallucinations.",
+    "triples_additions": "All triples are directly supported by the facts, values, and dates provided in the reference text.",
+    "triples_omissions": "The triples capture all critical data points, dates, values, and trends mentioned in the reference text without omitting any meaningful information."
+  },
+  "78": {
+    "text_summary": "The text provides a concise and accurate summary of the trend, highlighting the start, peak, and final values without listing every data point.",
+    "text_faithfulness": "The text accurately reflects the data, including the start value, the peak in 2019, and the final value in 2021.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All key data points, trends, and dates are accurately captured in the triples."
+  },
+  "79": {
+    "text_summary": "The text provides a clear, coherent, and concise summary of the data, correctly identifying the timeframe, trends, peaks, and final value.",
+    "text_faithfulness": "The text claims the all-time high was 4.072 in February 2022, but the data shows a higher peak of 4.338 in November 2021.",
+    "triples_additions": "The triples accurately represent all values, dates, and trends mentioned in the reference text without adding any unsupported information.",
+    "triples_omissions": "The triples capture all key data points, dates, values, and the overall trend described in the text without any meaningful omissions."
+  },
+  "80": {
+    "text_summary": "The text is a concise and coherent summary that captures the time range, key peaks/troughs, and the overall trend of the data without being repetitive.",
+    "text_faithfulness": "The text accurately reflects the dates, peak value (2.8 on 2021-07-08), and minimum value (0.37 on 2022-04-16) provided in the data.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All critical values, dates, trends, and contextual details from the reference text are accurately captured in the triples."
+  },
+  "81": {
+    "text_summary": "The text provides a concise and coherent summary of the data, highlighting the overall trend, the peak, and the recent decline without listing every data point.",
+    "text_faithfulness": "The text accurately reflects all data points, trends, and dates provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions or hallucinations.",
+    "triples_omissions": "All key data points, trends, and specific events from the text are captured in the triples."
+  },
+  "82": {
+    "text_summary": "The text is a concise and coherent summary that captures the overall trend, key milestones, and start/end values without being repetitive.",
+    "text_faithfulness": "The text accurately reflects the data, including the start and end values, the timeline, and the trend of acceleration and stabilization.",
+    "triples_additions": "All triples are directly supported by the reference text without any hallucinations or unsupported additions.",
+    "triples_omissions": "All key data points, dates, values, and trend descriptions from the reference text are accurately captured in the triples."
+  },
+  "83": {
+    "text_summary": "The generated text is a clear, coherent summary that accurately captures the trend, peak, and minimum values without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately represents the data, including the peak value, date, general trend, and the final plateau values.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all critical data points, date ranges, trends, and values from the reference text without any meaningful omissions."
+  },
+  "84": {
+    "text_summary": "The text is a concise, coherent, and accurate summary that captures the overall trend and key turning points of the data.",
+    "text_faithfulness": "The text accurately represents the data, including the peak, fluctuations, secondary rise, and the final decline to 0.0.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all key dates, values, trends, and fluctuations mentioned in the reference text without any meaningful omissions."
+  },
+  "85": {
+    "text_summary": "The text provides a concise and coherent summary of the data, identifying the time range, key trends, and peak values without being repetitive or list-like.",
+    "text_faithfulness": "The text accurately reflects the date range, the specific peaks mentioned (0.548 in June 2021, 1.207 in Oct 2021, and 1.589 in Jan 2022), and the final value in June 2022.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions or hallucinations.",
+    "triples_omissions": "The triples capture all specific peaks and the overall trend, but omit the baseline detail that testing remained under 0.3 for much of 2020 and early 2021."
+  },
+  "86": {
+    "text_summary": "The text provides a concise and coherent summary of the trend, highlighting the long period of low rates and the specific peak.",
+    "text_faithfulness": "The text accurately reflects the date range, the general trend of low values, and the specific peak value of 0.23% in March 2022.",
+    "triples_additions": "The triples state the value was '0', whereas the text says 'near 0%', which is a minor imprecision.",
+    "triples_omissions": "All critical information, including the timeline, specific values, and trends, is accurately captured in the triples."
+  },
+  "87": {
+    "text_summary": "The text provides a concise and accurate summary of the data, identifying the overall trend, key milestones, and the recent decline.",
+    "text_faithfulness": "The text accurately reflects the data, including the starting value, the peak, the dip in 1970, and the final decline, rounding the values appropriately.",
+    "triples_additions": "All information in the triples is directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "The triples capture all data points, trends, and specific events mentioned in the reference text without any meaningful omissions."
+  },
+  "88": {
+    "text_summary": "The text provides a concise and coherent summary of the data, highlighting the overall trend and key anomalies without listing every data point.",
+    "text_faithfulness": "The text accurately reflects the data, including the start/end values and the specific anomalies mentioned.",
+    "triples_additions": "All triples are directly supported by the reference text, with no unsupported additions or hallucinations.",
+    "triples_omissions": "The triples capture all data points, trends, and specific events mentioned in the text without omitting any meaningful information."
+  },
+  "89": {
+    "text_summary": "The text is a concise and coherent summary that captures the overall trend, key peaks, and lows without listing every data point.",
+    "text_faithfulness": "The text accurately reflects the data, correctly identifying the time range, peaks in February 2021, September 2021, and June 2022, and the lows in July 2020 and December 2022.",
+    "triples_additions": "All triples are directly supported by the reference text, including the final minimum value recorded at the end of the period in January 2023.",
+    "triples_omissions": "The triples omit the specific low-point dates (July 2020 and December 2022) and the overarching time range of the study (April 2020 to January 2023)."
+  },
+  "90": {
+    "text_summary": "The text is a concise, coherent summary that captures the overall trend, key milestones, and the final decline without listing every data point.",
+    "text_faithfulness": "The text accurately reflects the data, including the start value, peak value, and final value, while correctly describing the overall trend.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions or hallucinations.",
+    "triples_omissions": "All data points, dates, and trend descriptions from the reference text are accurately captured in the triples."
+  },
+  "91": {
+    "text_summary": "The text provides a clear, concise, and accurate summary of the long-term trend described in the data.",
+    "text_faithfulness": "The text accurately reflects the data, with values correctly rounded to two decimal places.",
+    "triples_additions": "All triples are directly supported by the reference text without any unsupported additions.",
+    "triples_omissions": "All key facts, including dates, values, and the trend description, are accurately captured in the triples."
+  },
+  "92": {
+    "text_summary": "The text provides a clear, concise, and accurate summary of the data, effectively grouping the stable periods and identifying the trend change.",
+    "text_faithfulness": "The text accurately reflects all dates and values provided in the structured data.",
+    "triples_additions": "All facts, values, and dates in the triples are directly supported by the reference text.",
+    "triples_omissions": "All key data points, dates, and trends from the reference text are accurately captured in the triples."
+  },
+  "93": {
+    "text_summary": "The text provides a concise and coherent summary of the trends and peaks in the data without being repetitive or overly detailed.",
+    "text_faithfulness": "The text accurately summarizes the data, correctly identifying the peak values and dates provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions or hallucinations.",
+    "triples_omissions": "All key data points, timeframes, and trends from the reference text are accurately captured in the triples."
+  },
+  "94": {
+    "text_summary": "The text provide a concise and accurate summary of the data, capturing the time range, the metric, and the overall trend from start to finish.",
+    "text_faithfulness": "The text accurately reflects the dates, country, metric, and values provided in the data.",
+    "triples_additions": "The triples accurately reflect the data points, dates, and trends provided in the reference text without any unsupported additions.",
+    "triples_omissions": "All key data points, dates, values, and the overall trend are accurately captured in the triples."
+  },
+  "95": {
+    "text_summary": "The text provides a concise and coherent summary of the long time series, highlighting the key peaks, lows, and overall trends.",
+    "text_faithfulness": "The text accurately represents the date range, the peak value, the minimum value, and the general trends described in the data.",
+    "triples_additions": "All triples are directly supported by the reference text, including the stabilization value at the end of the period.",
+    "triples_omissions": "The triples capture all specific data points, timeframes, and trend descriptions provided in the reference text."
+  },
+  "96": {
+    "text_summary": "The text provides a clear, concise, and accurate summary of the long time-series data, highlighting key trends and peaks without listing every data point.",
+    "text_faithfulness": "The generated text accurately summarizes the trends and key values provided in the structured data without any fabrications.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All critical data points, dates, and trends from the reference text are accurately captured in the triples."
+  },
+  "97": {
+    "text_summary": "The text provides a concise and coherent summary of the long-term trend, highlighting the starting points, the peak, and the recent decline without listing every data point.",
+    "text_faithfulness": "The text accurately reflects the data provided, including the historical range, the peak value in 2019, and the decline by 2021.",
+    "triples_additions": "All triples are directly supported by the reference text with no hallucinations or unsupported additions.",
+    "triples_omissions": "All critical data points, dates, values, and trends from the reference text are accurately captured in the triples."
+  },
+  "98": {
+    "text_summary": "The text provides a concise and coherent summary of the extensive time-series data, correctly identifying the trend, key peaks, and the overall maximum value.",
+    "text_faithfulness": "The text accurately reflects the trends, peaks, and specific values provided in the structured data.",
+    "triples_additions": "All triples are directly supported by the reference text, accurately reflecting the dates, values, and trends described.",
+    "triples_omissions": "The triples capture all major data points and trends, though the overall timeframe (April 2020 to May 2022) is not explicitly stated as a single attribute."
+  },
+  "99": {
+    "text_summary": "The text provides a concise and coherent summary of the entire time series, highlighting the trend, peak, and significant fluctuations.",
+    "text_faithfulness": "The text accurately reflects the data, including the starting value, the peak in 2019, the anomaly in 2010, and the final value in 2021.",
+    "triples_additions": "All triples are directly supported by the reference text with no unsupported additions.",
+    "triples_omissions": "All data points, dates, values, and qualitative trends from the reference text are accurately captured in the triples."
+  }
+}
