@@ -2,7 +2,7 @@
 set -eo pipefail
 
 EXPERIMENTS=(baseline-1epoch)
-DOMAINS=(gsmarena openweather owid wikidata)
+DOMAINS=(openweather owid wikidata)
 
 for experiment in "${EXPERIMENTS[@]}"; do
     case "$experiment" in

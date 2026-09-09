@@ -4,7 +4,7 @@
 #SBATCH -n1
 #SBATCH -c16
 #SBATCH --mem=128G
-#SBATCH --gres=gpu:2
+#SBATCH --gres=gpu:1
 #SBATCH --time=48:00:00
 set -eo pipefail
 source "$D2TPATH/tripler/finetune/scripts/put_eval_runtime.sh"
@@ -76,29 +76,8 @@ put_finetune_run python "$D2TPATH/tripler/finetune/merge_adapter.py" \
     --out "$LOCAL_MERGED_DIR" \
     --dtype bfloat16
 
-merge_checkpoint() {
-    local checkpoint_dir="$1"
-    local merged_dir="$2"
-    test -f "$checkpoint_dir/adapter_config.json" || {
-        echo "ERROR: missing adapter checkpoint: $checkpoint_dir" >&2
-        exit 1
-    }
-    put_finetune_run python "$D2TPATH/tripler/finetune/merge_adapter.py" \
-        --base-id "$BASE_ID" \
-        --adapter "$checkpoint_dir" \
-        --out "$merged_dir" \
-        --dtype bfloat16
-}
-
-merge_checkpoint "$CHECKPOINT_100_DIR" "$LOCAL_MERGED_CHECKPOINT_100_DIR"
-merge_checkpoint "$CHECKPOINT_150_DIR" "$LOCAL_MERGED_CHECKPOINT_150_DIR"
-
 put_publish_dir "$DATA_DIR" "$PERSISTENT_DATA_DIR"
 put_publish_dir "$ADAPTER_DIR" "$PERSISTENT_RUN_DIR/adapter"
-put_publish_dir "$CHECKPOINT_100_DIR" "$PERSISTENT_RUN_DIR/checkpoint-100"
-put_publish_dir "$CHECKPOINT_150_DIR" "$PERSISTENT_RUN_DIR/checkpoint-150"
 put_publish_dir "$LOCAL_MERGED_DIR" "$MERGED_DIR"
-put_publish_dir "$LOCAL_MERGED_CHECKPOINT_100_DIR" "$MERGED_CHECKPOINT_100_DIR"
-put_publish_dir "$LOCAL_MERGED_CHECKPOINT_150_DIR" "$MERGED_CHECKPOINT_150_DIR"
 
-echo "FINETUNE DONE experiment=$EXPERIMENT merged=$MERGED_DIR checkpoint100=$MERGED_CHECKPOINT_100_DIR checkpoint150=$MERGED_CHECKPOINT_150_DIR"
+echo "FINETUNE DONE experiment=$EXPERIMENT merged=$MERGED_DIR"
