@@ -43,6 +43,9 @@ class StoredBatch:
     output_file_id: str | None
     error_file_id: str | None
     errors: Any
+    total_requests: int = 0
+    completed_requests: int = 0
+    failed_requests: int = 0
 
 
 class Storage:
@@ -124,6 +127,9 @@ class Storage:
             output_file_id=None,
             error_file_id=None,
             errors=None,
+            total_requests=0,
+            completed_requests=0,
+            failed_requests=0,
         )
         self._batch_meta_path(batch_id).write_text(json.dumps(asdict(record), indent=2), encoding="utf-8")
         return record
@@ -176,6 +182,14 @@ def create_app(upstream_base_url: str, storage_dir: str) -> FastAPI:
             input_bytes = storage.read_file_bytes(batch.input_file_id)
             lines = [line.strip() for line in input_bytes.decode("utf-8").splitlines() if line.strip()]
             requests_payload = [json.loads(line) for line in lines]
+            batch.total_requests = len(requests_payload)
+            storage.update_batch(batch)
+            logger.info(
+                "Batch %s: loaded %d requests (%d bytes)",
+                batch_id,
+                len(requests_payload),
+                len(input_bytes),
+            )
 
             timeout = httpx.Timeout(86400.0, connect=10.0)
             async with httpx.AsyncClient(base_url=upstream_base_url, timeout=timeout) as client:
@@ -237,14 +251,34 @@ def create_app(upstream_base_url: str, storage_dir: str) -> FastAPI:
                         }
                     )
 
-                for group in grouped_requests.values():
+                logger.info(
+                    "Batch %s: grouped %d requests into %d upstream groups",
+                    batch_id,
+                    len(requests_payload),
+                    len(grouped_requests),
+                )
+
+                for group_index, group in enumerate(grouped_requests.values(), start=1):
                     items: list[dict[str, Any]] = group["items"]
                     batch_payload = dict(group["common_body"])
                     batch_payload["messages"] = [item["messages"] for item in items]
+                    logger.info(
+                        "Batch %s: processing upstream group %d/%d (%d requests)",
+                        batch_id,
+                        group_index,
+                        len(grouped_requests),
+                        len(items),
+                    )
 
                     try:
                         response = await client.post("/v1/chat/completions/batch", json=batch_payload)
                     except Exception as exc:
+                        logger.exception(
+                            "Batch %s: upstream group %d/%d failed",
+                            batch_id,
+                            group_index,
+                            len(grouped_requests),
+                        )
                         for item in items:
                             results[item["idx"]] = _error_result(
                                 custom_id=item["custom_id"],
@@ -259,6 +293,13 @@ def create_app(upstream_base_url: str, storage_dir: str) -> FastAPI:
                         response_json = {"raw_text": response.text}
 
                     if response.status_code >= 400:
+                        logger.error(
+                            "Batch %s: upstream group %d/%d returned HTTP %d",
+                            batch_id,
+                            group_index,
+                            len(grouped_requests),
+                            response.status_code,
+                        )
                         for item in items:
                             results[item["idx"]] = _error_result(
                                 custom_id=item["custom_id"],
@@ -270,6 +311,12 @@ def create_app(upstream_base_url: str, storage_dir: str) -> FastAPI:
 
                     choices = response_json.get("choices") if isinstance(response_json, dict) else None
                     if not isinstance(choices, list):
+                        logger.error(
+                            "Batch %s: upstream group %d/%d returned no choices array",
+                            batch_id,
+                            group_index,
+                            len(grouped_requests),
+                        )
                         for item in items:
                             results[item["idx"]] = _error_result(
                                 custom_id=item["custom_id"],
@@ -303,6 +350,28 @@ def create_app(upstream_base_url: str, storage_dir: str) -> FastAPI:
                             request_id=response.headers.get("x-request-id", ""),
                         )
 
+                    group_completed = sum(results[item["idx"]] is not None for item in items)
+                    group_failed = sum(
+                        bool(results[item["idx"]] and results[item["idx"]].get("error"))
+                        for item in items
+                    )
+                    batch.completed_requests = sum(result is not None for result in results)
+                    batch.failed_requests = sum(
+                        bool(result and result.get("error")) for result in results if result is not None
+                    )
+                    storage.update_batch(batch)
+                    logger.info(
+                        "Batch %s: upstream group %d/%d finished (%d/%d assigned, %d errors); overall %d/%d",
+                        batch_id,
+                        group_index,
+                        len(grouped_requests),
+                        group_completed,
+                        len(items),
+                        group_failed,
+                        batch.completed_requests,
+                        batch.total_requests,
+                    )
+
                 final_results = [
                     result
                     for result in results
@@ -319,8 +388,17 @@ def create_app(upstream_base_url: str, storage_dir: str) -> FastAPI:
             batch.status = "completed"
             batch.output_file_id = output_file.id
             batch.errors = None
+            batch.completed_requests = len(final_results)
+            batch.failed_requests = sum(
+                bool(result.get("error")) for result in final_results
+            )
             storage.update_batch(batch)
-            logger.info("Batch %s completed with %d requests", batch_id, len(final_results))
+            logger.info(
+                "Batch %s completed with %d requests (%d errors)",
+                batch_id,
+                len(final_results),
+                batch.failed_requests,
+            )
         except Exception as exc:
             logger.exception("Batch %s failed: %s", batch_id, exc)
             batch = storage.get_batch(batch_id)

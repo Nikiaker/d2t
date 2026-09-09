@@ -359,16 +359,31 @@ def wait_for_batch_completion(
 ) -> Any:
     start = time.time()
     terminal_states = {"completed", "failed", "cancelled", "expired"}
+    poll_count = 0
 
     while True:
+        poll_count += 1
         batch = client.batches.retrieve(batch_id)
         status = getattr(batch, "status", "unknown")
-        logger.info("Batch %s status: %s", batch_id, status)
+        elapsed = time.time() - start
+        completed_requests = getattr(batch, "completed_requests", None)
+        total_requests = getattr(batch, "total_requests", None)
+        if completed_requests is not None and total_requests:
+            progress = f", requests={completed_requests}/{total_requests}"
+        else:
+            progress = ""
+        logger.info(
+            "Batch %s poll=%d status=%s elapsed=%.0fs%s",
+            batch_id,
+            poll_count,
+            status,
+            elapsed,
+            progress,
+        )
 
         if status in terminal_states:
             return batch
 
-        elapsed = time.time() - start
         if elapsed > timeout_seconds:
             raise TimeoutError(
                 f"Timed out waiting for batch {batch_id} after {timeout_seconds} seconds"

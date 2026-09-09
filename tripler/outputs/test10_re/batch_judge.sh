@@ -53,4 +53,5 @@ conda run -n openevolve-env python judge_scoring_batch.py \
   --api-key none \
   --test-dir outputs/test10_re \
   --batch-timeout-seconds 86400 \
+  --instances-per-batch 100 \
   --poll-interval-seconds 30
