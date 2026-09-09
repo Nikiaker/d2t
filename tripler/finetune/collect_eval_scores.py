@@ -52,8 +52,8 @@ def load_dev_entry(path: Path) -> dict[str, Any] | None:
 
     devs = [m for m in models if isinstance(m, dict) and m.get("split") == "dev"]
     if not devs:
-        logger.warning("no entry with 'split' == 'dev' in %s", path)
-        return None
+        logger.warning("no entry with 'split' == 'dev' in %s; using the first entry", path)
+        return models[0] if models else None
     if len(devs) > 1:
         logger.warning("multiple 'dev' entries in %s; using the first", path)
     return devs[0]
