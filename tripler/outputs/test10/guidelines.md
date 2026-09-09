@@ -42,23 +42,27 @@ substantial misinterpretation of the original structured data.
 - 1: the natural-language text is mostly ungrounded or contradicts the original structured data, so it cannot be
 considered a reliable representation.
 
-# Completeness
-Evaluate whether the semantic triples include all main points, critical facts,
-constraints, context, entities, relationships, values, and conclusions
-from the output text and have no additional information that were not existent in the output text.
-Judge coverage, not whether the semantic triples contain unsupported information.
+# Additions
+Evaluate whether the semantic triples introduce facts, relationships, values,
+qualifiers, or conclusions that are not supported by the natural-language
+reference text. Penalize unsupported additions, hallucinations, contradictions,
+and material distortions. Do not penalize information that is merely omitted;
+evaluate omissions under Omissions.
 
-- 5: Every main point and every critical fact, constraint, context element, and
-conclusion needed to understand the natural-language reference text is represented in the semantic triples. No
-important gap remains.
-- 4: All main points and critical context are present, but one or a few
-secondary, non-critical details are missing.
-- 3: Most main points are present, but at least one important fact or context
-element, or several secondary details, are missing.
-- 2: Multiple main points or a critical constraint, context element, or
-conclusion is missing, so the semantic triples give a substantially incomplete account.
-- 1: Little relevant source information is represented, or the natural-language reference text's main
-message is largely absent.
+- 5: The semantic triples contain no unsupported additions. Every represented
+fact, relationship, value, qualifier, and conclusion is supported by the
+natural-language reference text, with no hallucination or material distortion.
+- 4: The semantic triples contain at most one or a few minor unsupported
+additions or imprecisions, but no material fact is fabricated and the text's
+meaning is preserved.
+- 3: The semantic triples contain several minor unsupported additions or one
+material unsupported fact or distortion, but most represented information is
+grounded in the text.
+- 2: The semantic triples contain multiple material unsupported facts,
+relationships, values, or conclusions, or substantially misrepresent the
+reference text.
+- 1: The semantic triples are mostly unsupported, contradictory, or materially
+different from the natural-language reference text.
 
 # Omissions
 Evaluate what the semantic triples leave out. Lower the score when omissions remove critical

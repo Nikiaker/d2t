@@ -7,10 +7,10 @@ per criterion). After each batch completes, writes checkpoints and updates
 
 Two independent judge tasks per instance:
   - text   : data -> generated text    (summary, faithfulness)
-  - triples: generated text -> triples (completeness, omissions)
+  - triples: generated text -> triples (additions, omissions)
 
 Each instance produces four scores:
-  text_summary, text_faithfulness, triples_completeness, triples_omissions
+  text_summary, text_faithfulness, triples_additions, triples_omissions
 
 python3 tripler/judge_scoring_batch.py \
   --model google/gemma-4-31B-it \
@@ -46,7 +46,7 @@ logger = logging.getLogger(__name__)
 TASKS = ["text", "triples"]
 CRITERIA_BY_TASK = {
     "text": ["summary", "faithfulness"],
-    "triples": ["completeness", "omissions"],
+    "triples": ["additions", "omissions"],
 }
 SCORE_COLUMNS = [
     f"{task}_{criterion}"
@@ -104,23 +104,23 @@ JUDGE_CRITERION_GUIDELINES: dict[str, str] = {
         "Score 1: The natural-language text is mostly ungrounded or contradicts the original "
         "structured data, so it cannot be considered a reliable representation."
     ),
-    "completeness": (
-        "Criterion: Completeness\n"
-        "Evaluate whether the semantic triples include all main points, critical facts, constraints, "
-        "context, entities, relationships, values, and conclusions from the output text and have no "
-        "additional information that was not existent in the output text. Judge coverage, not whether "
-        "the semantic triples contain unsupported information.\n"
-        "Score 5: Every main point and every critical fact, constraint, context element, and "
-        "conclusion needed to understand the natural-language reference text is represented in the "
-        "semantic triples, with no additional information. No important gap remains.\n"
-        "Score 4: All main points and critical context are present, and the triples are essentially "
-        "limited to the output text, but one or a few secondary, non-critical details are missing.\n"
-        "Score 3: Most main points are present, but at least one important fact or context element, "
-        "or several secondary details, are missing.\n"
-        "Score 2: Multiple main points or a critical constraint, context element, or conclusion is "
-        "missing, so the semantic triples give a substantially incomplete account.\n"
-        "Score 1: Little relevant information from the natural-language reference text is represented, "
-        "or the triples are largely unrelated to it."
+    "additions": (
+        "Criterion: Additions\n"
+        "Evaluate whether the semantic triples introduce facts, relationships, values, qualifiers, "
+        "or conclusions that are not supported by the natural-language reference text. Penalize "
+        "unsupported additions, hallucinations, contradictions, and material distortions. Do not "
+        "penalize information that is merely omitted; evaluate omissions under Omissions.\n"
+        "Score 5: The semantic triples contain no unsupported additions. Every represented "
+        "fact, relationship, value, qualifier, and conclusion is supported by the "
+        "natural-language reference text, with no hallucination or material distortion.\n"
+        "Score 4: The semantic triples contain at most one or two minor unsupported "
+        "additions or imprecisions, but no material fact is fabricated and the text's meaning is preserved.\n"
+        "Score 3: The semantic triples contain several minor unsupported additions or one material "
+        "unsupported fact or distortion, but most represented information is grounded in the text.\n"
+        "Score 2: The semantic triples contain multiple material unsupported facts, relationships, "
+        "values, or conclusions, or substantially misrepresent the reference text.\n"
+        "Score 1: The semantic triples are mostly unsupported, contradictory, or materially different "
+        "from the natural-language reference text."
     ),
     "omissions": (
         "Criterion: Omissions\n"
@@ -577,6 +577,11 @@ def main() -> None:
 
     # Preserve compatibility with a batch submitted by the pre-chunking version.
     if state and not is_v2_state(state) and state.get("batch_id"):
+        if "triples_completeness" in state.get("score_columns", []):
+            raise SystemExit(
+                "A legacy batch using the Completeness criterion is still recorded in "
+                f"{state_path}. Stop that batch and rerun with --force to submit the new Additions prompts."
+            )
         batch_id = state["batch_id"]
         logger.info("Resuming legacy single batch %s; it cannot be split after submission", batch_id)
         final_batch = wait_for_batch_completion(

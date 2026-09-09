@@ -21,11 +21,11 @@ independent evaluation tasks, each judged separately:
   shown, so the triples are judged purely as a text-to-triples extraction
   rather than being re-grounded against the source.
 
-Each task uses the same four criteria (`summary, completeness, faithfulness,
-omissions`) with task-specific prompt wording scoped to the task's own input,
-so each instance produces **eight scores**:
-`text_summary, text_completeness, text_faithfulness, text_omissions,
-triples_summary, triples_completeness, triples_faithfulness, triples_omissions`.
+The tasks use task-specific criteria with prompt wording scoped to each task's
+input. The text task evaluates `summary` and `faithfulness`; the triples task
+evaluates `additions` and `omissions`. Each instance therefore produces four
+scores:
+`text_summary, text_faithfulness, triples_additions, triples_omissions`.
 
 The "overall" variants are computed **per task** (never mixing the two tasks
 together), so a cross-task pooled number does not conflate the two independent
@@ -183,28 +183,28 @@ away from it. Then:
 
 ## Overall (cross-criterion) variants
 
-The script reports four "overall" rows in addition to the eight per-criterion
+The script reports four "overall" rows in addition to the four per-criterion
 rows — two per task (`text`, `triples`):
 
 ### Pooled (`overall_text (pooled)` / `overall_triples (pooled)`)
-Concatenate the four criteria of one task across instances into a single long
+Concatenate the two criteria of one task across instances into a single long
 vector per rater:
 ```
-LLM_pooled  = (text_summary_1, text_completeness_1, ..., text_omissions_n)
-Human_pooled = (text_summary_1, text_completeness_1, ..., text_omissions_n)
+LLM_pooled  = concatenate(the two text or triples scores for each instance)
+Human_pooled = concatenate(the two text or triples scores for each instance)
 ```
 This treats each `(instance, criterion)` pair as an independent observation
-(4N data points for N instances within one task) and computes the four metrics
+(2N data points for N instances within one task) and computes the four metrics
 once on this long vector. The two tasks are pooled **separately** so a single
 cross-task number never conflates the data&rarr;text and text&rarr;triples
 judgments.
 
 ### Per-instance mean (`overall_text (mean)` / `overall_triples (mean)`)
-For each rater, average the four criterion scores of one task per instance to
+For each rater, average the two criterion scores of one task per instance to
 obtain a "task-level overall quality per instance":
 ```
-LLM_overall_i  = mean(text_summary_i, text_completeness_i, text_faithfulness_i, text_omissions_i)
-Human_overall_i = mean(text_summary_i, text_completeness_i, text_faithfulness_i, text_omissions_i)
+LLM_overall_i  = mean(the two text or triples scores for instance i)
+Human_overall_i = mean(the two text or triples scores for instance i)
 ```
 This reduces to N data points per task and measures how well the two raters
 agree on which instances are good or bad within that task, abstracting away
@@ -219,7 +219,7 @@ operates on the 1-5 confusion matrix.
 
 - Reads two CSVs (`--llm` and `--human`) sharing the schema
   `instance_id, domain, input_data, generated_text, generated_triples,
-   summary, completeness, faithfulness, omissions`.
+   text_summary, text_faithfulness, triples_additions, triples_omissions`.
 - Matches rows by `instance_id` (warns on mismatches; uses the intersection).
 - Drops any `(instance, criterion)` pair where either rater's cell is empty or
   non-integer, so a single missing score never invalidates the whole
@@ -233,16 +233,12 @@ Example output:
 criterion                     N  Pearson r  Spearman p  Kendall t     QW-k
 --------------------------------------------------------------------------
 text_summary                100      0.979       0.981      0.962    0.973
-text_completeness           100      1.000       1.000      1.000    1.000
 text_faithfulness           100      1.000       1.000      1.000    1.000
-text_omissions              100      1.000       1.000      1.000    1.000
-triples_summary             100      0.951       0.949       0.934    0.944
-triples_completeness        100      0.962       0.960       0.921    0.955
-triples_faithfulness        100      0.973       0.971       0.940    0.966
+triples_additions           100      0.962       0.960       0.921    0.955
 triples_omissions           100      0.947       0.944       0.918    0.940
-overall_text (pooled)       400      0.993       0.996      0.990    0.993
+overall_text (pooled)       200      0.993       0.996      0.990    0.993
 overall_text (mean)         100      0.998       0.981      0.964    1.000
-overall_triples (pooled)    400      0.958       0.956       0.928    0.951
+overall_triples (pooled)    200      0.958       0.956       0.928    0.951
 overall_triples (mean)      100      0.961       0.958       0.925    0.957
 ```
 

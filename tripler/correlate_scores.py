@@ -3,7 +3,7 @@
 
 Reads two CSVs (LLM-scored and human-scored) sharing the schema
   instance_id, domain, input_data, generated_text, generated_triples,
-  text_summary, text_faithfulness, triples_completeness, triples_omissions
+   text_summary, text_faithfulness, triples_additions, triples_omissions
 and reports, per criterion and per overall variant:
   - Pearson r           (linear correlation)
   - Spearman rho        (rank correlation)
@@ -49,7 +49,7 @@ logger = logging.getLogger(__name__)
 
 CRITERIA = [
     "text_summary", "text_faithfulness",
-    "triples_completeness", "triples_omissions",
+    "triples_additions", "triples_omissions",
 ]
 METRIC_COLS = ["pearson_r", "spearman_rho", "kendall_tau", "qw_kappa"]
 SCORE_MIN = 1

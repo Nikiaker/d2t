@@ -10,7 +10,7 @@ Scores are split into two independent tasks:
   - triples_* : judge the generated text -> triples conversion
 
 Output columns:
-  domain, text_summary, text_faithfulness, triples_completeness, triples_omissions,
+  domain, text_summary, text_faithfulness, triples_additions, triples_omissions,
   text_overall, triples_overall,
   json_elements, ref_words, ref_sentences, ref_subsentences, num_triples, unique_predicates
 where text_overall / triples_overall are the means of the two task scores, the first
@@ -32,10 +32,10 @@ logger = logging.getLogger(__name__)
 
 CRITERIA = [
     "text_summary", "text_faithfulness",
-    "triples_completeness", "triples_omissions",
+    "triples_additions", "triples_omissions",
 ]
 TEXT_CRITERIA = ["text_summary", "text_faithfulness"]
-TRIPLES_CRITERIA = ["triples_completeness", "triples_omissions"]
+TRIPLES_CRITERIA = ["triples_additions", "triples_omissions"]
 STAT_COLUMNS = [
     "json_elements", "ref_words", "ref_sentences", "ref_subsentences",
     "num_triples", "unique_predicates",

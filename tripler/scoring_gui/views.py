@@ -151,7 +151,7 @@ class InstanceListView(QWidget):
     back = Signal()
 
     COLUMNS = ["ID", "Text<br>Summary", "Text<br>Faithfulness",
-               "Triples<br>Completeness", "Triples<br>Omissions", "Evaluated"]
+               "Triples<br>Additions", "Triples<br>Omissions", "Evaluated"]
 
     def __init__(self, parent: QWidget | None = None):
         super().__init__(parent)

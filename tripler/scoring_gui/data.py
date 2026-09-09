@@ -42,14 +42,14 @@ PIPELINE_LABELS = {
 SCORE_COLUMNS = [
     "text_summary",
     "text_faithfulness",
-    "triples_completeness",
+    "triples_additions",
     "triples_omissions",
 ]
 
 SCORE_LABELS = {
     "text_summary": ("Text", "Summary", "Is the text a concise, coherent summary of the source data?"),
     "text_faithfulness": ("Text", "Faithfulness", "Is every claim in the text grounded in the source data?"),
-    "triples_completeness": ("Triples", "Completeness", "Do the triples cover all main points of the text?"),
+    "triples_additions": ("Triples", "Additions", "Do the triples introduce facts not supported by the text?"),
     "triples_omissions": ("Triples", "Omissions", "What do the triples leave out? Higher = fewer harmful omissions."),
 }
 
