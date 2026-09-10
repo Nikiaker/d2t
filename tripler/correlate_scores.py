@@ -9,6 +9,7 @@ and reports, per criterion and per overall variant:
   - Spearman rho        (rank correlation)
   - Kendall tau-b       (rank concordance)
   - Quadratic weighted Cohen's kappa (chance-corrected ordinal agreement)
+  - score means and constant-vector diagnostics
 
 Scores are split into two independent judge tasks:
   - text_*    : data -> reference text
@@ -33,6 +34,9 @@ python3 tripler/correlate_scores.py \
 
 In directory mode, human files are discovered as `human_*_scoring.csv` and
 paired with the corresponding `*_scored.csv` file in the same domain folder.
+When a score vector is constant, correlation coefficients are undefined and
+are left empty in CSV output. Diagnostic columns identify the constant side and
+its value, while means remain available for level comparisons.
 The output is a combined CSV with domain and variant columns.
 """
 
@@ -52,6 +56,12 @@ CRITERIA = [
     "triples_additions", "triples_omissions",
 ]
 METRIC_COLS = ["pearson_r", "spearman_rho", "kendall_tau", "qw_kappa"]
+DIAGNOSTIC_COLS = [
+    "llm_mean", "human_mean",
+    "llm_constant", "llm_constant_value",
+    "human_constant", "human_constant_value",
+    "correlation_status",
+]
 SCORE_MIN = 1
 SCORE_MAX = 5
 
@@ -152,14 +162,53 @@ def quadratic_weighted_kappa(a: list[int], b: list[int]) -> float:
     return 1.0 - (1.0 - po) / (1.0 - pe)
 
 
-def compute_row(a: list[int], b: list[int]) -> dict[str, Any]:
+def correlation_diagnostics(a: list[float], b: list[float]) -> dict[str, Any]:
+    if len(a) != len(b) or not a:
+        return {
+            "llm_mean": float("nan"),
+            "human_mean": float("nan"),
+            "llm_constant": False,
+            "llm_constant_value": float("nan"),
+            "human_constant": False,
+            "human_constant_value": float("nan"),
+            "correlation_status": "no_pairs",
+        }
+
+    llm_constant = len(set(a)) == 1
+    human_constant = len(set(b)) == 1
+    llm_value = float(a[0]) if llm_constant else float("nan")
+    human_value = float(b[0]) if human_constant else float("nan")
+
+    if llm_constant and human_constant:
+        status = "both_constant_same" if llm_value == human_value else "both_constant_different"
+    elif llm_constant:
+        status = "llm_constant"
+    elif human_constant:
+        status = "human_constant"
+    else:
+        status = "ok"
+
     return {
+        "llm_mean": float(np.mean(a)),
+        "human_mean": float(np.mean(b)),
+        "llm_constant": llm_constant,
+        "llm_constant_value": llm_value,
+        "human_constant": human_constant,
+        "human_constant_value": human_value,
+        "correlation_status": status,
+    }
+
+
+def compute_row(a: list[int], b: list[int]) -> dict[str, Any]:
+    row = {
         "n": len(a),
         "pearson_r": pearson_r(a, b),
         "spearman_rho": spearman_rho(a, b),
         "kendall_tau": kendall_tau(a, b),
         "qw_kappa": quadratic_weighted_kappa(a, b),
     }
+    row.update(correlation_diagnostics(a, b))
+    return row
 
 
 def compute_row_cont(a: list[float], b: list[float]) -> dict[str, Any]:
@@ -178,8 +227,15 @@ def compute_row_cont(a: list[float], b: list[float]) -> dict[str, Any]:
             tau, _ = stats.kendalltau(a, b)
     ai = [int(round(x)) for x in a]
     bi = [int(round(x)) for x in b]
-    return {"n": n, "pearson_r": float(r), "spearman_rho": float(rho),
-            "kendall_tau": float(tau), "qw_kappa": quadratic_weighted_kappa(ai, bi)}
+    row = {
+        "n": n,
+        "pearson_r": float(r),
+        "spearman_rho": float(rho),
+        "kendall_tau": float(tau),
+        "qw_kappa": quadratic_weighted_kappa(ai, bi),
+    }
+    row.update(correlation_diagnostics(a, b))
+    return row
 
 
 def fmt(v: float) -> str:
@@ -189,27 +245,37 @@ def fmt(v: float) -> str:
 
 
 def print_table(rows: list[dict[str, Any]]) -> None:
-    header = f"{'criterion':<26} {'N':>4} {'Pearson r':>10} {'Spearman p':>11} {'Kendall t':>10} {'QW-k':>8}"
+    header = f"{'criterion':<26} {'N':>4} {'Pearson r':>10} {'Spearman p':>11} {'Kendall t':>10} {'QW-k':>8} {'status':<24}"
     print(header)
     print("-" * len(header))
     for row in rows:
-        print(f"{row['label']:<26} {row['n']:>4} {fmt(row['pearson_r']):>10} {fmt(row['spearman_rho']):>11} {fmt(row['kendall_tau']):>10} {fmt(row['qw_kappa']):>8}")
+        print(f"{row['label']:<26} {row['n']:>4} {fmt(row['pearson_r']):>10} {fmt(row['spearman_rho']):>11} {fmt(row['kendall_tau']):>10} {fmt(row['qw_kappa']):>8} {row['correlation_status']:<24}")
 
 
 def write_summary_csv(path: Path, rows: list[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as f:
         writer = csv.writer(f)
-        writer.writerow(["label", "n"] + METRIC_COLS)
+        writer.writerow(["label", "n"] + METRIC_COLS + DIAGNOSTIC_COLS)
         for row in rows:
-            writer.writerow([
-                row["label"], row["n"],
-                "" if np.isnan(row["pearson_r"]) else f"{row['pearson_r']:.6f}",
-                "" if np.isnan(row["spearman_rho"]) else f"{row['spearman_rho']:.6f}",
-                "" if np.isnan(row["kendall_tau"]) else f"{row['kendall_tau']:.6f}",
-                "" if np.isnan(row["qw_kappa"]) else f"{row['qw_kappa']:.6f}",
-            ])
+            writer.writerow([row["label"], row["n"]] + serialize_diagnostics(row))
     print(f"[ok] {path}")
+
+
+def serialize_value(value: Any) -> Any:
+    if value is None:
+        return ""
+    if isinstance(value, bool):
+        return str(value).lower()
+    if isinstance(value, (float, np.floating)) and np.isnan(value):
+        return ""
+    if isinstance(value, (float, np.floating)):
+        return f"{value:.6f}"
+    return value
+
+
+def serialize_diagnostics(row: dict[str, Any]) -> list[Any]:
+    return [serialize_value(row[key]) for key in METRIC_COLS + DIAGNOSTIC_COLS if key in row]
 
 
 def discover_human_scoring_csvs(test_dir: Path, domains: set[str] | None) -> list[Path]:
@@ -326,7 +392,10 @@ def batch_results(
                 "variant": variant_name(llm_path),
                 "criterion": result["label"],
                 "n": result["n"],
-                **{metric: result[metric] for metric in METRIC_COLS},
+                **{
+                    column: result[column]
+                    for column in METRIC_COLS + DIAGNOSTIC_COLS
+                },
             })
         logger.info("%s: %d common instances", human_path, len(set(llm) & set(human)))
 
@@ -337,15 +406,13 @@ def batch_results(
 
 def write_batch_csv(path: Path, rows: list[dict[str, Any]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    fieldnames = ["domain", "variant", "criterion", "n"] + METRIC_COLS
+    fieldnames = ["domain", "variant", "criterion", "n"] + METRIC_COLS + DIAGNOSTIC_COLS
     with path.open("w", encoding="utf-8", newline="") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         for row in rows:
-            output = {key: row[key] for key in fieldnames}
-            for metric in METRIC_COLS:
-                value = output[metric]
-                output[metric] = "" if np.isnan(value) else f"{value:.6f}"
+            output = {key: row[key] for key in ["domain", "variant", "criterion", "n"]}
+            output.update(dict(zip(METRIC_COLS + DIAGNOSTIC_COLS, serialize_diagnostics(row))))
             writer.writerow(output)
     print(f"[ok] {path}")
 

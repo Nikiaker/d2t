@@ -181,6 +181,23 @@ away from it. Then:
 
 ---
 
+## Constant vectors and diagnostics
+
+Pearson, Spearman, and Kendall correlations are undefined when either rater
+assigns one score to every observation. The CSV leaves those coefficient cells
+empty rather than reporting a misleading zero. Every result also includes:
+
+- `llm_mean` and `human_mean`: average score for the aligned observations;
+- `llm_constant` / `human_constant`: whether that rater used one score only;
+- `llm_constant_value` / `human_constant_value`: that score when constant;
+- `correlation_status`: `ok`, `llm_constant`, `human_constant`,
+  `both_constant_same`, `both_constant_different`, or `no_pairs`.
+
+The means allow level comparisons when a correlation is undefined, but they are
+not substitutes for a correlation coefficient.
+
+---
+
 ## Overall (cross-criterion) variants
 
 The script reports four "overall" rows in addition to the four per-criterion

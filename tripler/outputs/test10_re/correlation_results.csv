@@ -1,0 +1,97 @@
+domain,variant,criterion,n,pearson_r,spearman_rho,kendall_tau,qw_kappa,llm_mean,human_mean,llm_constant,llm_constant_value,human_constant,human_constant_value,correlation_status
+mobile_phone_specification,rules_text_pipeline,text_summary,10,,,,0.000000,5.000000,4.100000,true,5.000000,false,,llm_constant
+mobile_phone_specification,rules_text_pipeline,text_faithfulness,10,,,,0.000000,5.000000,3.600000,true,5.000000,false,,llm_constant
+mobile_phone_specification,rules_text_pipeline,triples_additions,10,-0.509175,-0.509175,-0.509175,-0.212121,4.900000,4.300000,false,,false,,ok
+mobile_phone_specification,rules_text_pipeline,triples_omissions,10,0.349215,0.387298,0.360302,0.285714,4.000000,3.700000,false,,false,,ok
+mobile_phone_specification,rules_text_pipeline,overall_text (pooled),20,,,,0.000000,5.000000,3.850000,true,5.000000,false,,llm_constant
+mobile_phone_specification,rules_text_pipeline,overall_text (mean),10,,,,0.000000,5.000000,3.850000,true,5.000000,false,,llm_constant
+mobile_phone_specification,rules_text_pipeline,overall_triples (pooled),20,0.402331,0.371213,0.343923,0.315789,4.450000,4.000000,false,,false,,ok
+mobile_phone_specification,rules_text_pipeline,overall_triples (mean),10,0.000000,0.000000,0.000000,0.000000,4.450000,4.000000,false,,false,,ok
+mobile_phone_specification,text_pipeline,text_summary,10,,,,0.000000,5.000000,4.100000,true,5.000000,false,,llm_constant
+mobile_phone_specification,text_pipeline,text_faithfulness,10,,,,0.000000,5.000000,3.600000,true,5.000000,false,,llm_constant
+mobile_phone_specification,text_pipeline,triples_additions,10,,,,0.000000,5.000000,4.900000,true,5.000000,false,,llm_constant
+mobile_phone_specification,text_pipeline,triples_omissions,10,,,,0.000000,5.000000,5.000000,true,5.000000,true,5.000000,both_constant_same
+mobile_phone_specification,text_pipeline,overall_text (pooled),20,,,,0.000000,5.000000,3.850000,true,5.000000,false,,llm_constant
+mobile_phone_specification,text_pipeline,overall_text (mean),10,,,,0.000000,5.000000,3.850000,true,5.000000,false,,llm_constant
+mobile_phone_specification,text_pipeline,overall_triples (pooled),20,,,,0.000000,5.000000,4.950000,true,5.000000,false,,llm_constant
+mobile_phone_specification,text_pipeline,overall_triples (mean),10,,,,0.000000,5.000000,4.950000,true,5.000000,false,,llm_constant
+mobile_phone_specification,text_predicate_catalog_stable,text_summary,10,,,,0.000000,5.000000,4.100000,true,5.000000,false,,llm_constant
+mobile_phone_specification,text_predicate_catalog_stable,text_faithfulness,10,,,,0.000000,5.000000,3.600000,true,5.000000,false,,llm_constant
+mobile_phone_specification,text_predicate_catalog_stable,triples_additions,10,,,,0.000000,5.000000,4.900000,true,5.000000,false,,llm_constant
+mobile_phone_specification,text_predicate_catalog_stable,triples_omissions,10,0.666667,0.666667,0.666667,0.615385,4.800000,4.900000,false,,false,,ok
+mobile_phone_specification,text_predicate_catalog_stable,overall_text (pooled),20,,,,0.000000,5.000000,3.850000,true,5.000000,false,,llm_constant
+mobile_phone_specification,text_predicate_catalog_stable,overall_text (mean),10,,,,0.000000,5.000000,3.850000,true,5.000000,false,,llm_constant
+mobile_phone_specification,text_predicate_catalog_stable,overall_triples (pooled),20,0.444444,0.444444,0.444444,0.444444,4.900000,4.900000,false,,false,,ok
+mobile_phone_specification,text_predicate_catalog_stable,overall_triples (mean),10,0.375000,0.375000,0.375000,0.375000,4.900000,4.900000,false,,false,,ok
+owid,rules_text_pipeline,text_summary,10,,,,0.000000,5.000000,4.700000,true,5.000000,false,,llm_constant
+owid,rules_text_pipeline,text_faithfulness,10,,,,0.000000,5.000000,4.800000,true,5.000000,false,,llm_constant
+owid,rules_text_pipeline,triples_additions,10,,,,0.000000,5.000000,4.000000,true,5.000000,true,4.000000,both_constant_different
+owid,rules_text_pipeline,triples_omissions,10,0.512148,0.519701,0.493915,0.313725,4.800000,4.300000,false,,false,,ok
+owid,rules_text_pipeline,overall_text (pooled),20,,,,0.000000,5.000000,4.750000,true,5.000000,false,,llm_constant
+owid,rules_text_pipeline,overall_text (mean),10,,,,0.000000,5.000000,4.750000,true,5.000000,false,,llm_constant
+owid,rules_text_pipeline,overall_triples (pooled),20,0.378605,0.360041,0.348263,0.132653,4.900000,4.150000,false,,false,,ok
+owid,rules_text_pipeline,overall_triples (mean),10,0.512148,0.519701,0.493915,0.000000,4.900000,4.150000,false,,false,,ok
+owid,text_pipeline,text_summary,10,,,,0.000000,5.000000,4.700000,true,5.000000,false,,llm_constant
+owid,text_pipeline,text_faithfulness,10,,,,0.000000,5.000000,4.800000,true,5.000000,false,,llm_constant
+owid,text_pipeline,triples_additions,10,,,,0.000000,5.000000,5.000000,true,5.000000,true,5.000000,both_constant_same
+owid,text_pipeline,triples_omissions,10,,,,0.000000,5.000000,4.500000,true,5.000000,false,,llm_constant
+owid,text_pipeline,overall_text (pooled),20,,,,0.000000,5.000000,4.750000,true,5.000000,false,,llm_constant
+owid,text_pipeline,overall_text (mean),10,,,,0.000000,5.000000,4.750000,true,5.000000,false,,llm_constant
+owid,text_pipeline,overall_triples (pooled),20,,,,0.000000,5.000000,4.750000,true,5.000000,false,,llm_constant
+owid,text_pipeline,overall_triples (mean),10,,,,0.000000,5.000000,4.750000,true,5.000000,false,,llm_constant
+owid,text_predicate_catalog_stable,text_summary,10,,,,0.000000,5.000000,4.700000,true,5.000000,false,,llm_constant
+owid,text_predicate_catalog_stable,text_faithfulness,10,,,,0.000000,5.000000,4.800000,true,5.000000,false,,llm_constant
+owid,text_predicate_catalog_stable,triples_additions,10,,,,0.000000,4.600000,5.000000,false,,true,5.000000,human_constant
+owid,text_predicate_catalog_stable,triples_omissions,10,0.866921,0.916667,0.875000,0.403670,3.600000,2.200000,false,,false,,ok
+owid,text_predicate_catalog_stable,overall_text (pooled),20,,,,0.000000,5.000000,4.750000,true,5.000000,false,,llm_constant
+owid,text_predicate_catalog_stable,overall_text (mean),10,,,,0.000000,5.000000,4.750000,true,5.000000,false,,llm_constant
+owid,text_predicate_catalog_stable,overall_triples (pooled),20,0.604063,0.629500,0.578295,0.558824,4.100000,3.600000,false,,false,,ok
+owid,text_predicate_catalog_stable,overall_triples (mean),10,0.626953,0.794978,0.707107,0.042553,4.100000,3.600000,false,,false,,ok
+weather_forecast,rules_text_pipeline,text_summary,10,,,,0.000000,5.000000,4.600000,true,5.000000,false,,llm_constant
+weather_forecast,rules_text_pipeline,text_faithfulness,10,,,,0.000000,5.000000,3.600000,true,5.000000,false,,llm_constant
+weather_forecast,rules_text_pipeline,triples_additions,10,,,,0.000000,4.700000,5.000000,false,,true,5.000000,human_constant
+weather_forecast,rules_text_pipeline,triples_omissions,10,0.588348,0.528498,0.493464,0.461538,3.500000,3.000000,false,,false,,ok
+weather_forecast,rules_text_pipeline,overall_text (pooled),20,,,,0.000000,5.000000,4.100000,true,5.000000,false,,llm_constant
+weather_forecast,rules_text_pipeline,overall_text (mean),10,,,,0.000000,5.000000,4.100000,true,5.000000,false,,llm_constant
+weather_forecast,rules_text_pipeline,overall_triples (pooled),20,0.725731,0.731193,0.664296,0.714286,4.100000,4.000000,false,,false,,ok
+weather_forecast,rules_text_pipeline,overall_triples (mean),10,0.632962,0.535942,0.501115,0.000000,4.100000,4.000000,false,,false,,ok
+weather_forecast,text_pipeline,text_summary,10,,,,0.000000,5.000000,4.600000,true,5.000000,false,,llm_constant
+weather_forecast,text_pipeline,text_faithfulness,10,,,,0.000000,5.000000,3.600000,true,5.000000,false,,llm_constant
+weather_forecast,text_pipeline,triples_additions,10,,,,0.000000,5.000000,4.900000,true,5.000000,false,,llm_constant
+weather_forecast,text_pipeline,triples_omissions,10,,,,0.000000,5.000000,5.000000,true,5.000000,true,5.000000,both_constant_same
+weather_forecast,text_pipeline,overall_text (pooled),20,,,,0.000000,5.000000,4.100000,true,5.000000,false,,llm_constant
+weather_forecast,text_pipeline,overall_text (mean),10,,,,0.000000,5.000000,4.100000,true,5.000000,false,,llm_constant
+weather_forecast,text_pipeline,overall_triples (pooled),20,,,,0.000000,5.000000,4.950000,true,5.000000,false,,llm_constant
+weather_forecast,text_pipeline,overall_triples (mean),10,,,,0.000000,5.000000,4.950000,true,5.000000,false,,llm_constant
+weather_forecast,text_predicate_catalog_stable,text_summary,10,,,,0.000000,5.000000,4.600000,true,5.000000,false,,llm_constant
+weather_forecast,text_predicate_catalog_stable,text_faithfulness,10,,,,0.000000,5.000000,3.600000,true,5.000000,false,,llm_constant
+weather_forecast,text_predicate_catalog_stable,triples_additions,10,,,,0.000000,5.000000,4.900000,true,5.000000,false,,llm_constant
+weather_forecast,text_predicate_catalog_stable,triples_omissions,10,0.753411,0.645497,0.630528,0.477612,4.400000,3.700000,false,,false,,ok
+weather_forecast,text_predicate_catalog_stable,overall_text (pooled),20,,,,0.000000,5.000000,4.100000,true,5.000000,false,,llm_constant
+weather_forecast,text_predicate_catalog_stable,overall_text (mean),10,,,,0.000000,5.000000,4.100000,true,5.000000,false,,llm_constant
+weather_forecast,text_predicate_catalog_stable,overall_triples (pooled),20,0.781867,0.647136,0.631794,0.629630,4.700000,4.300000,false,,false,,ok
+weather_forecast,text_predicate_catalog_stable,overall_triples (mean),10,0.590909,0.409946,0.387202,0.000000,4.700000,4.300000,false,,false,,ok
+wikidata,rules_text_pipeline,text_summary,10,,,,0.000000,5.000000,4.600000,true,5.000000,false,,llm_constant
+wikidata,rules_text_pipeline,text_faithfulness,10,,,,0.000000,5.000000,4.800000,true,5.000000,false,,llm_constant
+wikidata,rules_text_pipeline,triples_additions,10,0.666667,0.666667,0.666667,0.615385,4.900000,4.800000,false,,false,,ok
+wikidata,rules_text_pipeline,triples_omissions,10,0.926510,0.963796,0.933852,0.905660,4.400000,4.300000,false,,false,,ok
+wikidata,rules_text_pipeline,overall_text (pooled),20,,,,0.000000,5.000000,4.700000,true,5.000000,false,,llm_constant
+wikidata,rules_text_pipeline,overall_text (mean),10,,,,0.000000,5.000000,4.700000,true,5.000000,false,,llm_constant
+wikidata,rules_text_pipeline,overall_triples (pooled),20,0.894661,0.905577,0.885979,0.872611,4.650000,4.550000,false,,false,,ok
+wikidata,rules_text_pipeline,overall_triples (mean),10,0.906887,0.868411,0.840461,0.800000,4.650000,4.550000,false,,false,,ok
+wikidata,text_pipeline,text_summary,10,,,,0.000000,5.000000,4.600000,true,5.000000,false,,llm_constant
+wikidata,text_pipeline,text_faithfulness,10,,,,0.000000,5.000000,4.800000,true,5.000000,false,,llm_constant
+wikidata,text_pipeline,triples_additions,10,,,,0.000000,5.000000,5.000000,true,5.000000,true,5.000000,both_constant_same
+wikidata,text_pipeline,triples_omissions,10,,,,0.000000,5.000000,5.000000,true,5.000000,true,5.000000,both_constant_same
+wikidata,text_pipeline,overall_text (pooled),20,,,,0.000000,5.000000,4.700000,true,5.000000,false,,llm_constant
+wikidata,text_pipeline,overall_text (mean),10,,,,0.000000,5.000000,4.700000,true,5.000000,false,,llm_constant
+wikidata,text_pipeline,overall_triples (pooled),20,,,,0.000000,5.000000,5.000000,true,5.000000,true,5.000000,both_constant_same
+wikidata,text_pipeline,overall_triples (mean),10,,,,0.000000,5.000000,5.000000,true,5.000000,true,5.000000,both_constant_same
+wikidata,text_predicate_catalog_stable,text_summary,10,,,,0.000000,5.000000,4.600000,true,5.000000,false,,llm_constant
+wikidata,text_predicate_catalog_stable,text_faithfulness,10,,,,0.000000,5.000000,4.800000,true,5.000000,false,,llm_constant
+wikidata,text_predicate_catalog_stable,triples_additions,10,,,,0.000000,5.000000,4.800000,true,5.000000,false,,llm_constant
+wikidata,text_predicate_catalog_stable,triples_omissions,10,0.666667,0.666667,0.666667,0.615385,4.800000,4.800000,false,,false,,ok
+wikidata,text_predicate_catalog_stable,overall_text (pooled),20,,,,0.000000,5.000000,4.700000,true,5.000000,false,,llm_constant
+wikidata,text_predicate_catalog_stable,overall_text (mean),10,,,,0.000000,5.000000,4.700000,true,5.000000,false,,llm_constant
+wikidata,text_predicate_catalog_stable,overall_triples (pooled),20,0.458831,0.458831,0.458831,0.444444,4.900000,4.800000,false,,false,,ok
+wikidata,text_predicate_catalog_stable,overall_triples (mean),10,0.804030,0.645497,0.625543,0.411765,4.900000,4.800000,false,,false,,ok
