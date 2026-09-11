@@ -4,80 +4,110 @@
 \section{Motivation}
 
 Data-to-text (D2T) generation concerns the automatic conversion of structured
-information into natural-language text. It is used in settings in which the
-available information is naturally represented as records, tables, databases,
-or knowledge graphs, but the intended users are more comfortable reading a
-linguistic description than inspecting the underlying structure. D2T systems
-must therefore solve two related problems: they must identify and organize the
-information that should be communicated, and they must express that
-information in text that is fluent, coherent, and faithful to its source
+information into natural-language text. It is useful whenever information stored
+as records, tables, databases, time series, or knowledge graphs must be presented
+in a linguistic form. It is useful for a human reader, a conversational
+interface, or another language-based system. D2T systems must therefore solve
+two related problems: they must select and organize the information that should
+be communicated, and then express that information in text that is fluent,
+coherent, and faithful to its source
 \cite{gatt2018survey,osuji2024systematic}.
 
-Recent neural and large language model based systems have substantially
-improved the fluency and flexibility of generated text. However, these
-properties do not by themselves guarantee that a system is suitable for
-applications in which its decisions must be inspected or reproduced. A model
-may omit information, introduce unsupported statements, or realize the same
-input differently on separate executions. When the generation process is
-distributed across model parameters and prompt instructions, it can also be
-difficult to determine which decision caused an error. These concerns are
-especially important for structured data, where the generated text should be
-traceable to explicit source facts and should not silently alter their meaning.
-Source-aware and semantic evaluation studies have consequently emphasized the
-need to assess factuality and faithfulness in addition to surface-form
-similarity \cite{wiseman-etal-2017-challenges,dusek-kasner-2020-evaluating,
+Recent neural and large language model based systems have substantially improved
+the fluency and flexibility of generated text. However, fluent text does not
+necessarily preserve the content of the input. A system may omit a fact,
+introduce an unsupported statement, select different facts on different
+executions, or organize the same facts in a way that changes their apparent
+meaning. In a direct neural generator, these intermediate choices are not usually
+represented as explicit objects that a developer can inspect, modify, or compare
+with the source. This makes it difficult to identify whether an error resulted
+from content selection, content ordering, aggregation, lexicalization, or surface
+realization. Traceability is particularly valuable for structured data because the source
+contains explicit entities, relations, and values that can be checked against the
+generated text.
+\cite{wiseman-etal-2017-challenges,dusek-kasner-2020-evaluating,
 dhingra-etal-2019-handling}.
 
-Fully rule-based systems provide a useful contrast. Their behavior can be
-represented by explicit operations and inspected by a developer, but the rules
-usually have to be designed manually. This becomes costly when the input
-contains nested attributes, temporal data, heterogeneous domains, or many
-possible linguistic realizations. The resulting tension motivates methods
-that retain an explicit representation of the generation process while
-reducing the amount of manual engineering required to construct it.
+Before neural generation became dominant, D2T systems were commonly built using
+manually authored rules and templates. A rule-based system specifies conditions
+and operations for selecting, ordering, and combining facts, while a template
+provides a sentence pattern into which values can be inserted. Such systems are
+easy to inspect and can provide strong control over which source facts are
+realized. Their limitation is not that rules are inherently expensive, but that
+the engineering effort grows as the task becomes more varied. New predicates,
+combinations of facts, aggregation patterns, domains, and linguistic constructions
+may each require additional design, testing, and maintenance
+\cite{reiter1997building,gatt2018survey}.
 
-One way to address this tension is to separate meaning representation from
-surface realization. In this thesis, complex structured instances are first
-converted into semantic triples, and the triples are then verbalized as
-natural-language text. The resulting decomposition can be summarized as
+This challenge is especially visible for complex structured data. A time series,
+for example, may require decisions about temporal ordering, aggregation,
+extremes, trends, and the level of detail appropriate for the output. These
+decisions are not caused by the presence of time alone; they arise because the
+system must handle many possible structures and realizations. Neural systems
+reduce some of this manual engineering and offer greater linguistic variety, but
+their learned generation behavior is harder to inspect.
+
+One way to make this trade-off more manageable is to separate meaning
+representation from surface realization. A meaning representation is an
+intermediate, structured description of the content to be communicated. It is
+independent of the exact wording of the final text and can be expressed using,
+for example, logical forms, semantic frames, text plans, or graphs. An explicit
+meaning representation makes the selected content available for inspection before
+it is verbalized. The resulting decomposition can be summarized as
 \begin{equation}
     d \longrightarrow T \longrightarrow y,
 \end{equation}
-where $d$ denotes a structured data instance, $T$ denotes its semantic
-representation, and $y$ denotes the generated text. Triples make the facts
-being communicated explicit and provide an intermediate object that can be
-inspected, normalized, and evaluated independently of the final wording.
-Nevertheless, constructing consistent triples from complex data and producing
-fluent text from those triples remain non-trivial tasks.
+where $d$ denotes a structured data instance, $T$ denotes its interpretable meaning
+representation, and $y$ denotes the generated text. In this context,
+interpretability means that the intermediate meaning representation and the procedure
+that produces the text are explicit artifacts that can be inspected.
+Meaning representation make the facts being communicated explicit and provide an intermediate
+object that can be inspected, normalized, and evaluated independently of the
+final wording. Nevertheless, constructing consistent meaning representation from complex data
+and producing fluent text from it remains non-trivial tasks.
 
-The thesis investigates whether large language models can be used to automate
-the construction of both parts of this process without making the final
-system entirely opaque. For meaning representation, several LLM-based
-conversion pipelines and a domain-specialized fine-tuned model are examined.
-For surface realization, the LLM is not used only to generate the final text
-for each input. Instead, it proposes modifications to an executable generator
-that is evaluated and retained through an evolutionary search. This direction
-is related to the interpretable neurosymbolic NLG approach of Lango and
-Dušek~\cite{lango-dusek-2025-llm}, which uses LLM agents to construct
-rule-based generators, and to the AlphaEvolve framework, which uses LLMs to
-propose program changes that are grounded in execution and automatic
-evaluation~\cite{novikov2025alphaevolve}. The experiments use OpenEvolve, an
-open-source implementation of this evolutionary coding approach
-\cite{sharma2025openevolve}.
+The thesis develops both stages of this pipeline. In the meaning-representation
+construction stage, LLM-based pipelines first generate reference texts from raw
+structured data and then extract the meaning representation. A domain-specialized
+model is also examined as a way of producing both the meaning representation and a text in a
+single inference pass. In the surface-realization stage, the input is in a form
+of the meaning representation and the output is text. Here, the LLM is used during 
+a system construction, which is a program that is an executable implementation of the
+mapping from meaning representation to text. The selected program can subsequently realize text
+without an LLM call.
 
-The main aim is therefore to develop and evaluate an interpretable D2T
-pipeline in which the intermediate meaning representation and the surface
-realizer are explicit artifacts. The work makes the following contributions:
+This use of an LLM to construct an executable generator builds on the
+neurosymbolic NLG approach of Lango and Dušek~\cite{lango-dusek-2025-llm}.
+In those approaches, the LLM helps
+create a rule-based NLG system whose code can be inspected and executed
+independently. The present work retains this explicit program artifact, but
+addresses the refinement problem using evolutionary search: alternative code
+changes are proposed, grounded in execution, and retained or rejected according
+to an evaluator. This is inspired by AlphaEvolve, a framework for evolutionary
+program improvement using LLM-generated mutations and automatic evaluation
+\cite{novikov2025alphaevolve}. The experiments use OpenEvolve, an open-source
+implementation of this approach~\cite{sharma2025openevolve}.
+
+The objective of this thesis is to
+construct a D2T pipeline in which the meaning-representation construction stage
+and the surface-realization stage are separate, inspectable components. This
+separation makes it possible to analyze errors at the boundary between raw data,
+meaning representation, and text, to compare alternative conversion strategies, and to improve
+the executable program using measured feedback. Reference-based and semantic
+metrics evaluate generation quality and faithfulness.
+Interpretability is supported by exposing the meaning representation and the executable 
+program.
+
+The work makes the following contributions:
 \begin{itemize}
-    \item an investigation of LLM-based methods for converting complex,
-    heterogeneous structured data into consistent semantic triples;
-    \item a comparison of multi-stage conversion pipelines with a
-    domain-specialized model;
-    \item an evolutionary method for constructing an executable surface
-    realizer from semantic triples using LLM-generated program mutations;
-    \item an evaluation of the resulting components using reference-based,
-    semantic, and LLM-based measures, with attention to both generation
-    quality and interpretability.
+    \item three LLM-based pipeline designs for constructing meaning representation
+    from heterogeneous structured data;
+    \item a domain-specialized training procedure that distills the
+    conversion process into a large language model;
+    \item an evolutionary surface-realization method in which LLM-generated
+    program mutations are executed and selected using automatic evaluation;
+    \item a systematic empirical evaluation of the proposed methods across
+    multiple domains using reference-based, semantic, and LLM-based measures.
 \end{itemize}
 
 \section{Thesis structure}
@@ -85,16 +115,18 @@ realizer are explicit artifacts. The work makes the following contributions:
 The structure of the thesis is as follows. Chapter~2 introduces the D2T task,
 reviews the principal generation approaches, discusses interpretability, and
 describes the evaluation methods used in this area. Chapter~3 presents the
-meaning-representation stage of the proposed pipeline. It describes how
-complex structured instances are converted into semantic triples using
-LLM-based pipelines and a fine-tuned model.
+meaning-representation construction stage of the proposed pipeline. It describes
+how complex structured instances are converted into meaning representation using
+LLM-based pipelines and a domain-specialized fine-tuned model.
 
-Chapter~4 presents the surface-realization stage. It introduces the
-AlphaEvolve and OpenEvolve frameworks and explains how an executable program
-for verbalizing triples is selected, mutated, evaluated, and retained during
-evolution. Chapter~5 describes the experimental datasets and configurations,
-reports the results for meaning representation and surface realization, and
+Chapter~4 presents the surface-realization stage, namely the conversion of
+semantic triples into natural-language text. It introduces the AlphaEvolve and
+OpenEvolve frameworks and explains how an executable program for verbalizing
+triples is selected, mutated, evaluated, and retained during evolution.
+Chapter~5 describes the experimental datasets and configurations, reports the
+results for meaning-representation construction and surface realization, and
 evaluates the complete pipeline. Chapter~6 discusses the results, limitations,
 and broader implications of the proposed approach. Finally, Chapter~7
 summarizes the thesis and presents its conclusions. The appendices contain the
-prompts used by the data-conversion methods.
+prompts used by the conversion methods and the initial surface-realization
+program.

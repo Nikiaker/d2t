@@ -1,4 +1,36 @@
 
 \chapter*{Abstract}
 
-% Write the abstract here after completing the thesis.
+Data-to-text generation converts structured information into natural-language
+text, but direct neural generation can make content selection and realization
+difficult to inspect. This thesis develops an interpretable data-to-text pipeline
+that separates meaning-representation construction from surface realization.
+Raw structured instances from four domains are converted into normalized
+subject--predicate--object semantic triples using three LLM-based pipeline
+variants. A domain-specialized model trained with Quantized Low-Rank Adaptation
+(QLoRA) is also examined as a single-pass alternative. The resulting triples are
+verbalized by executable programs constructed through evolutionary search: an
+LLM proposes source-code mutations, while OpenEvolve evaluates and selects the
+resulting programs. The methods are evaluated on heterogeneous domain data and
+on the WebNLG RDF-to-text benchmark using reference-based, semantic, and
+LLM-based measures. The explicit triples, executable realizers, and evolution
+records provide artifacts for analyzing and reproducing the generation process.
+
+\chapter*{Streszczenie}
+
+Generowanie tekstu na podstawie danych (data-to-text) polega na przekształcaniu
+informacji strukturalnych w tekst języka naturalnego, jednak bezpośrednie
+generowanie za pomocą modeli neuronowych może utrudniać analizę wyboru treści i
+sposobu jej realizacji. W pracy opracowano interpretowalny potok generowania,
+który rozdziela konstrukcję reprezentacji znaczeniowej od realizacji
+powierzchniowej. Surowe instancje strukturalne z czterech dziedzin są
+przekształcane w znormalizowane trójki podmiot--predykat--obiekt za pomocą trzech
+wariantów potoków opartych na dużych modelach językowych. Zbadano również model
+wyspecjalizowany dla danej dziedziny, dostrajany metodą QLoRA, który może tworzyć
+oba wyjścia w jednym przebiegu. Trójki są następnie zamieniane na tekst przez
+wykonywalne programy konstruowane z użyciem wyszukiwania ewolucyjnego: model
+językowy proponuje modyfikacje kodu, a OpenEvolve uruchamia i ocenia powstałe
+programy. Metody oceniono na zróżnicowanych danych dziedzinowych oraz na
+benchmarku WebNLG, wykorzystując metryki oparte na referencjach, ocenie
+semantycznej i modelach językowych. Jawne trójki, wykonywalne realizatory oraz
+zapis procesu ewolucji ułatwiają analizę i odtwarzanie procesu generowania.
