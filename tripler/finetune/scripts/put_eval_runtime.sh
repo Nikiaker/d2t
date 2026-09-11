@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Runtime setup for PUT/HGX evaluation jobs. Conda is intentionally used via
-# `conda run`: batch shells do not need (and should not use) `conda activate`.
+# Runtime setup for PUT/HGX jobs. Environment binaries are invoked directly so
+# Conda does not need to inspect environment metadata on shared /home storage.
 put_eval_setup() {
     local job_id="${SLURM_JOB_ID:-$$}"
     export PUT_EVAL_ROOT="${PUT_EVAL_ROOT:-/raid/${USER}/d2t-eval-${job_id}}"
@@ -27,46 +27,33 @@ put_eval_setup() {
         "$TRITON_CACHE_DIR" "$TORCHINDUCTOR_CACHE_DIR"
 }
 
-put_conda_run() {
-    local attempt=1
-    local retries="${PUT_CONDA_RETRIES:-3}"
-    local delay="${PUT_CONDA_RETRY_DELAY:-10}"
-
-    while true; do
-        conda run "$@" && return 0
-        if [ "$attempt" -ge "$retries" ]; then
-            return 1
-        fi
-        echo "WARNING: conda run failed (attempt $attempt/$retries); retrying in ${delay}s" >&2
-        sleep "$delay"
-        attempt=$((attempt + 1))
-    done
-}
-
 put_vllm_run() {
-    if [ -z "${PUT_VLLM_ENV_PREFIX:-}" ]; then
-        echo "ERROR: PUT_VLLM_ENV_PREFIX is not initialized" >&2
-        return 1
-    fi
-    put_conda_run -n vllm-env env \
-        "LD_LIBRARY_PATH=$PUT_VLLM_ENV_PREFIX/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" "$@"
+    put_direct_env_run "$PUT_VLLM_ENV_PREFIX" vllm "$@"
 }
 
 put_openevolve_run() {
-    if [ -z "${PUT_OPENEVOLVE_ENV_PREFIX:-}" ]; then
-        echo "ERROR: PUT_OPENEVOLVE_ENV_PREFIX is not initialized" >&2
-        return 1
-    fi
+    put_direct_env_run "$PUT_OPENEVOLVE_ENV_PREFIX" python "$@"
+}
+
+put_direct_env_run() {
+    local prefix="$1"
+    local executable="$2"
+    shift 2
     local attempt=1
     local retries="${PUT_CONDA_RETRIES:-3}"
     local delay="${PUT_CONDA_RETRY_DELAY:-10}"
+
+    test -x "$prefix/bin/$executable" || {
+        echo "ERROR: missing executable: $prefix/bin/$executable" >&2
+        return 1
+    }
     while true; do
-        env "LD_LIBRARY_PATH=$PUT_OPENEVOLVE_ENV_PREFIX/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" \
-            "$PUT_OPENEVOLVE_ENV_PREFIX/bin/python" "$@" && return 0
+        env "LD_LIBRARY_PATH=$prefix/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" \
+            "$prefix/bin/$executable" "$@" && return 0
         if [ "$attempt" -ge "$retries" ]; then
             return 1
         fi
-        echo "WARNING: openevolve Python failed (attempt $attempt/$retries); retrying in ${delay}s" >&2
+        echo "WARNING: $executable failed (attempt $attempt/$retries); retrying in ${delay}s" >&2
         sleep "$delay"
         attempt=$((attempt + 1))
     done
@@ -96,27 +83,18 @@ put_finetune_setup() {
 }
 
 put_finetune_run() {
-    if [ -z "${PUT_FINETUNE_ENV_PREFIX:-}" ]; then
-        echo "ERROR: PUT_FINETUNE_ENV_PREFIX is not initialized" >&2
-        return 1
-    fi
-    put_conda_run -n finetune-env env \
-        "LD_LIBRARY_PATH=$PUT_FINETUNE_ENV_PREFIX/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" "$@"
+    put_direct_env_run "$PUT_FINETUNE_ENV_PREFIX" python "$@"
 }
 
 put_finetune_check_conda() {
-    if ! command -v conda >/dev/null 2>&1 && [ -x "$HOME/miniconda3/bin/conda" ]; then
-        export PATH="$HOME/miniconda3/bin:$PATH"
-    fi
-    command -v conda >/dev/null 2>&1 || {
-        echo "ERROR: conda is not available in PATH; PUT jobs use 'conda run' directly" >&2
-        return 1
-    }
-    PUT_FINETUNE_ENV_PREFIX="$(put_conda_run -n finetune-env python -c 'import sys; print(sys.prefix)')" || {
-        echo "ERROR: cannot determine finetune-env prefix; check the PUT /home filesystem" >&2
-        return 1
-    }
+    PUT_CONDA_BASE="${PUT_CONDA_BASE:-$HOME/miniconda3}"
+    export PUT_CONDA_BASE
+    PUT_FINETUNE_ENV_PREFIX="${PUT_FINETUNE_ENV_PREFIX:-$PUT_CONDA_BASE/envs/finetune-env}"
     export PUT_FINETUNE_ENV_PREFIX
+    test -x "$PUT_FINETUNE_ENV_PREFIX/bin/python" || {
+        echo "ERROR: finetune-env Python is missing: $PUT_FINETUNE_ENV_PREFIX/bin/python" >&2
+        return 1
+    }
     test -f "$PUT_FINETUNE_ENV_PREFIX/lib/libstdc++.so.6" || {
         echo "ERROR: finetune-env has no libstdc++.so.6 under $PUT_FINETUNE_ENV_PREFIX/lib" >&2
         return 1
@@ -162,32 +140,25 @@ put_finetune_cleanup() {
 }
 
 put_eval_check_conda() {
-    if ! command -v conda >/dev/null 2>&1 && [ -x "$HOME/miniconda3/bin/conda" ]; then
-        export PATH="$HOME/miniconda3/bin:$PATH"
-    fi
-    command -v conda >/dev/null 2>&1 || {
-        echo "ERROR: conda is not available in PATH; PUT jobs use 'conda run' directly" >&2
-        return 1
-    }
-    PUT_VLLM_ENV_PREFIX="$(put_conda_run -n vllm-env python -c 'import sys; print(sys.prefix)')" || {
-        echo "ERROR: cannot determine vllm-env prefix; check the PUT /home filesystem" >&2
-        return 1
-    }
+    PUT_CONDA_BASE="${PUT_CONDA_BASE:-$HOME/miniconda3}"
+    export PUT_CONDA_BASE
+    PUT_VLLM_ENV_PREFIX="${PUT_VLLM_ENV_PREFIX:-$PUT_CONDA_BASE/envs/vllm-env}"
     export PUT_VLLM_ENV_PREFIX
+    PUT_OPENEVOLVE_ENV_PREFIX="${PUT_OPENEVOLVE_ENV_PREFIX:-$PUT_CONDA_BASE/envs/openevolve-env}"
+    export PUT_OPENEVOLVE_ENV_PREFIX
+    test -x "$PUT_VLLM_ENV_PREFIX/bin/vllm" || {
+        echo "ERROR: vllm executable is missing: $PUT_VLLM_ENV_PREFIX/bin/vllm" >&2
+        return 1
+    }
     test -f "$PUT_VLLM_ENV_PREFIX/lib/libstdc++.so.6" || {
         echo "ERROR: vllm-env has no libstdc++.so.6 under $PUT_VLLM_ENV_PREFIX/lib" >&2
         return 1
     }
-    put_vllm_run python -c 'import optree, vllm; print("vLLM imports successfully")' || {
+    put_direct_env_run "$PUT_VLLM_ENV_PREFIX" python \
+        -c 'import optree, vllm; print("vLLM imports successfully")' || {
         echo "ERROR: vllm-env cannot import vLLM with its Conda C++ runtime" >&2
         return 1
     }
-    local conda_bin
-    local conda_base
-    conda_bin="$(command -v conda)"
-    conda_base="$(dirname "$(dirname "$conda_bin")")"
-    PUT_OPENEVOLVE_ENV_PREFIX="${PUT_OPENEVOLVE_ENV_PREFIX:-$conda_base/envs/openevolve-env}"
-    export PUT_OPENEVOLVE_ENV_PREFIX
     test -x "$PUT_OPENEVOLVE_ENV_PREFIX/bin/python" || {
         echo "ERROR: openevolve-env Python is missing: $PUT_OPENEVOLVE_ENV_PREFIX/bin/python" >&2
         echo "Recreate openevolve-env or set PUT_OPENEVOLVE_ENV_PREFIX to a valid environment." >&2
