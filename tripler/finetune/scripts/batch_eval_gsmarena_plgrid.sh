@@ -52,12 +52,12 @@ cleanup() {
 }
 trap 'cleanup; put_eval_cleanup' EXIT
 
-if ! put_conda_run -n openevolve-env python "$D2TPATH/.conda/test-response.py" --port "$PORT" --timeout 600; then
+if ! put_openevolve_run "$D2TPATH/.conda/test-response.py" --port "$PORT" --timeout 600; then
     echo "ERROR: vLLM server did not start within 10 minutes; see $SERVER_LOG" >&2
     exit 1
 fi
 
-put_conda_run -n openevolve-env python "$D2TPATH/tripler/finetune/eval.py" \
+put_openevolve_run "$D2TPATH/tripler/finetune/eval.py" \
     --train "$DATA_DIR/train.jsonl" --dev "$DATA_DIR/dev.jsonl" \
     --report "$REPORT" --port "$PORT" --api-key none --max-tokens 2048 \
     --model ft "$LOCAL_MODEL_DIR" --catalog "$TRIPLES_FILE"

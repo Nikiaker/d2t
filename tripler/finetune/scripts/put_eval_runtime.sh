@@ -14,11 +14,16 @@ put_eval_setup() {
 
     export TMPDIR="${PUT_EVAL_TMPDIR:-$PUT_EVAL_ROOT/tmp}"
     export XDG_CACHE_HOME="${PUT_EVAL_CACHE:-$PUT_EVAL_ROOT/cache}"
+    export HF_HOME="${PUT_EVAL_HF_HOME:-$PUT_EVAL_ROOT/cache/huggingface}"
+    export TRANSFORMERS_CACHE="$HF_HOME"
+    export HUGGINGFACE_HUB_CACHE="$HF_HOME/hub"
+    export TORCH_HOME="$PUT_EVAL_ROOT/cache/torch"
     export VLLM_CACHE_ROOT="$PUT_EVAL_ROOT/cache/vllm"
     export CUDA_CACHE_PATH="$PUT_EVAL_ROOT/cache/cuda"
     export TRITON_CACHE_DIR="$PUT_EVAL_ROOT/cache/triton"
     export TORCHINDUCTOR_CACHE_DIR="$PUT_EVAL_ROOT/cache/torchinductor"
-    mkdir -p "$XDG_CACHE_HOME" "$VLLM_CACHE_ROOT" "$CUDA_CACHE_PATH" \
+    mkdir -p "$XDG_CACHE_HOME" "$HF_HOME" "$HUGGINGFACE_HUB_CACHE" \
+        "$TORCH_HOME" "$VLLM_CACHE_ROOT" "$CUDA_CACHE_PATH" \
         "$TRITON_CACHE_DIR" "$TORCHINDUCTOR_CACHE_DIR"
 }
 
@@ -45,6 +50,26 @@ put_vllm_run() {
     fi
     put_conda_run -n vllm-env env \
         "LD_LIBRARY_PATH=$PUT_VLLM_ENV_PREFIX/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" "$@"
+}
+
+put_openevolve_run() {
+    if [ -z "${PUT_OPENEVOLVE_ENV_PREFIX:-}" ]; then
+        echo "ERROR: PUT_OPENEVOLVE_ENV_PREFIX is not initialized" >&2
+        return 1
+    fi
+    local attempt=1
+    local retries="${PUT_CONDA_RETRIES:-3}"
+    local delay="${PUT_CONDA_RETRY_DELAY:-10}"
+    while true; do
+        env "LD_LIBRARY_PATH=$PUT_OPENEVOLVE_ENV_PREFIX/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" \
+            "$PUT_OPENEVOLVE_ENV_PREFIX/bin/python" "$@" && return 0
+        if [ "$attempt" -ge "$retries" ]; then
+            return 1
+        fi
+        echo "WARNING: openevolve Python failed (attempt $attempt/$retries); retrying in ${delay}s" >&2
+        sleep "$delay"
+        attempt=$((attempt + 1))
+    done
 }
 
 put_finetune_setup() {
@@ -157,12 +182,19 @@ put_eval_check_conda() {
         echo "ERROR: vllm-env cannot import vLLM with its Conda C++ runtime" >&2
         return 1
     }
-    put_conda_run -n vllm-env python -c 'import sys; print(sys.executable)' >/dev/null || {
-        echo "ERROR: vllm-env cannot start Python; check the PUT /home filesystem" >&2
+    local conda_bin
+    local conda_base
+    conda_bin="$(command -v conda)"
+    conda_base="$(dirname "$(dirname "$conda_bin")")"
+    PUT_OPENEVOLVE_ENV_PREFIX="${PUT_OPENEVOLVE_ENV_PREFIX:-$conda_base/envs/openevolve-env}"
+    export PUT_OPENEVOLVE_ENV_PREFIX
+    test -x "$PUT_OPENEVOLVE_ENV_PREFIX/bin/python" || {
+        echo "ERROR: openevolve-env Python is missing: $PUT_OPENEVOLVE_ENV_PREFIX/bin/python" >&2
+        echo "Recreate openevolve-env or set PUT_OPENEVOLVE_ENV_PREFIX to a valid environment." >&2
         return 1
     }
-    put_conda_run -n openevolve-env python -c 'import sys; print(sys.executable)' >/dev/null || {
-        echo "ERROR: openevolve-env cannot start Python; check the PUT /home filesystem" >&2
+    put_openevolve_run -c 'import sys; print(sys.executable)' || {
+        echo "ERROR: openevolve-env Python cannot start; check the PUT /home filesystem" >&2
         return 1
     }
 }
