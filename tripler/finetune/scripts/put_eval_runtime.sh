@@ -28,6 +28,9 @@ put_eval_setup() {
 }
 
 put_vllm_run() {
+    if [ "${1:-}" = "vllm" ]; then
+        shift
+    fi
     put_direct_env_run "$PUT_VLLM_ENV_PREFIX" vllm "$@"
 }
 

@@ -36,7 +36,7 @@ export PUT_EVAL_LOG_SOURCE="$SERVER_LOG" PUT_EVAL_LOG_DEST="$SERVER_LOG_DEST"
 mkdir -p "$RUN_DIR"
 LOCAL_MODEL_DIR="$(put_stage_model "$MERGED_DIR")"
 VLLM_USE_FLASHINFER_SAMPLER=0 \
-put_vllm_run vllm serve "$LOCAL_MODEL_DIR" \
+put_vllm_run serve "$LOCAL_MODEL_DIR" \
     --port "$PORT" --api-key none --tensor-parallel-size 1 \
     --max-model-len 8192 --reasoning-parser gemma4 \
     --default-chat-template-kwargs '{"enable_thinking": false}' \

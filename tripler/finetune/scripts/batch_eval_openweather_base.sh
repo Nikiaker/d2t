@@ -33,7 +33,7 @@ export PUT_EVAL_LOG_SOURCE="$SERVER_LOG" PUT_EVAL_LOG_DEST="$SERVER_LOG_DEST"
 
 mkdir -p "$RUN_DIR"
 VLLM_USE_FLASHINFER_SAMPLER=0 \
-put_vllm_run vllm serve "$BASE_ID" \
+put_vllm_run serve "$BASE_ID" \
     --port "$PORT" --api-key none --tensor-parallel-size 1 \
     --max-model-len 16K --reasoning-parser gemma4 \
     --default-chat-template-kwargs '{"enable_thinking": false}' \

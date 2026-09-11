@@ -103,7 +103,7 @@ class HyperparameterTests(unittest.TestCase):
                         self.assertIn('checkpoint-100', content)
                         self.assertIn('checkpoint-150', content)
                     else:
-                        self.assertIn('vllm serve', content)
+                        self.assertIn('put_vllm_run serve', content)
                         self.assertIn('--model ft', content)
                         self.assertNotIn('--model checkpoint-100', content)
                         self.assertNotIn('--model checkpoint-150', content)

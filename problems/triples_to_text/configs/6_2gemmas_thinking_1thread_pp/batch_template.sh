@@ -28,7 +28,7 @@ export LD_LIBRARY_PATH="$CUDA_HOME/lib64:$LD_LIBRARY_PATH"
 export VLLM_USE_FLASHINFER_SAMPLER=0
 export PYTHONPATH="$D2TPATH/openevolve/:$D2TPATH/problems/triples_to_text/tests/benchmark_reader/:$D2TPATH/problems/triples_to_text/:$PYTHONPATH"
 
-VLLM_USE_FLASHINFER_SAMPLER=0 put_vllm_run vllm serve \
+VLLM_USE_FLASHINFER_SAMPLER=0 put_vllm_run serve \
 	RedHatAI/gemma-4-31B-it-NVFP4 \
     --port {port_1} \
     --max-model-len 60K \
