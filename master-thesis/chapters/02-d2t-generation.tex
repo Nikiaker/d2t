@@ -231,11 +231,30 @@ flexibility.
 \subsection{Transformers and pretrained models}
 
 Transformer architectures are now widely used for D2T because self-attention
-can model relationships among distant parts of the input and output. Pretrained
-language models can be adapted through supervised fine-tuning, or prompt-based
-generation. They often provide strong
-linguistic fluency and can transfer knowledge across domains, but their learned
-generation decisions are difficult to inspect
+can model relationships among distant parts of the input and output. Modern D2T
+systems commonly use \emph{pretrained Transformer language models}, whose
+parameters have first been optimized on a large, general collection of text,
+typically by predicting tokens from their context. This pretraining gives the
+model broad knowledge of word usage, syntax, and discourse patterns before it is
+applied to a particular D2T domain. It often provides a stronger basis for
+fluent generation than learning a model solely from a small domain-specific
+corpus, although the outcome depends on the model, adaptation data, and decoding
+procedure
+\cite{osuji2024systematic,kasner2024beyond}.
+
+To adapt such a model to D2T, the structured input is serialized or encoded and
+paired with a target text. \emph{Supervised fine-tuning} continues training the
+pretrained parameters on these input--output pairs, increasing the probability
+of the target text conditioned on the source data.
+
+An alternative is prompt-based generation, in which the pretrained model is
+given instructions and a serialized input at inference time without updating its
+parameters. Prompting avoids task-specific training but leaves the desired
+realization behavior in the model parameters, prompt wording, and decoding
+choices. Both prompting and fine-tuning can generate fluent text while omitting,
+altering, or adding source facts, especially when the target domain differs from
+the pretraining or fine-tuning data. Their learned decision process is therefore
+less directly inspectable than an explicit rule or plan
 \cite{osuji2024systematic,kasner2024beyond}.
 
 \section{Interpretable D2T approaches}
@@ -251,39 +270,60 @@ but it provides an artifact through which that decision can be examined.
 
 Recent work uses an LLM during system construction rather than at every
 generation step. Warczyński, Lango, and Dušek
-\cite{warczynski-etal-2024-leveraging-large} prompt an LLM to produce a
-rule-based Python D2T generator. The resulting program performs runtime
-generation on a CPU and can be inspected, edited, and evaluated independently
-of the LLM.
+\cite{warczynski-etal-2024-leveraging-large} use an LLM to construct a fully
+interpretable rule-based D2T generator in Python. The generated source code,
+rather than the LLM response at runtime, contains the rule inventory and
+realization procedure. It can be inspected, edited, tested, and executed on a
+CPU independently of the construction model. This makes the construction
+approach directly comparable with direct prompting, where each output requires
+another model invocation.
+
+The approach also has limitations. The initial program can omit a predicate,
+encode an unsuitable realization rule, or fail on an unseen combination of
+facts. Correcting such behavior requires another construction or revision step,
+and a single generated program does not provide a systematic record of competing
+program designs and their measured quality.
 
 Lango and Dušek~\cite{lango-dusek-2025-llm} extend this direction with a
 neurosymbolic RDF-to-text framework in which multiple LLM agents collaborate to
-construct and refine rule-based Python code. The agents use RDF triples and do
-not require in-domain human reference texts or supervised backpropagation. The
-resulting executable program remains the inspectable generation artifact and
-can run without the construction model at inference time.
+construct and refine rule-based Python code. The agents receive RDF triples and
+produce an executable generator without in-domain human reference texts or
+supervised backpropagation. Their resulting program remains the inspectable
+artifact: it can be executed without the construction model at inference time,
+and a developer can inspect or modify its rules.
 
-The method proposed in this thesis uses the same separation between program
-construction and program execution, but changes the construction procedure.
-Instead of following one agent interaction trajectory, it repeatedly mutates
-programs, executes them on a fixed evaluator, and retains
-measured alternatives. This provides basis for accepting or
-rejecting program changes; its implementation is described in Chapter~4.
+This multi-agent construction process reduces the need to manually author a
+rule base, but it still begins after a meaning representation has been supplied and therefore does
+not address conversion of complex raw data into an meaning representation. Its quality also depends
+on the agents' prompts, generated code, and critiques. A fixed sequence of agent
+interactions follows one refinement trajectory; it does not by itself evaluate
+and retain a population of alternative program structures under a common
+objective.
+
+The method proposed in Chapter~4 repeatedly mutates candidate surface-realization programs,
+executes them on a fixed evaluator, and retains measured alternatives. This
+provides basis for accepting or rejecting a program change while preserving
+multiple realization strategies for later exploration.
 
 \section{Performance Evaluation}
 \label{sec:d2t-performance-evaluation}
 
 \subsection{Evaluation dimensions}
 
-No single measurement captures all desirable properties of generated text.
-Evaluation is therefore organized along several dimensions
-\cite{gatt2018survey,novikova-etal-2017-need}. \emph{Text quality} includes
-grammaticality, fluency, readability, and coherence. \emph{Faithfulness}
-concerns whether the claims in the output are supported by the source data.
-\emph{Coverage} concerns required source facts that were not expressed, while
-\emph{non-redundancy} concerns unnecessary repetitions. Adequacy can be used
-for the separate question of whether the selected content suits the
-communicative purpose. Some applications additionally evaluate style,
+Evaluating D2T output requires assessing both the linguistic form of a text and
+its relationship to the structured source. A grammatically fluent text can still
+omit a required fact or introduce an unsupported one. Conversely, multiple texts
+can be equally valid realizations of the same input, so disagreement with a
+single human-written reference does not necessarily indicate an error. These
+properties motivate an evaluation that combines complementary dimensions and
+procedures~\cite{gatt2018survey,novikova-etal-2017-need}.
+
+\emph{Text quality} includes grammaticality, fluency, readability, and
+coherence. \emph{Faithfulness} concerns whether the claims in the output are
+supported by the source data. \emph{Coverage} concerns required source facts
+that were not expressed, while \emph{non-redundancy} concerns unnecessary
+repetitions. Adequacy is the separate question of whether the selected content
+suits the communicative purpose. Some applications additionally evaluate style,
 diversity, latency, and computational cost.
 
 Automatic procedures can be reference-based or source-aware. Reference-based
@@ -378,16 +418,6 @@ approach directly targets the semantic requirements of D2T, but its accuracy
 depends on the data-to-text conversion, the NLI model, and the assumptions about
 whether all input facts should be realized.
 
-\subsection{LLM-based judging}
-
-An LLM can evaluate a generated text against the structured input under an
-explicit set of criteria. It can act as a judge
-whose behavior depends on its training, prompting, and decoding
-configuration. Such judges can assess faithfulness, coverage, fluency, or
-formatting without requiring lexical overlap with a reference, but their scores
-remain model judgments and should be reported with their prompt and aggregation
-procedure.
-
 \subsection{Human evaluation}
 
 Human evaluation remains necessary because automatic scores are proxies for
@@ -416,3 +446,12 @@ annotators, agreement measure where applicable, and aggregation method. Human
 assessment is particularly important when automatic metrics disagree or when the
 task permits many valid verbalizations
 \cite{wang-etal-2023-faithful,xiang-etal-2022-asdot}.
+
+\subsection{LLM-based judging}
+
+An LLM-based judge is an automatic evaluator that leverages the capabilities of large language models. It receives a generated text,
+the information needed to assess it, and an explicit evaluation criteria. 
+The prompt asks the judge to compare the candidate output with the
+source, identify relevant errors, and return a rating, which can be a score, a label, or a structured explanation. The judge can be prompted to provide a rationale for its rating, which can help interpret the evaluation and identify specific issues in the output.
+
+LLM judging complements reference-based, source-aware, and human evaluation. It can reward a faithful text and can give a direct explanations of the errors.
