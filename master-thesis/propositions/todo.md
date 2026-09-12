@@ -40,3 +40,8 @@
 [v] d->T->y move that to somewhere else
 [v] The approach developed in this thesis addresses this gap... move that to somewhere else
 [v] Studies therefore report agreement... what studies?
+
+[] more about the pretrained model and fine-tuning
+[] more about the approach of Lango
+[] give some introduction to Evaluation dimensions
+[] write more about llm-based judging

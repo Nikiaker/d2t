@@ -5,124 +5,119 @@
 \contentsline {section}{\numberline {1.2}Thesis structure}{3}{section.1.2}%
 \contentsline {chapter}{\chapternumberline {2}Data-to-Text Generation}{4}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Problem definition}{4}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}The D2T task}{4}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.1}Data-to-Text task}{4}{subsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.1.2}RDF and semantic triples}{4}{subsection.2.1.2}%
 \contentsline {subsection}{\numberline {2.1.3}Generation stages}{5}{subsection.2.1.3}%
 \contentsline {subsection}{\numberline {2.1.4}Properties and challenges}{6}{subsection.2.1.4}%
 \contentsline {section}{\numberline {2.2}Methods}{6}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Rule-based and template-based systems}{6}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Retrieval and statistical systems}{7}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Neural sequence-to-sequence systems}{7}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}Modular neural and end-to-end architectures}{7}{subsection.2.2.4}%
-\contentsline {subsection}{\numberline {2.2.5}Transformers, pretrained models, and controllable generation}{8}{subsection.2.2.5}%
-\contentsline {section}{\numberline {2.3}Interpretable D2T Approaches}{8}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Explicit rules and templates}{8}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Intermediate representations and hybrid systems}{8}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}LLM-generated rule-based systems}{9}{subsection.2.3.3}%
-\contentsline {section}{\numberline {2.4}Performance Evaluation}{9}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Evaluation dimensions}{9}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Reference-based automatic metrics}{10}{subsection.2.4.2}%
-\contentsline {subsubsection}{BLEU}{10}{section*.6}%
-\contentsline {subsubsection}{METEOR}{10}{section*.7}%
-\contentsline {subsubsection}{BERTScore}{10}{section*.8}%
-\contentsline {subsubsection}{BLEURT}{10}{section*.9}%
-\contentsline {subsection}{\numberline {2.4.3}Source-aware and semantic evaluation}{11}{subsection.2.4.3}%
-\contentsline {subsection}{\numberline {2.4.4}Human evaluation}{11}{subsection.2.4.4}%
-\contentsline {subsection}{\numberline {2.4.5}Metrics used}{11}{subsection.2.4.5}%
-\contentsline {chapter}{\chapternumberline {3}Building interpretable meaning representations from complex data}{13}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Method Overview}{13}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Conversion Methods Overview}{14}{subsection.3.1.1}%
-\contentsline {paragraph}{Pipeline-based methods.}{14}{section*.10}%
-\contentsline {paragraph}{Fine-tuned model.}{14}{section*.11}%
-\contentsline {section}{\numberline {3.2}Data conversion with LLMs}{15}{section.3.2}%
-\contentsline {paragraph}{Pipeline overview.}{15}{section*.12}%
-\contentsline {subsection}{\numberline {3.2.1}Text-First Extraction with Normalization}{15}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Blueprint-Iterative Refinement}{16}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Evolving Catalog}{18}{subsection.3.2.3}%
-\contentsline {section}{\numberline {3.3}Fine-tuned model for data conversion}{19}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Supervised Fine-Tuning and QLoRA}{19}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Training Data Construction}{20}{subsection.3.3.2}%
-\contentsline {chapter}{\chapternumberline {4}Surface realization --- evolving programs using AlphaEvolve}{22}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Method Overview}{22}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Modern approaches for writing complex programs}{23}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Agentic programming}{23}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Current state of the art}{24}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Challenges and possible improvements}{24}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}AlphaEvolve}{25}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Motivation and problem formulation}{25}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Architecture of AlphaEvolve}{25}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Task specification and program representation}{27}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Prompt sampling and creative generation}{27}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.3.5}Evaluation, evolutionary storage, and distributed execution}{27}{subsection.4.3.5}%
-\contentsline {subsection}{\numberline {4.3.6}Scope and limitations of AlphaEvolve}{28}{subsection.4.3.6}%
-\contentsline {section}{\numberline {4.4}OpenEvolve}{28}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Open-source implementation}{28}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Execution architecture used in the thesis}{28}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Extensions made for the experiments}{29}{subsection.4.4.3}%
-\contentsline {paragraph}{Fitness-weighted and island-specific selection.}{29}{section*.13}%
-\contentsline {paragraph}{Configurable inspirations.}{29}{section*.14}%
-\contentsline {paragraph}{More robust SEARCH/REPLACE application.}{29}{section*.15}%
-\contentsline {paragraph}{Retention of failed candidates.}{29}{section*.16}%
-\contentsline {paragraph}{Explicit zero scores for timeouts.}{29}{section*.17}%
-\contentsline {section}{\numberline {4.5}Program database and initial program}{29}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Program records and persistence}{29}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}Initial program}{30}{subsection.4.5.2}%
-\contentsline {section}{\numberline {4.6}Program selection and prompt engineering}{30}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Parent and inspiration selection}{30}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Prompt composition}{31}{subsection.4.6.2}%
-\contentsline {subsection}{\numberline {4.6.3}SEARCH/REPLACE instructions and their extensions}{31}{subsection.4.6.3}%
-\contentsline {section}{\numberline {4.7}Large Language Model}{32}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}Parsing the LLM response}{32}{subsection.4.7.1}%
-\contentsline {subsection}{\numberline {4.7.2}Invalid programs and execution safety}{32}{subsection.4.7.2}%
-\contentsline {section}{\numberline {4.8}Evaluation}{32}{section.4.8}%
-\contentsline {subsection}{\numberline {4.8.1}Evaluator integration}{32}{subsection.4.8.1}%
-\contentsline {subsection}{\numberline {4.8.2}Reference data and candidate execution}{33}{subsection.4.8.2}%
-\contentsline {subsection}{\numberline {4.8.3}Reference-based scoring}{33}{subsection.4.8.3}%
-\contentsline {subsection}{\numberline {4.8.4}LLM as a judge}{33}{subsection.4.8.4}%
-\contentsline {subsection}{\numberline {4.8.5}Artifacts as evaluator feedback}{34}{subsection.4.8.5}%
-\contentsline {subsection}{\numberline {4.8.6}Registration and continuation of the loop}{34}{subsection.4.8.6}%
-\contentsline {chapter}{\chapternumberline {5}Experiments}{35}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Meaning representation}{35}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Data Collection}{35}{subsection.5.1.1}%
-\contentsline {paragraph}{Large language model.}{36}{section*.18}%
-\contentsline {subsection}{\numberline {5.1.2}Experimental setup for pipelines}{36}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Human evaluation for pipelines}{38}{subsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.1.4}Correlation between LLM and human evaluation}{39}{subsection.5.1.4}%
-\contentsline {subsection}{\numberline {5.1.5}Experimental setup for fine-tuning}{40}{subsection.5.1.5}%
-\contentsline {subsection}{\numberline {5.1.6}Training Configuration}{40}{subsection.5.1.6}%
-\contentsline {subsection}{\numberline {5.1.7}Evaluation of fine-tuned models}{42}{subsection.5.1.7}%
-\contentsline {section}{\numberline {5.2}Surface realization}{43}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}WebNLG dataset and evaluation protocol}{43}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Evolution variants}{43}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Evolution results}{44}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4}Baseline systems}{46}{subsection.5.2.4}%
-\contentsline {subsection}{\numberline {5.2.5}Three-domain comparison}{47}{subsection.5.2.5}%
-\contentsline {section}{\numberline {5.3}Whole system evaluation}{48}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Data construction}{48}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Evolution and evaluation protocol}{48}{subsection.5.3.2}%
-\contentsline {chapter}{\chapternumberline {6}Discussion}{50}{chapter.6}%
-\contentsline {chapter}{\chapternumberline {7}Summary}{51}{chapter.7}%
-\contentsline {chapter}{Bibliography}{52}{chapter*.20}%
-\contentsline {appendix}{\chapternumberline {A}Prompts}{55}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Evolution prompts for surface realization}{55}{section.A.1}%
-\contentsline {subsection}{\numberline {A.1.1}Evolution system prompt}{55}{subsection.A.1.1}%
-\contentsline {subsection}{\numberline {A.1.2}Evolution user prompt}{55}{subsection.A.1.2}%
-\contentsline {subsection}{\numberline {A.1.3}Evolution-history components}{56}{subsection.A.1.3}%
-\contentsline {subsection}{\numberline {A.1.4}Artifact message}{57}{subsection.A.1.4}%
-\contentsline {subsection}{\numberline {A.1.5}Repair prompts}{57}{subsection.A.1.5}%
-\contentsline {section}{\numberline {A.2}LLM-as-a-judge prompt}{58}{section.A.2}%
-\contentsline {subsection}{\numberline {A.2.1}Meaning-representation pipeline prompts}{58}{subsection.A.2.1}%
-\contentsline {subsubsection}{Summary}{59}{section*.21}%
-\contentsline {subsubsection}{Completeness}{59}{section*.22}%
-\contentsline {subsubsection}{Faithfulness}{60}{section*.23}%
-\contentsline {subsubsection}{Omissions}{60}{section*.24}%
-\contentsline {subsection}{\numberline {A.2.2}Surface-realization judge prompts}{61}{subsection.A.2.2}%
-\contentsline {subsection}{\numberline {A.2.3}Grammaticality prompt}{61}{subsection.A.2.3}%
-\contentsline {subsection}{\numberline {A.2.4}Omissions prompt}{61}{subsection.A.2.4}%
-\contentsline {subsection}{\numberline {A.2.5}Additions prompt}{62}{subsection.A.2.5}%
-\contentsline {subsection}{\numberline {A.2.6}Zero-shot prompt}{62}{subsection.A.2.6}%
-\contentsline {section}{\numberline {A.3}Text-First Extraction with Normalization}{62}{section.A.3}%
-\contentsline {section}{\numberline {A.4}Blueprint-Iterative Refinement}{63}{section.A.4}%
-\contentsline {section}{\numberline {A.5}Evolving Catalog}{64}{section.A.5}%
-\contentsline {appendix}{\chapternumberline {B}Prompts for Fine-tuned Model}{65}{appendix.B}%
-\contentsline {appendix}{\chapternumberline {C}Initial Program}{66}{appendix.C}%
+\contentsline {subsection}{\numberline {2.2.2}Statistical and neural sequence-to-sequence systems}{7}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Transformers and pretrained models}{7}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Interpretable D2T approaches}{8}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Performance Evaluation}{8}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Evaluation dimensions}{8}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Reference-based automatic metrics}{8}{subsection.2.4.2}%
+\contentsline {subsubsection}{BLEU}{8}{section*.6}%
+\contentsline {subsubsection}{METEOR}{9}{section*.7}%
+\contentsline {subsubsection}{BERTScore}{9}{section*.8}%
+\contentsline {subsubsection}{BLEURT}{9}{section*.9}%
+\contentsline {subsection}{\numberline {2.4.3}Source-aware and semantic evaluation}{9}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}LLM-based judging}{10}{subsection.2.4.4}%
+\contentsline {subsection}{\numberline {2.4.5}Human evaluation}{10}{subsection.2.4.5}%
+\contentsline {chapter}{\chapternumberline {3}Building interpretable meaning representations from complex data}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Method Overview}{11}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Conversion Methods Overview}{12}{subsection.3.1.1}%
+\contentsline {paragraph}{Pipeline-based methods.}{12}{section*.10}%
+\contentsline {paragraph}{Fine-tuned model.}{12}{section*.11}%
+\contentsline {section}{\numberline {3.2}Data conversion with LLMs}{13}{section.3.2}%
+\contentsline {paragraph}{Pipeline overview.}{13}{section*.12}%
+\contentsline {subsection}{\numberline {3.2.1}Text-First Extraction with Normalization}{13}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Blueprint-Iterative Refinement}{14}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Evolving Catalog}{16}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Fine-tuned model for data conversion}{17}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Supervised Fine-Tuning and QLoRA}{17}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Training Data Construction}{18}{subsection.3.3.2}%
+\contentsline {chapter}{\chapternumberline {4}Surface realization --- evolving programs using AlphaEvolve}{20}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Method Overview}{20}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Modern approaches for writing complex programs}{21}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Agentic programming}{21}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Current state of the art}{22}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Challenges and possible improvements}{22}{subsection.4.2.3}%
+\contentsline {section}{\numberline {4.3}AlphaEvolve}{23}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Motivation and problem formulation}{23}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Architecture of AlphaEvolve}{23}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Task specification and program representation}{25}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Prompt sampling and creative generation}{25}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Evaluation, evolutionary storage, and distributed execution}{25}{subsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.3.6}Scope and limitations of AlphaEvolve}{26}{subsection.4.3.6}%
+\contentsline {section}{\numberline {4.4}OpenEvolve}{26}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Open-source implementation}{26}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Execution architecture used in the thesis}{26}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Extensions made for the experiments}{27}{subsection.4.4.3}%
+\contentsline {paragraph}{Fitness-weighted and island-specific selection.}{27}{section*.13}%
+\contentsline {paragraph}{Configurable inspirations.}{27}{section*.14}%
+\contentsline {paragraph}{More robust SEARCH/REPLACE application.}{27}{section*.15}%
+\contentsline {paragraph}{Retention of failed candidates.}{27}{section*.16}%
+\contentsline {paragraph}{Explicit zero scores for timeouts.}{27}{section*.17}%
+\contentsline {section}{\numberline {4.5}Program database and initial program}{27}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Program records and persistence}{27}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Initial program}{28}{subsection.4.5.2}%
+\contentsline {section}{\numberline {4.6}Program selection and prompt engineering}{28}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Parent and inspiration selection}{28}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Prompt composition}{29}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}SEARCH/REPLACE instructions and their extensions}{29}{subsection.4.6.3}%
+\contentsline {section}{\numberline {4.7}Large Language Model}{30}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Parsing the LLM response}{30}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Invalid programs and execution safety}{30}{subsection.4.7.2}%
+\contentsline {section}{\numberline {4.8}Evaluation}{30}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Evaluator integration}{30}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}Reference data and candidate execution}{31}{subsection.4.8.2}%
+\contentsline {subsection}{\numberline {4.8.3}Reference-based scoring}{31}{subsection.4.8.3}%
+\contentsline {subsection}{\numberline {4.8.4}LLM as a judge}{31}{subsection.4.8.4}%
+\contentsline {subsection}{\numberline {4.8.5}Artifacts as evaluator feedback}{32}{subsection.4.8.5}%
+\contentsline {subsection}{\numberline {4.8.6}Registration and continuation of the loop}{32}{subsection.4.8.6}%
+\contentsline {chapter}{\chapternumberline {5}Experiments}{33}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Meaning representation}{33}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Data Collection}{33}{subsection.5.1.1}%
+\contentsline {paragraph}{Large language model.}{34}{section*.18}%
+\contentsline {subsection}{\numberline {5.1.2}Experimental setup for pipelines}{34}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Human evaluation for pipelines}{36}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Correlation between LLM and human evaluation}{37}{subsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.1.5}Experimental setup for fine-tuning}{38}{subsection.5.1.5}%
+\contentsline {subsection}{\numberline {5.1.6}Training Configuration}{38}{subsection.5.1.6}%
+\contentsline {subsection}{\numberline {5.1.7}Evaluation of fine-tuned models}{40}{subsection.5.1.7}%
+\contentsline {section}{\numberline {5.2}Surface realization}{41}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}WebNLG dataset and evaluation protocol}{41}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Evolution variants}{41}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Evolution results}{42}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Baseline systems}{44}{subsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.2.5}Three-domain comparison}{45}{subsection.5.2.5}%
+\contentsline {section}{\numberline {5.3}Whole system evaluation}{46}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Data construction}{46}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Evolution and evaluation protocol}{46}{subsection.5.3.2}%
+\contentsline {chapter}{\chapternumberline {6}Discussion}{48}{chapter.6}%
+\contentsline {chapter}{\chapternumberline {7}Summary}{49}{chapter.7}%
+\contentsline {chapter}{Bibliography}{50}{chapter*.20}%
+\contentsline {appendix}{\chapternumberline {A}Prompts}{53}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Evolution prompts for surface realization}{53}{section.A.1}%
+\contentsline {subsection}{\numberline {A.1.1}Evolution system prompt}{53}{subsection.A.1.1}%
+\contentsline {subsection}{\numberline {A.1.2}Evolution user prompt}{53}{subsection.A.1.2}%
+\contentsline {subsection}{\numberline {A.1.3}Evolution-history components}{54}{subsection.A.1.3}%
+\contentsline {subsection}{\numberline {A.1.4}Artifact message}{55}{subsection.A.1.4}%
+\contentsline {subsection}{\numberline {A.1.5}Repair prompts}{55}{subsection.A.1.5}%
+\contentsline {section}{\numberline {A.2}LLM-as-a-judge prompt}{56}{section.A.2}%
+\contentsline {subsection}{\numberline {A.2.1}Meaning-representation pipeline prompts}{56}{subsection.A.2.1}%
+\contentsline {subsubsection}{Summary}{57}{section*.21}%
+\contentsline {subsubsection}{Completeness}{57}{section*.22}%
+\contentsline {subsubsection}{Faithfulness}{58}{section*.23}%
+\contentsline {subsubsection}{Omissions}{58}{section*.24}%
+\contentsline {subsection}{\numberline {A.2.2}Surface-realization judge prompts}{59}{subsection.A.2.2}%
+\contentsline {subsection}{\numberline {A.2.3}Grammaticality prompt}{59}{subsection.A.2.3}%
+\contentsline {subsection}{\numberline {A.2.4}Omissions prompt}{59}{subsection.A.2.4}%
+\contentsline {subsection}{\numberline {A.2.5}Additions prompt}{60}{subsection.A.2.5}%
+\contentsline {subsection}{\numberline {A.2.6}Zero-shot prompt}{60}{subsection.A.2.6}%
+\contentsline {section}{\numberline {A.3}Text-First Extraction with Normalization}{60}{section.A.3}%
+\contentsline {section}{\numberline {A.4}Blueprint-Iterative Refinement}{61}{section.A.4}%
+\contentsline {section}{\numberline {A.5}Evolving Catalog}{62}{section.A.5}%
+\contentsline {appendix}{\chapternumberline {B}Prompts for Fine-tuned Model}{63}{appendix.B}%
+\contentsline {appendix}{\chapternumberline {C}Initial Program}{64}{appendix.C}%

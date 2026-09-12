@@ -578,7 +578,8 @@ of input triples.
 Higher values are preferable for BLEU, BLEURT, METEOR, judge scores, and
 grammaticality. Lower values are preferable for additions, and
 omissions; zero means that no addition or
-omission was detected. The closer to the value of one for SENLEN the better.
+omission was detected. Lower SENLEN values are preferable; zero indicates that
+the period-delimited segment count exactly matches the average reference count.
 
 \subsection{Evolution variants}
 
