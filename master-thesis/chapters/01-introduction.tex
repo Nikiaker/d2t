@@ -64,35 +64,38 @@ object that can be inspected, normalized, and evaluated independently of the
 final wording. Nevertheless, constructing consistent meaning representation from complex data
 and producing fluent text from it remains non-trivial tasks.
 
-The thesis develops both stages of this pipeline. In the first stage an 
+Existing work has shown that LLMs can be used to construct an interpretable
+rule-based meaning representation to text generator.
+Lango and Dušek~\cite{lango-dusek-2025-llm} use cooperating LLM agents to design
+and refine such a generator (a Python program), from meaning representation, which can be inspected, executed without an LLM at inference time, and corrected by a developer when necessary.
+
+The scope of that approach begins after a meaning representation has already
+been provided: it addresses just the surface realization.
+A further limitation of a fixed sequence of agent interactions is that it does
+not by itself define a systematic criterion for comparing many alternative
+generators. Agents can propose and critique changes, but their next
+action is primarily guided by the current conversation.
+
+For these reasons, the objective of this thesis is to considers the complete D2T pipeline, from heterogeneous
+raw structured instances through an explicit meaning representation to the final
+text.
+Separating these two stages also
+allows errors introduced during meaning-representation construction to be
+distinguished from errors introduced during surface realization.
+In the first stage an
 LLM-based pipeline is used for the meaning-representation construction. A domain-specialized
-model is also examined as a way of producing both the meaning representation and a text in a
-single inference pass. In the surface-realization stage, the input is in a form
-of the meaning representation and the output is text. Here, the LLM is used during 
-a system construction, which is a program that is an executable implementation of the
-mapping from meaning representation to text. The selected program can subsequently realize text
-without an LLM call.
-
-This use of an LLM to construct an executable generator builds on the
-neurosymbolic NLG approach of Lango and Dušek~\cite{lango-dusek-2025-llm}.
-In those approaches, the LLM helps
-create a rule-based NLG system whose code can be inspected and executed
-independently. The present work retains this explicit program artifact, but
-addresses the refinement problem using evolutionary search: alternative code
-changes are proposed, grounded in execution, and retained or rejected according
-to an evaluator. This is inspired by AlphaEvolve, a framework for evolutionary
-program improvement using LLM-generated mutations and automatic evaluation
-\cite{novikov2025alphaevolve}.
-
-The objective of this thesis is to
-construct a D2T pipeline in which the meaning-representation construction stage
-and the surface-realization stage are separate, inspectable components. This
-separation makes it possible to analyze errors at the boundary between raw data,
-meaning representation, and text, to compare alternative conversion strategies, and to improve
-the executable program using measured feedback. Reference-based and semantic
-metrics are used to evaluate generation quality and faithfulness.
-Interpretability is supported by exposing the meaning representation and the human-readable 
-program code.
+model is also examined as a way of producing both the meaning representation and a text in a single inference pass.
+In the second stage, the surface-realization method used in this thesis places an
+LLM inside an evolutionary optimization loop inspired by AlphaEvolve
+\cite{novikov2025alphaevolve}, a framework for evolutionary program improvement
+using LLM-generated mutations and automatic evaluation.
+The advantage of such an approach over the agents is that it evaluates every proposed program using the same
+evaluator, retains high-scoring and structurally diverse candidates, and uses
+the accumulated results to guide subsequent modifications. This makes it
+possible to reject plausible but ineffective changes and to revisit alternative
+realization strategies rather than relying on a single refinement trajectory.
+Reference-based and semantic metrics are used to evaluate generation quality and faithfulness.
+Interpretability is supported by exposing the meaning representation and the human-readable program code.
 
 The work makes the following contributions:
 \begin{itemize}
