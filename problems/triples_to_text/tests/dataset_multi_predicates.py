@@ -45,7 +45,11 @@ def extract_triples(predicates_path: str = "predicates.txt"):
     train_files = select_files(WEBNLG_BASE_PATH + "train")
     dev_files = select_files(WEBNLG_BASE_PATH + "dev")
     test_dir = WEBNLG_BASE_PATH + "test"
-    test_file = select_test_file(test_dir, "rdf-to-text-generation-test-data-with-refs-en.xml")
+    test_filename = os.getenv(
+        "WEBNLG_TEST_FILE",
+        "rdf-to-text-generation-test-data-with-refs-en.xml",
+    )
+    test_file = select_test_file(test_dir, test_filename)
 
     train_benchmark = Benchmark()
     dev_benchmark = Benchmark()

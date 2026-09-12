@@ -1,12 +1,21 @@
 import json
 import os
 import shutil
+import argparse
 from pathlib import Path
 from tests.dataset_multi_predicates import extract_triples
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--domains-file",
+        default=os.getenv("WEBNLG_DOMAINS_FILE", "./webnlg_domains.json"),
+        help="JSON file containing domains and evolution configs",
+    )
+    args = parser.parse_args()
+
     # Load domains from JSON
-    with open("./webnlg_domains.json", "r") as f:
+    with open(args.domains_file, "r") as f:
         webnlg_domains = json.load(f)
     
     domains: list[str] = webnlg_domains["domains"]

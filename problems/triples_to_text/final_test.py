@@ -141,7 +141,11 @@ def format_references_for_csv(references: list[str]) -> str:
     return ";".join(parts)
 
 test_dir = WEBNLG_BASE_PATH + "test"
-test_file = select_test_file(test_dir, "rdf-to-text-generation-test-data-with-refs-en.xml")
+test_filename = os.getenv(
+    "WEBNLG_TEST_FILE",
+    "rdf-to-text-generation-test-data-with-refs-en.xml",
+)
+test_file = select_test_file(test_dir, test_filename)
 
 test_benchmark = Benchmark()
 test_benchmark.fill_benchmark(test_file)
