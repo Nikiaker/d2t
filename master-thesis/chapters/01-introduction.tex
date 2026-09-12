@@ -5,8 +5,8 @@
 
 Data-to-text (D2T) generation concerns the automatic conversion of structured
 information into natural-language text. It is useful whenever information stored
-as records, tables, databases, time series, or knowledge graphs must be presented
-in a linguistic form. It is useful for a human reader, a conversational
+as records, tables, databases, time series, or knowledge graphs must be converted
+in a linguistic form, which is more suitable for a human reader, a conversational
 interface, or another language-based system. D2T systems must therefore solve
 two related problems: they must select and organize the information that should
 be communicated, and then express that information in text that is fluent,
@@ -17,14 +17,12 @@ Recent neural and large language model based systems have substantially improved
 the fluency and flexibility of generated text. However, fluent text does not
 necessarily preserve the content of the input. A system may omit a fact,
 introduce an unsupported statement, select different facts on different
-executions, or organize the same facts in a way that changes their apparent
-meaning. In a direct neural generator, these intermediate choices are not usually
+executions in a way that changes their apparent
+meaning. Additionally, a direct neural generator, these intermediate choices are not usually
 represented as explicit objects that a developer can inspect, modify, or compare
 with the source. This makes it difficult to identify whether an error resulted
 from content selection, content ordering, aggregation, lexicalization, or surface
-realization. Traceability is particularly valuable for structured data because the source
-contains explicit entities, relations, and values that can be checked against the
-generated text.
+realization.
 \cite{wiseman-etal-2017-challenges,dusek-kasner-2020-evaluating,
 dhingra-etal-2019-handling}.
 
@@ -66,9 +64,8 @@ object that can be inspected, normalized, and evaluated independently of the
 final wording. Nevertheless, constructing consistent meaning representation from complex data
 and producing fluent text from it remains non-trivial tasks.
 
-The thesis develops both stages of this pipeline. In the meaning-representation
-construction stage, LLM-based pipelines first generate reference texts from raw
-structured data and then extract the meaning representation. A domain-specialized
+The thesis develops both stages of this pipeline. In the first stage an 
+LLM-based pipeline is used for the meaning-representation construction. A domain-specialized
 model is also examined as a way of producing both the meaning representation and a text in a
 single inference pass. In the surface-realization stage, the input is in a form
 of the meaning representation and the output is text. Here, the LLM is used during 
@@ -85,8 +82,7 @@ addresses the refinement problem using evolutionary search: alternative code
 changes are proposed, grounded in execution, and retained or rejected according
 to an evaluator. This is inspired by AlphaEvolve, a framework for evolutionary
 program improvement using LLM-generated mutations and automatic evaluation
-\cite{novikov2025alphaevolve}. The experiments use OpenEvolve, an open-source
-implementation of this approach~\cite{sharma2025openevolve}.
+\cite{novikov2025alphaevolve}.
 
 The objective of this thesis is to
 construct a D2T pipeline in which the meaning-representation construction stage
@@ -94,13 +90,13 @@ and the surface-realization stage are separate, inspectable components. This
 separation makes it possible to analyze errors at the boundary between raw data,
 meaning representation, and text, to compare alternative conversion strategies, and to improve
 the executable program using measured feedback. Reference-based and semantic
-metrics evaluate generation quality and faithfulness.
-Interpretability is supported by exposing the meaning representation and the executable 
-program.
+metrics are used to evaluate generation quality and faithfulness.
+Interpretability is supported by exposing the meaning representation and the human-readable 
+program code.
 
 The work makes the following contributions:
 \begin{itemize}
-    \item three LLM-based pipeline designs for constructing meaning representation
+    \item three LLM-based pipeline designs are proposed for constructing meaning representation
     from heterogeneous structured data;
     \item a domain-specialized training procedure that distills the
     conversion process into a large language model;
