@@ -1,5 +1,18 @@
-WRITTENWORK=$(sbatch --parsable $D2TPATH/problems/triples_to_text/outputs/3_sm1ifenp_500/WrittenWork_output/WrittenWork.sh)
-BUILDING=$(sbatch --parsable $D2TPATH/problems/triples_to_text/outputs/3_sm1ifenp_500/Building_output/Building.sh)
-FOOD=$(sbatch --parsable $D2TPATH/problems/triples_to_text/outputs/3_sm1ifenp_500/Food_output/Food.sh)
-
-sbatch --dependency="afterok:$WRITTENWORK:$BUILDING:$FOOD" $D2TPATH/problems/triples_to_text/batch_evaluate_all_plgrid.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/6_2gemmas_thinking_4thread_pp/WrittenWork_output/WrittenWork.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/6_2gemmas_thinking_4thread_pp/Building_output/Building.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/6_2gemmas_thinking_4thread_pp/Food_output/Food.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/6_1gemma_thinking_4thread_500iter_pp/WrittenWork_output/WrittenWork.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/6_1gemma_thinking_4thread_500iter_pp/Building_output/Building.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/6_1gemma_thinking_4thread_500iter_pp/Food_output/Food.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/7_gemma_1thread_500iter_pp/WrittenWork_output/WrittenWork.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/7_gemma_1thread_500iter_pp/Building_output/Building.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/7_gemma_1thread_500iter_pp/Food_output/Food.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/7_llama_1thread_500iter_pp/WrittenWork_output/WrittenWork.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/7_llama_1thread_500iter_pp/Building_output/Building.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/7_llama_1thread_500iter_pp/Food_output/Food.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/7_qwen_1thread_500iter_pp/WrittenWork_output/WrittenWork.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/7_qwen_1thread_500iter_pp/Building_output/Building.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/7_qwen_1thread_500iter_pp/Food_output/Food.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/8_1gemma_noref_1thread_500_iter_pp/WrittenWork_output/WrittenWork.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/8_1gemma_noref_1thread_500_iter_pp/Building_output/Building.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/8_1gemma_noref_1thread_500_iter_pp/Food_output/Food.sh
