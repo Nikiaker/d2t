@@ -29,9 +29,8 @@ export VLLM_USE_FLASHINFER_SAMPLER=0
 export PYTHONPATH="$D2TPATH/openevolve/:$D2TPATH/problems/triples_to_text/tests/benchmark_reader/:$D2TPATH/problems/triples_to_text/:$PYTHONPATH"
 
 VLLM_USE_FLASHINFER_SAMPLER=0 put_vllm_run serve \
-	RedHatAI/Qwen3.8-27B-NVFP4 \
+	Qwen/Qwen3-32B-AWQ \
     --port {port_1} \
-    --max-model-len 60K \
     --default-chat-template-kwargs '{"enable_thinking": false}' \
     --gpu-memory-utilization 0.95 \
     > "$SERVER_LOG1" 2>&1 &
