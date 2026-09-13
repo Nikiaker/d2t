@@ -291,14 +291,6 @@ Wikidata & 4.80 & 4.80 & 4.80 \\
 The agreement between the LLM judge and the human evaluator is computed from
 paired 1--5 scores.
 
-The \emph{LLM score mean} and \emph{Human score mean} columns report the
-arithmetic mean of the aligned score vector used for that row. For an additions
-or omissions row, each mean is calculated from the ten scores for that single
-criterion. For a pooled row, it is calculated from 20 scores: additions and
-omissions for each of the ten instances. For a per-instance-mean row, it is
-calculated from ten instance-level averages. These columns describe the rating
-level of each evaluator and are not correlation coefficients.
-
 Four complementary statistics are reported. Pearson's product--moment
 correlation measures linear association between the raw values, but assumes
 equal distances between the ordinal score levels. Spearman's $\rho$ measures
@@ -328,6 +320,14 @@ which complete instances are better or worse overall, while deliberately
 discarding criterion-specific differences. For this mean variant, Pearson,
 Spearman, and Kendall are computed from the floating-point means; quadratic
 weighted kappa uses the means rounded to the nearest ordinal score.
+
+The \emph{LLM score mean} and \emph{Human score mean} columns report the
+arithmetic mean of the aligned score vector used for that row. For an additions
+or omissions row, each mean is calculated from the ten scores for that single
+criterion. For a pooled row, it is calculated from 20 scores: additions and
+omissions for each of the ten instances. For a per-instance-mean row, it is
+calculated from ten instance-level averages. These columns describe the rating
+level of each evaluator and are not correlation coefficients.
 
 Pearson, Spearman, and Kendall are undefined when either rater assigns the same
 score to every observation. The status column records such constant-vector
@@ -676,10 +676,10 @@ evaluation. For a generated text realization
 $\hat{y}$ and its set of references $R$, it is defined as
 \[
 \mathrm{SENLEN}(\hat{y}, R) =
-\left|\mathrm{seg}(\hat{y}) -
-\frac{1}{|R|}\sum_{r \in R}\mathrm{seg}(r)\right|,
+\left|\mathrm{sen}(\hat{y}) -
+\frac{1}{|R|}\sum_{r \in R}\mathrm{sen}(r)\right|,
 \]
-where $\mathrm{seg}(x)$ is the number of sentences, which are counted using
+where $\mathrm{sen}(x)$ is the number of sentences, which are counted using
 a period as the delimiter. This deliberately
 uses an implementation-level delimiter count rather than a linguistic sentence
 tokenizer. Lower values are preferable, and zero indicates

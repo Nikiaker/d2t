@@ -3,7 +3,7 @@ realization evolution. The code outside the evolution block defines the data
 type and the public interface; the marked block is the part that OpenEvolve is
 allowed to modify.
 
-\begin{verbatim}
+\begin{lstlisting}
 from dataclasses import dataclass
 
 @dataclass
@@ -18,4 +18,4 @@ def predict(triples: list[Triple]) -> str:
     return f"The {triples[0].predicate} of {triples[0].subject} is {triples[0].object}."
 
 # EVOLVE-BLOCK-END
-\end{verbatim}
+\end{lstlisting}

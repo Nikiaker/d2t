@@ -10,7 +10,7 @@ metrics, evolution history, and optional artifacts.
 \subsection{Evolution system prompt}
 \label{app:prompt-evolution-system}
 
-\begin{verbatim}
+\begin{lstlisting}
 You are an expert data engineer specializing in converting data to text. You will be given the current Python program with its score and your task will be to evolve the current Python program to improve the score. It is a program that converts a list of triples into natural language text. The given triples will be associated with the topic: {domain}. The program must implement a function called 'predict' that accepts a list of triples and generates a coherent, contextually relevant sentence that accurately represents the information contained in the triples. Ensure that the generated text is fluent, grammatically correct, and maintains the meaning of the original data. There can be multiple triples given that make up a complex sentence. Converting all those triples into one sentence will award greater score. An example of a complex sentence:
 Triples:
 (Antwerp | cityServed | Antwerp International Airport)
@@ -23,14 +23,14 @@ The 'predict' function returns that sentence as a string. Below is the list of a
 
 {triples}
 
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{Evolution user prompt}
 \label{app:prompt-evolution-user}
 
 The custom user template for diff-based evolution is:
 
-\begin{verbatim}
+\begin{lstlisting}
 # Current Program Information
 {metrics}
 
@@ -70,7 +70,7 @@ The SEARCH section must exactly match the code in the current program, even with
 Do not provide explanations, only the SEARCH/REPLACE section.
 IMPORTANT: Do not rewrite the entire program - focus on targeted improvements.
 
-\end{verbatim}
+\end{lstlisting}
 
 The placeholders are expanded as follows: \texttt{metrics} contains the
 parent's recorded metrics, \texttt{artifacts} contains the optional artifact
@@ -87,7 +87,7 @@ The user prompt can contain the following runtime-generated history components.
 They are included here to make the composition of the complete user message
 explicit.
 
-\begin{verbatim}
+\begin{lstlisting}
 {inspirations_section}
 
 ### Attempt {attempt_number}
@@ -111,7 +111,7 @@ This is a different program that might have a different approach on how to solve
 ```{language}
 {program_snippet}
 ```
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{Artifact message}
 \label{app:prompt-artifact-message}
@@ -119,20 +119,20 @@ This is a different program that might have a different approach on how to solve
 Artifacts returned by the evaluator are wrapped before being inserted into the
 user prompt. The wrapper has the following form:
 
-\begin{verbatim}
+\begin{lstlisting}
 ## Evaluator Artifacts
 
 ### {artifact_key}
 ```
 {artifact_content}
 ```
-\end{verbatim}
+\end{lstlisting}
 
 The artifact content is truncated to the configured maximum size and passed
 through the artifact security filter. For example, a low-scoring LLM-judge
 artifact has the following structure:
 
-\begin{verbatim}
+\begin{lstlisting}
 The program got scored by the judge with the score {rating}. The input triples were:
 {subject} | {predicate} | {object}
 
@@ -143,7 +143,7 @@ The judge review is:
 {review}
 
 Based on the review try to understand why the program might have performed poorly and improve the program accordingly.
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{Repair prompts}
 \label{app:prompt-repair}
@@ -152,7 +152,7 @@ When no valid diff is extracted, the following repair messages are used. The
 second user message is also used when a syntactically valid diff does not apply
 any change to the parent source.
 
-\begin{verbatim}
+\begin{lstlisting}
 SYSTEM:
 You are an expert in fixing your collegues code. You know that the code should be in format:
 <<<<<<< SEARCH
@@ -168,9 +168,9 @@ The original code was:
 An incorrect diff format was detected in this change:
 {llm_response}
 Please fix it to the correct format.
-\end{verbatim}
+\end{lstlisting}
 
-\begin{verbatim}
+\begin{lstlisting}
 SYSTEM:
 You are an expert in fixing your collegues code. You know that in order for the SEARCH/REPLACE diff to be correct, the SEARCH section must EXACTLY match a part of the original code. That includes indentations and endlines as well. Every character matters. The provided code in the SEARCH section DOES NOT match excatly the original code. Your task is to modify the SEARCH section so that it matches EXACTLY the searched part of the original code. Make sure to keep the REPLACE section unchanged.
 
@@ -179,7 +179,7 @@ The provided diff did not apply any changes to the original code:
 {llm_response}
 Given the original code please modify the SEARCH section to ensure it matches exactly the searched part of the original code:
 {parent_code}
-\end{verbatim}
+\end{lstlisting}
 
 The spelling in these blocks is preserved from the implementation because the
 appendix documents the actual prompts sent to the model.
