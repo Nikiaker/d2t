@@ -48,5 +48,5 @@
 
 [v] give more information about what happens in the correlations. What does it mean the instances are pooled? Look at correlation_metrics.md to get a better idea what to write.
 [v] in Correlations (data->text) table add the llm_mean and human_mean. in Correlations (text->triples) add the rows for triples additions and triples ommisions. It is not very clear what the LLM nad Human columns are. Define them and put the means in them
-[] there is no explenation what is senlen
-[] the experiments mentioned in Configured experiments with unavailable results should be explained the same way as in Evolution variants. Just assume that the results are in and write the descriptions of the tests the same way
+[v] there is no explenation what is senlen
+[v] the experiments mentioned in Configured experiments with unavailable results should be explained the same way as in Evolution variants. Just assume that the results are in and write the descriptions of the tests the same way

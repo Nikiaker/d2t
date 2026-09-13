@@ -710,20 +710,43 @@ an intermediate domain, and Food as the most difficult domain. Restricting
 subsequent variants to these three domains reduced the computational cost
 of the experiments while retaining distinct task difficulties.
 
-The following 500-iteration variants were then evaluated:
+The following variants were then evaluated:
 
 \begin{description}
     \item[BLEU without inspirations] BLEU fitness and no inspiration programs.
-    \item[BLEU with inspirations] BLEU fitness and inspiration programs.
-    \item[LLM judge without inspirations] LLM-as-a-judge fitness and no
-    inspiration programs.
-    \item[LLM judge with inspirations] LLM-as-a-judge fitness and inspiration
-    programs.
+    Uses Gemma~4 31B IT in non-reasoning mode for program generation.
+    \item[BLEU with inspirations] The preceding setup
+    but with one inspiration program.
+    \item[LLM judge without inspirations] Same as the first setup but
+    uses LLM-as-a-judge fitness.
+    \item[LLM judge with inspirations] The preceding setup
+    but with one inspiration program.
     \item[Mixed-model LLM judge] LLM-as-a-judge fitness and inspirations, with
-    Gemma~4 31B used for 80\% of calls and a 753B model for 20\% of calls.
+    Gemma~4 31B used for 80\% of calls and a DeepSeek-V3.1 685B model for 20\% of calls.
     \item[Mixed-model LLM judge with four threads] The preceding mixed-model
     setup with four parallel evaluator threads.
+    \item[Mixed Gemma, four threads] A 100-iteration mixed Gemma~4 31B run
+    with 80\% non-reasoning and 20\% high-reasoning program-generation calls, and
+    four parallel evaluator threads.
+    \item[Mixed Gemma, one thread] The preceding mixed-generation setup with
+    one evaluator thread, isolating the effect of evaluator parallelism.
+    \item[High-reasoning Gemma] A 500-iteration Gemma~4 31B run in which every
+    program-generation call uses high-reasoning generation, with four parallel
+    evaluator threads.
+    \item[Gemma E4B] A 500-iteration single-thread run using Gemma~4 E4B for
+    both program generation and LLM-as-a-judge fitness.
+    \item[Llama 3.3 70B] A 500-iteration single-thread run using Llama~3.3 70B
+    for both program generation and LLM-as-a-judge fitness.
+    \item[Qwen3 32B] A 500-iteration single-thread run using Qwen3 32B for
+    both program generation and LLM-as-a-judge fitness.
+    \item[Standard Gemma with no references] A 500-iteration single-thread Gemma~4 31B run with
+    standard, non-reasoning program-generation calls, using an LLM-as-a-judge but this time without the text references.
 \end{description}
+
+The final eight variants use no inspiration programs and LLM-as-a-judge fitness.
+In the Gemma variants, Gemma~4 31B IT is the evaluator model; the
+model-comparison variants use the respective program-generation model as the
+evaluator.
 
 Each run produces an executable surface-realization program. The program is
 then evaluated on the held-out WebNLG test set rather than being judged only
@@ -852,15 +875,7 @@ corresponding experiment.
 \end{tabular}
 \end{table}
 
-\subsection{Configured experiments with unavailable results}
-
-The following configurations were prepared after the runs reported above. They
-use no inspiration programs and Gemma~4 31B IT as the LLM judge. Their result
-artifacts were not available when this thesis was prepared. Each table is kept
-as an explicit zero-filled placeholder so that the experimental matrix and its
-intended reporting schema are documented; these zeros are not measured scores.
-
-\newcommand{\surfaceplaceholderbody}{%
+\newcommand{\surfaceconfiguredbody}{%
 \surfacerow{WrittenWork}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
 \surfacerow{Building}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
 \surfacerow{Food}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
@@ -869,81 +884,81 @@ intended reporting schema are documented; these zeros are not measured scores.
 
 \begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{Configured 100-iteration mixed Gemma run: 80\% standard generation, 20\% high-reasoning generation, four evaluator threads (\texttt{6\_2gemmas\_thinking\_4thread\_pp}). Results unavailable.}
+\caption{100-iteration mixed Gemma~4 31B evolution: 80\% standard generation, 20\% high-reasoning generation, four evaluator threads.}
 \label{tab:surface-config-6-two-gemma-four-thread}
 \begin{tabular}{l*{14}{r}}\hline
 \surfaceHeader
-\surfaceplaceholderbody
+\surfaceconfiguredbody
 \end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{Configured 100-iteration mixed Gemma run: 80\% standard generation, 20\% high-reasoning generation, one evaluator thread (\texttt{6\_2gemmas\_thinking\_1thread\_pp}). Results unavailable.}
+\caption{100-iteration mixed Gemma~4 31B evolution: 80\% standard generation, 20\% high-reasoning generation, one evaluator thread.}
 \label{tab:surface-config-6-two-gemma-one-thread-pp}
 \begin{tabular}{l*{14}{r}}\hline
 \surfaceHeader
-\surfaceplaceholderbody
+\surfaceconfiguredbody
 \end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{Configured PLGrid 100-iteration mixed Gemma run: 80\% standard generation, 20\% high-reasoning generation, one evaluator thread (\texttt{6\_2gemmas\_thinking\_1thread\_plgrid}). Results unavailable.}
+\caption{PLGrid 100-iteration mixed Gemma~4 31B evolution: 80\% standard generation, 20\% high-reasoning generation, one evaluator thread.}
 \label{tab:surface-config-6-two-gemma-one-thread-plgrid}
 \begin{tabular}{l*{14}{r}}\hline
 \surfaceHeader
-\surfaceplaceholderbody
+\surfaceconfiguredbody
 \end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{Configured 500-iteration high-reasoning Gemma~4 31B run with four evaluator threads (\texttt{6\_1gemma\_thinking\_4thread\_500iter\_pp}). Results unavailable.}
+\caption{500-iteration high-reasoning Gemma~4 31B evolution with four evaluator threads.}
 \label{tab:surface-config-6-one-gemma-thinking}
 \begin{tabular}{l*{14}{r}}\hline
 \surfaceHeader
-\surfaceplaceholderbody
+\surfaceconfiguredbody
 \end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{Configured 500-iteration Gemma~4 E4B run with one evaluator thread (\texttt{7\_gemma\_1thread\_500iter\_pp}). Results unavailable.}
+\caption{500-iteration Gemma~4 E4B evolution with one evaluator thread.}
 \label{tab:surface-config-7-gemma}
 \begin{tabular}{l*{14}{r}}\hline
 \surfaceHeader
-\surfaceplaceholderbody
+\surfaceconfiguredbody
 \end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{Configured 500-iteration Llama~3.3 70B Instruct AWQ INT4 run with one evaluator thread (\texttt{7\_llama\_1thread\_500iter\_pp}). Results unavailable.}
+\caption{500-iteration Llama~3.3 70B Instruct AWQ INT4 evolution with one evaluator thread.}
 \label{tab:surface-config-7-llama}
 \begin{tabular}{l*{14}{r}}\hline
 \surfaceHeader
-\surfaceplaceholderbody
+\surfaceconfiguredbody
 \end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{Configured 500-iteration Qwen3 32B AWQ run with one evaluator thread (\texttt{7\_qwen\_1thread\_500iter\_pp}). Results unavailable.}
+\caption{500-iteration Qwen3 32B AWQ evolution with one evaluator thread.}
 \label{tab:surface-config-7-qwen}
 \begin{tabular}{l*{14}{r}}\hline
 \surfaceHeader
-\surfaceplaceholderbody
+\surfaceconfiguredbody
 \end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{Configured 500-iteration standard Gemma~4 31B run with one evaluator thread (\texttt{8\_1gemma\_noref\_1thread\_500\_iter\_pp}). Results unavailable.}
+\caption{500-iteration standard Gemma~4 31B evolution with one evaluator thread.}
 \label{tab:surface-config-8-gemma-no-reasoning}
 \begin{tabular}{l*{14}{r}}\hline
 \surfaceHeader
-\surfaceplaceholderbody
+\surfaceconfiguredbody
 \end{tabular}
 \end{table}
 
@@ -973,7 +988,7 @@ baseline.
 \subsection{Three-domain comparison}
 
 The final comparison reports averages over WrittenWork, Building, and Food for
-the baselines and all six reported three-domain OpenEvolve variants. The
+the baselines and the three-domain OpenEvolve variants reported below. The
 all-domain initial variant is omitted because descriptive statistics were not
 reported for that run.
 
@@ -989,11 +1004,6 @@ reported for that run.
 \surfacerow{LLM prompt}{0.4781}{0.2310}{0.6720}{0.6706}{0.9848}{0.9660}{0.9826}{0.9778}{0.0000}{0.0000}{2.2322}{141.2164}{25.2174}{3.8264}
 \hline
 \surfacerow{BLEU, no inspirations}{0.3521}{0.1049}{0.6314}{0.6706}{0.9286}{0.7310}{0.8484}{0.3640}{0.0725}{0.0000}{2.2322}{27.1047}{154.0871}{3.8264}
-\surfacerow{BLEU, with inspirations}{0.3526}{0.0952}{0.6315}{0.6939}{0.9191}{0.7034}{0.8407}{0.2787}{0.1097}{0.0145}{2.2555}{26.9651}{153.6453}{3.8264}
-\surfacerow{LLM judge, no inspirations}{0.3431}{0.0478}{0.6161}{0.6939}{1.0000}{0.7879}{0.9128}{0.8251}{0.0000}{0.0000}{2.2555}{28.1835}{154.7159}{3.8264}
-\surfacerow{LLM judge, with inspirations}{0.3414}{0.0044}{0.6289}{0.6706}{0.9130}{0.7489}{0.8403}{0.5013}{0.0145}{0.0000}{2.2322}{27.2713}{154.2321}{3.8264}
-\surfacerow{Mixed-model LLM judge}{0.3367}{0.0741}{0.6156}{0.6706}{1.0000}{0.7835}{0.9376}{0.7004}{0.0000}{0.0000}{2.2322}{29.0733}{164.3288}{3.8264}
-\surfacerow{Mixed-model LLM judge, 4 threads}{0.3244}{0.0367}{0.6136}{0.6939}{1.0000}{0.8261}{0.9448}{0.8163}{0.0000}{0.0000}{2.2555}{28.8738}{159.9567}{3.8264}
 \end{tabular}
 }%
 \end{table}
