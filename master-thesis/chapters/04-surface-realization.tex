@@ -4,12 +4,12 @@
 \section{Method Overview}
 \label{sec:surface-method-overview}
 
-The previous chapter considered the problem of meaning representation. Complex
+The previous chapter considered the problem of meaning representation construction. Complex
 structured data was converted into semantic triples so that the information
 could be expressed in a compact, standardized, and machine-interpretable form.
 The problem considered in this
 chapter is the second stage of the data-to-text conversion: given the
-information contained in a set of triples, how should it be said in natural
+information contained in a set of triples, how should it be written in natural
 language?
 
 This stage is called \emph{surface realization}. Let
@@ -26,186 +26,97 @@ realization of numerical values, and the choice of a suitable sentence
 structure. The generated text should preserve the information in the triples
 while avoiding unsupported statements and unnecessary repetition.
 
-A large language model can be asked to perform this mapping directly using a
-zero-shot or few-shot prompt. Such a solution can produce fluent text, but the
-realization behavior is then distributed across model parameters, prompt
-instructions, and sampling decisions. It is consequently difficult to inspect
-which rules were applied, to reproduce a particular decision, or to diagnose a
-hallucination. A direct LLM call also makes the model part of every inference
-step. The approach taken here changes the role of the LLM: rather than asking it
-to verbalize each input instance directly, it is asked to construct a program
-that performs the conversion. The resulting program can be executed, tested,
-and inspected as an explicit surface realizer.
+An LLM can perform this mapping directly for every input through a zero-shot or
+few-shot prompt. That approach can produce fluent text, but the realization decision is
+then made anew for each input. This thesis instead uses the LLM to propose changes to a
+Python surface-realization program. The resulting program is a reusable artifact:
+after an evolutionary run, it can be inspected and executed on previously unseen
+triple sets without another LLM call.
 
 This idea is directly motivated by the work of Lango and Dusek~\cite{lango-dusek-2025-llm},
 who describe a neurosymbolic framework in which LLM agents implement an NLG
-system from scratch. Their agents produce interpretable rule-based Python
-generators from RDF triples, without requiring in-domain human reference texts
-or conventional supervised training. The generated code provides a transparent
+system from scratch. The generated code provides a transparent
 representation of the realization process and can generate text using ordinary
 CPU execution. The work demonstrates that LLMs can be used to build an NLG
 system rather than only to act as the NLG system at inference time.
 
-The distinction in this work concerns how the generator program is obtained.
-Lango and Dusek use collaborative interactions between multiple LLM agents to
-design and refine the rule-based generator. Here, Google's AlphaEvolve idea is
-used instead: the LLM is placed inside an evolutionary optimization loop and
-proposes mutations of an existing program. The implementation used in the
-experiments is OpenEvolve, an open-source evolutionary coding framework that
-provides the AlphaEvolve-style orchestration layer.
+The present work shares the goal of an inspectable generator, but
+obtains it differently. Here, Google's AlphaEvolve idea is
+used instead~\cite{novikov2025alphaevolve}: rather than assigning several agents the task of
+designing and refining a program, it starts from a working baseline and searches
+over LLM-proposed program mutations. Each candidate is executed and selected
+using a task-specific objective. Unlike the reference-free construction setting
+of Lango and Du\v{s}ek, this search uses reference
+lexicalizations, to evaluate candidate programs.
+The method is therefore an LLM-guided evolutionary algorithm 
+in which an LLM mutates a program to complete a general
+software-engineering task. Its loop is as follows:
+\begin{enumerate}
+  \item select a previously evaluated parent program;
+  \item ask a selected LLM to propose a mutation of that program;
+  \item execute the mutated program on evaluation inputs;
+  \item calculate a scalar selection score or a diagnostic feedback; and
+  \item register the candidate so that it can influence later selection.
+\end{enumerate}
+The remainder of the chapter introduces the related programming paradigms,
+defines AlphaEvolve's evolutionary formulation, and then describes the
+OpenEvolve implementation and its evaluation modes.
 
-During evolution, an LLM receives the current
-program together with selected alternative programs and task-specific instructions. It
-then proposes a modified program, which is evaluated on RDF-to-text examples.
-The evaluation compares generated texts with references
-using automatic metrics and can additionally use an LLM-based judge. The
-evolutionary database stores candidate programs and their measurements, making
-the final result not merely a generated response, but an executable and
-inspectable artifact.
-
-The remainder of this chapter first introduces agentic programming and the
-AlphaEvolve framework. It then describes OpenEvolve, the program representation
-and database, candidate selection, prompt construction, LLM response handling,
-and the evaluation process used for surface realization.
-
-\section{Modern approaches for writing complex programs}
+\section{Program construction and coding agents}
 \label{sec:modern-programming}
 
-Writing a complex program is more than translating a short natural-language
-description into a code fragment. A complete solution usually requires several
-decisions about decomposition, data structures, interfaces, error handling,
-testing, and the interaction between multiple components. These decisions are
-often coupled: a change to one component can invalidate assumptions made by
-another component. Consequently, the generation of a single locally plausible
-code fragment does not guarantee that a complete program is correct or useful.
+Program synthesis searches for a program consistent with a formal specification
+or a set of input--output examples. Code completion, in contrast, predicts a
+local continuation of an existing source file. Neither description by itself
+implies an iterative development process. \emph{Agentic programming} denotes a
+different setting in which an LLM-based system maintains a control loop: it
+observes a workspace, invokes tools, interprets their results, and chooses later
+actions while pursuing a software-development task
+\cite{wang2025agenticprogramming}.
 
-Traditional program synthesis and code-completion systems address only part of
-this problem. Program synthesis generally searches for a program satisfying a
-formal specification or a collection of input--output examples, whereas code
-completion systems predict a local continuation of an existing source file.
-Both approaches can be highly effective for constrained tasks, but neither
-usually performs the complete iterative workflow required for a large software
-engineering task. Such a workflow includes requirement analysis, implementation,
-execution, diagnosis of failures, modification of several files, and repeated
-validation.
+The distinction matters here because the later described AlphaEvolve uses some ideas common in
+coding-agent systems---a language model, source code, execution feedback, and
+persistent state---without requiring a general tool-using agent. It has a
+restricted interface: the LLM proposes a program mutation and an evaluator
+returns its result. This restricted loop makes candidate comparison explicit and
+repeatable, which is useful when the desired artifact is a compact surface
+realizer rather than a complete software project.
 
-\subsection{Agentic programming}
-
-The recent development of large language models has led to a transition from
-one-shot code generation towards \emph{agentic programming}. Wang et al.~\cite{wang2025agenticprogramming}
-define this paradigm through the use of LLM-based agents that autonomously plan,
-execute, and refine software-development tasks while interacting with external
-tools. The LLM is therefore embedded in a control loop rather than being used
-only as a function that maps a prompt to a final source fragment. The agent can
-inspect the workspace, formulate intermediate goals, edit files, run tests or
-compilers, interpret the resulting diagnostics, and decide what action should be
-taken next.
-
-An agentic programming system can be characterized along several related
-dimensions. It can be reactive, responding to a user request or a tool result,
-or proactive, selecting subsequent actions in pursuit of a longer-term goal. It
-can operate in a single turn or across multiple turns, and it can be standalone
-or augmented with tools such as terminals, compilers, debuggers, profilers,
-language servers, and version-control systems. Finally, it can be static, using
-the same procedure for every task, or adaptive, changing its plan in response to
-observations from the development environment.
-
-\subsection{Current state of the art}
-
-The state of the art in agentic programming is represented not by a single model
-architecture, but by a combination of a capable code-oriented LLM and an
-orchestration layer. Modern systems can use long context windows, repository
-retrieval, structured tool calls, shell commands, test runners, and version
-control operations. Multi-agent designs can assign different roles to planning,
-implementation, testing, code review, and documentation. In all of these cases,
-the central improvement over one-shot generation is the ability to use concrete
-feedback from the environment to revise an earlier decision.
-
-The most important enablers of these systems are structured prompting, state and
-context management, tool integration, and execution monitoring~\cite{wang2025agenticprogramming}.
-Structured prompts provide the model with a role, a task decomposition, and
-constraints on the output. Memory mechanisms preserve plans, tool results, and
-previous decisions that no longer fit into the immediate context window. Tool
-interfaces ground the model's actions in executable operations, while execution
-monitoring provides an observation on which the next action can be based.
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=\textwidth]{figures/coding-agent.png}
-    \caption{From Wang et al. \cite{wang2025agenticprogramming} fig. 1: An example workflow of an AI coding agent.}
-    \label{fig:coding-agent}
-\end{figure}
-
-\subsection{Challenges and possible improvements}
-
-Despite the rapid progress, agentic programming remains limited in several
-ways. First, generated code is probabilistic and can contain syntactic errors,
-incorrect assumptions, hallucinated APIs, or changes that solve one test case
-while breaking another. A successful execution on a small test set is not a
-proof of correctness. Second, long software-engineering tasks produce more
-context than can be placed in a single prompt. Important decisions can be
-forgotten, and repeated failures can be rediscovered instead of being avoided.
-Third, conventional compilers and development tools expose diagnostics designed
-primarily for human interpretation. Their outputs do not always provide the
-structured causal information needed by an autonomous system to relate a
-failure to a particular edit.
-
-Evaluation is another central limitation. Many existing benchmarks focus on
-small, self-contained tasks, a small number of programming languages, or a
-binary pass/fail signal. Such benchmarks do not fully measure long-horizon
-planning, tool-use efficiency, recovery from failure, repository-level changes,
-or collaboration with a human developer~\cite{wang2025agenticprogramming}. In
-addition, autonomous execution creates safety and privacy concerns: an agent
-may access sensitive files, execute unsafe commands, or make changes that are
-difficult to inspect and reverse. Finally, repeated inference and tool calls can
-be expensive, especially when a large model is used for every intermediate step.
-
-Several improvements follow from these limitations. Toolchains can expose
-structured diagnostics, abstract syntax trees, intermediate representations,
-profiling data, and explicit links between edits and failures. Context can be
-organized into short-term interaction history, medium-term plans, and
-long-term project memory, with retrieval and summarization used to control its
-size. Reversible edits, sandboxed execution, least-privilege tool access, and
-human approval for high-impact operations can improve safety. Benchmarks should
-also contain realistic multi-file tasks, multiple languages, tool interaction,
-intermediate feedback, and metrics for robustness and recovery rather than
-functional correctness alone.
+Coding agents nevertheless motivate the use of execution feedback. Generated
+source can contain invalid assumptions or fail a test. 
+The relevant question for this chapter is consequently not
+whether an LLM can describe a realization strategy, but whether the resulting
+program improves an observable realization objective. AlphaEvolve provides the
+selection mechanism for this question.
 
 \section{AlphaEvolve}
 \label{sec:alphaevolve}
 
-\subsection{Motivation and problem formulation}
+\subsection{Evolutionary formulation}
 
-AlphaEvolve is an evolutionary coding agent introduced by Novikov et al.~\cite{novikov2025alphaevolve}.
-It was designed for scientific and engineering problems in which candidate
-solutions can be represented as programs and assessed automatically. The
-motivation is that LLMs can propose creative algorithmic ideas, but an isolated
-LLM response is not a reliable optimization procedure. A generated program can
-be syntactically valid and still be slower, less accurate, or less robust than
-the program that preceded it. AlphaEvolve places the LLM inside an evolutionary
-loop in which every proposed change is grounded by execution and scoring.
+AlphaEvolve is an LLM-guided evolutionary coding system for scientific and
+algorithmic problems whose candidate solutions can be represented as programs
+and evaluated automatically~\cite{novikov2025alphaevolve}. Let $\mathcal{P}$
+denote programs satisfying a task interface and let
+\begin{equation}
+    h : \mathcal{P} \longrightarrow \mathbb{R}^{m}
+\end{equation}
+be an evaluator that returns one or more metrics. A designated scalar derived
+from these metrics is the fitness used for selection. Beginning with a runnable
+baseline $p_0$, the system repeatedly selects a parent $p$, obtains an
+LLM-proposed mutation $p'$, evaluates $h(p')$, and stores the result. The stored
+programs then form the pool from which later parents are sampled.
 
-This design solves a problem that is difficult for either component alone.
-Evolutionary search supplies selection, persistence, and a mechanism for
-backtracking from unsuccessful ideas, while the LLM supplies mutations that can
-change the program at a semantic level rather than only tuning a fixed vector
-of numerical parameters. The evaluator prevents an attractive explanation or
-a plausible-looking patch from being accepted without evidence of improved
-performance.
+The LLM generation is stochastic,
+but a generated program is an ordinary deterministic source artifact until it
+is changed again. The LLM replaces a hand-designed mutation operator by proposing
+source-level modifications that may express algorithmic ideas. Selection is
+still based on the evaluator, rather than on the persuasiveness of the LLM's
+explanation.
 
-The examples reported by Novikov et al.~\cite{novikov2025alphaevolve} illustrate
-the breadth of this formulation. AlphaEvolve discovered a procedure for
-multiplying two $4 \times 4$ complex-valued matrices using 48 scalar
-multiplications, improving on the previously known 49-multiplication result in
-that setting. In engineering applications, it produced a matrix-multiplication
-kernel with an average speedup of 23\% and contributed to a reported 1\%
-reduction in Gemini's training time. These results are not required for using
-the framework, but they demonstrate why evolving executable algorithms can be
-more useful than generating a single static answer.
+\subsection{Architecture}
 
-\subsection{Architecture of AlphaEvolve}
-
-The description of AlphaEvolve separates the discovery process into the
+The description of AlphaEvolve separates the process of creating a program into the
 following cooperating components~\cite{novikov2025alphaevolve}:
 
 \begin{enumerate}
@@ -213,16 +124,17 @@ following cooperating components~\cite{novikov2025alphaevolve}:
   evaluator, optional configuration, and any fixed domain knowledge.
   \item The \emph{prompt sampler} selects previously evaluated programs and
   assembles the context shown to the language model.
-  \item The \emph{LLM ensemble} proposes one or more modifications to a selected
-  program. Models with different capabilities or latency can be combined so
-  that many inexpensive ideas and occasional more capable ideas are explored.
+  \item The \emph{LLM ensemble} asks a selected LLM to propose a mutation of that program. A routing or
+  sampling policy selects one model for a mutation request; that model independently
+  returns a candidate patch. Faster models can be sampled more often to explore
+  more candidates, while a more capable model can be selected for less frequent changes
   \item The \emph{mutation layer} parses the model response and applies the
   proposed changes to the current source code. For large programs, targeted
   diff blocks avoid sending or rewriting unrelated code.
   \item The \emph{evaluators} execute the candidate and return its metrics.
   Evaluation can include cascades, parallel test cases, multiple objectives,
   and additional LLM-generated feedback.
-  \item The \emph{program database} stores candidates and metrics and controls
+  \item The \emph{program database} stores candidates, metrics and controls
   the balance between exploiting high-scoring programs and exploring different
   program structures.
   \item The \emph{distributed controller} coordinates LLM requests and
@@ -230,29 +142,16 @@ following cooperating components~\cite{novikov2025alphaevolve}:
   candidates from being processed.
 \end{enumerate}
 
-Let $\mathcal{P}$ denote the space of programs that satisfy the interface of a
-task. The user supplies an evaluator
-\[
-  h : \mathcal{P} \longrightarrow \mathbb{R}^{m},
-\]
-which returns one or more scalar metrics. The metrics are conventionally
-maximized, although the evaluator can negate a quantity such as execution time
-when minimization is required. Starting from an initial program $p_0$, the
-system repeatedly generates a candidate $p'$, evaluates it using $h$, and
-stores the resulting program together with its metrics. The database then
-determines which previously evaluated candidates should influence later
-generations.
-
-The interaction between these components is deliberately cyclic. A program is
-not selected only once at the beginning of the experiment. Its score, code, and
-observed failures become part of the context used for subsequent mutations.
-The database consequently acts as an external memory for the evolutionary
-agent.
+The interaction between these components is deliberately cyclic. The program scores, code, and observed failures become part of the context used for subsequent mutations.
+The database consequently acts as an external memory for the LLM-guided evolutionary algorithm
+agent.~\cite{novikov2025alphaevolve}.
+The following sections describe the components in more detail.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[width=\textwidth]{figures/alpha-evolve.png}
-    \caption{From Novikov et al \cite{novikov2025alphaevolve} fig. 2: Expanded view of the AlphaEvolve discovery process.}
+    \caption{The AlphaEvolve program-evolution process, adapted from
+    Novikov et al.~\cite{novikov2025alphaevolve}.}
     \label{fig:alpha-evolve}
 \end{figure}
 
@@ -317,11 +216,7 @@ The system is implemented as an asynchronous pipeline. LLM generation and
 evaluation are started whenever their required inputs are available, and the
 controller waits only at dependencies between stages. This maximizes the
 number of candidates evaluated within a fixed computation budget instead of
-minimizing the latency of an individual candidate. The resulting evolutionary
-database is inspired by MAP-Elites and island-based population models. MAP-Elites
-preserves high-performing programs in different regions of a feature space,
-while islands allow partially independent populations to explore different
-directions before selected migration.
+minimizing the latency of an individual candidate.
 
 \subsection{Scope and limitations of AlphaEvolve}
 
@@ -334,13 +229,6 @@ metric can reward a program that optimizes the measurement rather than the
 intended task. The search can also require substantial computation because
 many candidates must be generated and evaluated, and there is no general
 guarantee that the best program will be found within a finite budget.
-
-These limitations are particularly relevant to surface realization. Text
-quality is only partially captured by lexical metrics, while LLM judges may be
-inconsistent or sensitive to output formatting. The experiment therefore
-retains both reference-based metrics and judge feedback, logs failed cases, and
-keeps the mutation interface narrow enough that candidates can be evaluated
-repeatedly.
 
 \section{OpenEvolve}
 \label{sec:openevolve}
@@ -447,12 +335,7 @@ The program database is implemented in a way to store those principal fields:
 \end{itemize}
 
 The active database is maintained in memory for fast selection.
-For each program, feature coordinates are calculated before insertion. In
-the surface-realization task, code length is used as the built-in complexity
-feature, while diversity is approximated from source-code length, line-count,
-and character-set differences. Feature values are scaled and assigned to
-bins. The feature coordinates form a cell key, for example a pair of
-coordinates for complexity and diversity.
+For each program, feature coordinates are calculated before insertion.
 
 At most one program is retained as the occupant of a feature cell. If a new
 program maps to an empty cell, the cell is occupied. If it maps to an occupied
@@ -468,8 +351,12 @@ population, together with their references in islands and cells. The main limits
 The initial program, reproduced in Appendix~\ref{app:initial-program}, defines a small \texttt{Triple} data class with
 \texttt{subject}, \texttt{predicate}, and \texttt{object} fields. Its evolution
 block contains the following baseline behavior: \texttt{predict} receives a
-list of triples and returns a sentence describing the predicate, subject, and
-object of the first triple. This implementation is intentionally minimal. It
+list of triples and returns a
+generic sentence for the first triple only:
+\begin{quote}
+\texttt{The \{predicate\} of \{subject\} is \{object\}.}
+\end{quote}
+This implementation is intentionally minimal. It
 is syntactically valid and satisfies the interface, but it ignores additional
 triples, treats every predicate identically, and does not model relations
 between entities.
@@ -509,7 +396,7 @@ information:
 
 \begin{itemize}
   \item the role of the model as an expert data engineer;
-  \item the domain and the required \texttt{predict} function signature;
+  \item the description of the data to be processed and the required \texttt{predict} function signature;
   \item an example in which several triples are combined into one complex
   sentence;
   \item the list of predicates that may occur, with one example triple for
@@ -611,7 +498,7 @@ avoided.
 \section{Evaluation}
 \label{sec:surface-evaluation}
 
-\subsection{Evaluator integration}
+\subsection{Evaluation and feedback}
 
 The OpenEvolve \texttt{Evaluator} is a generic wrapper around the task-specific
 evaluation file. For every candidate, it invokes the function named \texttt{evaluate}. The result contain metrics and
@@ -622,11 +509,23 @@ pending artifacts for the program record.
 The initial program is passed through the same evaluator before evolution
 starts. This establishes the baseline against which later candidates are
 compared. A worker follows the same path after it has applied an LLM mutation.
+
 The task-specific evaluator is therefore the boundary between source-code
 generation and evolutionary selection: OpenEvolve does not infer whether a
-sentence is good from the source code itself.
+sentence is good from the source code itself. It returns a metric dictionary and optional \emph{artifacts}, which
+are stored diagnostic messages rather than values used directly for ranking.
+The metric named \texttt{combined\_score} is the scalar fitness used by the
+database. Two mutually exclusive fitness modes are used:
 
-\subsection{Reference data and candidate execution}
+\begin{itemize}
+  \item BLEU score evaluation; evaluates reference text with the generated text;
+  \item LLM as a judge evaluation; evaluates the generated text with an LLM judge that compares the reference text with the generated text.
+\end{itemize}
+
+The code can calculate BLEU in judge-based runs as a diagnostic, but only the
+selected mode supplies fitness.
+
+\subsection{Reference-based evaluation}
 
 The surface-realization evaluator loads a supplied reference data corpus.
 Each selected entry contains a triple set and one or more reference
@@ -640,85 +539,22 @@ string receives a per-example zero lexical score. Exceptions, invalid return typ
 affected evaluation path and produce zero-valued metrics with an explanation in
 the artifacts.
 
-\subsection{Reference-based scoring}
-
-For every non-empty generated text, the evaluator computes a BLEU score against
+For every non-empty generated text, the evaluator computes a fitness score (which is a BLUE score or LLM as a judge evaluation) against
 all reference lexicalizations associated with the entry. The average over the
 selected domain entries is returned as an aggregate reference-based measure.
 
-BLEU value is used as
-\texttt{combined\_score}, and it is the quantity used by the evolutionary
-database for fitness comparisons.
+\subsection{Artifacts and continuation}
 
-\subsection{LLM as a judge}
+An artifact is a per-candidate diagnostic message retained alongside its metrics.
+In BLEU-driven runs, a low-scoring artifact contains the input triples, generated
+text, reference lexicalizations, and the BLEU result. In judge-driven runs, it
+contains the triples, generated text, reference text, judge review, and rating.
+The worst scored artifacts are retained and three of them are randomly selected for inclusion in the next prompt.
 
-Themis is a language model dedicated to the evaluation of natural language
-generation, rather than a metric based on surface-form overlap. Hu et al.~\cite{hu2024themis}
-propose Themis as an 8-billion-parameter evaluator trained using the NLG-Eval
-corpus, which combines human and GPT-4 annotations from multiple NLG tasks.
-The model was designed to address several limitations of conventional metrics
-and generic prompted judges. In particular, it can evaluate an output without a
-reference text, accept task-specific evaluation aspects and criteria, and return
-both a rating and an analysis explaining that rating. The latter property makes
-the evaluation useful not only for ranking outputs, but also for identifying
-which aspects of a generated text require improvement.
-
-Here an LLM is used as a judge for the surface realizer. For each
-non-empty generated text, the evaluator sends the input triples and the text to
-the configured judge, without sending the reference texts to that judge.
-The evaluation criterion requires the text to express the triples accurately,
-to avoid information not present in the triples, and, where possible, to use a
-single complex sentence instead of several disconnected sentences. The exact
-judge prompt is reproduced in Appendix~\ref{app:prompt-llm-judge}. The judge
-first returns a concise review and then a rating on a scale from 1 to 5. The
-ratings are averaged over the evaluation examples and divided by 5. When the
-judge is enabled, this normalized value is used as the combined evolutionary
-fitness, while BLEU remains available as a reference-based diagnostic metric.
-
-The evaluator does not depend on a particular set of Themis model weights. The
-name, endpoint, and credentials of the judge are supplied through the
-configuration. Therefore,
-the same evaluation role can be assigned to another suitable LLM when required.
-The term ``Themis'' in the experiment configuration consequently identifies the
-default judge setup, while the evaluation protocol can also be used with an
-alternative model. This allows the judge to favor a faithful and compact
-realization even when it uses wording that has limited n-gram overlap with the
-references.
-
-\subsection{Artifacts as evaluator feedback}
-
-The evaluator returns low-scoring examples as artifacts. An LLM-judge artifact
-contains the input triples, the generated text, the judge review, and the score.
-If too many examples qualify, at most three are sampled for storage and prompt
-rendering (the message format is shown in Appendix~\ref{app:prompt-artifact-message}).
-When the LLM judge is disabled, low BLEU examples contain the
-references as well. On the next mutation, these artifacts are rendered under the feedback
-section of the user prompt. The resulting feedback loop is therefore more
-specific than a scalar fitness value: the LLM can see which triples were
-omitted, which relation was expressed poorly, or which output was split into
-several sentences.
-
-The evaluator distinguishes metrics from artifacts. Metrics are numeric values
-used by the database, whereas diagnostic strings, reviews, traces, and error
-messages are not included in the fitness calculation. This separation prevents
-an explanatory text from accidentally changing the ranking while still making
-the explanation available to the next generation.
-
-\subsection{Registration and continuation of the loop}
-
-After evaluation, the worker creates a child \texttt{Program} containing the
-candidate source, parent identifier, generation, iteration, metrics, and a
-change summary. The database then
-calculates feature coordinates, updates the corresponding MAP-Elites cell and
-the archive, enforces the population limit, and updates the global and
-island-specific best-program references. Artifacts and prompts are stored, and
-the evolution tracer records the parent, child, metrics, source code, response,
-and improvement delta when tracing is enabled. A new iteration is then
-submitted, so the evaluated child can influence later parent and inspiration
-selection.
-
-This ordering is the central feedback mechanism of the method. A score without
-registration would not affect the search, and a database without evaluation
-would have no objective basis for selection. The repeated interaction between
-the two is what converts LLM code generation into an evolutionary surface
-realization procedure.
+After evaluation, the controller registers the child source, parent identifier,
+metrics, and artifacts, updates the population, archive, feature-cell
+representative, and best-program record, and submits another iteration. Optional
+trace files additionally record this provenance for later inspection. The
+repeated sequence of mutation, execution, scoring, and registration is what
+turns LLM code generation into the surface-realization search used in this
+thesis.
