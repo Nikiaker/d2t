@@ -649,6 +649,7 @@ Wikidata & 0.7555 & 0.8963 & 0.4912 & 0.4700 & 0.4803 & 0.6884 \\
 \section{Surface realization}
 
 \subsection{WebNLG dataset and evaluation protocol}
+\label{sec:webnlg-evaluation-protocol}
 
 Surface realization is evaluated on WebNLG, a benchmark in which RDF-style
 semantic triples are paired with one or more natural-language lexicalizations.
@@ -667,9 +668,23 @@ Appendix~\ref{app:prompt-llm-judge}.
 
 The final evaluation reports reference-based, judge-based, and descriptive
 metrics. BLEU, BLEURT, and METEOR compare a generated text with the WebNLG
-references. SENLEN measures the absolute difference between the number of
-sentences in the generated text and the average number in the references. The
-three judge columns contain scores from Gemma~4 31B IT, Qwen~3.6, and Themis.
+references. The three judge columns contain scores from Gemma~4 31B IT,
+Qwen~3.6, and Themis.
+
+SENLEN is a thesis-specific structural diagnostic introduced for this
+evaluation. For a generated text realization
+$\hat{y}$ and its set of references $R$, it is defined as
+\[
+\mathrm{SENLEN}(\hat{y}, R) =
+\left|\mathrm{seg}(\hat{y}) -
+\frac{1}{|R|}\sum_{r \in R}\mathrm{seg}(r)\right|,
+\]
+where $\mathrm{seg}(x)$ is the number of sentences, which are counted using
+a period as the delimiter. This deliberately
+uses an implementation-level delimiter count rather than a linguistic sentence
+tokenizer. Lower values are preferable, and zero indicates
+that the generated realization has exactly the average reference sentence count.
+
 The grammaticality, additions, and omissions judgments are performed with
 Gemma~4 31B IT. The prompts used for these judgments are provided in
 Appendix~\ref{app:prompt-llm-judge}. The final four columns are descriptive
@@ -1031,7 +1046,8 @@ instances in the corresponding $S_4$ test collection. The generated texts are
 evaluated using the same protocol as the WebNLG surface-realization
 experiments. BLEU, BLEURT, and METEOR compare the generated text with its
 reference. SENLEN measures the difference between the generated and reference
-sentence counts. Gemma~4, Qwen, and Themis provide judge scores, while
+period-delimited segment counts as defined in
+Section~\ref{sec:webnlg-evaluation-protocol}. Gemma~4, Qwen, and Themis provide judge scores, while
 grammaticality, additions, and omissions are evaluated using the corresponding
 judge prompts. Average sentence count, word count, character count, and number
 of input triples are reported as descriptive statistics.
