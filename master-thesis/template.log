@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/nixos.org) (preloaded format=pdflatex 1980.1.1)  13 SEP 2026 17:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/nixos.org) (preloaded format=pdflatex 1980.1.1)  13 SEP 2026 18:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -830,72 +830,72 @@ Chapter 5.
 
 ] [35
 
-] [36
+] [36] [37
 
-] [37] [38
+] [38] [39
 
-] [39]
-Overfull \hbox (2.9673pt too wide) in paragraph at lines 628--630
+] [40]
+Overfull \hbox (2.9673pt too wide) in paragraph at lines 724--726
 []\T1/cmr/m/n/10 The pre-ced-ing mixed-model setup with four par-
  []
 
-[40
+[41
 
-] [41]
-Underfull \hbox (badness 3861) in paragraph at lines 776--776
-[]\T1/cmr/m/sc/8 Table 5.25: [][]\T1/cmr/m/n/8 Configured 100-iteration mixed G
-emma run: 80% stan-
- []
-
-
-Underfull \hbox (badness 6125) in paragraph at lines 776--776
-\T1/cmr/m/n/8 dard gen-er-a-tion, 20% high-reasoning gen-er-a-tion, four eval-u
--a-tor threads
- []
-
-
-Underfull \hbox (badness 3861) in paragraph at lines 786--786
+] [42]
+Underfull \hbox (badness 3861) in paragraph at lines 872--872
 []\T1/cmr/m/sc/8 Table 5.26: [][]\T1/cmr/m/n/8 Configured 100-iteration mixed G
 emma run: 80% stan-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 786--786
+Underfull \hbox (badness 6125) in paragraph at lines 872--872
+\T1/cmr/m/n/8 dard gen-er-a-tion, 20% high-reasoning gen-er-a-tion, four eval-u
+-a-tor threads
+ []
+
+
+Underfull \hbox (badness 3861) in paragraph at lines 882--882
+[]\T1/cmr/m/sc/8 Table 5.27: [][]\T1/cmr/m/n/8 Configured 100-iteration mixed G
+emma run: 80% stan-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 882--882
 \T1/cmr/m/n/8 dard gen-er-a-tion, 20% high-reasoning gen-er-a-tion, one eval-u-
 a-tor thread
  []
 
 
-Underfull \hbox (badness 1990) in paragraph at lines 796--796
-[]\T1/cmr/m/sc/8 Table 5.27: [][]\T1/cmr/m/n/8 Configured PLGrid 100-iteration 
+Underfull \hbox (badness 1990) in paragraph at lines 892--892
+[]\T1/cmr/m/sc/8 Table 5.28: [][]\T1/cmr/m/n/8 Configured PLGrid 100-iteration 
 mixed Gemma run: 80%
  []
 
 
-Underfull \hbox (badness 2662) in paragraph at lines 796--796
+Underfull \hbox (badness 2662) in paragraph at lines 892--892
 \T1/cmr/m/n/8 stan-dard gen-er-a-tion, 20% high-reasoning gen-er-a-tion, one ev
 al-u-a-tor thread
  []
 
-[42] [43] [44
+[43] [44] [45
 
-] [45
+] [46
 
-]) (./chapters/06-discussion.tex [46
+]) (./chapters/06-discussion.tex [47
 
-] [47]
+] [48]
 Chapter 6.
-) (./chapters/07-summary.tex [48
+) (./chapters/07-summary.tex [49
 
 ]
 Chapter 7.
-) (./template.bbl [49
+) (./template.bbl [50
 
 ]
 bibitemlist
-[50
+[51
 
-] [51]) [52]
+] [52]) [53]
 Appendix A.
 (./appendices/appendix-prompts-evolution.tex
 Overfull \hbox (4051.15668pt too wide) in paragraph at lines 14--14
@@ -927,7 +927,7 @@ he given predicates and example triples implement the 'predict' function so it
 can process all the possible predicates:[] 
  []
 
-[53
+[54
 
 ]
 Overfull \hbox (9.64362pt too wide) in paragraph at lines 47--47
@@ -965,7 +965,7 @@ Overfull \hbox (161.85645pt too wide) in paragraph at lines 69--69
  program, even with it's indentations and endlines.[] 
  []
 
-[54]
+[55]
 Overfull \hbox (361.30774pt too wide) in paragraph at lines 106--106
 []\T1/cmtt/m/n/10 This is a different program that might have a different appro
 ach on how to solve the problem. Use it as an inspiration. Do not copy the whol
@@ -990,7 +990,7 @@ Overfull \hbox (56.88208pt too wide) in paragraph at lines 157--157
 t the code should be in format:[] 
  []
 
-[55]
+[56]
 Overfull \hbox (51.63336pt too wide) in paragraph at lines 159--159
 []\T1/cmtt/m/n/10 # Original code to find and replace (must match exactly, inde
 ntations and endlines as well)[] 
@@ -1013,7 +1013,7 @@ Overfull \hbox (230.08978pt too wide) in paragraph at lines 180--180
 nsure it matches exactly the searched part of the original code:[] 
  []
 
-) (./appendices/appendix-prompt-judge.tex [56] [57] [58]
+) (./appendices/appendix-prompt-judge.tex [57] [58] [59]
 Overfull \hbox (261.58209pt too wide) in paragraph at lines 153--153
 []\T1/cmtt/m/n/10 Please act as an impartial and helpful evaluator for natural 
 language generation (NLG), and the audience is an expert in the field.[] 
@@ -1053,7 +1053,7 @@ not present in the triples. If possible there must be just one complex sentence
  instead of multiple sentences.[] 
  []
 
-[59]) (./appendices/appendix-prompts-text-first.tex [60]
+[60]) (./appendices/appendix-prompts-text-first.tex [61]
 Overfull \hbox (5.0922pt too wide) in paragraph at lines 13--14
 \T1/cmr/m/n/10 ex-act schema: {"triples":[{"subject":"...","predicate":"...","o
 bject":"..."}]}. Rules: pre-
@@ -1065,7 +1065,7 @@ Overfull \hbox (2.35211pt too wide) in paragraph at lines 13--14
 ":"...","object":"..."}], "ex-
  []
 
-[61]
+[62]
 Overfull \hbox (20.04004pt too wide) in paragraph at lines 18--19
 \T1/cmr/m/n/10 Re-turn ONLY JSON with schema: {"pos-si-ble":true|false,"reason"
 :"...","rule_gaps":["..."]}. 
@@ -1089,7 +1089,7 @@ Overfull \hbox (51.6712pt too wide) in paragraph at lines 18--19
 "predicate":"...","object":"..."}]}.
  []
 
-) (./appendices/appendix-prompts-finetune.tex [62]
+) (./appendices/appendix-prompts-finetune.tex [63]
 Appendix B.
 
 Overfull \hbox (256.74966pt too wide) in paragraph at lines 6--7
@@ -1098,7 +1098,7 @@ schema: {"text":"...","triples":[{"subject":"...","predicate":"...","object":".
 .."}]}.
  []
 
-) [63
+) [64
 
 ]
 Appendix C.
@@ -1108,15 +1108,15 @@ Overfull \hbox (35.8872pt too wide) in paragraph at lines 18--18
 t} is {triples[0].object}."[] 
  []
 
-) [64
+) [65
 
 ]
-<figures/template/logo-pp.pdf, id=1186, 469.755pt x 469.755pt>
+<figures/template/logo-pp.pdf, id=1192, 469.755pt x 469.755pt>
 File: figures/template/logo-pp.pdf Graphic file (type pdf)
 <use figures/template/logo-pp.pdf>
 Package pdftex.def Info: figures/template/logo-pp.pdf  used on input line 99.
 (pdftex.def)             Requested size: 42.67752pt x 42.67912pt.
- [65
+ [66
 
  <./figures/template/logo-pp.pdf>]
 \tf@toc=\write6
@@ -1131,10 +1131,10 @@ Package rerunfilecheck Info: File `template.out' has not changed.
 (rerunfilecheck)             Checksum: 5124213BEA735823FE0C84E6C92D4761;22705.
  ) 
 Here is how much of TeX's memory you used:
- 15489 strings out of 468657
- 252230 string characters out of 5422359
- 741956 words of memory out of 5000000
- 43659 multiletter control sequences out of 15000+600000
+ 15492 strings out of 468657
+ 252289 string characters out of 5422359
+ 741082 words of memory out of 5000000
+ 43660 multiletter control sequences out of 15000+600000
  652711 words of font info for 98 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  99i,13n,107p,1071b,713s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1144,66 +1144,68 @@ al-texmfdist/fonts/type1/public/amsfonts/cm/cmex10.pfb></nix/store/qskyc8hznx6d
 ublic/amsfonts/cm/cmmi10.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texli
 ve-combined-medium-2025-final-texmfdist/fonts/type1/public/amsfonts/cm/cmmi5.pf
 b></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-fin
-al-texmfdist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></nix/store/qskyc8hznx6d7
+al-texmfdist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></nix/store/qskyc8hznx6d7
 68spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/type1/pu
-blic/amsfonts/cm/cmmi8.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive
--combined-medium-2025-final-texmfdist/fonts/type1/public/amsfonts/cm/cmmi9.pfb>
+blic/amsfonts/cm/cmmi7.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive
+-combined-medium-2025-final-texmfdist/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
 </nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final
--texmfdist/fonts/type1/public/amsfonts/cm/cmr10.pfb></nix/store/qskyc8hznx6d768
+-texmfdist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></nix/store/qskyc8hznx6d768
 spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/type1/publ
-ic/amsfonts/cm/cmr6.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-co
-mbined-medium-2025-final-texmfdist/fonts/type1/public/amsfonts/cm/cmr7.pfb></ni
-x/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-tex
-mfdist/fonts/type1/public/amsfonts/cm/cmr8.pfb></nix/store/qskyc8hznx6d768spjzk
-2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/type1/public/am
-sfonts/cm/cmr9.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combine
-d-medium-2025-final-texmfdist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></nix/s
-tore/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfd
-ist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></nix/store/qskyc8hznx6d768spjzk2b
+ic/amsfonts/cm/cmr10.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-c
+ombined-medium-2025-final-texmfdist/fonts/type1/public/amsfonts/cm/cmr6.pfb></n
+ix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-te
+xmfdist/fonts/type1/public/amsfonts/cm/cmr7.pfb></nix/store/qskyc8hznx6d768spjz
+k2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/type1/public/a
+msfonts/cm/cmr8.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combin
+ed-medium-2025-final-texmfdist/fonts/type1/public/amsfonts/cm/cmr9.pfb></nix/st
+ore/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdi
+st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></nix/store/qskyc8hznx6d768spjzk2b
 8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/type1/public/amsf
-onts/cm/cmsy6.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined
--medium-2025-final-texmfdist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></nix/sto
+onts/cm/cmsy5.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined
+-medium-2025-final-texmfdist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></nix/sto
 re/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdis
-t/fonts/type1/public/amsfonts/cm/cmsy9.pfb></nix/store/qskyc8hznx6d768spjzk2b8g
+t/fonts/type1/public/amsfonts/cm/cmsy7.pfb></nix/store/qskyc8hznx6d768spjzk2b8g
 wrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/type1/public/amsfon
-ts/symbols/msbm10.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-comb
-ined-medium-2025-final-texmfdist/fonts/type1/public/cm-super/sfbx0600.pfb></nix
+ts/cm/cmsy9.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-m
+edium-2025-final-texmfdist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></nix
 /store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texm
-fdist/fonts/type1/public/cm-super/sfbx0700.pfb></nix/store/qskyc8hznx6d768spjzk
+fdist/fonts/type1/public/cm-super/sfbx0600.pfb></nix/store/qskyc8hznx6d768spjzk
 2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/type1/public/cm
--super/sfbx0900.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combin
-ed-medium-2025-final-texmfdist/fonts/type1/public/cm-super/sfbx1000.pfb></nix/s
+-super/sfbx0700.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combin
+ed-medium-2025-final-texmfdist/fonts/type1/public/cm-super/sfbx0900.pfb></nix/s
 tore/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfd
-ist/fonts/type1/public/cm-super/sfbx1095.pfb></nix/store/qskyc8hznx6d768spjzk2b
+ist/fonts/type1/public/cm-super/sfbx1000.pfb></nix/store/qskyc8hznx6d768spjzk2b
 8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/type1/public/cm-s
-uper/sfbx1200.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined
--medium-2025-final-texmfdist/fonts/type1/public/cm-super/sfbx1728.pfb></nix/sto
+uper/sfbx1095.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined
+-medium-2025-final-texmfdist/fonts/type1/public/cm-super/sfbx1200.pfb></nix/sto
 re/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdis
-t/fonts/type1/public/cm-super/sfbx2074.pfb></nix/store/qskyc8hznx6d768spjzk2b8g
+t/fonts/type1/public/cm-super/sfbx1728.pfb></nix/store/qskyc8hznx6d768spjzk2b8g
 wrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/type1/public/cm-sup
-er/sfcc0800.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-m
-edium-2025-final-texmfdist/fonts/type1/public/cm-super/sfrm0600.pfb></nix/store
+er/sfbx2074.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-m
+edium-2025-final-texmfdist/fonts/type1/public/cm-super/sfcc0800.pfb></nix/store
 /qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/
-fonts/type1/public/cm-super/sfrm0700.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwr
+fonts/type1/public/cm-super/sfrm0600.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwr
 gzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/type1/public/cm-super
-/sfrm0800.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-med
-ium-2025-final-texmfdist/fonts/type1/public/cm-super/sfrm0900.pfb></nix/store/q
+/sfrm0700.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-med
+ium-2025-final-texmfdist/fonts/type1/public/cm-super/sfrm0800.pfb></nix/store/q
 skyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fo
-nts/type1/public/cm-super/sfrm1000.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgz
+nts/type1/public/cm-super/sfrm0900.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgz
 j8s2-texlive-combined-medium-2025-final-texmfdist/fonts/type1/public/cm-super/s
-frm1095.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-mediu
-m-2025-final-texmfdist/fonts/type1/public/cm-super/sfti0900.pfb></nix/store/qsk
+frm1000.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-mediu
+m-2025-final-texmfdist/fonts/type1/public/cm-super/sfrm1095.pfb></nix/store/qsk
 yc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/font
-s/type1/public/cm-super/sfti1000.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8
+s/type1/public/cm-super/sfti0900.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8
 s2-texlive-combined-medium-2025-final-texmfdist/fonts/type1/public/cm-super/sft
-t0800.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-
-2025-final-texmfdist/fonts/type1/public/cm-super/sftt0900.pfb></nix/store/qskyc
+i1000.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-
+2025-final-texmfdist/fonts/type1/public/cm-super/sftt0800.pfb></nix/store/qskyc
 8hznx6d768spjzk2b8gwrgzj8s2-texlive-combined-medium-2025-final-texmfdist/fonts/
-type1/public/cm-super/sftt1000.pfb>
-Output written on template.pdf (71 pages, 1058498 bytes).
+type1/public/cm-super/sftt0900.pfb></nix/store/qskyc8hznx6d768spjzk2b8gwrgzj8s2
+-texlive-combined-medium-2025-final-texmfdist/fonts/type1/public/cm-super/sftt1
+000.pfb>
+Output written on template.pdf (72 pages, 1076704 bytes).
 PDF statistics:
- 1428 PDF objects out of 1440 (max. 8388607)
- 1257 compressed objects within 13 object streams
- 328 named destinations out of 1000 (max. 500000)
+ 1438 PDF objects out of 1440 (max. 8388607)
+ 1264 compressed objects within 13 object streams
+ 330 named destinations out of 1000 (max. 500000)
  877 words of extra memory for PDF output out of 10000 (max. 10000000)
 

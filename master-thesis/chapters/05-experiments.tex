@@ -289,58 +289,154 @@ Wikidata & 4.80 & 4.80 & 4.80 \\
 \subsection{Correlation between LLM and human evaluation}
 
 The agreement between the LLM judge and the human evaluator is computed from
-paired 1--5 scores. Pearson's product--moment correlation, Spearman's rank
-correlation, Kendall's tau-b, and quadratic weighted Cohen's kappa are reported
-where both score vectors have sufficient variation. Quadratic weighted kappa
-measures chance-corrected agreement and penalizes larger disagreements more
-strongly than adjacent disagreements \cite{cohen1960agreement}. A constant
-score vector makes rank and linear correlations undefined; the status column
-records these diagnostic cases.
+paired 1--5 scores.
+
+The \emph{LLM score mean} and \emph{Human score mean} columns report the
+arithmetic mean of the aligned score vector used for that row. For an additions
+or omissions row, each mean is calculated from the ten scores for that single
+criterion. For a pooled row, it is calculated from 20 scores: additions and
+omissions for each of the ten instances. For a per-instance-mean row, it is
+calculated from ten instance-level averages. These columns describe the rating
+level of each evaluator and are not correlation coefficients.
+
+Four complementary statistics are reported. Pearson's product--moment
+correlation measures linear association between the raw values, but assumes
+equal distances between the ordinal score levels. Spearman's $\rho$ measures
+whether the LLM and human rank instances similarly and is the primary
+association measure for the ordinal 1--5 scale. Kendall's $\tau$-b measures
+pairwise rank concordance while correcting for ties, making it useful for the
+small samples and repeated ratings in this experiment. Quadratic weighted
+Cohen's kappa measures chance-corrected ordinal agreement and penalizes a
+two-point disagreement more strongly than a one-point disagreement
+\cite{cohen1960agreement}. All four measures range from $-1$ to $1$; positive
+values indicate agreement or positive association, zero indicates no
+association or agreement beyond chance, and negative values indicate inverse
+association.
+
+The overall variants are calculated separately for the two evaluation tasks and
+never mix data-to-text with text-to-triples. A \emph{pooled} text-to-triples
+result concatenates the additions and omissions score of every matched instance
+for each rater. With ten matched instances, this produces 20 paired criterion
+scores: additions and omissions for each instance. It preserves
+criterion-specific disagreement, for example when a judge agrees on additions
+but not on omissions.
+
+The complementary \emph{per-instance mean} result first averages additions and
+omissions for each rater within an instance and then correlates the resulting
+ten overall-quality pairs. It answers whether the LLM and human agree about
+which complete instances are better or worse overall, while deliberately
+discarding criterion-specific differences. For this mean variant, Pearson,
+Spearman, and Kendall are computed from the floating-point means; quadratic
+weighted kappa uses the means rounded to the nearest ordinal score.
+
+Pearson, Spearman, and Kendall are undefined when either rater assigns the same
+score to every observation. The status column records such constant-vector
+cases. Means remain available for comparing score levels, but are not
+correlation coefficients. In particular, a kappa of zero in a constant-vector
+case indicates no measurable agreement beyond chance under the observed score
+distributions; it does not establish that every individual rating disagreed.
 
 \begin{table}[!htbp]
 \centering
 \scriptsize
 \caption{Data-to-text correlation diagnostics ($N=10$ instances per row).}
 \label{tab:judge-human-text-correlation}
-\begin{tabular}{llrrrrl}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{llrrrrrrl}
 \hline
-\textbf{Domain} & \textbf{Criterion} & \textbf{Pearson $r$} & \textbf{Spearman $\rho$} & \textbf{Kendall $\tau$} & \textbf{QW-$\kappa$} & \textbf{Status} \\
+\textbf{Domain} & \textbf{Criterion} & \textbf{Pearson $r$} & \textbf{Spearman $\rho$} & \textbf{Kendall $\tau$} & \textbf{QW-$\kappa$} & \textbf{LLM score mean} & \textbf{Human score mean} & \textbf{Status} \\
 \hline
-GSMArena & Summary & -- & -- & -- & 0.000 & LLM constant \\
-GSMArena & Faithfulness & -- & -- & -- & 0.000 & LLM constant \\
-OWID & Summary & -- & -- & -- & 0.000 & LLM constant \\
-OWID & Faithfulness & -- & -- & -- & 0.000 & LLM constant \\
-OpenWeather & Summary & -- & -- & -- & 0.000 & LLM constant \\
-OpenWeather & Faithfulness & -- & -- & -- & 0.000 & LLM constant \\
-Wikidata & Summary & -- & -- & -- & 0.000 & LLM constant \\
-Wikidata & Faithfulness & -- & -- & -- & 0.000 & LLM constant \\
+GSMArena & Summary & -- & -- & -- & 0.000 & 5.00 & 4.10 & LLM constant \\
+GSMArena & Faithfulness & -- & -- & -- & 0.000 & 5.00 & 3.60 & LLM constant \\
+OWID & Summary & -- & -- & -- & 0.000 & 5.00 & 4.70 & LLM constant \\
+OWID & Faithfulness & -- & -- & -- & 0.000 & 5.00 & 4.80 & LLM constant \\
+OpenWeather & Summary & -- & -- & -- & 0.000 & 5.00 & 4.60 & LLM constant \\
+OpenWeather & Faithfulness & -- & -- & -- & 0.000 & 5.00 & 3.60 & LLM constant \\
+Wikidata & Summary & -- & -- & -- & 0.000 & 5.00 & 4.60 & LLM constant \\
+Wikidata & Faithfulness & -- & -- & -- & 0.000 & 5.00 & 4.80 & LLM constant \\
 \hline
 \end{tabular}
+}%
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\tiny
+\caption{Text-to-triples correlation results by criterion and pooled aggregation.}
+\label{tab:judge-human-triples-correlation}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lllrrrrrrrl}
+\hline
+\textbf{Pipeline} & \textbf{Domain} & \textbf{Criterion / aggregation} & \textbf{$N$} & \textbf{$r$} & \textbf{$\rho$} & \textbf{$\tau$} & \textbf{QW-$\kappa$} & \textbf{LLM score mean} & \textbf{Human score mean} & \textbf{Status} \\
+\hline
+Blueprint & GSMArena & Additions & 10 & -0.509 & -0.509 & -0.509 & -0.212 & 4.90 & 4.30 & ok \\
+ &  & Omissions & 10 & 0.349 & 0.387 & 0.360 & 0.286 & 4.00 & 3.70 & ok \\
+ &  & Pooled & 20 & 0.402 & 0.371 & 0.344 & 0.316 & 4.45 & 4.00 & ok \\
+ & OWID & Additions & 10 & -- & -- & -- & 0.000 & 5.00 & 4.00 & both constant, different \\
+ &  & Omissions & 10 & 0.512 & 0.520 & 0.494 & 0.314 & 4.80 & 4.30 & ok \\
+ &  & Pooled & 20 & 0.379 & 0.360 & 0.348 & 0.133 & 4.90 & 4.15 & ok \\
+ & OpenWeather & Additions & 10 & -- & -- & -- & 0.000 & 4.70 & 5.00 & Human constant \\
+ &  & Omissions & 10 & 0.588 & 0.529 & 0.494 & 0.462 & 3.50 & 3.00 & ok \\
+ &  & Pooled & 20 & 0.726 & 0.731 & 0.664 & 0.714 & 4.10 & 4.00 & ok \\
+ & Wikidata & Additions & 10 & 0.667 & 0.667 & 0.667 & 0.615 & 4.90 & 4.80 & ok \\
+ &  & Omissions & 10 & 0.927 & 0.964 & 0.934 & 0.906 & 4.40 & 4.30 & ok \\
+ &  & Pooled & 20 & 0.895 & 0.906 & 0.886 & 0.873 & 4.65 & 4.55 & ok \\
+\hline
+Text-First & GSMArena & Additions & 10 & -- & -- & -- & 0.000 & 5.00 & 4.90 & LLM constant \\
+ &  & Omissions & 10 & -- & -- & -- & 0.000 & 5.00 & 5.00 & both constant, same \\
+ &  & Pooled & 20 & -- & -- & -- & 0.000 & 5.00 & 4.95 & LLM constant \\
+ & OWID & Additions & 10 & -- & -- & -- & 0.000 & 5.00 & 5.00 & both constant, same \\
+ &  & Omissions & 10 & -- & -- & -- & 0.000 & 5.00 & 4.50 & LLM constant \\
+ &  & Pooled & 20 & -- & -- & -- & 0.000 & 5.00 & 4.75 & LLM constant \\
+ & OpenWeather & Additions & 10 & -- & -- & -- & 0.000 & 5.00 & 4.90 & LLM constant \\
+ &  & Omissions & 10 & -- & -- & -- & 0.000 & 5.00 & 5.00 & both constant, same \\
+ &  & Pooled & 20 & -- & -- & -- & 0.000 & 5.00 & 4.95 & LLM constant \\
+ & Wikidata & Additions & 10 & -- & -- & -- & 0.000 & 5.00 & 5.00 & both constant, same \\
+ &  & Omissions & 10 & -- & -- & -- & 0.000 & 5.00 & 5.00 & both constant, same \\
+ &  & Pooled & 20 & -- & -- & -- & 0.000 & 5.00 & 5.00 & both constant, same \\
+\hline
+Catalog & GSMArena & Additions & 10 & -- & -- & -- & 0.000 & 5.00 & 4.90 & LLM constant \\
+ &  & Omissions & 10 & 0.667 & 0.667 & 0.667 & 0.615 & 4.80 & 4.90 & ok \\
+ &  & Pooled & 20 & 0.444 & 0.444 & 0.444 & 0.444 & 4.90 & 4.90 & ok \\
+ & OWID & Additions & 10 & -- & -- & -- & 0.000 & 4.60 & 5.00 & Human constant \\
+ &  & Omissions & 10 & 0.867 & 0.917 & 0.875 & 0.404 & 3.60 & 2.20 & ok \\
+ &  & Pooled & 20 & 0.604 & 0.630 & 0.578 & 0.559 & 4.10 & 3.60 & ok \\
+ & OpenWeather & Additions & 10 & -- & -- & -- & 0.000 & 5.00 & 4.90 & LLM constant \\
+ &  & Omissions & 10 & 0.753 & 0.646 & 0.631 & 0.478 & 4.40 & 3.70 & ok \\
+ &  & Pooled & 20 & 0.782 & 0.647 & 0.632 & 0.630 & 4.70 & 4.30 & ok \\
+ & Wikidata & Additions & 10 & -- & -- & -- & 0.000 & 5.00 & 4.80 & LLM constant \\
+ &  & Omissions & 10 & 0.667 & 0.667 & 0.667 & 0.615 & 4.80 & 4.80 & ok \\
+ &  & Pooled & 20 & 0.459 & 0.459 & 0.459 & 0.444 & 4.90 & 4.80 & ok \\
+\hline
+\end{tabular}
+}%
 \end{table}
 
 \begin{table}[!htbp]
 \centering
 \scriptsize
-\caption{Pooled text-to-triples correlation results ($N=20$ scores per row).}
-\label{tab:judge-human-triples-correlation}
+\caption{Per-instance-mean text-to-triples correlation results ($N=10$ overall-quality scores per row).}
+\label{tab:judge-human-triples-mean-correlation}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{llrrrrrrl}
 \hline
-\textbf{Pipeline} & \textbf{Domain} & \textbf{$r$} & \textbf{$\rho$} & \textbf{$\tau$} & \textbf{QW-$\kappa$} & \textbf{LLM} & \textbf{Human} & \textbf{Status} \\
+\textbf{Pipeline} & \textbf{Domain} & \textbf{$r$} & \textbf{$\rho$} & \textbf{$\tau$} & \textbf{QW-$\kappa$} & \textbf{LLM score mean} & \textbf{Human score mean} & \textbf{Status} \\
 \hline
-Blueprint & GSMArena & 0.402 & 0.371 & 0.344 & 0.316 & 4.45 & 4.00 & ok \\
-Blueprint & OWID & 0.379 & 0.360 & 0.348 & 0.133 & 4.90 & 4.15 & ok \\
-Blueprint & OpenWeather & 0.726 & 0.731 & 0.664 & 0.714 & 4.10 & 4.00 & ok \\
-Blueprint & Wikidata & 0.895 & 0.906 & 0.886 & 0.873 & 4.65 & 4.55 & ok \\
+Blueprint & GSMArena & 0.000 & 0.000 & 0.000 & 0.000 & 4.45 & 4.00 & ok \\
+Blueprint & OWID & 0.512 & 0.520 & 0.494 & 0.000 & 4.90 & 4.15 & ok \\
+Blueprint & OpenWeather & 0.633 & 0.536 & 0.501 & 0.000 & 4.10 & 4.00 & ok \\
+Blueprint & Wikidata & 0.907 & 0.868 & 0.841 & 0.800 & 4.65 & 4.55 & ok \\
 Text-First & GSMArena & -- & -- & -- & 0.000 & 5.00 & 4.95 & LLM constant \\
 Text-First & OWID & -- & -- & -- & 0.000 & 5.00 & 4.75 & LLM constant \\
 Text-First & OpenWeather & -- & -- & -- & 0.000 & 5.00 & 4.95 & LLM constant \\
 Text-First & Wikidata & -- & -- & -- & 0.000 & 5.00 & 5.00 & both constant \\
-Catalog & GSMArena & 0.444 & 0.444 & 0.444 & 0.444 & 4.90 & 4.90 & ok \\
-Catalog & OWID & 0.604 & 0.630 & 0.578 & 0.559 & 4.10 & 3.60 & ok \\
-Catalog & OpenWeather & 0.782 & 0.647 & 0.632 & 0.630 & 4.70 & 4.30 & ok \\
-Catalog & Wikidata & 0.459 & 0.459 & 0.459 & 0.444 & 4.90 & 4.80 & ok \\
+Catalog & GSMArena & 0.375 & 0.375 & 0.375 & 0.375 & 4.90 & 4.90 & ok \\
+Catalog & OWID & 0.627 & 0.795 & 0.707 & 0.043 & 4.10 & 3.60 & ok \\
+Catalog & OpenWeather & 0.591 & 0.410 & 0.387 & 0.000 & 4.70 & 4.30 & ok \\
+Catalog & Wikidata & 0.804 & 0.646 & 0.626 & 0.412 & 4.90 & 4.80 & ok \\
 \hline
 \end{tabular}
+}%
 \end{table}
 
 \FloatBarrier
