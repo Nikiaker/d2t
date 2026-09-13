@@ -7,21 +7,19 @@
 
 The experimental evaluation for meaning representation requires structured data
 from diverse domains. To obtain such data, \emph{quintd}~\cite{kasner2024beyond}
-is used, a framework for collecting \emph{ad hoc} data-to-text datasets. The
-purpose of this type of collection is to provide data that is not part of the
-training data of the evaluated language models. Quintd selects examples using
+is used, a framework for collecting \emph{ad hoc} data-to-text datasets. 
+Quintd selects examples using
 a random seed and can also obtain up-to-date information from external data
 sources.
 
 The source collection used in the experiments is denoted by $S_0$. It contains
 the five domains available in the corresponding quintd collection: GSMArena,
-OpenWeather, Our World in Data (OWID), Wikidata, and ice hockey. The ice-hockey
-data is retained as part of the source collection for completeness, but it is
-not used in the experiments described below. The pipeline comparison and the
-fine-tuning experiments use the same four-domain subset consisting of GSMArena,
-OpenWeather, OWID, and Wikidata. This distinction is important because the
-ice-hockey domain is present in the quintd collection but is absent from the
-later $S_1$, $S_2$, $S_3$ and $S_4$ datasets.
+OpenWeather, Our World in Data (OWID), Wikidata, and ice hockey. The automatic
+pipeline comparison uses all five domains. The human evaluation, fine-tuning,
+and whole-system experiments use the four-domain subset consisting of GSMArena,
+OpenWeather, OWID, and Wikidata. This distinction is important because ice
+hockey is included in the automatic pipeline results but is absent from the
+later $S_1$, $S_2$, $S_3$, and $S_4$ datasets.
 
 The four experimental datasets are:
 
@@ -47,10 +45,10 @@ The four experimental datasets are:
   member, or language used.
 \end{description}
 
-The fifth domain, \emph{ice hockey}, is therefore not included in the pipeline
-comparison, the human evaluation, or the fine-tuning experiments. Its presence
-in the original $S_0$ collection should not be interpreted as evidence that it
-was used in the later four-domain experiments.
+The fifth domain, \emph{ice hockey}, is therefore included only in the automatic
+pipeline comparison. Its absence from the human evaluation, fine-tuning, and
+whole-system experiments should not be interpreted as an omission from the
+source collection.
 
 All experimental datasets are provided as JSON files containing arrays of
 structured records. A \emph{raw structured instance} is defined as a single
@@ -72,13 +70,13 @@ inference with dynamic sequence lengths.
 \subsection{Experimental setup for pipelines}
 \label{sec:experimental-setup}
 
-The pipeline comparison uses 100 instances from each of the four experimental
-domains. Each of the three pipelines is run on the same domain-specific
-instances, resulting in twelve domain--pipeline experiments. The three
-pipelines are Text-First Extraction with Normalization, Blueprint-Iterative
-Refinement, and Evolving Catalog.
+The automatic pipeline comparison uses the $S_0$ source collection of 100 instances from each of the five
+experimental domains. The reference-text generation stage is shared by the
+three pipelines, while the text-to-triples stage is run separately for
+Text-First Extraction with Normalization, Blueprint-Iterative Refinement, and
+Evolving Catalog.
 
-The generated outputs are evaluated using an LLM as a judge. The judge is the
+The generated outputs are evaluated using a human evaluation and an LLM as a judge. The judge is the
 same Gemma~4 31B IT model, but it is used in a separate evaluation role rather
 than as part of the extraction pipeline. Two transitions are assessed
 independently:
@@ -90,270 +88,199 @@ independently:
     triples.
 \end{enumerate}
 
-Each transition is evaluated according to four criteria: summary,
-completeness, faithfulness, and omissions. The complete criterion prompts are
-provided in Appendix~\ref{app:pipeline-judge-prompts}. Summary measures whether
-the output is concise, coherent, non-redundant, and preserves the source's core
-message. Completeness measures coverage of the source's main points and
-critical facts, constraints, context, entities, relationships, values, and
-conclusions. Faithfulness measures whether the claims in the output are
-supported by the source and preserve its meaning, penalizing hallucinations,
-contradictions, and misinterpretations. Omissions measures whether omitted
-content removes critical context, changes the meaning, hides an important
-conclusion or constraint, or creates a misleading imbalance. Every criterion is
-scored on an ordinal scale from 1 to 5, where 5 represents the best result.
-Each criterion uses a separate judge prompt. The four criteria are separated so
-that a missing fact is not treated as the same type of error as an unsupported
-claim.
-Since the evaluation contains 400 instances, two transitions, and four
-criteria, it requires 3,200 judge calls. For each domain and pipeline, the
-score for each criterion is averaged over the 100 instances. The resulting
-averages are used to compare the three conversion methods.
+The two transitions use different pairs of criteria, with the complete prompts
+provided in Appendix~\ref{app:pipeline-judge-prompts}. The data-to-text
+transition is assessed for \emph{summary} and \emph{faithfulness}. Summary
+measures whether the generated text is concise, coherent, non-redundant, and
+preserves the core message of the structured source. Faithfulness measures
+whether every textual claim is supported by that source, penalizing
+hallucinations, contradictions, and material distortions. The text-to-triples
+transition is assessed for \emph{additions} and \emph{omissions}. Additions
+measures whether the triples introduce facts not supported by the reference
+text, whereas omissions measures whether they leave out information whose
+absence changes meaning, hides important context, or creates a misleading
+imbalance. Every criterion is scored on an ordinal scale from 1 to 5, where 5
+represents the best result.
+
+The shared data-to-text evaluation requires $5 \times 100 \times 2 = 1{,}000$
+judge calls. The three text-to-triples methods require
+$5 \times 100 \times 3 \times 2 = 3{,}000$ further calls, for 4,000 calls in
+total. For each domain and criterion, scores are averaged over the 100
+instances. The resulting averages are used to compare the conversion methods.
 
 The evaluation output also contains descriptive statistics. These statistics
 are computed without additional LLM calls and describe the size and structure
 of the generated outputs: the number of primitive JSON elements, reference
 words, reference sentences, reference subsentences, extracted triples, and
 unique predicates. The overall text and triples scores are calculated as the
-mean of the four criteria belonging to the corresponding transition.
+mean of the two criteria belonging to the corresponding transition.
 
-% Blueprint-Iterative Refinement
 \begin{table}[!htbp]
 \centering
 \scriptsize
-\caption{Data-to-text judge scores for Blueprint-Iterative Refinement.}
-\label{tab:pipeline-blueprint-text-results}
-\begin{tabular}{lccccc}
+\caption{Automatic data-to-text evaluation shared by the three pipelines.}
+\label{tab:pipeline-text-results}
+\begin{tabular}{lrrrr}
 \hline
-\texttt{domain} & \texttt{summary} & \texttt{completeness} & \texttt{faithfulness} & \texttt{omissions} & \texttt{overall} \\
+\textbf{Domain} & \textbf{Summary} & \textbf{Faithfulness} & \textbf{Overall} & \textbf{JSON elements} \\
 \hline
-GSMArena & 0 & 0 & 0 & 0 & 0 \\
-OpenWeather & 0 & 0 & 0 & 0 & 0 \\
-OWID & 0 & 0 & 0 & 0 & 0 \\
-Wikidata & 0 & 0 & 0 & 0 & 0 \\
+Ice hockey & 5.000 & 4.950 & 4.970 & 111.67 \\
+GSMArena & 5.000 & 5.000 & 5.000 & 111.07 \\
+OWID & 4.990 & 4.930 & 4.960 & 478.06 \\
+OpenWeather & 5.000 & 5.000 & 5.000 & 902.92 \\
+Wikidata & 4.990 & 4.990 & 4.990 & 13.18 \\
 \hline
-\textbf{Average} & 0 & 0 & 0 & 0 & 0 \\
+\textbf{Average} & 4.996 & 4.974 & 4.984 & 323.38 \\
 \hline
 \end{tabular}
 \end{table}
 
+\newcommand{\tripleheader}{\textbf{Domain} & \textbf{Additions} & \textbf{Omissions} & \textbf{Overall} & \textbf{Ref. words} & \textbf{Ref. sent.} & \textbf{Ref. subsent.} & \textbf{Triples} & \textbf{Predicates} \\}
 \begin{table}[!htbp]
 \centering
 \scriptsize
-\caption{Text-to-triples judge scores for Blueprint-Iterative Refinement.}
+\caption{Automatic text-to-triples evaluation for Blueprint-Iterative Refinement.}
 \label{tab:pipeline-blueprint-triples-results}
-\begin{tabular}{lccccc}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrrrr}
 \hline
-\texttt{domain} & \texttt{summary} & \texttt{completeness} & \texttt{faithfulness} & \texttt{omissions} & \texttt{overall} \\
+\tripleheader
 \hline
-GSMArena & 0 & 0 & 0 & 0 & 0 \\
-OpenWeather & 0 & 0 & 0 & 0 & 0 \\
-OWID & 0 & 0 & 0 & 0 & 0 \\
-Wikidata & 0 & 0 & 0 & 0 & 0 \\
+Ice hockey & 3.580 & 3.380 & 3.480 & 34.07 & 1.35 & 4.26 & 4.79 & 12 \\
+GSMArena & 4.960 & 3.840 & 4.400 & 70.74 & 3.34 & 9.05 & 12.96 & 25 \\
+OWID & 4.940 & 4.810 & 4.880 & 57.18 & 2.27 & 6.22 & 15.87 & 8 \\
+OpenWeather & 4.880 & 3.840 & 4.360 & 66.21 & 2.82 & 6.53 & 5.46 & 18 \\
+Wikidata & 4.910 & 4.410 & 4.660 & 20.34 & 1.17 & 2.61 & 4.15 & 47 \\
 \hline
-\textbf{Average} & 0 & 0 & 0 & 0 & 0 \\
+\textbf{Average} & 4.654 & 4.056 & 4.356 & 49.71 & 2.19 & 5.73 & 8.65 & 22.0 \\
 \hline
 \end{tabular}
+}%
 \end{table}
 
 \begin{table}[!htbp]
 \centering
 \scriptsize
-\caption{Additional statistics for Blueprint-Iterative Refinement.}
-\label{tab:pipeline-blueprint-statistics}
-\begin{tabular}{lcccccc}
-\hline
-\texttt{domain} & \texttt{json\_elements} & \texttt{ref\_words} & \texttt{ref\_sentences} & \texttt{ref\_subsentences} & \texttt{num\_triples} & \texttt{unique\_predicates} \\
-\hline
-GSMArena & 0 & 0 & 0 & 0 & 0 & 0 \\
-OpenWeather & 0 & 0 & 0 & 0 & 0 & 0 \\
-OWID & 0 & 0 & 0 & 0 & 0 & 0 \\
-Wikidata & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{Average} & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\end{tabular}
-\end{table}
-
-% Text-First Extraction with Normalization
-\begin{table}[!htbp]
-\centering
-\scriptsize
-\caption{Data-to-text judge scores for Text-First Extraction with Normalization.}
-\label{tab:pipeline-text-first-text-results}
-\begin{tabular}{lccccc}
-\hline
-\texttt{domain} & \texttt{summary} & \texttt{completeness} & \texttt{faithfulness} & \texttt{omissions} & \texttt{overall} \\
-\hline
-GSMArena & 0 & 0 & 0 & 0 & 0 \\
-OpenWeather & 0 & 0 & 0 & 0 & 0 \\
-OWID & 0 & 0 & 0 & 0 & 0 \\
-Wikidata & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{Average} & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\end{tabular}
-\end{table}
-
-\begin{table}[!htbp]
-\centering
-\scriptsize
-\caption{Text-to-triples judge scores for Text-First Extraction with Normalization.}
+\caption{Automatic text-to-triples evaluation for Text-First Extraction with Normalization.}
 \label{tab:pipeline-text-first-triples-results}
-\begin{tabular}{lccccc}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrrrr}
 \hline
-\texttt{domain} & \texttt{summary} & \texttt{completeness} & \texttt{faithfulness} & \texttt{omissions} & \texttt{overall} \\
+\tripleheader
 \hline
-GSMArena & 0 & 0 & 0 & 0 & 0 \\
-OpenWeather & 0 & 0 & 0 & 0 & 0 \\
-OWID & 0 & 0 & 0 & 0 & 0 \\
-Wikidata & 0 & 0 & 0 & 0 & 0 \\
+Ice hockey & 5.000 & 4.970 & 4.990 & 32.54 & 1.32 & 4.21 & 6.77 & 106 \\
+GSMArena & 5.000 & 5.000 & 5.000 & 70.34 & 3.26 & 9.30 & 13.61 & 159 \\
+OWID & 5.000 & 4.990 & 5.000 & 58.23 & 2.28 & 6.31 & 8.09 & 281 \\
+OpenWeather & 5.000 & 5.000 & 5.000 & 66.54 & 2.83 & 6.65 & 10.78 & 349 \\
+Wikidata & 4.970 & 5.000 & 4.990 & 20.00 & 1.15 & 2.55 & 4.22 & 111 \\
 \hline
-\textbf{Average} & 0 & 0 & 0 & 0 & 0 \\
+\textbf{Average} & 4.994 & 4.992 & 4.996 & 49.53 & 2.17 & 5.80 & 8.69 & 201.2 \\
 \hline
 \end{tabular}
+}%
 \end{table}
 
 \begin{table}[!htbp]
 \centering
 \scriptsize
-\caption{Additional statistics for Text-First Extraction with Normalization.}
-\label{tab:pipeline-text-first-statistics}
-\begin{tabular}{lcccccc}
-\hline
-\texttt{domain} & \texttt{json\_elements} & \texttt{ref\_words} & \texttt{ref\_sentences} & \texttt{ref\_subsentences} & \texttt{num\_triples} & \texttt{unique\_predicates} \\
-\hline
-GSMArena & 0 & 0 & 0 & 0 & 0 & 0 \\
-OpenWeather & 0 & 0 & 0 & 0 & 0 & 0 \\
-OWID & 0 & 0 & 0 & 0 & 0 & 0 \\
-Wikidata & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{Average} & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\end{tabular}
-\end{table}
-
-% Evolving Catalog
-\begin{table}[!htbp]
-\centering
-\scriptsize
-\caption{Data-to-text judge scores for Evolving Catalog.}
-\label{tab:pipeline-catalog-text-results}
-\begin{tabular}{lccccc}
-\hline
-\texttt{domain} & \texttt{summary} & \texttt{completeness} & \texttt{faithfulness} & \texttt{omissions} & \texttt{overall} \\
-\hline
-GSMArena & 0 & 0 & 0 & 0 & 0 \\
-OpenWeather & 0 & 0 & 0 & 0 & 0 \\
-OWID & 0 & 0 & 0 & 0 & 0 \\
-Wikidata & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{Average} & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\end{tabular}
-\end{table}
-
-\begin{table}[!htbp]
-\centering
-\scriptsize
-\caption{Text-to-triples judge scores for Evolving Catalog.}
+\caption{Automatic text-to-triples evaluation for Evolving Catalog.}
 \label{tab:pipeline-catalog-triples-results}
-\begin{tabular}{lccccc}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrrrr}
 \hline
-\texttt{domain} & \texttt{summary} & \texttt{completeness} & \texttt{faithfulness} & \texttt{omissions} & \texttt{overall} \\
+\tripleheader
 \hline
-GSMArena & 0 & 0 & 0 & 0 & 0 \\
-OpenWeather & 0 & 0 & 0 & 0 & 0 \\
-OWID & 0 & 0 & 0 & 0 & 0 \\
-Wikidata & 0 & 0 & 0 & 0 & 0 \\
+Ice hockey & 4.990 & 3.920 & 4.460 & 31.88 & 1.27 & 4.10 & 5.14 & 4 \\
+GSMArena & 4.970 & 4.810 & 4.890 & 69.48 & 3.19 & 9.11 & 12.87 & 25 \\
+OWID & 4.880 & 3.850 & 4.370 & 56.55 & 2.22 & 5.99 & 3.40 & 139 \\
+OpenWeather & 4.830 & 4.320 & 4.580 & 65.62 & 2.77 & 6.77 & 8.84 & 10 \\
+Wikidata & 4.810 & 4.780 & 4.790 & 20.19 & 1.14 & 2.62 & 3.69 & 45 \\
 \hline
-\textbf{Average} & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\end{tabular}
-\end{table}
-
-\begin{table}[!htbp]
-\centering
-\scriptsize
-\caption{Additional statistics for Evolving Catalog.}
-\label{tab:pipeline-catalog-statistics}
-\begin{tabular}{lcccccc}
-\hline
-\texttt{domain} & \texttt{json\_elements} & \texttt{ref\_words} & \texttt{ref\_sentences} & \texttt{ref\_subsentences} & \texttt{num\_triples} & \texttt{unique\_predicates} \\
-\hline
-GSMArena & 0 & 0 & 0 & 0 & 0 & 0 \\
-OpenWeather & 0 & 0 & 0 & 0 & 0 & 0 \\
-OWID & 0 & 0 & 0 & 0 & 0 & 0 \\
-Wikidata & 0 & 0 & 0 & 0 & 0 & 0 \\
-\hline
-\textbf{Average} & 0 & 0 & 0 & 0 & 0 & 0 \\
+\textbf{Average} & 4.896 & 4.336 & 4.618 & 48.74 & 2.12 & 5.72 & 6.79 & 44.6 \\
 \hline
 \end{tabular}
+}%
 \end{table}
 
 \FloatBarrier
 \subsection{Human evaluation for pipelines}
 
-The human evaluation uses the same four criteria as the LLM-as-a-judge
-evaluation: summary, completeness, faithfulness, and omissions. It is limited
-to the transition from the raw structured instance to the semantic triples.
-For each of the four domains, ten instances are selected for each of the three
-pipelines. The evaluation therefore contains
-$4 \times 10 \times 3 = 120$ manually assessed instances. The scores are
-assigned by the author of the thesis using the same 1--5 scale as the automated
-evaluation. Domain-level scores and an across-domain average are reported for
-each pipeline.
+Human evaluation follows the same asymmetric rubric as automatic evaluation.
+The shared data-to-text transition is assessed for summary and faithfulness,
+while each text-to-triples pipeline is assessed for additions and omissions.
+For each of the four domains, ten instances are assessed for every relevant
+transition. Scores are assigned by the author of the thesis on the same 1--5
+scale as automatic evaluation.
 
 \begin{table}[!htbp]
 \centering
-\caption{Human evaluation for Blueprint-Iterative Refinement.}
+\caption{Human evaluation of the shared data-to-text transition.}
+\label{tab:human-text-results}
+\begin{tabular}{lrrr}
+\hline
+\textbf{Domain} & \textbf{Summary} & \textbf{Faithfulness} & \textbf{Overall} \\
+\hline
+GSMArena & 4.10 & 3.60 & 3.85 \\
+OWID & 4.70 & 4.80 & 4.75 \\
+OpenWeather & 4.60 & 3.60 & 4.10 \\
+Wikidata & 4.60 & 4.80 & 4.70 \\
+\hline
+\textbf{Average} & 4.50 & 4.20 & 4.35 \\
+\hline
+\end{tabular}
+\end{table}
+
+\newcommand{\humantripleheader}{\textbf{Domain} & \textbf{Additions} & \textbf{Omissions} & \textbf{Overall} \\}
+\begin{table}[!htbp]
+\centering
+\caption{Human evaluation of Blueprint-Iterative Refinement.}
 \label{tab:human-blueprint-results}
-\begin{tabular}{lcccc}
+\begin{tabular}{lrrr}
 \hline
-\textbf{Domain} & \textbf{Summary} & \textbf{Completeness} & \textbf{Faithfulness} & \textbf{Omissions} \\
+\humantripleheader
 \hline
-GSMArena & 0 & 0 & 0 & 0 \\
-OpenWeather & 0 & 0 & 0 & 0 \\
-OWID & 0 & 0 & 0 & 0 \\
-Wikidata & 0 & 0 & 0 & 0 \\
+GSMArena & 4.30 & 3.70 & 4.00 \\
+OWID & 4.00 & 4.30 & 4.15 \\
+OpenWeather & 5.00 & 3.00 & 4.00 \\
+Wikidata & 4.80 & 4.30 & 4.55 \\
 \hline
-\textbf{Average} & 0 & 0 & 0 & 0 \\
+\textbf{Average} & 4.525 & 3.825 & 4.175 \\
 \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
 \centering
-\caption{Human evaluation for Text-First Extraction with Normalization.}
+\caption{Human evaluation of Text-First Extraction with Normalization.}
 \label{tab:human-text-first-results}
-\begin{tabular}{lcccc}
+\begin{tabular}{lrrr}
 \hline
-\textbf{Domain} & \textbf{Summary} & \textbf{Completeness} & \textbf{Faithfulness} & \textbf{Omissions} \\
+\humantripleheader
 \hline
-GSMArena & 0 & 0 & 0 & 0 \\
-OpenWeather & 0 & 0 & 0 & 0 \\
-OWID & 0 & 0 & 0 & 0 \\
-Wikidata & 0 & 0 & 0 & 0 \\
+GSMArena & 4.90 & 5.00 & 4.95 \\
+OWID & 5.00 & 4.50 & 4.75 \\
+OpenWeather & 4.90 & 5.00 & 4.95 \\
+Wikidata & 5.00 & 5.00 & 5.00 \\
 \hline
-\textbf{Average} & 0 & 0 & 0 & 0 \\
+\textbf{Average} & 4.950 & 4.875 & 4.913 \\
 \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
 \centering
-\caption{Human evaluation for Evolving Catalog.}
+\caption{Human evaluation of Evolving Catalog.}
 \label{tab:human-catalog-results}
-\begin{tabular}{lcccc}
+\begin{tabular}{lrrr}
 \hline
-\textbf{Domain} & \textbf{Summary} & \textbf{Completeness} & \textbf{Faithfulness} & \textbf{Omissions} \\
+\humantripleheader
 \hline
-GSMArena & 0 & 0 & 0 & 0 \\
-OpenWeather & 0 & 0 & 0 & 0 \\
-OWID & 0 & 0 & 0 & 0 \\
-Wikidata & 0 & 0 & 0 & 0 \\
+GSMArena & 4.90 & 4.90 & 4.90 \\
+OWID & 5.00 & 2.20 & 3.60 \\
+OpenWeather & 4.90 & 3.70 & 4.30 \\
+Wikidata & 4.80 & 4.80 & 4.80 \\
 \hline
-\textbf{Average} & 0 & 0 & 0 & 0 \\
+\textbf{Average} & 4.900 & 3.900 & 4.400 \\
 \hline
 \end{tabular}
 \end{table}
@@ -362,33 +289,56 @@ Wikidata & 0 & 0 & 0 & 0 \\
 \subsection{Correlation between LLM and human evaluation}
 
 The agreement between the LLM judge and the human evaluator is computed from
-the paired 1--5 scores. There are four complementary
-statistics: Pearson's product--moment correlation, Spearman's rank
-correlation, Kendall's tau-b, and quadratic weighted Cohen's kappa. Pearson's
-coefficient measures linear association, while Spearman's coefficient and
-Kendall's tau measure rank-based association. Quadratic weighted kappa measures
-chance-corrected agreement and penalizes larger disagreements more strongly
-than disagreements between adjacent score categories
-\cite{cohen1960agreement}.
-
-The metrics are computed separately for each of the four criteria and for the
-two evaluation transitions. Two additional overall variants are available for
-each transition: a pooled variant that concatenates the four criteria and a
-per-instance-mean variant that first averages the four criteria for each
-instance. The two transitions are never pooled together.
+paired 1--5 scores. Pearson's product--moment correlation, Spearman's rank
+correlation, Kendall's tau-b, and quadratic weighted Cohen's kappa are reported
+where both score vectors have sufficient variation. Quadratic weighted kappa
+measures chance-corrected agreement and penalizes larger disagreements more
+strongly than adjacent disagreements \cite{cohen1960agreement}. A constant
+score vector makes rank and linear correlations undefined; the status column
+records these diagnostic cases.
 
 \begin{table}[!htbp]
 \centering
 \scriptsize
-\caption{Correlation between LLM-as-a-judge and human scores.}
-\label{tab:judge-human-correlation}
-\begin{tabular}{llrcccc}
+\caption{Data-to-text correlation diagnostics ($N=10$ instances per row).}
+\label{tab:judge-human-text-correlation}
+\begin{tabular}{llrrrrl}
 \hline
-\textbf{Pipeline} & \textbf{Domain} & \textbf{$N$} & \textbf{Pearson $r$} & \textbf{Spearman $\rho$} & \textbf{Kendall $\tau$} & \textbf{QW-$\kappa$} \\
+\textbf{Domain} & \textbf{Criterion} & \textbf{Pearson $r$} & \textbf{Spearman $\rho$} & \textbf{Kendall $\tau$} & \textbf{QW-$\kappa$} & \textbf{Status} \\
 \hline
-Blueprint-Iterative Refinement & all & 0 & 0 & 0 & 0 & 0 \\
-Text-First Extraction with Normalization & all & 0 & 0 & 0 & 0 & 0 \\
-Evolving Catalog & all & 0 & 0 & 0 & 0 & 0 \\
+GSMArena & Summary & -- & -- & -- & 0.000 & LLM constant \\
+GSMArena & Faithfulness & -- & -- & -- & 0.000 & LLM constant \\
+OWID & Summary & -- & -- & -- & 0.000 & LLM constant \\
+OWID & Faithfulness & -- & -- & -- & 0.000 & LLM constant \\
+OpenWeather & Summary & -- & -- & -- & 0.000 & LLM constant \\
+OpenWeather & Faithfulness & -- & -- & -- & 0.000 & LLM constant \\
+Wikidata & Summary & -- & -- & -- & 0.000 & LLM constant \\
+Wikidata & Faithfulness & -- & -- & -- & 0.000 & LLM constant \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\scriptsize
+\caption{Pooled text-to-triples correlation results ($N=20$ scores per row).}
+\label{tab:judge-human-triples-correlation}
+\begin{tabular}{llrrrrrrl}
+\hline
+\textbf{Pipeline} & \textbf{Domain} & \textbf{$r$} & \textbf{$\rho$} & \textbf{$\tau$} & \textbf{QW-$\kappa$} & \textbf{LLM} & \textbf{Human} & \textbf{Status} \\
+\hline
+Blueprint & GSMArena & 0.402 & 0.371 & 0.344 & 0.316 & 4.45 & 4.00 & ok \\
+Blueprint & OWID & 0.379 & 0.360 & 0.348 & 0.133 & 4.90 & 4.15 & ok \\
+Blueprint & OpenWeather & 0.726 & 0.731 & 0.664 & 0.714 & 4.10 & 4.00 & ok \\
+Blueprint & Wikidata & 0.895 & 0.906 & 0.886 & 0.873 & 4.65 & 4.55 & ok \\
+Text-First & GSMArena & -- & -- & -- & 0.000 & 5.00 & 4.95 & LLM constant \\
+Text-First & OWID & -- & -- & -- & 0.000 & 5.00 & 4.75 & LLM constant \\
+Text-First & OpenWeather & -- & -- & -- & 0.000 & 5.00 & 4.95 & LLM constant \\
+Text-First & Wikidata & -- & -- & -- & 0.000 & 5.00 & 5.00 & both constant \\
+Catalog & GSMArena & 0.444 & 0.444 & 0.444 & 0.444 & 4.90 & 4.90 & ok \\
+Catalog & OWID & 0.604 & 0.630 & 0.578 & 0.559 & 4.10 & 3.60 & ok \\
+Catalog & OpenWeather & 0.782 & 0.647 & 0.632 & 0.630 & 4.70 & 4.30 & ok \\
+Catalog & Wikidata & 0.459 & 0.459 & 0.459 & 0.444 & 4.90 & 4.80 & ok \\
 \hline
 \end{tabular}
 \end{table}
@@ -401,7 +351,7 @@ pipeline comparison: GSMArena, OpenWeather, OWID, and Wikidata. The
 training-and-validation collection is downloaded using seed $S_1$, while the
 held-out test collection is downloaded independently using seed $S_2$.
 
-The raw instances from the $S_1$ collection are converted into reference text
+The raw instances from the $S_1$ and $S_2$ collection are converted into reference text
 and semantic triples using the Text-First Extraction with Normalization
 pipeline. The aligned text--triple outputs are then used as the targets for a
 domain-specific model. For each domain, the resulting examples are split into
@@ -420,7 +370,7 @@ adapters are merged into the base model before evaluation.
 \subsection{Training Configuration}
 
 The fine-tuning comparison contains five configurations. The standard baseline
-uses three epochs. The additional \emph{baseline-epoch1} variant keeps the
+uses three epochs. The \emph{baseline-epoch1} variant keeps the
 baseline learning rate, adapter capacity, dropout, and weight decay, but trains
 for one epoch. The remaining variants change the learning rate, adapter
 capacity, or regularization in order to test their influence on the
@@ -466,8 +416,7 @@ OpenWeather uses 6144 tokens. Instances exceeding the selected maximum are
 truncated.
 
 After training, the LoRA adapter weights are combined with the frozen base
-model weights to produce a standalone model. This process, known as weight
-merging, computes $W_{\mathrm{final}} = W_0 + \Delta W$ for each adapted layer.
+model weights to produce a standalone model. This process, computes $W_{\mathrm{final}} = W_0 + \Delta W$ for each adapted layer.
 The merged model can be served by the same vLLM infrastructure as the base
 model and produces both a natural-language verbalization and the corresponding
 semantic triples in a single decode pass.
@@ -482,42 +431,74 @@ sets of subject--predicate--object tuples. Micro-averaged triple precision,
 recall, and F1 are computed from the resulting true-positive, false-positive,
 and false-negative counts. Predicate adherence measures the proportion of
 generated predicates that belong to the predicate catalog used to construct
-the targets. A parse rate is recorded by the evaluation script as a diagnostic,
-but the principal result tables follow the requested metric set.
+the targets.
 
-The results are reported separately for the five configurations.
+The results are reported for the base model, which is the Gemma 4 before any fine-tuning and separately for the five
+fine-tuning configurations.
 
-\newcommand{\finetuneresultbody}{%
+\newcommand{\finetuneheader}{\textbf{Domain} & \textbf{Text BLEU} & \textbf{Text METEOR} & \textbf{Triple precision} & \textbf{Triple recall} & \textbf{Triple F1} & \textbf{Predicate adherence} \\}
+
+\begin{table}[!htbp]
+\centering
+\small
+\caption{Base-model results on the held-out $S_2$ sets.}
+\label{tab:finetune-base-results}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lrrrrrr}
 \hline
-\textbf{Domain} & \textbf{Text BLEU} & \textbf{Text METEOR} & \textbf{Triple precision} & \textbf{Triple recall} & \textbf{Triple F1} & \textbf{Predicate adherence} \\
+\finetuneheader
 \hline
-GSMArena & 0 & 0 & 0 & 0 & 0 & 0 \\
-OpenWeather & 0 & 0 & 0 & 0 & 0 & 0 \\
-OWID & 0 & 0 & 0 & 0 & 0 & 0 \\
-Wikidata & 0 & 0 & 0 & 0 & 0 & 0 \\
+GSMArena & 0.5621 & 0.7455 & 0.0515 & 0.0413 & 0.0458 & 0.3863 \\
+OpenWeather & 0.2574 & 0.4931 & 0.0013 & 0.0010 & 0.0011 & 0.3771 \\
+OWID & 0.3919 & 0.6170 & 0.0000 & 0.0000 & 0.0000 & 0.4181 \\
+Wikidata & 0.7474 & 0.9032 & 0.0305 & 0.0409 & 0.0349 & 0.3280 \\
 \hline
-\textbf{Average} & 0 & 0 & 0 & 0 & 0 & 0 \\
+\textbf{Average} & 0.4897 & 0.6897 & 0.0208 & 0.0208 & 0.0205 & 0.3774 \\
 \hline
-\end{tabular}%
+\end{tabular}
 }%
-}
+\end{table}
 
 \begin{table}[!htbp]
 \centering
 \small
 \caption{Fine-tuned model results for the baseline configuration.}
 \label{tab:finetune-baseline-results}
-\finetuneresultbody
-\end{table}%
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\hline
+\finetuneheader
+\hline
+GSMArena & 0.6245 & 0.8297 & 0.4234 & 0.4411 & 0.4321 & 0.7087 \\
+OpenWeather & 0.2121 & 0.4463 & 0.0010 & 0.0005 & 0.0007 & 0.2002 \\
+OWID & 0.3096 & 0.5757 & 0.0245 & 0.0227 & 0.0236 & 0.7148 \\
+Wikidata & 0.7642 & 0.9087 & 0.5137 & 0.4495 & 0.4795 & 0.6635 \\
+\hline
+\textbf{Average} & 0.4776 & 0.6901 & 0.2407 & 0.2285 & 0.2340 & 0.5718 \\
+\hline
+\end{tabular}
+}%
+\end{table}
 
 \begin{table}[!htbp]
 \centering
 \small
 \caption{Fine-tuned model results for the baseline-epoch1 configuration.}
 \label{tab:finetune-baseline-epoch1-results}
-\finetuneresultbody
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\hline
+\finetuneheader
+\hline
+GSMArena & 0.5937 & 0.7969 & 0.2936 & 0.2942 & 0.2939 & 0.8389 \\
+OpenWeather & 0.3175 & 0.5430 & 0.0013 & 0.0010 & 0.0011 & 0.3199 \\
+OWID & 0.3745 & 0.6355 & 0.0090 & 0.0079 & 0.0084 & 0.6147 \\
+Wikidata & 0.7136 & 0.8894 & 0.4103 & 0.1154 & 0.1801 & 0.7479 \\
+\hline
+\textbf{Average} & 0.4998 & 0.7162 & 0.1786 & 0.1046 & 0.1209 & 0.6304 \\
+\hline
+\end{tabular}
+}%
 \end{table}
 
 \begin{table}[!htbp]
@@ -525,7 +506,20 @@ Wikidata & 0 & 0 & 0 & 0 & 0 & 0 \\
 \small
 \caption{Fine-tuned model results for the low learning-rate configuration.}
 \label{tab:finetune-low-lr-results}
-\finetuneresultbody
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\hline
+\finetuneheader
+\hline
+GSMArena & 0.6399 & 0.8257 & 0.3645 & 0.3615 & 0.3630 & 0.7522 \\
+OpenWeather & 0.3068 & 0.5421 & 0.0016 & 0.0010 & 0.0012 & 0.3033 \\
+OWID & 0.3877 & 0.6457 & 0.0088 & 0.0078 & 0.0083 & 0.6047 \\
+Wikidata & 0.7752 & 0.9104 & 0.4363 & 0.4531 & 0.4446 & 0.7280 \\
+\hline
+\textbf{Average} & 0.5274 & 0.7310 & 0.2028 & 0.2059 & 0.2043 & 0.5971 \\
+\hline
+\end{tabular}
+}%
 \end{table}
 
 \begin{table}[!htbp]
@@ -533,7 +527,20 @@ Wikidata & 0 & 0 & 0 & 0 & 0 & 0 \\
 \small
 \caption{Fine-tuned model results for the higher-capacity configuration.}
 \label{tab:finetune-higher-capacity-results}
-\finetuneresultbody
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\hline
+\finetuneheader
+\hline
+GSMArena & 0.6332 & 0.8316 & 0.4202 & 0.4310 & 0.4256 & 0.7306 \\
+OpenWeather & 0.2448 & 0.4786 & 0.0027 & 0.0015 & 0.0019 & 0.1636 \\
+OWID & 0.3654 & 0.6276 & 0.0256 & 0.0240 & 0.0248 & 0.6911 \\
+Wikidata & 0.7513 & 0.9019 & 0.4757 & 0.4700 & 0.4728 & 0.6971 \\
+\hline
+\textbf{Average} & 0.4987 & 0.7099 & 0.2311 & 0.2316 & 0.2313 & 0.5706 \\
+\hline
+\end{tabular}
+}%
 \end{table}
 
 \begin{table}[!htbp]
@@ -541,7 +548,20 @@ Wikidata & 0 & 0 & 0 & 0 & 0 & 0 \\
 \small
 \caption{Fine-tuned model results for the regularized-capacity configuration.}
 \label{tab:finetune-regularized-capacity-results}
-\finetuneresultbody
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\hline
+\finetuneheader
+\hline
+GSMArena & 0.6443 & 0.8297 & 0.3961 & 0.3953 & 0.3957 & 0.7373 \\
+OpenWeather & 0.2957 & 0.5449 & 0.0025 & 0.0015 & 0.0018 & 0.2789 \\
+OWID & 0.3911 & 0.6407 & 0.0191 & 0.0169 & 0.0179 & 0.6858 \\
+Wikidata & 0.7555 & 0.8963 & 0.4912 & 0.4700 & 0.4803 & 0.6884 \\
+\hline
+\textbf{Average} & 0.5217 & 0.7279 & 0.2272 & 0.2209 & 0.2239 & 0.5976 \\
+\hline
+\end{tabular}
+}%
 \end{table}
 
 \FloatBarrier
@@ -558,11 +578,11 @@ programs are evaluated independently on the held-out test portion, preventing
 the test references from being used during program search
 \cite{gardent-etal-2017-webnlg}.
 
-The evaluation is performed separately by WebNLG category. The program receives
+The evaluation is performed separately by WebNLG domain. The program receives
 only the triples for each test entry. It must return one natural-language
-string. The baseline systems are a fine-tuned BART model, the
-\emph{nlg-from-scratch} system of Lango et al., and a zero-shot prompted
-language model. The zero-shot prompt can be found in Appendix~\ref{app:prompt-llm-judge}.
+string. The baseline systems are a rule-based generator by Lango et al.~~\cite{lango-dusek-2025-llm}, a fine-tuned BART
+model, and a prompted language model. The prompt can be found in
+Appendix~\ref{app:prompt-llm-judge}.
 
 The final evaluation reports reference-based, judge-based, and descriptive
 metrics. BLEU, BLEURT, and METEOR compare a generated text with the WebNLG
@@ -583,32 +603,30 @@ the period-delimited segment count exactly matches the average reference count.
 
 \subsection{Evolution variants}
 
-All evolutionary runs use 1,000 iterations and Gemma~4 31B IT as the main
-program-generation model. The initial variant uses BLEU as the evaluator and
-provides one inspiration program in each prompt. It is intended to run on all
-WebNLG training categories.
+The initial all-domain run uses 1,000 iterations, Gemma~4 31B IT as the main
+program-generation model, BLEU fitness, and one inspiration program in each
+prompt. The later runs use 500 or 100 iterations and are restricted to three selected
+domains.
 
-The initial run was used to identify categories with different levels of
-difficulty. WrittenWork was selected as the best-working category, Building as
-an intermediate category, and Food as the most difficult category. Restricting
-subsequent variants to these three categories reduced the computational cost
+The initial run was used to identify domains with different levels of
+difficulty. WrittenWork was selected as the best-working domain, Building as
+an intermediate domain, and Food as the most difficult domain. Restricting
+subsequent variants to these three domains reduced the computational cost
 of the experiments while retaining distinct task difficulties.
 
-The following variants were then evaluated:
+The following 500-iteration variants were then evaluated:
 
 \begin{description}
-    \item[BLEU without inspirations] BLEU-based evaluation with no inspiration
+    \item[BLEU without inspirations] BLEU fitness and no inspiration programs.
+    \item[BLEU with inspirations] BLEU fitness and inspiration programs.
+    \item[LLM judge without inspirations] LLM-as-a-judge fitness and no
+    inspiration programs.
+    \item[LLM judge with inspirations] LLM-as-a-judge fitness and inspiration
     programs.
-    \item[Gemma judge] Gemma~4 31B IT used as an LLM judge instead of BLEU,
-    with one inspiration.
-    \item[DeepSeek judge] LLM-as-a-judge evaluation with one inspiration and
-    an occasional DeepSeek-V3.1 call with probability 0.2.
-    \item[DeepSeek judge with four threads] The preceding variant with four
-    parallel evaluator threads.
-    \item[Themis judge] Themis as the evaluator, one inspiration, DeepSeek-V3.1
-    calls with probability 0.2, and four evaluator threads.
-    \item[Llama judge] Themis as the evaluator with four threads, while Llama
-    3.3 70B replaces Gemma~4 as the main evolutionary model.
+    \item[Mixed-model LLM judge] LLM-as-a-judge fitness and inspirations, with
+    Gemma~4 31B used for 80\% of calls and a 753B model for 20\% of calls.
+    \item[Mixed-model LLM judge with four threads] The preceding mixed-model
+    setup with four parallel evaluator threads.
 \end{description}
 
 Each run produces an executable surface-realization program. The program is
@@ -656,125 +674,232 @@ corresponding experiment.
 
 \begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{BLEU-based evolution without inspirations.}
+\caption{BLEU-based evolution without inspirations, Gemma~4 31B, 500 iterations.}
 \label{tab:surface-bleu-no-inspirations}
 \begin{tabular}{l*{14}{r}}\hline
 \surfaceHeader
-\surfacerow{WrittenWork}{0.5619}{0.2174}{0.7569}{0.3488}{0.9814}{0.8698}{0.9256}{0.5349}{0.0000}{0.0000}{2.3488}{20.5116}{110.0233}{2.3488}
-\surfacerow{Building}{0.4273}{0.0118}{0.6418}{0.8043}{0.9870}{0.7913}{0.9174}{0.2174}{0.0000}{0.0000}{3.9565}{34.6957}{196.9348}{4.5652}
-\surfacerow{Food}{0.1326}{-0.1648}{0.5218}{0.8587}{0.8565}{0.5696}{0.7783}{0.2609}{0.0000}{0.0000}{1.0000}{24.9783}{149.6957}{4.5652}
+\surfacerow{WrittenWork}{0.5565}{0.2162}{0.7654}{0.3488}{0.9814}{0.8930}{0.9581}{0.7442}{0.0000}{0.0000}{2.3488}{19.8140}{108.6744}{2.3488}
+\surfacerow{Building}{0.4158}{0.0302}{0.6181}{0.8043}{0.9435}{0.7913}{0.8957}{0.3478}{0.1739}{0.0000}{3.3478}{34.7391}{196.8478}{4.5652}
+\surfacerow{Food}{0.0841}{0.0683}{0.5106}{0.8587}{0.8609}{0.5087}{0.6913}{0.0000}{0.0435}{0.0000}{1.0000}{26.7609}{156.7391}{4.5652}
 \hline
-\surfacerow{\textbf{Average}}{0.3739}{0.0215}{0.6402}{0.6706}{0.9416}{0.7435}{0.8737}{0.3377}{0.0000}{0.0000}{2.4351}{26.7285}{152.2179}{3.8264}
+\surfacerow{\textbf{Average}}{0.3521}{0.1049}{0.6314}{0.6706}{0.9286}{0.7310}{0.8484}{0.3640}{0.0725}{0.0000}{2.2322}{27.1047}{154.0871}{3.8264}
 \end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{Gemma-as-a-judge evolution variant with one inspiration.}
-\label{tab:surface-gemma-judge}
+\caption{BLEU-based evolution with inspirations, Gemma~4 31B, 500 iterations.}
+\label{tab:surface-bleu-with-inspirations}
 \begin{tabular}{l*{14}{r}}\hline
 \surfaceHeader
-\surfacerow{WrittenWork}{0.5405}{0.2194}{0.7667}{0.3488}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
-\surfacerow{Building}{0.4168}{0.0214}{0.6231}{0.8043}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
-\surfacerow{Food}{0.0671}{-0.2275}{0.4968}{0.8587}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
+\surfacerow{WrittenWork}{0.5579}{0.1871}{0.7657}{0.4186}{0.9442}{0.7581}{0.9395}{0.4884}{0.0465}{0.0000}{2.4186}{19.3953}{107.3488}{2.3488}
+\surfacerow{Building}{0.4158}{0.0302}{0.6181}{0.8043}{0.9652}{0.8609}{0.8783}{0.3478}{0.1522}{0.0435}{3.3478}{34.7391}{196.8478}{4.5652}
+\surfacerow{Food}{0.0841}{0.0683}{0.5106}{0.8587}{0.8478}{0.4913}{0.7043}{0.0000}{0.1304}{0.0000}{1.0000}{26.7609}{156.7391}{4.5652}
 \hline
-\surfacerow{\textbf{Average}}{0.3414}{0.0044}{0.6289}{0.6706}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
+\surfacerow{\textbf{Average}}{0.3526}{0.0952}{0.6315}{0.6939}{0.9191}{0.7034}{0.8407}{0.2787}{0.1097}{0.0145}{2.2555}{26.9651}{153.6453}{3.8264}
 \end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{LLM-judge evolution with occasional DeepSeek-V3.1 calls.}
-\label{tab:surface-deepseek-one-thread}
+\caption{LLM-judge evolution without inspirations, Gemma~4 31B, 500 iterations.}
+\label{tab:surface-llm-no-inspirations}
 \begin{tabular}{l*{14}{r}}\hline
 \surfaceHeader
-\surfacerow{WrittenWork}{0.5499}{0.2371}{0.7615}{0.3488}{1.0000}{0.9814}{0.9953}{0.8605}{0.0000}{0.0000}{2.3488}{20.3721}{110.7907}{2.3488}
-\surfacerow{Building}{0.3671}{0.0777}{0.6058}{0.8043}{1.0000}{0.7565}{0.9435}{0.8478}{0.0000}{0.0000}{3.3478}{38.4565}{211.5652}{4.5652}
-\surfacerow{Food}{0.0970}{-0.1622}{0.4951}{0.8587}{1.0000}{0.6826}{0.8609}{0.4348}{0.0000}{0.0000}{1.0000}{24.1522}{146.7174}{4.5652}
+\surfacerow{WrittenWork}{0.5192}{0.2417}{0.7355}{0.4186}{1.0000}{0.9116}{0.9907}{0.9535}{0.0000}{0.0000}{2.4186}{20.4419}{106.9302}{2.3488}
+\surfacerow{Building}{0.4198}{0.0804}{0.6118}{0.8043}{1.0000}{0.8087}{0.9043}{0.5870}{0.0000}{0.0000}{3.3478}{37.9565}{203.5435}{4.5652}
+\surfacerow{Food}{0.0904}{-0.1788}{0.5009}{0.8587}{1.0000}{0.6435}{0.8435}{0.9348}{0.0000}{0.0000}{1.0000}{26.1522}{153.6739}{4.5652}
 \hline
-\surfacerow{\textbf{Average}}{0.3380}{0.0509}{0.6208}{0.6706}{1.0000}{0.8068}{0.9332}{0.7144}{0.0000}{0.0000}{2.2322}{27.6603}{156.3578}{3.8264}
+\surfacerow{\textbf{Average}}{0.3431}{0.0478}{0.6161}{0.6939}{1.0000}{0.7879}{0.9128}{0.8251}{0.0000}{0.0000}{2.2555}{28.1835}{154.7159}{3.8264}
 \end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{LLM-judge evolution with occasional DeepSeek-V3.1 calls and four threads.}
-\label{tab:surface-deepseek-four-threads}
+\caption{LLM-judge evolution with inspirations, Gemma~4 31B, 500 iterations.}
+\label{tab:surface-llm-with-inspirations}
 \begin{tabular}{l*{14}{r}}\hline
 \surfaceHeader
-\surfacerow{WrittenWork}{0.5348}{0.2359}{0.7386}{0.4186}{1.0000}{0.9395}{0.9953}{0.8837}{0.0000}{0.0000}{2.4186}{19.8605}{104.6744}{2.3488}
-\surfacerow{Building}{0.4156}{0.0063}{0.6239}{0.8043}{1.0000}{0.9000}{0.9652}{0.5870}{0.0000}{0.0000}{3.3478}{35.6522}{197.8043}{4.5652}
-\surfacerow{Food}{0.0828}{-0.1881}{0.5074}{0.8587}{1.0000}{0.6826}{0.9174}{0.4565}{0.0000}{0.0000}{1.0000}{26.9348}{159.4348}{4.5652}
+\surfacerow{WrittenWork}{0.5405}{0.2194}{0.7667}{0.3488}{1.0000}{0.9511}{0.9904}{0.8733}{0.0000}{0.0000}{2.3488}{19.8140}{108.6744}{2.3488}
+\surfacerow{Building}{0.4168}{0.0214}{0.6231}{0.8043}{1.0000}{0.8783}{0.9565}{0.5870}{0.0000}{0.0000}{3.3478}{34.7391}{196.8478}{4.5652}
+\surfacerow{Food}{0.0671}{-0.2275}{0.4968}{0.8587}{0.7391}{0.4174}{0.5739}{0.0435}{0.0435}{0.0000}{1.0000}{27.2609}{157.1739}{4.5652}
 \hline
-\surfacerow{\textbf{Average}}{0.3444}{0.0180}{0.6233}{0.6939}{1.0000}{0.8407}{0.9593}{0.6424}{0.0000}{0.0000}{2.2555}{27.4825}{153.9712}{3.8264}
+\surfacerow{\textbf{Average}}{0.3414}{0.0044}{0.6289}{0.6706}{0.9130}{0.7489}{0.8403}{0.5013}{0.0145}{0.0000}{2.2322}{27.2713}{154.2321}{3.8264}
 \end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{Themis evolution with DeepSeek-V3.1 calls and four threads.}
-\label{tab:surface-themis-deepseek}
+\caption{Mixed-model LLM-judge evolution with inspirations, 100 iterations.}
+\label{tab:surface-llm-mixed}
 \begin{tabular}{l*{14}{r}}\hline
 \surfaceHeader
-\surfacerow{WrittenWork}{0.5487}{0.1735}{0.7553}{0.4186}{0.9116}{0.8791}{0.9349}{0.8372}{0.1163}{0.1163}{2.2791}{19.2791}{106.1395}{2.3488}
-\surfacerow{Building}{0.4106}{-0.0067}{0.5928}{0.8043}{0.8957}{0.8217}{0.9130}{0.5870}{0.1739}{0.2609}{3.3478}{32.9348}{179.4348}{4.5652}
-\surfacerow{Food}{0.0880}{-0.0514}{0.4279}{0.8587}{0.6696}{0.4870}{0.7435}{0.6739}{0.2174}{0.5000}{1.0000}{24.2174}{142.2609}{4.5652}
+\surfacerow{WrittenWork}{0.5499}{0.2371}{0.7615}{0.3488}{1.0000}{0.9721}{0.9953}{0.8837}{0.0000}{0.0000}{2.3488}{20.3721}{110.7907}{2.3488}
+\surfacerow{Building}{0.3665}{0.0739}{0.6052}{0.8043}{1.0000}{0.8000}{0.9478}{0.8261}{0.0000}{0.0000}{3.3478}{38.5652}{212.0870}{4.5652}
+\surfacerow{Food}{0.0938}{-0.0887}{0.4803}{0.8587}{1.0000}{0.5783}{0.8696}{0.3913}{0.0000}{0.0000}{1.0000}{28.2826}{170.1087}{4.5652}
 \hline
-\surfacerow{\textbf{Average}}{0.3491}{0.0385}{0.5920}{0.6939}{0.8256}{0.7293}{0.8638}{0.6994}{0.1692}{0.2924}{2.2090}{25.4771}{142.6117}{3.8264}
+\surfacerow{\textbf{Average}}{0.3367}{0.0741}{0.6156}{0.6706}{1.0000}{0.7835}{0.9376}{0.7004}{0.0000}{0.0000}{2.2322}{29.0733}{164.3288}{3.8264}
 \end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{Themis evolution with Llama 3.3 70B replacing Gemma 4 as the evolutionary model.}
-\label{tab:surface-themis-llama}
+\caption{Mixed-model LLM-judge evolution with inspirations and four threads, 100 iterations.}
+\label{tab:surface-llm-mixed-four-threads}
 \begin{tabular}{l*{14}{r}}\hline
 \surfaceHeader
-\surfacerow{WrittenWork}{0.5077}{-0.0745}{0.7263}{0.3488}{0.5953}{0.4279}{0.7628}{0.1628}{0.0698}{0.0930}{2.3488}{19.6512}{104.1395}{2.3488}
-\surfacerow{Building}{0.2395}{-0.4696}{0.3725}{0.7971}{0.4696}{0.3522}{0.4739}{0.0217}{0.1304}{1.0000}{3.3478}{21.0217}{115.5652}{4.5652}
-\surfacerow{Food}{0.0419}{-0.1023}{0.4081}{0.8587}{0.3826}{0.2696}{0.6522}{0.0000}{0.1087}{0.5870}{1.0000}{20.1739}{125.4783}{4.5652}
+\surfacerow{WrittenWork}{0.5348}{0.2359}{0.7386}{0.4186}{1.0000}{0.9349}{0.9953}{0.8837}{0.0000}{0.0000}{2.4186}{19.8605}{104.6744}{2.3488}
+\surfacerow{Building}{0.3664}{0.0301}{0.6198}{0.8043}{1.0000}{0.7870}{0.9217}{0.9565}{0.0000}{0.0000}{3.3478}{37.9565}{208.8478}{4.5652}
+\surfacerow{Food}{0.0721}{-0.1559}{0.4824}{0.8587}{1.0000}{0.7565}{0.9174}{0.6087}{0.0000}{0.0000}{1.0000}{28.8043}{166.3478}{4.5652}
 \hline
-\surfacerow{\textbf{Average}}{0.2630}{-0.2155}{0.5023}{0.6682}{0.4825}{0.3499}{0.6296}{0.0615}{0.1030}{0.5600}{2.2322}{20.2823}{115.0610}{3.8264}
+\surfacerow{\textbf{Average}}{0.3244}{0.0367}{0.6136}{0.6939}{1.0000}{0.8261}{0.9448}{0.8163}{0.0000}{0.0000}{2.2555}{28.8738}{159.9567}{3.8264}
+\end{tabular}
+\end{table}
+
+\subsection{Configured experiments with unavailable results}
+
+The following configurations were prepared after the runs reported above. They
+use no inspiration programs and Gemma~4 31B IT as the LLM judge. Their result
+artifacts were not available when this thesis was prepared. Each table is kept
+as an explicit zero-filled placeholder so that the experimental matrix and its
+intended reporting schema are documented; these zeros are not measured scores.
+
+\newcommand{\surfaceplaceholderbody}{%
+\surfacerow{WrittenWork}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
+\surfacerow{Building}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
+\surfacerow{Food}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
+\hline
+\surfacerow{\textbf{Average}}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}}
+
+\begin{table}[!htbp]
+\centering\tiny\setlength{\tabcolsep}{1pt}
+\caption{Configured 100-iteration mixed Gemma run: 80\% standard generation, 20\% high-reasoning generation, four evaluator threads (\texttt{6\_2gemmas\_thinking\_4thread\_pp}). Results unavailable.}
+\label{tab:surface-config-6-two-gemma-four-thread}
+\begin{tabular}{l*{14}{r}}\hline
+\surfaceHeader
+\surfaceplaceholderbody
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering\tiny\setlength{\tabcolsep}{1pt}
+\caption{Configured 100-iteration mixed Gemma run: 80\% standard generation, 20\% high-reasoning generation, one evaluator thread (\texttt{6\_2gemmas\_thinking\_1thread\_pp}). Results unavailable.}
+\label{tab:surface-config-6-two-gemma-one-thread-pp}
+\begin{tabular}{l*{14}{r}}\hline
+\surfaceHeader
+\surfaceplaceholderbody
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering\tiny\setlength{\tabcolsep}{1pt}
+\caption{Configured PLGrid 100-iteration mixed Gemma run: 80\% standard generation, 20\% high-reasoning generation, one evaluator thread (\texttt{6\_2gemmas\_thinking\_1thread\_plgrid}). Results unavailable.}
+\label{tab:surface-config-6-two-gemma-one-thread-plgrid}
+\begin{tabular}{l*{14}{r}}\hline
+\surfaceHeader
+\surfaceplaceholderbody
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering\tiny\setlength{\tabcolsep}{1pt}
+\caption{Configured 500-iteration high-reasoning Gemma~4 31B run with four evaluator threads (\texttt{6\_1gemma\_thinking\_4thread\_500iter\_pp}). Results unavailable.}
+\label{tab:surface-config-6-one-gemma-thinking}
+\begin{tabular}{l*{14}{r}}\hline
+\surfaceHeader
+\surfaceplaceholderbody
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering\tiny\setlength{\tabcolsep}{1pt}
+\caption{Configured 500-iteration Gemma~4 E4B run with one evaluator thread (\texttt{7\_gemma\_1thread\_500iter\_pp}). Results unavailable.}
+\label{tab:surface-config-7-gemma}
+\begin{tabular}{l*{14}{r}}\hline
+\surfaceHeader
+\surfaceplaceholderbody
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering\tiny\setlength{\tabcolsep}{1pt}
+\caption{Configured 500-iteration Llama~3.3 70B Instruct AWQ INT4 run with one evaluator thread (\texttt{7\_llama\_1thread\_500iter\_pp}). Results unavailable.}
+\label{tab:surface-config-7-llama}
+\begin{tabular}{l*{14}{r}}\hline
+\surfaceHeader
+\surfaceplaceholderbody
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering\tiny\setlength{\tabcolsep}{1pt}
+\caption{Configured 500-iteration Qwen3 32B AWQ run with one evaluator thread (\texttt{7\_qwen\_1thread\_500iter\_pp}). Results unavailable.}
+\label{tab:surface-config-7-qwen}
+\begin{tabular}{l*{14}{r}}\hline
+\surfaceHeader
+\surfaceplaceholderbody
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering\tiny\setlength{\tabcolsep}{1pt}
+\caption{Configured 500-iteration standard Gemma~4 31B run with one evaluator thread (\texttt{8\_1gemma\_noref\_1thread\_500\_iter\_pp}). Results unavailable.}
+\label{tab:surface-config-8-gemma-no-reasoning}
+\begin{tabular}{l*{14}{r}}\hline
+\surfaceHeader
+\surfaceplaceholderbody
 \end{tabular}
 \end{table}
 
 \FloatBarrier
 \subsection{Baseline systems}
 
-The baseline scores are collected from the fine-tuned BART, zero-shot and the Lango et al. method.
-The average is calculated over the available domain results for each baseline.
+The baselines are a rule-based generator, a fine-tuned BART model, and an LLM
+prompt. The average is calculated over the available domain results for each
+baseline.
 
 \begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
 \caption{Baseline scores across WebNLG domains.}
 \label{tab:surface-baselines}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{ll*{14}{r}}\hline
 \texttt{method} & \texttt{domain} & \texttt{BLEU} & \texttt{BLEURT} & \texttt{METEOR} & \texttt{SENLEN} & \texttt{Gemma} & \texttt{Qwen} & \texttt{Themis} & \texttt{gram.} & \texttt{add.} & \texttt{om.} & \texttt{sent.} & \texttt{words} & \texttt{chars} & \texttt{triples} \\\hline
-\surfacebaselinerow{nlg-from-scratch}{all domains}{0.1702}{-0.3874}{0.5205}{1.0175}{0.4108}{0.4811}{0.7552}{0.1783}{0.0889}{0.0742}{2.5414}{21.7471}{146.6654}{3.1946}
-\surfacebaselinerow{BART}{all domains}{0.5077}{0.2599}{0.7163}{0.5157}{0.6366}{0.5933}{0.7899}{0.8366}{0.3142}{0.1863}{2.1679}{138.9440}{23.7167}{3.5205}
-\surfacebaselinerow{zero-shot}{all domains}{0.5019}{0.3443}{0.7246}{0.5274}{0.9954}{0.9743}{0.9847}{0.9861}{0.0045}{0.0022}{1.7307}{132.0601}{21.5757}{3.5205}
+\surfacebaselinerow{Rule-based generator}{all domains}{0.1702}{-0.3874}{0.5205}{1.0175}{0.4108}{0.4811}{0.7552}{0.1783}{0.0889}{0.0742}{2.5414}{21.7471}{146.6654}{3.1946}
+\surfacebaselinerow{Fine-tuned BART}{all domains}{0.5077}{0.2599}{0.7163}{0.5157}{0.6366}{0.5933}{0.7899}{0.8366}{0.3142}{0.1863}{2.1679}{138.9440}{23.7167}{3.5205}
+\surfacebaselinerow{LLM prompt}{all domains}{0.5019}{0.3443}{0.7246}{0.5274}{0.9954}{0.9743}{0.9847}{0.9861}{0.0045}{0.0022}{1.7307}{132.0601}{21.5757}{3.5205}
 \hline
 \end{tabular}
+}%
 \end{table}
 
 \FloatBarrier
 \subsection{Three-domain comparison}
 
-The final comparison with the baselines. The baseline rows below contain the average over
-WrittenWork, Building, and Food; and the OpenEvolve's variant is (placeholder).
+The final comparison reports averages over WrittenWork, Building, and Food for
+the baselines and all six reported three-domain OpenEvolve variants. The
+all-domain initial variant is omitted because descriptive statistics were not
+reported for that run.
 
 \begin{table}[!htbp]
 \centering\tiny\setlength{\tabcolsep}{1pt}
 \caption{Average scores on WrittenWork, Building, and Food.}
 \label{tab:surface-final-comparison}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{l*{14}{r}}\hline
 \texttt{method} & \texttt{BLEU} & \texttt{BLEURT} & \texttt{METEOR} & \texttt{SENLEN} & \texttt{Gemma} & \texttt{Qwen} & \texttt{Themis} & \texttt{gram.} & \texttt{add.} & \texttt{om.} & \texttt{sent.} & \texttt{words} & \texttt{chars} & \texttt{triples} \\\hline
-\surfacerow{Fine-tuned BART}{0.2063}{-0.4489}{0.5498}{1.9138}{0.2316}{0.3529}{0.6380}{0.0694}{0.4291}{0.1836}{4.3887}{30.8329}{199.2032}{3.3999}
-\surfacerow{nlg-from-scratch}{0.5628}{0.2398}{0.7126}{0.7414}{0.6707}{0.5964}{0.8123}{0.7878}{0.2782}{0.1122}{2.3025}{147.8967}{27.3637}{3.8264}
-\surfacerow{Zero-shot}{0.4781}{0.2310}{0.6720}{0.6706}{0.9848}{0.9660}{0.9826}{0.9778}{0.0000}{0.0000}{2.2322}{141.2164}{25.2174}{3.8264}
+\surfacerow{Rule-based generator}{0.2063}{-0.4489}{0.5498}{1.9138}{0.2316}{0.3529}{0.6380}{0.0694}{0.4291}{0.1836}{4.3887}{30.8329}{199.2032}{3.3999}
+\surfacerow{Fine-tuned BART}{0.5628}{0.2398}{0.7126}{0.7414}{0.6707}{0.5964}{0.8123}{0.7878}{0.2782}{0.1122}{2.3025}{147.8967}{27.3637}{3.8264}
+\surfacerow{LLM prompt}{0.4781}{0.2310}{0.6720}{0.6706}{0.9848}{0.9660}{0.9826}{0.9778}{0.0000}{0.0000}{2.2322}{141.2164}{25.2174}{3.8264}
 \hline
-\surfacerow{Best OpenEvolve variant}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
+\surfacerow{BLEU, no inspirations}{0.3521}{0.1049}{0.6314}{0.6706}{0.9286}{0.7310}{0.8484}{0.3640}{0.0725}{0.0000}{2.2322}{27.1047}{154.0871}{3.8264}
+\surfacerow{BLEU, with inspirations}{0.3526}{0.0952}{0.6315}{0.6939}{0.9191}{0.7034}{0.8407}{0.2787}{0.1097}{0.0145}{2.2555}{26.9651}{153.6453}{3.8264}
+\surfacerow{LLM judge, no inspirations}{0.3431}{0.0478}{0.6161}{0.6939}{1.0000}{0.7879}{0.9128}{0.8251}{0.0000}{0.0000}{2.2555}{28.1835}{154.7159}{3.8264}
+\surfacerow{LLM judge, with inspirations}{0.3414}{0.0044}{0.6289}{0.6706}{0.9130}{0.7489}{0.8403}{0.5013}{0.0145}{0.0000}{2.2322}{27.2713}{154.2321}{3.8264}
+\surfacerow{Mixed-model LLM judge}{0.3367}{0.0741}{0.6156}{0.6706}{1.0000}{0.7835}{0.9376}{0.7004}{0.0000}{0.0000}{2.2322}{29.0733}{164.3288}{3.8264}
+\surfacerow{Mixed-model LLM judge, 4 threads}{0.3244}{0.0367}{0.6136}{0.6939}{1.0000}{0.8261}{0.9448}{0.8163}{0.0000}{0.0000}{2.2555}{28.8738}{159.9567}{3.8264}
 \end{tabular}
+}%
 \end{table}
 
 
@@ -797,7 +922,7 @@ another 1,000 raw structured instances per domain for final testing. The two
 collections are downloaded independently so that no raw instance from the test
 collection is available during evolution.
 
-The raw instances in both collections are processed with the selected best
+The raw instances in both collections are processed with the \emph{regularized capacity}
 fine-tuned Gemma~4 model from the preceding fine-tuning experiments. For each
 instance, the model produces a natural-language reference and the associated
 normalized semantic triples in a single output. Thus, both $S_3$ and $S_4$

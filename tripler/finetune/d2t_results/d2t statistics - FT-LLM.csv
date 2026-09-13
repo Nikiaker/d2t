@@ -1,0 +1,57 @@
+,,,,,,,
+,Base model,,,,,,
+,,,,,,,
+,,,,,,,
+,domain,bleu,meteor,triple_precision,triple_recall,triple_f1,predicate_adherence
+,gsmarena,0.5621,0.7455,0.0515,0.0413,0.0458,0.3863
+,openweather,0.2574,0.4931,0.0013,0.0010,0.0011,0.3771
+,owid,0.3919,0.6170,0.0000,0.0000,0.0000,0.4181
+,wikidata,0.7474,0.9032,0.0305,0.0409,0.0349,0.3280
+,,,,,,,
+,,,,,,,
+,Fine-tuned model,,,,,,
+,,,,,,,
+,,,,,,,
+,baseline,,,,,,
+,domain,bleu,meteor,triple_precision,triple_recall,triple_f1,predicate_adherence
+,gsmarena,0.6245,0.8297,0.4234,0.4411,0.4321,0.7087
+,openweather,0.2121,0.4463,0.0010,0.0005,0.0007,0.2002
+,owid,0.3096,0.5757,0.0245,0.0227,0.0236,0.7148
+,wikidata,0.7642,0.9087,0.5137,0.4495,0.4795,0.6635
+,avg,0.4776,0.6901,0.2407,0.2285,0.2340,0.5718
+,,,,,,,
+,,,,,,,
+,baseline 1 epoch,,,,,,
+,domain,bleu,meteor,triple_precision,triple_recall,triple_f1,predicate_adherence
+,gsmarena,0.5937,0.7969,0.2936,0.2942,0.2939,0.8389
+,openweather,0.3175,0.5430,0.0013,0.0010,0.0011,0.3199
+,owid,0.3745,0.6355,0.0090,0.0079,0.0084,0.6147
+,wikidata,0.7136,0.8894,0.4103,0.1154,0.1801,0.7479
+,avg,0.4998,0.7162,0.1786,0.1046,0.1209,0.6304
+,,,,,,,
+,,,,,,,
+,higher capacity,,,,,,
+,domain,bleu,meteor,triple_precision,triple_recall,triple_f1,predicate_adherence
+,gsmarena,0.6332,0.8316,0.4202,0.4310,0.4256,0.7306
+,openweather,0.2448,0.4786,0.0027,0.0015,0.0019,0.1636
+,owid,0.3654,0.6276,0.0256,0.0240,0.0248,0.6911
+,wikidata,0.7513,0.9019,0.4757,0.4700,0.4728,0.6971
+,avg,0.4987,0.7099,0.2311,0.2316,0.2313,0.5706
+,,,,,,,
+,,,,,,,
+,low lr,,,,,,
+,domain,bleu,meteor,triple_precision,triple_recall,triple_f1,predicate_adherence
+,gsmarena,0.6399,0.8257,0.3645,0.3615,0.3630,0.7522
+,openweather,0.3068,0.5421,0.0016,0.0010,0.0012,0.3033
+,owid,0.3877,0.6457,0.0088,0.0078,0.0083,0.6047
+,wikidata,0.7752,0.9104,0.4363,0.4531,0.4446,0.7280
+,avg,0.5274,0.7310,0.2028,0.2059,0.2043,0.5971
+,,,,,,,
+,,,,,,,
+,regularized capacity,,,,,,
+,domain,bleu,meteor,triple_precision,triple_recall,triple_f1,predicate_adherence
+,gsmarena,0.6443,0.8297,0.3961,0.3953,0.3957,0.7373
+,openweather,0.2957,0.5449,0.0025,0.0015,0.0018,0.2789
+,owid,0.3911,0.6407,0.0191,0.0169,0.0179,0.6858
+,wikidata,0.7555,0.8963,0.4912,0.4700,0.4803,0.6884
+,avg,0.5217,0.7279,0.2272,0.2209,0.2239,0.5976
