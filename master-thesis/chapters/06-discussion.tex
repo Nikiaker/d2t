@@ -5,9 +5,7 @@ This chapter interprets the separate evaluations of meaning representation and
 surface realization. The results support several practical conclusions, but
 they also show that the choice of method depends on the intended objective:
 semantic coverage, predicate control, reference similarity, judge-oriented
-faithfulness, or inspectability. Consequently, the discussion distinguishes
-observed results from explanations that remain hypotheses and from questions
-that require the pending end-to-end evaluation.
+faithfulness, or inspectability.
 
 \section{Meaning representation}
 
@@ -19,8 +17,8 @@ omissions scores are 4.994 and 4.992, respectively, with an overall score of
 4.996 in Table~\ref{tab:pipeline-text-first-triples-results}. The same ranking
 is retained in the human evaluation: its overall score is 4.913, compared with
 4.400 for Evolving Catalog and 4.175 for Blueprint-Iterative Refinement in
-Tables~\ref{tab:human-text-first-results}, \ref{tab:human-catalog-results},
-and~\ref{tab:human-blueprint-results}. This agreement between the two aggregate
+Tables~\ref{tab:human-blueprint-results}, \ref{tab:human-text-first-results},
+and~\ref{tab:human-catalog-results}. This agreement between the two aggregate
 evaluations is useful evidence that the ranking is not solely an artifact of
 the automatic judge.
 
@@ -30,9 +28,8 @@ normalizes the resulting predicates after extraction. This avoids constraining
 an instance to a vocabulary that was created from earlier cases. The method
 uses 201.2 unique predicates on average, compared with 44.6 for Evolving
 Catalog and 22.0 for Blueprint-Iterative Refinement
-(Tables~\ref{tab:pipeline-text-first-triples-results},
-\ref{tab:pipeline-catalog-triples-results}, and
-\ref{tab:pipeline-blueprint-triples-results}). A broader vocabulary is
+(Tables~\ref{tab:pipeline-blueprint-triples-results}, \ref{tab:pipeline-text-first-triples-results},
+and \ref{tab:pipeline-catalog-triples-results}). A broader vocabulary is
 compatible with the semantic diversity of the input data and is plausibly one
 reason why fewer facts are omitted. However, the predicate count is a
 descriptive result rather than a controlled ablation; it cannot establish that
@@ -113,9 +110,7 @@ has the highest BLEU score (0.5920), whereas Food has the lowest (0.0764), as
 shown in Table~\ref{tab:surface-base}. WrittenWork may be easier because its
 triples are often amenable to recurring bibliographic descriptions, whereas
 food facts can require more varied lexical choices and combinations of
-attributes. This is an interpretation rather than a demonstrated causal result:
-the experiment does not separately measure lexical diversity, triple topology,
-or reference variability. Nevertheless, the contrast justifies the subsequent
+attributes. Nevertheless, the contrast justifies the subsequent
 use of WrittenWork, Building, and Food as relatively easy, intermediate, and
 difficult domains.
 
@@ -183,9 +178,7 @@ domains; for example, the GSMArena omission correlation is 0.667 for Pearson,
 Spearman, and Kendall. In contrast, Blueprint-Iterative Refinement has a
 negative GSMArena additions correlation of $-0.509$, and several rows remain
 undefined because one rater assigned a constant score
-(Table~\ref{tab:judge-human-triples-correlation}). These results provide
-limited support for using the judge to rank instances when its scores vary, but
-they do not prove that LLM-as-a-judge evaluation is generally reliable.
+(Table~\ref{tab:judge-human-triples-correlation}).
 
 Several aspects of the evaluation constrain generalization. The human study
 contains ten instances per transition and domain and is scored by the thesis
@@ -200,23 +193,15 @@ SENLEN is intentionally a simple period-delimited structural diagnostic and is
 not a semantic evaluation measure. These limitations support combining metrics
 and human inspection rather than treating any one score as definitive.
 
-\section{End-to-end evaluation and future work}
+\section{Whole-system evaluation and future work}
 
 The separate experiments establish the behavior of the two stages, but they do
-not establish the quality of the complete system on raw data. The planned
-whole-system evaluation addresses this gap by evolving a domain-specific
+not establish the quality of the complete system on raw data. The
+whole-system evaluation, which was not done, addresses this gap by evolving a domain-specific
 surface-realization program on the independent $S_3$ collection and evaluating
-it on the separately collected $S_4$ collection. It will measure whether errors
+it on the separately collected $S_4$ collection. It would measure whether errors
 or omissions in generated triples propagate into the final text, which cannot
 be inferred reliably from isolated triple F1 or WebNLG scores.
-
-At present, the whole-system numerical results are pending and therefore no
-performance conclusion should be drawn from Table~\ref{tab:whole-system-results}.
-Even after those results are available, their interpretation will require care:
-the $S_3$ and $S_4$ reference texts and triples are generated by the selected
-fine-tuned model rather than independently annotated by humans. The evaluation
-will consequently measure agreement with distilled targets, not fully
-independent factual correctness with respect to the original data source.
 
 The next evaluation cycle should therefore combine the completed end-to-end
 test with a small independently annotated reference set, multiple human raters,
