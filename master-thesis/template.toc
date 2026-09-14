@@ -1,5 +1,6 @@
 \babel@toc {english}{}\relax 
 \babel@toc {english}{}\relax 
+\contentsline {chapter}{Acknowledgements}{iv}{chapter*.6}%
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Thesis structure}{3}{section.1.2}%
@@ -17,20 +18,20 @@
 \contentsline {section}{\numberline {2.4}Performance Evaluation}{9}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Evaluation dimensions}{9}{subsection.2.4.1}%
 \contentsline {subsection}{\numberline {2.4.2}Reference-based automatic metrics}{9}{subsection.2.4.2}%
-\contentsline {subsubsection}{BLEU}{9}{section*.6}%
-\contentsline {subsubsection}{METEOR}{9}{section*.7}%
-\contentsline {subsubsection}{BERTScore}{10}{section*.8}%
-\contentsline {subsubsection}{BLEURT}{10}{section*.9}%
+\contentsline {subsubsection}{BLEU}{9}{section*.8}%
+\contentsline {subsubsection}{METEOR}{9}{section*.9}%
+\contentsline {subsubsection}{BERTScore}{10}{section*.10}%
+\contentsline {subsubsection}{BLEURT}{10}{section*.11}%
 \contentsline {subsection}{\numberline {2.4.3}Source-aware and semantic evaluation}{10}{subsection.2.4.3}%
 \contentsline {subsection}{\numberline {2.4.4}Human evaluation}{10}{subsection.2.4.4}%
 \contentsline {subsection}{\numberline {2.4.5}LLM-based judging}{11}{subsection.2.4.5}%
 \contentsline {chapter}{\chapternumberline {3}Building interpretable meaning representations from complex data}{12}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Method Overview}{12}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Conversion Methods Overview}{13}{subsection.3.1.1}%
-\contentsline {paragraph}{Pipeline-based methods.}{13}{section*.10}%
-\contentsline {paragraph}{Fine-tuned model.}{13}{section*.11}%
+\contentsline {paragraph}{Pipeline-based methods.}{13}{section*.12}%
+\contentsline {paragraph}{Fine-tuned model.}{13}{section*.13}%
 \contentsline {section}{\numberline {3.2}Data conversion with LLMs}{14}{section.3.2}%
-\contentsline {paragraph}{Pipeline overview.}{14}{section*.12}%
+\contentsline {paragraph}{Pipeline overview.}{14}{section*.14}%
 \contentsline {subsection}{\numberline {3.2.1}Text-First Extraction with Normalization}{14}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Blueprint-Iterative Refinement}{15}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}Evolving Catalog}{17}{subsection.3.2.3}%
@@ -51,11 +52,11 @@
 \contentsline {subsection}{\numberline {4.4.1}Open-source implementation}{25}{subsection.4.4.1}%
 \contentsline {subsection}{\numberline {4.4.2}Execution architecture used in the thesis}{25}{subsection.4.4.2}%
 \contentsline {subsection}{\numberline {4.4.3}Extensions made for the experiments}{26}{subsection.4.4.3}%
-\contentsline {paragraph}{Fitness-weighted and island-specific selection.}{26}{section*.13}%
-\contentsline {paragraph}{Configurable inspirations.}{26}{section*.14}%
-\contentsline {paragraph}{More robust SEARCH/REPLACE application.}{26}{section*.15}%
-\contentsline {paragraph}{Retention of failed candidates.}{26}{section*.16}%
-\contentsline {paragraph}{Explicit zero scores for timeouts.}{26}{section*.17}%
+\contentsline {paragraph}{Fitness-weighted and island-specific selection.}{26}{section*.15}%
+\contentsline {paragraph}{Configurable inspirations.}{26}{section*.16}%
+\contentsline {paragraph}{More robust SEARCH/REPLACE application.}{26}{section*.17}%
+\contentsline {paragraph}{Retention of failed candidates.}{26}{section*.18}%
+\contentsline {paragraph}{Explicit zero scores for timeouts.}{26}{section*.19}%
 \contentsline {section}{\numberline {4.5}Program database and initial program}{27}{section.4.5}%
 \contentsline {subsection}{\numberline {4.5.1}Program records and persistence}{27}{subsection.4.5.1}%
 \contentsline {subsection}{\numberline {4.5.2}Initial program}{27}{subsection.4.5.2}%
@@ -73,7 +74,7 @@
 \contentsline {chapter}{\chapternumberline {5}Experiments}{31}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Meaning representation}{31}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}Data Collection}{31}{subsection.5.1.1}%
-\contentsline {paragraph}{Large language model.}{32}{section*.18}%
+\contentsline {paragraph}{Large language model.}{32}{section*.20}%
 \contentsline {subsection}{\numberline {5.1.2}Experimental setup for pipelines}{32}{subsection.5.1.2}%
 \contentsline {subsection}{\numberline {5.1.3}Human evaluation for pipelines}{34}{subsection.5.1.3}%
 \contentsline {subsection}{\numberline {5.1.4}Correlation between LLM and human evaluation}{35}{subsection.5.1.4}%
@@ -102,7 +103,7 @@
 \contentsline {section}{\numberline {7.1}Contributions and findings}{53}{section.7.1}%
 \contentsline {section}{\numberline {7.2}Evaluation conclusions}{54}{section.7.2}%
 \contentsline {section}{\numberline {7.3}Limitations and future work}{54}{section.7.3}%
-\contentsline {chapter}{Bibliography}{56}{chapter*.20}%
+\contentsline {chapter}{Bibliography}{56}{chapter*.22}%
 \contentsline {appendix}{\chapternumberline {A}Prompts}{59}{appendix.A}%
 \contentsline {section}{\numberline {A.1}Evolution prompts for surface realization}{59}{section.A.1}%
 \contentsline {subsection}{\numberline {A.1.1}Evolution system prompt}{59}{subsection.A.1.1}%
@@ -112,10 +113,10 @@
 \contentsline {subsection}{\numberline {A.1.5}Repair prompts}{62}{subsection.A.1.5}%
 \contentsline {section}{\numberline {A.2}LLM-as-a-judge prompt}{62}{section.A.2}%
 \contentsline {subsection}{\numberline {A.2.1}Meaning-representation pipeline prompts}{62}{subsection.A.2.1}%
-\contentsline {subsubsection}{Summary}{63}{section*.21}%
-\contentsline {subsubsection}{Additions}{64}{section*.22}%
-\contentsline {subsubsection}{Faithfulness}{64}{section*.23}%
-\contentsline {subsubsection}{Omissions}{64}{section*.24}%
+\contentsline {subsubsection}{Summary}{63}{section*.23}%
+\contentsline {subsubsection}{Additions}{64}{section*.24}%
+\contentsline {subsubsection}{Faithfulness}{64}{section*.25}%
+\contentsline {subsubsection}{Omissions}{64}{section*.26}%
 \contentsline {subsection}{\numberline {A.2.2}Surface-realization judge prompts}{65}{subsection.A.2.2}%
 \contentsline {subsection}{\numberline {A.2.3}Grammaticality prompt}{66}{subsection.A.2.3}%
 \contentsline {subsection}{\numberline {A.2.4}Omissions prompt}{66}{subsection.A.2.4}%
