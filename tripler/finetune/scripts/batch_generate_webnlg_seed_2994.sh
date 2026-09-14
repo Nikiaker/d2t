@@ -52,7 +52,6 @@ LOCAL_MODEL_DIR="$(put_stage_model "$MODEL_DIR")"
 VLLM_USE_FLASHINFER_SAMPLER=0 \
 put_vllm_run serve "$LOCAL_MODEL_DIR" \
     --port "$UPSTREAM_PORT" \
-    --api-key none \
     --tensor-parallel-size 1 \
     --max-model-len "${MAX_MODEL_LEN:-16384}" \
     --reasoning-parser gemma4 \
