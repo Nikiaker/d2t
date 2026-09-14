@@ -1,123 +1,45 @@
 
 \chapter{Summary}
 
-This thesis investigated an interpretable data-to-text pipeline for converting
-heterogeneous structured data into natural-language text. Rather than treating
-generation as a single opaque transformation, the proposed approach separates
-the task into meaning-representation construction and surface realization:
-\[
-    d \longrightarrow T \longrightarrow y,
-\]
-where $d$ is a raw structured instance, $T$ is a set of semantic triples, and
-$y$ is the final realization. This decomposition exposes both the selected
-content and the procedure that expresses it. It therefore provides artifacts
-that can be inspected, evaluated, and modified independently: normalized
-triples at the meaning-representation stage and an executable Python program at
-the surface-realization stage.
+\section{Contributions and conclusions}
 
-\section{Contributions and findings}
+The thesis developed three LLM-based methods for constructing semantic triples,
+a QLoRA procedure for distilling the conversion process into domain-specialized
+models, and an OpenEvolve-based method for constructing executable
+surface-realization programs. Together, these components provide explicit
+meaning representations and reusable realization code rather than a single
+opaque generation step.
 
-Three LLM-based pipelines were developed for constructing semantic triples from
-raw structured data. Text-First Extraction with Normalization first generates a
-reference text, extracts triples independently for each instance, and then
-normalizes predicates after extraction. Blueprint-Iterative Refinement creates
-and validates a domain-specific extraction specification before batch
-extraction. Evolving Catalog incrementally constructs a predicate catalog and
-uses it to guide later extraction. These methods represent different trade-offs
-between coverage, throughput, predicate consistency, and human auditability.
+Text-First Extraction with Normalization is the strongest reported pipeline.
+Its post-hoc predicate normalization provides broad semantic coverage, whereas
+Evolving Catalog and Blueprint-Iterative Refinement provide stronger up-front
+vocabulary control and more directly auditable artifacts. Fine-tuning improves
+triple extraction substantially over the base model, but the results remain
+dependent on the domain and the selected evaluation metric. The fine-tuned model
+is an efficient distillation of pipeline-produced targets rather than
+independent semantic supervision.
 
-The experiments identify Text-First Extraction with Normalization as the
-strongest of the evaluated pipeline methods. It obtains an automatic overall
-text-to-triples score of 4.996 and a human-evaluation overall score of 4.913.
-Evolving Catalog ranks second, while Blueprint-Iterative Refinement ranks third.
-The broader predicate vocabulary observed for Text-First Extraction with
-Normalization is compatible with its stronger coverage of varied facts, whereas
-the catalog and blueprint approaches make vocabulary control more explicit and
-auditable. Their weaker omission results show that restrictive, early
-vocabulary decisions can fail to cover facts that arise later in a domain. The
-results consequently favor post-hoc normalization when semantic coverage is
-the primary objective, while the other methods remain useful where explicit
-control of the extraction specification is more important.
-
-The thesis also examined whether the multi-stage conversion process could be
-distilled into a domain-specialized model. QLoRA fine-tuning substantially
-improves mean triple F1 over the base Gemma model, from 0.0205 to a best
-reported value of 0.2340. The improvement is not uniform across domains:
-GSMArena and Wikidata benefit much more than OpenWeather and OWID, and no
-single fine-tuning configuration leads on every text and triple metric. The
-fine-tuned model is therefore a practical way to reduce repeated inference-time
-pipeline calls, but it should be treated as a distillation of pipeline-produced
-targets rather than as an independently validated semantic model.
-
-For surface realization, the thesis adapted the AlphaEvolve idea through
-OpenEvolve to search for Python programs that verbalize triples. LLMs propose
-program mutations, and the evolutionary loop executes and evaluates each
-candidate before retaining useful programs. This produces a reusable,
-inspectable realization artifact that can run on unseen triple sets without an
-inference-time LLM call. The experiments further show that the selection
-objective matters. BLEU-oriented fitness and LLM-as-a-judge fitness favor
-different properties: the former produces stronger reference-oriented results
-in some cases, whereas the latter produces stronger judge scores and lower
-detected additions and omissions. Removing inspiration programs improves BLEURT
-in the direct paired comparison, but does not consistently improve BLEU.
-
-The baseline comparison places this contribution in context. The prompted LLM
-has the strongest reported judge-oriented scores, grammaticality, and detected
-additions and omissions, while fine-tuned BART has the strongest
-reference-based BLEU, BLEURT, and METEOR scores on the selected WebNLG domains.
-The evolved programs do not currently dominate these baselines on every quality
-metric. Their principal contribution is instead transparency: the chosen
-realization logic is represented by ordinary code that can be inspected,
-debugged, and adapted by a developer. This makes evolutionary program
-construction most appropriate when a reusable and controllable generator is
-required, rather than when the only objective is the highest benchmark score.
-
-\section{Evaluation conclusions}
-
-The evaluation confirms the importance of combining automatic measures with
-human assessment. The shared data-to-text stage receives near-ceiling automatic
-scores, with average summary and faithfulness results of 4.996 and 4.974.
-However, human evaluation reports lower means of 4.50 and 4.20, respectively,
-and identifies weaker faithfulness for GSMArena and OpenWeather. The difference
-shows that a high judge score should not be interpreted as conclusive evidence
-of factual fidelity.
-
-The correlation analysis leads to the same conclusion. Data-to-text
-correlations cannot be calculated because the LLM judge assigns a constant
-score of 5 to all evaluated instances. For text-to-triples, several omission
-ratings show positive associations between the LLM and human evaluator, but
-other rows are undefined because of constant scores and the Blueprint
-GSMArena additions result is negatively correlated. LLM-as-a-judge evaluation
-is therefore useful as a scalable diagnostic when it differentiates cases, but
-it does not replace human assessment or establish universal evaluation
-reliability. The study's single-author, small-sample human evaluation should be
-regarded as an exploratory validation rather than a complete annotation study.
+For surface realization, evolutionary program construction produces an
+inspectable Python artifact that can be executed without an inference-time LLM.
+The experiments show that the evolutionary fitness function affects the quality
+that is optimized: reference-based and LLM-judge objectives favor different
+properties. The evolved programs do not outperform fine-tuned BART or direct
+prompting on every reported metric. Their principal advantage is transparency,
+reusability, and the ability to inspect or modify the realization logic.
 
 \section{Limitations and future work}
 
-The separate evaluations establish properties of the component methods, but the
-complete raw-data-to-text system has not yet been evaluated empirically. The
-planned $S_3$/$S_4$ evaluation will test whether errors introduced during
-meaning-representation construction propagate into the final realization on
-independently collected instances. Until these results are available, the thesis
-does not claim measured end-to-end performance. Moreover, this evaluation uses
-references and triples generated by the selected fine-tuned model, so it will
-measure agreement with distilled targets rather than fully independent factual
-correctness with respect to the raw source data.
+Automatic and human evaluation should be used together. The observed saturation
+of some LLM-judge scores and the limited single-rater human evaluation show that
+neither perspective alone establishes factual correctness. \underline{The complete
+raw-data-to-text evaluation is also still pending; consequently, this thesis
+does not claim measured end-to-end performance. Its future completion should be
+supplemented with independently annotated examples, multiple human raters,
+calibrated judges, and comparisons of latency, cost, and maintainability.}
 
-Future work should complete this end-to-end experiment and supplement it with
-independently annotated examples, multiple human raters, and inter-annotator
-agreement analysis. More diverse and calibrated judge models would help reduce
-score saturation. Further comparisons should evaluate all evolutionary variants
-on the same domains and measure inference latency, compute cost, maintenance
-effort, and the value of program inspectability in realistic use cases.
-
-In conclusion, the thesis establishes a practical research framework for
-interpretable data-to-text generation. It demonstrates that LLMs can be used
-both to construct explicit semantic representations and to evolve executable
-surface-realization programs. The strongest current evidence favors flexible
-text-first extraction with post-hoc normalization for meaning representation,
-while positioning evolved programs as transparent and reusable alternatives to
-direct prompting. The remaining end-to-end evaluation will determine how these
-component-level advantages transfer to complete data-to-text generation from
-raw structured data.
+In conclusion, this work establishes a practical framework for interpretable
+data-to-text generation. The current results favor flexible text-first
+extraction with post-hoc normalization for meaning representation and position
+evolved programs as transparent alternatives to direct prompting. \underline{The remaining
+end-to-end evaluation will determine how these component-level advantages
+transfer to complete generation from raw structured data.}
