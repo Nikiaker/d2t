@@ -126,7 +126,6 @@ and Evolving Catalog, respectively.
 
 \begin{table}[!htbp]
 \centering
-\scriptsize
 \caption{Automatic data-to-text evaluation shared by the three pipelines.}
 \label{tab:pipeline-text-results}
 \begin{tabular}{lrrrr}
@@ -147,10 +146,8 @@ Wikidata & 4.990 & 4.990 & 4.990 & 13.18 \\
 \newcommand{\tripleheader}{\textbf{Domain} & \textbf{Additions} & \textbf{Omissions} & \textbf{Overall} & \textbf{Ref. words} & \textbf{Ref. sent.} & \textbf{Ref. subsent.} & \textbf{Triples} & \textbf{Predicates} \\}
 \begin{table}[!htbp]
 \centering
-\scriptsize
 \caption{Automatic text-to-triples evaluation for Blueprint-Iterative Refinement.}
 \label{tab:pipeline-blueprint-triples-results}
-\resizebox{\textwidth}{!}{%
 \begin{tabular}{lrrrrrrrr}
 \hline
 \tripleheader
@@ -164,15 +161,12 @@ Wikidata & 4.910 & 4.410 & 4.660 & 20.34 & 1.17 & 2.61 & 4.15 & 47 \\
 \textbf{Average} & 4.654 & 4.056 & 4.356 & 49.71 & 2.19 & 5.73 & 8.65 & 22.0 \\
 \hline
 \end{tabular}
-}%
 \end{table}
 
 \begin{table}[!htbp]
 \centering
-\scriptsize
 \caption{Automatic text-to-triples evaluation for Text-First Extraction with Normalization.}
 \label{tab:pipeline-text-first-triples-results}
-\resizebox{\textwidth}{!}{%
 \begin{tabular}{lrrrrrrrr}
 \hline
 \tripleheader
@@ -186,15 +180,12 @@ Wikidata & 4.970 & 5.000 & 4.990 & 20.00 & 1.15 & 2.55 & 4.22 & 111 \\
 \textbf{Average} & 4.994 & 4.992 & 4.996 & 49.53 & 2.17 & 5.80 & 8.69 & 201.2 \\
 \hline
 \end{tabular}
-}%
 \end{table}
 
 \begin{table}[!htbp]
 \centering
-\scriptsize
 \caption{Automatic text-to-triples evaluation for Evolving Catalog.}
 \label{tab:pipeline-catalog-triples-results}
-\resizebox{\textwidth}{!}{%
 \begin{tabular}{lrrrrrrrr}
 \hline
 \tripleheader
@@ -208,7 +199,6 @@ Wikidata & 4.810 & 4.780 & 4.790 & 20.19 & 1.14 & 2.62 & 3.69 & 45 \\
 \textbf{Average} & 4.896 & 4.336 & 4.618 & 48.74 & 2.12 & 5.72 & 6.79 & 44.6 \\
 \hline
 \end{tabular}
-}%
 \end{table}
 
 \FloatBarrier
@@ -222,7 +212,6 @@ assigned by the author of the thesis.
 
 \begin{table}[!htbp]
 \centering
-\small
 \caption{Human evaluation of the shared data-to-text transition.}
 \label{tab:human-text-results}
 \begin{tabular}{lrrr}
@@ -242,7 +231,6 @@ Wikidata & 4.60 & 4.80 & 4.70 \\
 \newcommand{\humantripleheader}{\textbf{Domain} & \textbf{Additions} & \textbf{Omissions} & \textbf{Overall} \\}
 \begin{table}[!htbp]
 \centering
-\small
 \caption{Human evaluation of Blueprint-Iterative Refinement.}
 \label{tab:human-blueprint-results}
 \begin{tabular}{lrrr}
@@ -261,7 +249,6 @@ Wikidata & 4.80 & 4.30 & 4.55 \\
 
 \begin{table}[!htbp]
 \centering
-\small
 \caption{Human evaluation of Text-First Extraction with Normalization.}
 \label{tab:human-text-first-results}
 \begin{tabular}{lrrr}
@@ -280,7 +267,6 @@ Wikidata & 5.00 & 5.00 & 5.00 \\
 
 \begin{table}[!htbp]
 \centering
-\small
 \caption{Human evaluation of Evolving Catalog.}
 \label{tab:human-catalog-results}
 \begin{tabular}{lrrr}
@@ -345,13 +331,11 @@ distributions; it does not establish that every individual rating disagreed.
 
 \begin{table}[!htbp]
 \centering
-\scriptsize
 \caption{Data-to-text correlation diagnostics ($N=10$ instances per row).}
 \label{tab:judge-human-text-correlation}
-\resizebox{\textwidth}{!}{%
 \begin{tabular}{llrrrrrrl}
 \hline
-\textbf{Domain} & \textbf{Criterion} & \textbf{Pearson $r$} & \textbf{Spearman $\rho$} & \textbf{Kendall $\tau$} & \textbf{QW-$\kappa$} & \textbf{LLM score mean} & \textbf{Human score mean} & \textbf{Status} \\
+\textbf{Domain} & \textbf{Criterion} & \textbf{$r$} & \textbf{$\rho$} & \textbf{$\tau$} & \textbf{QW-$\kappa$} & \textbf{LLM mean} & \textbf{Human mean} & \textbf{Status} \\
 \hline
 GSMArena & Summary & -- & -- & -- & 0.000 & 5.00 & 4.10 & LLM constant \\
 GSMArena & Faithfulness & -- & -- & -- & 0.000 & 5.00 & 3.60 & LLM constant \\
@@ -363,18 +347,15 @@ Wikidata & Summary & -- & -- & -- & 0.000 & 5.00 & 4.60 & LLM constant \\
 Wikidata & Faithfulness & -- & -- & -- & 0.000 & 5.00 & 4.80 & LLM constant \\
 \hline
 \end{tabular}
-}%
 \end{table}
 
 \begin{table}[!htbp]
 \centering
-\tiny
 \caption{Text-to-triples correlation results by criterion and supplementary aggregate.}
 \label{tab:judge-human-triples-correlation}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{lllrrrrrrrl}
+\begin{tabular}{lllrrrrrrr>{\raggedright\arraybackslash}p{42pt}}
 \hline
-\textbf{Pipeline} & \textbf{Domain} & \textbf{Criterion / aggregate} & \textbf{$N$} & \textbf{$r$} & \textbf{$\rho$} & \textbf{$\tau$} & \textbf{QW-$\kappa$} & \textbf{LLM score mean} & \textbf{Human score mean} & \textbf{Status} \\
+\textbf{Pipeline} & \textbf{Domain} & \textbf{Criterion} & \textbf{$N$} & \textbf{$r$} & \textbf{$\rho$} & \textbf{$\tau$} & \textbf{QW-$\kappa$} & \textbf{LLM mean} & \textbf{Human mean} & \textbf{Status} \\
 \hline
 Blueprint & GSMArena & Additions & 10 & -0.509 & -0.509 & -0.509 & -0.212 & 4.90 & 4.30 & ok \\
  &  & Omissions & 10 & 0.349 & 0.387 & 0.360 & 0.286 & 4.00 & 3.70 & ok \\
@@ -416,7 +397,6 @@ Catalog & GSMArena & Additions & 10 & -- & -- & -- & 0.000 & 5.00 & 4.90 & LLM c
  &  & Mean add./om. & 10 & 0.804 & 0.646 & 0.626 & 0.412 & 4.90 & 4.80 & ok \\
 \hline
 \end{tabular}
-}%
 \end{table}
 
 \FloatBarrier
@@ -463,18 +443,17 @@ quantization with double quantization.
 
 \begin{table}[!htbp]
 \centering
-\small
 \caption{QLoRA configurations used for fine-tuning.}
 \label{tab:qlora-config}
 \begin{tabular}{lrrrrrrr}
 \hline
-\textbf{Configuration} & \textbf{Epochs} & \textbf{LR} & \textbf{Warmup} & \textbf{$r$} & \textbf{$\alpha$} & \textbf{Dropout} & \textbf{Weight decay} \\
+\textbf{Configuration} & \textbf{Epochs} & \textbf{LR} & \textbf{Warmup} & \textbf{$r$} & \textbf{$\alpha$} & \textbf{Dropout} & \textbf{WD} \\
 \hline
 baseline & 3 & $10^{-4}$ & 0.03 & 16 & 32 & 0.05 & 0.00 \\
-baseline-epoch1 & 1 & $10^{-4}$ & 0.03 & 16 & 32 & 0.05 & 0.00 \\
+baseline, 1 epoch & 1 & $10^{-4}$ & 0.03 & 16 & 32 & 0.05 & 0.00 \\
 low\_lr & 5 & $3\times10^{-5}$ & 0.05 & 16 & 32 & 0.05 & 0.01 \\
-higher\_capacity & 3 & $5\times10^{-5}$ & 0.05 & 32 & 64 & 0.05 & 0.01 \\
-regularized\_capacity & 5 & $3\times10^{-5}$ & 0.10 & 32 & 64 & 0.10 & 0.01 \\
+high capacity & 3 & $5\times10^{-5}$ & 0.05 & 32 & 64 & 0.05 & 0.01 \\
+regularized cap. & 5 & $3\times10^{-5}$ & 0.10 & 32 & 64 & 0.10 & 0.01 \\
 \hline
 \end{tabular}
 \end{table}
@@ -514,17 +493,15 @@ individual hyperparameters.
 Also, the results are reported for the base model, which is the Gemma 4 before any fine-tuning and separately for the five
 fine-tuning configurations.
 
-\newcommand{\finetuneheader}{\textbf{Domain} & \textbf{Text BLEU} & \textbf{Text METEOR} & \textbf{Triple precision} & \textbf{Triple recall} & \textbf{Triple F1} & \textbf{Predicate adherence} \\}
+\newcommand{\finetuneheader}{\textbf{Domain} & \textbf{BLEU} & \textbf{METEOR} & \textbf{Prec.} & \textbf{Rec.} & \textbf{F1} & \textbf{Pred. adh.} \\}
 
 \begin{table}[!htbp]
 \centering
-\small
 \caption{Macro-average held-out $S_2$ results for the base model and QLoRA configurations.}
 \label{tab:finetune-results}
-\resizebox{\textwidth}{!}{%
 \begin{tabular}{lrrrrrr}
 \hline
-\textbf{Configuration} & \textbf{Text BLEU} & \textbf{Text METEOR} & \textbf{Triple precision} & \textbf{Triple recall} & \textbf{Triple F1} & \textbf{Predicate adherence} \\
+\textbf{Configuration} & \textbf{BLEU} & \textbf{METEOR} & \textbf{Prec.} & \textbf{Rec.} & \textbf{F1} & \textbf{Pred. adh.} \\
 \hline
 Base model & 0.4897 & 0.6897 & 0.0208 & 0.0208 & 0.0205 & 0.3774 \\
 baseline & 0.4776 & 0.6901 & 0.2407 & 0.2285 & 0.2340 & 0.5718 \\
@@ -534,15 +511,12 @@ higher\_capacity & 0.4987 & 0.7099 & 0.2311 & 0.2316 & 0.2313 & 0.5706 \\
 regularized\_capacity & 0.5217 & 0.7279 & 0.2272 & 0.2209 & 0.2239 & 0.5976 \\
 \hline
 \end{tabular}
-}%
 \end{table}
 
 \begin{table}[!htbp]
 \centering
-\small
 \caption{Base-model results on the held-out $S_2$ sets.}
 \label{tab:finetune-base-results}
-\resizebox{\textwidth}{!}{%
 \begin{tabular}{lrrrrrr}
 \hline
 \finetuneheader
@@ -555,15 +529,12 @@ Wikidata & 0.7474 & 0.9032 & 0.0305 & 0.0409 & 0.0349 & 0.3280 \\
 \textbf{Average} & 0.4897 & 0.6897 & 0.0208 & 0.0208 & 0.0205 & 0.3774 \\
 \hline
 \end{tabular}
-}%
 \end{table}
 
 \begin{table}[!htbp]
 \centering
-\small
 \caption{Fine-tuned model results for the baseline configuration.}
 \label{tab:finetune-baseline-results}
-\resizebox{\textwidth}{!}{%
 \begin{tabular}{lrrrrrr}
 \hline
 \finetuneheader
@@ -576,15 +547,12 @@ Wikidata & 0.7642 & 0.9087 & 0.5137 & 0.4495 & 0.4795 & 0.6635 \\
 \textbf{Average} & 0.4776 & 0.6901 & 0.2407 & 0.2285 & 0.2340 & 0.5718 \\
 \hline
 \end{tabular}
-}%
 \end{table}
 
 \begin{table}[!htbp]
 \centering
-\small
 \caption{Fine-tuned model results for the baseline-epoch1 configuration.}
 \label{tab:finetune-baseline-epoch1-results}
-\resizebox{\textwidth}{!}{%
 \begin{tabular}{lrrrrrr}
 \hline
 \finetuneheader
@@ -597,15 +565,12 @@ Wikidata & 0.7136 & 0.8894 & 0.4103 & 0.1154 & 0.1801 & 0.7479 \\
 \textbf{Average} & 0.4998 & 0.7162 & 0.1786 & 0.1046 & 0.1209 & 0.6304 \\
 \hline
 \end{tabular}
-}%
 \end{table}
 
 \begin{table}[!htbp]
 \centering
-\small
 \caption{Fine-tuned model results for the low learning-rate configuration.}
 \label{tab:finetune-low-lr-results}
-\resizebox{\textwidth}{!}{%
 \begin{tabular}{lrrrrrr}
 \hline
 \finetuneheader
@@ -618,15 +583,12 @@ Wikidata & 0.7752 & 0.9104 & 0.4363 & 0.4531 & 0.4446 & 0.7280 \\
 \textbf{Average} & 0.5274 & 0.7310 & 0.2028 & 0.2059 & 0.2043 & 0.5971 \\
 \hline
 \end{tabular}
-}%
 \end{table}
 
 \begin{table}[!htbp]
 \centering
-\small
 \caption{Fine-tuned model results for the higher-capacity configuration.}
 \label{tab:finetune-higher-capacity-results}
-\resizebox{\textwidth}{!}{%
 \begin{tabular}{lrrrrrr}
 \hline
 \finetuneheader
@@ -639,15 +601,12 @@ Wikidata & 0.7513 & 0.9019 & 0.4757 & 0.4700 & 0.4728 & 0.6971 \\
 \textbf{Average} & 0.4987 & 0.7099 & 0.2311 & 0.2316 & 0.2313 & 0.5706 \\
 \hline
 \end{tabular}
-}%
 \end{table}
 
 \begin{table}[!htbp]
 \centering
-\small
 \caption{Fine-tuned model results for the regularized-capacity configuration.}
 \label{tab:finetune-regularized-capacity-results}
-\resizebox{\textwidth}{!}{%
 \begin{tabular}{lrrrrrr}
 \hline
 \finetuneheader
@@ -660,7 +619,6 @@ Wikidata & 0.7555 & 0.8963 & 0.4912 & 0.4700 & 0.4803 & 0.6884 \\
 \textbf{Average} & 0.5217 & 0.7279 & 0.2272 & 0.2209 & 0.2239 & 0.5976 \\
 \hline
 \end{tabular}
-}%
 \end{table}
 
 \FloatBarrier
@@ -728,13 +686,11 @@ in Section~\ref{sec:openevolve}.
 
 \begin{table}[!htbp]
 \centering
-\small
 \caption{Configuration of surface-realization variants with retained held-out results.}
 \label{tab:surface-variant-configurations}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{lrrrlll}
+\begin{tabular}{>{\raggedright\arraybackslash}p{74pt}rrr>{\raggedright\arraybackslash}p{42pt}r>{\raggedright\arraybackslash}p{90pt}}
 \hline
-\textbf{Variant} & \textbf{Domains} & \textbf{Iterations} & \textbf{Workers} & \textbf{Fitness} & \textbf{Inspirations} & \textbf{Generation setting} \\
+\textbf{Variant} & \textbf{Domains} & \textbf{Iterations} & \textbf{Workers} & \textbf{Fitness} & \textbf{Insp.} & \textbf{Generation setting} \\
 \hline
 Initial BLEU & 16 & 1000 & 1 & BLEU & 1 & Gemma, non-reasoning \\
 BLEU, no inspirations & 3 & 500 & 1 & BLEU & 0 & Gemma, non-reasoning \\
@@ -745,7 +701,6 @@ Mixed-model LLM judge & 3 & 100 & 1 & LLM judge & 1 & Gemma and secondary model 
 Mixed-model LLM judge & 3 & 100 & 4 & LLM judge & 1 & Gemma and secondary model \\
 \hline
 \end{tabular}
-}%
 \end{table}
 
 The non-reasoning generation means that the optional high-reasoning
@@ -793,7 +748,7 @@ corresponding experiment.
 \newcommand{\surfaceinitialtail}[6]{#1 & #2 \tabularnewline}
 
 \begin{table}[!htbp]
-\centering\scriptsize\setlength{\tabcolsep}{1pt}
+\centering
 \caption{Initial BLEU-based evolution variant with one inspiration.}
 \label{tab:surface-base}
 \begin{tabular}{l*{10}{r}}\hline
@@ -820,7 +775,7 @@ corresponding experiment.
 \end{table}
 
 \begin{table}[!htbp]
-\centering\scriptsize\setlength{\tabcolsep}{1pt}
+\centering
 \caption{BLEU-based evolution without inspirations, Gemma~4 31B, 500 iterations.}
 \label{tab:surface-bleu-no-inspirations}
 \begin{tabular}{l*{14}{r}}\hline
@@ -834,7 +789,7 @@ corresponding experiment.
 \end{table}
 
 \begin{table}[!htbp]
-\centering\scriptsize\setlength{\tabcolsep}{1pt}
+\centering
 \caption{BLEU-based evolution with inspirations, Gemma~4 31B, 500 iterations.}
 \label{tab:surface-bleu-with-inspirations}
 \begin{tabular}{l*{14}{r}}\hline
@@ -848,7 +803,7 @@ corresponding experiment.
 \end{table}
 
 \begin{table}[!htbp]
-\centering\scriptsize\setlength{\tabcolsep}{1pt}
+\centering
 \caption{LLM-judge evolution without inspirations, Gemma~4 31B, 500 iterations.}
 \label{tab:surface-llm-no-inspirations}
 \begin{tabular}{l*{14}{r}}\hline
@@ -862,7 +817,7 @@ corresponding experiment.
 \end{table}
 
 \begin{table}[!htbp]
-\centering\scriptsize\setlength{\tabcolsep}{1pt}
+\centering
 \caption{LLM-judge evolution with inspirations, Gemma~4 31B, 500 iterations.}
 \label{tab:surface-llm-with-inspirations}
 \begin{tabular}{l*{14}{r}}\hline
@@ -876,7 +831,7 @@ corresponding experiment.
 \end{table}
 
 \begin{table}[!htbp]
-\centering\scriptsize\setlength{\tabcolsep}{1pt}
+\centering
 \caption{Mixed-model LLM-judge evolution with inspirations, 100 iterations.}
 \label{tab:surface-llm-mixed}
 \begin{tabular}{l*{14}{r}}\hline
@@ -890,7 +845,7 @@ corresponding experiment.
 \end{table}
 
 \begin{table}[!htbp]
-\centering\scriptsize\setlength{\tabcolsep}{1pt}
+\centering
 \caption{Mixed-model LLM-judge evolution with inspirations and four threads, 100 iterations.}
 \label{tab:surface-llm-mixed-four-threads}
 \begin{tabular}{l*{14}{r}}\hline
@@ -916,34 +871,30 @@ three systems.
 The final comparison in Table~\ref{tab:surface-final-comparison} reports averages over WrittenWork, Building, and Food for
 the baselines and the three-domain OpenEvolve BLEU, no inspirations variant.
 \begin{table}[!htbp]
-\centering\scriptsize\setlength{\tabcolsep}{1pt}
+\centering
 \caption{Baseline scores across WebNLG domains.}
 \label{tab:surface-baselines}
-\resizebox{\textwidth}{!}{%
 \begin{tabular}{ll*{14}{r}}\hline
 \texttt{method} & \texttt{domain} & \texttt{BLEU} & \texttt{BLEURT} & \texttt{METEOR} & \texttt{SENLEN} & \texttt{Gemma} & \texttt{Qwen} & \texttt{Themis} & \texttt{gram.} & \texttt{add.} & \texttt{om.} & \texttt{sent.} & \texttt{words} & \texttt{chars} & \texttt{triples} \\\hline
-\surfacebaselinerow{Rule-based generator}{all domains}{0.1702}{-0.3874}{0.5205}{1.0175}{0.4108}{0.4811}{0.7552}{0.1783}{0.0889}{0.0742}{2.5414}{21.7471}{146.6654}{3.1946}
-\surfacebaselinerow{Fine-tuned BART}{all domains}{0.5077}{0.2599}{0.7163}{0.5157}{0.6366}{0.5933}{0.7899}{0.8366}{0.3142}{0.1863}{2.1679}{23.7167}{138.9440}{3.5205}
-\surfacebaselinerow{LLM prompt}{all domains}{0.5019}{0.3443}{0.7246}{0.5274}{0.9954}{0.9743}{0.9847}{0.9861}{0.0045}{0.0022}{1.7307}{21.5757}{132.0601}{3.5205}
+\surfacebaselinerow{Rules}{All}{0.1702}{-0.3874}{0.5205}{1.0175}{0.4108}{0.4811}{0.7552}{0.1783}{0.0889}{0.0742}{2.5414}{21.7471}{146.6654}{3.1946}
+\surfacebaselinerow{BART}{All}{0.5077}{0.2599}{0.7163}{0.5157}{0.6366}{0.5933}{0.7899}{0.8366}{0.3142}{0.1863}{2.1679}{23.7167}{138.9440}{3.5205}
+\surfacebaselinerow{Prompt}{All}{0.5019}{0.3443}{0.7246}{0.5274}{0.9954}{0.9743}{0.9847}{0.9861}{0.0045}{0.0022}{1.7307}{21.5757}{132.0601}{3.5205}
 \hline
 \end{tabular}
-}%
 \end{table}
 
 \begin{table}[!htbp]
-\centering\scriptsize\setlength{\tabcolsep}{1pt}
+\centering
 \caption{Average scores on WrittenWork, Building, and Food.}
 \label{tab:surface-final-comparison}
-\resizebox{\textwidth}{!}{%
 \begin{tabular}{l*{14}{r}}\hline
 \texttt{method} & \texttt{BLEU} & \texttt{BLEURT} & \texttt{METEOR} & \texttt{SENLEN} & \texttt{Gemma} & \texttt{Qwen} & \texttt{Themis} & \texttt{gram.} & \texttt{add.} & \texttt{om.} & \texttt{sent.} & \texttt{words} & \texttt{chars} & \texttt{triples} \\\hline
-\surfacerow{Rule-based generator}{0.2063}{-0.4489}{0.5498}{1.9138}{0.2316}{0.3529}{0.6380}{0.0694}{0.4291}{0.1836}{4.3887}{30.8329}{199.2032}{3.3999}
-\surfacerow{Fine-tuned BART}{0.5628}{0.2398}{0.7126}{0.7414}{0.6707}{0.5964}{0.8123}{0.7878}{0.2782}{0.1122}{2.3025}{27.3637}{147.8967}{3.8264}
-\surfacerow{LLM prompt}{0.4781}{0.2310}{0.6720}{0.6706}{0.9848}{0.9660}{0.9826}{0.9778}{0.0000}{0.0000}{2.2322}{25.2174}{141.2164}{3.8264}
+\surfacerow{Rules}{0.2063}{-0.4489}{0.5498}{1.9138}{0.2316}{0.3529}{0.6380}{0.0694}{0.4291}{0.1836}{4.3887}{30.8329}{199.2032}{3.3999}
+\surfacerow{BART}{0.5628}{0.2398}{0.7126}{0.7414}{0.6707}{0.5964}{0.8123}{0.7878}{0.2782}{0.1122}{2.3025}{27.3637}{147.8967}{3.8264}
+\surfacerow{Prompt}{0.4781}{0.2310}{0.6720}{0.6706}{0.9848}{0.9660}{0.9826}{0.9778}{0.0000}{0.0000}{2.2322}{25.2174}{141.2164}{3.8264}
 \hline
-\surfacerow{BLEU, no inspirations}{0.3521}{0.1049}{0.6314}{0.6706}{0.9286}{0.7310}{0.8484}{0.3640}{0.0725}{0.0000}{2.2322}{27.1047}{154.0871}{3.8264}
+\surfacerow{BLEU, no insp.}{0.3521}{0.1049}{0.6314}{0.6706}{0.9286}{0.7310}{0.8484}{0.3640}{0.0725}{0.0000}{2.2322}{27.1047}{154.0871}{3.8264}
 \end{tabular}
-}%
 \end{table}
 
 \FloatBarrier
