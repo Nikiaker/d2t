@@ -1,0 +1,30 @@
+\chapter*{Abstract}
+
+This work investigates interpretable methods for data-to-text generation from
+raw structured data (JSON, XML, CSV, etc.). It separates the task into meaning-representation
+construction and surface realization, producing explicit semantic triples and
+executable realization programs instead of relying on a single opaque generation
+step.
+
+Three large-language-model pipelines for constructing semantic triples are
+evaluated across multiple domains. One such pipeline called Text-First Extraction with Normalization
+achieves the strongest reported pipeline results, while the other methods provide
+greater up-front vocabulary control and auditable intermediate artifacts. A
+QLoRA-based domain-specialized model is also trained to distill pipeline-produced
+text and triples into a single inference step. Fine-tuning substantially improves
+triple extraction over the base model, although performance varies by domain and
+evaluation metric.
+
+For surface realization, the thesis applies OpenEvolve to construct Python
+programs that verbalize RDF-style triples. The evolutionary process uses
+LLM-generated code mutations and automatic evaluation to retain high-scoring
+programs. Experiments on WebNLG show that reference-based and LLM-judge fitness
+functions optimize different properties. The evolved programs do not outperform
+fine-tuned BART or direct prompting on every metric, but provide transparent and
+reusable realization logic that can be inspected and modified without an
+inference-time LLM.
+
+The results support explicit intermediate representations and executable
+generation artifacts as practical tools for interpretable data-to-text
+generation. A complete end-to-end evaluation from raw data to final text remains
+future work.
