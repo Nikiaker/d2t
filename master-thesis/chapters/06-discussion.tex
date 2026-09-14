@@ -1,4 +1,229 @@
 
 \chapter{Discussion}
 
-% Content goes here
+This chapter interprets the separate evaluations of meaning representation and
+surface realization. The results support several practical conclusions, but
+they also show that the choice of method depends on the intended objective:
+semantic coverage, predicate control, reference similarity, judge-oriented
+faithfulness, or inspectability. Consequently, the discussion distinguishes
+observed results from explanations that remain hypotheses and from questions
+that require the pending end-to-end evaluation.
+
+\section{Meaning representation}
+
+\subsection{Pipeline comparison}
+
+The pipeline results identify Text-First Extraction with Normalization as the
+most reliable of the three evaluated methods. Its automatic additions and
+omissions scores are 4.994 and 4.992, respectively, with an overall score of
+4.996 in Table~\ref{tab:pipeline-text-first-triples-results}. The same ranking
+is retained in the human evaluation: its overall score is 4.913, compared with
+4.400 for Evolving Catalog and 4.175 for Blueprint-Iterative Refinement in
+Tables~\ref{tab:human-text-first-results}, \ref{tab:human-catalog-results},
+and~\ref{tab:human-blueprint-results}. This agreement between the two aggregate
+evaluations is useful evidence that the ranking is not solely an artifact of
+the automatic judge.
+
+The result is consistent with the design of Text-First Extraction with
+Normalization. It allows each instance to be extracted independently, then
+normalizes the resulting predicates after extraction. This avoids constraining
+an instance to a vocabulary that was created from earlier cases. The method
+uses 201.2 unique predicates on average, compared with 44.6 for Evolving
+Catalog and 22.0 for Blueprint-Iterative Refinement
+(Tables~\ref{tab:pipeline-text-first-triples-results},
+\ref{tab:pipeline-catalog-triples-results}, and
+\ref{tab:pipeline-blueprint-triples-results}). A broader vocabulary is
+compatible with the semantic diversity of the input data and is plausibly one
+reason why fewer facts are omitted. However, the predicate count is a
+descriptive result rather than a controlled ablation; it cannot establish that
+vocabulary size alone causes the observed quality difference.
+
+The errors of the other two pipelines illustrate the cost of early vocabulary
+control. Evolving Catalog is second overall, but its automatic omission scores
+drop to 3.920 for ice hockey and 3.850 for OWID. Its human omission score is
+particularly low for OWID at 2.20 and is also reduced for OpenWeather at 3.70
+(Tables~\ref{tab:pipeline-catalog-triples-results} and
+\ref{tab:human-catalog-results}). The stable catalog provides a coherent and
+auditable vocabulary, but facts that do not fit its frozen or slowly expanding
+catalog can be lost. Blueprint-Iterative Refinement,
+provides the strongest up-front specification and therefore the clearest
+human-inspectable artifact. Its omission results nevertheless show the limits
+of a compact predetermined blueprint: automatic scores are 3.380 for ice
+hockey and 3.840 for OpenWeather, while the human omission mean is 3.825
+(Tables~\ref{tab:pipeline-blueprint-triples-results} and
+\ref{tab:human-blueprint-results}).
+
+The shared data-to-text stage is close to the ceiling of the automatic scale:
+the mean summary and faithfulness scores are 4.996 and 4.974 in
+Table~\ref{tab:pipeline-text-results}. The human evaluation is more critical,
+with means of 4.50 and 4.20 in Table~\ref{tab:human-text-results}. In
+particular, GSMArena and OpenWeather both receive a human faithfulness mean of
+3.60. This indicates that their generated summaries contain meaningful
+faithfulness issues under the evaluation rubric, but the mean should not be
+read as the rating of a single instance. It aggregates ten author-assigned
+ratings per domain. The gap between automatic and human means therefore
+motivates a cautious interpretation of the apparently near-perfect automatic
+scores.
+
+\subsection{Fine-tuning as pipeline distillation}
+
+Fine-tuning substantially improves the model's ability to produce triples from
+raw data. The base Gemma model obtains a mean triple F1 of only 0.0205, whereas
+the three-epoch baseline reaches 0.2340
+(Tables~\ref{tab:finetune-base-results} and
+\ref{tab:finetune-baseline-results}). One epoch already improves F1 to 0.1209,
+showing that the task-specific targets provide a strong adaptation signal even
+with limited training. At the same time, the results do not select a single
+configuration as best for every purpose. The three-epoch baseline has the
+highest reported average triple F1, the one-epoch model has the highest
+predicate adherence, and the low-learning-rate configuration has the highest
+average text BLEU and METEOR, at 0.5274 and 0.7310
+(Tables~\ref{tab:finetune-baseline-epoch1-results} and
+\ref{tab:finetune-low-lr-results}). The regularized-capacity configuration is
+competitive for text realization, but is not the leader on either of these text
+metrics or on triple F1.
+
+The domain results are more informative than the averages alone. Fine-tuning
+raises triple F1 markedly for GSMArena and Wikidata, while OpenWeather remains
+close to zero for every configuration. The best reported OpenWeather F1 is only
+0.0019 in the higher-capacity configuration. OWID also remains substantially
+weaker than GSMArena and Wikidata. These differences are consistent with the
+greater structural variation and compression required by weather forecasts and
+statistical data, but the present experiments do not isolate which properties
+of those domains cause the difficulty. They show that per-domain model
+selection and additional domain-specific data work are needed rather than that
+one hyperparameter setting transfers uniformly.
+
+The fine-tuned model should also be understood as a distillation mechanism, not
+as independent semantic supervision. Its targets are the reference texts and
+normalized triples produced by the upstream pipeline. It can make the inferred
+mapping from raw data to text and triples cheaper to execute in one decode pass,
+but it is bounded by the semantic quality and coverage of those targets. Better
+fine-tuning results therefore do not by themselves validate the underlying
+triples against the original raw data. Improving target construction and adding
+independently annotated examples remain necessary steps for establishing such
+validity.
+
+\section{Surface realization}
+
+\subsection{Evolutionary fitness and domain effects}
+
+The initial all-domain evolution run shows a clear domain difference. WrittenWork
+has the highest BLEU score (0.5920), whereas Food has the lowest (0.0764), as
+shown in Table~\ref{tab:surface-base}. WrittenWork may be easier because its
+triples are often amenable to recurring bibliographic descriptions, whereas
+food facts can require more varied lexical choices and combinations of
+attributes. This is an interpretation rather than a demonstrated causal result:
+the experiment does not separately measure lexical diversity, triple topology,
+or reference variability. Nevertheless, the contrast justifies the subsequent
+use of WrittenWork, Building, and Food as relatively easy, intermediate, and
+difficult domains.
+
+The three-domain variants demonstrate a trade-off between the selection signal
+used during evolution and the metric used after evolution. The BLEU-fitness
+variant without inspirations has the best BLEURT value among the reported
+evolved programs, at 0.1049. Its paired variant with inspirations is slightly
+higher on BLEU, 0.3526 versus 0.3521, but lower on BLEURT, 0.0952 versus 0.1049
+(Tables~\ref{tab:surface-bleu-no-inspirations} and
+\ref{tab:surface-bleu-with-inspirations}). Thus, removing inspirations cannot
+be claimed to improve BLEU consistently; it improves BLEURT in this direct
+comparison, while the BLEU difference is negligible and favours inspirations.
+
+Variants optimized with LLM-as-a-judge fitness obtain stronger final judge
+scores and lower detected additions and omissions than the BLEU-fitness
+variants. For example, the no-inspiration LLM-judge variant has zero additions
+and omissions and receives a Gemma judge score of 1.0000
+(Table~\ref{tab:surface-llm-no-inspirations}). The mixed-model variants also
+report zero additions and omissions. This pattern is expected when evolutionary
+selection directly rewards judge-oriented properties, but it should not be
+interpreted as independent proof of semantic correctness. The
+LLM-judge-with-inspirations variant still has nonzero additions, and the
+reference-based BLEU, BLEURT, and METEOR values do not improve uniformly. The
+selection objective therefore shapes the type of quality found by evolution;
+it does not remove the need for external evaluation.
+
+\subsection{Comparison with baselines}
+
+The baseline comparison further emphasizes that there is no single dominant
+surface-realization approach. The rule-based generator is clearly weaker than
+the other systems across the reported measures. On the three selected domains,
+the fine-tuned BART baseline has the best reference-based scores: BLEU 0.5628,
+BLEURT 0.2398, and METEOR 0.7126. The zero-shot LLM prompt has lower
+reference-based scores, but it leads the three judge scores, grammaticality,
+and detected additions and omissions, the latter two both being zero
+(Table~\ref{tab:surface-final-comparison}). It is the strongest
+reported system for judge-oriented faithfulness and fluency measures.
+
+The reported evolved program does not yet exceed these stronger neural and
+prompted baselines on the aggregate reference metrics. Its value lies elsewhere:
+after evolution, the realization procedure is an inspectable Python artifact
+that can be executed on unseen triple sets without another LLM call. This
+property supports auditability, targeted modification, and potentially cheap
+CPU execution. It does not, however, demonstrate a quality or cost advantage in
+every deployment setting. A direct prompt is operationally simpler and is
+currently more effective on several judged measures; BART remains stronger on
+the principal reference metrics. The evolutionary approach is most compelling
+where a reusable and inspectable realization program is a requirement, rather
+than where the only objective is the highest benchmark score.
+
+\section{Evaluation validity and limitations}
+
+The judge--human comparison provides a necessary qualification to all
+judge-based conclusions. For data-to-text, the LLM judge assigns a constant
+score of 5 to every assessed instance, so Pearson, Spearman, and Kendall
+correlations cannot be calculated. The corresponding quadratic weighted kappa
+values are zero despite the lower human means
+(Table~\ref{tab:judge-human-text-correlation}). The automatic judge therefore
+fails to distinguish the errors identified by the human evaluation in this
+near-ceiling regime.
+
+Text-to-triples agreement is more informative but remains mixed. For Evolving
+Catalog omissions, positive associations are observed across the evaluated
+domains; for example, the GSMArena omission correlation is 0.667 for Pearson,
+Spearman, and Kendall. In contrast, Blueprint-Iterative Refinement has a
+negative GSMArena additions correlation of $-0.509$, and several rows remain
+undefined because one rater assigned a constant score
+(Table~\ref{tab:judge-human-triples-correlation}). These results provide
+limited support for using the judge to rank instances when its scores vary, but
+they do not prove that LLM-as-a-judge evaluation is generally reliable.
+
+Several aspects of the evaluation constrain generalization. The human study
+contains ten instances per transition and domain and is scored by the thesis
+inter-annotator reliability study. The automatic pipeline evaluation covers
+five domains, whereas the human evaluation and fine-tuning evaluation cover
+four; ice hockey is not part of the human comparison. In addition, the use of
+related LLM capabilities in both generation and judging can introduce shared
+preferences. Reference metrics also assess similarity to a particular
+lexicalization rather than all valid ways of expressing a triple set. Finally,
+SENLEN is intentionally a simple period-delimited structural diagnostic and is
+not a semantic evaluation measure. These limitations support combining metrics
+and human inspection rather than treating any one score as definitive.
+
+\section{End-to-end evaluation and future work}
+
+The separate experiments establish the behavior of the two stages, but they do
+not establish the quality of the complete system on raw data. The planned
+whole-system evaluation addresses this gap by evolving a domain-specific
+surface-realization program on the independent $S_3$ collection and evaluating
+it on the separately collected $S_4$ collection. It will measure whether errors
+or omissions in generated triples propagate into the final text, which cannot
+be inferred reliably from isolated triple F1 or WebNLG scores.
+
+At present, the whole-system numerical results are pending and therefore no
+performance conclusion should be drawn from Table~\ref{tab:whole-system-results}.
+Even after those results are available, their interpretation will require care:
+the $S_3$ and $S_4$ reference texts and triples are generated by the selected
+fine-tuned model rather than independently annotated by humans. The evaluation
+will consequently measure agreement with distilled targets, not fully
+independent factual correctness with respect to the original data source.
+
+The next evaluation cycle should therefore combine the completed end-to-end
+test with a small independently annotated reference set, multiple human raters,
+and agreement analysis between raters. Using judges from distinct model
+families, calibrating them with contrastive error cases, and retaining
+instance-level explanations would reduce the effect of score saturation.
+Further surface-realization experiments should report all variants on the same
+domains and include direct comparisons of inference latency, cost, and program
+maintainability. Together, these steps would determine when the proposed
+pipeline offers a practical advantage over direct prompting, rather than only
+demonstrating that its components can be optimized separately.

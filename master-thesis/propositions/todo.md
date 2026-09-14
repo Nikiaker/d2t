@@ -50,3 +50,5 @@
 [v] in Correlations (data->text) table add the llm_mean and human_mean. in Correlations (text->triples) add the rows for triples additions and triples ommisions. It is not very clear what the LLM nad Human columns are. Define them and put the means in them
 [v] there is no explenation what is senlen
 [v] the experiments mentioned in Configured experiments with unavailable results should be explained the same way as in Evolution variants. Just assume that the results are in and write the descriptions of the tests the same way
+
+[] nothing about the correlations is mentioned
