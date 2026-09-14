@@ -15,13 +15,12 @@ sources.
 The source collection used in the experiments is denoted by $S_0$. It contains
 the five domains available in the corresponding quintd collection: GSMArena,
 OpenWeather, Our World in Data (OWID), Wikidata, and ice hockey. The automatic
-pipeline comparison uses all five domains. The human evaluation, fine-tuning,
-and whole-system experiments use the four-domain subset consisting of GSMArena,
-OpenWeather, OWID, and Wikidata. This distinction is important because ice
-hockey is included in the automatic pipeline results but is absent from the
-later $S_1$, $S_2$, $S_3$, and $S_4$ datasets.
+pipeline comparison uses all five domains. The later human-evaluation and
+fine-tuning tracks use the four-domain subset consisting of GSMArena,
+OpenWeather, OWID, and Wikidata. Ice hockey was excluded from these later tracks
+because collecting additional records through its API was prohibitively costly.
 
-The four experimental datasets are:
+The five source domains are:
 
 \begin{description}
   \item[\textbf{GSMArena}] Mobile phone specifications scraped from the GSMArena
@@ -43,21 +42,18 @@ The four experimental datasets are:
   Wikidata. Each instance describes an entity, such as a country, film, or
   organization, with a list of property--value pairs such as capital, cast
   member, or language used.
-\end{description}
 
-The fifth domain, \emph{ice hockey}, is therefore included only in the automatic
-pipeline comparison. Its absence from the human evaluation, fine-tuning, and
-whole-system experiments should not be interpreted as an omission from the
-source collection.
+  \item[\textbf{Ice hockey}] Completed match records containing competition,
+  season, match status, participating teams, and scores. This domain is used
+  only in the automatic pipeline comparison.
+\end{description}
 
 All experimental datasets are provided as JSON files containing arrays of
 structured records. A \emph{raw structured instance} is defined as a single
-JSON object representing one self-contained data record from one of the four
-experimental domains. Each instance contains nested fields with structured
+JSON object representing one self-contained data record from one of the five
+source domains. Each instance contains nested fields with structured
 data---time series, categorical values, numerical measurements, or hierarchical
-attribute lists---that must be converted into semantic triples. Let
-$D = \{d_1, \dots, d_N\}$ denote the set of $N$ such instances extracted from
-the input JSON for a given domain.
+attribute lists---that must be converted into semantic triples.
 
 \paragraph{Large language model.}
 All LLM invocations across the three conversion methods use \emph{Gemma~4
@@ -76,10 +72,11 @@ three pipelines, while the text-to-triples stage is run separately for
 Text-First Extraction with Normalization, Blueprint-Iterative Refinement, and
 Evolving Catalog.
 
-The generated outputs are evaluated using a human evaluation and an LLM as a judge. The judge is the
-same Gemma~4 31B IT model, but it is used in a separate evaluation role rather
-than as part of the extraction pipeline. Two transitions are assessed
-independently:
+The generated outputs are evaluated using human evaluation and an LLM judge. The
+judge is the same Gemma~4 31B IT model, but it is used in a separate evaluation
+role rather than as part of the extraction pipeline. The automatic comparison
+contains five domains with 100 instances each, giving 500 instances. Two
+transitions are assessed independently:
 
 \begin{enumerate}
     \item the conversion from the raw structured instance to the generated
@@ -94,26 +91,38 @@ transition is assessed for \emph{summary} and \emph{faithfulness}. Summary
 measures whether the generated text is concise, coherent, non-redundant, and
 preserves the core message of the structured source. Faithfulness measures
 whether every textual claim is supported by that source, penalizing
-hallucinations, contradictions, and material distortions. The text-to-triples
+hallucinations, contradictions, and material distortions.
+It requires $5 domains \times 100 instances \times 2 criteria = 1{,}000$
+judge calls.
+The text-to-triples
 transition is assessed for \emph{additions} and \emph{omissions}. Additions
 measures whether the triples introduce facts not supported by the reference
 text, whereas omissions measures whether they leave out information whose
 absence changes meaning, hides important context, or creates a misleading
-imbalance. Every criterion is scored on an ordinal scale from 1 to 5, where 5
+imbalance.
+It requires $5 domains \times 100 instances \times 3 pipelines \times 2 criteria = 3{,}000$ further
+calls. The automatic evaluation therefore comprises 4,000 judge calls.
+Every criterion is scored on an ordinal scale from 1 to 5, where 5
 represents the best result.
 
-The shared data-to-text evaluation requires $5 \times 100 \times 2 = 1{,}000$
-judge calls. The three text-to-triples methods require
-$5 \times 100 \times 3 \times 2 = 3{,}000$ further calls, for 4,000 calls in
-total. For each domain and criterion, scores are averaged over the 100
-instances. The resulting averages are used to compare the conversion methods.
+For each domain and criterion, scores are averaged over the 100 instances. The
+resulting averages are used to compare the conversion methods.
 
-The evaluation output also contains descriptive statistics. These statistics
-are computed without additional LLM calls and describe the size and structure
-of the generated outputs: the number of primitive JSON elements, reference
-words, reference sentences, reference subsentences, extracted triples, and
-unique predicates. The overall text and triples scores are calculated as the
-mean of the two criteria belonging to the corresponding transition.
+Alongside the quality judgments, the analysis reports descriptive characteristics
+of the inputs and generated outputs. These include the mean number of primitive
+JSON elements, reference words, reference sentences, reference subsentences, and
+extracted triples. The predicate column gives the number of distinct predicates
+observed in the corresponding domain-level pipeline output. The overall text and
+triples scores are calculated as the mean of the two criteria belonging to the
+corresponding transition.
+
+Table~\ref{tab:pipeline-text-results} reports the shared data-to-text results,
+including summary, faithfulness, and input-size statistics.
+Tables~\ref{tab:pipeline-blueprint-triples-results},
+\ref{tab:pipeline-text-first-triples-results}, and
+\ref{tab:pipeline-catalog-triples-results} report the text-to-triples results
+for Blueprint-Iterative Refinement, Text-First Extraction with Normalization,
+and Evolving Catalog, respectively.
 
 \begin{table}[!htbp]
 \centering
@@ -205,15 +214,15 @@ Wikidata & 4.810 & 4.780 & 4.790 & 20.19 & 1.14 & 2.62 & 3.69 & 45 \\
 \FloatBarrier
 \subsection{Human evaluation for pipelines}
 
-Human evaluation follows the same asymmetric rubric as automatic evaluation.
-The shared data-to-text transition is assessed for summary and faithfulness,
-while each text-to-triples pipeline is assessed for additions and omissions.
-For each of the four domains, ten instances are assessed for every relevant
-transition. Scores are assigned by the author of the thesis on the same 1--5
-scale as automatic evaluation.
+Human evaluation uses the same task-specific criteria and 1--5 scale as the
+automatic evaluation: summary and faithfulness for data-to-text, and unsupported
+additions and consequential omissions for text-to-triples. For each of the four
+domains, ten instances are assessed for every relevant transition. Scores are
+assigned by the author of the thesis.
 
 \begin{table}[!htbp]
 \centering
+\small
 \caption{Human evaluation of the shared data-to-text transition.}
 \label{tab:human-text-results}
 \begin{tabular}{lrrr}
@@ -233,6 +242,7 @@ Wikidata & 4.60 & 4.80 & 4.70 \\
 \newcommand{\humantripleheader}{\textbf{Domain} & \textbf{Additions} & \textbf{Omissions} & \textbf{Overall} \\}
 \begin{table}[!htbp]
 \centering
+\small
 \caption{Human evaluation of Blueprint-Iterative Refinement.}
 \label{tab:human-blueprint-results}
 \begin{tabular}{lrrr}
@@ -244,13 +254,14 @@ OWID & 4.00 & 4.30 & 4.15 \\
 OpenWeather & 5.00 & 3.00 & 4.00 \\
 Wikidata & 4.80 & 4.30 & 4.55 \\
 \hline
-\textbf{Average} & 4.525 & 3.825 & 4.175 \\
+\textbf{Average} & 4.53 & 3.83 & 4.18 \\
 \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
 \centering
+\small
 \caption{Human evaluation of Text-First Extraction with Normalization.}
 \label{tab:human-text-first-results}
 \begin{tabular}{lrrr}
@@ -262,13 +273,14 @@ OWID & 5.00 & 4.50 & 4.75 \\
 OpenWeather & 4.90 & 5.00 & 4.95 \\
 Wikidata & 5.00 & 5.00 & 5.00 \\
 \hline
-\textbf{Average} & 4.950 & 4.875 & 4.913 \\
+\textbf{Average} & 4.95 & 4.88 & 4.91 \\
 \hline
 \end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
 \centering
+\small
 \caption{Human evaluation of Evolving Catalog.}
 \label{tab:human-catalog-results}
 \begin{tabular}{lrrr}
@@ -280,7 +292,7 @@ OWID & 5.00 & 2.20 & 3.60 \\
 OpenWeather & 4.90 & 3.70 & 4.30 \\
 Wikidata & 4.80 & 4.80 & 4.80 \\
 \hline
-\textbf{Average} & 4.900 & 3.900 & 4.400 \\
+\textbf{Average} & 4.90 & 3.90 & 4.40 \\
 \hline
 \end{tabular}
 \end{table}
@@ -291,42 +303,37 @@ Wikidata & 4.80 & 4.80 & 4.80 \\
 The agreement between the LLM judge and the human evaluator is computed from
 paired 1--5 scores.
 
-Four complementary statistics are reported. Pearson's product--moment
-correlation measures linear association between the raw values, but assumes
-equal distances between the ordinal score levels. Spearman's $\rho$ measures
-whether the LLM and human rank instances similarly and is the primary
-association measure for the ordinal 1--5 scale. Kendall's $\tau$-b measures
-pairwise rank concordance while correcting for ties, making it useful for the
-small samples and repeated ratings in this experiment. Quadratic weighted
-Cohen's kappa measures chance-corrected ordinal agreement and penalizes a
-two-point disagreement more strongly than a one-point disagreement
-\cite{cohen1960agreement}. All four measures range from $-1$ to $1$; positive
-values indicate agreement or positive association, zero indicates no
+Four complementary statistics are reported:
+\begin{itemize}
+  \item Pearson's product--moment correlation measures linear association
+  between the raw values, but assumes equal distances between ordinal levels.
+  \item Spearman's $\rho$ measures whether the LLM and human rank instances
+  similarly and is the primary association measure for the ordinal 1--5 scale.
+  \item Kendall's $\tau$-b measures pairwise rank concordance while correcting
+  for ties, which is useful for the small samples and repeated ratings here.
+  \item Quadratic weighted Cohen's kappa measures chance-corrected ordinal
+  agreement and penalizes a two-point disagreement more strongly than a
+  one-point disagreement \cite{cohen1960agreement}.
+\end{itemize}
+Positive values indicate agreement or positive association, zero indicates no
 association or agreement beyond chance, and negative values indicate inverse
 association.
 
-The overall variants are calculated separately for the two evaluation tasks and
-never mix data-to-text with text-to-triples. A \emph{pooled} text-to-triples
-result concatenates the additions and omissions score of every matched instance
-for each rater. With ten matched instances, this produces 20 paired criterion
-scores: additions and omissions for each instance. It preserves
-criterion-specific disagreement, for example when a judge agrees on additions
-but not on omissions.
-
-The complementary \emph{per-instance mean} result first averages additions and
-omissions for each rater within an instance and then correlates the resulting
-ten overall-quality pairs. It answers whether the LLM and human agree about
-which complete instances are better or worse overall, while deliberately
-discarding criterion-specific differences. For this mean variant, Pearson,
-Spearman, and Kendall are computed from the floating-point means; quadratic
-weighted kappa uses the means rounded to the nearest ordinal score.
+The statistics are calculated separately for the two evaluation tasks and never
+mix data-to-text with text-to-triples. Text-to-triples correlations are reported
+separately for additions and omissions. A supplementary \emph{mean of additions
+and omissions} first averages the two criterion scores assigned by each rater
+within an instance and then compares the resulting ten matched pairs. This is a
+transparent aggregate of two text-to-triples semantic-error criteria, not a
+measure of overall instance or pipeline quality. Pearson, Spearman, and Kendall
+are computed from the floating-point means; quadratic weighted kappa uses means
+rounded to the nearest ordinal score.
 
 The \emph{LLM score mean} and \emph{Human score mean} columns report the
 arithmetic mean of the aligned score vector used for that row. For an additions
 or omissions row, each mean is calculated from the ten scores for that single
-criterion. For a pooled row, it is calculated from 20 scores: additions and
-omissions for each of the ten instances. For a per-instance-mean row, it is
-calculated from ten instance-level averages. These columns describe the rating
+criterion. For a mean-of-additions-and-omissions row, it is calculated from ten
+instance-level averages. These columns describe the rating
 level of each evaluator and are not correlation coefficients.
 
 Pearson, Spearman, and Kendall are undefined when either rater assigns the same
@@ -362,63 +369,51 @@ Wikidata & Faithfulness & -- & -- & -- & 0.000 & 5.00 & 4.80 & LLM constant \\
 \begin{table}[!htbp]
 \centering
 \tiny
-\caption{Text-to-triples correlation results by criterion and aggregation.}
+\caption{Text-to-triples correlation results by criterion and supplementary aggregate.}
 \label{tab:judge-human-triples-correlation}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{lllrrrrrrrl}
 \hline
-\textbf{Pipeline} & \textbf{Domain} & \textbf{Criterion / aggregation} & \textbf{$N$} & \textbf{$r$} & \textbf{$\rho$} & \textbf{$\tau$} & \textbf{QW-$\kappa$} & \textbf{LLM score mean} & \textbf{Human score mean} & \textbf{Status} \\
+\textbf{Pipeline} & \textbf{Domain} & \textbf{Criterion / aggregate} & \textbf{$N$} & \textbf{$r$} & \textbf{$\rho$} & \textbf{$\tau$} & \textbf{QW-$\kappa$} & \textbf{LLM score mean} & \textbf{Human score mean} & \textbf{Status} \\
 \hline
 Blueprint & GSMArena & Additions & 10 & -0.509 & -0.509 & -0.509 & -0.212 & 4.90 & 4.30 & ok \\
  &  & Omissions & 10 & 0.349 & 0.387 & 0.360 & 0.286 & 4.00 & 3.70 & ok \\
- &  & Pooled & 20 & 0.402 & 0.371 & 0.344 & 0.316 & 4.45 & 4.00 & ok \\
- &  & Per-instance mean & 10 & 0.000 & 0.000 & 0.000 & 0.000 & 4.45 & 4.00 & ok \\
+ &  & Mean add./om. & 10 & 0.000 & 0.000 & 0.000 & 0.000 & 4.45 & 4.00 & ok \\
  & OWID & Additions & 10 & -- & -- & -- & 0.000 & 5.00 & 4.00 & both constant, different \\
  &  & Omissions & 10 & 0.512 & 0.520 & 0.494 & 0.314 & 4.80 & 4.30 & ok \\
- &  & Pooled & 20 & 0.379 & 0.360 & 0.348 & 0.133 & 4.90 & 4.15 & ok \\
- &  & Per-instance mean & 10 & 0.512 & 0.520 & 0.494 & 0.000 & 4.90 & 4.15 & ok \\
+ &  & Mean add./om. & 10 & 0.512 & 0.520 & 0.494 & 0.000 & 4.90 & 4.15 & ok \\
  & OpenWeather & Additions & 10 & -- & -- & -- & 0.000 & 4.70 & 5.00 & Human constant \\
  &  & Omissions & 10 & 0.588 & 0.529 & 0.494 & 0.462 & 3.50 & 3.00 & ok \\
- &  & Pooled & 20 & 0.726 & 0.731 & 0.664 & 0.714 & 4.10 & 4.00 & ok \\
- &  & Per-instance mean & 10 & 0.633 & 0.536 & 0.501 & 0.000 & 4.10 & 4.00 & ok \\
+ &  & Mean add./om. & 10 & 0.633 & 0.536 & 0.501 & 0.000 & 4.10 & 4.00 & ok \\
  & Wikidata & Additions & 10 & 0.667 & 0.667 & 0.667 & 0.615 & 4.90 & 4.80 & ok \\
  &  & Omissions & 10 & 0.927 & 0.964 & 0.934 & 0.906 & 4.40 & 4.30 & ok \\
- &  & Pooled & 20 & 0.895 & 0.906 & 0.886 & 0.873 & 4.65 & 4.55 & ok \\
- &  & Per-instance mean & 10 & 0.907 & 0.868 & 0.841 & 0.800 & 4.65 & 4.55 & ok \\
+ &  & Mean add./om. & 10 & 0.907 & 0.868 & 0.841 & 0.800 & 4.65 & 4.55 & ok \\
 \hline
 Text-First & GSMArena & Additions & 10 & -- & -- & -- & 0.000 & 5.00 & 4.90 & LLM constant \\
  &  & Omissions & 10 & -- & -- & -- & 0.000 & 5.00 & 5.00 & both constant, same \\
- &  & Pooled & 20 & -- & -- & -- & 0.000 & 5.00 & 4.95 & LLM constant \\
- &  & Per-instance mean & 10 & -- & -- & -- & 0.000 & 5.00 & 4.95 & LLM constant \\
+ &  & Mean add./om. & 10 & -- & -- & -- & 0.000 & 5.00 & 4.95 & LLM constant \\
  & OWID & Additions & 10 & -- & -- & -- & 0.000 & 5.00 & 5.00 & both constant, same \\
  &  & Omissions & 10 & -- & -- & -- & 0.000 & 5.00 & 4.50 & LLM constant \\
- &  & Pooled & 20 & -- & -- & -- & 0.000 & 5.00 & 4.75 & LLM constant \\
- &  & Per-instance mean & 10 & -- & -- & -- & 0.000 & 5.00 & 4.75 & LLM constant \\
+ &  & Mean add./om. & 10 & -- & -- & -- & 0.000 & 5.00 & 4.75 & LLM constant \\
  & OpenWeather & Additions & 10 & -- & -- & -- & 0.000 & 5.00 & 4.90 & LLM constant \\
  &  & Omissions & 10 & -- & -- & -- & 0.000 & 5.00 & 5.00 & both constant, same \\
- &  & Pooled & 20 & -- & -- & -- & 0.000 & 5.00 & 4.95 & LLM constant \\
- &  & Per-instance mean & 10 & -- & -- & -- & 0.000 & 5.00 & 4.95 & LLM constant \\
+ &  & Mean add./om. & 10 & -- & -- & -- & 0.000 & 5.00 & 4.95 & LLM constant \\
  & Wikidata & Additions & 10 & -- & -- & -- & 0.000 & 5.00 & 5.00 & both constant, same \\
  &  & Omissions & 10 & -- & -- & -- & 0.000 & 5.00 & 5.00 & both constant, same \\
- &  & Pooled & 20 & -- & -- & -- & 0.000 & 5.00 & 5.00 & both constant, same \\
- &  & Per-instance mean & 10 & -- & -- & -- & 0.000 & 5.00 & 5.00 & both constant, same \\
+ &  & Mean add./om. & 10 & -- & -- & -- & 0.000 & 5.00 & 5.00 & both constant, same \\
 \hline
 Catalog & GSMArena & Additions & 10 & -- & -- & -- & 0.000 & 5.00 & 4.90 & LLM constant \\
  &  & Omissions & 10 & 0.667 & 0.667 & 0.667 & 0.615 & 4.80 & 4.90 & ok \\
- &  & Pooled & 20 & 0.444 & 0.444 & 0.444 & 0.444 & 4.90 & 4.90 & ok \\
- &  & Per-instance mean & 10 & 0.375 & 0.375 & 0.375 & 0.375 & 4.90 & 4.90 & ok \\
+ &  & Mean add./om. & 10 & 0.375 & 0.375 & 0.375 & 0.375 & 4.90 & 4.90 & ok \\
  & OWID & Additions & 10 & -- & -- & -- & 0.000 & 4.60 & 5.00 & Human constant \\
  &  & Omissions & 10 & 0.867 & 0.917 & 0.875 & 0.404 & 3.60 & 2.20 & ok \\
- &  & Pooled & 20 & 0.604 & 0.630 & 0.578 & 0.559 & 4.10 & 3.60 & ok \\
- &  & Per-instance mean & 10 & 0.627 & 0.795 & 0.707 & 0.043 & 4.10 & 3.60 & ok \\
+ &  & Mean add./om. & 10 & 0.627 & 0.795 & 0.707 & 0.043 & 4.10 & 3.60 & ok \\
  & OpenWeather & Additions & 10 & -- & -- & -- & 0.000 & 5.00 & 4.90 & LLM constant \\
  &  & Omissions & 10 & 0.753 & 0.646 & 0.631 & 0.478 & 4.40 & 3.70 & ok \\
- &  & Pooled & 20 & 0.782 & 0.647 & 0.632 & 0.630 & 4.70 & 4.30 & ok \\
- &  & Per-instance mean & 10 & 0.591 & 0.410 & 0.387 & 0.000 & 4.70 & 4.30 & ok \\
+ &  & Mean add./om. & 10 & 0.591 & 0.410 & 0.387 & 0.000 & 4.70 & 4.30 & ok \\
  & Wikidata & Additions & 10 & -- & -- & -- & 0.000 & 5.00 & 4.80 & LLM constant \\
  &  & Omissions & 10 & 0.667 & 0.667 & 0.667 & 0.615 & 4.80 & 4.80 & ok \\
- &  & Pooled & 20 & 0.459 & 0.459 & 0.459 & 0.444 & 4.90 & 4.80 & ok \\
- &  & Per-instance mean & 10 & 0.804 & 0.646 & 0.626 & 0.412 & 4.90 & 4.80 & ok \\
+ &  & Mean add./om. & 10 & 0.804 & 0.646 & 0.626 & 0.412 & 4.90 & 4.80 & ok \\
 \hline
 \end{tabular}
 }%
@@ -450,12 +445,14 @@ adapters are merged into the base model before evaluation.
 
 \subsection{Training Configuration}
 
-The fine-tuning comparison contains five configurations. The standard baseline
-uses three epochs. The \emph{baseline-epoch1} variant keeps the
-baseline learning rate, adapter capacity, dropout, and weight decay, but trains
-for one epoch. The remaining variants change the learning rate, adapter
-capacity, or regularization in order to test their influence on the
-domain-specialized models.
+Table~\ref{tab:qlora-config} lists the five QLoRA configurations. The standard
+baseline uses three epochs. \emph{baseline-epoch1} changes only the epoch count
+to one. \emph{low\_lr} uses a lower learning rate and longer training, whereas
+\emph{higher\_capacity} increases adapter rank and scaling. The
+\emph{regularized\_capacity} configuration combines larger adapters with more
+training, a lower learning rate, longer warm-up, higher dropout, and weight
+decay. These are configuration-level comparisons rather than one-factor
+ablations.
 
 All training is performed on NVIDIA A100-SXM4 GPUs with 40~GB of VRAM, using
 the PLGrid Athena cluster. The common effective batch size is 16, obtained
@@ -496,13 +493,6 @@ budget. Wikidata uses 8192 tokens, GSMArena and OWID use 4096 tokens, and
 OpenWeather uses 6144 tokens. Instances exceeding the selected maximum are
 truncated.
 
-After training, the LoRA adapter weights are combined with the frozen base
-model weights to produce a standalone model. This process, computes $W_{\mathrm{final}} = W_0 + \Delta W$ for each adapted layer.
-The merged model can be served by the same vLLM infrastructure as the base
-model and produces both a natural-language verbalization and the corresponding
-semantic triples in a single decode pass.
-
-\FloatBarrier
 \subsection{Evaluation of fine-tuned models}
 
 The fine-tuned models are evaluated on the held-out $S_2$ test sets for each
@@ -514,10 +504,38 @@ and false-negative counts. Predicate adherence measures the proportion of
 generated predicates that belong to the predicate catalog used to construct
 the targets.
 
-The results are reported for the base model, which is the Gemma 4 before any fine-tuning and separately for the five
+Table~\ref{tab:finetune-results} compares macro-averages over the four held-out
+$S_2$ domain sets. The low-learning-rate configuration obtains the strongest
+text metrics, the three-epoch baseline obtains the strongest triple F1, and the
+one-epoch configuration gives the highest predicate adherence. The values
+summarize the reported configurations and do not establish causal effects for
+individual hyperparameters.
+
+Also, the results are reported for the base model, which is the Gemma 4 before any fine-tuning and separately for the five
 fine-tuning configurations.
 
 \newcommand{\finetuneheader}{\textbf{Domain} & \textbf{Text BLEU} & \textbf{Text METEOR} & \textbf{Triple precision} & \textbf{Triple recall} & \textbf{Triple F1} & \textbf{Predicate adherence} \\}
+
+\begin{table}[!htbp]
+\centering
+\small
+\caption{Macro-average held-out $S_2$ results for the base model and QLoRA configurations.}
+\label{tab:finetune-results}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\hline
+\textbf{Configuration} & \textbf{Text BLEU} & \textbf{Text METEOR} & \textbf{Triple precision} & \textbf{Triple recall} & \textbf{Triple F1} & \textbf{Predicate adherence} \\
+\hline
+Base model & 0.4897 & 0.6897 & 0.0208 & 0.0208 & 0.0205 & 0.3774 \\
+baseline & 0.4776 & 0.6901 & 0.2407 & 0.2285 & 0.2340 & 0.5718 \\
+baseline-epoch1 & 0.4998 & 0.7162 & 0.1786 & 0.1046 & 0.1209 & 0.6304 \\
+low\_lr & 0.5274 & 0.7310 & 0.2028 & 0.2059 & 0.2043 & 0.5971 \\
+higher\_capacity & 0.4987 & 0.7099 & 0.2311 & 0.2316 & 0.2313 & 0.5706 \\
+regularized\_capacity & 0.5217 & 0.7279 & 0.2272 & 0.2209 & 0.2239 & 0.5976 \\
+\hline
+\end{tabular}
+}%
+\end{table}
 
 \begin{table}[!htbp]
 \centering
@@ -651,25 +669,27 @@ Wikidata & 0.7555 & 0.8963 & 0.4912 & 0.4700 & 0.4803 & 0.6884 \\
 \subsection{WebNLG dataset and evaluation protocol}
 \label{sec:webnlg-evaluation-protocol}
 
-Surface realization is evaluated on WebNLG, a benchmark in which RDF-style
+Surface realization is evaluated on the WebNLG benchmark~\cite{gardent-etal-2017-webnlg}, in which RDF-style
 semantic triples are paired with one or more natural-language lexicalizations.
 The benchmark reader used in this work loads the English WebNLG release and
 preserves both the triples and their reference texts. During evolution, the
 training portion of WebNLG is used to provide fitness feedback. The final
 programs are evaluated independently on the held-out test portion, preventing
-the test references from being used during program search
-\cite{gardent-etal-2017-webnlg}.
+the test references from being used during program search.
 
 The evaluation is performed separately by WebNLG domain. The program receives
 only the triples for each test entry. It must return one natural-language
 string. The baseline systems are a rule-based generator by Lango et al.~~\cite{lango-dusek-2025-llm}, a fine-tuned BART
-model, and a prompted language model. The prompt can be found in
+model, and a prompted \texttt{gemma-4-31B-it} model. The prompt can be found in
 Appendix~\ref{app:prompt-llm-judge}.
 
 The final evaluation reports reference-based, judge-based, and descriptive
 metrics. BLEU, BLEURT, and METEOR compare a generated text with the WebNLG
 references. The three judge columns contain scores from Gemma~4 31B IT,
-Qwen~3.6, and Themis.
+Qwen~3.6, and Themis~\cite{hu2024themis}. Grammaticality, additions, and
+omissions are assessed by Gemma~4 31B IT using the prompts in
+Appendix~\ref{app:prompt-llm-judge}. The descriptive statistics report average
+sentence count, word count, character count, and number of input triples.
 
 SENLEN is a thesis-specific structural diagnostic introduced for this
 evaluation. For a generated text realization
@@ -685,12 +705,6 @@ uses an implementation-level delimiter count rather than a linguistic sentence
 tokenizer. Lower values are preferable, and zero indicates
 that the generated realization has exactly the average reference sentence count.
 
-The grammaticality, additions, and omissions judgments are performed with
-Gemma~4 31B IT. The prompts used for these judgments are provided in
-Appendix~\ref{app:prompt-llm-judge}. The final four columns are descriptive
-statistics: average sentence count, word count, character count, and number
-of input triples.
-
 Higher values are preferable for BLEU, BLEURT, METEOR, judge scores, and
 grammaticality. Lower values are preferable for additions, and
 omissions; zero means that no addition or
@@ -699,22 +713,54 @@ the period-delimited segment count exactly matches the average reference count.
 
 \subsection{Evolution variants}
 
-The initial all-domain run uses 1,000 iterations, Gemma~4 31B IT as the main
-program-generation model, BLEU fitness, and one inspiration program in each
-prompt. The later runs use 500 or 100 iterations and are restricted to three selected
-domains.
-
 The initial run was used to identify domains with different levels of
 difficulty. WrittenWork was selected as the best-working domain, Building as
 an intermediate domain, and Food as the most difficult domain. Restricting
 subsequent variants to these three domains reduced the computational cost
 of the experiments while retaining distinct task difficulties.
 
-The following variants were then evaluated:
+Table~\ref{tab:surface-variant-configurations} summarizes the execution
+settings for variants with retained held-out results. A worker process
+independently selects a parent, requests a mutation, and evaluates one candidate;
+using four concurrent processes increases throughput and may cause results to
+enter the database out of submission order. This is the execution model described
+in Section~\ref{sec:openevolve}.
+
+\begin{table}[!htbp]
+\centering
+\small
+\caption{Configuration of surface-realization variants with retained held-out results.}
+\label{tab:surface-variant-configurations}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lrrrlll}
+\hline
+\textbf{Variant} & \textbf{Domains} & \textbf{Iterations} & \textbf{Workers} & \textbf{Fitness} & \textbf{Inspirations} & \textbf{Generation setting} \\
+\hline
+Initial BLEU & 16 & 1000 & 1 & BLEU & 1 & Gemma, non-reasoning \\
+BLEU, no inspirations & 3 & 500 & 1 & BLEU & 0 & Gemma, non-reasoning \\
+BLEU, with inspirations & 3 & 500 & 1 & BLEU & 1 & Gemma, non-reasoning \\
+LLM judge, no inspirations & 3 & 500 & 1 & LLM judge & 0 & Gemma, non-reasoning \\
+LLM judge, with inspirations & 3 & 500 & 1 & LLM judge & 1 & Gemma, non-reasoning \\
+Mixed-model LLM judge & 3 & 100 & 1 & LLM judge & 1 & Gemma and secondary model \\
+Mixed-model LLM judge & 3 & 100 & 4 & LLM judge & 1 & Gemma and secondary model \\
+\hline
+\end{tabular}
+}%
+\end{table}
+
+The non-reasoning generation means that the optional high-reasoning
+mode is disabled and the model directly
+proposes a SEARCH/REPLACE mutation. It does not describe the separate fitness
+evaluator. The retained configuration snapshot for the mixed-model setup names
+Gemma for 80\% of calls and DeepSeek-V3.1 685B for 20\%; the retained final-test files do
+not link an individual snapshot to a completed run, so no more specific model
+identity is claimed for those rows.
+
+The variants differ in the fitness function, use of inspiration programs, model
+mixture, or worker count:
 
 \begin{description}
     \item[BLEU without inspirations] BLEU fitness and no inspiration programs.
-    Uses Gemma~4 31B IT in non-reasoning mode for program generation.
     \item[BLEU with inspirations] The preceding setup
     but with one inspiration program.
     \item[LLM judge without inspirations] Same as the first setup but
@@ -722,31 +768,10 @@ The following variants were then evaluated:
     \item[LLM judge with inspirations] The preceding setup
     but with one inspiration program.
     \item[Mixed-model LLM judge] LLM-as-a-judge fitness and inspirations, with
-    Gemma~4 31B used for 80\% of calls and a DeepSeek-V3.1 685B model for 20\% of calls.
-    \item[Mixed-model LLM judge with four threads] The preceding mixed-model
-    setup with four parallel evaluator threads.
-    \item[Mixed Gemma, four threads] A 100-iteration mixed Gemma~4 31B run
-    with 80\% non-reasoning and 20\% high-reasoning program-generation calls, and
-    four parallel evaluator threads.
-    \item[Mixed Gemma, one thread] The preceding mixed-generation setup with
-    one evaluator thread, isolating the effect of evaluator parallelism.
-    \item[High-reasoning Gemma] A 500-iteration Gemma~4 31B run in which every
-    program-generation call uses high-reasoning generation, with four parallel
-    evaluator threads.
-    \item[Gemma E4B] A 500-iteration single-thread run using Gemma~4 E4B for
-    both program generation and LLM-as-a-judge fitness.
-    \item[Llama 3.3 70B] A 500-iteration single-thread run using Llama~3.3 70B
-    for both program generation and LLM-as-a-judge fitness.
-    \item[Qwen3 32B] A 500-iteration single-thread run using Qwen3 32B for
-    both program generation and LLM-as-a-judge fitness.
-    \item[Standard Gemma with no references] A 500-iteration single-thread Gemma~4 31B run with
-    standard, non-reasoning program-generation calls, using an LLM-as-a-judge but this time without the text references.
+    a mixed program-generation model allocation.
+    \item[Mixed-model LLM judge with four workers] The preceding mixed-model
+    setup with four concurrent worker processes.
 \end{description}
-
-The final eight variants use no inspiration programs and LLM-as-a-judge fitness.
-In the Gemma variants, Gemma~4 31B IT is the evaluator model; the
-model-comparison variants use the respective program-generation model as the
-evaluator.
 
 Each run produces an executable surface-realization program. The program is
 then evaluated on the held-out WebNLG test set rather than being judged only
@@ -760,39 +785,42 @@ corresponding experiment.
 
 \newcommand{\surfaceHeader}{\texttt{domain} & \texttt{BLEU} & \texttt{BLEURT} & \texttt{METEOR} & \texttt{SENLEN} & \texttt{Gemma} & \texttt{Qwen} & \texttt{Themis} & \texttt{gram.} & \texttt{add.} & \texttt{om.} & \texttt{sent.} & \texttt{words} & \texttt{chars} & \texttt{triples} \\\hline}
 \newcommand{\surfacerow}[9]{#1 & #2 & #3 & #4 & #5 & #6 & #7 & #8 & #9 & \surfacetail}
-\newcommand{\surfacetail}[6]{#1 & #2 & #3 & #4 & #5 & #6 \\\hline}
+\newcommand{\surfacetail}[6]{#1 & #2 & #3 & #4 & #5 & #6 \tabularnewline}
 \newcommand{\surfacebaselinerow}[9]{#1 & #2 & #3 & #4 & #5 & #6 & #7 & #8 & #9 & \surfacebaselinetail}
-\newcommand{\surfacebaselinetail}[7]{#1 & #2 & #3 & #4 & #5 & #6 & #7 \\\hline}
+\newcommand{\surfacebaselinetail}[7]{#1 & #2 & #3 & #4 & #5 & #6 & #7 \tabularnewline}
+\newcommand{\surfaceInitialHeader}{\texttt{domain} & \texttt{BLEU} & \texttt{BLEURT} & \texttt{METEOR} & \texttt{SENLEN} & \texttt{Gemma} & \texttt{Qwen} & \texttt{Themis} & \texttt{gram.} & \texttt{add.} & \texttt{om.} \\\hline}
+\newcommand{\surfaceinitialrow}[9]{#1 & #2 & #3 & #4 & #5 & #6 & #7 & #8 & #9 & \surfaceinitialtail}
+\newcommand{\surfaceinitialtail}[6]{#1 & #2 \tabularnewline}
 
 \begin{table}[!htbp]
-\centering\tiny\setlength{\tabcolsep}{1pt}
+\centering\scriptsize\setlength{\tabcolsep}{1pt}
 \caption{Initial BLEU-based evolution variant with one inspiration.}
 \label{tab:surface-base}
-\begin{tabular}{l*{14}{r}}\hline
-\surfaceHeader
-\surfacerow{Airport}{0.4125}{0.2992}{0.7108}{0.4649}{0.9053}{0.7179}{0.8421}{0.3789}{0.0737}{0.0000}{0}{0}{0}{0}
-\surfacerow{Artist}{0.3006}{0.1340}{0.6203}{0.2661}{0.8239}{0.6936}{0.7725}{0.5872}{0.0092}{0.2018}{0}{0}{0}{0}
-\surfacerow{Astronaut}{0.5300}{0.2160}{0.7394}{0.4858}{0.9463}{0.7561}{0.8780}{0.6463}{0.0366}{0.0366}{0}{0}{0}{0}
-\surfacerow{Athlete}{0.5632}{0.4583}{0.7828}{0.3000}{0.9360}{0.8280}{0.9240}{0.8200}{0.1000}{0.0000}{0}{0}{0}{0}
-\surfacerow{Building}{0.4220}{0.0381}{0.6245}{0.8043}{0.9913}{0.8652}{0.9348}{0.5870}{0.0217}{0.0000}{0}{0}{0}{0}
-\surfacerow{CelestialBody}{0.4962}{0.3329}{0.7172}{0.4898}{1.0000}{0.8286}{0.9510}{0.6122}{0.0000}{0.0000}{0}{0}{0}{0}
-\surfacerow{City}{0.3463}{0.1817}{0.6536}{0.3976}{0.7831}{0.6843}{0.9157}{0.8072}{0.4578}{0.0000}{0}{0}{0}{0}
-\surfacerow{ComicsCharacter}{0.2947}{-0.0221}{0.5241}{0.5500}{0.8000}{0.6067}{0.7733}{0.3000}{0.0000}{0.5667}{0}{0}{0}{0}
-\surfacerow{Company}{0.4901}{0.2592}{0.7370}{0.3788}{0.9576}{0.7818}{0.9152}{0.5758}{0.0909}{0.0000}{0}{0}{0}{0}
-\surfacerow{Food}{0.0764}{0.0417}{0.5173}{0.8587}{0.8652}{0.4913}{0.6348}{0.0000}{0.0435}{0.0000}{0}{0}{0}{0}
-\surfacerow{MeanOfTransportation}{0.3523}{0.2908}{0.7313}{0.2126}{0.9241}{0.7517}{0.8966}{0.5517}{0.0345}{0.0345}{0}{0}{0}{0}
-\surfacerow{Monument}{0.4950}{0.2289}{0.6997}{0.8877}{0.6043}{0.4261}{0.6652}{0.3913}{0.5870}{0.0000}{0}{0}{0}{0}
-\surfacerow{Politician}{0.5059}{-0.0405}{0.7218}{0.7701}{1.0000}{0.8138}{0.9103}{0.1724}{0.0000}{0.0000}{0}{0}{0}{0}
-\surfacerow{SportsTeam}{0.4638}{0.1271}{0.7756}{0.7992}{0.7818}{0.4773}{0.8136}{0.4545}{0.1136}{0.0000}{0}{0}{0}{0}
-\surfacerow{University}{0.5473}{0.1314}{0.7261}{0.2926}{0.8733}{0.7889}{0.8644}{0.4444}{0.0889}{0.0111}{0}{0}{0}{0}
-\surfacerow{WrittenWork}{0.5920}{0.2027}{0.7628}{0.3488}{0.9907}{0.8326}{0.9535}{0.5116}{0.0000}{0.0000}{0}{0}{0}{0}
+\begin{tabular}{l*{10}{r}}\hline
+\surfaceInitialHeader
+\surfaceinitialrow{Airport}{0.4125}{0.2992}{0.7108}{0.4649}{0.9053}{0.7179}{0.8421}{0.3789}{0.0737}{0.0000}{0}{0}{0}{0}
+\surfaceinitialrow{Artist}{0.3006}{0.1340}{0.6203}{0.2661}{0.8239}{0.6936}{0.7725}{0.5872}{0.0092}{0.2018}{0}{0}{0}{0}
+\surfaceinitialrow{Astronaut}{0.5300}{0.2160}{0.7394}{0.4858}{0.9463}{0.7561}{0.8780}{0.6463}{0.0366}{0.0366}{0}{0}{0}{0}
+\surfaceinitialrow{Athlete}{0.5632}{0.4583}{0.7828}{0.3000}{0.9360}{0.8280}{0.9240}{0.8200}{0.1000}{0.0000}{0}{0}{0}{0}
+\surfaceinitialrow{Building}{0.4220}{0.0381}{0.6245}{0.8043}{0.9913}{0.8652}{0.9348}{0.5870}{0.0217}{0.0000}{0}{0}{0}{0}
+\surfaceinitialrow{CelestialBody}{0.4962}{0.3329}{0.7172}{0.4898}{1.0000}{0.8286}{0.9510}{0.6122}{0.0000}{0.0000}{0}{0}{0}{0}
+\surfaceinitialrow{City}{0.3463}{0.1817}{0.6536}{0.3976}{0.7831}{0.6843}{0.9157}{0.8072}{0.4578}{0.0000}{0}{0}{0}{0}
+\surfaceinitialrow{ComicsCharacter}{0.2947}{-0.0221}{0.5241}{0.5500}{0.8000}{0.6067}{0.7733}{0.3000}{0.0000}{0.5667}{0}{0}{0}{0}
+\surfaceinitialrow{Company}{0.4901}{0.2592}{0.7370}{0.3788}{0.9576}{0.7818}{0.9152}{0.5758}{0.0909}{0.0000}{0}{0}{0}{0}
+\surfaceinitialrow{Food}{0.0764}{0.0417}{0.5173}{0.8587}{0.8652}{0.4913}{0.6348}{0.0000}{0.0435}{0.0000}{0}{0}{0}{0}
+\surfaceinitialrow{MeanOfTransportation}{0.3523}{0.2908}{0.7313}{0.2126}{0.9241}{0.7517}{0.8966}{0.5517}{0.0345}{0.0345}{0}{0}{0}{0}
+\surfaceinitialrow{Monument}{0.4950}{0.2289}{0.6997}{0.8877}{0.6043}{0.4261}{0.6652}{0.3913}{0.5870}{0.0000}{0}{0}{0}{0}
+\surfaceinitialrow{Politician}{0.5059}{-0.0405}{0.7218}{0.7701}{1.0000}{0.8138}{0.9103}{0.1724}{0.0000}{0.0000}{0}{0}{0}{0}
+\surfaceinitialrow{SportsTeam}{0.4638}{0.1271}{0.7756}{0.7992}{0.7818}{0.4773}{0.8136}{0.4545}{0.1136}{0.0000}{0}{0}{0}{0}
+\surfaceinitialrow{University}{0.5473}{0.1314}{0.7261}{0.2926}{0.8733}{0.7889}{0.8644}{0.4444}{0.0889}{0.0111}{0}{0}{0}{0}
+\surfaceinitialrow{WrittenWork}{0.5920}{0.2027}{0.7628}{0.3488}{0.9907}{0.8326}{0.9535}{0.5116}{0.0000}{0.0000}{0}{0}{0}{0}
 \hline
-\surfacerow{\textbf{Average}}{0.4305}{0.1800}{0.6903}{0.5192}{0.8864}{0.7090}{0.8528}{0.4900}{0.1036}{0.0532}{0}{0}{0}{0}
+\surfaceinitialrow{\textbf{Average}}{0.4305}{0.1800}{0.6903}{0.5192}{0.8864}{0.7090}{0.8528}{0.4900}{0.1036}{0.0532}{0}{0}{0}{0}
 \end{tabular}
 \end{table}
 
 \begin{table}[!htbp]
-\centering\tiny\setlength{\tabcolsep}{1pt}
+\centering\scriptsize\setlength{\tabcolsep}{1pt}
 \caption{BLEU-based evolution without inspirations, Gemma~4 31B, 500 iterations.}
 \label{tab:surface-bleu-no-inspirations}
 \begin{tabular}{l*{14}{r}}\hline
@@ -806,7 +834,7 @@ corresponding experiment.
 \end{table}
 
 \begin{table}[!htbp]
-\centering\tiny\setlength{\tabcolsep}{1pt}
+\centering\scriptsize\setlength{\tabcolsep}{1pt}
 \caption{BLEU-based evolution with inspirations, Gemma~4 31B, 500 iterations.}
 \label{tab:surface-bleu-with-inspirations}
 \begin{tabular}{l*{14}{r}}\hline
@@ -820,7 +848,7 @@ corresponding experiment.
 \end{table}
 
 \begin{table}[!htbp]
-\centering\tiny\setlength{\tabcolsep}{1pt}
+\centering\scriptsize\setlength{\tabcolsep}{1pt}
 \caption{LLM-judge evolution without inspirations, Gemma~4 31B, 500 iterations.}
 \label{tab:surface-llm-no-inspirations}
 \begin{tabular}{l*{14}{r}}\hline
@@ -834,7 +862,7 @@ corresponding experiment.
 \end{table}
 
 \begin{table}[!htbp]
-\centering\tiny\setlength{\tabcolsep}{1pt}
+\centering\scriptsize\setlength{\tabcolsep}{1pt}
 \caption{LLM-judge evolution with inspirations, Gemma~4 31B, 500 iterations.}
 \label{tab:surface-llm-with-inspirations}
 \begin{tabular}{l*{14}{r}}\hline
@@ -848,7 +876,7 @@ corresponding experiment.
 \end{table}
 
 \begin{table}[!htbp]
-\centering\tiny\setlength{\tabcolsep}{1pt}
+\centering\scriptsize\setlength{\tabcolsep}{1pt}
 \caption{Mixed-model LLM-judge evolution with inspirations, 100 iterations.}
 \label{tab:surface-llm-mixed}
 \begin{tabular}{l*{14}{r}}\hline
@@ -862,7 +890,7 @@ corresponding experiment.
 \end{table}
 
 \begin{table}[!htbp]
-\centering\tiny\setlength{\tabcolsep}{1pt}
+\centering\scriptsize\setlength{\tabcolsep}{1pt}
 \caption{Mixed-model LLM-judge evolution with inspirations and four threads, 100 iterations.}
 \label{tab:surface-llm-mixed-four-threads}
 \begin{tabular}{l*{14}{r}}\hline
@@ -875,139 +903,48 @@ corresponding experiment.
 \end{tabular}
 \end{table}
 
-\newcommand{\surfaceconfiguredbody}{%
-\surfacerow{WrittenWork}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
-\surfacerow{Building}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
-\surfacerow{Food}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
-\hline
-\surfacerow{\textbf{Average}}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}}
-
-\begin{table}[!htbp]
-\centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{100-iteration mixed Gemma~4 31B evolution: 80\% standard generation, 20\% high-reasoning generation, four evaluator threads.}
-\label{tab:surface-config-6-two-gemma-four-thread}
-\begin{tabular}{l*{14}{r}}\hline
-\surfaceHeader
-\surfaceconfiguredbody
-\end{tabular}
-\end{table}
-
-\begin{table}[!htbp]
-\centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{100-iteration mixed Gemma~4 31B evolution: 80\% standard generation, 20\% high-reasoning generation, one evaluator thread.}
-\label{tab:surface-config-6-two-gemma-one-thread-pp}
-\begin{tabular}{l*{14}{r}}\hline
-\surfaceHeader
-\surfaceconfiguredbody
-\end{tabular}
-\end{table}
-
-\begin{table}[!htbp]
-\centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{PLGrid 100-iteration mixed Gemma~4 31B evolution: 80\% standard generation, 20\% high-reasoning generation, one evaluator thread.}
-\label{tab:surface-config-6-two-gemma-one-thread-plgrid}
-\begin{tabular}{l*{14}{r}}\hline
-\surfaceHeader
-\surfaceconfiguredbody
-\end{tabular}
-\end{table}
-
-\begin{table}[!htbp]
-\centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{500-iteration high-reasoning Gemma~4 31B evolution with four evaluator threads.}
-\label{tab:surface-config-6-one-gemma-thinking}
-\begin{tabular}{l*{14}{r}}\hline
-\surfaceHeader
-\surfaceconfiguredbody
-\end{tabular}
-\end{table}
-
-\begin{table}[!htbp]
-\centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{500-iteration Gemma~4 E4B evolution with one evaluator thread.}
-\label{tab:surface-config-7-gemma}
-\begin{tabular}{l*{14}{r}}\hline
-\surfaceHeader
-\surfaceconfiguredbody
-\end{tabular}
-\end{table}
-
-\begin{table}[!htbp]
-\centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{500-iteration Llama~3.3 70B Instruct AWQ INT4 evolution with one evaluator thread.}
-\label{tab:surface-config-7-llama}
-\begin{tabular}{l*{14}{r}}\hline
-\surfaceHeader
-\surfaceconfiguredbody
-\end{tabular}
-\end{table}
-
-\begin{table}[!htbp]
-\centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{500-iteration Qwen3 32B AWQ evolution with one evaluator thread.}
-\label{tab:surface-config-7-qwen}
-\begin{tabular}{l*{14}{r}}\hline
-\surfaceHeader
-\surfaceconfiguredbody
-\end{tabular}
-\end{table}
-
-\begin{table}[!htbp]
-\centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{500-iteration standard Gemma~4 31B evolution with one evaluator thread.}
-\label{tab:surface-config-8-gemma-no-reasoning}
-\begin{tabular}{l*{14}{r}}\hline
-\surfaceHeader
-\surfaceconfiguredbody
-\end{tabular}
-\end{table}
-
 \FloatBarrier
 \subsection{Baseline systems}
 
-The baselines are a rule-based generator, a fine-tuned BART model, and an LLM
-prompt. The average is calculated over the available domain results for each
-baseline.
+Table~\ref{tab:surface-baselines} reports the all-domain averages for the
+rule-based, precomputed BART, and zero-shot LLM baselines. The prompted LLM has
+the strongest judge-based and diagnostic scores, while BART has the strongest
+BLEU among these baselines. These figures provide reference points for the
+evolved-program comparisons rather than a training-controlled comparison of the
+three systems.
 
+The final comparison in Table~\ref{tab:surface-final-comparison} reports averages over WrittenWork, Building, and Food for
+the baselines and the three-domain OpenEvolve BLEU, no inspirations variant.
 \begin{table}[!htbp]
-\centering\tiny\setlength{\tabcolsep}{1pt}
+\centering\scriptsize\setlength{\tabcolsep}{1pt}
 \caption{Baseline scores across WebNLG domains.}
 \label{tab:surface-baselines}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{ll*{14}{r}}\hline
 \texttt{method} & \texttt{domain} & \texttt{BLEU} & \texttt{BLEURT} & \texttt{METEOR} & \texttt{SENLEN} & \texttt{Gemma} & \texttt{Qwen} & \texttt{Themis} & \texttt{gram.} & \texttt{add.} & \texttt{om.} & \texttt{sent.} & \texttt{words} & \texttt{chars} & \texttt{triples} \\\hline
 \surfacebaselinerow{Rule-based generator}{all domains}{0.1702}{-0.3874}{0.5205}{1.0175}{0.4108}{0.4811}{0.7552}{0.1783}{0.0889}{0.0742}{2.5414}{21.7471}{146.6654}{3.1946}
-\surfacebaselinerow{Fine-tuned BART}{all domains}{0.5077}{0.2599}{0.7163}{0.5157}{0.6366}{0.5933}{0.7899}{0.8366}{0.3142}{0.1863}{2.1679}{138.9440}{23.7167}{3.5205}
-\surfacebaselinerow{LLM prompt}{all domains}{0.5019}{0.3443}{0.7246}{0.5274}{0.9954}{0.9743}{0.9847}{0.9861}{0.0045}{0.0022}{1.7307}{132.0601}{21.5757}{3.5205}
+\surfacebaselinerow{Fine-tuned BART}{all domains}{0.5077}{0.2599}{0.7163}{0.5157}{0.6366}{0.5933}{0.7899}{0.8366}{0.3142}{0.1863}{2.1679}{23.7167}{138.9440}{3.5205}
+\surfacebaselinerow{LLM prompt}{all domains}{0.5019}{0.3443}{0.7246}{0.5274}{0.9954}{0.9743}{0.9847}{0.9861}{0.0045}{0.0022}{1.7307}{21.5757}{132.0601}{3.5205}
 \hline
 \end{tabular}
 }%
 \end{table}
 
-\FloatBarrier
-\subsection{Three-domain comparison}
-
-The final comparison reports averages over WrittenWork, Building, and Food for
-the baselines and the three-domain OpenEvolve variants reported below. The
-all-domain initial variant is omitted because descriptive statistics were not
-reported for that run.
-
 \begin{table}[!htbp]
-\centering\tiny\setlength{\tabcolsep}{1pt}
+\centering\scriptsize\setlength{\tabcolsep}{1pt}
 \caption{Average scores on WrittenWork, Building, and Food.}
 \label{tab:surface-final-comparison}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{l*{14}{r}}\hline
 \texttt{method} & \texttt{BLEU} & \texttt{BLEURT} & \texttt{METEOR} & \texttt{SENLEN} & \texttt{Gemma} & \texttt{Qwen} & \texttt{Themis} & \texttt{gram.} & \texttt{add.} & \texttt{om.} & \texttt{sent.} & \texttt{words} & \texttt{chars} & \texttt{triples} \\\hline
 \surfacerow{Rule-based generator}{0.2063}{-0.4489}{0.5498}{1.9138}{0.2316}{0.3529}{0.6380}{0.0694}{0.4291}{0.1836}{4.3887}{30.8329}{199.2032}{3.3999}
-\surfacerow{Fine-tuned BART}{0.5628}{0.2398}{0.7126}{0.7414}{0.6707}{0.5964}{0.8123}{0.7878}{0.2782}{0.1122}{2.3025}{147.8967}{27.3637}{3.8264}
-\surfacerow{LLM prompt}{0.4781}{0.2310}{0.6720}{0.6706}{0.9848}{0.9660}{0.9826}{0.9778}{0.0000}{0.0000}{2.2322}{141.2164}{25.2174}{3.8264}
+\surfacerow{Fine-tuned BART}{0.5628}{0.2398}{0.7126}{0.7414}{0.6707}{0.5964}{0.8123}{0.7878}{0.2782}{0.1122}{2.3025}{27.3637}{147.8967}{3.8264}
+\surfacerow{LLM prompt}{0.4781}{0.2310}{0.6720}{0.6706}{0.9848}{0.9660}{0.9826}{0.9778}{0.0000}{0.0000}{2.2322}{25.2174}{141.2164}{3.8264}
 \hline
 \surfacerow{BLEU, no inspirations}{0.3521}{0.1049}{0.6314}{0.6706}{0.9286}{0.7310}{0.8484}{0.3640}{0.0725}{0.0000}{2.2322}{27.1047}{154.0871}{3.8264}
 \end{tabular}
 }%
 \end{table}
-
 
 \FloatBarrier
 \section{Whole system evaluation}
@@ -1069,17 +1006,4 @@ respect to the distilled references. It does not separately estimate the
 semantic precision or recall of the fine-tuned model; those properties are
 reported in the fine-tuning experiments.
 
-\begin{table}[!htbp]
-\centering\tiny\setlength{\tabcolsep}{1pt}
-\caption{Whole-system evaluation on the independent $S_4$ test collections.}
-\label{tab:whole-system-results}
-\begin{tabular}{l*{14}{r}}\hline
-\surfaceHeader
-\surfacerow{GSMArena}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
-\surfacerow{OpenWeather}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
-\surfacerow{OWID}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
-\surfacerow{Wikidata}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
-\hline
-\surfacerow{\textbf{Average}}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}{0}
-\end{tabular}
-\end{table}
+In the end this experiment was not conducted due to time constraints.
