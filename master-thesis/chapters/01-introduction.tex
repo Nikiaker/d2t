@@ -18,7 +18,7 @@ the fluency and flexibility of generated text. However, fluent text does not
 necessarily preserve the content of the input. A system may omit a fact,
 introduce an unsupported statement, select different facts on different
 executions in a way that changes their apparent
-meaning. Additionally, a direct neural generator, these intermediate choices are not usually
+meaning. Additionally, in a direct neural generator, these intermediate choices are not usually
 represented as explicit objects that a developer can inspect, modify, or compare
 with the source. This makes it difficult to identify whether an error resulted
 from content selection, content ordering, aggregation, lexicalization, or surface
@@ -45,12 +45,12 @@ system must handle many possible structures and realizations. Neural systems
 reduce some of this manual engineering and offer greater linguistic variety, but
 their learned generation behavior is harder to inspect.
 
-One way to make this trade-off more manageable is to separate meaning
-representation from surface realization. A meaning representation is an
+One way to make this trade-off more manageable is to separate
+\emph{meaning representation} from surface realization. A meaning representation is an
 intermediate, structured description of the content to be communicated. It is
 independent of the exact wording of the final text and can be expressed using,
 for example, logical forms, semantic frames, text plans, or graphs. An explicit
-meaning representation makes the selected content available for inspection before
+meaning representation makes the selected content available for human inspection before
 it is verbalized. The resulting decomposition can be summarized as
 \begin{equation}
     d \longrightarrow T \longrightarrow y,
@@ -59,16 +59,16 @@ where $d$ denotes a structured data instance, $T$ denotes its interpretable mean
 representation, and $y$ denotes the generated text. In this context,
 interpretability means that the intermediate meaning representation and the procedure
 that produces the text are explicit artifacts that can be inspected.
-Meaning representation make the facts being communicated explicit and provide an intermediate
-object that can be inspected, normalized, and evaluated independently of the
-final wording. Nevertheless, constructing consistent meaning representation from complex data
+Separating these two stages also
+allows errors introduced during meaning-representation construction to be
+distinguished from errors introduced during surface realization.
+Nevertheless, constructing consistent meaning representation from complex data
 and producing fluent text from it remains non-trivial tasks.
 
 Existing work has shown that LLMs can be used to construct an interpretable
 rule-based meaning representation to text generator.
 Lango and Dušek~\cite{lango-dusek-2025-llm} use cooperating LLM agents to design
 and refine such a generator (a Python program), from meaning representation, which can be inspected, executed without an LLM at inference time, and corrected by a developer when necessary.
-
 The scope of that approach begins after a meaning representation has already
 been provided: it addresses just the surface realization.
 A further limitation of a fixed sequence of agent interactions is that it does
@@ -76,12 +76,9 @@ not by itself define a systematic criterion for comparing many alternative
 generators. Agents can propose and critique changes, but their next
 action is primarily guided by the current conversation.
 
-For these reasons, the objective of this thesis is to considers the complete D2T pipeline, from heterogeneous
+For these reasons, the objective of this thesis is to consider the complete D2T pipeline, from heterogeneous
 raw structured instances through an explicit meaning representation to the final
 text.
-Separating these two stages also
-allows errors introduced during meaning-representation construction to be
-distinguished from errors introduced during surface realization.
 In the first stage an
 LLM-based pipeline is used for the meaning-representation construction. A domain-specialized
 model is also examined as a way of producing both the meaning representation and a text in a single inference pass.
@@ -89,17 +86,17 @@ In the second stage, the surface-realization method used in this thesis places a
 LLM inside an evolutionary optimization loop inspired by AlphaEvolve
 \cite{novikov2025alphaevolve}, a framework for evolutionary program improvement
 using LLM-generated mutations and automatic evaluation.
-The advantage of such an approach over the agents is that it evaluates every proposed program using the same
-evaluator, retains high-scoring and structurally diverse candidates, and uses
+The advantage of such an approach over the agents is that it evaluates every proposed program using a
+human defined evaluator, retains high-scoring and structurally diverse candidates, and uses
 the accumulated results to guide subsequent modifications. This makes it
 possible to reject plausible but ineffective changes and to revisit alternative
 realization strategies rather than relying on a single refinement trajectory.
 Reference-based and semantic metrics are used to evaluate generation quality and faithfulness.
 Interpretability is supported by exposing the meaning representation and the human-readable program code.
 
-The work makes the following contributions:
+This work makes the following contributions:
 \begin{itemize}
-    \item three LLM-based pipeline designs are proposed for constructing meaning representation
+    \item three LLM-based pipeline designs that construct meaning representation
     from heterogeneous structured data;
     \item a domain-specialized training procedure that distills the
     conversion process into a large language model;
@@ -117,7 +114,6 @@ describes the evaluation methods used in this area. Chapter~3 presents the
 meaning-representation construction stage of the proposed pipeline. It describes
 how complex structured instances are converted into meaning representation using
 LLM-based pipelines and a domain-specialized fine-tuned model.
-
 Chapter~4 presents the surface-realization stage, namely the conversion of
 semantic triples into natural-language text. It introduces the AlphaEvolve and
 OpenEvolve frameworks and explains how an executable program for verbalizing
