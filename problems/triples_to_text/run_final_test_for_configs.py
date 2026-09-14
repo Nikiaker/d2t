@@ -73,6 +73,11 @@ def parse_args() -> argparse.Namespace:
         help="Config filename to search for (default: config_remote.yaml)",
     )
     parser.add_argument(
+        "--final-test",
+        default="final_test.py",
+        help="Evaluator filename next to this script (default: final_test.py)",
+    )
+    parser.add_argument(
         "--skip-existing-score",
         action="store_true",
         help="Skip folders where score.json or scores.json is already present",
@@ -90,9 +95,9 @@ def main() -> None:
     if args.max_depth < 0:
         raise SystemExit("max_depth must be >= 0")
 
-    final_test_path = Path(__file__).with_name("final_test.py").resolve()
+    final_test_path = Path(__file__).with_name(args.final_test).resolve()
     if not final_test_path.exists():
-        raise SystemExit(f"Could not find final_test.py at: {final_test_path}")
+        raise SystemExit(f"Could not find evaluator at: {final_test_path}")
 
     config_files = find_config_files(root, args.max_depth, filename=args.config_name)
     if not config_files:
