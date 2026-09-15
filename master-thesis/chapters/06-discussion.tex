@@ -103,7 +103,7 @@ validity.
 
 \section{Surface realization}
 
-\subsection{Evolutionary fitness and domain effects}
+\subsection{Fitness function and domain effects}
 
 The initial all-domain evolution run shows a clear domain difference. WrittenWork
 has the highest BLEU score (0.5920), whereas Food has the lowest (0.0764), as
@@ -129,9 +129,12 @@ scores and lower detected additions and omissions than the BLEU-fitness
 variants. For example, the no-inspiration LLM-judge variant has zero additions
 and omissions and receives a Gemma judge score of 1.0000
 (Table~\ref{tab:surface-llm-no-inspirations}). The mixed-model variants also
-report zero additions and omissions. This pattern is expected when evolutionary
-selection directly rewards judge-oriented properties, but it should not be
-interpreted as independent proof of semantic correctness. The
+report zero additions and omissions. This pattern may be consistent with a partial 
+alignment between the LLM-as-a-judge fitness criterion and the final semantic 
+diagnostics: the fitness prompt rewards accurate reference to the input triples and 
+penalizes extra information. However the zero scores 
+cannot be attributed causally to LLM-judge fitness alone and do not 
+constitute independent proof of semantic correctness. The
 LLM-judge-with-inspirations variant still has nonzero additions, and the
 reference-based BLEU, BLEURT, and METEOR values do not improve uniformly. The
 selection objective therefore shapes the type of quality found by evolution;
@@ -143,9 +146,11 @@ The baseline comparison further emphasizes that there is no single dominant
 surface-realization approach. The rule-based generator is clearly weaker than
 the other systems across the reported measures. On the three selected domains,
 the fine-tuned BART baseline has the best reference-based scores: BLEU 0.5628,
-BLEURT 0.2398, and METEOR 0.7126. The zero-shot LLM prompt has lower
-reference-based scores, but it leads the three judge scores, grammaticality,
-and detected additions and omissions, the latter two both being zero
+BLEURT 0.2398, and METEOR 0.7126. The zero-shot LLM prompt has lower reference-based 
+scores, but it performs best in the final LLM-based assessments: the three 
+overall quality judge scores from Gemma, Qwen, and Themis, and the separately prompted 
+assessments of grammaticality, additions, and omissions. It receives the highest 
+grammaticality score and has no detected additions or omissions.
 (Table~\ref{tab:surface-final-comparison}). It is the strongest
 reported system for judge-oriented faithfulness and fluency measures.
 
@@ -167,7 +172,7 @@ The judge--human comparison provides a necessary qualification to all
 judge-based conclusions. For data-to-text, the LLM judge assigns a constant
 score of 5 to every assessed instance, so Pearson, Spearman, and Kendall
 correlations cannot be calculated. The corresponding quadratic weighted kappa
-values are zero despite the lower human means
+values are zero
 (Table~\ref{tab:judge-human-text-correlation}). The automatic judge therefore
 fails to distinguish the errors identified by the human evaluation in this
 near-ceiling regime.

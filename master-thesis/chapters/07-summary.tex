@@ -3,7 +3,8 @@
 
 \section{Contributions and conclusions}
 
-The thesis developed three LLM-based methods for constructing semantic triples,
+The thesis developed three LLM-based methods for generating semantic triples
+based on structured data,
 a QLoRA procedure for distilling the conversion process into domain-specialized
 models, and an OpenEvolve-based method for constructing executable
 surface-realization programs. Together, these components provide explicit
@@ -12,8 +13,8 @@ opaque generation step.
 
 Text-First Extraction with Normalization is the strongest reported pipeline.
 Its post-hoc predicate normalization provides broad semantic coverage, whereas
-Evolving Catalog and Blueprint-Iterative Refinement provide stronger up-front
-vocabulary control and more directly auditable artifacts. Fine-tuning improves
+Evolving Catalog provides stronger up-front
+predicates control and Blueprint-Iterative Refinement provides more directly auditable artifacts. Fine-tuning improves
 triple extraction substantially over the base model, but the results remain
 dependent on the domain and the selected evaluation metric. The fine-tuned model
 is an efficient distillation of pipeline-produced targets rather than
@@ -21,7 +22,7 @@ independent semantic supervision.
 
 For surface realization, evolutionary program construction produces an
 inspectable Python artifact that can be executed without an inference-time LLM.
-The experiments show that the evolutionary fitness function affects the quality
+The experiments show that the selected fitness function affects the quality
 that is optimized: reference-based and LLM-judge objectives favor different
 properties. The evolved programs do not outperform fine-tuned BART or direct
 prompting on every reported metric. Their principal advantage is transparency,
@@ -31,7 +32,7 @@ reusability, and the ability to inspect or modify the realization logic.
 
 Automatic and human evaluation should be used together. The observed saturation
 of some LLM-judge scores and the limited single-rater human evaluation show that
-neither perspective alone establishes factual correctness. The complete
+the automatic evaluation should be confirmed with human evaluation. The complete
 whole-system evaluation has not been done; consequently, this thesis
 does not claim measured end-to-end performance. Its future completion should be
 supplemented with independently annotated examples, multiple human raters,
