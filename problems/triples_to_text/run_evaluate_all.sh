@@ -1,3 +1,5 @@
 sbatch $D2TPATH/problems/triples_to_text/batch_evaluate_all_plgrid.sh
 
 sbatch $D2TPATH/problems/triples_to_text/batch_evaluate_all.sh
+
+sbatch $D2TPATH/problems/triples_to_text/batch_evaluate_all_sequential.sh
