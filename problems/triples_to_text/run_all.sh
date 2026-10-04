@@ -1,3 +1,3 @@
-sbatch $D2TPATH/problems/triples_to_text/outputs/7_qwen_1thread_500iter_pp/WrittenWork_output/WrittenWork.sh
-sbatch $D2TPATH/problems/triples_to_text/outputs/7_qwen_1thread_500iter_pp/Building_output/Building.sh
-sbatch $D2TPATH/problems/triples_to_text/outputs/7_qwen_1thread_500iter_pp/Food_output/Food.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/6_2gemmas_thinking_1thread_plgrid/WrittenWork_output/WrittenWork.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/6_2gemmas_thinking_1thread_plgrid/Building_output/Building.sh
+sbatch $D2TPATH/problems/triples_to_text/outputs/6_2gemmas_thinking_1thread_plgrid/Food_output/Food.sh
